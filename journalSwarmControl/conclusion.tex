@@ -1,29 +1,34 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Conclusion and Future Work}\label{sec:conclusion}
+\section{Conclusion}\label{sec:conclusion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \todo{rewrite}
+ 
+    Micro- and nanorobotics have the potential to revolutionize many applications including targeted material delivery, assembly, and surgery.  The same properties that promise breakthrough solutions---small size and large populations---present unique challenges to generating controlled motion. We want to use large swarms of robots to perform manipulation tasks; unfortunately, human-swarm interaction studies as conducted today are limited in sample size, are difficult to reproduce, and are prone to hardware failures. We present an alternative.
+
+This paper first examines the perils, pitfalls, and possibilities we discovered by launching \href{http://www.swarmcontrol.net}{SwarmControl.net}, an online game where players steer swarms of up to 500 robots to complete manipulation challenges. We record statistics from thousands of players, and use the game to explore aspects of large-population robot control. We present the game framework as a new, open-source tool for large-scale user experiments. One surprising result was that humans completed an object manipulation task \emph{faster} when provided with only the mean and variance of the robot swarm than with full-state feedback. Inspired by human operators, this paper next investigates controllers that use only the mean and variance of a robot swarm. We prove that the mean position is controllable, then provide conditions under which variance is controllable.  We next derive automatic controllers for these and a hybrid, hysteresis-based switching control to regulate the first two moments of the robot distribution.  Finally, we employ these controllers as primitives for an object manipulation task and implement all the automatic controllers on 100 kilobots controlled by the direction of a global light source.
     
-We introduced \href{http://www.swarmcontrol.net/}{SwarmControl.net}, a new online environment for large-scale user experiments controlling 100+ populations of robots.  Over the period of one month this site conducted thousands of experiments with a worldwide user base, as shown in Fig.~\ref{fig:PlayerLocation}.   \href{https://github.com/crertel/swarmmanipulate.git}{All code is open source and downloadable from a public git repository}~\cite{Chris-Ertel2013}. \href{http://www.swarmcontrol.net/show_results}{All experiment results can be freely downloaded from our website}.  We implemented five unique experiments, and gathered data that corroborated past lab experiments, but with a testing pool two orders of magnitude larger than was possible before.
+    
+There are many avenues for future work.  Manipulation by large populations of robots is an immature area and there are many open questions. We invite other collaborators to submit their own experiments to SwarmControl.net.
+Topics of interest include control with nonuniform flow such as fluid in an artery, gradient control fields like that of an MRI, competitive playing, multi-modal control, and targeted drug delivery in a vascular network.
 
-\begin{figure}
-\begin{overpic}[width = 0.48\columnwidth]{Worldbrowsing.pdf}\end{overpic}
-\begin{overpic}[width = 0.48\columnwidth]{USbrowsing.pdf}\end{overpic}
-\vspace{-1em}
-\caption{\label{fig:PlayerLocation}Demographic information on game player's location, provided by Google Analytics. Game players from 84 countries and 49 US states visited our site.
-\vspace{-2em}
-}
-\end{figure}
+%\begin{figure}
+%\begin{overpic}[width = 0.48\columnwidth]{Worldbrowsing.pdf}\end{overpic}
+%\begin{overpic}[width = 0.48\columnwidth]{USbrowsing.pdf}\end{overpic}
+%\vspace{-1em}
+%\caption{\label{fig:PlayerLocation}Demographic information on game player's location, provided by Google Analytics. Game players from 84 countries and 49 US states visited our site.
+%\vspace{-2em}
+%}
+%\end{figure}
 
-\paragraph{Site modifications}
-  The current site is optimized for desktop and laptop users, and we currently do not support mobile users. Our IRB allows us to conduct demographic questionnaires, and we will implement these questionnaires in a future release--currently our only source of demographic data is Google Analytics.
-  
-  We are pursuing partnerships to increase the educational content on our website. Our goal is to highlight a variety of the leading micro- and nano-robotics labs and the challenges they are working on.
+%\paragraph{Site modifications}
+%  The current site is optimized for desktop and laptop users, and we currently do not support mobile users. Our IRB allows us to conduct demographic questionnaires, and we will implement these questionnaires in a future release--currently our only source of demographic data is Google Analytics.
+%  
+%  We are pursuing partnerships to increase the educational content on our website. Our goal is to highlight a variety of the leading micro- and nano-robotics labs and the challenges they are working on.
 
-\paragraph{Additional experiments}
-There are many avenues for future work.  Manipulation by large populations of robots is an immature area and there are many open questions. Future work will invite other collaborators to submit their own experiments.
-Topics of interest include  control with nonuniform flow such as fluid in an artery, gradient control fields like that of an MRI, competitive playing, multi-modal control, and targeted drug delivery in a vascular network.
 
-\paragraph{Automatic controllers}
-We have compiled a large body of test results.  Our goal is to design automatic controllers using this data. One avenue is to identify the most proficient players and perform inverse optimal control algorithms to learn the cost functions used by the best players.  
+
+%\paragraph{Automatic controllers}
+%We have compiled a large body of test results.  Our goal is to design automatic controllers using this data. One avenue is to identify the most proficient players and perform inverse optimal control algorithms to learn the cost functions used by the best players.  
 %%  demographics questionaires: 
 
 

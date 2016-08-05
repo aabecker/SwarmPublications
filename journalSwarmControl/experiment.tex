@@ -3,22 +3,96 @@
 \section{Object manipulation results}\label{sec:exp}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This section analyzes a \emph{object manipulation} task attempted by both our hybrid, hysteresis-based controller and by human users.  
+This section analyzes an \emph{object manipulation} task attempted by both our hybrid, hysteresis-based controller and by human users.  
 
 \subsection{Human-controlled object manipulation}
 
 
 
-As we saw in previous section, players with just the mean completed the task faster than those with full-state feedback.  As Fig.~\ref{fig:ResVaryControlVis}.b shows, the levels of feedback arranged by increasing completion time are [mean, mean + variance, full-state, convex-hull].  Interviews with  beta-testers suggests that tracking 100 robots was overwhelming---similar to schooling phenomenons that confuse predators---while working with just the mean + variance was like using a ``spongy'' manipulator. Convex-hull feedback was confusing and irritating because a single robot left behind an obstacle would distort the entire hull, obscuring the information about the majority of the swarm.
+As reported in the previous section, players with just the mean completed the task faster than those with full-state feedback.  As Fig.~\ref{fig:ResVaryControlVis}.b shows, the levels of feedback arranged by increasing completion time are [mean, mean + variance, full-state, convex-hull].  Interviews with  beta-testers suggests that tracking 100 robots was overwhelming---similar to schooling phenomenons that confuse predators---while working with just the mean + variance was like using a ``spongy'' manipulator. Convex-hull feedback was confusing and irritating because a single robot left behind an obstacle would distort the entire hull, obscuring the information about the majority of the swarm.
 %obscuring what the rest of the swarm is doing.   
 
 
-\subsection{Automated object manipulation (simulation)}
-Fig.~\ref{fig:story} shows snapshots during an execution of this algorithm. To solve this object manipulation task, we discretized the environment. On this discretized grid we used breadth-first search to determine $\mathbf{M}$, the shortest distance from any grid cell to the goal, and generated a gradient map $\nabla \mathbf{M}$ toward the goal as shown in Fig.~\ref{fig:BFSGradient}.  The object's center of mass is at $\mathbf{b}$ and has radius $r_b$. 
-Three constants are needed, where $k_1>k_2>1$ and $1>k_2>0$. All experiments used $[k_1,k_2,k_3] = [2.5,1.5,0.1]$.
-The robots were directed to assemble behind the object at  $\mathbf{b} - k_2 r_b \nabla \mathbf{M}(\mathbf{b})$, then move to  $\mathbf{b} - k_3 r_b \nabla \mathbf{M}(\mathbf{b})$ to push the object toward the goal location. We use the hybrid hysteresis-based controller in Alg.~\ref{alg:MeanVarianceControl}  to track the desired position, while maintaining sufficient robot density to move the object by switching to minimize variance whenever variance exceeds a set limit. The minimize variance control law \eqref{eq:PDcontrolVariance} is slightly modified to choose the nearest corner further from the goal than $\mathbf{b}$ with an obstacle-free straight-line path to $\mathbf{b}$. 
+\subsection{Learning a policy for the object}
+The swarm must deliver the object to the goal region.  To solve this object manipulation task, we discretized the environment. 
+In paper (old) we used breadth-first search (BFS) on this discretized grid to determine $\mathbf{M}_{BFS}$, the shortest distance from any grid cell to the goal, and generated a gradient map $\nabla \mathbf{M}$ toward the goal as shown in Fig.~\ref{fig:BFSGradient}.  The object's center of mass is at $\mathbf{b}$ and has average radius $r_b$. 
+The robots were directed to assemble behind the object at  $\mathbf{b} - k_2 r_b \nabla \mathbf{M}(\mathbf{b})$, then move to  $\mathbf{b} - k_3 r_b \nabla \mathbf{M}(\mathbf{b})$ to push the object toward the goal location. BFS has no penalties on object collisions with obstacles, and the resulting collisions made the BFS solution slow.
+
+
+DISCUSS Policy iteration to learn $\mathbf{M}_{MDP}$, for a book chapter on PI, see \cite{Thrun2005}.  All grid locations at the goal were assigned a large reward, each grid location was assigned a small cost, and grid locations next to obstacles were assigned a high cost.
+Rather than a shortest distance to goal, $\nabla \mathbf{M}_{MDP}$  gives the approximate minimum cost to goal, cite book.
+
+$\mathbf{M}_{BFS}$, and $\mathbf{M}_{MDP}$ are shown in Fig.~\ref{fig:BFSGradient}.
+\todo{report results of 10 simulations with BFS and with PI.  Give mean and std}
+
+\begin{figure}
+\centering
+\begin{overpic}[scale=0.19]{GradientView.png}
+\end{overpic}
+\begin{overpic}[scale=0.19]{PolicyIter.png}
+\end{overpic}
+\begin{overpic}[scale=0.19]{MDPexperiment.png}
+\end{overpic}
+\vspace{-1em}
+\caption{\label{fig:BFSGradient}The BFS algorithm finds the shortest path for the moveable object  to compute gradient vectors (left). Using policy iterations enables encoding penalties for being near obstacles (middle). At right, the results of policy iteration on our experimental setup.
+%\vspace{-2em}
+}
+\end{figure}
+
+
+\subsection{Potential fields for swarm management with a compliant manipulator}
+
+Unfortunately, when the swarm is in front of the object, control law \eqref{eq:PDcontrolPosition} pushes the object backwards.  To fix this, we implement a potential field approach \cite{spong2008robot} that attracts the swarm to the intermediate goal, but repulses the swarm from in front of the object.
+The repulsive potential field is centered at object's COM and is active for a radius $\rho_0$, but is implemented only when the swarm mean is within $\theta$ of the desired direction of motion as it is shown in Fig.~\ref{fig:potentialField}.
+\begin{equation}
+F_{att} = -\zeta \Delta \rho / \rho 
+\end{equation}
+
+\[ F_{rep} =  \left\{
+\begin{array}{ll}
+      \eta( 1/\rho- 1/\rho_0) \frac{1}{\rho^2} \Delta \rho & \rho\leq \rho_0 ~\&~ \theta > \pi/2\\
+      0 & otherwise \\
+\end{array} 
+\right. \]
+
+In simulations, $\theta =  \pi/2$,  $\eta  = 75$, $\zeta = 2$ and $\rho_0 = 3$. Because the kilobot hardware experiments have a slower time constant, they use $\theta =  \pi/2$,  $\eta  = 50$, $\zeta = 1$ and $\rho_0 = 7.5$. 
+
+\todo{report results of 10 simulations with and without Potential fields.  Give mean and std}
+\begin{figure}
+\centering
+\begin{overpic}[width=1\columnwidth]{PotentialField.pdf}\end{overpic}
+%\todo{I like the 'target' symbol, but it is not self-documenting.  We need a legend explaining the min and max variance ellipses, the goal region, the variance, the mean, the object COM, and the target mean position.  I think these are easiest to make in powerpoint.
+%Please use the same color and line style for the variance min and max as you use in Figure 4.
+%}
+%{blockpushingImageWithMeanAndVarianceOverlay.png}
+\caption{\label{fig:potentialField} The attractive filed source is centered on (left). Repulsive field source is centered at object's COM (middle). We use a combined forces to use this method to avoid pushing the object backwards (right).}
+\end{figure}
+
+\subsection{Outlier rejection}
+
+The variance controller in Alg.~\ref{alg:MeanVarianceControl} is a greedy algorithm that is susceptible to outliers. The controller in \cite{Shahrokhi2015} failed in $14\%$ trials, often because workspace obstacles made some robots unable to reach the object. This failure rate increases if  object weight increases or ground-robot friction increases. The mean and covariance calculations \eqref{eq:meanVar} included all robots in the workspace. Robots that cannot reach the object due to obstacles skew these calculations. The state machine in Fig.\ \ref{fig:Region}.a solves this problem by creating two states for the maze: either main or transfer. Each state has a set of regions representing a discretized visibility polygon. Whenever the object crosses a region boundary the state toggles. The main regions are generated by extending obstacles until they meet another obstacle shown in Fig.~\ref{fig:Region}.b. The transfer regions are perpendicular to obstacle boundaries, and act as a buffer between two main regions shown in Fig.~\ref{fig:Region}.c.
+This filtering increases experimental success because the mean calculation only includes nearby robots that can directly interact with the object. In the example, we want the robots to push the object to the right. Without filtering the robots, the orange star is the mean and the algorithm would instruct the robots to push the object southeast. The filtered mean is at the yellow star and the algorithm instructs the robots to push the object directly east. 
+%When the object leaves main region 1 the maze state switches to transfer. 
+%The object is in transfer region 0, so only robots in transfer region 0 are included in the mean and covariance calculations.  
+%This heuristic improves performance by $50\%$ or less regarding the object heaviness.
+\todo{report results of 10 simulations with and without regions.  Give mean and std}
+
+
+\begin{figure*}
+\begin{center}
+	\begin{overpic}[width=0.45\columnwidth]{mainRegions.pdf}\end{overpic}
+	\begin{overpic}[width=0.45\columnwidth]{transferRegions.pdf}\end{overpic}\\
+	\begin{overpic}[width=0.6\columnwidth]{stateMachine.pdf}\end{overpic}
+\end{center}
+\caption{\label{fig:Region} The state machine and regions.
+}
+\end{figure*}
+
+\subsection{Algorithm for object manipulation}
+ We use the hybrid hysteresis-based controller in Alg.~\ref{alg:MeanVarianceControl}  to track the desired position, while maintaining sufficient robot density to move the object by switching to minimize variance whenever variance exceeds a set limit. The minimize variance control law \eqref{eq:PDcontrolVariance} is slightly modified to choose the nearest corner further from the goal than $\mathbf{b}$ with an obstacle-free straight-line path to $\mathbf{b}$. 
 The control algorithm  for object manipulation is listed in Alg.~\ref{alg:BlockPushing}. 
-Experimental results are summarized in Fig.~\ref{fig:AutoVeryParam}.a. It is shown that large number of robots will complete the task faster, although after some point adding more robots would not cause a significant improvement. 
+
+\todo{add the timeout function}
 
 \begin{algorithm}
 \caption{Object-manipulation controller for a robotic swarm.}\label{alg:BlockPushing}
@@ -26,7 +100,7 @@ Experimental results are summarized in Fig.~\ref{fig:AutoVeryParam}.a. It is sho
 \Require Knowledge of swarm mean $[\bar{x},\bar{y}]$, variance $[\sigma_x^2, \sigma_y^2]$,  moveable object's center of mass $\mathbf{b}$, map of the environment, and the locations of all convex corners $\mathbf{C}$
 \Require Robot distribution is unimodal
 \Require Obstacle-free, straight-line path from swarm to moveable object
-\State Compute $\mathbf{M}$, the distance to goal, with breadth-first search
+\State Compute $\mathbf{M}$, the distance to goal    \Comment{using $\mathbf{M}_{BFS}$ or $\mathbf{M}_{MDP}$} 
 \State Compute the gradient, $\nabla \mathbf{M}$
 \State $\mathbf{C} \gets \mathrm{sort(\mathbf{C})}$ according to $-\mathbf{M}$
 \While{$\mathbf{b}$ is not in goal region}
@@ -41,11 +115,13 @@ Experimental results are summarized in Fig.~\ref{fig:AutoVeryParam}.a. It is sho
 \EndIf
 \EndWhile
 \Else  
-\If {$\mathrm{distance}( \mathbf{b}, [x_{goal}, y_{goal}] ) > k_1 r_b$}
-	\State$r_p \gets k_2 r_b$  \Comment{guarded move}
-	\Else
-	\State$r_p \gets k_3 r_b$  \Comment{pushing move}
-	\EndIf
+%\If {$\mathrm{distance}( \mathbf{b}, [x_{goal}, y_{goal}] ) > k_1 r_b$}
+%	\State$r_p \gets k_2 r_b$  \Comment{guarded move}
+%	\Else
+%	\State$r_p \gets k_3 r_b$  \Comment{pushing move}
+%	\EndIf
+\State$r_p \gets k_3 r_b$  \Comment{pushing move}
+
 \State $[x_{goal}, y_{goal}] \gets \mathbf{b} - r_p \nabla \mathbf{M}(\mathbf{b})$ 
 \EndIf
 \State Apply \eqref{eq:PDcontrolPosition} to move toward $[x_{goal}, y_{goal}]$
@@ -53,6 +129,16 @@ Experimental results are summarized in Fig.~\ref{fig:AutoVeryParam}.a. It is sho
 \end{algorithmic}
 \end{algorithm}
 
+
+\subsection{Automated object manipulation (simulation)}
+Fig.~\ref{fig:story} shows snapshots during an execution of this algorithm in simulation. 
+Experimental results of parameters sweeps are summarized in Fig.~\ref{fig:AutoVeryParam}.  Each trial measured the time to deliver the object to the goal location.  The default parameter settings used 100 robots, a normalized weight of 1, a hexagon shape, and Brownian noise (applied each simulation step) with $W=10$.  
+
+The interaction between the robots and object is impulsive so, like the study of impulsive pulling in  \cite{christensen2016let},  adding additional robots decreases completion time, but with diminishing returns.  After 75 robots, additional robots no longer can interact with the object and do not contribute to the task success. 
+
+Brownian noise adds stochasticity.  This randomness can break the object free if it is stuck, but diminishes the effect of the control input.  Large amounts of noise increase completion time.
+
+The robots have limited force, so increasing the object weight increases completion time.  
 
 
 \begin{figure*}
@@ -71,39 +157,11 @@ Experimental results are summarized in Fig.~\ref{fig:AutoVeryParam}.a. It is sho
 \begin{overpic}[width =\columnwidth]{SwarmRun.pdf}
 \end{overpic}
 \vspace{-1em}
-\caption{\label{fig:story}\href{http://youtu.be/tCej-9e6-4o}{Snapshots showing an object manipulation simulation with 100 robots under automatic control.  See the video attachment for an animation~\cite{ShivaVideo2015}.}
+\caption{\label{fig:story}\href{http://youtu.be/tCej-9e6-4o}{Snapshots showing an object manipulation simulation with 100 robots under automatic control.  See animation in~\cite{ShivaVideo2015}.}
 %\vspace{-2em}
 }
 \end{figure*}
 
-\begin{figure}
-\centering
-\begin{overpic}[scale=0.19]{BFSMode.png}
-\end{overpic}
-\begin{overpic}[scale=0.19]{GradientView.png}
-\end{overpic}
-\begin{overpic}[scale=0.19]{PolicyIter.png}
-\end{overpic}
-\vspace{-1em}
-\caption{\label{fig:BFSGradient}The BFS algorithm finds the shortest path for the moveable object (left), which is used to compute gradient vectors (middle). Using policy iterations enables encoding penalties for being near obstacles (right).
-%\vspace{-2em}
-}
-\end{figure}
-
-\begin{figure}
-\centering
-%\begin{overpic}[width=\columnwidth]{Snapshots.pdf}\put(6,29){\emph{t} = 3 s}\put(38,29){\emph{t} = 410 s}\put(70,29){\emph{t} = 710 s}
-%\put(15,22){\emph{t} = 1374 s}\put(49,22){\emph{t} = 2185 s}\put(83,22){\emph{t} = 2703 s}
-%\end{overpic}
-\begin{overpic}[width=.9\columnwidth]{Snapshots.pdf}\put(6,80){\emph{t} = 3 s}\put(38,80){\emph{t} = 410 s}\put(70,80){\emph{t} = 710 s}
-\put(15,8){\emph{t} = 1374 s}\put(49,8){\emph{t} = 2185 s}\put(83,8){\emph{t} = 2703 s}
-\end{overpic}
-
-\vspace{-1em}
-\caption{\label{fig:expSnapShot}{Snapshots showing the object manipulation experiment with 100 kilobots under automatic control. The automatic controller will see the pink objects as obstacles and finds its path to the goal. See the video attachment for an animation~\cite{ShivaVideo2015}}
-%\vspace{-2em}
-}
-\end{figure}
 
 
 
@@ -120,7 +178,7 @@ Experimental results are summarized in Fig.~\ref{fig:AutoVeryParam}.a. It is sho
 
 \end{overpic}
 \vspace{-1em}
-\caption{\label{fig:AutoVeryParam}Parameter sweep for a) number of robots, b) different noise values, c) object weight, and d) object shape.  Each bar is labelled with the number of trials.
+\caption{\label{fig:AutoVeryParam}Parameter sweep for a) number of robots, b) different noise values, c) object weight, and d) object shape.  Each bar is labelled with the number of trials. Completion time is in seconds.
 %\vspace{-2em}
 }
 \end{figure*}
@@ -133,10 +191,10 @@ Experimental results are summarized in Fig.~\ref{fig:AutoVeryParam}.a. It is sho
 %Algorithm \ref{alg:BlockPushing} is an imperfect solution and has a failure mode if the robot swarm becomes multi-modal with modes separated by an obstacle, as shown in Fig.~\ref{fig:Failure}.  In this case, moving toward a corner will never reduce the variance below $\sigma_{min}^2$.
 
 
-  The first challenge is to identify when the distribution has become multi-modal.  Measuring just the mean and variance is insufficient to determine if a distribution is no longer unimodal, but if the swarm is being directed to a corner, and the variance does not reduce below $\sigma_{min}^2$, the swarm has become separated. In this case, we must either manipulate with a partial swarm, or run a gathering algorithm.  For the  {\sffamily S}-shaped workspace in this study, an open-loop input that commands the swarm to move in succession \{{\sc west, north, east, south}\} will move the swarm to the bottom right corner.
-This is not true for all obstacle fields. In a {\sffamily T}-shaped workspace, it is not possible to find an open-loop input that will move the entire swarm to the bottom of the {\sffamily T}.  
+%  The first challenge is to identify when the distribution has become multi-modal.  Measuring just the mean and variance is insufficient to determine if a distribution is no longer unimodal, but if the swarm is being directed to a corner, and the variance does not reduce below $\sigma_{min}^2$, the swarm has become separated. In this case, we must either manipulate with a partial swarm, or run a gathering algorithm.  For the  {\sffamily S}-shaped workspace in this study, an open-loop input that commands the swarm to move in succession \{{\sc west, north, east, south}\} will move the swarm to the bottom right corner.
+%This is not true for all obstacle fields. In a {\sffamily T}-shaped workspace, it is not possible to find an open-loop input that will move the entire swarm to the bottom of the {\sffamily T}.  
  
-  Using only the mean and variance may be overly restrictive.  Many heuristics using high-order moments have been developed to test if a distribution is multimodal~\cite{haldane1951simple}.  Often the sensor data itself, though it may not resolve individual robots, will indicate multi-modality.  For instance CCD images reveal clusters of bacteria, and MRI scans show agglomerations of particles~\cite{stuber2007positive}.  This data can be fitted with $k$-means or expectation maximization algorithms, and manipulation could be performed with the nearest swarm of sufficient size.
+%  Using only the mean and variance may be overly restrictive.  Many heuristics using high-order moments have been developed to test if a distribution is multimodal~\cite{haldane1951simple}.  Often the sensor data itself, though it may not resolve individual robots, will indicate multi-modality.  For instance CCD images reveal clusters of bacteria, and MRI scans show agglomerations of particles~\cite{stuber2007positive}.  This data can be fitted with $k$-means or expectation maximization algorithms, and manipulation could be performed with the nearest swarm of sufficient size.
   
 
 

@@ -43,9 +43,12 @@
 }
 \usepackage[round]{natbib}
 \usepackage{mathtools}
-\usepackage{authblk}
+%\usepackage{authblk}
+
+
 
 %% ABBREVIATIONS
+\newcommand{\todo}[1]{\textcolor{red}{\footnotesize \textsf{#1}}}
 \newcommand\mydefeq{\stackrel{\mathclap{\normalfont\mbox{\tiny def}}}{=}}
 \newcommand{\qstart}{\mathbf{q}_{\text{start}}}
 \newcommand{\qgoal}{\mathbf{q}_{\text{goal}}}
@@ -160,21 +163,15 @@
 
 \title{\LARGE \bf Steering a Swarm Using Global Inputs And Swarm Statistics}
 
-\author[1]{Shiva Shahrokhi}
-\author[2]{Chris Ertel}
-\author[1]{Mable Wan}
-\author[1]{Lillian Lin}
-\author[1]{\\ Aaron T.\ Becker}
-\affil[1]{Department of Electrical and Computer Engineering, University of Houston\thanks{S.\ Shahrokhi and A.\ Becker are with the Department of Electrical and Computer Engineering, University of Houston, Houston, TX, 77004 USA {\tt\small sshahrokhi2@uh.edu,atbecker@uh.edu}}
-}
+%\author{Shiva Shahrokhi, Chris Ertel, Mable Wan,Lillian Lin}
+%\author{Aaron~T.~Becker}
+%\affil[1]{Dept.\ Electrical \& Computer Engineering, University of Houston\thanks{ University of Houston, Houston, TX, 77004 USA {\tt\small sshahrokhi2@uh.edu}}
+%}
 %\affil[2]{Independent}
-%\author{Shiva Shahrokhi, Chris Ertel\thanks{S.\ Shahrokhi and A.\ Becker are with the Department of Electrical and Computer Engineering, University of Houston, Houston, TX, 77004 USA {\tt\small sshahrokhi2@uh.edu,atbecker@uh.edu}}
-%, Mable Wan, Lillian Lin, Aaron T. Becker
-%
-% %end thanks
-%} % end author block 
+\author{Shiva Shahrokhi, Chris Ertel, Mable Wan, Lillian Lin, Aaron T. Becker\thanks{Authors are with the Department of Electrical and Computer Engineering, University of Houston, Houston, TX, 77004 USA {\tt\small sshahrokhi2@uh.edu,atbecker@uh.edu}}
+ %end thanks
+} % end author block 
 \maketitle
-
 \begin{abstract}
 Micro- and nanorobotics have the potential to revolutionize many applications including targeted material delivery, assembly, and surgery.  The same properties that promise breakthrough solutions---small size and large populations---present unique challenges to generating controlled motion. We want to use large swarms of robots to perform manipulation tasks; unfortunately, human-swarm interaction studies as conducted today are limited in sample size, are difficult to reproduce, and are prone to hardware failures. We present an alternative.
 
@@ -189,22 +186,20 @@ This paper first examines the perils, pitfalls, and possibilities we discovered 
 \input{simulation.tex}
 \input{experiment.tex}
 \input{realExperiment.tex}
-
+\input{conclusion.tex}
+    
+\section*{Funding} %formatted according to https://us.sagepub.com/en-us/nam/funding-acknowledgements
+%RULES: http://www.nsf.gov/pubs/policydocs/pappguide/nsf16001/aag_6.jsp
+This work was supported by the National Science Foundation under Grant No.\ 
+\href{http://nsf.gov/awardsearch/showAward?AWD_ID=1553063}{ [IIS-1553063]}.
+%Optional disclaimer (mandatory for non-scientific)
+%Any opinions, findings, and conclusions or recommendations expressed in this material are those of the authors and do not necessarily reflect the views of the National Science Foundation.
 
 %\section*{Acknowledgements}
 
 
 
-%\section*{Funding} %Formatted per guidelines at http://www.uk.sagepub.com/journalgateway/pubPolicies.htm#
 
-   %http://www.nsf.gov/awardsearch/showAward?AWD_ID=1035716  James
-   
-   % Matlab codes for running the open-loop and closed-loop simulations in this paper are available at:
-%
-%Aaron Becker. “Range and Bearing Control of an Ensemble of Robots”, September 2012a. URL http://www.mathworks.com/matlabcentral/ fileexchange/38190.
-%
-%Aaron Becker. “Feedback Control of Many Differential-Drive Robots with Uniform Control Inputs.” MATLAB Central File Exchange, September 2012b. URL http://www.mathworks.com/matlabcentral/ fileexchange/38369.
-   
    
 %\input{11-MultiMediaAppendix.tex}
    

@@ -83,7 +83,7 @@ We want to find the number of states that we can control, which is given by the 
 and thus all four states are controllable. This Section starts by proving independent position control of many robots is not possible, but the mean position can be controlled. We then provide conditions under which the variance of many robots is also controllable.
 
 \subsection{Independent control of many robots is impossible}
-A single robot is fully controllable, but what happens with $n$ robots? For holonomic robots, movement in the $x$ and $y$ coordinates are independent, so for notational convenience without loss of generality we will focus only on movement in the $x$ axis. Given $n$ robots to be  controlled in the $x$ axis, there are $2n$ states: $n$ positions and $n$ velocities.
+A single robot is fully controllable. For holonomic robots, movement in the $x$ and $y$ coordinates are independent, so for notational convenience without loss of generality we will focus only on movement in the $x$ axis. Given $n$ robots to be  controlled in the $x$ axis, there are $2n$ states: $n$ positions and $n$ velocities.
 %\begin{equation}\left[ x_{1,1},x_{2,1},\ldots, x_{2n-1},x_{2n}\right]^\intercal = \left[ p_{x,1},v_{x,1},\ldots,p_{x,n},v_{x,n}\right]^\intercal. \nonumber\end{equation}
 %\begin{align}
 %\dot{p}_{x1} &= v_{x1}\\\nonumber
@@ -158,8 +158,8 @@ x_{n}\\
 \end{matrix}\,\middle\vert\,, 
 \ldots \right]
 \end{equation}  
-\subsection{Controlling mean position}\label{sec:controlMeanPosition}
-This means \emph{any} number of robots controlled by a global command have just two controllable states in each axis. We cannot arbitrarily control the position and velocity of two or more robots, but what states are controllable? One option is to control the position and velocity of the $j^{th}$ robot. To find a potentially more useful option, we create the following reduced order system that represents the average $x$ position and $x$ velocity of the $n$ robots:
+\subsection{Controlling mean position of many robots}\label{sec:controlMeanPosition}
+This means \emph{any} number of robots controlled by a global command have just two controllable states in each axis. We cannot arbitrarily control the position and velocity of two or more robots, but have options on which states to control.  One option is to control the position and velocity of the $j^{th}$ robot. To find a potentially more useful option, we create the following reduced order system that represents the average $x$ position and $x$ velocity of the $n$ robots:
 \begin{align}
 \begin{bmatrix}\nonumber
 \dot{\bar{x}} \\
@@ -248,7 +248,7 @@ To model this~\eqref{eq:stdform} must be modified as follows:
 \begin{align}
 \dot{\mathbf{x}}(t)  &=  A \mathbf{x}(t) + B \mathbf{u}(t) + W \bm{\varepsilon}(t)
 \end{align}
-where $W\bm{\varepsilon}(t)$ is a random perturbation produced by Brownian noise. Given a large obstacle-free workspace, a \emph{Brownian noise} process increases the variance linearly with time.
+where $W\bm{\varepsilon}(t)$ is a random perturbation produced by Brownian noise with magnitude $W$. Given a large obstacle-free workspace, a \emph{Brownian noise} process increases the variance linearly with time.
 \begin{equation}\dot{\sigma}_x^2(\mathbf{x}(t), \mathbf{u}(t) \Leftarrow 0)  = W \bm{\varepsilon} \end{equation}
  If faster dispersion is needed, the swarm can be pushed through obstacles such as a diffraction grating or Pachinko board~\cite{Becker2013b}. 
 
