@@ -147,6 +147,7 @@
 \@writefile{toc}{\contentsline {section}{\numberline {6}Object manipulation results}{21}{section.6}}
 \newlabel{sec:exp}{{6}{21}{Object manipulation results}{section.6}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Human-controlled object manipulation}{21}{subsection.6.1}}
+\citation{ShahrokhiIROS2015}
 \citation{Thrun2005}
 \citation{spong2008robot}
 \@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces The BFS algorithm finds the shortest path for the moveable object to compute gradient vectors (left). Using policy iterations enables encoding penalties for being near obstacles (middle). At right, the results of policy iteration on our experimental setup. \relax }}{22}{figure.caption.24}}
@@ -156,40 +157,42 @@
 \citation{Shahrokhi2015}
 \@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces  The attractive filed source is centered on (left). Repulsive field source is centered at object's COM (middle). We use a combined forces to use this method to avoid pushing the object backwards (right).\relax }}{23}{figure.caption.25}}
 \newlabel{fig:potentialField}{{15}{23}{The attractive filed source is centered on (left). Repulsive field source is centered at object's COM (middle). We use a combined forces to use this method to avoid pushing the object backwards (right).\relax }{figure.caption.25}{}}
+\newlabel{eq:potentialfield}{{24}{23}{Potential fields for swarm management with a compliant manipulator}{equation.6.24}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Outlier rejection}{23}{subsection.6.4}}
+\newlabel{subsec:OutlierRejection}{{6.4}{23}{Outlier rejection}{subsection.6.4}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces  The state machine and regions. \relax }}{24}{figure.caption.26}}
 \newlabel{fig:Region}{{16}{24}{The state machine and regions. \relax }{figure.caption.26}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Algorithm for object manipulation}{24}{subsection.6.5}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Object-manipulation controller for a robotic swarm.\relax }}{25}{algorithm.2}}
-\newlabel{alg:BlockPushing}{{2}{25}{Object-manipulation controller for a robotic swarm.\relax }{algorithm.2}{}}
 \citation{christensen2016let}
 \citation{ShivaVideo2015}
 \citation{ShivaVideo2015}
 \citation{Rubenstein2012,rubenstein2014programmable}
 \citation{K-Team2015}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Object-manipulation controller for a robotic swarm.\relax }}{25}{algorithm.2}}
+\newlabel{alg:BlockPushing}{{2}{25}{Object-manipulation controller for a robotic swarm.\relax }{algorithm.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}Automated object manipulation (simulation)}{25}{subsection.6.6}}
 \@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces \href  {http://youtu.be/tCej-9e6-4o}{Snapshots showing an object manipulation simulation with 100 robots under automatic control. See animation in\nobreakspace  {}\cite  {ShivaVideo2015}.} \relax }}{26}{figure.caption.27}}
 \newlabel{fig:story}{{17}{26}{\href {http://youtu.be/tCej-9e6-4o}{Snapshots showing an object manipulation simulation with 100 robots under automatic control. See animation in~\cite {ShivaVideo2015}.} \relax }{figure.caption.27}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}Automated object manipulation (simulation)}{26}{subsection.6.6}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Object manipulation with hardware robots}{26}{section.7}}
-\newlabel{sec:realExperiment}{{7}{26}{Object manipulation with hardware robots}{section.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Parameter sweep for a) number of robots, b) different noise values, c) object weight, and d) object shape. Each bar is labelled with the number of trials. Completion time is in seconds. \relax }}{26}{figure.caption.28}}
+\newlabel{fig:AutoVeryParam}{{18}{26}{Parameter sweep for a) number of robots, b) different noise values, c) object weight, and d) object shape. Each bar is labelled with the number of trials. Completion time is in seconds. \relax }{figure.caption.28}{}}
 \citation{Shahrokhi2015GitHubShapeControl}
 \citation{ShivaVideo2015}
 \citation{ShivaVideo2015}
-\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Parameter sweep for a) number of robots, b) different noise values, c) object weight, and d) object shape. Each bar is labelled with the number of trials. Completion time is in seconds. \relax }}{27}{figure.caption.28}}
-\newlabel{fig:AutoVeryParam}{{18}{27}{Parameter sweep for a) number of robots, b) different noise values, c) object weight, and d) object shape. Each bar is labelled with the number of trials. Completion time is in seconds. \relax }{figure.caption.28}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Object manipulation with hardware robots}{27}{section.7}}
+\newlabel{sec:realExperiment}{{7}{27}{Object manipulation with hardware robots}{section.7}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Environmental setup}{27}{subsection.7.1}}
+\@writefile{toc}{\contentsline {paragraph}{Swarm mean control (hardware experiment)}{27}{section*.30}}
+\citation{ShivaVideo2015}
+\citation{ShivaVideo2015}
 \@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces  Hardware platform: table with 1.5$\times $1.2 m workspace, surrounded by eight remotely triggered 30W LED floodlights, with an overhead machine vision system (Left). A swarm of robots, all controlled by a uniform force field, can be effectively controlled by a hybrid controller that knows only the first and second moments of the robot distribution. Here is a swarm of hardware robots (kilobots) that pushes a green hexagon toward the goal (Right). See video attachment\nobreakspace  {}\cite  {ShivaVideo2015} \relax }}{28}{figure.caption.29}}
 \newlabel{fig:setup}{{19}{28}{Hardware platform: table with 1.5$\times $1.2 m workspace, surrounded by eight remotely triggered 30W LED floodlights, with an overhead machine vision system (Left). A swarm of robots, all controlled by a uniform force field, can be effectively controlled by a hybrid controller that knows only the first and second moments of the robot distribution. Here is a swarm of hardware robots (kilobots) that pushes a green hexagon toward the goal (Right). See video attachment~\cite {ShivaVideo2015} \relax }{figure.caption.29}{}}
-\@writefile{toc}{\contentsline {paragraph}{Swarm mean control (hardware experiment)}{28}{section*.30}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Automated object manipulation (hardware experiment)}{28}{subsection.7.2}}
-\citation{ShivaVideo2015}
-\citation{ShivaVideo2015}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{28}{section.8}}
+\newlabel{sec:conclusion}{{8}{28}{Conclusion}{section.8}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces  Mean control plot with kilobots. \leavevmode {\color  {red}\relax \fontsize  {9}{11}\selectfont  \abovedisplayskip 8\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4.5\p@ plus2\p@ minus\p@ \topsep 9\p@ plus3\p@ minus5\p@ \itemsep 4.5\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \textsf  {place a red star and a red circle at two spots on graph, put two images of the swar at right with a red star and red crcle in left hand corner of these, and put a scale bar in image}} \relax }}{29}{figure.caption.31}}
 \newlabel{fig:realMean}{{20}{29}{Mean control plot with kilobots. \todo {place a red star and a red circle at two spots on graph, put two images of the swar at right with a red star and red crcle in left hand corner of these, and put a scale bar in image} \relax }{figure.caption.31}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{29}{section.8}}
-\newlabel{sec:conclusion}{{8}{29}{Conclusion}{section.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces {Snapshots showing the object manipulation experiment with 100 kilobots under automatic control. The automatic controller will see the pink objects as obstacles and finds its path to the goal. See the video attachment for an animation\nobreakspace  {}\cite  {ShivaVideo2015}} \relax }}{30}{figure.caption.32}}
-\newlabel{fig:expSnapShot}{{21}{30}{{Snapshots showing the object manipulation experiment with 100 kilobots under automatic control. The automatic controller will see the pink objects as obstacles and finds its path to the goal. See the video attachment for an animation~\cite {ShivaVideo2015}} \relax }{figure.caption.32}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces {Snapshots showing the object manipulation experiment with 100 kilobots under automatic control. The automatic controller will see the pink objects as obstacles and finds its path to the goal. See the video attachment for an animation\nobreakspace  {}\cite  {ShivaVideo2015}} \relax }}{29}{figure.caption.32}}
+\newlabel{fig:expSnapShot}{{21}{29}{{Snapshots showing the object manipulation experiment with 100 kilobots under automatic control. The automatic controller will see the pink objects as obstacles and finds its path to the goal. See the video attachment for an animation~\cite {ShivaVideo2015}} \relax }{figure.caption.32}{}}
 \bibstyle{plainnat}
 \bibdata{IEEEabrv,SwarmControlIJRR}
 \bibcite{Armani2006}{{1}{2006}{{Armani et~al.}}{{Armani, Chaudhary, Probst, and Shapiro}}}
