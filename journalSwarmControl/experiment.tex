@@ -14,14 +14,31 @@ As reported in the previous section, players with just the mean completed the ta
 
 
 \subsection{Learning a policy for the object}
-The swarm must deliver the object to the goal region.  To solve this object manipulation task, we first discretize the environment. 
 
+The swarm must deliver the object to the goal region.  To solve this object manipulation task, we first discretize the environment. 
 In \cite{ShahrokhiIROS2015}, we used breadth-first search (BFS) on this discretized grid to determine $\mathbf{M}_{BFS}$, the shortest distance from any grid cell to the goal, and generated a gradient map $\nabla \mathbf{M}$ toward the goal as shown in Fig.~\ref{fig:BFSGradient}.  The object's center of mass is at $\mathbf{b}$ and has average radius $r_b$. 
 The robots were directed to assemble behind the object at  $\mathbf{b} - k_2 r_b \nabla \mathbf{M}(\mathbf{b})$, then move to  $\mathbf{b} - k_3 r_b \nabla \mathbf{M}(\mathbf{b})$ to push the object toward the goal location. However, BFS has no penalties on object collisions with obstacles, and the resulting collisions made the BFS solution slow.
 
+ This paper applies value iteration algorithm mentioned in \cite{Thrun2005} to learn a policy for the Markov Decision Process $\mathbf{M}_{MDP}$. At each instance the object can move in eight directions or stay in place. The corresponding reward function gives a high reward to the goal location. All other free spaces have a small penalty; while obstacles have a large negative reward. Value iteration is used to learn an optimal policy which is a function that assigns a control input to every possible state.
 
-\todo{PI stuff: shiva does this} Policy iteration to learn $\mathbf{M}_{MDP}$, for a book chapter on PI, see \cite{Thrun2005}.  All grid locations at the goal were assigned a large reward, each grid location was assigned a small cost, and grid locations next to obstacles were assigned a high cost.
-Rather than a shortest distance to goal, $\nabla \mathbf{M}_{MDP}$  gives the approximate minimum cost to goal, cite book.
+The reward function $r(x,u)$ is defined as
+\begin{align}
+r(x,u) &=  \left\{
+\begin{array}{ll}
+     +100, &  \textrm{if } u \textrm{ leads to goal state}\\
+      -100, & \textrm{if } u \textrm{ leads to a state with an obstacle} \\
+      -1, & \textrm{otherwise}\\
+\end{array} 
+\right.
+\end{align}
+
+where $u$ is action and $x$ is the current state. The policy iteration algorithm returns $\arg\max_u   [ r(x,u) + \sum\limits_{j=1}^N \hat{V}(x_j) p(x_j| u,x)]$. We set $N=200$ for the full convergence and $\hat{V}(x_j) $ is calculated by
+
+\begin{align}
+\hat{V} (x_j) = \gamma \max_u [r(x_j,u) + \sum\limits_{i=1}^N \hat{V}(x_i) p(x_i| u,x_j)],
+\end{align}
+where in our experiments $\gamma = 0.97$.
+%Rather than a shortest distance to goal, $\nabla \mathbf{M}_{MDP}$  gives the approximate minimum cost to goal.
 
 $\mathbf{M}_{BFS}$, and $\mathbf{M}_{MDP}$ are shown in Fig.~\ref{fig:BFSGradient}.
 \todo{report results of 10 simulations with BFS and with PI.  Give mean and std}
@@ -35,7 +52,7 @@ $\mathbf{M}_{BFS}$, and $\mathbf{M}_{MDP}$ are shown in Fig.~\ref{fig:BFSGradien
 \begin{overpic}[scale=0.262]{MDPmap.pdf}
 \end{overpic}
 \vspace{-0.5em}
-\caption{\label{fig:BFSGradient}The BFS algorithm finds the shortest path for the moveable object  to compute gradient vectors (left). Using policy iterations enables encoding penalties for being near obstacles (middle). At right, the results of policy iteration on our experimental setup.
+\caption{\label{fig:BFSGradient}The BFS algorithm finds the shortest path for the moveable object  to compute gradient vectors (left). Using policy iterations enables encoding penalties for being near obstacles (middle). At right, the results of policy iteration generated from the obstacles detected by the vision algorithm on the hardware experimental setup is shown.
 %\vspace{-2em}
 }
 \end{figure}
