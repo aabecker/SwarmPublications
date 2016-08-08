@@ -3,24 +3,22 @@
 \section{Object manipulation results}\label{sec:exp}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This section analyzes an \emph{object manipulation} task attempted by both our hybrid, hysteresis-based controller and by human users.  
+This section analyzes an \emph{object manipulation} task attempted by both our hybrid, hysteresis-based controller, inspired by the analysis of human users in Section~\ref{sec:expResults}.  
+The swarm must deliver the object to the goal region.  To solve this object manipulation task, we divide the task into two components: designing a policy for the object, and designing a control law for the swarm to push the object according to the policy.
 
-\subsection{Human-controlled object manipulation}
+\subsection{Learning a policy for the object}\label{subsec:objectpolicy}
 
+To design the policy, we first discretize the environment. 
+In \cite{ShahrokhiIROS2015}, we used breadth-first search (BFS) on this discretized grid to determine $\mathbf{M}_{BFS}$, the shortest distance from any grid cell to the goal, and generated a gradient map $\nabla \mathbf{M}$ toward the goal as shown in Fig.~\ref{fig:BFSGradient}.  
+The object's center of mass is at $\mathbf{b}$ and has average radius $r_b$. 
+The robots were directed behind the object at  $\mathbf{b} - 1.5 r_b \nabla \mathbf{M}(\mathbf{b})$, then directed to  $\mathbf{b} - 0.1 r_b \nabla \mathbf{M}(\mathbf{b})$ to push the object toward the goal location. However, BFS has no penalties on object collisions with obstacles, and the resulting collisions made the BFS solution slow.
 
-
-As reported in the previous section, players with just the mean completed the task faster than those with full-state feedback.  As Fig.~\ref{fig:ResVaryControlVis}.b shows, the levels of feedback arranged by increasing completion time are [mean, mean + variance, full-state, convex-hull].  Interviews with  beta-testers suggests that tracking 100 robots was overwhelming---similar to schooling phenomenons that confuse predators---while working with just the mean + variance was like using a ``spongy'' manipulator. Convex-hull feedback was confusing and irritating because a single robot left behind an obstacle would distort the entire hull, obscuring the information about the majority of the swarm.
-%obscuring what the rest of the swarm is doing.   
-
-
-\subsection{Learning a policy for the object}
-
-The swarm must deliver the object to the goal region.  To solve this object manipulation task, we first discretize the environment. 
-In \cite{ShahrokhiIROS2015}, we used breadth-first search (BFS) on this discretized grid to determine $\mathbf{M}_{BFS}$, the shortest distance from any grid cell to the goal, and generated a gradient map $\nabla \mathbf{M}$ toward the goal as shown in Fig.~\ref{fig:BFSGradient}.  The object's center of mass is at $\mathbf{b}$ and has average radius $r_b$. 
-The robots were directed to assemble behind the object at  $\mathbf{b} - k_2 r_b \nabla \mathbf{M}(\mathbf{b})$, then move to  $\mathbf{b} - k_3 r_b \nabla \mathbf{M}(\mathbf{b})$ to push the object toward the goal location. However, BFS has no penalties on object collisions with obstacles, and the resulting collisions made the BFS solution slow.
-
- This paper applies value iteration algorithm mentioned in \cite{Thrun2005} to learn a policy for the Markov Decision Process $\mathbf{M}_{MDP}$. At each instance the object can move in eight directions or stay in place. The corresponding reward function gives a high reward to the goal location. All other free spaces have a small penalty; while obstacles have a large negative reward. Value iteration is used to learn an optimal policy which is a function that assigns a control input to every possible state.
-
+ To avoid obstacles, this paper models object movement as a Markov Decision Process (MDP) with non-deterministic movement.  
+  Value iteration,  as described in \cite{Thrun2005}, is used to learn an \emph{optimal policy}: a function that assigns a control input to every possible state.
+ At each state the object can be commanded to move in one of eight directions with a small probability of moving in the wrong direction. 
+ 
+ A corresponding reward function gives a high reward to the goal state,  
+ a large negative reward to states including obstacles, and a small negative reward to all other states.
 The reward function $r(x,u)$ is defined as
 \begin{align}
 r(x,u) &=  \left\{
@@ -31,17 +29,22 @@ r(x,u) &=  \left\{
 \end{array} 
 \right.
 \end{align}
-
-where $u$ is action and $x$ is the current state. The policy iteration algorithm returns $\arg\max_u   [ r(x,u) + \sum\limits_{j=1}^N \hat{V}(x_j) p(x_j| u,x)]$. We set $N=200$ for the full convergence and $\hat{V}(x_j) $ is calculated by
-
+where $u$ is the action and $x$ is the current state. 
+  Value iteration iteratively learns the value $\hat{V}(x)$ for the object being in each state $x$. The optimal policy is the control action that, in probability, results in the largest value:
+   \begin{align} \arg\max_u   [ r(x,u) + \sum\limits_{j=1}^N \hat{V}(x_j) p(x_j| u,x)].  \label{eq:OptimalPolicy}
+   \end{align}
+   The value function $\hat{V}(x_j) $ is calculated by computing the value $\hat{V}$ for all $N$ states and iterating until convergence:
 \begin{align}
-\hat{V} (x_j) = \gamma \max_u [r(x_j,u) + \sum\limits_{i=1}^N \hat{V}(x_i) p(x_i| u,x_j)],
+\text{for }&\text{$i=1$ to $N$ do} \nonumber \\
+&\hat{V} (x_j) = \gamma \max_u [r(x_j,u) + \sum\limits_{i=1}^N \hat{V}(x_i) p(x_i| u,x_j)] \label{eq:ValueIteration}\\
+\text{end}& \nonumber
 \end{align}
-where in our experiments $\gamma = 0.97$.
+In our experiments $\gamma = 0.97$, and \eqref{eq:ValueIteration} was iterated 200 times. A {\sc Matlab} implementation of this algorithm is available at \todo{link to algorithm}.  
 %Rather than a shortest distance to goal, $\nabla \mathbf{M}_{MDP}$  gives the approximate minimum cost to goal.
 
-$\mathbf{M}_{BFS}$, and $\mathbf{M}_{MDP}$ are shown in Fig.~\ref{fig:BFSGradient}.
-\todo{report results of 10 simulations with BFS and with PI.  Give mean and std}
+$\mathbf{M}_{BFS}$ and the value function are shown in Fig.~\ref{fig:BFSGradient}. 
+In 10 simulations with 100 robots, pushing the object to goal using $\mathbf{M}_{BFS}$ required $\mu=XX, \sigma=YY$s while  $\mathbf{M}_{MDP}$ required $\mu=XX, \sigma=YY$.
+\todo{(report results of 10 simulations with BFS and with PI.  Give mean and std)}
 
 \begin{figure}
 \centering
@@ -52,7 +55,7 @@ $\mathbf{M}_{BFS}$, and $\mathbf{M}_{MDP}$ are shown in Fig.~\ref{fig:BFSGradien
 \begin{overpic}[scale=0.262]{MDPmap.pdf}
 \end{overpic}
 \vspace{-0.5em}
-\caption{\label{fig:BFSGradient}The BFS algorithm finds the shortest path for the moveable object  to compute gradient vectors (left). Using policy iterations enables encoding penalties for being near obstacles (middle). At right, the results of policy iteration generated from the obstacles detected by the vision algorithm on the hardware experimental setup is shown.
+\caption{\label{fig:BFSGradient}The BFS algorithm finds the shortest path for the moveable object  to compute gradient vectors (left). Modeling as an MDP enables encoding penalties for being near obstacles. (Middle) The control policy from value iteration. (Right) Value function and control policy for the hardware setup. The vision algorithm detects obstacles.
 %\vspace{-2em}
 }
 \end{figure}
@@ -78,7 +81,9 @@ F_{pot} &= F_{att} + F_{rep} \label{eq:potentialfield}
 
 In simulations, $\theta =  \pi/2$,  $\eta  = 75$, $\zeta = 2$ and $\rho_0 = 3$. Because the kilobot hardware experiments have a slower time constant, they use $\theta =  \pi/2$,  $\eta  = 50$, $\zeta = 1$ and $\rho_0 = 7.5$. 
 
+In 10 simulations with 100 robots, pushing the object to goal without a repulsive potential field failed in xx of YY runs. No failures occurred with the  repulsive potential field.  Of successful trials, completion time without repulsive potential fields required $\mu=XX, \sigma=YY$s while using repulsive potential fields required $\mu=XX, \sigma=YY$.
 \todo{report results of 10 simulations with and without Potential fields.  Give mean and std}
+
 \begin{figure}
 \centering
 \begin{overpic}[width=1\columnwidth]{PotentialField.pdf}\end{overpic}
@@ -86,7 +91,7 @@ In simulations, $\theta =  \pi/2$,  $\eta  = 75$, $\zeta = 2$ and $\rho_0 = 3$. 
 %Please use the same color and line style for the variance min and max as you use in Figure 4.
 %}
 %{blockpushingImageWithMeanAndVarianceOverlay.png}
-\caption{\label{fig:potentialField} The attractive filed source is centered on (left). Repulsive field source is centered at object's COM (middle). We use a combined forces to use this method to avoid pushing the object backwards (right).}
+\caption{\label{fig:potentialField} (Left) The attractive field is centered behind the object's COM. (Middle) The repulsive field is centered at the object's COM. (Right) Combining these forces prevents the swarm from pushing the object backwards.}
 \end{figure}
 
 \subsection{Outlier rejection}\label{subsec:OutlierRejection}
@@ -106,7 +111,7 @@ This filtering increases experimental success because the mean calculation only 
 	\vspace{0.5em}
 	\begin{overpic}[width=0.6\columnwidth]{stateMachine.pdf}\end{overpic}
 \end{center}
-\caption{\label{fig:Region} The state machine and regions.
+\caption{\label{fig:Region}  Outlier rejection state machine and regions.
 }
 \end{figure*}
 
@@ -120,8 +125,7 @@ The control algorithm  for object manipulation is listed in Alg.~\ref{alg:BlockP
 \caption{Object-manipulation controller for a robotic swarm.}\label{alg:BlockPushing}
 \begin{algorithmic}[1]
 \Require Knowledge of moveable object's center of mass $\mathbf{b}$; swarm mean $[\bar{x},\bar{y}]$ and variance $[\sigma_x^2, \sigma_y^2]$, each calculated using the regions function from \S \ref{subsec:OutlierRejection};  map of the environment
-\State Compute $\mathbf{M}$, the cost to goal    \Comment{using $\mathbf{M}_{BFS}$ or $\mathbf{M}_{MDP}$} 
-\State Compute the gradient, $\nabla \mathbf{M}$
+\State Compute optimal policy for object, according to \S \ref{subsec:objectpolicy}
 \While{$\mathbf{b}$ is not in goal region}
 \State $\sigma^2 \gets \max{(\sigma_x,\sigma_y)}$
 \If {$\sigma^2 > \sigma_{max}^2$}
@@ -136,6 +140,7 @@ The control algorithm  for object manipulation is listed in Alg.~\ref{alg:BlockP
 %	\State$r_p \gets k_3 r_b$  \Comment{pushing move}
 %	\EndIf
 %\State$r_p \gets k_3 r_b$  \Comment{pushing move}
+\State Calculate $\nabla \mathbf{M}(\mathbf{b})$  \Comment{policy for object at $\mathbf{b}$}
 \State Apply \eqref{eq:potentialfield}   \Comment{potential field to push object in correct direction}
 \EndIf
 \EndWhile
@@ -146,13 +151,6 @@ The control algorithm  for object manipulation is listed in Alg.~\ref{alg:BlockP
 \subsection{Automated object manipulation (simulation)}
 Fig.~\ref{fig:story} shows snapshots during an execution of this algorithm in simulation. 
 Experimental results of parameters sweeps are summarized in Fig.~\ref{fig:AutoVeryParam}.  Each trial measured the time to deliver the object to the goal location.  The default parameter settings used 100 robots, a normalized weight of 1, a hexagon shape, and Brownian noise (applied each simulation step) with $W=10$.  
-
-The interaction between the robots and object is impulsive so, like the study of impulsive pulling in  \cite{christensen2016let},  adding additional robots decreases completion time, but with diminishing returns.  After 75 robots, additional robots no longer can interact with the object and do not contribute to the task success. 
-
-Brownian noise adds stochasticity.  This randomness can break the object free if it is stuck, but diminishes the effect of the control input.  Large amounts of noise increase completion time.
-
-The robots have limited force, so increasing the object weight increases completion time.  
-
 
 \begin{figure*}
 \centering
@@ -169,11 +167,19 @@ The robots have limited force, so increasing the object weight increases complet
 %\end{overpic}}
 \begin{overpic}[width =\columnwidth]{SwarmRun.pdf}
 \end{overpic}
-\vspace{-1em}
+\vspace{-2em}
 \caption{\label{fig:story}\href{http://youtu.be/tCej-9e6-4o}{Snapshots showing an object manipulation simulation with 100 robots under automatic control.  See animation in~\cite{ShivaVideo2015}.}
 %\vspace{-2em}
 }
 \end{figure*}
+
+The interaction between the robots and object is impulsive so, like the study of impulsive pulling in  \cite{christensen2016let},  adding additional robots decreases completion time, but with diminishing returns. 
+ After 75 robots, additional robots no longer can interact with the object and do not contribute to the task success. 
+Brownian noise adds stochasticity.  This randomness can break the object free if it is stuck, but diminishes the effect of the control input.  Large amounts of noise increase completion time.
+The robots have limited force, so increasing the object weight increases completion time.  
+ Rectangles and squares tend to get stuck in the 90$^\circ$ workspace corners, and cause longer completion times than circles and hexagons.
+
+
 
 
 
