@@ -145,6 +145,7 @@
 \newlabel{sec:exp}{{6}{21}{Object manipulation results}{section.6}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Learning a policy for the object}{21}{subsection.6.1}}
 \newlabel{subsec:objectpolicy}{{6.1}{21}{Learning a policy for the object}{subsection.6.1}{}}
+\newlabel{eq:OptimalPolicy}{{22}{21}{Learning a policy for the object}{equation.6.22}{}}
 \citation{spong2008robot}
 \@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces The BFS algorithm finds the shortest path for the moveable object to compute gradient vectors (left). Modeling as an MDP enables encoding penalties for being near obstacles. (Middle) The control policy from value iteration. (Right) Value function and control policy for the hardware setup. The vision algorithm detects obstacles. \relax }}{22}{figure.caption.22}}
 \newlabel{fig:BFSGradient}{{13}{22}{The BFS algorithm finds the shortest path for the moveable object to compute gradient vectors (left). Modeling as an MDP enables encoding penalties for being near obstacles. (Middle) The control policy from value iteration. (Right) Value function and control policy for the hardware setup. The vision algorithm detects obstacles. \relax }{figure.caption.22}{}}
@@ -171,27 +172,27 @@
 \newlabel{fig:story}{{16}{26}{\href {http://youtu.be/tCej-9e6-4o}{Snapshots showing an object manipulation simulation with 100 robots under automatic control. See animation in~\cite {ShivaVideo2015}.} \relax }{figure.caption.25}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Parameter sweep for a) number of robots, b) different noise values, c) object weight, and d) object shape. Each bar is labelled with the number of trials. Completion time is in seconds. \relax }}{26}{figure.caption.26}}
 \newlabel{fig:AutoVeryParam}{{17}{26}{Parameter sweep for a) number of robots, b) different noise values, c) object weight, and d) object shape. Each bar is labelled with the number of trials. Completion time is in seconds. \relax }{figure.caption.26}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Object manipulation with hardware robots}{26}{section.7}}
-\newlabel{sec:realExperiment}{{7}{26}{Object manipulation with hardware robots}{section.7}{}}
 \citation{Shahrokhi2015GitHubShapeControl}
 \citation{ShivaVideo2015}
 \citation{ShivaVideo2015}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Object manipulation with hardware robots}{27}{section.7}}
+\newlabel{sec:realExperiment}{{7}{27}{Object manipulation with hardware robots}{section.7}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Environmental setup}{27}{subsection.7.1}}
 \@writefile{toc}{\contentsline {paragraph}{Swarm mean control (hardware experiment)}{27}{section*.28}}
-\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces  Hardware platform: table with 1.5$\times $1.2 m workspace, surrounded by eight remotely triggered 30W LED floodlights, with an overhead machine vision system (Left). A swarm of robots, all controlled by a uniform force field, can be effectively controlled by a hybrid controller that knows only the first and second moments of the robot distribution. Here is a swarm of hardware robots (kilobots) that pushes a green hexagon or a green circle toward the goal (Right). See video attachment\nobreakspace  {}\cite  {ShivaVideo2015} \relax }}{28}{figure.caption.27}}
-\newlabel{fig:setup}{{18}{28}{Hardware platform: table with 1.5$\times $1.2 m workspace, surrounded by eight remotely triggered 30W LED floodlights, with an overhead machine vision system (Left). A swarm of robots, all controlled by a uniform force field, can be effectively controlled by a hybrid controller that knows only the first and second moments of the robot distribution. Here is a swarm of hardware robots (kilobots) that pushes a green hexagon or a green circle toward the goal (Right). See video attachment~\cite {ShivaVideo2015} \relax }{figure.caption.27}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces  Regulating average $x$ position of 100 kilobots using control law \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:PDcontrolPosition}\unskip \@@italiccorr )}}. \relax }}{28}{figure.caption.29}}
-\newlabel{fig:realMean}{{19}{28}{Regulating average $x$ position of 100 kilobots using control law \eqref {eq:PDcontrolPosition}. \relax }{figure.caption.29}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces  (Top)Hardware platform: table with 1.5$\times $1.2 m workspace, surrounded by four remotely triggered 30W LED and four 50W LED floodlights, with an overhead machine vision system. (Down left) A swarm of robots, all controlled by a uniform force field, can be effectively controlled by a hybrid controller that knows only the first and second moments of the robot distribution. Here is a swarm of hardware robots (kilobots) that pushes a green object with different shapes toward the goal. (Down right) The potential fields view in hardware experiments. See video attachment\nobreakspace  {}\cite  {ShivaVideo2015} \relax }}{28}{figure.caption.27}}
+\newlabel{fig:setup}{{18}{28}{(Top)Hardware platform: table with 1.5$\times $1.2 m workspace, surrounded by four remotely triggered 30W LED and four 50W LED floodlights, with an overhead machine vision system. (Down left) A swarm of robots, all controlled by a uniform force field, can be effectively controlled by a hybrid controller that knows only the first and second moments of the robot distribution. Here is a swarm of hardware robots (kilobots) that pushes a green object with different shapes toward the goal. (Down right) The potential fields view in hardware experiments. See video attachment~\cite {ShivaVideo2015} \relax }{figure.caption.27}{}}
 \citation{ShivaVideo2015}
 \citation{ShivaVideo2015}
-\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces {Snapshots showing the object manipulation experiment with 100 kilobots under automatic control. The automatic controller classifies pink objects as obstacles and generates a policy to the goal. See the video attachment for an animation\nobreakspace  {}\cite  {ShivaVideo2015}} \relax }}{29}{figure.caption.30}}
-\newlabel{fig:expSnapShot}{{20}{29}{{Snapshots showing the object manipulation experiment with 100 kilobots under automatic control. The automatic controller classifies pink objects as obstacles and generates a policy to the goal. See the video attachment for an animation~\cite {ShivaVideo2015}} \relax }{figure.caption.30}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces  Regulating average $x$ position of 100 kilobots using control law \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:PDcontrolPosition}\unskip \@@italiccorr )}}. \relax }}{29}{figure.caption.29}}
+\newlabel{fig:realMean}{{19}{29}{Regulating average $x$ position of 100 kilobots using control law \eqref {eq:PDcontrolPosition}. \relax }{figure.caption.29}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Automated object manipulation (hardware experiment)}{29}{subsection.7.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{29}{section.8}}
+\newlabel{sec:conclusion}{{8}{29}{Conclusion}{section.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces {Snapshots showing the object manipulation experiment with 100 kilobots under automatic control. The automatic controller classifies pink objects as obstacles and generates a policy to the goal. See the video attachment for an animation\nobreakspace  {}\cite  {ShivaVideo2015}} \relax }}{30}{figure.caption.30}}
+\newlabel{fig:expSnapShot}{{20}{30}{{Snapshots showing the object manipulation experiment with 100 kilobots under automatic control. The automatic controller classifies pink objects as obstacles and generates a policy to the goal. See the video attachment for an animation~\cite {ShivaVideo2015}} \relax }{figure.caption.30}{}}
 \bibstyle{plainnat}
 \bibdata{IEEEabrv,SwarmControlIJRR}
 \bibcite{Armani2006}{{1}{2006}{{Armani et~al.}}{{Armani, Chaudhary, Probst, and Shapiro}}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{30}{section.8}}
-\newlabel{sec:conclusion}{{8}{30}{Conclusion}{section.8}{}}
 \bibcite{avouris1995manipulation}{{2}{1995}{{Avouris}}{{}}}
 \bibcite{bashyal2008human}{{3}{2008}{{Bashyal and Venayagamoorthy}}{{}}}
 \bibcite{Becker2012}{{4}{2012}{{Becker and Bretl}}{{}}}

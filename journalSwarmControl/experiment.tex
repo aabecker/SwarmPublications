@@ -31,7 +31,7 @@ r(x,u) &=  \left\{
 \end{align}
 where $u$ is the action and $x$ is the current state. 
   Value iteration iteratively learns the value $\hat{V}(x)$ for the object being in each state $x$. The optimal policy is the control action that, in probability, results in the largest value:
-   \begin{align} \arg\max_u   [ r(x,u) + \sum\limits_{j=1}^N \hat{V}(x_j) p(x_j| u,x)].  \label{eq:OptimalPolicy}
+   \begin{align} \nabla \mathbf{M_{MDP}}= \arg\max_u   [ r(x,u) + \sum\limits_{j=1}^N \hat{V}(x_j) p(x_j| u,x)].  \label{eq:OptimalPolicy}
    \end{align}
    The value function $\hat{V}(x_j) $ is calculated by computing the value $\hat{V}$ for all $N$ states and iterating until convergence:
 \begin{align}
@@ -39,12 +39,12 @@ where $u$ is the action and $x$ is the current state.
 &\hat{V} (x_j) = \gamma \max_u [r(x_j,u) + \sum\limits_{i=1}^N \hat{V}(x_i) p(x_i| u,x_j)] \label{eq:ValueIteration}\\
 \text{end}& \nonumber
 \end{align}
-In our experiments $\gamma = 0.97$, and \eqref{eq:ValueIteration} was iterated 200 times. A {\sc Matlab} implementation of this algorithm is available at \todo{link to algorithm}.  
+In our experiments $\gamma = 0.97$, and \eqref{eq:ValueIteration} was iterated 200 times. A {\sc Matlab} implementation of this algorithm is available at \href{https://www.mathworks.com/matlabcentral/fileexchange/49992-mdp-robot-grid-world-example}{\emph{MDP grid world example}}.%\todo{link to algorithm}.  
 %Rather than a shortest distance to goal, $\nabla \mathbf{M}_{MDP}$  gives the approximate minimum cost to goal.
 
 $\mathbf{M}_{BFS}$ and the value function are shown in Fig.~\ref{fig:BFSGradient}. 
-In 10 simulations with 100 robots, pushing the object to goal using $\mathbf{M}_{BFS}$ required $\mu=XX, \sigma=YY$s while  $\mathbf{M}_{MDP}$ required $\mu=XX, \sigma=YY$.
-\todo{(report results of 10 simulations with BFS and with PI.  Give mean and std)}
+In 10 simulations with 100 robots, pushing the object to goal using $\mathbf{M}_{BFS}$ required $\mu=183, \sigma=179$ s while  $\mathbf{M}_{MDP}$ required $\mu=90, \sigma=35$ s.
+%\todo{(report results of 10 simulations with BFS and with PI.  Give mean and std)}
 
 \begin{figure}
 \centering
@@ -81,8 +81,10 @@ F_{pot} &= F_{att} + F_{rep} \label{eq:potentialfield}
 
 In simulations, $\theta =  \pi/2$,  $\eta  = 75$, $\zeta = 2$ and $\rho_0 = 3$. Because the kilobot hardware experiments have a slower time constant, they use $\theta =  \pi/2$,  $\eta  = 50$, $\zeta = 1$ and $\rho_0 = 7.5$. 
 
-In 10 simulations with 100 robots, pushing the object to goal without a repulsive potential field failed in xx of YY runs. No failures occurred with the  repulsive potential field.  Of successful trials, completion time without repulsive potential fields required $\mu=XX, \sigma=YY$s while using repulsive potential fields required $\mu=XX, \sigma=YY$.
-\todo{report results of 10 simulations with and without Potential fields.  Give mean and std}
+In 10 simulations with 100 robots, pushing the object to goal without a repulsive potential field failed in two of twelve runs. No failures occurred with the repulsive potential field.  Of successful trials, completion time without repulsive potential fields required $\mu=245, \sigma=135$ s while using repulsive potential fields required $\mu=90, \sigma=35$ s.
+%In 10 simulations with 100 robots, completion time without repulsive potential fields required $\mu=245, \sigma=135$s while using repulsive potential fields required $\mu=90, \sigma=35$.
+
+%\todo{report results of 10 simulations with and without Potential fields.  Give mean and std}
 
 \begin{figure}
 \centering
@@ -101,7 +103,8 @@ This filtering increases experimental success because the mean calculation only 
 %When the object leaves main region 1 the maze state switches to transfer. 
 %The object is in transfer region 0, so only robots in transfer region 0 are included in the mean and covariance calculations.  
 %This heuristic improves performance by $50\%$ or less regarding the object heaviness.
-\todo{report results of 10 simulations with and without regions.  Give mean and std}
+In 10 simulations with 100 robots, completion time without outlier rejection required $\mu=245, \sigma=135$ s while using outlier rejection required $\mu=90, \sigma=35$ s.
+%\todo{report results of 10 simulations with and without regions.  Give mean and std}
 
 
 \begin{figure*}
@@ -116,10 +119,12 @@ This filtering increases experimental success because the mean calculation only 
 \end{figure*}
 
 \subsection{Algorithm for object manipulation}
- We use the hybrid hysteresis-based controller in Alg.~\ref{alg:MeanVarianceControl}  to track the desired position, while maintaining sufficient robot density to move the object by switching to minimize variance whenever variance exceeds a set limit. The minimize variance control law \eqref{eq:PDcontrolVariance} is slightly modified to choose the nearest corner further from the goal than $\mathbf{b}$ with an obstacle-free straight-line path to $\mathbf{b}$. 
+ We use the hybrid hysteresis-based controller in Alg.~\ref{alg:MeanVarianceControl}  to track the desired position, while maintaining sufficient robot density to move the object by switching to minimize variance whenever variance exceeds a set limit. The minimize variance control law \eqref{eq:PDcontrolVariance} is slightly modified to choose the nearest corner further from the goal than $\mathbf{b}$ with an obstacle-free straight-line path to $\mathbf{b}$. A timer is also used to monitor the mean position of the swarm to know if the swarm is stuck in one of the corners. It gives the previous corner when the swarm is stuck to change the swarm's configuration and getting out of that local minimum. 
 The control algorithm  for object manipulation is listed in Alg.~\ref{alg:BlockPushing}. 
 
-\todo{add the timeout function}
+
+
+\todo{add the timeout function: I added two lines.}
 
 \begin{algorithm}
 \caption{Object-manipulation controller for a robotic swarm.}\label{alg:BlockPushing}

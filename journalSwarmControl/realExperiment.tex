@@ -14,12 +14,18 @@ The objects were 3D printed from ABS plastic. Laser-cut patterns for the neon gr
 \begin{figure*}
 \begin{center}
 	%\includegraphics[width=0.5\columnwidth]{SetUp.pdf}
-	\begin{overpic}[width=0.49\columnwidth]{SetUp.pdf}\put(1,75){a)}\end{overpic}
-	\begin{overpic}[width=0.3\columnwidth]{TestedShapesR.pdf}\put(5,85){b)}\end{overpic}
+	\begin{overpic}[width=0.6\columnwidth]{SetUp.pdf}%\put(1,75){a)}
+	\end{overpic}\\
+	\begin{overpic}[width=0.35\columnwidth]{AllShapesR.pdf}%\put(5,85){b)}
+	\end{overpic}
+	\begin{overpic}[width=0.35\columnwidth]{PotentialExp.pdf}%\put(5,85){c)}
+	\end{overpic}
+	
+
 \end{center}
 
 \caption{\label{fig:setup}
-Hardware platform:  table with 1.5$\times$1.2 m workspace, surrounded by eight remotely triggered 30W LED floodlights, with an overhead machine vision system (Left). A swarm of robots, all controlled by a uniform force field, can be effectively controlled by a hybrid controller that knows only the first and second moments of the robot distribution.  Here is a swarm of hardware robots (kilobots) that pushes a green hexagon or a green circle toward the goal (Right). See video attachment~\cite{ShivaVideo2015}
+(Top)Hardware platform:  table with 1.5$\times$1.2 m workspace, surrounded by four remotely triggered 30W LED and four 50W LED floodlights, with an overhead machine vision system. (Down left) A swarm of robots, all controlled by a uniform force field, can be effectively controlled by a hybrid controller that knows only the first and second moments of the robot distribution. Here is a swarm of hardware robots (kilobots) that pushes a green object with different shapes toward the goal. (Down right) The potential fields view in hardware experiments. See video attachment~\cite{ShivaVideo2015}
 }
 \end{figure*}
 
@@ -55,7 +61,7 @@ Regulating average $x$ position of 100 kilobots using control law \eqref{eq:PDco
 \subsection{Automated object manipulation (hardware experiment)}
 
 The kilobots performed five successful runs of object manipulation through the obstacle maze.
-Each trial used 100 kilobots. Videos of each are in the multimedia extension. Trials 2-5 were performed in a row with no failures in between.  For each trial, fully charged kilobots were placed in the lower left-hand of the workspace, as shown in Fig.~\ref{fig:expSnapShot}.  The moveable object was placed in the lower center of the workspace.  The same controller as in the simulation, Alg.~{alg:BlockPushing}, but with discretized control inputs, was coded in {\sc Matlab}.  Trials were run until the object COM entered the goal region.  The trials ran for \{ 24:25, 57:37, 50:00, 36:02, 45:07\} (minutes:seconds).  This is a mean of \{42:38\} (minutes:seconds) and a standard deviation of \{234\}.
+Each trial used 100 kilobots. Videos of each are in the multimedia extension. Trials two-five were performed in a row with no failures in between.  For each trial, fully charged kilobots were placed in the lower left-hand of the workspace, as shown in Fig.~\ref{fig:expSnapShot}.  The moveable object was placed in the lower center of the workspace. The same controller as in the simulation, Alg.~\ref{alg:BlockPushing}, but with discretized control inputs, was coded in {\sc Matlab}.  Trials were run until the object COM entered the goal region.  The trials ran for \{24:25, 57:37, 50:00, 36:02, 45:07\} (minutes:seconds).  This is a mean of \{42:38\} (minutes:seconds) and a standard deviation of \{12:51\}(minutes:seconds). Also there was a trial with the circular object for \{52:35 \} (minutes:seconds). Another trial with square like object ran for \{114:31 \} (minutes:seconds). We also tried triangular object for \{ XX:YY \} (minutes:seconds).
 
 %Rules: http://www.ijrr.org/historic/MMVideoGuideLines.pdf
 
