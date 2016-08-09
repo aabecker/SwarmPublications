@@ -10,23 +10,28 @@ In these experiments as shown in Fig.~\ref{fig:setup}, we used $n$=100 kilobots,
 
 Above the table, an overhead machine vision system tracks the swarm. The vision system identifies obstacles by color segmentation, determines the corners  (used to decrease  variance)  by topology, the object by color segmentation, and identifies robots using color segmentation and circle detection with a circular Hough transform.
 
-The objects were 3D printed from ABS plastic. Laser-cut patterns for the neon green fiducial markers on the robots and {\sc Matlab} tracking code are available at our github repository~\cite{Shahrokhi2015GitHubShapeControl}.
+The Laser-cut patterns for the neon green fiducial markers on the robots and {\sc Matlab} tracking code are available at our github repository~\cite{Shahrokhi2015GitHubShapeControl}. 
+The objects were 3D printed from ABS plastic with a paper overlay. 
+Shapes included a 325 cm$^2$ equilateral triangle, 
+%Small Equilateral Triangle 140 cm$^2$,
+ 324 cm$^2$ square,
+ 281 cm$^2$ hexagon,
+254 cm$^2$ circle, 
+and a 486 cm$^2$ (18 cm$\times$27 cm)  rectangle.
+
 \begin{figure*}
 \begin{center}
 	%\includegraphics[width=0.5\columnwidth]{SetUp.pdf}
-	\begin{overpic}[width=0.6\columnwidth]{SetUp.pdf}%\put(1,75){a)}
+	\begin{overpic}[width=0.6\columnwidth]{SetUp.pdf}%\put(1,75){A}
 	\end{overpic}\\
-	\begin{overpic}[width=0.35\columnwidth]{AllShapesR.pdf}%\put(5,85){b)}
+	\begin{overpic}[width=0.35\columnwidth]{AllShapesR.pdf}%\put(-0,85){B}
 	\end{overpic}
-	\begin{overpic}[width=0.35\columnwidth]{PotentialExp.pdf}%\put(5,85){c)}
+	\begin{overpic}[width=0.35\columnwidth]{PotentialExp.pdf}%\put(-0,85){C}
 	\end{overpic}
-	
-
 \end{center}
 
 \caption{\label{fig:setup}
-(Top)Hardware platform:  table with 1.5$\times$1.2 m workspace, surrounded by four remotely triggered 30W LED and four 50W LED floodlights, with an overhead machine vision system. (Down left) A swarm of robots, all controlled by a uniform force field, can be effectively controlled by a hybrid controller that knows only the first and second moments of the robot distribution. Here is a swarm of hardware robots (kilobots) that pushes a green object with different shapes toward the goal. (Down right) The potential fields view in hardware experiments. See video attachment~\cite{ShivaVideo2015}
-}
+(Top) Hardware platform. (Lower left) Four shapes used for hardware experiments. (Lower right) Visualization of potential field. }
 \end{figure*}
 
 \paragraph{Swarm mean control (hardware experiment)}
@@ -61,7 +66,10 @@ Regulating average $x$ position of 100 kilobots using control law \eqref{eq:PDco
 \subsection{Automated object manipulation (hardware experiment)}
 
 The kilobots performed five successful runs of object manipulation through the obstacle maze.
-Each trial used 100 kilobots. Videos of each are in the multimedia extension. Trials two-five were performed in a row with no failures in between.  For each trial, fully charged kilobots were placed in the lower left-hand of the workspace, as shown in Fig.~\ref{fig:expSnapShot}.  The moveable object was placed in the lower center of the workspace. The same controller as in the simulation, Alg.~\ref{alg:BlockPushing}, but with discretized control inputs, was coded in {\sc Matlab}.  Trials were run until the object COM entered the goal region.  The trials ran for \{24:25, 57:37, 50:00, 36:02, 45:07\} (minutes:seconds).  This is a mean of \{42:38\} (minutes:seconds) and a standard deviation of \{12:51\}(minutes:seconds). Also there was a trial with the circular object for \{52:35 \} (minutes:seconds). Another trial with square like object ran for \{114:31 \} (minutes:seconds). We also tried triangular object for \{ XX:YY \} (minutes:seconds).
+Each trial used 100 kilobots. Videos of each are in the multimedia extension. Trials two-five were performed in a row with no failures in between.  For each trial, fully charged kilobots were placed in the lower left-hand of the workspace, as shown in Fig.~\ref{fig:expSnapShot}.  The moveable object was placed in the lower center of the workspace. The same controller as in the simulation, Alg.~\ref{alg:BlockPushing}, but with discretized control inputs, was coded in {\sc Matlab}.  Trials were run until the object COM entered the goal region.  The trials ran for \{24:25, 57:37, 50:00, 36:02, 45:07\} minutes.  This is a mean of 42:38 and a standard deviation of 12:51 minutes. 
+A circular object completed in 52:35 minutes. 
+A square object completed in 114:31 minutes. 
+A triangular object completed in XX:YY minutes.
 
 %Rules: http://www.ijrr.org/historic/MMVideoGuideLines.pdf
 

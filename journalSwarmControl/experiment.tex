@@ -31,7 +31,7 @@ r(x,u) &=  \left\{
 \end{align}
 where $u$ is the action and $x$ is the current state. 
   Value iteration iteratively learns the value $\hat{V}(x)$ for the object being in each state $x$. The optimal policy is the control action that, in probability, results in the largest value:
-   \begin{align} \nabla \mathbf{M_{MDP}}= \arg\max_u   [ r(x,u) + \sum\limits_{j=1}^N \hat{V}(x_j) p(x_j| u,x)].  \label{eq:OptimalPolicy}
+   \begin{align} \nabla \mathbf{M_{MDP}}(x) = \arg\max_u   [ r(x,u) + \sum\limits_{j=1}^N \hat{V}(x_j) p(x_j| u,x)].  \label{eq:OptimalPolicy}
    \end{align}
    The value function $\hat{V}(x_j) $ is calculated by computing the value $\hat{V}$ for all $N$ states and iterating until convergence:
 \begin{align}
@@ -43,7 +43,7 @@ In our experiments $\gamma = 0.97$, and \eqref{eq:ValueIteration} was iterated 2
 %Rather than a shortest distance to goal, $\nabla \mathbf{M}_{MDP}$  gives the approximate minimum cost to goal.
 
 $\mathbf{M}_{BFS}$ and the value function are shown in Fig.~\ref{fig:BFSGradient}. 
-In 10 simulations with 100 robots, pushing the object to goal using $\mathbf{M}_{BFS}$ required $\mu=183, \sigma=179$ s while  $\mathbf{M}_{MDP}$ required $\mu=90, \sigma=35$ s.
+In 10 simulations with 100 robots, pushing the object to goal using BFS required a mean and standard deviation of $183\pm 179$ s while Policy Iteration required $90\pm 35$ s.
 %\todo{(report results of 10 simulations with BFS and with PI.  Give mean and std)}
 
 \begin{figure}
@@ -119,12 +119,13 @@ In 10 simulations with 100 robots, completion time without outlier rejection req
 \end{figure*}
 
 \subsection{Algorithm for object manipulation}
- We use the hybrid hysteresis-based controller in Alg.~\ref{alg:MeanVarianceControl}  to track the desired position, while maintaining sufficient robot density to move the object by switching to minimize variance whenever variance exceeds a set limit. The minimize variance control law \eqref{eq:PDcontrolVariance} is slightly modified to choose the nearest corner further from the goal than $\mathbf{b}$ with an obstacle-free straight-line path to $\mathbf{b}$. A timer is also used to monitor the mean position of the swarm to know if the swarm is stuck in one of the corners. It gives the previous corner when the swarm is stuck to change the swarm's configuration and getting out of that local minimum. 
+ We use the hybrid hysteresis-based controller in Alg.~\ref{alg:MeanVarianceControl}  to track the desired position, while maintaining sufficient robot density to move the object by switching to minimize variance whenever variance exceeds a set limit. The minimize variance control law \eqref{eq:PDcontrolVariance} is slightly modified to choose the nearest corner further from the goal than $\mathbf{b}$ with an obstacle-free straight-line path to $\mathbf{b}$. 
 The control algorithm  for object manipulation is listed in Alg.~\ref{alg:BlockPushing}. 
 
+In rare cases during simulations the swarm may become trapped in a local minima of \eqref{eq:potentialfield}.
+If the swarm mean position does not change for ten seconds, the swarm is assumed to be in a local minima and is commanded to move toward the previous corner. As soon as the mean position changes, normal control resumes.
 
-
-\todo{add the timeout function: I added two lines.}
+%\todo{add the timeout function: I added two lines.}
 
 \begin{algorithm}
 \caption{Object-manipulation controller for a robotic swarm.}\label{alg:BlockPushing}
@@ -180,9 +181,12 @@ Experimental results of parameters sweeps are summarized in Fig.~\ref{fig:AutoVe
 
 The interaction between the robots and object is impulsive so, like the study of impulsive pulling in  \cite{christensen2016let},  adding additional robots decreases completion time, but with diminishing returns. 
  After 75 robots, additional robots no longer can interact with the object and do not contribute to the task success. 
-Brownian noise adds stochasticity.  This randomness can break the object free if it is stuck, but diminishes the effect of the control input.  Large amounts of noise increase completion time.
+Brownian noise adds stochasticity.  This randomness can break the object free if it is stuck, but diminishes the effect of the control input.  
+ Increasing noise increases completion time. 
+ Large amounts of noise caused failures, defined as trials lasting longer than 1000s.  With $W=50$, XX of 20 trials failed.  With $W=100$, XX of 20 trials failed.
 The robots have limited force, so increasing the object weight increases completion time.  
- Rectangles and squares tend to get stuck in the 90$^\circ$ workspace corners, and cause longer completion times than circles and hexagons.
+Each shape was designed to have the same mass and area.
+ Rectangles and squares tend to get stuck in the 90$^\circ$ workspace corners, and cause longer completion times than circles, triangles, and hexagons.
 
 
 
