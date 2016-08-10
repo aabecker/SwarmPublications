@@ -9,9 +9,9 @@ The swarm must deliver the object to the goal region.  To solve this object mani
 \subsection{Learning a policy for the object}\label{subsec:objectpolicy}
 
 To design the policy, we first discretize the environment. 
-In \cite{ShahrokhiIROS2015}, we used breadth-first search (BFS) on this discretized grid to determine $\mathbf{M}_{BFS}$, the shortest distance from any grid cell to the goal, and generated a gradient map $\nabla \mathbf{M}$ toward the goal as shown in Fig.~\ref{fig:BFSGradient}.  
-The object's center of mass is at $\mathbf{b}$ and has average radius $r_b$. 
-The robots were directed behind the object at  $\mathbf{b} - 1.5 r_b \nabla \mathbf{M}(\mathbf{b})$, then directed to  $\mathbf{b} - 0.1 r_b \nabla \mathbf{M}(\mathbf{b})$ to push the object toward the goal location. However, BFS has no penalties on object collisions with obstacles, and the resulting collisions made the BFS solution slow.
+In \cite{ShahrokhiIROS2015}, we used breadth-first search (BFS) on this discretized grid to determine $\mathbf{M}_{BFS}$, the shortest distance from any grid cell to the goal, and generated a gradient map $\nabla \mathbf{M}$  shown in Fig.~\ref{fig:BFSGradient}.  
+The object's center of mass is at $\mathbf{b}$ and has average radius $r_b$, so we define the desired direction for the object as $\mathbf{D}(\mathbf{b}) = \nabla \mathbf{M}(\mathbf{b})$. 
+The robots were directed behind the object at  $\mathbf{b} - 1.5 r_b \mathbf{D}(\mathbf{b})$, then directed to  $\mathbf{b} - 0.1 r_b \mathbf{D}(\mathbf{b})$ to push the object toward the goal location. However, BFS has no penalties on object collisions with obstacles, and the resulting collisions made the BFS solution slow.
 
  To avoid obstacles, this paper models object movement as a Markov Decision Process (MDP) with non-deterministic movement.  
   Value iteration,  as described in \cite{Thrun2005}, is used to learn an \emph{optimal policy}: a function that assigns a control input to every possible state.
@@ -31,7 +31,7 @@ r(x,u) &=  \left\{
 \end{align}
 where $u$ is the action and $x$ is the current state. 
   Value iteration iteratively learns the value $\hat{V}(x)$ for the object being in each state $x$. The optimal policy is the control action that, in probability, results in the largest value:
-   \begin{align} \nabla \mathbf{M_{MDP}}(x) = \arg\max_u   [ r(x,u) + \sum\limits_{j=1}^N \hat{V}(x_j) p(x_j| u,x)].  \label{eq:OptimalPolicy}
+   \begin{align} \mathbf{D}(x) = \arg\max_u   [ r(x,u) + \sum\limits_{j=1}^N \hat{V}(x_j) p(x_j| u,x)].  \label{eq:OptimalPolicy}
    \end{align}
    The value function $\hat{V}(x_j) $ is calculated by computing the value $\hat{V}$ for all $N$ states and iterating until convergence:
 \begin{align}
@@ -55,7 +55,8 @@ In 10 simulations with 100 robots, pushing the object to goal using BFS required
 \begin{overpic}[scale=0.262]{MDPmap.pdf}
 \end{overpic}
 \vspace{-0.5em}
-\caption{\label{fig:BFSGradient}The BFS algorithm finds the shortest path for the moveable object  to compute gradient vectors (left). Modeling as an MDP enables encoding penalties for being near obstacles. (Middle) The control policy from value iteration. (Right) Value function and control policy for the hardware setup. The vision algorithm detects obstacles.
+\caption{\label{fig:BFSGradient}The BFS algorithm finds the shortest path for the moveable object  to compute gradient vectors (left). Modeling as an MDP enables encoding penalties for being near obstacles. (Middle) The control policy from value iteration. (Right) The vision algorithm detects obstacles, used to produce the
+value function and control policy for the hardware setup. 
 %\vspace{-2em}
 }
 \end{figure}
@@ -64,11 +65,11 @@ In 10 simulations with 100 robots, pushing the object to goal using BFS required
 \subsection{Potential fields for swarm management with a compliant manipulator}
 
 Unfortunately, when the swarm is in front of the object, control law \eqref{eq:PDcontrolPosition} pushes the object backwards.  To fix this, we implement a potential field approach \cite{spong2008robot} that attracts the swarm to the intermediate goal, but repulses the swarm from in front of the object.
-The repulsive potential field is centered at the object's COM and is active for a radius $\rho_0$, but is implemented only when the swarm mean is within $\theta$ of the desired direction of motion $\nabla \mathbf{M}$ as shown in Fig.~\ref{fig:potentialField}.
+The repulsive potential field is centered at the object's COM and is active for a radius $\rho_0$, but is implemented only when the swarm mean is within $\theta$ of the desired direction of motion $\mathbf{D}$ as shown in Fig.~\ref{fig:potentialField}.
 \begin{align}
 F_{att} &= -\zeta \Delta \rho / \rho \\
 %\mathbf{u} &= [\bar{x},\bar{y}] - \mathbf{b} \nonumber \\
-\phi &=\cos^{-1}\left( \frac{ \nabla \mathbf{M} \cdot ( [\bar{x},\bar{y}] - \mathbf{b}) }{\norm{\nabla \mathbf{M} } \norm{ [\bar{x},\bar{y}] - \mathbf{b}} } \right) \\
+\phi &=\cos^{-1}\left( \frac{ \mathbf{D} \cdot ( [\bar{x},\bar{y}] - \mathbf{b}) }{\norm{\mathbf{D}} \norm{ [\bar{x},\bar{y}] - \mathbf{b}} } \right) \\
 %\theta &= \mathrm{angularDistance}\left( \alpha, \beta \right)\nonumber \\
  F_{rep} &=  \left\{
 \begin{array}{ll}
@@ -159,7 +160,7 @@ If the swarm mean position does not change for ten seconds, the swarm is assumed
 %	\State$r_p \gets k_3 r_b$  \Comment{pushing move}
 %	\EndIf
 %\State$r_p \gets k_3 r_b$  \Comment{pushing move}
-\State Calculate $\nabla \mathbf{M}(\mathbf{b})$  \Comment{policy for object at $\mathbf{b}$}
+\State Calculate $\mathbf{D}(\mathbf{b})$  \Comment{direction for object at $\mathbf{b}$}
 \State Apply \eqref{eq:potentialfield}   \Comment{potential field to push object in correct direction}
 \EndIf
 \EndWhile
