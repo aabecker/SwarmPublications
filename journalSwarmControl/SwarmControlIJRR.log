@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  10 AUG 2016 09:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  10 AUG 2016 09:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1078,6 +1078,12 @@ Package pdftex.def Info: ./pictures/pdf/stateMachine.pdf used on input line 115
 pdfTeX warning: /usr/texbin/pdflatex (file ./pictures/pdf/transferRegions.pdf):
  PDF inclusion: multiple pdfs with page group included in a single page
 > <./pictures/pdf/stateMachine.pdf>]
+<./pictures/pdf/AllShapes.pdf, id=1200, 542.025pt x 542.025pt>
+File: ./pictures/pdf/AllShapes.pdf Graphic file (type pdf)
+
+<use ./pictures/pdf/AllShapes.pdf>
+Package pdftex.def Info: ./pictures/pdf/AllShapes.pdf used on input line 130.
+(pdftex.def)             Requested size: 161.9989pt x 161.99672pt.
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 141.
 
 
@@ -1087,21 +1093,21 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 141.
 
-<./pictures/pdf/SwarmRun.pdf, id=1206, 1430.94597pt x 325.215pt>
+<./pictures/pdf/SwarmRun.pdf, id=1207, 1430.94597pt x 325.215pt>
 File: ./pictures/pdf/SwarmRun.pdf Graphic file (type pdf)
 
 <use ./pictures/pdf/SwarmRun.pdf>
 Package pdftex.def Info: ./pictures/pdf/SwarmRun.pdf used on input line 182.
 (pdftex.def)             Requested size: 360.0pt x 81.81467pt.
- [26]
-<./pictures/pdf/SimVeryNum.pdf, id=1222, 361.35pt x 233.87375pt>
+ [26 <./pictures/pdf/AllShapes.pdf>] [27 <./pictures/pdf/SwarmRun.pdf>]
+<./pictures/pdf/SimVeryNum.pdf, id=1249, 361.35pt x 233.87375pt>
 File: ./pictures/pdf/SimVeryNum.pdf Graphic file (type pdf)
 
 <use ./pictures/pdf/SimVeryNum.pdf>
 Package pdftex.def Info: ./pictures/pdf/SimVeryNum.pdf used on input line 207.
 (pdftex.def)             Requested size: 161.9989pt x 104.84966pt.
 
-<./pictures/pdf/SimVeryNoise.pdf, id=1223, 361.35pt x 233.87375pt>
+<./pictures/pdf/SimVeryNoise.pdf, id=1250, 361.35pt x 233.87375pt>
 File: ./pictures/pdf/SimVeryNoise.pdf Graphic file (type pdf)
 
 <use ./pictures/pdf/SimVeryNoise.pdf>
@@ -1109,7 +1115,7 @@ Package pdftex.def Info: ./pictures/pdf/SimVeryNoise.pdf used on input line 209
 .
 (pdftex.def)             Requested size: 161.9989pt x 104.84966pt.
 
-<./pictures/pdf/SimVeryWeight.pdf, id=1224, 361.35pt x 234.8775pt>
+<./pictures/pdf/SimVeryWeight.pdf, id=1251, 361.35pt x 234.8775pt>
 File: ./pictures/pdf/SimVeryWeight.pdf Graphic file (type pdf)
 
 <use ./pictures/pdf/SimVeryWeight.pdf>
@@ -1117,7 +1123,7 @@ Package pdftex.def Info: ./pictures/pdf/SimVeryWeight.pdf used on input line 21
 1.
 (pdftex.def)             Requested size: 161.9989pt x 105.29965pt.
 
-<./pictures/pdf/SimVeryShape.pdf, id=1225, 361.35pt x 241.90375pt>
+<./pictures/pdf/SimVeryShape.pdf, id=1252, 361.35pt x 241.90375pt>
 File: ./pictures/pdf/SimVeryShape.pdf Graphic file (type pdf)
 
 <use ./pictures/pdf/SimVeryShape.pdf>
@@ -1130,29 +1136,7 @@ Overfull \hbox (4.5033pt too wide) in paragraph at lines 5--6
 alled \OT1/cmr/m/it/10.95 kilo-bots\OT1/cmr/m/n/10.95 . While
  []
 
-[27 <./pictures/pdf/SwarmRun.pdf>]
-<./pictures/pdf/SetUp.pdf, id=1258, 614.295pt x 505.89pt>
-File: ./pictures/pdf/SetUp.pdf Graphic file (type pdf)
-
-<use ./pictures/pdf/SetUp.pdf>
-Package pdftex.def Info: ./pictures/pdf/SetUp.pdf used on input line 25.
-(pdftex.def)             Requested size: 216.0022pt x 177.88239pt.
-
-<./pictures/pdf/AllShapesR.pdf, id=1259, 638.385pt x 884.30376pt>
-File: ./pictures/pdf/AllShapesR.pdf Graphic file (type pdf)
-
-<use ./pictures/pdf/AllShapesR.pdf>
-Package pdftex.def Info: ./pictures/pdf/AllShapesR.pdf used on input line 27.
-(pdftex.def)             Requested size: 126.0022pt x 174.53676pt.
-
-<./pictures/pdf/PotentialExp.pdf, id=1260, 638.385pt x 884.30376pt>
-File: ./pictures/pdf/PotentialExp.pdf Graphic file (type pdf)
-
-<use ./pictures/pdf/PotentialExp.pdf>
-Package pdftex.def Info: ./pictures/pdf/PotentialExp.pdf used on input line 29.
-
-(pdftex.def)             Requested size: 126.0022pt x 174.53676pt.
- [28 <./pictures/pdf/SimVeryNum.pdf> <./pictures/pdf/SimVeryNoise.pdf
+[28 <./pictures/pdf/SimVeryNum.pdf> <./pictures/pdf/SimVeryNoise.pdf
 
 pdfTeX warning: /usr/texbin/pdflatex (file ./pictures/pdf/SimVeryNoise.pdf): PD
 F inclusion: multiple pdfs with page group included in a single page
@@ -1164,26 +1148,46 @@ DF inclusion: multiple pdfs with page group included in a single page
 
 pdfTeX warning: /usr/texbin/pdflatex (file ./pictures/pdf/SimVeryShape.pdf): PD
 F inclusion: multiple pdfs with page group included in a single page
->] [29 <./pictures/pdf/SetUp.pdf> <./pictures/pdf/AllShapesR.pdf> <./pictures/p
-df/PotentialExp.pdf>]
-<./pictures/pdf/RealMean.pdf, id=1433, 2168.1pt x 505.89pt>
+>] <./pictures/pdf/SetUp.pdf, id=1319, 614.295pt x 505.89pt>
+File: ./pictures/pdf/SetUp.pdf Graphic file (type pdf)
+
+<use ./pictures/pdf/SetUp.pdf>
+Package pdftex.def Info: ./pictures/pdf/SetUp.pdf used on input line 25.
+(pdftex.def)             Requested size: 216.0022pt x 177.88239pt.
+
+<./pictures/pdf/AllShapesR.pdf, id=1320, 638.385pt x 884.30376pt>
+File: ./pictures/pdf/AllShapesR.pdf Graphic file (type pdf)
+
+<use ./pictures/pdf/AllShapesR.pdf>
+Package pdftex.def Info: ./pictures/pdf/AllShapesR.pdf used on input line 27.
+(pdftex.def)             Requested size: 126.0022pt x 174.53676pt.
+
+<./pictures/pdf/PotentialExp.pdf, id=1321, 638.385pt x 884.30376pt>
+File: ./pictures/pdf/PotentialExp.pdf Graphic file (type pdf)
+
+<use ./pictures/pdf/PotentialExp.pdf>
+Package pdftex.def Info: ./pictures/pdf/PotentialExp.pdf used on input line 29.
+
+(pdftex.def)             Requested size: 126.0022pt x 174.53676pt.
+
+<./pictures/pdf/RealMean.pdf, id=1325, 2168.1pt x 505.89pt>
 File: ./pictures/pdf/RealMean.pdf Graphic file (type pdf)
 
 <use ./pictures/pdf/RealMean.pdf>
 Package pdftex.def Info: ./pictures/pdf/RealMean.pdf used on input line 47.
 (pdftex.def)             Requested size: 360.0pt x 83.99315pt.
-
-<./pictures/pdf/Snapshots.pdf, id=1438, 2168.1pt x 1879.02pt>
+ [29] [30 <./pictures/pdf/SetUp.pdf> <./pictures/pdf/AllShapesR.pdf> <./picture
+s/pdf/PotentialExp.pdf> <./pictures/pdf/RealMean.pdf>] <./pictures/pdf/Snapshot
+s.pdf, id=1509, 2168.1pt x 1879.02pt>
 File: ./pictures/pdf/Snapshots.pdf Graphic file (type pdf)
 
 <use ./pictures/pdf/Snapshots.pdf>
 Package pdftex.def Info: ./pictures/pdf/Snapshots.pdf used on input line 83.
 (pdftex.def)             Requested size: 323.9978pt x 280.78pt.
-) (./conclusion.tex [30 <./pictures/pdf/RealMean.pdf>] [31 <./pictures/pdf/Snap
-shots.pdf>]) (./SwarmControlIJRR.bbl [32]
+) (./conclusion.tex [31 <./pictures/pdf/Snapshots.pdf>]) (./SwarmControlIJRR.bb
+l [32]
 Missing character: There is no Õ in font cmr10!
-
-[33] [34]
+ [33] [34]
 Underfull \hbox (badness 2277) in paragraph at lines 178--180
 []\OT1/cmr/m/n/10.95 K-Team.  Kilo-bot, www.k-team.com/mobile-robotics-products
 /kilobot,
@@ -1229,10 +1233,10 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 212.
  ) 
 Here is how much of TeX's memory you used:
- 15997 strings out of 493117
- 267053 string characters out of 6135433
- 351449 words of memory out of 5000000
- 18959 multiletter control sequences out of 15000+600000
+ 16005 strings out of 493117
+ 267236 string characters out of 6135433
+ 351519 words of memory out of 5000000
+ 18964 multiletter control sequences out of 15000+600000
  26340 words of font info for 97 fonts, out of 8000000 for 9000
  1148 hyphenation exceptions out of 8191
  36i,18n,54p,10396b,518s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1257,10 +1261,10 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2014/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2014/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2014/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on SwarmControlIJRR.pdf (37 pages, 25352134 bytes).
+Output written on SwarmControlIJRR.pdf (37 pages, 25376388 bytes).
 PDF statistics:
- 1686 PDF objects out of 1728 (max. 8388607)
- 1277 compressed objects within 13 object streams
- 182 named destinations out of 1000 (max. 500000)
- 422 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1692 PDF objects out of 1728 (max. 8388607)
+ 1281 compressed objects within 13 object streams
+ 183 named destinations out of 1000 (max. 500000)
+ 427 words of extra memory for PDF output out of 10000 (max. 10000000)
 
