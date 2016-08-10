@@ -125,13 +125,18 @@ The control algorithm  for object manipulation is listed in Alg.~\ref{alg:BlockP
 In rare cases during simulations the swarm may become trapped in a local minima of \eqref{eq:potentialfield}.
 If the swarm mean position does not change for ten seconds, the swarm is assumed to be in a local minima and is commanded to move toward the previous corner. As soon as the mean position changes, normal control resumes.
 
-\begin{figure}
-\begin{center}
-	\begin{overpic}[width=0.45\columnwidth]{AllShapes.pdf}\end{overpic}
-\end{center}
-\caption{\label{fig:Shapes} All the shapes that the simulations ran.
+\begin{wrapfigure}{R}{0.3\textwidth}
+  \vspace{-20pt}
+  \begin{center}
+\begin{overpic}[width=0.3\columnwidth]{AllShapes.pdf}\end{overpic}
+  \end{center}
+  \vspace{-1em}
+\caption{\label{fig:Shapes} Six equal-area objects were tested. %Six object shapes were tested.
+\vspace{-1em}
 }
-\end{figure}
+\end{wrapfigure}
+
+
 
 %\todo{add the timeout function: I added two lines.}
 

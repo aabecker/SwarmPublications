@@ -27,14 +27,26 @@ Transport of goods and materials between points is at the heart of all engineeri
 
 Sensing is expensive, especially on the nanoscale. To see nanocars~\cite{Chiang2011}, scientists fasten molecules that fluoresce light when activated by a strong light source. Unfortunately, multiple exposures can destroy these molecules, a process called \emph{photobleaching}. Photobleaching can be minimized by lowering the excitation light intensity, but \cite{Cazes2001} showed this increases the probability of missed detections.  This experiment explores manipulation with varying amounts of sensing information: {\bf full-state} sensing provides the most information by showing the position of all robots; {\bf convex-hull} draws a convex hull around the outermost robots; {\bf mean} provides the average position of the population; and {\bf mean + variance} adds a confidence ellipse. Fig.~\ref{fig:Visualization} shows screenshots of the same robot swarm with each type of visual feedback. Full-state requires $2n$ data points for $n$ robots. Convex-hull requires at worst $2n$, but usually a smaller number.  Mean requires two, and variance three, data points.  Mean and mean + variance are convenient even with millions of robots. Our hypothesis predicted a steady decay in performance as the amount of visual feedback decreased.
 
-\begin{figure}[b!]
-\renewcommand{\figwid}{0.5\columnwidth}
-\begin{overpic}[width =\figwid]{ResVaryVis.pdf}\end{overpic}
-\vspace{-1em}
-\caption{\label{fig:ResVaryVis} Completion-time results for the four levels of visual feedback shown in Fig.~\ref{fig:Visualization}.  Players performed better with limited feedback.
+%\begin{figure}[b!]
+%\renewcommand{\figwid}{0.5\columnwidth}
+%\begin{overpic}[width =\figwid]{ResVaryVis.pdf}\end{overpic}
 %\vspace{-1em}
+%\caption{\label{fig:ResVaryVis} Completion-time results for the four levels of visual feedback shown in Fig.~\ref{fig:Visualization}.  Players performed better with limited feedback.
+%%\vspace{-1em}
+%}
+%\end{figure}
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+  \vspace{-20pt}
+  \begin{center}
+  \includegraphics[width=0.5\textwidth]{ResVaryVis.pdf}
+  \end{center}
+  \vspace{-1em}
+\caption{\label{fig:ResVaryVis} Completion-time results for the four levels of visual feedback shown in Fig.~\ref{fig:Visualization}.  Players performed better with limited feedback.
+\vspace{-1em}
 }
-\end{figure}
+\end{wrapfigure}
+
 
 % Additionally, as population characteristics, they are available even if only a percentage of the robots are detected each control cycle.
 %Photobleaching: http://www.piercenet.com/browse.cfm?fldID=4DD9D52E-5056-8A76-4E6E-E217FAD0D86B

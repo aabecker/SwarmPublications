@@ -6,33 +6,45 @@ Our experiments use centimeter-scale hardware systems called \emph{kilobots}.  W
 
   
 \subsection{Environmental setup}  
-In these experiments as shown in Fig.~\ref{fig:setup}, we used $n$=100 kilobots, a 1.5 m$\times$1.2 m whiteboard as the workspace, and lights: four 50W LED floodlights  at the corners and four 30W LED floodlights on the sides of a 6 m square centered on the workspace and 1.5 m above the table. The lights were controlled using an Arduino Uno board connected to an 8 relay shield board.  
+In these experiments as shown in Fig.~\ref{fig:setup}, we used $n$=100 kilobots, a 1.5 m$\times$1.2 m whiteboard as the workspace, and lights: four 50W LED floodlights  at the corners and four 30W LED floodlights on the sides of a 6 m square centered on the workspace and 1.5 m above the table. An Arduino Uno connected to an 8 relay shield controlled the lights.  
 
 Above the table, an overhead machine vision system tracks the swarm. The vision system identifies obstacles by color segmentation, determines the corners  (used to decrease  variance)  by topology, the object by color segmentation, and identifies robots using color segmentation and circle detection with a circular Hough transform.
 
-The Laser-cut patterns for the neon green fiducial markers on the robots and {\sc Matlab} tracking code are available at our github repository~\cite{Shahrokhi2015GitHubShapeControl}. 
+The Laser-cut patterns for the neon green fiducial markers on the robots and {\sc Matlab} tracking code are available at our github repository,~\cite{Shahrokhi2015GitHubShapeControl}. 
 The objects were 3D printed from ABS plastic with a paper overlay. 
 Shapes included a 325 cm$^2$ equilateral triangle, 
 %Small Equilateral Triangle 140 cm$^2$,
  324 cm$^2$ square,
  281 cm$^2$ hexagon,
 254 cm$^2$ circle, 
-and a 486 cm$^2$ (18 cm$\times$27 cm)  rectangle.
+and a 486 cm$^2$ (18 cm$\times$27 cm)  rectangle, all shown in Fig.~\ref{fig:setup}.
+
+%\begin{figure*}
+%\begin{center}
+%	%\includegraphics[width=0.5\columnwidth]{SetUp.pdf}
+%	\begin{overpic}[width=0.6\columnwidth]{SetUp.pdf}%\put(1,75){A}
+%	\end{overpic}\\
+%	\begin{overpic}[width=0.35\columnwidth]{AllShapesR.pdf}%\put(-0,85){B}
+%	\end{overpic}
+%	\begin{overpic}[width=0.35\columnwidth]{PotentialExp.pdf}%\put(-0,85){C}
+%	\end{overpic}
+%\end{center}
+%\caption{\label{fig:setup}
+%(Top) Hardware platform. (Lower left) Four shapes used for hardware experiments. (Lower right) Visualization of potential field. }
+%\end{figure*}
 
 \begin{figure*}
 \begin{center}
 	%\includegraphics[width=0.5\columnwidth]{SetUp.pdf}
-	\begin{overpic}[width=0.6\columnwidth]{SetUp.pdf}%\put(1,75){A}
-	\end{overpic}\\
-	\begin{overpic}[width=0.35\columnwidth]{AllShapesR.pdf}%\put(-0,85){B}
-	\end{overpic}
-	\begin{overpic}[width=0.35\columnwidth]{PotentialExp.pdf}%\put(-0,85){C}
+	\begin{overpic}[width=0.5\columnwidth]{SetUp.pdf}%\put(1,75){A}
+	\end{overpic}\begin{overpic}[width=0.25\columnwidth]{AllShapesR.pdf}%\put(-0,85){B}
+	\end{overpic}\begin{overpic}[width=0.25\columnwidth]{PotentialExp.pdf}%\put(-0,85){C}
 	\end{overpic}
 \end{center}
-
 \caption{\label{fig:setup}
-(Top) Hardware platform. (Lower left) Four shapes used for hardware experiments. (Lower right) Visualization of potential field. }
+Hardware platform. At right are the shapes used for hardware experiments and a visualization of the potential field. }
 \end{figure*}
+
 
 \paragraph{Swarm mean control (hardware experiment)}
 
