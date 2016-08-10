@@ -3,7 +3,7 @@
 \section{Object manipulation results}\label{sec:exp}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This section analyzes an \emph{object manipulation} task attempted by both our hybrid, hysteresis-based controller, inspired by the analysis of human users in Section~\ref{sec:expResults}.  
+This section analyzes an \emph{object manipulation} task attempted by both our hybrid, hysteresis-based controller, inspired by the analysis of human users in \S~\ref{sec:expResults}.  
 The swarm must deliver the object to the goal region.  To solve this object manipulation task, we divide the task into two components: designing a policy for the object, and designing a control law for the swarm to push the object according to the policy.
 
 \subsection{Learning a policy for the object}\label{subsec:objectpolicy}
@@ -19,24 +19,24 @@ The robots were directed behind the object at  $\mathbf{b} - 1.5 r_b \mathbf{D}(
  
  A corresponding reward function gives a high reward to the goal state,  
  a large negative reward to states including obstacles, and a small negative reward to all other states.
-The reward function $r(x,u)$ is defined as
+The reward function $r(x,\mathbf{u})$ is defined as
 \begin{align}
 r(x,u) &=  \left\{
 \begin{array}{ll}
-     +100, &  \textrm{if } u \textrm{ leads to goal state}\\
-      -100, & \textrm{if } u \textrm{ leads to a state with an obstacle} \\
+     +100, &  \textrm{if } \mathbf{u} \textrm{ leads to goal state}\\
+      -100, & \textrm{if } \mathbf{u} \textrm{ leads to a state with an obstacle} \\
       -1, & \textrm{otherwise}\\
 \end{array} 
 \right.
 \end{align}
-where $u$ is the action and $x$ is the current state. 
+where $\mathbf{u}$ is the action and $x$ is the current state. 
   Value iteration iteratively learns the value $\hat{V}(x)$ for the object being in each state $x$. The optimal policy is the control action that, in probability, results in the largest value:
-   \begin{align} \mathbf{D}(x) = \arg\max_u   [ r(x,u) + \sum\limits_{j=1}^N \hat{V}(x_j) p(x_j| u,x)].  \label{eq:OptimalPolicy}
+   \begin{align} \mathbf{D}(x) = \arg\max_{\mathbf{u}}   [ r(x,\mathbf{u}) + \sum\limits_{j=1}^N \hat{V}(x_j) p(x_j| \mathbf{u},x)].  \label{eq:OptimalPolicy}
    \end{align}
    The value function $\hat{V}(x_j) $ is calculated by computing the value $\hat{V}$ for all $N$ states and iterating until convergence:
 \begin{align}
 \text{for }&\text{$i=1$ to $N$ do} \nonumber \\
-&\hat{V} (x_j) = \gamma \max_u [r(x_j,u) + \sum\limits_{i=1}^N \hat{V}(x_i) p(x_i| u,x_j)] \label{eq:ValueIteration}\\
+&\hat{V} (x_j) = \gamma \max_{\mathbf{u}} [r(x_j,\mathbf{u}) + \sum\limits_{i=1}^N \hat{V}(x_i) p(x_i| \mathbf{u},x_j)] \label{eq:ValueIteration}\\
 \text{end}& \nonumber
 \end{align}
 In our experiments $\gamma = 0.97$, and \eqref{eq:ValueIteration} was iterated 200 times. A {\sc Matlab} implementation of this algorithm is available at \href{https://www.mathworks.com/matlabcentral/fileexchange/49992-mdp-robot-grid-world-example}{\emph{MDP grid world example}}.%\todo{link to algorithm}.  
