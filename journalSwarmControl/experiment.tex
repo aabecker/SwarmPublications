@@ -125,6 +125,14 @@ The control algorithm  for object manipulation is listed in Alg.~\ref{alg:BlockP
 In rare cases during simulations the swarm may become trapped in a local minima of \eqref{eq:potentialfield}.
 If the swarm mean position does not change for ten seconds, the swarm is assumed to be in a local minima and is commanded to move toward the previous corner. As soon as the mean position changes, normal control resumes.
 
+%\begin{figure*}
+%\begin{center}
+%	\begin{overpic}[width=0.45\columnwidth]{mainRegions.pdf}\end{overpic}
+%\end{center}
+%\caption{\label{fig:Region}  Outlier rejection state machine and regions.
+%}
+%\end{figure*}
+
 %\todo{add the timeout function: I added two lines.}
 
 \begin{algorithm}
