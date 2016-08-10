@@ -65,11 +65,11 @@ value function and control policy for the hardware setup.
 \subsection{Potential fields for swarm management with a compliant manipulator}
 
 Unfortunately, when the swarm is in front of the object, control law \eqref{eq:PDcontrolPosition} pushes the object backwards.  To fix this, we implement a potential field approach \cite{spong2008robot} that attracts the swarm to the intermediate goal, but repulses the swarm from in front of the object.
-The repulsive potential field is centered at the object's COM and is active for a radius $\rho_0$, but is implemented only when the swarm mean is within $\theta$ of the desired direction of motion $\mathbf{D}$ as shown in Fig.~\ref{fig:potentialField}.
+The repulsive potential field is centered at the object's COM and is active for a radius $\rho_0$, but is implemented only when the swarm mean is within $\theta$ of the desired direction of motion $\mathbf{D}(\mathbf{b})$ as shown in Fig.~\ref{fig:potentialField}.
 \begin{align}
 F_{att} &= -\zeta \Delta \rho / \rho \\
 %\mathbf{u} &= [\bar{x},\bar{y}] - \mathbf{b} \nonumber \\
-\phi &=\cos^{-1}\left( \frac{ \mathbf{D} \cdot ( [\bar{x},\bar{y}] - \mathbf{b}) }{\norm{\mathbf{D}} \norm{ [\bar{x},\bar{y}] - \mathbf{b}} } \right) \\
+\phi &=\cos^{-1}\left( \frac{ \mathbf{D}(\mathbf{b}) \cdot ( [\bar{x},\bar{y}] - \mathbf{b}) }{\norm{\mathbf{D}(\mathbf{b})} \norm{ [\bar{x},\bar{y}] - \mathbf{b}} } \right) \\
 %\theta &= \mathrm{angularDistance}\left( \alpha, \beta \right)\nonumber \\
  F_{rep} &=  \left\{
 \begin{array}{ll}
