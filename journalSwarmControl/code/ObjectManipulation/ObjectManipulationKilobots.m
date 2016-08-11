@@ -12,9 +12,9 @@ close all
 clear all
 
 %% Load maps from RegionCode.m
-RegionCode
+%RegionCode
 
-load('MDPShot', 'movesX', 'movesY','corners');
+load('MazeMap', 'movesX', 'movesY','corners');
 load('ThresholdMapsMac','transferRegion','mainRegion'); 
 
 
@@ -202,7 +202,7 @@ while success == false
         %% Current region should at least have a minimum number of robots
         minNumRobD = 10;
         minNumRobU = 20;
-        if countMean<minNumRob
+        if countMean<minNumRobD
             NumRobotCont = true;
             % finding the nearest corner
             for i = 1:size(corners)
