@@ -12,7 +12,7 @@ close all
 clear all
 
 %% Load maps from RegionCode.m
-%RegionCode
+RegionCode
 
 load('MazeMap', 'movesX', 'movesY','corners');
 load('ThresholdMapsMac','transferRegion','mainRegion'); 
