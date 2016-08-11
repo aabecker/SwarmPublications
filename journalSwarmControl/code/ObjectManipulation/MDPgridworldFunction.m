@@ -1,29 +1,29 @@
-function [V_hat_prob, DX,DY]  = MDPgridworldExample(map, goalX, goalY)
+function [V_hat_prob, DX,DY]  = MDPgridworldFunction(map, goalX, goalY)
 %  Applies value iteration to learn a policy for a Markov Decision Process
 %  (MDP) -- a robot in a grid world.
-% 
+%
 % The world is freespaces (0) or obstacles (1). Each turn the robot can
 % move in 8 directions, or stay in place. A reward function gives one
 % freespace, the goal location, a high reward. All other freespaces have a
 % small penalty, and obstacles have a large negative reward. Value
 % iteration is used to learn an optimal 'policy', a function that assigns a
 % control input to every possible location.
-% 
+%
 % This function compares a deterministic robot, one that always executes
 % movements perfectly, with a stochastic robot, that has a small
 % probability of moving +/-45degrees from the commanded move.  The optimal
 % policy for a stochastic robot avoids narrow passages and tries to move to
 % the center of corridors.
-% 
+%
 % From Chapter 14 in 'Probabilistic Robotics', ISBN-13: 978-0262201629,
 % http://www.probabilistic-robotics.org
-% 
+%
 %  Aaron Becker, March 11, 2015, Shiva Shahrokhi Modified Summer 2016.
-
+%   atbecker@uh.edu,  Shiva Shahrokhi <shiva.shahrokhi@gmail.com>
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 set(0,'DefaultAxesFontSize',18)
 format compact
-pauseOn = false;  %setting this to 'true' is useful for teaching, because it pauses between each graph
+pauseOn = false;  %#ok<NASGU> %setting this to 'true' is useful for teaching, because it pauses between each graph
 World = map;
 
 
@@ -55,9 +55,9 @@ R(goalX,goalY) = 100; %goal state has big reward
         axis tight
         set(gca,'Xtick',[], 'Ytick',[])
         iteration_limit = 200; %value function needs ~600 iterations to converge, but the policy converges after ~100 iterations
-        while ~isequal(V_hat,V_hat_prev) && iteration < iteration_limit 
+        while ~isequal(V_hat,V_hat_prev) && iteration < iteration_limit
             V_hat_prev = V_hat;
-            for i = 1:numel(xIND)  
+            for i = 1:numel(xIND)
                 [bestMove,bestPayoff] = policy_MDP(xIND(i),V_hat,prob);
                 rowL = size(V_hat,1);
                 rowV = xIND(i)/rowL;
@@ -69,7 +69,7 @@ R(goalX,goalY) = 100; %goal state has big reward
             end
             iteration = iteration+1;
             set(hImageV,'cdata',V_hat);
-            drawnow       
+            drawnow
         end
         hold on; hq=quiver(X,Y,DY,DX,0.5,'color',[0,0,0]); hold off
         set(hq,'linewidth',2);
@@ -79,21 +79,21 @@ R(goalX,goalY) = 100; %goal state has big reward
         %computes the best control action, the (move) that generates the
         %most (payoff) according to the current value function V_hat
         [Iy,Ix] = ind2sub(size(V_hat),index);
-        moves = [1,0; 1,1; 0,1; -1,1; -1,0; -1,-1; 0,-1; 1,-1; 0,0]; 
+        moves = [1,0; 1,1; 0,1; -1,1; -1,0; -1,-1; 0,-1; 1,-1; 0,0];
         bestPayoff = -200; %negative infinity
         probStraight = 0.1;
         for k = [1,3,5,7,2,4,6,8,9]% This order tries straight moves before diagonals %1:size(moves,1) %
             move = [moves(k,1),moves(k,2)];
-            if ~prob 
+            if ~prob
                 payoff = V_hat(Iy+move(1),Ix+move(2));
-            else    
+            else
                 if k < 8 %move +45deg of command
                     moveR = [moves(k+1,1),moves(k+1,2)];
                 else
                     moveR = [moves(1,1),  moves(1,2)];
                 end
                 if k>1%move -45deg of command
-                    moveL = [moves(k-1,1),moves(k-1,2)]; 
+                    moveL = [moves(k-1,1),moves(k-1,2)];
                 else
                     moveL = [moves(8,1),  moves(8,2)];
                 end

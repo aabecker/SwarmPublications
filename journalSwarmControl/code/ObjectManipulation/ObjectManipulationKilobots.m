@@ -1,12 +1,19 @@
 %% Object Manipulation Experiment With Kilobots
-% In this code we use arduino and our vision system to control a swarm of
+% Uses an overhead vision system to control a swarm of
 % kilobots to push an object through a maze.
+% Swarm is attracted to the brightest light in the room
+% Lights are controlled by an Arduino relay-sheild
+%
+% requires RegionCode.m and MDPgridworldFunction.m
+% -------------------------
 % By Shiva Shahrokhi, Lillian Lin and Mable Wan, Summer 2016
-
+format compact
 close all
 clear all
 
 %% Load maps from RegionCode.m
+RegionCode
+
 load('MDPShot', 'movesX', 'movesY','corners');
 load('ThresholdMapsMac','transferRegion','mainRegion'); 
 
@@ -60,7 +67,7 @@ while success == false
         end 
         rgbIm = snapshot(cam);
     else
-        rgbIm = imread('PC.jpeg');
+        rgbIm = imread('PC.jpeg'); %#ok<UNRCH>
         goalX = 5;
         goalY = 5;
         goalSize = 4;
@@ -169,8 +176,7 @@ while success == false
             sumX= sumX+centers(i,1);
             sumY= sumY+centers(i,2);
             countMean=countMean+1;
-            cenArray(countMean,1)= centers(i,1); %adding selected robots to array
-            cenArray(countMean,2)= centers(i,2);
+            cenArray(countMean,:) = centers(i,:); %#ok<SAGROW> %adding selected robots to array
         end
     end
     %% Robot Swarm Charactaristics
@@ -227,7 +233,7 @@ while success == false
             VarCont = false;
         end
         %% normal control
-        if ~VarCont & ~NumRobotCont
+        if ~VarCont && ~NumRobotCont
             ep = 5;
             minDistance =  5*scale;
 
@@ -239,7 +245,6 @@ while success == false
             if indOY ==1 || indOY == 0
                 indOY = 2;
             end
-
     % Flow Around Goal Algorithm
             alphaWant=atan2(movesX(indOY,indOX),movesY(indOY,indOX));
             
@@ -310,7 +315,7 @@ while success == false
             txt = int2str(i);
             text(corners(i,1)* scale,corners(i,2)*scale,txt,'HorizontalAlignment','right')
         end
-%%Current Mean and Covariance Ellipse
+%% Current Mean and Covariance Ellipse
         plot_gaussian_ellipsoid(M,C);
         counter = counter+1;
         
