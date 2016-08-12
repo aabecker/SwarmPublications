@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[   3420014,      59923]
-NotebookOptionsPosition[   3411451,      59657]
-NotebookOutlinePosition[   3411920,      59675]
-CellTagsIndexPosition[   3411877,      59672]
+NotebookDataLength[   3414796,      59797]
+NotebookOptionsPosition[   3406110,      59527]
+NotebookOutlinePosition[   3406579,      59545]
+CellTagsIndexPosition[   3406536,      59542]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -52569,6 +52569,63 @@ Cell["Plot for Vary Visualization", "Section",
 
 Cell[CellGroupData[{
 
+Cell[BoxData[
+ RowBox[{"BaseStyle", "\[Rule]", 
+  RowBox[{"Directive", "@@", 
+   RowBox[{"{", 
+    RowBox[{"FontColor", "\[Rule]", "Black"}], "}"}]}]}]], "Input",
+ CellChangeTimes->{{3.680009694955564*^9, 3.6800097006480093`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"BaseStyle", "\[Rule]", 
+  RowBox[{"Directive", "[", 
+   RowBox[{"FontColor", "\[Rule]", 
+    InterpretationBox[
+     ButtonBox[
+      TooltipBox[
+       RowBox[{
+        GraphicsBox[{
+          {GrayLevel[0], RectangleBox[{0, 0}]}, 
+          {GrayLevel[0], RectangleBox[{1, -1}]}, 
+          {GrayLevel[0], RectangleBox[{0, -1}, {2, 1}]}},
+         AspectRatio->1,
+         Frame->True,
+         FrameStyle->GrayLevel[0.],
+         FrameTicks->None,
+         ImageSize->
+          Dynamic[{
+           Automatic, 1.35 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+            Magnification]}],
+         PlotRangePadding->None], "\[InvisibleSpace]"}],
+       "GrayLevel[0]"],
+      Appearance->None,
+      BaseStyle->{},
+      BaselinePosition->Baseline,
+      ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+        If[
+         Not[
+          AbsoluteCurrentValue["Deployed"]], 
+         SelectionMove[Typeset`box$, All, Expression]; 
+         FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+         FrontEnd`Private`$ColorSelectorInitialColor = GrayLevel[0]; 
+         FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+         MathLink`CallFrontEnd[
+           FrontEnd`AttachCell[Typeset`box$, 
+            FrontEndResource["GrayLevelColorValueSelector"], {
+            0, {Left, Bottom}}, {Left, Top}, 
+            "ClosingActions" -> {
+             "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+      DefaultBaseStyle->{},
+      Evaluator->Automatic,
+      Method->"Preemptive"],
+     GrayLevel[0],
+     Editable->False,
+     Selectable->False]}], "]"}]}]], "Output",
+ CellChangeTimes->{3.6800097014005404`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[{
  RowBox[{
   RowBox[{"task", " ", "=", " ", "4"}], ";"}], "\[IndentingNewLine]", 
@@ -52609,7 +52666,7 @@ Cell[BoxData[{
        RowBox[{"varyVisual", "\[LeftDoubleBracket]", 
         RowBox[{"n", ",", ";;", ",", "3"}], "\[RightDoubleBracket]"}], ",", 
        RowBox[{"n_", "/;", 
-        RowBox[{"n", ">", "350"}]}]}], "]"}], ",", 
+        RowBox[{"n", ">", "300"}]}]}], "]"}], ",", 
      RowBox[{"{", 
       RowBox[{"n", ",", "1", ",", 
        RowBox[{"Length", "[", "varyVisual", "]"}]}], "}"}]}], "]"}]}], 
@@ -52693,12 +52750,14 @@ Cell[BoxData[{
    3.590227156835113*^9, 3.5902271687689857`*^9}, {3.590227224387041*^9, 
    3.590227227576604*^9}, {3.590227934178607*^9, 3.590227934488887*^9}, {
    3.672588835875167*^9, 3.672588841711102*^9}, {3.672750531896638*^9, 
-   3.672750532201478*^9}}],
+   3.672750532201478*^9}, {3.680002186418586*^9, 3.680002186726118*^9}, {
+   3.6800096204168262`*^9, 3.680009620822208*^9}, {3.680009731188786*^9, 
+   3.6800097314799347`*^9}}],
 
 Cell[BoxData[
  GraphicsBox[{
    {Opacity[0], 
-    PointBox[{{15.172499999999998`, 0.5097251739635205}, {362.5415, 
+    PointBox[{{17.5248, 0.5097251739635205}, {313.14320000000004`, 
      4.4902748260364795`}}]}, 
    {RGBColor[0.982864, 0.7431472, 0.3262672], {}, 
     {RGBColor[0.982864, 0.7431472, 0.3262672], 
@@ -52714,15 +52773,9 @@ Cell[BoxData[
              Opacity[0.66]}], {}, {}], 
           GraphicsGroupBox[{Antialiasing -> False, 
             
-            PolygonBox[{{152.4905, 0.7312248802544821}, {152.4905, 
-             1.268775119745518}, {78.2955, 1.268775119745518}, {78.2955, 
+            PolygonBox[{{147.38425, 0.7312248802544821}, {147.38425, 
+             1.268775119745518}, {77.88825, 1.268775119745518}, {77.88825, 
              0.7312248802544821}}], {}, {{
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               327.88, 1.}], 
               InsetBox[
                BoxData[
                 FormBox[
@@ -52746,13 +52799,13 @@ Cell[BoxData[
                 FormBox[
                  StyleBox["\"\[FilledSmallCircle]\"", 10, 
                   GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               304.664, 1.}], 
+               287.871, 1.}], 
               InsetBox[
                BoxData[
                 FormBox[
                  StyleBox["\"\[FilledSmallCircle]\"", 10, 
                   GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               287.871, 1.}], 
+               260.514, 1.}], 
               InsetBox[
                BoxData[
                 FormBox[
@@ -52764,31 +52817,13 @@ Cell[BoxData[
                 FormBox[
                  StyleBox["\"\[FilledSmallCircle]\"", 10, 
                   GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               311.136, 1.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
                281.236, 1.}], 
               InsetBox[
                BoxData[
                 FormBox[
                  StyleBox["\"\[FilledSmallCircle]\"", 10, 
                   GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               317.131, 1.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               306.764, 1.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               311.56, 1.}], 
+               255.09, 1.}], 
               InsetBox[
                BoxData[
                 FormBox[
@@ -52806,59 +52841,41 @@ Cell[BoxData[
                 FormBox[
                  StyleBox["\"\[FilledSmallCircle]\"", 10, 
                   GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               321.579, 1.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
                271.153, 1.}], 
               InsetBox[
                BoxData[
                 FormBox[
                  StyleBox["\"\[FilledSmallCircle]\"", 10, 
                   GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               315.288, 1.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               317.693, 1.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               312.04, 1.}]}, {}}, {}, {
+               261.221, 1.}]}, {}}, {}, {
              GrayLevel[0], 
              Directive[
               Thickness[Large], 
               GrayLevel[1]], 
              
-             LineBox[{{108.984, 1.268775119745518}, {108.984, 
+             LineBox[{{108.087, 1.268775119745518}, {108.087, 
               0.7312248802544821}}]}, {}, {
              GrayLevel[0], 
              GrayLevel[0.5], 
              
-             LineBox[{{{78.2955, 1.}, {30.962, 1.}}, {{152.4905, 1.}, {
-              261.221, 1.}}}]}, {
+             LineBox[{{{77.88825, 1.}, {30.962, 1.}}, {{147.38425, 1.}, {
+              250.858, 1.}}}]}, {
              GrayLevel[0], 
              GrayLevel[0.5], 
              
              LineBox[{{{30.962, 1.134387559872759}, {30.962, 
-              0.865612440127241}}, {{261.221, 1.134387559872759}, {261.221, 
+              0.865612440127241}}, {{250.858, 1.134387559872759}, {250.858, 
               0.865612440127241}}}]}, {}}]},
-         ImageSizeCache->{{154.1715728752538, 346.8388189312475}, {
+         ImageSizeCache->{{154.1715728752538, 353.40467761902835`}, {
           20.171572875253787`, 43.82842712474621}}],
         StyleBox[
          TagBox[
           GridBox[{{
-             StyleBox["\"max\"", Bold, StripOnInput -> False], "327.88`"}, {
-             StyleBox["\"75%\"", Bold, StripOnInput -> False], "152.4905`"}, {
+             StyleBox["\"max\"", Bold, StripOnInput -> False], "292.73`"}, {
+             StyleBox["\"75%\"", Bold, StripOnInput -> False], "147.38425`"}, {
              StyleBox["\"median\"", Bold, StripOnInput -> False], 
-             "108.984`"}, {
-             StyleBox["\"25%\"", Bold, StripOnInput -> False], "78.2955`"}, {
+             "108.087`"}, {
+             StyleBox["\"25%\"", Bold, StripOnInput -> False], "77.88825`"}, {
              StyleBox["\"min\"", Bold, StripOnInput -> False], "30.962`"}}, 
            GridBoxAlignment -> {"Columns" -> {Center, ".", {Left}}}, 
            AutoDelete -> False, GridBoxDividers -> {"Columns" -> {
@@ -52884,10 +52901,10 @@ Cell[BoxData[
        Annotation[#, 
         Style[
          Grid[{{
-            Style["max", Bold], 327.88}, {
-            Style["75%", Bold], 152.4905}, {
-            Style["median", Bold], 108.984}, {
-            Style["25%", Bold], 78.2955}, {
+            Style["max", Bold], 292.73}, {
+            Style["75%", Bold], 147.38425}, {
+            Style["median", Bold], 108.087}, {
+            Style["25%", Bold], 77.88825}, {
             Style["min", Bold], 30.962}}, Dividers -> {{
              Directive[
               GrayLevel[0.3]], {
@@ -52917,27 +52934,9 @@ Cell[BoxData[
              Opacity[0.66]}], {}, {}], 
           GraphicsGroupBox[{Antialiasing -> False, 
             
-            PolygonBox[{{166.54125, 1.731224880254482}, {166.54125, 
-             2.268775119745518}, {85.00625000000001, 2.268775119745518}, {
-             85.00625000000001, 1.731224880254482}}], {}, {{
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               330.473, 2.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               333.371, 2.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               328.886, 2.}], 
+            PolygonBox[{{163.7525, 1.731224880254482}, {163.7525, 
+             2.268775119745518}, {84.3575, 2.268775119745518}, {84.3575, 
+             1.731224880254482}}], {}, {{
               InsetBox[
                BoxData[
                 FormBox[
@@ -52955,72 +52954,41 @@ Cell[BoxData[
                 FormBox[
                  StyleBox["\"\[FilledSmallCircle]\"", 10, 
                   GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               341.532, 2.}], 
+               286.422, 2.}], 
               InsetBox[
                BoxData[
                 FormBox[
                  StyleBox["\"\[FilledSmallCircle]\"", 10, 
                   GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               332.66, 2.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               312.109, 2.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               304.788, 2.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               330.962, 2.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               294.047, 2.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               336.96, 2.}]}, {}}, {}, {
+               294.047, 2.}]}, {}}, {}, {
              GrayLevel[0], 
              Directive[
               Thickness[Large], 
               GrayLevel[1]], 
              
-             LineBox[{{117.609, 2.268775119745518}, {117.609, 
+             LineBox[{{116.3425, 2.268775119745518}, {116.3425, 
               1.7312248802544818`}}]}, {}, {
              GrayLevel[0], 
              GrayLevel[0.5], 
              
-             LineBox[{{{85.00625000000001, 2.}, {39.199, 2.}}, {{166.54125, 
-              2.}, {286.422, 2.}}}]}, {
+             LineBox[{{{84.3575, 2.}, {39.199, 2.}}, {{163.7525, 2.}, {
+              282.637, 2.}}}]}, {
              GrayLevel[0], 
              GrayLevel[0.5], 
              
              LineBox[{{{39.199, 2.134387559872759}, {39.199, 
-              1.865612440127241}}, {{286.422, 2.134387559872759}, {286.422, 
+              1.865612440127241}}, {{282.637, 2.134387559872759}, {282.637, 
               1.865612440127241}}}]}, {}}]},
-         ImageSizeCache->{{159.1715728752538, 
-          355.23590252005147`}, {-12.828427124746213`, 10.828427124746213`}}],
+         ImageSizeCache->{{160.1715728752538, 
+          354.35654746264254`}, {-12.828427124746213`, 10.828427124746213`}}],
         StyleBox[
          TagBox[
           GridBox[{{
-             StyleBox["\"max\"", Bold, StripOnInput -> False], "341.532`"}, {
-             StyleBox["\"75%\"", Bold, StripOnInput -> False], "166.54125`"}, {
+             StyleBox["\"max\"", Bold, StripOnInput -> False], "294.047`"}, {
+             StyleBox["\"75%\"", Bold, StripOnInput -> False], "163.7525`"}, {
              StyleBox["\"median\"", Bold, StripOnInput -> False], 
-             "117.609`"}, {
-             StyleBox["\"25%\"", Bold, StripOnInput -> False], 
-             "85.00625000000001`"}, {
+             "116.3425`"}, {
+             StyleBox["\"25%\"", Bold, StripOnInput -> False], "84.3575`"}, {
              StyleBox["\"min\"", Bold, StripOnInput -> False], "39.199`"}}, 
            GridBoxAlignment -> {"Columns" -> {Center, ".", {Left}}}, 
            AutoDelete -> False, GridBoxDividers -> {"Columns" -> {
@@ -53046,10 +53014,10 @@ Cell[BoxData[
        Annotation[#, 
         Style[
          Grid[{{
-            Style["max", Bold], 341.532}, {
-            Style["75%", Bold], 166.54125}, {
-            Style["median", Bold], 117.609}, {
-            Style["25%", Bold], 85.00625000000001}, {
+            Style["max", Bold], 294.047}, {
+            Style["75%", Bold], 163.7525}, {
+            Style["median", Bold], 116.3425}, {
+            Style["25%", Bold], 84.3575}, {
             Style["min", Bold], 39.199}}, Dividers -> {{
              Directive[
               GrayLevel[0.3]], {
@@ -53078,55 +53046,36 @@ Cell[BoxData[
              Opacity[0.66]}], {}, {}], 
           GraphicsGroupBox[{Antialiasing -> False, 
             
-            PolygonBox[{{196.695, 2.7312248802544823`}, {196.695, 
-             3.268775119745518}, {105.41, 3.268775119745518}, {105.41, 
-             2.7312248802544823`}}], {}, {{
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               345.527, 3.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               342.984, 3.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               337.606, 3.}]}, {}}, {}, {
+            PolygonBox[{{185.61025, 2.7312248802544823`}, {185.61025, 
+             3.268775119745518}, {102.6265, 3.268775119745518}, {102.6265, 
+             2.7312248802544823`}}], {}, {{}, {}}, {}, {
              GrayLevel[0], 
              Directive[
               Thickness[Large], 
               GrayLevel[1]], 
-             
-             LineBox[{{146.296, 3.268775119745518}, {146.296, 
+             LineBox[{{144.517, 3.268775119745518}, {144.517, 
               2.731224880254482}}]}, {}, {
              GrayLevel[0], 
              GrayLevel[0.5], 
              
-             LineBox[{{{105.41, 3.}, {34.039, 3.}}, {{196.695, 3.}, {330.635, 
-              3.}}}]}, {
+             LineBox[{{{102.6265, 3.}, {34.039, 3.}}, {{185.61025, 3.}, {
+              299.706, 3.}}}]}, {
              GrayLevel[0], 
              GrayLevel[0.5], 
              
              LineBox[{{{34.039, 3.134387559872759}, {34.039, 
-              2.865612440127241}}, {{330.635, 3.134387559872759}, {330.635, 
+              2.865612440127241}}, {{299.706, 3.134387559872759}, {299.706, 
               2.865612440127241}}}]}, {}}]},
-         ImageSizeCache->{{156.1715728752538, 
-          357.69315046447525`}, {-45.82842712474621, -22.171572875253787`}}],
+         ImageSizeCache->{{157.1715728752538, 
+          355.8284271247462}, {-45.82842712474621, -22.171572875253787`}}],
         StyleBox[
          TagBox[
           GridBox[{{
-             StyleBox["\"max\"", Bold, StripOnInput -> False], "345.527`"}, {
-             StyleBox["\"75%\"", Bold, StripOnInput -> False], "196.695`"}, {
+             StyleBox["\"max\"", Bold, StripOnInput -> False], "299.706`"}, {
+             StyleBox["\"75%\"", Bold, StripOnInput -> False], "185.61025`"}, {
              StyleBox["\"median\"", Bold, StripOnInput -> False], 
-             "146.296`"}, {
-             StyleBox["\"25%\"", Bold, StripOnInput -> False], "105.41`"}, {
+             "144.517`"}, {
+             StyleBox["\"25%\"", Bold, StripOnInput -> False], "102.6265`"}, {
              StyleBox["\"min\"", Bold, StripOnInput -> False], "34.039`"}}, 
            GridBoxAlignment -> {"Columns" -> {Center, ".", {Left}}}, 
            AutoDelete -> False, GridBoxDividers -> {"Columns" -> {
@@ -53152,10 +53101,10 @@ Cell[BoxData[
        Annotation[#, 
         Style[
          Grid[{{
-            Style["max", Bold], 345.527}, {
-            Style["75%", Bold], 196.695}, {
-            Style["median", Bold], 146.296}, {
-            Style["25%", Bold], 105.41}, {
+            Style["max", Bold], 299.706}, {
+            Style["75%", Bold], 185.61025}, {
+            Style["median", Bold], 144.517}, {
+            Style["25%", Bold], 102.6265}, {
             Style["min", Bold], 34.039}}, Dividers -> {{
              Directive[
               GrayLevel[0.3]], {
@@ -53184,193 +53133,110 @@ Cell[BoxData[
              Opacity[0.66]}], {}, {}], 
           GraphicsGroupBox[{Antialiasing -> False, 
             
-            PolygonBox[{{184.635, 3.7312248802544823`}, {184.635, 
-             4.268775119745518}, {102.61775, 4.268775119745518}, {102.61775, 
-             3.7312248802544823`}}], {}, {{
+            PolygonBox[{{178.2735, 3.7312248802544823`}, {178.2735, 
+             4.268775119745518}, {101.82050000000001`, 4.268775119745518}, {
+             101.82050000000001`, 3.7312248802544823`}}], {}, {{
               InsetBox[
                BoxData[
                 FormBox[
                  StyleBox["\"\[FilledSmallCircle]\"", 10, 
                   GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               316.796, 4.}], 
+               294.803, 4.}], 
               InsetBox[
                BoxData[
                 FormBox[
                  StyleBox["\"\[FilledSmallCircle]\"", 10, 
                   GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               321.111, 4.}], 
+               298.802, 4.}], 
               InsetBox[
                BoxData[
                 FormBox[
                  StyleBox["\"\[FilledSmallCircle]\"", 10, 
                   GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               315.515, 4.}], 
+               294.746, 4.}], 
               InsetBox[
                BoxData[
                 FormBox[
                  StyleBox["\"\[FilledSmallCircle]\"", 10, 
                   GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               325.777, 4.}], 
+               297.343, 4.}], 
               InsetBox[
                BoxData[
                 FormBox[
                  StyleBox["\"\[FilledSmallCircle]\"", 10, 
                   GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               346.752, 4.}], 
+               296.997, 4.}], 
               InsetBox[
                BoxData[
                 FormBox[
                  StyleBox["\"\[FilledSmallCircle]\"", 10, 
                   GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               336.221, 4.}], 
+               296.957, 4.}], 
               InsetBox[
                BoxData[
                 FormBox[
                  StyleBox["\"\[FilledSmallCircle]\"", 10, 
                   GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               345.709, 4.}], 
+               294.663, 4.}], 
               InsetBox[
                BoxData[
                 FormBox[
                  StyleBox["\"\[FilledSmallCircle]\"", 10, 
                   GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               328.148, 4.}], 
+               294.125, 4.}], 
               InsetBox[
                BoxData[
                 FormBox[
                  StyleBox["\"\[FilledSmallCircle]\"", 10, 
                   GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               333.17, 4.}], 
+               294.138, 4.}], 
               InsetBox[
                BoxData[
                 FormBox[
                  StyleBox["\"\[FilledSmallCircle]\"", 10, 
                   GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               320.289, 4.}], 
+               295.633, 4.}], 
               InsetBox[
                BoxData[
                 FormBox[
                  StyleBox["\"\[FilledSmallCircle]\"", 10, 
                   GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               339.879, 4.}], 
+               296.888, 4.}], 
               InsetBox[
                BoxData[
                 FormBox[
                  StyleBox["\"\[FilledSmallCircle]\"", 10, 
                   GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               343.456, 4.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               322.068, 4.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               332.28, 4.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               312.311, 4.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               324.529, 4.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               308.322, 4.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               327.473, 4.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               328.892, 4.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               339.655, 4.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               313.927, 4.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               320.839, 4.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               324.874, 4.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               311.438, 4.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               331.104, 4.}], 
-              InsetBox[
-               BoxData[
-                FormBox[
-                 StyleBox["\"\[FilledSmallCircle]\"", 10, 
-                  GrayLevel[0], StripOnInput -> False], TraditionalForm]], {
-               320.691, 4.}]}, {}}, {}, {
+               296.831, 4.}]}, {}}, {}, {
              GrayLevel[0], 
              Directive[
               Thickness[Large], 
               GrayLevel[1]], 
              
-             LineBox[{{139.073, 4.268775119745518}, {139.073, 
+             LineBox[{{137.5385, 4.268775119745518}, {137.5385, 
               3.731224880254482}}]}, {}, {
              GrayLevel[0], 
              GrayLevel[0.5], 
              
-             LineBox[{{{102.61775, 4.}, {39.005, 4.}}, {{184.635, 4.}, {
-              305.644, 4.}}}]}, {
+             LineBox[{{{101.82050000000001`, 4.}, {39.005, 4.}}, {{178.2735, 
+              4.}, {290.884, 4.}}}]}, {
              GrayLevel[0], 
              GrayLevel[0.5], 
              
              LineBox[{{{39.005, 4.134387559872759}, {39.005, 
-              3.865612440127241}}, {{305.644, 4.134387559872759}, {305.644, 
+              3.865612440127241}}, {{290.884, 4.134387559872759}, {290.884, 
               3.865612440127241}}}]}, {}}]},
-         ImageSizeCache->{{159.1715728752538, 
-          358.4466244899869}, {-78.82842712474621, -55.17157287525379}}],
+         ImageSizeCache->{{160.1715728752538, 
+          357.7932529344612}, {-78.82842712474621, -55.17157287525379}}],
         StyleBox[
          TagBox[
           GridBox[{{
-             StyleBox["\"max\"", Bold, StripOnInput -> False], "346.752`"}, {
-             StyleBox["\"75%\"", Bold, StripOnInput -> False], "184.635`"}, {
+             StyleBox["\"max\"", Bold, StripOnInput -> False], "298.802`"}, {
+             StyleBox["\"75%\"", Bold, StripOnInput -> False], "178.2735`"}, {
              StyleBox["\"median\"", Bold, StripOnInput -> False], 
-             "139.073`"}, {
-             StyleBox["\"25%\"", Bold, StripOnInput -> False], "102.61775`"}, {
+             "137.5385`"}, {
+             StyleBox["\"25%\"", Bold, StripOnInput -> False], 
+             "101.82050000000001`"}, {
              StyleBox["\"min\"", Bold, StripOnInput -> False], "39.005`"}}, 
            GridBoxAlignment -> {"Columns" -> {Center, ".", {Left}}}, 
            AutoDelete -> False, GridBoxDividers -> {"Columns" -> {
@@ -53396,10 +53262,10 @@ Cell[BoxData[
        Annotation[#, 
         Style[
          Grid[{{
-            Style["max", Bold], 346.752}, {
-            Style["75%", Bold], 184.635}, {
-            Style["median", Bold], 139.073}, {
-            Style["25%", Bold], 102.61775}, {
+            Style["max", Bold], 298.802}, {
+            Style["75%", Bold], 178.2735}, {
+            Style["median", Bold], 137.5385}, {
+            Style["25%", Bold], 101.82050000000001`}, {
             Style["min", Bold], 39.005}}, Dividers -> {{
              Directive[
               GrayLevel[0.3]], {
@@ -53417,26 +53283,26 @@ Cell[BoxData[
             AbsoluteThickness[1], 
             Dashing[{}]]], {16}], 
         "Tooltip"]& ]}}, {}, {}}, {{{{{{{}, {{}, InsetBox[
-           StyleBox["361",
+           StyleBox["351",
             StripOnInput->False,
             FontSize->16], Offset[{6, 0}, {30.962, 1.}], 
            ImageScaled[{0, 0.5}]]}}, {}}, {{{}, {{}, InsetBox[
-           StyleBox["481",
+           StyleBox["472",
             StripOnInput->False,
             FontSize->16], Offset[{6, 0}, {39.199, 2.}], 
            ImageScaled[{0, 0.5}]]}}, {}}, {{{}, {{}, InsetBox[
-           StyleBox["438",
+           StyleBox["423",
             StripOnInput->False,
             FontSize->16], Offset[{6, 0}, {34.039, 3.}], 
            ImageScaled[{0, 0.5}]]}}, {}}, {{{}, {{}, InsetBox[
-           StyleBox["1201",
+           StyleBox["1168",
             StripOnInput->False,
             FontSize->16], Offset[{6, 0}, {39.005, 4.}], 
            ImageScaled[{0, 0.5}]]}}, {}}}, {}}, {}}, {}}, {}},
   AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
   Axes->{False, False},
   AxesLabel->{None, None},
-  AxesOrigin->{15.172499999999998`, 0.5543473682799303},
+  AxesOrigin->{17.5248, 0.5543473682799303},
   Frame->True,
   FrameLabel->{{None, None}, {
      FormBox[
@@ -53586,7 +53452,9 @@ Cell[BoxData[
    3.592738842673912*^9, 3.672588809401881*^9, 3.672588842740999*^9, 
    3.6727462813670177`*^9, 3.6727473578289948`*^9, 3.6727479993185253`*^9, 
    3.672748669316085*^9, 3.672749263149377*^9, 3.672749854671142*^9, 
-   3.6727504558238363`*^9, 3.6727511208859787`*^9}]
+   3.6727504558238363`*^9, 3.6727511208859787`*^9, {3.680002183121179*^9, 
+   3.680002188855453*^9}, 3.680009622005789*^9, {3.680009703252325*^9, 
+   3.6800097321060743`*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -53639,7 +53507,8 @@ Cell[BoxData[
    3.590227529917544*^9, {3.590227806189608*^9, 3.5902278670674257`*^9}, {
    3.5902329709822187`*^9, 3.590232974627981*^9}, {3.5927388603354387`*^9, 
    3.592738871781451*^9}, {3.6725887924021587`*^9, 3.672588803039464*^9}, {
-   3.67258885672078*^9, 3.6725888809529*^9}}],
+   3.67258885672078*^9, 3.6725888809529*^9}, {3.680009715618143*^9, 
+   3.680009726327403*^9}}],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -53705,7 +53574,8 @@ Cell[BoxData[
    3.67258880384166*^9, {3.6725888499997*^9, 3.672588888214089*^9}, 
    3.672746282478444*^9, 3.672747358123314*^9, 3.672747999674285*^9, 
    3.6727486699149227`*^9, 3.672749263554905*^9, 3.6727498550607758`*^9, 
-   3.6727504561509132`*^9, 3.672751121280075*^9}]
+   3.6727504561509132`*^9, 3.672751121280075*^9, {3.680009717899745*^9, 
+   3.680009726878577*^9}}]
 }, Open  ]]
 }, Open  ]],
 
@@ -59727,23 +59597,23 @@ Cell[1659452, 27644, 285, 4, 31, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[1659774, 27653, 141, 2, 49, "Subsection"],
-Cell[1659918, 27657, 338, 7, 58, "Input"],
+Cell[1659918, 27657, 338, 7, 63, "Input"],
 Cell[CellGroupData[{
-Cell[1660281, 27668, 1601, 36, 215, "Input"],
-Cell[1661885, 27706, 79001, 1319, 70, "Output"],
-Cell[1740889, 29027, 78973, 1318, 70, "Output"],
-Cell[1819865, 30347, 78951, 1318, 70, "Output"],
-Cell[1898819, 31667, 78929, 1318, 70, "Output"],
-Cell[1977751, 32987, 78901, 1317, 70, "Output"],
-Cell[2056655, 34306, 78879, 1317, 70, "Output"],
-Cell[2135537, 35625, 78855, 1317, 70, "Output"],
-Cell[2214395, 36944, 78829, 1316, 70, "Output"],
-Cell[2293227, 38262, 10791, 194, 1162, "Output"]
+Cell[1660281, 27668, 1601, 36, 236, "Input"],
+Cell[1661885, 27706, 79001, 1319, 77, "Output"],
+Cell[1740889, 29027, 78973, 1318, 77, "Output"],
+Cell[1819865, 30347, 78951, 1318, 77, "Output"],
+Cell[1898819, 31667, 78929, 1318, 77, "Output"],
+Cell[1977751, 32987, 78901, 1317, 77, "Output"],
+Cell[2056655, 34306, 78879, 1317, 77, "Output"],
+Cell[2135537, 35625, 78855, 1317, 77, "Output"],
+Cell[2214395, 36944, 78829, 1316, 77, "Output"],
+Cell[2293227, 38262, 10791, 194, 1278, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2304055, 38461, 316, 9, 58, "Input"],
-Cell[2304374, 38472, 27999, 470, 70, "Output"],
-Cell[2332376, 38944, 2903, 55, 515, "Output"]
+Cell[2304055, 38461, 316, 9, 63, "Input"],
+Cell[2304374, 38472, 27999, 470, 77, "Output"],
+Cell[2332376, 38944, 2903, 55, 566, "Output"]
 }, Open  ]]
 }, Closed]]
 }, Open  ]],
@@ -59772,32 +59642,32 @@ Cell[2417020, 40498, 6323, 115, 264, "Output"]
 Cell[CellGroupData[{
 Cell[2423392, 40619, 233, 3, 71, "Section"],
 Cell[CellGroupData[{
-Cell[2423650, 40626, 193, 3, 34, "Input"],
-Cell[2423846, 40631, 515, 9, 70, "Output"]
+Cell[2423650, 40626, 193, 3, 37, "Input"],
+Cell[2423846, 40631, 515, 9, 77, "Output"]
 }, Open  ]],
-Cell[2424376, 40643, 911, 22, 55, "Input"],
+Cell[2424376, 40643, 911, 22, 60, "Input"],
 Cell[CellGroupData[{
-Cell[2425312, 40669, 775, 20, 34, "Input"],
-Cell[2426090, 40691, 2027, 61, 70, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[2428154, 40757, 5501, 128, 193, "Input"],
-Cell[2433658, 40887, 21981, 502, 70, "Output"]
+Cell[2425312, 40669, 775, 20, 37, "Input"],
+Cell[2426090, 40691, 2027, 61, 77, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2455676, 41394, 135, 2, 34, "Input"],
-Cell[2455814, 41398, 11867, 221, 70, "Output"]
-}, Open  ]],
-Cell[2467696, 41622, 96, 1, 34, "Input"],
-Cell[CellGroupData[{
-Cell[2467817, 41627, 6267, 139, 272, "Input"],
-Cell[2474087, 41768, 8109, 174, 70, "Output"],
-Cell[2482199, 41944, 652, 13, 70, "Message"],
-Cell[2482854, 41959, 637, 12, 70, "Message"]
+Cell[2428154, 40757, 5501, 128, 212, "Input"],
+Cell[2433658, 40887, 21981, 502, 77, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2483528, 41976, 1319, 34, 56, "Input"],
-Cell[2484850, 42012, 416813, 6327, 70, "Output"]
+Cell[2455676, 41394, 135, 2, 37, "Input"],
+Cell[2455814, 41398, 11867, 221, 77, "Output"]
+}, Open  ]],
+Cell[2467696, 41622, 96, 1, 37, "Input"],
+Cell[CellGroupData[{
+Cell[2467817, 41627, 6267, 139, 299, "Input"],
+Cell[2474087, 41768, 8109, 174, 77, "Output"],
+Cell[2482199, 41944, 652, 13, 77, "Message"],
+Cell[2482854, 41959, 637, 12, 77, "Message"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2483528, 41976, 1319, 34, 61, "Input"],
+Cell[2484850, 42012, 416813, 6327, 77, "Output"]
 }, Open  ]]
 }, Closed]],
 Cell[CellGroupData[{
@@ -59817,111 +59687,115 @@ Cell[3024322, 51366, 85662, 1193, 5504, "Output"]
 Cell[CellGroupData[{
 Cell[3110033, 52565, 141, 2, 71, "Section"],
 Cell[CellGroupData[{
-Cell[3110199, 52571, 5836, 124, 214, "Input"],
-Cell[3116038, 52697, 36036, 891, 238, "Output"]
+Cell[3110199, 52571, 230, 5, 31, "Input"],
+Cell[3110432, 52578, 1677, 45, 33, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3152111, 53593, 617, 9, 78, "Subsection"],
+Cell[3112146, 52628, 5986, 126, 214, "Input"],
+Cell[3118135, 52756, 28498, 700, 272, "Output"]
+}, Open  ]],
 Cell[CellGroupData[{
-Cell[3152753, 53606, 1583, 35, 104, "Input"],
-Cell[3154339, 53643, 2812, 64, 107, "Output"]
+Cell[3146670, 53461, 617, 9, 78, "Subsection"],
+Cell[CellGroupData[{
+Cell[3147312, 53474, 1633, 36, 104, "Input"],
+Cell[3148948, 53512, 2862, 65, 107, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3157200, 53713, 451, 8, 78, "Subsection"],
+Cell[3151859, 53583, 451, 8, 78, "Subsection"],
 Cell[CellGroupData[{
-Cell[3157676, 53725, 731, 16, 50, "Input"],
-Cell[3158410, 53743, 2760, 63, 107, "Output"]
-}, Open  ]]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[3161231, 53813, 154, 2, 71, "Section"],
-Cell[CellGroupData[{
-Cell[3161410, 53819, 3964, 91, 213, "Input"],
-Cell[3165377, 53912, 43750, 1091, 249, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[3209164, 55008, 1948, 44, 68, "Input"],
-Cell[3211115, 55054, 8927, 247, 265, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[3220079, 55306, 263, 5, 49, "Subsection"],
-Cell[CellGroupData[{
-Cell[3220367, 55315, 611, 14, 50, "Input"],
-Cell[3220981, 55331, 2652, 61, 97, "Output"]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[3223682, 55398, 794, 16, 246, "Subsection"],
-Cell[CellGroupData[{
-Cell[3224501, 55418, 5373, 135, 554, "Input"],
-Cell[3229877, 55555, 636, 14, 50, "Output"],
-Cell[3230516, 55571, 636, 14, 50, "Output"],
-Cell[3231155, 55587, 636, 14, 50, "Output"],
-Cell[3231794, 55603, 9851, 225, 368, "Output"]
+Cell[3152335, 53595, 731, 16, 50, "Input"],
+Cell[3153069, 53613, 2760, 63, 107, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3241706, 55835, 184, 2, 71, "Section"],
+Cell[3155890, 53683, 154, 2, 71, "Section"],
 Cell[CellGroupData[{
-Cell[3241915, 55841, 4219, 100, 266, "Input"],
-Cell[3246137, 55943, 12343, 367, 252, "Output"],
-Cell[3258483, 56312, 647, 13, 25, "Message"],
-Cell[3259133, 56327, 633, 12, 25, "Message"]
+Cell[3156069, 53689, 3964, 91, 213, "Input"],
+Cell[3160036, 53782, 43750, 1091, 249, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3203823, 54878, 1948, 44, 74, "Input"],
+Cell[3205774, 54924, 8927, 247, 291, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3214738, 55176, 263, 5, 53, "Subsection"],
+Cell[CellGroupData[{
+Cell[3215026, 55185, 611, 14, 55, "Input"],
+Cell[3215640, 55201, 2652, 61, 106, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3259815, 56345, 321, 4, 71, "Section"],
+Cell[3218341, 55268, 794, 16, 270, "Subsection"],
 Cell[CellGroupData[{
-Cell[3260161, 56353, 282, 6, 31, "Input"],
-Cell[3260446, 56361, 5300, 128, 212, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[3265783, 56494, 224, 4, 31, "Input"],
-Cell[3266010, 56500, 473, 9, 31, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[3266520, 56514, 1473, 34, 104, "Input"],
-Cell[3267996, 56550, 24781, 563, 412, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[3292814, 57118, 970, 23, 68, "Input"],
-Cell[3293787, 57143, 357, 5, 31, "Output"],
-Cell[3294147, 57150, 1621, 35, 158, "Output"]
+Cell[3219160, 55288, 5373, 135, 609, "Input"],
+Cell[3224536, 55425, 636, 14, 55, "Output"],
+Cell[3225175, 55441, 636, 14, 55, "Output"],
+Cell[3225814, 55457, 636, 14, 55, "Output"],
+Cell[3226453, 55473, 9851, 225, 404, "Output"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3295817, 57191, 242, 3, 71, "Section"],
-Cell[3296062, 57196, 300, 9, 31, "Input"],
-Cell[3296365, 57207, 92, 1, 31, "Input"],
+Cell[3236365, 55705, 184, 2, 78, "Section"],
 Cell[CellGroupData[{
-Cell[3296482, 57212, 245, 6, 31, "Input"],
-Cell[3296730, 57220, 2818, 60, 158, "Output"]
-}, Open  ]],
-Cell[3299563, 57283, 54, 1, 31, "Input"],
-Cell[CellGroupData[{
-Cell[3299642, 57288, 191, 4, 31, "Input"],
-Cell[3299836, 57294, 105771, 2206, 222, "Output"]
+Cell[3236574, 55711, 4219, 100, 292, "Input"],
+Cell[3240796, 55813, 12343, 367, 277, "Output"],
+Cell[3253142, 56182, 647, 13, 27, "Message"],
+Cell[3253792, 56197, 633, 12, 27, "Message"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3405644, 59505, 152, 3, 31, "Input"],
-Cell[3405799, 59510, 499, 8, 31, "Output"]
+Cell[3254474, 56215, 321, 4, 78, "Section"],
+Cell[CellGroupData[{
+Cell[3254820, 56223, 282, 6, 34, "Input"],
+Cell[3255105, 56231, 5300, 128, 233, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3406335, 59523, 176, 4, 31, "Input"],
-Cell[3406514, 59529, 2202, 48, 104, "Output"]
-}, Open  ]],
-Cell[3408731, 59580, 427, 9, 88, "Input"],
-Cell[CellGroupData[{
-Cell[3409183, 59593, 621, 19, 50, "Input"],
-Cell[3409807, 59614, 600, 10, 31, "Output"],
-Cell[3410410, 59626, 446, 8, 31, "Output"]
+Cell[3260442, 56364, 224, 4, 34, "Input"],
+Cell[3260669, 56370, 473, 9, 34, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3410893, 59639, 253, 7, 50, "Input"],
-Cell[3411149, 59648, 262, 4, 31, "Output"]
+Cell[3261179, 56384, 1473, 34, 114, "Input"],
+Cell[3262655, 56420, 24781, 563, 453, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3287473, 56988, 970, 23, 74, "Input"],
+Cell[3288446, 57013, 357, 5, 34, "Output"],
+Cell[3288806, 57020, 1621, 35, 173, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3290476, 57061, 242, 3, 78, "Section"],
+Cell[3290721, 57066, 300, 9, 34, "Input"],
+Cell[3291024, 57077, 92, 1, 34, "Input"],
+Cell[CellGroupData[{
+Cell[3291141, 57082, 245, 6, 34, "Input"],
+Cell[3291389, 57090, 2818, 60, 173, "Output"]
+}, Open  ]],
+Cell[3294222, 57153, 54, 1, 34, "Input"],
+Cell[CellGroupData[{
+Cell[3294301, 57158, 191, 4, 34, "Input"],
+Cell[3294495, 57164, 105771, 2206, 244, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3400303, 59375, 152, 3, 34, "Input"],
+Cell[3400458, 59380, 499, 8, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3400994, 59393, 176, 4, 34, "Input"],
+Cell[3401173, 59399, 2202, 48, 114, "Output"]
+}, Open  ]],
+Cell[3403390, 59450, 427, 9, 96, "Input"],
+Cell[CellGroupData[{
+Cell[3403842, 59463, 621, 19, 55, "Input"],
+Cell[3404466, 59484, 600, 10, 34, "Output"],
+Cell[3405069, 59496, 446, 8, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3405552, 59509, 253, 7, 55, "Input"],
+Cell[3405808, 59518, 262, 4, 34, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]

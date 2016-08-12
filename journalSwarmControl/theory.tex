@@ -18,7 +18,7 @@ The state-space representation in standard form is:
 \dot{\mathbf{x}}(t)  &=  A \mathbf{x}(t) + B \mathbf{u}(t)
 \end{align}
 
-and our state space representation as:
+and our state space representation is:
 \begin{equation}
 \begin{bmatrix}
 \dot{x}\\ 
@@ -40,7 +40,10 @@ y\\
 \frac{1}{m} & 0 \\
 0 & 0 \\
 0 & \frac{1}{m}
-\end{bmatrix}  [u_x,u_y]
+\end{bmatrix} 
+ \begin{bmatrix}
+ u_x\\
+ u_y\end{bmatrix} 
 \end{equation}
 
 We want to find the number of states that we can control, which is given by the rank of the \emph{controllability matrix}
@@ -79,21 +82,12 @@ We want to find the number of states that we can control, which is given by the 
 0 & 0
 \end{matrix}
  \right],
+ \quad \textrm{rank}(\mathcal{C})=4,
 \end{equation}
 and thus all four states are controllable. This section starts by proving independent position control of many robots is not possible, but the mean position can be controlled. We then provide conditions under which the variance of many robots is also controllable.
 
 \subsection{Independent control of many robots is impossible}
 A single robot is fully controllable. For holonomic robots, movement in the $x$ and $y$ coordinates are independent, so for notational convenience without loss of generality we will focus only on movement in the $x$ axis. Given $n$ robots to be  controlled in the $x$ axis, there are $2n$ states: $n$ positions and $n$ velocities.
-%\begin{equation}\left[ x_{1,1},x_{2,1},\ldots, x_{2n-1},x_{2n}\right]^\intercal = \left[ p_{x,1},v_{x,1},\ldots,p_{x,n},v_{x,n}\right]^\intercal. \nonumber\end{equation}
-%\begin{align}
-%\dot{p}_{x1} &= v_{x1}\\\nonumber
-%\dot{v}_{x1} &= a_{x1}\\\nonumber
-%\dot{p}_{x2} &= v_{x2}\\\nonumber
-%\dot{v}_{x2} &= a_{x2}\\\nonumber
-%&\vdots\\\nonumber
-%\dot{p}_{xn} &= v_{xn}\\\nonumber
-%\dot{v}_{xn} &= a_{xn}\nonumber
-%\end{align}
 Our state-space representation is:
 \begin{equation}
 \begin{bmatrix}
@@ -123,9 +117,9 @@ x_{n}\\
 1
 \end{bmatrix} u_x
 \end{equation}
- However, just as with one robot, we can only control two states because $\mathcal{C}$ has rank two:
+ However, just as with one robot, we can only control two states because the controllability matrix $\mathcal{C}_n$ has rank two:
 \begin{equation}
-\mathcal{C}=\left[ \begin{matrix} 
+\mathcal{C}_n=\left[ \begin{matrix} 
 0\\
 1\\
 \vdots\\
@@ -155,8 +149,8 @@ x_{n}\\
 \vdots\\
 0\\
 0
-\end{matrix}\,\middle\vert\,, 
-\ldots \right]
+\end{matrix}\,\middle\vert\,
+\ldots \right], \quad \textrm{rank}(\mathcal{C}_n)=2.
 \end{equation}  
 \subsection{Controlling the mean position of many robots}\label{sec:controlMeanPosition}
 This means \emph{any} number of robots controlled by a global command have just two controllable states in each axis. We cannot arbitrarily control the position and velocity of two or more robots, but have options on which states to control.  One option is to control the position and velocity of the $j^{th}$ robot. To find a potentially more useful option, we create the following reduced order system that represents the average $x$ position and velocity of the $n$ robots:
@@ -204,9 +198,9 @@ Thus:
 \end{bmatrix} u_x
 \end{equation}
 
-We again analyze $\mathcal{C}$:
+We again analyze the controllability matrix $\mathcal{C}_{\mu}$:
 \begin{equation}
-\mathcal{C}=\left[ \begin{matrix} 
+\mathcal{C}_\mu=\left[ \begin{matrix} 
 0\\
 1
 \end{matrix}
@@ -215,17 +209,17 @@ We again analyze $\mathcal{C}$:
 1\\
 0
 \end{matrix}
- \right]
+ \right],  \quad \textrm{rank}(\mathcal{C}_\mu)=2.
 \end{equation}
-This matrix has rank two, and thus the average position and average velocity are controllable.
+Thus the average position and average velocity are controllable.
 
 
 Due to symmetry of the control input, only the mean position and mean velocity are controllable. However, there are several techniques for breaking symmetry, for example by using obstacles as in \cite{Becker2013b}, or by allowing independent noise sources as in \cite{beckerIJRR2014}.
 
-We control mean position with a PD controller that uses the mean position and mean velocity. Our control input is the global force applied to each robot:
+We control mean position with a PD controller that uses the mean position and mean velocity. $[u_x,u_y]^\top$ is the global force applied to each robot:
 \begin{align}
-u_x &= K_{p}(x_{goal} - \bar{x}) + K_{d}(0-\bar{v}_x) \nonumber\\
-u_y &= K_{p}(y_{goal}  - \bar{y}) + K_{d}(0-\bar{v}_y)  \label{eq:PDcontrolPosition}
+u_x &= K_{p}(x_{goal} - \bar{x}) + K_{d}(0-\dot{\bar{x}}) \nonumber\\
+u_y &= K_{p}(y_{goal}  - \bar{y}) + K_{d}(0-\dot{\bar{y}})  \label{eq:PDcontrolPosition}
 \end{align}
 here $K_{p}$ is the proportional gain, and $K_{d}$ is the derivative gain. 
 
@@ -246,16 +240,15 @@ Microscale systems are affected by unmodelled dynamics.
 These unmodelled dynamics are dominated by Brownian noise, described by~\cite{einstein1956investigations}. 
 To model this~\eqref{eq:stdform} must be modified as follows:
 \begin{align}
-\dot{\mathbf{x}}(t)  &=  A \mathbf{x}(t) + B \mathbf{u}(t) + W \bm{\varepsilon}(t)
+\dot{\mathbf{x}}(t)  &=  A \mathbf{x}(t) + B \mathbf{u}(t) + W \bm{\varepsilon}(t),
 \end{align}
 where $W\bm{\varepsilon}(t)$ is a random perturbation produced by Brownian noise with magnitude $W$. Given a large obstacle-free workspace, a \emph{Brownian noise} process increases the variance linearly with time.
-\begin{equation}\dot{\sigma}_x^2(\mathbf{x}(t), \mathbf{u}(t) \Leftarrow 0)  = W \bm{\varepsilon} \end{equation}
- If faster dispersion is needed, the swarm can be pushed through obstacles such as a diffraction grating or Pachinko board~\cite{Becker2013b}. 
+\begin{equation}
+\dot{\sigma}_x^2(\mathbf{x}(t), \mathbf{u}(t) \Leftarrow 0)  = W \bm{\varepsilon},
+\quad \sigma_x^2(t)  = \sigma_x^2(0) + W \bm{\varepsilon} t
+\end{equation}
+ If faster dispersion is needed, the swarm can be pushed through obstacles such as a diffraction grating or Pachinko board as in~\cite{Becker2013b}. 
 
-%After some time, Gaussian distribution shapes the outline of the robots because of the Brownian noise feature:\\
-%\begin{equation}
-%P(x) = \frac{1}{\sigma \sqrt{2\pi } }e^{ -  \frac{\left( x - \mu  \right)^2 } {2\sigma ^2 }}
-%\end{equation}
 If robots with radius $r$ are in a bounded environment with sides of length $[\ell_x, \ell_y]$, the unforced variance asymptotically grows to the variance of a uniform distribution,
 \begin{align}
 [\sigma_x^2,\sigma_y^2] = \frac{1}{12}[ (\ell_x - 2 r)^2,(\ell_y - 2 r)^2].\label{eq:VarianceUniformDistribution}
@@ -298,12 +291,12 @@ A  controller to regulate the variance to $\sigma^2_{ref}$ is:
 u_x &= K_{p}(x_{goal}(\sigma^2_{ref}) - \bar{x}) - K_{d}\bar{v}_x + K_{i}(\sigma^2_{ref}-\sigma^2_{x}) \nonumber\\
 u_y &= K_{p}(y_{goal}(\sigma^2_{ref})  - \bar{y}) - K_{d}\bar{v}_y + K_{i}(\sigma^2_{ref}-\sigma^2_{y}).  \label{eq:PDcontrolVariance}
 \end{align}
-In a slight abuse of notation we call the gain scaling the variance error $K_i$ because the variance, if unregulated, integrates over time.
+We call the gain scaling the variance error $K_i$ because the variance, if unregulated, integrates over time.
 Eq.~\eqref{eq:PDcontrolVariance} assumes the nearest wall is to the left of the robot at $x=0$, and chooses a reference goal position that in steady-state would have the correct variance according to \eqref{eq:VarianceUniformDistribution}:
 \begin{align}
-x_{goal}(\sigma^2_{ref}) = r + \sqrt{3\sigma^2_{ref}}
+x_{goal}(\sigma^2_{ref}) = \ell_x/2 = r + \sqrt{3\sigma^2_{ref}}
 \end{align}
- If another wall is closer, the signs of $[K_p,K_i]$ are inverted, and the location $x_{goal}$ is translated.  
+ If a wall to the right is closer, the signs of $[K_p,K_i]$ are inverted, and the location $x_{goal}$ is translated.  
 
 
 \subsection{Controlling both mean and variance of many robots}
@@ -317,7 +310,7 @@ The mean and variance of the swarm cannot be controlled simultaneously, however 
 \caption{Hybrid mean and variance control}\label{alg:MeanVarianceControl}
 \begin{algorithmic}[1]
 \Require Knowledge of swarm mean $[\bar{x},\bar{y}]$, variance $[\sigma_x^2, \sigma_y^2]$, the locations of the rectangular boundary $\{x_{min}, x_{max}, y_{min}, y_{max}\}$, and the target mean position $[x_{target},y_{target}]$.%TODO: use  \AND, \OR, \XOR, \NOT, \TO, \TRUE, \FALSE \gets
-\State $flag_x \gets \FALSE$,  $flag_y \gets \FALSE$ 
+\State $flag_x \gets \FALSE$,  $flag_y \gets \FALSE$  \Comment{initially not in variance control mode}
 \State $x_{goal} \gets  x_{target}$, $y_{goal} \gets y_{target}$
 \Loop
 %\State  Compute $\sigma_x^2, \sigma_y^2$

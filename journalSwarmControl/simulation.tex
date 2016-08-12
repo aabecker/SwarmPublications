@@ -9,7 +9,7 @@ Our simulations use a Javascript port of \href{http://box2d.org/}{Box2D}, a popu
 
 \subsection{Controlling the mean position of many robots}
 
-We performed a parameter sweep using the PD controller \eqref{eq:PDcontrolPosition} to identify the best control gains.  Representative experiments are shown in Fig.~\ref{fig:gainvalues}. 100 robots were used and the maximum speed was 3 meters per second. As shown in Fig.~\ref{fig:gainvalues}, we can achieve an overshoot of 1\% and a  rise time of 1.52 s with $K_{p}= 4$, and  $K_{d} = 1$. 
+We performed a parameter sweep using the PD controller \eqref{eq:PDcontrolPosition} to identify the best control gains.  Representative experiments are shown in Fig.~\ref{fig:gainvalues}. 100 robots were used and the maximum speed was 3 meters per second. As shown in Fig.~\ref{fig:gainvalues}, we can achieve an overshoot of 1\% and a  rise time of 1.52~s with $K_{p}= 4$, and  $K_{d} = 1$. 
 \begin{figure}
 \centering
 \begin{overpic}[width = 0.7\columnwidth ]{gains.eps}
@@ -46,7 +46,7 @@ We performed a parameter sweep using the PD controller \eqref{eq:PDcontrolPositi
 
 %cite the control law, explain experiment (number of robots, maximum speed, ).
 
-For variance control we use the control law discussed in \S \ref{sec:VarianceControl}. 
+For variance control we use the control law \eqref{eq:PDcontrolVariance}. 
  Results are shown in Fig.~\ref{fig:varyBrownian}, with $K_{p,i,d} = [4,1,1]$.
 
 
