@@ -39,8 +39,8 @@
 \newlabel{fig:5experiments}{{1}{4}{Screenshots from our online experiments controlling multi-robot systems with limited, global control. \textbf {(a)} Varying the number of robots from 1-500 \textbf {(b)} Comparing 4 levels of visual feedback \textbf {(c)} Varying noise from 0 to 200\% of control authority \textbf {(d)} Controlling the position of 1 to 10 robots \textbf {(e)} Comparing 3 control architectures to assemble \textbf {(f)} Comparing 3 control architectures to forage. \vspace {-2em} \relax }{figure.caption.2}{}}
 \citation{swarmcontrol2013}
 \citation{ShahrokhiIROS2015}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  A swarm of robots, all controlled by a uniform force field, can be effectively controlled by a hybrid controller that knows only the first and second moments of the robot distribution. Here a swarm of simple robots (blue discs) pushes a green hexagon toward the goal. Simulation at left, screen capture form hardware experiment at right. See multimedia extension.\relax }}{5}{figure.caption.3}}
-\newlabel{fig:bigPictureMeanAndVarianceForSwarm}{{2}{5}{A swarm of robots, all controlled by a uniform force field, can be effectively controlled by a hybrid controller that knows only the first and second moments of the robot distribution. Here a swarm of simple robots (blue discs) pushes a green hexagon toward the goal. Simulation at left, screen capture form hardware experiment at right. See multimedia extension.\relax }{figure.caption.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  A swarm of robots, all controlled by a uniform force field, can be effectively controlled by a hybrid controller that knows only the mean and variance of the robot distribution. Here a swarm of simple robots (blue discs) pushes a green hexagon toward the goal. Simulation at left, screen capture from hardware experiment at right. See multimedia extension.\relax }}{5}{figure.caption.3}}
+\newlabel{fig:bigPictureMeanAndVarianceForSwarm}{{2}{5}{A swarm of robots, all controlled by a uniform force field, can be effectively controlled by a hybrid controller that knows only the mean and variance of the robot distribution. Here a swarm of simple robots (blue discs) pushes a green hexagon toward the goal. Simulation at left, screen capture from hardware experiment at right. See multimedia extension.\relax }{figure.caption.3}{}}
 \citation{Donald2006,Donald2008}
 \citation{Floyd2011,Diller2013}
 \citation{Frutiger2008}
@@ -127,6 +127,7 @@
 \citation{Shahrokhi2015}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Hybrid mean and variance control\relax }}{18}{algorithm.1}}
 \newlabel{alg:MeanVarianceControl}{{1}{18}{Hybrid mean and variance control\relax }{algorithm.1}{}}
+\newlabel{eq:sigMaxMin}{{20}{18}{Controlling both mean and variance of many robots}{equation.4.20}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces  (Left) Two states to control mean and variance of a robot swarm. (Right) Switching conditions for variance control are set as a function of $n$, and designed to be larger than the optimal packing density. The plot uses robot radius $r=1/10$. \relax }}{19}{figure.caption.19}}
 \newlabel{fig:hysteresis}{{9}{19}{(Left) Two states to control mean and variance of a robot swarm. (Right) Switching conditions for variance control are set as a function of $n$, and designed to be larger than the optimal packing density. The plot uses robot radius $r=1/10$. \relax }{figure.caption.19}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Simulation of control laws}{19}{section.5}}
@@ -159,40 +160,41 @@
 \newlabel{eq:potentialfield}{{27}{23}{Potential fields for swarm management with a compliant manipulator}{equation.6.27}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Outlier rejection}{23}{subsection.6.3}}
 \newlabel{subsec:OutlierRejection}{{6.3}{23}{Outlier rejection}{subsection.6.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces  Outlier rejection state machine and regions. \relax }}{24}{figure.caption.25}}
-\newlabel{fig:Region}{{15}{24}{Outlier rejection state machine and regions. \relax }{figure.caption.25}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Algorithm for object manipulation}{24}{subsection.6.4}}
-\citation{christensen2016let}
+\newlabel{eq:sigMaxMin}{{6.4}{24}{Algorithm for object manipulation}{subsection.6.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Automated object manipulation (simulation)}{24}{subsection.6.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces  Outlier rejection state machine and regions. \relax }}{25}{figure.caption.25}}
+\newlabel{fig:Region}{{15}{25}{Outlier rejection state machine and regions. \relax }{figure.caption.25}{}}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Object-manipulation controller for a robotic swarm.\relax }}{25}{algorithm.2}}
 \newlabel{alg:BlockPushing}{{2}{25}{Object-manipulation controller for a robotic swarm.\relax }{algorithm.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Automated object manipulation (simulation)}{25}{subsection.6.5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces  Six equal-area objects were tested. \vspace  {-1em} \relax }}{25}{figure.caption.26}}
-\newlabel{fig:Shapes}{{16}{25}{Six equal-area objects were tested. \vspace {-1em} \relax }{figure.caption.26}{}}
+\citation{christensen2016let}
 \citation{Rubenstein2012,rubenstein2014programmable}
 \citation{K-Team2015}
 \@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces \href  {http://youtu.be/tCej-9e6-4o}{Snapshots showing an object manipulation simulation with 100 robots under automatic control. See video in multimedia extension.} \relax }}{26}{figure.caption.27}}
 \newlabel{fig:story}{{17}{26}{\href {http://youtu.be/tCej-9e6-4o}{Snapshots showing an object manipulation simulation with 100 robots under automatic control. See video in multimedia extension.} \relax }{figure.caption.27}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Parameter sweep for a) number of robots, b) different noise values, c) object weight, and d) object shape. Each bar is labelled with the number of trials. Completion time is in seconds. \relax }}{26}{figure.caption.28}}
-\newlabel{fig:AutoVeryParam}{{18}{26}{Parameter sweep for a) number of robots, b) different noise values, c) object weight, and d) object shape. Each bar is labelled with the number of trials. Completion time is in seconds. \relax }{figure.caption.28}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces  Six equal-area objects were tested. \vspace  {-1em} \relax }}{26}{figure.caption.26}}
+\newlabel{fig:Shapes}{{16}{26}{Six equal-area objects were tested. \vspace {-1em} \relax }{figure.caption.26}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Object manipulation with hardware robots}{26}{section.7}}
+\newlabel{sec:realExperiment}{{7}{26}{Object manipulation with hardware robots}{section.7}{}}
 \citation{Shahrokhi2015GitHubShapeControl}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Object manipulation with hardware robots}{27}{section.7}}
-\newlabel{sec:realExperiment}{{7}{27}{Object manipulation with hardware robots}{section.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Parameter sweep for a) number of robots, b) different noise values, c) object weight, and d) object shape. Each bar is labelled with the number of trials. Completion time is in seconds. \relax }}{27}{figure.caption.28}}
+\newlabel{fig:AutoVeryParam}{{18}{27}{Parameter sweep for a) number of robots, b) different noise values, c) object weight, and d) object shape. Each bar is labelled with the number of trials. Completion time is in seconds. \relax }{figure.caption.28}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Environmental setup}{27}{subsection.7.1}}
-\@writefile{toc}{\contentsline {paragraph}{Swarm mean control (hardware experiment)}{27}{section*.30}}
 \@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces  Hardware platform. At right are the shapes used for hardware experiments and a visualization of the potential field. \relax }}{28}{figure.caption.29}}
 \newlabel{fig:setup}{{19}{28}{Hardware platform. At right are the shapes used for hardware experiments and a visualization of the potential field. \relax }{figure.caption.29}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces  Regulating average $x$ position of 100 kilobots using control law \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:PDcontrolPosition}\unskip \@@italiccorr )}}. \relax }}{28}{figure.caption.31}}
 \newlabel{fig:realMean}{{20}{28}{Regulating average $x$ position of 100 kilobots using control law \eqref {eq:PDcontrolPosition}. \relax }{figure.caption.31}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Automated object manipulation (hardware experiment)}{28}{subsection.7.2}}
+\@writefile{toc}{\contentsline {paragraph}{Swarm mean control (hardware experiment)}{28}{section*.30}}
 \@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces {Snapshots showing the object manipulation experiment with 100 kilobots under automatic control. The automatic controller classifies pink objects as obstacles and generates a policy to the goal. See video in multimedia extension.} \relax }}{29}{figure.caption.32}}
 \newlabel{fig:expSnapShot}{{21}{29}{{Snapshots showing the object manipulation experiment with 100 kilobots under automatic control. The automatic controller classifies pink objects as obstacles and generates a policy to the goal. See video in multimedia extension.} \relax }{figure.caption.32}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{29}{section.8}}
-\newlabel{sec:conclusion}{{8}{29}{Conclusion}{section.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Automated object manipulation (hardware experiment)}{29}{subsection.7.2}}
 \bibstyle{plainnat}
 \bibdata{IEEEabrv,SwarmControlIJRR}
 \bibcite{Armani2006}{{1}{2006}{{Armani et~al.}}{{Armani, Chaudhary, Probst, and Shapiro}}}
 \bibcite{avouris1995manipulation}{{2}{1995}{{Avouris}}{{}}}
 \bibcite{bashyal2008human}{{3}{2008}{{Bashyal and Venayagamoorthy}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{30}{section.8}}
+\newlabel{sec:conclusion}{{8}{30}{Conclusion}{section.8}{}}
 \bibcite{Becker2015MDP}{{4}{2015}{{Becker}}{{}}}
 \bibcite{Becker2012}{{5}{2012}{{Becker and Bretl}}{{}}}
 \bibcite{Becker2009}{{6}{2009}{{Becker et~al.}}{{Becker, Sandheinrich, and Bretl}}}

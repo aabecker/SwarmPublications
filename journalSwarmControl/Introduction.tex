@@ -46,7 +46,7 @@ Screenshots from our online experiments controlling multi-robot systems with lim
 
 Our goal was to test several scenarios involving large-scale human-swarm interaction (HSI), and to do so with a statistically-significant sample size. Towards this end, we created \href{http://www.swarmcontrol.net/show_results}{SwarmControl.net}, an open-source, online testing platform suitable for inexpensive deployment and data collection on a scale not yet seen in swarm robotics research. Screenshots from this platform are shown in Fig.~\ref{fig:5experiments}.  \href{https://github.com/crertel/swarmmanipulate.git}{All code} \href{http://www.swarmcontrol.net/show_results}{and experimental results} are posted online, \cite{Chris-Ertel2013}. \todo{TODO: Chris, is 2016 code ready to upload? link to 2016 code}
 
-Our experiments show that numerous simple robots responding to global control inputs are directly controllable by a human operator without special training, that the visual feedback of the swarm state should be simple to increase task performance, and that humans perform swarm-object manipulation faster using attractive control schemes than repulsive control schemes.
+Our online experiments show that numerous simple robots responding to global control inputs are directly controllable by a human operator without special training, that the visual feedback of the swarm state should be simple to increase task performance, and that humans perform swarm-object manipulation faster using attractive control schemes than repulsive control schemes.
 
 %Inspired by our online experiments, because it is not always possible to gather pose information on each robot for feedback control and
 %It is not always practical to gather pose information on individual robots for feedback control; the robots might be difficult or impossible to sense individually due to their size and location. However, it is often possible to sense global properties of the group, such as mean position and density.
@@ -63,7 +63,7 @@ These controllers are used as primitives to perform the object manipulation task
 %Please use the same color and line style for the variance min and max as you use in Figure 4.
 %}
 %{blockpushingImageWithMeanAndVarianceOverlay.png}
-\caption{\label{fig:bigPictureMeanAndVarianceForSwarm} A swarm of robots, all controlled by a uniform force field, can be effectively controlled by a hybrid controller that knows only the first and second moments of the robot distribution.  Here a swarm of simple robots (blue discs) pushes a green hexagon toward the goal. Simulation at left, screen capture form hardware experiment at right. See multimedia extension.}
+\caption{\label{fig:bigPictureMeanAndVarianceForSwarm} A swarm of robots, all controlled by a uniform force field, can be effectively controlled by a hybrid controller that knows only the mean and variance of the robot distribution.  Here a swarm of simple robots (blue discs) pushes a green hexagon toward the goal. Simulation at left, screen capture from hardware experiment at right. See multimedia extension.}
 \end{figure}
  %function and implementation function
 
