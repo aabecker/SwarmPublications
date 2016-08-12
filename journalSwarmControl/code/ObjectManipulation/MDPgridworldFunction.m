@@ -69,10 +69,13 @@ R(goalX,goalY) = 100; %goal state has big reward
             end
             iteration = iteration+1;
             set(hImageV,'cdata',V_hat);
+            title(['Value iteration step ',num2str(iteration),' of ', num2str(iteration_limit)])
             drawnow
         end
         hold on; hq=quiver(X,Y,DY,DX,0.5,'color',[0,0,0]); hold off
         set(hq,'linewidth',2);
+        title(['Policy after ', num2str(iteration_limit),' iterations'])
+        drawnow
     end
 
     function [bestMove,bestPayoff] = policy_MDP(index,V_hat,prob)

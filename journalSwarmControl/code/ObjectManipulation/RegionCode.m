@@ -1,3 +1,4 @@
+function RegionCode(webcamShot)
 %% REGIONCODE -- preprocessing for block pushing experiment
 % Takes a snapshot from the webcam, then processes it to find
 % obstacles. From these obstacles, the corners, regions, and a policy for MDP
@@ -18,34 +19,30 @@
 % ---------------------
 % By Shiva Shahrokhi and Lillian Lin,  Summer 2016
 % Shiva Shahrokhi <shiva.shahrokhi@gmail.com>
-close all
-clear all
 
-success = false;
-webcamShot = true;
+if nargin<1
+    webcamShot = false;
+end
+
+tic;
 if webcamShot
     cam = webcam(1);
-end
-t0 = tic;
-if webcamShot
     originalImage = snapshot(cam);
-    if (ispc)
-        original = imcrop(originalImage,[50 10 500 400]);
-        img = imcrop(originalImage,[50 10 500 400]);
-        rgbIm = imcrop(originalImage,[50 10 500 400]);
-    else
-        original = imcrop(originalImage,[345 60 1110 860]);
-        img = imcrop(originalImage,[345 60 1110 860]);
-        rgbIm = imcrop(originalImage,[345 60 1110 860]);
-    end
+    %imwrite(originalImage,'KilobotTableExample.jpeg'); % to save a new image
 else
-    rgbIm = imread('PC.jpeg'); %#ok<UNRCH>
+    originalImage = imread('KilobotTableExample.jpeg');
+end
+
+if (ispc)  % Code to run on PC platform
+    rgbIm = imcrop(originalImage,[50 10 500 400]);
+else        % Code to run on Mac platform
+    rgbIm = imcrop(originalImage,[345 60 1110 860]);
 end
 
 %% Obstacle Thresholds
 I = rgb2hsv(rgbIm);
 
-% Define thresholds for channel 1 based on histogram settings 
+% Define thresholds for channel 1 based on histogram settings
 % these were picked using the Color Thresholding tool
 channel1Min = 0.862;
 channel1Max = 0.945;
@@ -64,7 +61,7 @@ BW = (I(:,:,1) >= channel1Min ) & (I(:,:,1) <= channel1Max) & ...
     (I(:,:,3) >= channel3Min ) & (I(:,:,3) <= channel3Max);
 
 %% finding Obstacles
-[B,L] = bwboundaries(BW, 'noholes');
+[~,L] = bwboundaries(BW, 'noholes');
 stat = regionprops(L,'Centroid','Orientation','MajorAxisLength', 'Area');
 area = cat(1,stat.Area);
 centroids = cat(1, stat.Centroid);
@@ -83,8 +80,8 @@ Tangent_offset=zeros(size(obstacles));
 
 tipx = zeros(size(obstacles));%[tipx,tipy] are extreme edges of obstacles
 tipy = zeros(size(obstacles));
-for i = 1:numel(obstacles) 
-    tipx(i)=centroids(obstacles(i),1) + cos(orientations(obstacles(i))*pi/180)* majorLength(obstacles(i))/2.3; 
+for i = 1:numel(obstacles)
+    tipx(i)=centroids(obstacles(i),1) + cos(orientations(obstacles(i))*pi/180)* majorLength(obstacles(i))/2.3;
     tipy(i)=centroids(obstacles(i),2) - sin(orientations(obstacles(i))*pi/180)* majorLength(obstacles(i))/2.3;
     % ensures that [tipx,tipy] is inside the workspace
     if abs(tipy(i)-ylim(1))<50||abs(tipy(i)-ylim(2))<50||abs(tipx(i)-xlim(2))<50||abs(tipx(i)-xlim(1))<50
@@ -118,7 +115,6 @@ map(1,:) = 1;
 map(:,1) = 1;
 map(sizeOfMap(1),:) = 1;
 map(:,sizeOfMap(2)) = 1;
-found = false;
 hold on
 %% Plot Grid
 for i= 1:sizeOfMap(1)
@@ -211,13 +207,13 @@ for i= 1:sizeOfMap(1)-1
         if sum(sum(BW( i*scale:i*scale+scale-1, j*scale:j*scale+scale-1)>0))>0
             map(i,j) = 1; %%% points the obstacles.
         end
-%         for k = 0:scale-1
-%             for l = 0:scale-1
-%                 if BW(i*scale+k, j*scale+l,1) > 0 % detect an obstacle
-%                     map(i,j) = 1; %%% points the obstacles.
-%                 end
-%             end
-%         end
+        %         for k = 0:scale-1
+        %             for l = 0:scale-1
+        %                 if BW(i*scale+k, j*scale+l,1) > 0 % detect an obstacle
+        %                     map(i,j) = 1; %%% points the obstacles.
+        %                 end
+        %             end
+        %         end
     end
 end
 
@@ -227,7 +223,7 @@ for j = 2:sizeOfMap(2)-1
         if map(i,j) ~=1
             if (map(i-1,j) == 1 && map(i,j-1) ==1) || (map(i+1,j) == 1 && map(i,j+1) ==1) ...
                     || (map(i+1,j) == 1 && map(i,j-1) ==1) ||(map(i-1,j) == 1 && map(i,j+1) ==1)
-                corners = [corners; j i];
+                corners = [corners; j i]; %#ok<AGROW>
             end
         end
     end
@@ -236,11 +232,10 @@ end
 save('ThresholdMapsMac','transferRegion','mainRegion');
 
 %% Policy Iteration Code
-[probability, movesX, movesY] = MDPgridworldFunction(map,goalX,goalY);
-%save('MDPShot', 'movesX', 'movesY','corners');
-
+[probability, movesX, movesY] = MDPgridworldFunction(map,goalX,goalY); %#ok<NASGU,ASGLU>
 save('MazeMap', 'movesX', 'movesY','corners');
 %% (*turns off the camera*)
 if webcamShot
     clear('cam');
 end
+

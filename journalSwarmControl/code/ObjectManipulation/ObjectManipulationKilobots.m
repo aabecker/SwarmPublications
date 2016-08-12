@@ -1,32 +1,50 @@
 %% Object Manipulation Experiment With Kilobots
-% Uses an overhead vision system to control a swarm of
-% kilobots to push an object through a maze.
-% Swarm is attracted to the brightest light in the room
-% Lights are controlled by an Arduino relay-sheild
+% Uses an overhead vision system to control a swarm of kilobots to push an
+% object through a maze. Swarm is attracted to the brightest light in the
+% room.
 %
-% requires RegionCode.m and MDPgridworldFunction.m
-% -------------------------
-% By Shiva Shahrokhi, Lillian Lin and Mable Wan, Summer 2016
+% see video: https://youtu.be/tD1JvgRBRVM
+% 
+% In these experiments a whiteboard on a table is the workspace, with four
+% 50W LED floodlights at the corners and four 30W LED floodlights on the
+% sides of a 6 m square centered on the workspace and 1.5 m above the
+% table. An Arduino Uno connected to an 8-relay shield controls the lights.
+% Above the table, an overhead machine vision system tracks the swarm. The
+% vision system identifies obstacles by color segmentation, determines the
+% corners (used to decrease  variance), the object by color segmentation,
+% and identifies robots using color segmentation and circle detection with
+% a circular Hough transform. The path planning uses value iteration for
+% the object and potential fields for the swarm to interact with the
+% object.
+% 
+% REQUIRES RegionCode.m, MDPgridworldFunction.m, RelayOn.m, dist2points.m,
+% AngleFix.m, circle.m, FlowForce.m, plot_gaussian_ellipsoid.m
+% and Arduino drivers:
+% http://www.mathworks.com/hardware-support/arduino-matlab.html
+%
+% SETUP: connect a webcam via USB and an Arduino via USB.
+% ------------------------- 
+% By Shiva Shahrokhi, Lillian Lin, Mable Wan, & Aaron T Becker, Summer 2016
+   
 format compact
 close all
 clear all
 
+%% Define webcam
+webcamShot = true; %if false, uses stored image 'KilobotTableExample.jpeg' if true, uses webcam
+
 %% Load maps from RegionCode.m
-RegionCode
+RegionCode(webcamShot)
 
 load('MazeMap', 'movesX', 'movesY','corners');
 load('ThresholdMapsMac','transferRegion','mainRegion'); 
 
-
-%% Define webcam
-webcamShot = true;
-
 if webcamShot
-    cam = webcam(1);
+    cam = webcam(1);  %may need to be changed between 1 and 2 depending on computer
     %% Using Arduino for our lights, this is how we define arduino in Matlab:
-    if (ispc==1)  
-        a = arduino('Com5','uno');
-    else 
+    if (ispc==1)  % Code to run on Windows platform. Set correct port.
+        a = arduino('Com4','uno');
+    else  % Code to run on Mac platform
         a = arduino('/dev/tty.usbmodem1421','uno');
     end 
     %% Setup End Goal Position
@@ -62,12 +80,12 @@ while success == false
     
     if webcamShot
         if (again == true)
-            relayOn(a,0);
+            RelayOn(a,0);
             pause (10);
         end 
         rgbIm = snapshot(cam);
     else
-        rgbIm = imread('PC.jpeg'); %#ok<UNRCH>
+        rgbIm = imread('KilobotTableExample.jpeg'); %#ok<UNRCH>
         goalX = 5;
         goalY = 5;
         goalSize = 4;

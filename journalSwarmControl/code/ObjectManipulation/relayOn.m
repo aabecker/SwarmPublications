@@ -1,4 +1,4 @@
-function relayOn(a,which)
+function RelayOn(a,which)
 % RELAYON uses an existing arduino connection to turn on the lights
 %   RELAYON(a,which)
 %
