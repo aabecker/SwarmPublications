@@ -77,7 +77,7 @@ Sensing is expensive, especially on the nanoscale. To see nanocars~\cite{Chiang2
 %\end{figure}
 
 Our hypothesis predicted a steady decay in performance as the amount of visual feedback decreased.
-Our experiment indicated the opposite: players with just the mean completed the task faster than those with full-state feedback.  As Fig.~\ref{fig:ResVaryVis}.b shows, the levels of feedback arranged by increasing completion time are [ mean, mean + variance, full-state, convex-hull].  All experiments lasting over 300s were removed, under the assumption that the user stopped playing
+Our experiment indicated the opposite: players with just the mean completed the task faster than those with full-state feedback.  As Fig.~\ref{fig:ResVaryVis}.b shows, the levels of feedback arranged by increasing completion time are [ mean, mean + variance, full-state, convex-hull].  All experiments lasting over 300s were removed, under the assumption that the user stopped playing. 
 Using ANOVA analysis, we reject the null hypothesis that all visualization methods are equivalent, with $p$-value $2.69\times10^{-19}$.
 Anecdotal evidence from beta-testers who played the game suggests that tracking 100 robots is overwhelming---similar to schooling phenomenons that confuse predators---while working with just the mean + variance is like using a ``spongy'' manipulator. Our beta-testers described convex-hull feedback as confusing and irritating.  A single robot left behind an obstacle will stretch the entire hull, obscuring the majority of the swarm.
 %obscuring what the rest of the swarm is doing.   
@@ -116,7 +116,7 @@ Note there is a bifurcation between $n$=4 and $n$=5 robots. For $n\in[1,4]$ the 
 \paragraph{Varying control: Assembly}
 Ultimately, we want to use swarms of robots to build things. This experiment compared different control architectures modeled after real-world devices.
 
-We compared attractive and repulsive control with the global control used for the other experiments. The attractive and repulsive controllers were loosely modeled after scanning tunneling microscopes (STM), but also apply to magnetic manipulation, e.g.\ \cite{Khalil2013} and biological models, e.g. \cite{goodrich2012types}. STMs can be used to arrange atoms and make small assemblies~\cite{avouris1995manipulation}. An STM tip is charged with electrical potential, and used to repel like-charged or to attract differently-charged molecules. In contrast, the global controller uses a uniform field (perhaps formed by parallel lines of differently-charged conductors) to pull molecules in the same direction.
+We compared attractive and repulsive control with the global control used for the other experiments. The attractive and repulsive controllers were loosely modeled after scanning tunneling microscopes (STM), but also apply to magnetic manipulation, e.g.\ \cite{Khalil2013} and biological models, e.g. \cite{goodrich2012types}. STMs can be used to arrange atoms and make small assemblies, as described in \cite{avouris1995manipulation}. An STM tip is charged with electrical potential, and used to repel like-charged or to attract differently-charged molecules. In contrast, the global controller uses a uniform field (perhaps formed by parallel lines of differently-charged conductors) to pull molecules in the same direction.
 The experiment challenged players to assemble a three-block pyramid with a swarm of 16 robots.
 
 %\todo{describe controller model here, use an equation}
