@@ -124,7 +124,7 @@ In 10 simulations with 100 robots, completion time without outlier rejection req
 }
 \end{figure*}
 
-\subsection{Algorithm for object manipulation}
+\subsection{Algorithm for object manipulation}\label{sec:AlgObjectManipulation}
  We use the hybrid hysteresis-based controller in Alg.~\ref{alg:MeanVarianceControl}  to track the desired position, while maintaining sufficient robot density to move the object by switching to minimize variance whenever variance exceeds a set limit.  The min and max variance limits from  \label{eq:sigMaxMin} incremented by $0.003 W$ and $0.006 W$.
  The minimize variance control law \eqref{eq:PDcontrolVariance} is slightly modified to choose the nearest corner further from the goal than $\mathbf{b}$ with an obstacle-free straight-line path to $\mathbf{b}$. 
 The control algorithm  for object manipulation is listed in Alg.~\ref{alg:BlockPushing}. 

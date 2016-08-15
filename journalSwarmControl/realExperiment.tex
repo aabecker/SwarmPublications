@@ -8,16 +8,15 @@ Our experiments use centimeter-scale hardware systems called \emph{kilobots}.  W
 \subsection{Environmental setup}  
 In these experiments as shown in Fig.~\ref{fig:setup}, we used $n$=100 kilobots, a 1.5 m$\times$1.2 m whiteboard as the workspace, and lights: four 50W LED floodlights  at the corners and four 30W LED floodlights on the sides of a 6 m square centered on the workspace and 1.5 m above the table. An Arduino Uno connected to an 8-relay shield controlled the lights.  
 
-Above the table, an overhead machine vision system tracks the swarm. The vision system identifies obstacles by color segmentation, determines the corners  (used to decrease  variance), the object by color segmentation, and identifies robots using color segmentation and circle detection with a circular Hough transform.
+Above the table, an overhead machine vision system tracks the swarm. The vision system identifies obstacles by color segmentation, determines the corners  (used to decrease  variance), the object by color segmentation, and identifies robots using color segmentation and circle detection with a circular Hough transform. Code for the vision, the policy iteration of \S \ref{subsec:objectpolicy} and the algorithm of \S \ref{sec:AlgObjectManipulation} is available on {\sc Matlab} Central by \cite{Shahrokhi2015MDP}.
 
-The laser-cut patterns for the neon green fiducial markers on the robots and {\sc Matlab} tracking code are available at our github repository,~\cite{Shahrokhi2015GitHubShapeControl}. 
 The objects were 3D printed from ABS plastic with a paper overlay. 
 Shapes included a 325 cm$^2$ equilateral triangle, 
 %Small Equilateral Triangle 140 cm$^2$,
  324 cm$^2$ square,
  281 cm$^2$ hexagon,
 254 cm$^2$ circle, 
-and a 486 cm$^2$ (18 cm$\times$27 cm)  rectangle, all shown in Fig.~\ref{fig:setup}.
+and a 486 cm$^2$ (18 cm$\times$27 cm)  rectangle, all shown in Fig.~\ref{fig:setup}.The laser-cut patterns for the neon green fiducial markers on the robots and 3D files for objects are available at our github repository,~\cite{Shahrokhi2015GitHubShapeControl}. 
 
 %\begin{figure*}
 %\begin{center}
