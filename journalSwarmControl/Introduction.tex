@@ -12,26 +12,14 @@ There is currently no comprehensive understanding of user interfaces for control
 This paper presents a tool for investigating HSI methods through statistically significant numbers of experiments.  
 
 \begin{figure}
-\renewcommand{\figwid}{0.32\columnwidth}
-\subfloat[][Vary Number]{\label{fig:VaryNum}
-\begin{overpic}[width =\figwid]{VaryNum.pdf}\end{overpic}}
-%
-\subfloat[][Vary Visual Feedback]{\label{fig:VaryVis}
-%\begin{overpic}[width =\figwid]{VaryVisFS.pdf}\end{overpic}
-\begin{overpic}[width =\figwid]{VaryVisCH.pdf}\end{overpic}}
-%
-\subfloat[][Vary Noise]{\label{fig:VaryNoise}
-\begin{overpic}[width =\figwid]{VaryNoise.pdf}\end{overpic}}\\
-%
-\subfloat[][Control Position]{\label{fig:ControlPos}
-\begin{overpic}[width =\figwid]{ControlPos.pdf}\end{overpic}}
-%
-\subfloat[][Vary Control: Assembly]{\label{fig:VaryControl}
-\begin{overpic}[width =\figwid]{VaryControl.pdf}\end{overpic}}
-%
-\subfloat[][Vary Control: Foraging]{\label{fig:Forage}
-\begin{overpic}[width =\figwid]{VaryForage.pdf}\end{overpic}}
-%
+\centering
+\renewcommand{\figwid}{0.25\columnwidth}
+\begin{overpic}[width =\figwid]{VaryNum.pdf}	\put(10,80){\textbf{a} }\end{overpic}~
+\begin{overpic}[width =\figwid]{VaryVisMV.pdf}	\put(10,80){\textbf{b} }\end{overpic}~
+\begin{overpic}[width =\figwid]{VaryNoise.pdf}	\put(10,80){\textbf{c} }\end{overpic}\\
+\begin{overpic}[width =\figwid]{ControlPos.pdf}	\put(10,80){\textbf{d} }\end{overpic}~
+\begin{overpic}[width =\figwid]{VaryControl.pdf}	\put(10,80){\textbf{e} }\end{overpic}~
+\begin{overpic}[width =\figwid]{VaryForage.pdf}	\put(10,80){\textbf{f} }\end{overpic}
 \caption{\label{fig:5experiments}
 Screenshots from our online experiments controlling multi-robot systems with limited, global control.
 \textbf{(a)} Varying the number of robots from 1-500
@@ -40,9 +28,42 @@ Screenshots from our online experiments controlling multi-robot systems with lim
 \textbf{(d)} Controlling the position of 1 to 10 robots
 \textbf{(e)} Comparing 3 control architectures to assemble
 \textbf{(f)} Comparing 3 control architectures to forage.
-\vspace{-2em}
 }
 \end{figure}
+
+
+%\begin{figure}
+%\renewcommand{\figwid}{0.32\columnwidth}
+%\subfloat[][Vary Number]{\label{fig:VaryNum}
+%\begin{overpic}[width =\figwid]{VaryNum.pdf}\end{overpic}}
+%%
+%\subfloat[][Vary Visual Feedback]{\label{fig:VaryVis}
+%%\begin{overpic}[width =\figwid]{VaryVisFS.pdf}\end{overpic}
+%\begin{overpic}[width =\figwid]{VaryVisCH.pdf}\end{overpic}}
+%%
+%\subfloat[][Vary Noise]{\label{fig:VaryNoise}
+%\begin{overpic}[width =\figwid]{VaryNoise.pdf}\end{overpic}}\\
+%%
+%\subfloat[][Control Position]{\label{fig:ControlPos}
+%\begin{overpic}[width =\figwid]{ControlPos.pdf}\end{overpic}}
+%%
+%\subfloat[][Vary Control: Assembly]{\label{fig:VaryControl}
+%\begin{overpic}[width =\figwid]{VaryControl.pdf}\end{overpic}}
+%%
+%\subfloat[][Vary Control: Foraging]{\label{fig:Forage}
+%\begin{overpic}[width =\figwid]{VaryForage.pdf}\end{overpic}}
+%%
+%\caption{\label{fig:5experiments}
+%Screenshots from our online experiments controlling multi-robot systems with limited, global control.
+%\textbf{(a)} Varying the number of robots from 1-500
+%\textbf{(b)} Comparing 4 levels of visual feedback 
+%\textbf{(c)} Varying noise from 0 to 200\% of control authority
+%\textbf{(d)} Controlling the position of 1 to 10 robots
+%\textbf{(e)} Comparing 3 control architectures to assemble
+%\textbf{(f)} Comparing 3 control architectures to forage.
+%\vspace{-2em}
+%}
+%\end{figure}
 
 Our goal was to test several scenarios involving large-scale human-swarm interaction (HSI), and to do so with a statistically-significant sample size. Towards this end, we created \href{http://www.swarmcontrol.net/show_results}{SwarmControl.net}, an open-source, online testing platform suitable for inexpensive deployment and data collection on a scale not yet seen in swarm robotics research. Screenshots from this platform are shown in Fig.~\ref{fig:5experiments}.  \href{https://github.com/crertel/swarmmanipulate.git}{All code} \href{http://www.swarmcontrol.net/show_results}{and experimental results} are posted online at \cite{Chris-Ertel2016}.
 

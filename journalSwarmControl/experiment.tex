@@ -11,9 +11,10 @@ The swarm must deliver the object to the goal region.  To solve this object mani
 To design the policy, we first discretize the environment. 
 In \cite{ShahrokhiIROS2015}, we used breadth-first search (BFS) on this discretized grid to determine $\mathbf{M}_{BFS}$, the shortest distance from any grid cell to the goal, and generated a gradient map $\nabla \mathbf{M}$  shown in Fig.~\ref{fig:BFSGradient}.  
 The object's center of mass is at $\mathbf{b}$ and has average radius $r_b$, so we define the desired direction for the object as $\mathbf{D}(\mathbf{b}) = \nabla \mathbf{M}(\mathbf{b})$. 
-The robots were directed behind the object at  $\mathbf{b} - 1.5 r_b \mathbf{D}(\mathbf{b})$, then directed to  $\mathbf{b} - 0.1 r_b \mathbf{D}(\mathbf{b})$ to push the object toward the goal location. However, BFS has no penalties on object collisions with obstacles, and the resulting collisions made the BFS solution slow.
+The robots were directed behind the object at  $\mathbf{b} - 1.5 r_b \mathbf{D}(\mathbf{b})$, then directed to  $\mathbf{b} - 0.1 r_b \mathbf{D}(\mathbf{b})$ to push the object toward the goal location. 
+This approach using workspace BFS fails to account for the hull of the object and will suggest moves that can cause at least partial collision with the workspace. A configuration-space BFS approach avoids that problem but still fails to model uncertain actuation of the object by the swarm.
 
- To avoid obstacles, this paper models object movement as a Markov Decision Process (MDP) with non-deterministic movement.  
+To solve both these problems, this paper models object movement as a Markov Decision Process (MDP) with non-deterministic movement.  
   Value iteration,  as described in \cite{Thrun2005}, is used to learn an \emph{optimal policy}: a function that assigns a control input to every possible state.
  At each state the object can be commanded to move in one of eight directions with a small probability of moving in a wrong direction. 
  
