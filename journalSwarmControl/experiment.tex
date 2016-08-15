@@ -22,7 +22,7 @@ To solve both these problems, this paper models object movement as a Markov Deci
  a large negative reward to states including obstacles, and a small negative reward to all other states.
 The reward function $r(x,\mathbf{u})$ is defined as
 \begin{align}
-r(x,u) &=  \left\{
+r(x,\mathbf{u}) &=  \left\{
 \begin{array}{ll}
      +100, &  \textrm{if } \mathbf{u} \textrm{ leads to goal state}\\
       -100, & \textrm{if } \mathbf{u} \textrm{ leads to a state with an obstacle} \\
