@@ -43,7 +43,7 @@ In our experiments $\gamma = 0.97$, and \eqref{eq:ValueIteration} was iterated 2
 %Rather than a shortest distance to goal, $\nabla \mathbf{M}_{MDP}$  gives the approximate minimum cost to goal.
 
 $\mathbf{M}_{BFS}$ and the value function are shown in Fig.~\ref{fig:BFSGradient}. 
-In 10 simulations with 100 robots, pushing the object to goal using BFS required $\mu=183$, $\sigma=179$ s while Policy Iteration required $\mu=90$, $\sigma=35$ s.
+In 10 simulations with 100 robots, pushing the object to goal using BFS required 183$\pm$179 s while Policy Iteration required 90$\pm$35 s (mean$\pm$std).
 %\todo{(report results of 10 simulations with BFS and with PI.  Give mean and std)}
 
 \begin{figure}
@@ -81,7 +81,7 @@ F_{pot} &= F_{att} + F_{rep} \label{eq:potentialfield}
 
 In simulations, $\theta =  \pi/2$,  $\eta  = 75$, $\zeta = 2$ and $\rho_0 = 3$. Because the kilobot hardware experiments have a slower time constant, they use $\theta =  \pi/2$,  $\eta  = 50$, $\zeta = 1$ and $\rho_0 = 7.5$. 
 
-In 10 simulations with 100 robots, pushing the object to goal without a repulsive potential field failed in two of twelve runs. No failures occurred with the repulsive potential field.  Of successful trials, completion time without repulsive potential fields required $\mu=245, \sigma=135$ s while using repulsive potential fields required $\mu=90, \sigma=35$ s.
+In 10 simulations with 100 robots, pushing the object to goal without a repulsive potential field failed in two of twelve runs. No failures occurred with the repulsive potential field.  Of successful trials, completion time without repulsive potential fields required 245$\pm$135 s while using repulsive potential fields required 90$\pm$35 s (mean$\pm$std).
 %In 10 simulations with 100 robots, completion time without repulsive potential fields required $\mu=245, \sigma=135$s while using repulsive potential fields required $\mu=90, \sigma=35$.
 
 %\todo{report results of 10 simulations with and without Potential fields.  Give mean and std}
@@ -104,7 +104,7 @@ Fig.\ \ref{fig:Region}B shows the regions for the main state. The object is in r
 When the object leaves main region 1 the state switches to transfer. The transfer regions are shown in Fig.\ \ref{fig:Region}C.  The object is in transfer region 1, so only robots in transfer region 1 are included in the mean and covariance calculations. 
  The robots should push the object to the left. Without filtering using regions, the red circle is the mean and the algorithm would instruct the robots to push the object up. The black circle shows the filtered mean and the algorithm instructs the robots to push the object directly left.
 
-In 10 simulations with 100 robots, completion time without outlier rejection required $\mu=245, \sigma=135$ s while using outlier rejection required $\mu=90, \sigma=35$ s.
+In 10 simulations with 100 robots, completion time without outlier rejection required 245$\pm$135 s while using outlier rejection required 90$\pm$35 s (mean$\pm$std).
 %\todo{report results of 10 simulations with and without regions.  Give mean and std}
 
 
@@ -129,8 +129,8 @@ In 10 simulations with 100 robots, completion time without outlier rejection req
  The minimize variance control law \eqref{eq:PDcontrolVariance} is slightly modified to choose the nearest corner further from the goal than $\mathbf{b}$ with an obstacle-free straight-line path to $\mathbf{b}$. 
 The control algorithm  for object manipulation is listed in Alg.~\ref{alg:BlockPushing}. 
 
-In rare cases during simulations the swarm may become trapped in a local minima of \eqref{eq:potentialfield}.
-If the swarm mean position does not change for five seconds, the swarm is assumed to be in a local minima and is commanded to move toward the previous corner. As soon as the mean position changes, normal control resumes.
+In rare cases during simulations the swarm may become trapped in a local minimum of \eqref{eq:potentialfield}.
+If the swarm mean position does not change for five seconds, the swarm is assumed to be in a local minimum and is commanded to move toward the previous corner. As soon as the mean position changes, normal control resumes.
 
 \begin{wrapfigure}{R}{0.3\textwidth}
   \vspace{-20pt}
