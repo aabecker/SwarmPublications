@@ -1,32 +1,24 @@
-% Fig 4 right is confusing
-% change fig 7 left & right to have # xperiments in axis label
-% lillian has email about fig 10 legend top is constant
+%%%%%%%%% IJRR SETTINGS
+%  from https://us.sagepub.com/en-us/nam/manuscript-submission-guidelines#PreparingYourManuscript
+\documentclass[Afour,sageh,times]{sagej} % sage_latex_guidelines.tex V1.01, 11 June 2015
+\usepackage{moreverb,url}
+\usepackage[colorlinks,bookmarksopen,bookmarksnumbered,citecolor=black,urlcolor=black,linkcolor = black]{hyperref}
+\newcommand\BibTeX{{\rmfamily B\kern-.05em \textsc{i\kern-.025em b}\kern-.08em
+T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\def\volumeyear{2016}
+%%%%%%%%%%%% END IJRR SETTINGS
 
-% How many words:  $ detex IJRRensembleDifferentialDrive.tex | wc -w
-% Submit at http://mc.manuscriptcentral.com/ijrr
-
-\documentclass[11pt]{article}
-% IJRR Does not have a template for submissions, but it recommends using
-% the standard Latex article format, with computer modern font.
-% \usepackage[margin=1in]{geometry}
-% \documentclass[letterpaper, 10 pt, conference]{ieeeconf}
-
-% www.SwarmControl.net
-%http://mrsl.rice.edu
-%http://people.ae.illinois.edu/tbretl/
-
-
-\usepackage[pdftex]{graphicx}        % standard LaTeX graphics tool
-\usepackage[usenames,dvipsnames]{color}
+%\usepackage[pdftex]{graphicx}        % standard LaTeX graphics tool
+%\usepackage[usenames,dvipsnames]{color}
 \usepackage{calc}
 \usepackage{graphicx}
-\usepackage[cmex10]{amsmath}
+%\usepackage[cmex10]{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{color}
 \usepackage{colortbl} %TODO: lab computers choke on this.  Why?
 %\usepackage{cite}
-\usepackage[font={small}]{caption}
+%\usepackage[font={small}]{caption}
 \usepackage[caption=false,font=footnotesize]{subfig}
 \usepackage{overpic}
 \graphicspath{{./},{./pictures/pdf/},{./pictures/ps/},{./pictures/png/},{./pictures/jpg/}}
@@ -36,16 +28,9 @@
 %\usepackage{algorithmic}
 \usepackage{bm}   % boldface math type
 \usepackage{upgreek}   % non-slanted greek letters
-\usepackage{url}
 \usepackage{soul} %for highlighting
-\usepackage{hyperref}
-\hypersetup{
-  colorlinks =true,
-  urlcolor = black,
-  linkcolor = black,
-  citecolor= black
-}
-\usepackage[round]{natbib}
+
+%\usepackage[round]{natbib}
 \usepackage{mathtools}
 %\usepackage{authblk}
 \usepackage{wrapfig}
@@ -89,7 +74,7 @@
 \newcommand{\ii}{{\rm i}}
 \newcommand{\TRUE}{\textbf{true}}
 \newcommand{\FALSE}{\textbf{false}}
-\newcommand*{\email}[1]{\texttt{#1}}
+
 
 \newcommand{\figwid}{0.22\columnwidth}
 %\newcommand{\topic}[1]{\textcolor{ForestGreen}{\footnotesize \textsf{#1}}}
@@ -159,30 +144,39 @@
 %\newcommand{\todo}[1]{\textcolor{red}{\footnotesize \textsf{#1}}}
 
 \begin{document}
+\setcounter{secnumdepth}{3}
+\runninghead{Shahrokhi \textit{et~al.}}
 \hyphenation{micro-robot nano-robot nano-robotics micro-robotics micro-robots nano-robots micro-manip-ulators}
 %%%%%%%%%%%% For debugging purposes, I like to display the TOC
-    \tableofcontents
-    \setcounter{tocdepth}{3}
-    \newpage
+%    \tableofcontents
+%    \setcounter{tocdepth}{3}
+%    \newpage
 %%%% END TOC %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
 
-\title{\LARGE \bf Steering a Swarm Using Global Inputs and Swarm Statistics}
+\title{\LARGE \bf Steering a Swarm Using Global Inputs\\ and Swarm Statistics}
 
-%\author{Shiva Shahrokhi, Chris Ertel, Mable Wan,Lillian Lin}
-%\author{Aaron~T.~Becker}
-%\affil[1]{Dept.\ Electrical \& Computer Engineering, University of Houston\thanks{ University of Houston, Houston, TX, 77004 USA {\tt\small sshahrokhi2@uh.edu}}
-%}
-%\affil[2]{Independent}
-\author{Shiva Shahrokhi, Chris Ertel, Mable Wan,\\ Lillian Lin, Aaron T. Becker\thanks{Authors are with the Department of Electrical and Computer Engineering, University of Houston, Houston, TX, 77004 USA, {\tt\small sshahrokhi2@uh.edu, atbecker@uh.edu}}
- %end thanks
-} % end author block 
-\maketitle
+
+\author{Shiva Shahrokhi, Chris Ertel, Mable Wan, Lillian Lin, Aaron T. Becker}% end author block 
+\affiliation{Electrical and Computer Engineering, University of Houston, USA}
+\corrauth{Shiva Shahrokhi,
+University of Houston,
+4726 Calhoun Rd,
+Houston, TX 77004-4005, USA}
+\email{sshahrokhi2@uh.edu}
+
+
 \begin{abstract}
-Micro- and nanorobotics have the potential to revolutionize many applications including targeted material delivery, assembly, and surgery.  The same properties that promise breakthrough solutions---small size and large populations---present unique challenges to generating controlled motion. We want to use large swarms of robots to perform manipulation tasks; unfortunately, human-swarm interaction studies as conducted today are limited in sample size, are difficult to reproduce, and are prone to hardware failures. We present an alternative.
+Microrobotics has the potential to revolutionize many applications including targeted material delivery, assembly, and surgery.  The same properties that promise breakthrough solutions---small size and large populations---present unique challenges for controlling motion. We want to use large swarms of robots to perform manipulation tasks; unfortunately, human-swarm interaction studies as conducted today are limited in sample size, are difficult to reproduce, and are prone to hardware failures. We present an alternative.
 
-This paper first examines the perils, pitfalls, and possibilities we discovered by launching \href{http://www.swarmcontrol.net}{SwarmControl.net}, an online game where players steer swarms of up to 500 robots to complete manipulation challenges. We record statistics from thousands of players, and use the game to explore aspects of large-population robot control. We present the game framework as a new, open-source tool for large-scale user experiments. One surprising result was that humans completed an object manipulation task \emph{faster} when provided with only the mean and variance of the robot swarm than with full-state feedback. Inspired by human operators, this paper next investigates controllers that use only the mean and variance of a robot swarm. We prove that the mean position is controllable, then provide conditions under which variance is controllable.  We next derive automatic controllers for these and a hybrid, hysteresis-based switching control to regulate the first two moments of the robot distribution.  Finally, we employ these controllers as primitives for an object manipulation task and implement all the automatic controllers on 100 kilobots controlled by the direction of a global light source.
+This paper first examines the perils, pitfalls, and possibilities we discovered by launching \href{http://www.swarmcontrol.net}{SwarmControl.net}, an online game where players steer swarms of up to 500 robots to complete manipulation challenges. We record statistics from thousands of players, and use the game to explore aspects of large-population robot control. We present the game framework as a new, open-source tool for large-scale user experiments. One surprising result was that humans completed an object manipulation task \emph{faster} when provided with only the mean and variance of the swarm than with full-state feedback. Inspired by human operators, this paper next investigates controllers that use only the mean and variance of the swarm. We prove that the mean position is controllable, then provide conditions under which variance is controllable.  We next derive automatic controllers for these and a hysteresis-based switching control to regulate the first two moments of the robot distribution.  Finally, we employ these controllers as primitives for an object manipulation task and implement all the automatic controllers on 100 kilobots controlled by the direction of a global light source.
 \end{abstract}
+
+\keywords{micro-robot, global control, human-swarm interaction}
+
+\maketitle
+
+
 %\input{00-Abstract.tex}
 \input{Introduction.tex}
 \input{relatedWork.tex}
@@ -193,24 +187,28 @@ This paper first examines the perils, pitfalls, and possibilities we discovered 
 \input{experiment.tex}
 \input{realExperiment.tex}
 \input{conclusion.tex}
-    
-\section*{Funding} %formatted according to https://us.sagepub.com/en-us/nam/funding-acknowledgements
+
+
+\begin{dci}
+The Authors declare that there is no conflict of interest.
+To typeset a "Declaration of
+  conflicting interests" section.
+\end{dci}
+\begin{funding}
 %RULES: http://www.nsf.gov/pubs/policydocs/pappguide/nsf16001/aag_6.jsp
 This work was supported by the National Science Foundation under Grant No.\ 
 \href{http://nsf.gov/awardsearch/showAward?AWD_ID=1553063}{ [IIS-1553063]}.
-%Optional disclaimer (mandatory for non-scientific)
-%Any opinions, findings, and conclusions or recommendations expressed in this material are those of the authors and do not necessarily reflect the views of the National Science Foundation.
-
-%\section*{Acknowledgements}
-\section*{Declaration of Conflicting Interests}
-The Authors declare that there is no conflict of interest.
-
+\end{funding}
+\begin{sm}
+Video 1:  
+Video 2: 
+\end{sm}
 
    
 %\input{11-MultiMediaAppendix.tex}
    
 %\bibliographystyle{IEEEtran}
-\bibliographystyle{plainnat}
+\bibliographystyle{SageH}
 \bibliography{IEEEabrv,SwarmControlIJRR}
 
 

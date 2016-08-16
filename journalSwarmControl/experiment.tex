@@ -37,8 +37,8 @@ r(x,\mathbf{u}) &=  \left\{
    The value function $\hat{V}(x_j) $ is calculated by computing the value $\hat{V}$ for all $N$ states and iterating until convergence:
 \begin{align}
 \text{for }&\text{$i=1$ to $N$ do} \nonumber \\
-&\hat{V} (x_j) = \gamma \max_{\mathbf{u}} [r(x_j,\mathbf{u}) + \sum\limits_{i=1}^N \hat{V}(x_i) p(x_i| \mathbf{u},x_j)] \label{eq:ValueIteration}\\
-\text{end}& \nonumber
+&\hat{V} (x_j) = \gamma \max_{\mathbf{u}} [r(x_j,\mathbf{u}) + \sum\limits_{i=1}^N \hat{V}(x_i) p(x_i| \mathbf{u},x_j)] \label{eq:ValueIteration} \nonumber\\
+\text{end}& 
 \end{align}
 In our experiments $\gamma = 0.97$, and \eqref{eq:ValueIteration} was iterated 200 times. A {\sc Matlab} implementation of this algorithm is available at \cite{Becker2015MDP}.
 %Rather than a shortest distance to goal, $\nabla \mathbf{M}_{MDP}$  gives the approximate minimum cost to goal.
@@ -49,14 +49,15 @@ In 10 simulations with 100 robots, pushing the object to goal using BFS required
 
 \begin{figure}
 \centering
-\begin{overpic}[scale=0.19]{GradientView.png}
+\renewcommand{\figwid}{3cm}
+\begin{overpic}[height=\figwid]{GradientView.png}
 \end{overpic}
-\begin{overpic}[scale=0.19]{PolicyIter.png}
+\begin{overpic}[height=\figwid]{PolicyIter.png}
 \end{overpic}
-\begin{overpic}[scale=0.262]{MDPmap.pdf}
+\begin{overpic}[height=\figwid]{MDPmap.pdf}
 \end{overpic}
 \vspace{-0.5em}
-\caption{\label{fig:BFSGradient}The BFS algorithm finds the shortest path for the moveable object  to compute gradient vectors (left). Modeling as an MDP enables encoding penalties for being near obstacles. (Middle) The control policy from value iteration. (Right) The vision algorithm detects obstacles in the hardware setup. This map is used to produce the value function and control policy shown. 
+\caption{\label{fig:BFSGradient} BFS finds the shortest path for the moveable object to compute gradient vectors (left). Modeling as an MDP enables encoding penalties for being near obstacles. (Middle) The control policy from value iteration. (Right) The vision algorithm detects obstacles in the hardware setup. This map is used to produce the value function and control policy shown. 
 %\vspace{-2em}
 }
 \end{figure}
@@ -109,9 +110,9 @@ In 10 simulations with 100 robots, completion time without outlier rejection req
 %\todo{report results of 10 simulations with and without regions.  Give mean and std}
 
 
-\begin{figure*}
+\begin{figure}
 \begin{center}
-	\begin{overpic}[width=0.6\columnwidth]{stateMachine.pdf}\put(-12,25){A}\end{overpic}\\
+	\begin{overpic}[width=0.9\columnwidth]{stateMachine.pdf}\put(-12,25){A}\end{overpic}\\
 	~~\begin{overpic}[width=0.45\columnwidth]{mainRegions.pdf} %,grid=true
 	\put(-6,85){B}
 	\end{overpic}
@@ -123,7 +124,7 @@ In 10 simulations with 100 robots, completion time without outlier rejection req
 \vspace{-0.5em}
 \caption{\label{fig:Region}  Outlier rejection state machine and regions.
 }
-\end{figure*}
+\end{figure}
 
 \subsection{Algorithm for object manipulation}\label{sec:AlgObjectManipulation}
  We use the hybrid hysteresis-based controller in Alg.~\ref{alg:MeanVarianceControl}  to track the desired position, while maintaining sufficient robot density to move the object by switching to minimize variance whenever variance exceeds a set limit.  $0.003 W$ and $0.006 W$ were added to the min and max variance limits from \eqref{eq:sigMaxMin}.
@@ -133,16 +134,16 @@ The control algorithm  for object manipulation is listed in Alg.~\ref{alg:BlockP
 In rare cases during simulations the swarm may become trapped in a local minimum of \eqref{eq:potentialfield}.
 If the swarm mean position does not change for five seconds, the swarm is assumed to be in a local minimum and is commanded to move toward the previous corner. As soon as the mean position changes, normal control resumes.
 
-\begin{wrapfigure}{R}{0.3\textwidth}
-  \vspace{-20pt}
+\begin{figure}
+%  \vspace{-20pt}
   \begin{center}
-\begin{overpic}[width=0.3\columnwidth]{AllShapes.pdf}\end{overpic}
+\begin{overpic}[width=0.4\columnwidth]{AllShapes.pdf}\end{overpic}
   \end{center}
-  \vspace{-1em}
-\caption{\label{fig:Shapes} Six equal-area objects were tested. %Six object shapes were tested.
+%  \vspace{-1em}
+\caption{\label{fig:Shapes} The six equal-area objects tested in simulation. %Six object shapes were tested.
 \vspace{-1em}
 }
-\end{wrapfigure}
+\end{figure}
 
 
 
@@ -157,7 +158,7 @@ If the swarm mean position does not change for five seconds, the swarm is assume
 \State $\sigma^2 \gets \max{(\sigma_x,\sigma_y)}$
 \If {$\sigma^2 > \sigma_{max}^2$}
 \While{$\sigma^2 > \sigma_{min}^2$}
-\State $ [x_{goal}, y_{goal}] \gets $ the nearest corner in current region
+\State $ [x_{goal}, y_{goal}] \gets $ nearest corner in region
 \State Apply \eqref{eq:PDcontrolPosition} to move toward $[x_{goal}, y_{goal}]$
 \EndWhile
 \Else  
@@ -168,7 +169,7 @@ If the swarm mean position does not change for five seconds, the swarm is assume
 %	\EndIf
 %\State$r_p \gets k_3 r_b$  \Comment{pushing move}
 \State Calculate $\mathbf{D}(\mathbf{b})$  \Comment{direction for object at $\mathbf{b}$}
-\State Apply \eqref{eq:potentialfield}   \Comment{potential field to push object in correct direction}
+\State Apply \eqref{eq:potentialfield}   \Comment{potential field for swarm}
 \EndIf
 \EndWhile
 \end{algorithmic}
@@ -179,7 +180,7 @@ If the swarm mean position does not change for five seconds, the swarm is assume
 Fig.~\ref{fig:story} shows snapshots during an execution of this algorithm in simulation. 
 Experimental results of parameters sweeps are summarized in Fig.~\ref{fig:AutoVeryParam}.  Each trial measured the time to deliver the object to the goal location.  The default parameter settings used 100 robots, a normalized weight of 1, a hexagon shape, and Brownian noise (applied once each simulation step) with $W=5$.  
 
-\begin{figure*}
+\begin{figure}
 \centering
 %\renewcommand{\figwid}{0.19\columnwidth}
 %\href{http://youtu.be/tCej-9e6-4o}{\begin{overpic}[width =\figwid]{story1.png}\put(6,15){T = 5 s}
@@ -194,11 +195,10 @@ Experimental results of parameters sweeps are summarized in Fig.~\ref{fig:AutoVe
 %\end{overpic}}
 \begin{overpic}[width =\columnwidth]{SwarmRun.pdf}
 \end{overpic}
-\vspace{-2em}
-\caption{\label{fig:story}\href{http://youtu.be/tCej-9e6-4o}{Snapshots showing an object manipulation simulation with 100 robots under automatic control.  See video in multimedia extension.}
+\caption{\label{fig:story}Snapshots showing an object manipulation simulation with 100 robots under automatic control.  See video in multimedia extension.
 %\vspace{-2em}
 }
-\end{figure*}
+\end{figure}
 
 The interaction between the robots and object is impulsive so, like the study of impulsive pulling in  \cite{christensen2016let},  adding additional robots decreases completion time, but with diminishing returns. 
  After 75 robots, additional robots no longer can interact with the object and do not contribute to the task success. 
@@ -217,13 +217,13 @@ Each shape was designed to have the same mass and area.
 \begin{figure*}
 \centering
 \renewcommand{\figwid}{0.5\columnwidth}
-\begin{overpic}[width =0.45\columnwidth]{SimVeryNum.pdf}\put(1,55){a)}
+\begin{overpic}[width =\figwid]{SimVeryNum.pdf}\put(1,55){a)}
 \end{overpic}
-\begin{overpic}[width =0.45\columnwidth]{SimVeryNoise.pdf}\put(1,55){b)}
+\begin{overpic}[width =\figwid]{SimVeryNoise.pdf}\put(1,55){b)}
 \end{overpic}
-\begin{overpic}[width =0.45\columnwidth]{SimVeryWeight.pdf}\put(1,55){c)}
+\begin{overpic}[width =\figwid]{SimVeryWeight.pdf}\put(1,55){c)}
 \end{overpic}
-\begin{overpic}[width =0.45\columnwidth]{SimVeryShape.pdf}\put(1,55){d)}
+\begin{overpic}[width =\figwid]{SimVeryShape.pdf}\put(1,55){d)}
 
 \end{overpic}
 \vspace{-0.5em}

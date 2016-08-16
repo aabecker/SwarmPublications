@@ -13,7 +13,7 @@ This paper presents a tool for investigating HSI methods through statistically s
 
 \begin{figure}
 \centering
-\renewcommand{\figwid}{0.25\columnwidth}
+\renewcommand{\figwid}{0.3\columnwidth}
 \begin{overpic}[width =\figwid]{VaryNum.pdf}	\put(10,80){\textbf{a} }\end{overpic}~
 \begin{overpic}[width =\figwid]{VaryVisMV.pdf}	\put(10,80){\textbf{b} }\end{overpic}~
 \begin{overpic}[width =\figwid]{VaryNoise.pdf}	\put(10,80){\textbf{c} }\end{overpic}\\
@@ -78,13 +78,15 @@ These controllers are used as primitives to perform the object manipulation task
 
 \begin{figure}
 \centering
-\begin{overpic}[width=0.5\columnwidth]{CompleteMazeDescription.pdf}\end{overpic}
-\begin{overpic}[width=0.438\columnwidth]{MainExpFig.pdf}\end{overpic}
+%\begin{overpic}[height=6cm]{CompleteMazeDescription.pdf}\end{overpic}
+\begin{overpic}[width=\columnwidth]{MainExpFig.pdf}\end{overpic}
 %\todo{I like the 'target' symbol, but it is not self-documenting.  We need a legend explaining the min and max variance ellipses, the goal region, the variance, the mean, the object COM, and the target mean position.  I think these are easiest to make in powerpoint.
 %Please use the same color and line style for the variance min and max as you use in Figure 4.
 %}
 %{blockpushingImageWithMeanAndVarianceOverlay.png}
-\caption{\label{fig:bigPictureMeanAndVarianceForSwarm} A swarm of robots, all controlled by a uniform force field, can be effectively controlled by a hybrid controller that knows only the mean and variance of the robot distribution.  Here a swarm of simple robots (blue discs) pushes a green hexagon toward the goal. Simulation at left, screen capture from hardware experiment at right. See multimedia extension.}
+\caption{\label{fig:bigPictureMeanAndVarianceForSwarm} A swarm of robots, all controlled by a uniform force field, can be effectively controlled by a hybrid controller that knows only the mean and variance of the robot distribution.  Here a swarm of robots pushes a green hexagon toward the goal. 
+%Simulation at left, screen capture from hardware experiment at right. 
+See multimedia extension.}
 \end{figure}
  %function and implementation function
 
