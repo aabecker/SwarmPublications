@@ -34,7 +34,7 @@ clear all
 webcamShot = true; %if false, uses stored image 'KilobotTableExample.jpeg' if true, uses webcam
 
 %% Load maps from RegionCode.m
-RegionCode(webcamShot)
+%RegionCode(webcamShot)
 
 load('MazeMap', 'movesX', 'movesY','corners');
 load('ThresholdMapsMac','transferRegion','mainRegion'); 
@@ -80,7 +80,7 @@ while success == false
     
     if webcamShot
         if (again == true)
-            RelayOn(a,0);
+            relayOn(a,0);
             pause (10);
         end 
         rgbIm = snapshot(cam);
