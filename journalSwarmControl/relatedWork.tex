@@ -91,14 +91,18 @@ These operations become intractable for large populations of robots. By focusing
 
 
  \subsection{Human-swarm interaction}
-\cite{Jr2004} studied human \emph{fanout}, the number of robots a single human user could control.  %Studied as a key aspect of human-robot interaction, 
+ 
+ \cite{ayanian2014controlling} designed a user interface enabling an operator to maneuver a swarm of robots through a cluttered workspace by specifying the bounding prism for the swarm and then translating or scaling this prism. Our paper shares the concept of a global control input, but our robots have no onboard computation and cannot track a virtual boundary.
+ 
+\cite{Jr2004} studied human \emph{fanout}, the number of robots a single human user could directly control.  %Studied as a key aspect of human-robot interaction, 
 They postulated that the optimal number of robots was approximately  the autonomous time  divided by the interaction time required by each robot.  Their sample problem involved a multi-robot search task, where users could assign goals to robots.  Their user interaction studies with simulated planar robots  indicated a \emph{fanout plateau} of about 8 robots, with diminishing returns for more robots.   They hypothesized the location of this plateau is highly dependent on the underlying task.  Indeed, our paper indicates there are tasks without plateaus. % (Lemmings is an example of this as well, for systems with autonomy
 Their research investigated robots with 3 levels of autonomy.  We use robots without autonomy, corresponding with their first-level robots.
 
 % Removed this -- 
 %Chen, Barnes, and Harper-Sciarini published a review of supervisory control but emphasized high levels of autonomy, using the 10-level taxonomy given by \cite{Parasuraman2000}.  The direct control techniques this paper examines are the lowest level.
 
-\cite{Squire:2006:HCM:1121241.1121248} designed experiments showing user-interface design had a high impact on the task effectiveness and the number of robots that could be controlled simultaneously in a multi-robot task.
+
+%\cite{Squire:2006:HCM:1121241.1121248} designed experiments showing user-interface design had a high impact on the task effectiveness and the number of robots that could be controlled simultaneously in a multi-robot task.
 
 Several user studies compare methods for controlling large swarms of simulated robots, for example \cite{bashyal2008human,kolling2012towards,de2012controllability}.  These studies provide insights but are limited by cost to small user studies; have a closed-source code base; and focus on controlling intelligent, programmable agents.  
 For instance, the studies \cite{bashyal2008human},  \cite{de2012controllability}, and \cite{kolling2012towards}  were limited to a pool of 5, 18, and 32  participants.
