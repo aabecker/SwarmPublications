@@ -7,7 +7,7 @@
 
 Our simulations use a Javascript port of \href{http://box2d.org/}{Box2D}, a popular 2D physics engine with support for rigid-body dynamics and fixed-time step simulation, presented in \cite{catto2010box2d}.  All experiments ran on a Chrome web browser on a 2.6 GHz Macbook.  \href{https://github.com/aabecker/SwarmControlSandbox/blob/master/exampleControllers/BlockPushingIROS2015.html}{All code is available at}~\cite{Shahrokhi2016blocksimulations}.
 
-\subsection{Controlling the mean position of many robots}
+\subsection{Controlling the mean position}
 
 We performed a parameter sweep using the PD controller \eqref{eq:PDcontrolPosition} to identify the best control gains.  Representative experiments are shown in Fig.~\ref{fig:gainvalues}. 100 robots were used and the maximum speed was 3 meters per second. As shown in Fig.~\ref{fig:gainvalues}, we can achieve an overshoot of 1\% and a  rise time of 1.52~s with $K_{p}= 4$, and  $K_{d} = 1$. 
 \begin{figure}
@@ -33,7 +33,7 @@ We performed a parameter sweep using the PD controller \eqref{eq:PDcontrolPositi
 %\end{figure}
 
 
-\subsection{Controlling the variance of many robots}
+\subsection{Controlling the variance}
 \begin{figure}
 \centering
 \begin{overpic}[width = \columnwidth] {brownianWpublish.eps}
@@ -54,7 +54,7 @@ For variance control we use the control law \eqref{eq:PDcontrolVariance}.
 %\todo{image showing control x variance and y-variance out of phase}
 
 
-\subsection{Hybrid control of mean and variance of many robots}
+\subsection{Hybrid control of mean and variance}
 
 Fig.~\ref{fig:hybrid} shows a simulation run of the hybrid controller in Alg.~\ref{alg:MeanVarianceControl} with 100 robots in a square workspace containing no internal obstacles. 
 %\todo{plot showing 1.5 cycles of mean position, and a variance goal.  We might need a longer time}
