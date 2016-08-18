@@ -12,7 +12,7 @@ To design the policy, we first discretize the environment.
 In \cite{ShahrokhiIROS2015}, we used breadth-first search (BFS) on this discretized grid to determine $\mathbf{M}_{BFS}$, the shortest distance from any grid cell to the goal, and generated a gradient map $\nabla \mathbf{M}$  shown in Fig.~\ref{fig:BFSGradient}.  
 The object's center of mass is at $\mathbf{b}$ and has average radius $r_b$, so we define the desired direction for the object as $\mathbf{D}(\mathbf{b}) = \nabla \mathbf{M}(\mathbf{b})$. 
 The robots were directed behind the object at  $\mathbf{b} - 1.5 r_b \mathbf{D}(\mathbf{b})$, then directed to  $\mathbf{b} - 0.1 r_b \mathbf{D}(\mathbf{b})$ to push the object toward the goal location. 
-This approach using workspace BFS fails to account for the hull of the object and will suggest moves that can cause at least partial collision with the workspace. A configuration-space BFS approach avoids that problem but still fails to model uncertain actuation of the object by the swarm.
+This approach using workspace BFS fails to account for the hull of the object and will suggest moves that can cause collisions with the workspace. A configuration-space BFS approach avoids that problem but still fails to model uncertain actuation of the object by the swarm.
 
 To solve both these problems, this paper models object movement as a Markov Decision Process (MDP) with non-deterministic movement.  
   Value iteration,  as described in \cite{Thrun2005}, is used to learn an \emph{optimal policy}: a function that assigns a control input to every possible state.
@@ -30,8 +30,8 @@ r(x,\mathbf{u}) &=  \left\{
 \end{array} 
 \right.
 \end{align}
- $\mathbf{u}$ is the action and $x$ is the current state. 
-  Value iteration iteratively learns the value $\hat{V}(x)$ for the object being in each state $x$. The optimal policy is the control action that, in probability, results in the largest value:
+ $\mathbf{u}$ is the action and $x$ is the current state.   %cumulative expected
+  Value iteration computes $\hat{V}(x)$, the expected discounted sum reward if the optimal policy is implemented, for the object starting in each state $x$. The optimal policy is the control action that, in probability, results in the largest value:
    \begin{align} \mathbf{D}(x) = \arg\max_{\mathbf{u}}   [ r(x,\mathbf{u}) + \sum\limits_{j=1}^N \hat{V}(x_j) p(x_j| \mathbf{u},x)].  \label{eq:OptimalPolicy}
    \end{align}
    The value function $\hat{V}(x_j) $ is calculated by computing the value $\hat{V}$ for all $N$ states and iterating until convergence:
@@ -66,7 +66,7 @@ In 10 simulations with 100 robots, pushing the object to goal using BFS required
 \subsection{Potential fields for swarm management with a compliant manipulator}
 
 Unfortunately, when the swarm is in front of the object, control law \eqref{eq:PDcontrolPosition} pushes the object backwards.  To fix this, we implement a potential field approach inspired by \cite{spong2008robot} that attracts the swarm to the intermediate goal, but repulses the swarm from in front of the object.
-The repulsive potential field is centered at the object's COM and is active for a radius $\rho_0$, but is implemented only when the swarm mean is within $\theta$ of the desired direction of motion $\mathbf{D}(\mathbf{b})$ as shown in Fig.~\ref{fig:potentialField}.
+The repulsive potential field is centered at the object's COM and is active for a radius $\rho_0$, but is implemented only when the swarm mean is within $\theta$ of the desired direction of motion $\mathbf{D}(\mathbf{b})$ as shown in Fig.~\ref{fig:potentialField}b.
 \begin{align}
 F_{att} &= -\zeta \Delta \rho / \rho \\
 %\mathbf{u} &= [\bar{x},\bar{y}] - \mathbf{b} \nonumber \\
@@ -81,7 +81,7 @@ F_{att} &= -\zeta \Delta \rho / \rho \\
 F_{pot} &= F_{att} + F_{rep} \label{eq:potentialfield}
 \end{align}
 
-In simulations, $\theta =  \pi/2$,  $\eta  = 75$, $\zeta = 2$ and $\rho_0 = 3$. Because the kilobot hardware experiments have a slower time constant, they use $\theta =  \pi/2$,  $\eta  = 50$, $\zeta = 1$ and $\rho_0 = 7.5$. 
+In simulations, $\theta =  \pi/2$,  $\eta  = 75$, $\zeta = 2$ and $\rho_0 = 3$. Because the kilobots have a slower time constant, they use $\theta =  \pi/2$,  $\eta  = 50$, $\zeta = 1$ and $\rho_0 = 7.5$. 
 
 In 10 simulations with 100 robots, pushing the object to goal without a repulsive potential field failed in two of twelve runs. No failures occurred with the repulsive potential field.  Of successful trials, completion time without repulsive potential fields required 245$\pm$135 s while using repulsive potential fields required 90$\pm$35 s (mean$\pm$std).
 %In 10 simulations with 100 robots, completion time without repulsive potential fields required $\mu=245, \sigma=135$s while using repulsive potential fields required $\mu=90, \sigma=35$.
@@ -101,10 +101,10 @@ In 10 simulations with 100 robots, pushing the object to goal without a repulsiv
 \subsection{Outlier rejection}\label{subsec:OutlierRejection}
 
 The variance controller in Alg.~\ref{alg:MeanVarianceControl} is a greedy algorithm that is susceptible to outliers. 
-The controller in \cite{ShahrokhiIROS2015} failed in $14\%$ trials, often because workspace obstacles made some robots unable to reach the object. This failure rate increases if  object weight increases or ground-robot friction increases. The mean and covariance calculations \eqref{eq:meanVar} included all robots in the workspace. Robots that cannot reach the object due to obstacles skew these calculations. The state machine in Fig.\ \ref{fig:Region}A solves this problem by creating two states for the maze: either main or transfer. Each state has a set of regions representing a discretized visibility polygon. Whenever the object crosses a region boundary the state toggles. The main regions are generated by extending obstacles until they meet another obstacle. The transfer regions are perpendicular to obstacle boundaries, and act as a buffer between two main regions.
+The controller in \cite{ShahrokhiIROS2015} failed in $14\%$ trials, often because workspace obstacles made some robots unable to reach the object. This failure rate increases if  object weight increases or ground-robot friction increases. The mean and covariance calculations \eqref{eq:meanVar} included all robots in the workspace. Robots that cannot reach the object due to obstacles skew these calculations. The state machine in Fig.\ \ref{fig:Region}a solves this problem by creating two states for the maze: either main or transfer. Each state has a set of regions representing a discretized visibility polygon. Whenever the object crosses a region boundary the state toggles. The main regions are generated by extending obstacles until they meet another obstacle. The transfer regions are perpendicular to obstacle boundaries, and act as a buffer between two main regions.
 
-Fig.\ \ref{fig:Region}B shows the regions for the main state. The object is in region 1. An indicator function is applied to \eqref{eq:meanVar} so only robots inside region 1 are counted.  This filtering increases experimental success because the mean calculation only includes nearby robots that can directly interact with the object. 
-When the object leaves main region 1 the state switches to transfer. The transfer regions are shown in Fig.\ \ref{fig:Region}C.  The object is in transfer region 1, so only robots in transfer region 1 are included in the mean and covariance calculations. 
+Fig.\ \ref{fig:Region}b shows the regions for the main state. The object is in region 1. An indicator function is applied to \eqref{eq:meanVar} so only robots inside region 1 are counted.  This filtering increases experimental success because the mean calculation only includes nearby robots that can directly interact with the object. 
+When the object leaves main region 1 the state switches to transfer. The transfer regions are shown in Fig.\ \ref{fig:Region}c.  The object is in transfer region 1, so only robots in transfer region 1 are included in the mean and covariance calculations. 
  The robots should push the object to the left. Without filtering using regions, the red circle is the mean and the algorithm would instruct the robots to push the object up. The black circle shows the filtered mean and the algorithm instructs the robots to push the object directly left.
 
 In 10 simulations with 100 robots, completion time without outlier rejection required 245$\pm$135 s while using outlier rejection required 90$\pm$35 s (mean$\pm$std).
@@ -113,13 +113,13 @@ In 10 simulations with 100 robots, completion time without outlier rejection req
 
 \begin{figure}
 \begin{center}
-	\begin{overpic}[width=0.9\columnwidth]{stateMachine.pdf}\put(-4,25){A}\end{overpic}\\
+	\begin{overpic}[width=0.9\columnwidth]{stateMachine.pdf}\put(-4,25){\textbf{a}}\end{overpic}\\
 	~~\begin{overpic}[width=0.45\columnwidth]{mainRegions.pdf} %,grid=true
-	\put(-6,85){B}
+	\put(-6,85){\textbf{b}}
 	\end{overpic}
 	~~
 	\begin{overpic}[width=0.45\columnwidth]{transferRegions.pdf}
-	\put(-6,85){C}
+	\put(-6,85){\textbf{c}}
 	\end{overpic}
 \end{center}
 \vspace{-0.5em}
@@ -128,7 +128,7 @@ In 10 simulations with 100 robots, completion time without outlier rejection req
 \end{figure}
 
 \subsection{Algorithm for object manipulation}\label{sec:AlgObjectManipulation}
- We use the hybrid hysteresis-based controller in Alg.~\ref{alg:MeanVarianceControl}  to track the desired position, while maintaining sufficient robot density to move the object by switching to minimize variance whenever variance exceeds a set limit.  $0.003 W$ and $0.006 W$ were added to the min and max variance limits from \eqref{eq:sigMaxMin}.
+ We use the hybrid hysteresis-based controller in Alg.~\ref{alg:MeanVarianceControl}  to track the desired position, while maintaining sufficient robot density to move the object by switching to minimize variance whenever variance exceeds a set limit:  $0.003 W$ and $0.006 W$ were added to the min and max variance limits from \eqref{eq:sigMaxMin}.
  The minimize variance control law \eqref{eq:PDcontrolVariance} is slightly modified to choose the nearest corner further from the goal than $\mathbf{b}$ with an obstacle-free straight-line path to $\mathbf{b}$. 
 The control algorithm  for object manipulation is listed in Alg.~\ref{alg:BlockPushing}. 
 
@@ -194,10 +194,8 @@ Experimental results of parameters sweeps are summarized in Fig.~\ref{fig:AutoVe
 %\end{overpic}
 %\begin{overpic}[width =\figwid]{story5.png}\put(6,15){T = 33 s}
 %\end{overpic}}
-\begin{overpic}[width =\columnwidth]{SwarmRun.pdf}
-\end{overpic}
-\caption{\label{fig:story}Snapshots showing an object manipulation simulation with 100 robots under automatic control.  See video in multimedia extension.
-%\vspace{-2em}
+\begin{overpic}[width =\columnwidth]{SwarmRun.pdf}\end{overpic}
+\caption{\label{fig:story}Snapshots showing an object manipulation simulation with 100 robots under automatic control. See supplemental material, video 2.
 }
 \end{figure}
 
@@ -225,7 +223,6 @@ Each shape was designed to have the same mass and area.
 \begin{overpic}[width =\figwid]{SimVeryWeight.pdf}\put(1,55){c)}
 \end{overpic}
 \begin{overpic}[width =\figwid]{SimVeryShape.pdf}\put(1,55){d)}
-
 \end{overpic}
 \vspace{-0.5em}
 \caption{\label{fig:AutoVeryParam}Parameter sweep for a) number of robots, b) different noise values, c) object weight, and d) object shape.  Each bar is labelled with the number of trials. Completion time is in seconds.

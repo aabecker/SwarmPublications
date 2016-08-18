@@ -3,7 +3,7 @@
 \subsection{Human-swarm interaction results}\label{sec:expResults}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-We designed six experiments to investigate human control of large robotic swarms for manipulation tasks.  Screenshots of each experiment are shown in Fig.~\ref{fig:5experiments}.  Each experiment examined the effects of varying a single parameter: population of robots for manipulation, four levels of visual feedback, different levels of Brownian noise, position control with 1 to 10 robots, and three control architectures for both an assembly task and a foraging task. The users could choose which experiment to try, and then our architecture randomly assigned a particular parameter value for each trial.  We recorded the completion time and the participant ID for each successful trial.  
+We designed six experiments to investigate human control of large robotic swarms for manipulation tasks.  Screenshots of each experiment are shown in Fig.~\ref{fig:5experiments}.  Each experiment examined the effects of varying a single parameter: population of robots for manipulation, four levels of visual feedback, different levels of Brownian noise, position control with 1 to 10 robots, and three control architectures for both assembly and foraging tasks. The users could choose which experiment to try, and our architecture randomly assigned a parameter value for each trial.  We recorded the completion time and the participant ID for each successful trial.  
 %As Fig.~\ref{fig:Learning} shows, one-third of all participants played only a single game.  Still, many played multiple games, and their decreasing completion times demonstrates their skills improved.
 
 
@@ -78,20 +78,19 @@ Sensing is expensive, especially on the nanoscale. To see nanocars~\cite{Chiang2
 %\end{figure}
 
 Our hypothesis predicted a steady decay in performance as the amount of visual feedback decreased.
-Our experiment indicated the opposite: players with just the mean completed the task faster than those with full-state feedback.  As Fig.~\ref{fig:ResVaryVis}.b shows, the levels of feedback arranged by increasing completion time are [ mean, mean + variance, full-state, convex-hull].  All experiments lasting over 300s were removed, under the assumption that the user stopped playing. 
+Our experiment indicated the opposite: players with just the mean completed the task faster than those with full-state feedback.  As Fig.~\ref{fig:ResVaryVis}.b shows, the levels of feedback arranged by increasing completion time are [mean, mean + variance, full-state, convex-hull].  All experiments lasting over 300s were removed, under the assumption that the user stopped playing. 
 Using ANOVA analysis, we reject the null hypothesis that all visualization methods are equivalent, with $p$-value $2.69\times10^{-19}$.
 Anecdotal evidence from beta-testers who played the game suggests that tracking 100 robots is overwhelming---similar to schooling phenomenons that confuse predators---while working with just the mean + variance is like using a ``spongy'' manipulator. Our beta-testers described convex-hull feedback as confusing and irritating.  A single robot left behind an obstacle will stretch the entire hull, obscuring the majority of the swarm.
 %obscuring what the rest of the swarm is doing.   
 
 \paragraph{Varying noise:}
 Microrobots are affected by random collisions with molecules. The effect of these collisions is called Brownian motion.
-
-This experiment varied the strength of these disturbances to study how noise affects human control of large swarms. Noise was applied at every timestep as follows:
+This experiment varied the strength of these disturbances to study how noise affects human control of large swarms. Noise was applied at every timestep:
 \begin{align*}
 \dot{x}_i &= u_x + m_i\cos(\psi_i)\\
  \dot{y}_i &= u_y + m_i\sin(\psi_i).
  \end{align*}
-$m_i,\psi_i$ are uniformly IID, with $m_i\in[0,M]$ and $\psi_i\in[0,2\pi]$. $M$ is a constant for each trial ranging from 0 to 200\% of the maximum control power ($u_{max}$).
+$m_i,\psi_i$ were uniformly IID, with $m_i\in[0,M]$ and $\psi_i\in[0,2\pi]$. $M$ was a constant for each trial ranging from 0 to 200\% of the maximum control power ($u_{max}$).
  
 We hypothesized 200\% noise was the largest a human could be expected to control---at 200\% noise, the robots move erratically.  Disproving our hypothesis, the results in Fig.~\ref{fig:ResVaryNoisePosition}.a show only a 40\% increase in completion time for the maximum noise.
 
@@ -100,7 +99,7 @@ We hypothesized 200\% noise was the largest a human could be expected to control
 \begin{overpic}[width =\figwid]{ResVaryNoise.pdf}\end{overpic}
 \begin{overpic}[width =\figwid]{ResPositioning.pdf}\end{overpic}
 %\vspace{-1em}
-\caption{\label{fig:ResVaryNoisePosition} Left: Varying the noise from 0 to 200\% of the maximum control input resulted in only a small increase in completion time. Right: Increasing the number of robots resulted in longer completion times.  For more than 4 robots the goal pattern contained a void, which may have caused the jump in completion times.
+\caption{\label{fig:ResVaryNoisePosition} Left: Varying the noise from 0 to 200\% of the maximum control input resulted in only a small increase in completion time. Right: For position control, increasing the number of robots resulted in longer completion times.  For more than 4 robots the goal pattern contained a void, which may have caused the jump in completion times.
 %\vspace{-1em}
 }
 \end{figure}
@@ -111,7 +110,7 @@ This online experiment examined how completion time scales with the number of ro
 
 
 
-Note there is a bifurcation between $n$=4 and $n$=5 robots. For $n\in[1,4]$ the goal patterns are not hollow, but starting at $n$=5 they are.  A better experiment design would randomly place the goal positions.  Initially we tried this, but our beta-testers strongly disliked trying to arrange robots in random patterns.
+Time increases for $n>4$ robots. For $n\in[1,4]$ the goal patterns are not hollow, but starting at $n$=5 they are.  A better experiment design would randomly place the goal positions.  Initially we tried this, but beta-testers strongly disliked trying to arrange robots in random patterns.
 
 
 \paragraph{Varying control--Assembly:}
@@ -122,7 +121,7 @@ The experiment challenged players to assemble a three-block pyramid with a swarm
 
 %\todo{describe controller model here, use an equation}
 
-The results were conclusive, as shown in Fig.~\ref{fig:ResVaryControl}.a: attractive control was the fastest, followed by global control, with repulsive control a distant last.  The median time using repulsive control was four times longer than with attractive control.
+The results were conclusive, as shown in Fig.~\ref{fig:ResVaryControl}a: attractive control was the fastest, followed by global control, with repulsive control a distant last.  The median time using repulsive control was four times longer than with attractive control.
 Using ANOVA analysis, we reject the null hypothesis that all controllers are equivalent, with $p$-value $3.37\times10^{-32}$.
 
 %%\begin{figure}
