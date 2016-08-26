@@ -9,7 +9,8 @@ Two additional simulations were performed using wall-friction to control varianc
 
 \subsection{Position Control of Two Robots}
 
-Algorithms \ref{alg:PosControl2Robots}, \ref{alg:XControl}, \ref{alg:YControl}, were implemented in Mathematica using point robots (radius = $0$).  Fig.~\ref{fig:shapeControlMathematica1}  shows  this algorithm for two configurations. 
+Algorithms \ref{alg:PosControl2Robots}, \ref{alg:XControl}, %\ref{alg:YControl}, 
+were implemented in Mathematica using point robots (radius = $0$).  Fig.~\ref{fig:shapeControlMathematica1}  shows  this algorithm for two configurations. 
 Robot initial positions are shown by a crosshair, and final positions by a circled crosshair.  Dashed lines show the shortest route if robots could be controlled independently.  The path given by  Alg.\ \ref{alg:PosControl2Robots} is shown with solid arrows.
 Each row has five snapshots taken every quarter second. For the sake of brevity axis-aligned moves were replaced with oblique moves that combine two moves simultaneously. 
  $\Delta r_x$ is adjusted to $\Delta e_x$ in the second snapshot at $t = 0.25$. 
@@ -18,7 +19,8 @@ Each row has five snapshots taken every quarter second. For the sake of brevity 
  Finally, the algorithm moves the robots to their corresponding destinations.
 
 In the worse case, adjusting both $\Delta r_x$ and $\Delta r_y$ requires two iterations.   Two iterations of Alg. \ref{alg:XControl} are only required if $|\Delta e_x - \Delta s_x|>L$. 
-Similarly,  two iterations of Alg. \ref{alg:YControl} are only required if $|\Delta e_y - \Delta s_y|>L$.
+Similarly,  two iterations %of Alg. \ref{alg:YControl} 
+are only required if $|\Delta e_y - \Delta s_y|>L$.
 
 
 %\textcolor{red}{Shiva:  what is the complexity of this algorithm?  How many steps in the worst case?  When does worst case happen?}
@@ -82,7 +84,9 @@ Control performance is sensitive to the desired clearance $\epsilon$.  As $\epsi
 \end{figure}
 
 \subsection{Efficient Control of Covariance}
-A set of simulations were conducted to demonstrate the importance of boundary friction.  These simulations use  the 2D physics engine Box2D, by \citet{catto2010box2d}.
+%A set of simulations were conducted to demonstrate the importance of boundary friction.  
+Random disturbances impair the performance of Alg. \ref{alg:PosControl2Robots} and Alg. \ref{alg:PosControlNRobots}. Still, we are able to control covariance of the swarm. This section demonstrates simulations of controlling covariance of the swarm.
+These simulations use  the 2D physics engine Box2D, by \citet{catto2010box2d}.
  144 disc-shaped robots were controlled by an open-loop control input as illustrated in Fig. \ref{fig:SimCovarianceFuncFrictionOpenLoop}.  All robots had  the same initial conditions, but in four tests the boundary friction was $F_f = \{0,1/3 F, 2/3F, F\}$.
  Without friction, covariance has minimal variation.  As friction increases, the covariance can be manipulated to greater degrees.
 

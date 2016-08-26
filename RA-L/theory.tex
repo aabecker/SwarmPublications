@@ -19,7 +19,7 @@
 \end{center}
 \end{figure*} 
 
-\subsection{Controlling Covariance: Fluid Settling In a Tank}\label{subsec:FluidInTank}
+\subsection{Using Boundaries: Fluid Settling In a Tank}\label{subsec:FluidInTank}
 One method to control a swarm's shape in a bounded workspace is to simply push in a given direction until the swarm conforms to the boundary.
 \paragraph{Square workplace}
 This section examines the mean, variance,  covariance and correlation of a very large swarm of robots as they move inside a square workplace under the influence of gravity pointing in the direction $\beta$. The swarm is large, but the robots are small in comparison, and together occupy a constant area $A$. Under a global input such as gravity, they flow like water, moving to a side of the workplace and forming a polygonal shape, as shown in Fig.~\ref{fig:SquareFill}. 
@@ -74,11 +74,11 @@ Variance $\sigma^2_x(\beta,h)$ is maximized at $\beta = \pi/2+n \pi$ and $h\appr
 %
 
 
-\subsection{Friction with Boundary Wall}\label{subsec:WallFriction}
+\subsection{Using Boundaries: Friction and Boundary Layers}\label{subsec:WallFriction}
 Global inputs move a swarm uniformly.  
 Controlling covariance requires breaking this uniform symmetry.  A swarm inside an axis-aligned rectangular workspace can reduce variance normal to a wall by simply pushing the swarm into the boundary. Directly controlling covariance by pushing the swarm into a boundary requires changes to the boundary.  An obstacle in the lower-right corner is enough to generate positive covariance.  Generating both positive and negative covariance requires additional obstacles.  Requiring special obstacle configuration also makes covariance control dependent on the local environment. 
   Instead of pushing our robots directly into a wall, this paper examines an oblique approach, by using boundaries that generate friction with the robots.  These frictional forces are  sufficient to break the symmetry caused by uniform inputs.  Robots touching a wall have a negative friction force that opposes movement along the boundary.  This  causes robots along the boundary to slow down compared to robots in free-space. 
-
+  
 Let the control input be a vector force $\vec{F}$ with magnitude $F$ and orientation $\theta$ with respect to a line perpendicular to and into the nearest boundary. $N$ is the normal or perpendicular force between the robot and the boundary. The force of friction $F_f$ is nonzero if the robot is in contact with the boundary and  $|\theta| < \pi/2$. The resulting net force on the robot, $F_{\text{\emph{forward}}}$, is aligned with the wall and given by
 
 \begin{align}
@@ -102,7 +102,7 @@ The next section shows how a system with friction model \eqref{eq:frictionmodel}
 
 
 
-
+\section{Algorithms}\label{sec:algorithms}
 \subsection{Position Control of $2$ Robots Using Wall Friction}\label{sec:PostionControl2Robots}
 \begin{figure*}
 \centering
@@ -161,31 +161,31 @@ The goal is to adjust
 
 Our algorithm solves the positioning problem in two steps: 
 First, $|\Delta r_x - \Delta e_x |$ is reduced to zero while  $\Delta r_y$ is kept constant in Alg.~\ref{alg:XControl}. 
-Second $|\Delta r_y - \Delta e_y |$ is reduced to zero while  $\Delta r_x$ is kept constant in Alg.~\ref{alg:YControl}. 
+Second $|\Delta r_y - \Delta e_y |$ is reduced to zero while  $\Delta r_x$ is kept constant.% in Alg.~\ref{alg:YControl}. 
 
-Step (i): Fixing $\Delta r_x$
-\label{theory:step1}
-\begin{enumerate}
-\item
-If $\Delta e_x$ is negative, the robots will be commanded to move toward the left wall and halt $\epsilon$ distance from the left wall.
-If $\Delta e_x \ge 0$, the robots will be commanded to move toward the right wall and halt $\epsilon$ distance from the right wall. The epsilon distance prevents the robots from experiencing friction along the vertical wall.
-\item  let $y_{\min} = \min_i r_{iy}$, i.e., $y_{\min}$ be the minimum height of the two robots. Move both robots downward  $y_{\min}$ such that one of the robots touches the bottom wall and hence friction force will prevent this robot from moving left or right.
-\item friction force holds the lower robot in place while the upper robot may move right and left freely to change $\Delta r_x $ to $\Delta e_x$.
-\item  If after the free move of the upper robot $\Delta r_x$ is not $\Delta e_x$, Step (i) will be repeated.  No more than two iterations of step (i) are required.
-\end{enumerate}
-
-Step (ii): Fixing $\Delta r_y$
-Now that $\Delta r_x$ is corrected, $\Delta r_y$ must be corrected:
-\begin{enumerate}
-\item 
-If $\Delta e_y$ is negative, the robots will be commanded to move toward the top wall and halt $\epsilon$ distance from the top wall.
-If $\Delta e_y \ge 0$, the robots will be commanded to move toward the bottom wall and halt $\epsilon$ distance from the bottom wall. The epsilon distance prevents the robots from experiencing friction along the horizontal wall.
-\item  let $x_{\min} = \min_i r_{ix}$, i.e., $x_{\min}$ be the minimum distance of the two robots from the origin along the $x$-axis. Move both robots to the left $x_{\min}$ such that one of the robots  touches the left wall and hence friction force will prevent this robot from moving up or down.
-\item  friction force holds the left robot in place while the right robot may move up or down freely to change $\Delta r_y $  to $\Delta e_y$.
-\item  If after the free move of the right robot $\Delta r_y$ is not $\Delta e_y$, Step (ii) will be repeated.  No more than two iterations of step (ii) are required.
-\end{enumerate}
-Once $\Delta r_x$ and $\Delta r_y$ are set to $\Delta e_x$ and $\Delta e_y$, a straight-line global input moves both robots from $r_1$ and $r_2$ to $e_1$ and $e_2$. 
-
+%Step (i): Fixing $\Delta r_x$
+%\label{theory:step1}
+%\begin{enumerate}
+%\item
+%If $\Delta e_x$ is negative, the robots will be commanded to move toward the left wall and halt $\epsilon$ distance from the left wall.
+%If $\Delta e_x \ge 0$, the robots will be commanded to move toward the right wall and halt $\epsilon$ distance from the right wall. The epsilon distance prevents the robots from experiencing friction along the vertical wall.
+%\item  let $y_{\min} = \min_i r_{iy}$, i.e., $y_{\min}$ be the minimum height of the two robots. Move both robots downward  $y_{\min}$ such that one of the robots touches the bottom wall and hence friction force will prevent this robot from moving left or right.
+%\item friction force holds the lower robot in place while the upper robot may move right and left freely to change $\Delta r_x $ to $\Delta e_x$.
+%\item  If after the free move of the upper robot $\Delta r_x$ is not $\Delta e_x$, Step (i) will be repeated.  No more than two iterations of step (i) are required.
+%\end{enumerate}
+%
+%Step (ii): Fixing $\Delta r_y$
+%Now that $\Delta r_x$ is corrected, $\Delta r_y$ must be corrected:
+%\begin{enumerate}
+%\item 
+%If $\Delta e_y$ is negative, the robots will be commanded to move toward the top wall and halt $\epsilon$ distance from the top wall.
+%If $\Delta e_y \ge 0$, the robots will be commanded to move toward the bottom wall and halt $\epsilon$ distance from the bottom wall. The epsilon distance prevents the robots from experiencing friction along the horizontal wall.
+%\item  let $x_{\min} = \min_i r_{ix}$, i.e., $x_{\min}$ be the minimum distance of the two robots from the origin along the $x$-axis. Move both robots to the left $x_{\min}$ such that one of the robots  touches the left wall and hence friction force will prevent this robot from moving up or down.
+%\item  friction force holds the left robot in place while the right robot may move up or down freely to change $\Delta r_y $  to $\Delta e_y$.
+%\item  If after the free move of the right robot $\Delta r_y$ is not $\Delta e_y$, Step (ii) will be repeated.  No more than two iterations of step (ii) are required.
+%\end{enumerate}
+%Once $\Delta r_x$ and $\Delta r_y$ are set to $\Delta e_x$ and $\Delta e_y$, a straight-line global input moves both robots from $r_1$ and $r_2$ to $e_1$ and $e_2$. 
+%
 
 \begin{algorithm}
 \caption{WallFrictionArrange2Robots($s_1,s_2,e_1,e_2,L$)}\label{alg:PosControl2Robots}
@@ -238,40 +238,40 @@ $(0,0)$ is bottom corner, $s_1$ is topmost robot,
 \end{algorithmic}
 \end{algorithm}
 
-\begin{algorithm}
-\caption{GenerateDesired$y$-spacing($s_1,s_2,e_1,e_2,L$)}\label{alg:YControl}
-\begin{algorithmic}[1]
-\Require Knowledge of starting $(s_1,s_2)$ and ending $(e_1,e_2)$ positions of  two robots. 
-$(0,0)$ is bottom corner, $s_1$ is rightmost robot, 
- $L$ is length of the walls. Current robot positions are $(r_1,r_2)$.
-\Ensure   $ r_{1x} - r_{2x}  \equiv s_{1x} - s_{2x} $   %$\Delta y(t) \equiv \Delta y(0)$ 
-\State $ \Delta s_y  \gets s_{1y} - s_{2y} $
-\State $ \Delta e_y \gets e_{1y} - e_{2y} $
-\State $ r_1 \gets s_1$, $ r_2 \gets s_2$
-\If {$\Delta e_y < 0 $ }
-\State $ m \gets ( L-\max( r_{1y},r_{2y}) ,0)   $ \Comment{Move to top wall}
-\Else 
-\State  $ m \gets ( -\min( r_{1y},r_{2y}),0 )    $ \Comment{Move to bottom wall}
-\EndIf
-\State $m  \gets  m + (0, -\min( r_{1x},r_{2x} ))$ \Comment{Move to left}
-\State $ r_1 \gets r_1+m$, $ r_2 \gets r_2+m$ \Comment{Apply move}
-\If {$\Delta e_y - (r_{1y} - r_{2y} ) > 0 $}
-\State $ m \gets (\min(|\Delta e_y - \Delta s_y |, L- r_{1y}), 0)$  \Comment{Move top}
-\Else
-\State $ m \gets (-\min(|\Delta e_y - \Delta s_y |, r_{1y}), 0)$\Comment{Move bottom}
-\EndIf 
-\State $m  \gets  m + (0, \epsilon)$ \Comment{Move right}
-\State $ r_1 \gets r_1+m$, $ r_2 \gets r_2+m$ \Comment{Apply move}
-\State $\Delta r_y = r_{1y} - r_{2y}$
-\If {$\Delta r_y \equiv \Delta e_y$} 
-\State   $ m \gets (e_{1x}-r_{1x}, e_{1y}-r_{1y})$
-\State $ r_1 \gets r_1+m$, $ r_2 \gets r_2+m$ \Comment{Apply move}
-\State  \Return $(r_1,r_2)$
-\Else   
-\State \Return GenerateDesired$y$-spacing($r_1,r_2,e_1,e_2,L$)
-\EndIf
-\end{algorithmic}
-\end{algorithm}
+%\begin{algorithm}
+%\caption{GenerateDesired$y$-spacing($s_1,s_2,e_1,e_2,L$)}\label{alg:YControl}
+%\begin{algorithmic}[1]
+%\Require Knowledge of starting $(s_1,s_2)$ and ending $(e_1,e_2)$ positions of  two robots. 
+%$(0,0)$ is bottom corner, $s_1$ is rightmost robot, 
+% $L$ is length of the walls. Current robot positions are $(r_1,r_2)$.
+%\Ensure   $ r_{1x} - r_{2x}  \equiv s_{1x} - s_{2x} $   %$\Delta y(t) \equiv \Delta y(0)$ 
+%\State $ \Delta s_y  \gets s_{1y} - s_{2y} $
+%\State $ \Delta e_y \gets e_{1y} - e_{2y} $
+%\State $ r_1 \gets s_1$, $ r_2 \gets s_2$
+%\If {$\Delta e_y < 0 $ }
+%\State $ m \gets ( L-\max( r_{1y},r_{2y}) ,0)   $ \Comment{Move to top wall}
+%\Else 
+%\State  $ m \gets ( -\min( r_{1y},r_{2y}),0 )    $ \Comment{Move to bottom wall}
+%\EndIf
+%\State $m  \gets  m + (0, -\min( r_{1x},r_{2x} ))$ \Comment{Move to left}
+%\State $ r_1 \gets r_1+m$, $ r_2 \gets r_2+m$ \Comment{Apply move}
+%\If {$\Delta e_y - (r_{1y} - r_{2y} ) > 0 $}
+%\State $ m \gets (\min(|\Delta e_y - \Delta s_y |, L- r_{1y}), 0)$  \Comment{Move top}
+%\Else
+%\State $ m \gets (-\min(|\Delta e_y - \Delta s_y |, r_{1y}), 0)$\Comment{Move bottom}
+%\EndIf 
+%\State $m  \gets  m + (0, \epsilon)$ \Comment{Move right}
+%\State $ r_1 \gets r_1+m$, $ r_2 \gets r_2+m$ \Comment{Apply move}
+%\State $\Delta r_y = r_{1y} - r_{2y}$
+%\If {$\Delta r_y \equiv \Delta e_y$} 
+%\State   $ m \gets (e_{1x}-r_{1x}, e_{1y}-r_{1y})$
+%\State $ r_1 \gets r_1+m$, $ r_2 \gets r_2+m$ \Comment{Apply move}
+%\State  \Return $(r_1,r_2)$
+%\Else   
+%\State \Return GenerateDesired$y$-spacing($r_1,r_2,e_1,e_2,L$)
+%\EndIf
+%\end{algorithmic}
+%\end{algorithm}
 
 
 
@@ -279,7 +279,7 @@ $(0,0)$ is bottom corner, $s_1$ is rightmost robot,
 
 
 \subsection{Position Control of $n$ Robots Using Wall Friction}\label{sec:PostionControlnRobots}
-Alg. \ref{alg:PosControl2Robots}  can be extended to control the position of $n$ robots using wall friction under several constraints. The solution described here is an iterative procedure with $n$ loops. The $k$th loop moves the $k$th robot from a \emph{staging zone} to the desired position in a \emph{build zone}. At the end the $k$th loop, robots 1 through $k$ are in their desired final configuration in the build zone, and robots $k+1$ to $n$ are in the staging zone. See Fig.~\ref{fig:construction2d} for a schematic of the build and staging zones.
+Alg. \ref{alg:PosControl2Robots}  can be extended to control the position of $n$ robots using wall friction under several constraints. The solution described here is an iterative procedure with $n$ loops. The $k$th loop moves the $k$th robot from a \emph{staging zone} to the desired position in a \emph{build zone}. All robots move according to the global input, but due to wall friction, at the end the $k$th loop, robots 1 through $k$ are in their desired final configuration in the build zone, and robots $k+1$ to $n$ are in the staging zone. See Fig.~\ref{fig:construction2d} for a schematic of the build and staging zones.
 
 
 
