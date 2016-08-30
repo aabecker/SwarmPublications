@@ -7,18 +7,18 @@
 \centering
 \renewcommand{\figwid}{0.4\columnwidth}
 {
-\begin{overpic}[width =0.415\columnwidth]{twoR_1.pdf}\put(15,65){$t$  = 30 s}\end{overpic}\hspace{-.5em}
-\begin{overpic}[width =\figwid]{twoR_2.jpg}\put(15,65){$t$  = 60 s}
+\begin{overpic}[width =\figwid]{twoR1.pdf}\put(12,70){$t$  = 0 s}\end{overpic}
+\begin{overpic}[width =\figwid]{twoR2.pdf}\put(12,70){$t$  = 60 s}
 \end{overpic}
-\begin{overpic}[width =\figwid]{twoR_3.jpg}\put(15,65){$t$  = 90 s}
+\begin{overpic}[width =\figwid]{twoR3.pdf}\put(12,70){$t$  = 150 s}
 \end{overpic}
-\begin{overpic}[width =\figwid]{twoR_4.jpg}\put(15,65){$t$  = 120 s}
+\begin{overpic}[width =\figwid]{twoR4.pdf}\put(12,70){$t$  = 160 s}
 \end{overpic}
-\begin{overpic}[width =\figwid]{twoR_5.jpg}\put(15,65){$t$  = 150 s}
+\begin{overpic}[width =\figwid]{twoR5.pdf}\put(12,70){$t$  = 210 s}
 \end{overpic}}
-\vspace{-2em}
-\caption{\label{fig:storyReal}{Two robot positioning of two kilobot robots.  The boundary walls have nearly infinite friction, so the blue robot is stopped by the wall from $t = 30$s until the commanded input is directed away form the wall at $t=120$s, while the orange robot in free-space is unhindered.}
-%\vspace{-2em}
+\vspace{-3em}
+\caption{\label{fig:storyReal}{Positioning of two kilobots where they should reach their same color circle. The boundary walls have nearly infinite friction, so the green robot is stopped by the wall from $t = 60$s until the commanded input is directed away form the wall at $t=150$s, while the pink robot in free-space is unhindered.}
+%\vspace{-1em}
 }
 \end{figure*}
 
@@ -47,7 +47,7 @@ The walls of the hardware platform have almost infinite friction, due to a laser
 
 
 \subsection{Hardware Experiment: Control of Covariance}
-To demonstrate covariance control $n$=100 robots were placed on the workspace and manually steered with a single light source, using friction with the boundary walls to vary the covariance from  -5000 to 10,000 pixel$^2$.  The resulting covariance is plotted in Fig.~\ref{fig:covExperiment}, along with snapshots of the swarm.
+To demonstrate covariance control $n$=100 robots were placed on the workspace and manually steered with lights, using friction with the boundary walls to vary the covariance from  -4000 to 4000 cm$^2$.  The resulting covariance is plotted in Fig.~\ref{fig:covExperiment}, along with snapshots of the swarm.
 
 
 
