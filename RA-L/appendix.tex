@@ -174,15 +174,29 @@ Algorithms For Shaping a Particle Swarm\\ With a Shared Control Input Using Boun
 %Also 
 Includes algorithms and equations too lengthy for main paper, but potentially useful for the community.
 Also links to videos and demonstration code for the algorithms.
+
+Consider a swarm of agents that are controlled by the same global inputs and have no autonomy. This paper presents algorithms for shaping such swarms in 2D.
+
+This model is common for current micro- and nano-robots, whose small size makes it difficult to perform onboard computation or contain a power and propulsion source. For this reason these robots are usually powered and controlled by global inputs, such as a uniform external electric or magnetic field, and every robot receives exactly the same control inputs.
+Due to their small size, large numbers of micro-robots are required to deliver sufficient payloads.
+ Nevertheless, these applications require precision control of the shape and position of the robot swarm. Precision control requires breaking the symmetry caused by the global input.  
+
+A promising technique uses collisions with boundary walls to shape the swarm, however, the range of configurations created by conforming a swarm to a boundary wall is limited. This paper describes the set of stable configurations of a swarm in two canonical workspaces, a circle and a square. 
+
+To increase the diversity of configurations, we add boundary interaction to our model.  We provide algorithms using friction with walls to place two robots at arbitrary locations in a rectangular workspace.
+Next, we extend this algorithm to place $n$ robots at desired locations. We conclude with efficient techniques to control the covariance of a swarm not possible without wall-friction. Simulations and hardware implementations with 100 robots validate these results.
+
 \end{abstract}
 
 \IEEEpeerreviewmaketitle
 
 \section{Introduction}
-This supplement
-\S \ref{sec:Videos}
-\S \ref{sec:2robotWallFriction}
-\S \ref{sec:fluidInPlanarRegion}
+This supplement gives overviews of the videos and code in 
+\S \ref{sec:Videos}, 
+provides the algorithm for $y$ position control of two robots in
+\S \ref{sec:2robotWallFriction},
+and gives gull analytical models for fluid settling in square-shaped tanks in
+\S \ref{sec:fluidInPlanarRegion}.
 
 
 \section{Supplementary Videos}\label{sec:Videos}
@@ -191,7 +205,7 @@ Five videos animate the key algorithms in this paper.
 \subsection{Robot Swarm in a Circle under Gravity}
 The video \emph{Robot Swarm in a Circle under Gravity} shows the stable configuration of a swarm under a constant global input.  Animated plots show mean, variance, covariance, and correlation for a swarm in a circular workspace.
 Full resolution video: \url{https://youtu.be/nPFAjVIOxYc}.
-An online demonstration and source code of the algorithm are at \citet{Zhao2016mathematicaSquare}
+An online demonstration and source code of the algorithm are at \citet{Zhao2016mathematicaSquare}.
 
 \subsection{Distribution of Robot Swarm in Square under Gravity }
 The video \emph{Distribution of Robot Swarm in Square under Gravity } shows the stable configuration of a swarm under a constant global input.  Animated plots show mean, variance, covariance, and correlation for a swarm in a square workspace.
@@ -199,7 +213,7 @@ Full resolution video: \url{https://youtu.be/ZEksDxLpAzg}.
 An online demonstration and source code of the algorithm are at \citet{Zhao2016mathematica}.
 
 
-\subsection{TwoRobotPosition.mp4}
+\subsection{Steering 2 Particles with Shared Controls Using Wall Friction}
 Animates Algs. 1, 2, 3 in Mathematica to show how two robots can be arbitrarily positioned in a square workspace. In this video the desired initial and ending positions of the two robots are manipulated, and the path that the robots should follow is drawn. The video ends with an extreme case where the robots must exchange positions. 
 Full resolution video: \url{https://youtu.be/5TWlw7vThsM}.
 An online demonstration and source code of the algorithm are at \citet{Shahrokhi2015mathematicaParticle}.
@@ -491,12 +505,14 @@ For a circular workspace, with $\beta = 0$, the variance of $x$ and $y$ are:
 
 For $\beta = 0$, $\sigma_{xy}=0$. These values can be rotated to calculate $\sigma_x^2(\beta,h),\sigma_y^2(\beta,h),$ and $\sigma_{xy}(\beta,h)$.
 
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Acknowledgments}
+This work was supported by the National Science Foundation under Grant No.\ \href{http://nsf.gov/awardsearch/showAward?AWD_ID=1553063}{ [IIS-1553063]}.
 
 %%%%%%%%%%%%%%%
 %% Use plainnat to work nicely with natbib. 
 \bibliographystyle{plainnat}
+\footnotesize
 \bibliography{IEEEabrv,ShapingSwarmFrictionSharedInput}
 \end{document}
 
