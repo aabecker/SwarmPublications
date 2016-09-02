@@ -95,7 +95,7 @@ The next section shows how a system with friction model \eqref{eq:frictionmodel}
 \begin{center}
 \includegraphics[width=0.8\columnwidth]{friction.pdf} 
 \vspace{-1em}
-\caption{Wall friction reduces the force for going forward $F_{\text{\emph{forward}}}$ on a robot near a wall, but not for a free robot.}
+\caption{Wall friction reduces the force for going forward $F_{\text{\emph{forward}}}$ on a robot near a wall, but not for a free robot. At left there is a fluid and inside it the velocity of the robot is almost zero at the surface and is more and more until it is the same as the free space on the threshold.}
 \label{fig:friction}
 \end{center}
 \end{figure} 
@@ -107,15 +107,15 @@ The next section shows how a system with friction model \eqref{eq:frictionmodel}
 \begin{figure*}
 \centering
 \renewcommand{\figwid}{0.4\columnwidth}
-{\begin{overpic}[width =\figwid]{one_1.jpg}\put(45,75){$t$ = 0 s}
+{\begin{overpic}[width =\figwid]{S1_1.png}\put(55,15){$t$ = 0 s}
 \end{overpic}
-\begin{overpic}[width =\figwid]{one_2.jpg}\put(45,75){$t$ = 0.25 s}
+\begin{overpic}[width =\figwid]{S1_2.png}\put(55,15){$t$ = 0.14 s}
 \end{overpic}
-\begin{overpic}[width =\figwid]{one_3.jpg}\put(45,75){$t$  = 0.5 s}
+\begin{overpic}[width =\figwid]{S1_3.png}\put(55,15){$t$  = 0.29 s}
 \end{overpic}
-\begin{overpic}[width =\figwid]{one_4.jpg}\put(45,75){$t$  = 0.75 s}
+\begin{overpic}[width =\figwid]{S1_4.png}\put(55,15){$t$  = 0.45 s}
 \end{overpic}
-\begin{overpic}[width =\figwid]{one_5.jpg}\put(45,75){$t$  = 1 s}
+\begin{overpic}[width =\figwid]{S1_5.png}\put(55,15){$t$  = 0.7 s}
 \end{overpic}}\\
 %{\begin{overpic}[width =\figwid]{two_1.jpg}\put(45,75){$t$  = 0 s}
 %\end{overpic}
@@ -127,21 +127,21 @@ The next section shows how a system with friction model \eqref{eq:frictionmodel}
 %\end{overpic}
 %\begin{overpic}[width =\figwid]{two_5.jpg}\put(45,75){$t$  = 1 s}
 %\end{overpic}}\\
-\vspace{.5em}
-{\begin{overpic}[width =\figwid]{S3_1.jpg}\put(45,75){$t$ = 0 s}
-\end{overpic}
-\begin{overpic}[width =\figwid]{S3_2.jpg}\put(45,75){$t$ = 0.25 s}
-\end{overpic}
-\begin{overpic}[width =\figwid]{S3_3.jpg}\put(45,75){$t$  = 0.5 s}
-\end{overpic}
-\begin{overpic}[width =\figwid]{S3_4.jpg}\put(45,75){$t$  = 0.75 s}
-\end{overpic}
-\begin{overpic}[width =\figwid]{S3_5.jpg}\put(45,75){$t$  = 1 s}
-\end{overpic}}
-\vspace{-1em}
+%\vspace{.5em}
+%{\begin{overpic}[width =\figwid]{S3_1.jpg}\put(45,75){$t$ = 0 s}
+%\end{overpic}
+%\begin{overpic}[width =\figwid]{S3_2.jpg}\put(45,75){$t$ = 0.25 s}
+%\end{overpic}
+%\begin{overpic}[width =\figwid]{S3_3.jpg}\put(45,75){$t$  = 0.5 s}
+%\end{overpic}
+%\begin{overpic}[width =\figwid]{S3_4.jpg}\put(45,75){$t$  = 0.75 s}
+%\end{overpic}
+%\begin{overpic}[width =\figwid]{S3_5.jpg}\put(45,75){$t$  = 1 s}
+%\end{overpic}}
+%\vspace{-1em}
 \caption{\label{fig:shapeControlMathematica1}{Frames from an implementation of Alg.\ \ref{alg:PosControl2Robots}: two robot positioning using walls with infinite friction. The algorithm only requires friction along the bottom and left walls.
 Robot initial positions are shown by a crosshair, and final positions by a circled crosshair.  Dashed lines show the shortest route if robots could be controlled independently.  The path given by  Alg.\ \ref{alg:PosControl2Robots} is shown with solid arrows.
-The bottom row shows an extreme case where the robots must switch position.
+%The bottom row shows an extreme case where the robots must switch position.
 }
 %\vspace{-2em}
 }

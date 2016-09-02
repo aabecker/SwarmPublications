@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[   1239776,      24009]
-NotebookOptionsPosition[   1237757,      23935]
-NotebookOutlinePosition[   1238116,      23951]
-CellTagsIndexPosition[   1238073,      23948]
+NotebookDataLength[   1240010,      24004]
+NotebookOptionsPosition[   1237988,      23930]
+NotebookOutlinePosition[   1238350,      23946]
+CellTagsIndexPosition[   1238307,      23943]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -4943,14 +4943,14 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              Inequality[
              2 Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
               LessEqual, 2 Pi]]}, {
-           1 - (1/3) Sqrt[2] Sqrt[$CellContext`A Tan[$CellContext`\[Beta]]], 
+           1 - ((1/3) Sqrt[2]) Sqrt[$CellContext`A Tan[$CellContext`\[Beta]]], 
             Inequality[
              ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], LessEqual, 
              Pi/2 - ArcTan[2 $CellContext`A]]}, {
            1/2 + Cot[$CellContext`\[Beta]]/(12 $CellContext`A), 
             Inequality[
             Pi/2 - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
-             LessEqual, Pi/2 + ArcTan[2 $CellContext`A]]}, {(1/3) Sqrt[2] 
+             LessEqual, Pi/2 + ArcTan[2 $CellContext`A]]}, {((1/3) Sqrt[2]) 
             Sqrt[(-$CellContext`A) Tan[$CellContext`\[Beta]]], 
             Inequality[
             Pi/2 + ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
@@ -4958,7 +4958,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Tan[$CellContext`\[Beta]]^2/(24 $CellContext`A), 
             Inequality[
             Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
-             LessEqual, Pi + ArcTan[2 $CellContext`A]]}, {(1/3) Sqrt[2] 
+             LessEqual, Pi + ArcTan[2 $CellContext`A]]}, {((1/3) Sqrt[2]) 
             Sqrt[$CellContext`A Tan[$CellContext`\[Beta]]], 
             Inequality[
             Pi + ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
@@ -4968,7 +4968,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[(3 Pi)/2 - ArcTan[2 $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
              ArcTan[2 $CellContext`A]]}, {
-           1 - (1/3) Sqrt[2] 
+           1 - ((1/3) Sqrt[2]) 
             Sqrt[(-$CellContext`A) Tan[$CellContext`\[Beta]]], 
             
             Inequality[(3 Pi)/2 + ArcTan[2 $CellContext`A], 
@@ -4980,8 +4980,8 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Or[0 <= $CellContext`\[Beta] <= ArcTan[1/2, 1 - $CellContext`A], 
              Inequality[
              2 Pi - ArcTan[1/2, 1 - $CellContext`A], 
-              Less, $CellContext`\[Beta], LessEqual, 2 Pi]]}, {(3 + 
-             2 Sqrt[2] ($CellContext`A - 1) 
+              Less, $CellContext`\[Beta], LessEqual, 2 Pi]]}, {(
+             3 + ((2 Sqrt[2]) ($CellContext`A - 1)) 
               Sqrt[(1 - $CellContext`A) Tan[$CellContext`\[Beta]]])/(
             6 $CellContext`A), 
             Inequality[
@@ -4992,8 +4992,8 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[
             Pi/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, Pi/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {(-3 + 6 $CellContext`A - 2 
-             Sqrt[2] ($CellContext`A - 1) 
+             ArcTan[1/2, 1 - $CellContext`A]]}, {(-3 + 
+             6 $CellContext`A - ((2 Sqrt[2]) ($CellContext`A - 1)) 
              Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]])/(
             6 $CellContext`A), 
             Inequality[
@@ -5004,8 +5004,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[
             Pi - ArcTan[1/2, 1 - $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi + ArcTan[1/2, 1 - $CellContext`A]]}, {(-3 + 
-             6 $CellContext`A + 
-             2 (1 - $CellContext`A) Sqrt[2] 
+             6 $CellContext`A + ((2 (1 - $CellContext`A)) Sqrt[2]) 
               Sqrt[(1 - $CellContext`A) Tan[$CellContext`\[Beta]]])/(
             6 $CellContext`A), 
             Inequality[
@@ -5015,8 +5014,8 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             
             Inequality[(3 Pi)/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {(3 + 
-             2 Sqrt[2] ($CellContext`A - 1) 
+             ArcTan[1/2, 1 - $CellContext`A]]}, {(
+             3 + ((2 Sqrt[2]) ($CellContext`A - 1)) 
               Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]])/(
             6 $CellContext`A), 
             
@@ -5036,15 +5035,15 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              Inequality[
              2 Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
               LessEqual, 2 Pi]]}, {
-           1 - (1/3) Sqrt[2] Sqrt[$CellContext`A Cot[$CellContext`\[Beta]]], 
-            ArcTan[2 $CellContext`A] <= $CellContext`\[Beta] <= 
+           1 - ((1/3) Sqrt[2]) Sqrt[$CellContext`A Cot[$CellContext`\[Beta]]],
+             ArcTan[2 $CellContext`A] <= $CellContext`\[Beta] <= 
             Pi/2 - ArcTan[2 $CellContext`A]}, {
            1 - $CellContext`A/2 - Cot[$CellContext`\[Beta]]^2/(
             24 $CellContext`A), 
             Inequality[
             Pi/2 - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi/2 + ArcTan[2 $CellContext`A]]}, {
-           1 - (1/3) Sqrt[2] 
+           1 - ((1/3) Sqrt[2]) 
             Sqrt[(-$CellContext`A) Cot[$CellContext`\[Beta]]], 
             Inequality[
             Pi/2 + ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
@@ -5052,7 +5051,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
            1/2 - Tan[$CellContext`\[Beta]]/(12 $CellContext`A), 
             Inequality[
             Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
-             LessEqual, Pi + ArcTan[2 $CellContext`A]]}, {(1/3) Sqrt[2] 
+             LessEqual, Pi + ArcTan[2 $CellContext`A]]}, {((1/3) Sqrt[2]) 
             Sqrt[$CellContext`A Cot[$CellContext`\[Beta]]], 
             Inequality[
             Pi + ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
@@ -5062,7 +5061,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             
             Inequality[(3 Pi)/2 - ArcTan[2 $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
-             ArcTan[2 $CellContext`A]]}, {(1/3) Sqrt[2] 
+             ArcTan[2 $CellContext`A]]}, {((1/3) Sqrt[2]) 
             Sqrt[(-$CellContext`A) Cot[$CellContext`\[Beta]]], 
             
             Inequality[(3 Pi)/2 + ArcTan[2 $CellContext`A], 
@@ -5074,7 +5073,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              Inequality[
              2 Pi - ArcTan[1/2, 1 - $CellContext`A], 
               Less, $CellContext`\[Beta], LessEqual, 2 Pi]]}, {(
-             3 + ($CellContext`A - 1) 2 Sqrt[2] 
+             3 + ((($CellContext`A - 1) 2) Sqrt[2]) 
               Sqrt[(1 - $CellContext`A) Cot[$CellContext`\[Beta]]])/(
             6 $CellContext`A), 
             Inequality[
@@ -5085,8 +5084,9 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[
             Pi/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, Pi/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {(3 - (1 - $CellContext`A) 2 
-             Sqrt[2] Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]])/(
+             ArcTan[1/2, 1 - $CellContext`A]]}, {(
+             3 - (((1 - $CellContext`A) 2) Sqrt[2]) 
+             Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]])/(
             6 $CellContext`A), 
             Inequality[
             Pi/2 + ArcTan[1/2, 1 - $CellContext`A], 
@@ -5096,7 +5096,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[
             Pi - ArcTan[1/2, 1 - $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi + ArcTan[1/2, 1 - $CellContext`A]]}, {(-3 + 
-             6 $CellContext`A + (1 - $CellContext`A) 2 Sqrt[2] 
+             6 $CellContext`A + (((1 - $CellContext`A) 2) Sqrt[2]) 
               Sqrt[(1 - $CellContext`A) Cot[$CellContext`\[Beta]]])/(
             6 $CellContext`A), 
             Inequality[
@@ -5108,7 +5108,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[(3 Pi)/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
              ArcTan[1/2, 1 - $CellContext`A]]}, {(-3 + 
-             6 $CellContext`A + (1 - $CellContext`A) 2 Sqrt[2] 
+             6 $CellContext`A + (((1 - $CellContext`A) 2) Sqrt[2]) 
               Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]])/(
             6 $CellContext`A), 
             
@@ -5120,8 +5120,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
           Blank[]], 
          Pattern[$CellContext`A, 
           Blank[]]] := Which[$CellContext`A <= 1/2, 
-         Piecewise[{{(1/288) 
-            Tan[$CellContext`\[Beta]] (-12 + 
+         Piecewise[{{((1/288) Tan[$CellContext`\[Beta]]) (-12 + 
              Tan[$CellContext`\[Beta]]^2/$CellContext`A^2), 
             Or[0 <= $CellContext`\[Beta] <= ArcTan[2 $CellContext`A], 
              Inequality[
@@ -5129,16 +5128,16 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
               LessEqual, 2 Pi]]}, {-($CellContext`A/18), 
             Inequality[
              ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], LessEqual, 
-             Pi/2 - ArcTan[2 $CellContext`A]]}, {(1/288) 
-            Cot[$CellContext`\[Beta]] (-12 + 
+             Pi/2 - ArcTan[2 $CellContext`A]]}, {((1/288) 
+             Cot[$CellContext`\[Beta]]) (-12 + 
              Cot[$CellContext`\[Beta]]^2/$CellContext`A^2), 
             Inequality[
             Pi/2 - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi/2 + ArcTan[2 $CellContext`A]]}, {$CellContext`A/18, 
             Inequality[
             Pi/2 + ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
-             LessEqual, Pi - ArcTan[2 $CellContext`A]]}, {(1/288) 
-            Tan[$CellContext`\[Beta]] (-12 + 
+             LessEqual, Pi - ArcTan[2 $CellContext`A]]}, {((1/288) 
+             Tan[$CellContext`\[Beta]]) (-12 + 
              Tan[$CellContext`\[Beta]]^2/$CellContext`A^2), 
             Inequality[
             Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
@@ -5146,8 +5145,8 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              18), 
             Inequality[
             Pi + ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
-             LessEqual, (3 Pi)/2 - ArcTan[2 $CellContext`A]]}, {(1/288) 
-            Cot[$CellContext`\[Beta]] (-12 + 
+             LessEqual, (3 Pi)/2 - ArcTan[2 $CellContext`A]]}, {((1/288) 
+             Cot[$CellContext`\[Beta]]) (-12 + 
              Cot[$CellContext`\[Beta]]^2/$CellContext`A^2), 
             
             Inequality[(3 Pi)/2 - ArcTan[2 $CellContext`A], 
@@ -5157,58 +5156,60 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[(3 Pi)/2 + ArcTan[2 $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, 2 Pi - ArcTan[
              2 $CellContext`A]]}}], 1/2 < $CellContext`A < 1, 
-         Piecewise[{{(1/288) 
-            Tan[$CellContext`\[Beta]] (-12 + 
+         Piecewise[{{((1/288) Tan[$CellContext`\[Beta]]) (-12 + 
              Tan[$CellContext`\[Beta]]^2/$CellContext`A^2), 
             Or[0 <= $CellContext`\[Beta] <= ArcTan[1/2, 1 - $CellContext`A], 
              Inequality[
              2 Pi - ArcTan[1/2, 1 - $CellContext`A], 
               Less, $CellContext`\[Beta], LessEqual, 2 
               Pi]]}, {(($CellContext`A - 
-              1) ((-6) Sqrt[2 - 2 $CellContext`A] Sqrt[
-                 Tan[$CellContext`\[Beta]]] + (17 + 
-               2 (-5 + $CellContext`A) $CellContext`A) - 6 
-              Sqrt[2 - 2 $CellContext`A] Sqrt[
+              1) (((-6) Sqrt[2 - 2 $CellContext`A]) Sqrt[
+                 Tan[$CellContext`\[Beta]]] + (
+               17 + (2 (-5 + $CellContext`A)) $CellContext`A) - (6 
+               Sqrt[2 - 2 $CellContext`A]) Sqrt[
                 Cot[$CellContext`\[Beta]]]))/(36 $CellContext`A^2), 
             Inequality[
              ArcTan[1/2, 1 - $CellContext`A], Less, $CellContext`\[Beta], 
-             LessEqual, Pi/2 - ArcTan[1/2, 1 - $CellContext`A]]}, {(1/288) 
-            Cot[$CellContext`\[Beta]] (-12 + 
+             LessEqual, Pi/2 - ArcTan[1/2, 1 - $CellContext`A]]}, {((1/288) 
+             Cot[$CellContext`\[Beta]]) (-12 + 
              Cot[$CellContext`\[Beta]]^2/$CellContext`A^2), 
             Inequality[
             Pi/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, Pi/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {(($CellContext`A - 1) (-17 - 
-              2 (-5 + $CellContext`A) $CellContext`A + 
-              6 Sqrt[2] (Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]] + 
+             ArcTan[1/2, 1 - $CellContext`A]]}, {(($CellContext`A - 
+              1) (-17 - (
+               2 (-5 + $CellContext`A)) $CellContext`A + (6 Sqrt[2]) (
+                Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]] + 
                 Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]])))/(
             36 $CellContext`A^2), 
             Inequality[
             Pi/2 + ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, Pi - ArcTan[
-             1/2, 1 - $CellContext`A]]}, {(1/288) 
-            Tan[$CellContext`\[Beta]] (-12 + 
+             1/2, 1 - $CellContext`A]]}, {((1/288) 
+             Tan[$CellContext`\[Beta]]) (-12 + 
              Tan[$CellContext`\[Beta]]^2/$CellContext`A^2), 
             Inequality[
             Pi - ArcTan[1/2, 1 - $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi + 
              ArcTan[1/2, 1 - $CellContext`A]]}, {(($CellContext`A - 
-              1) ((-6) Sqrt[2 - 2 $CellContext`A] Sqrt[
-                 Tan[$CellContext`\[Beta]]] + (17 + 
-               2 (-5 + $CellContext`A) $CellContext`A) - 6 
-              Sqrt[2 - 2 $CellContext`A] Sqrt[
+              1) (((-6) Sqrt[2 - 2 $CellContext`A]) Sqrt[
+                 Tan[$CellContext`\[Beta]]] + (
+               17 + (2 (-5 + $CellContext`A)) $CellContext`A) - (6 
+               Sqrt[2 - 2 $CellContext`A]) Sqrt[
                 Cot[$CellContext`\[Beta]]]))/(36 $CellContext`A^2), 
             Inequality[
             Pi + ArcTan[1/2, 1 - $CellContext`A], Less, $CellContext`\[Beta], 
-             LessEqual, (3 Pi)/2 - ArcTan[1/2, 1 - $CellContext`A]]}, {(1/288)
-              Cot[$CellContext`\[Beta]] (-12 + 
+             LessEqual, (3 Pi)/2 - ArcTan[
+             1/2, 1 - $CellContext`A]]}, {((1/288) 
+             Cot[$CellContext`\[Beta]]) (-12 + 
              Cot[$CellContext`\[Beta]]^2/$CellContext`A^2), 
             
             Inequality[(3 Pi)/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {(($CellContext`A - 1) (-17 - 
-              2 (-5 + $CellContext`A) $CellContext`A + 
-              6 Sqrt[2] (Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]] + 
+             ArcTan[1/2, 1 - $CellContext`A]]}, {(($CellContext`A - 
+              1) (-17 - (
+               2 (-5 + $CellContext`A)) $CellContext`A + (6 Sqrt[2]) (
+                Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]] + 
                 Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]])))/(
             36 $CellContext`A^2), 
             
@@ -5272,7 +5273,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Or[0 <= $CellContext`\[Beta] <= ArcTan[2 $CellContext`A], 
              Inequality[
              2 Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
-              LessEqual, 2 Pi]]}, {(1/9) $CellContext`A 
+              LessEqual, 2 Pi]]}, {((1/9) $CellContext`A) 
             Tan[$CellContext`\[Beta]], 
             Inequality[
              ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], LessEqual, 
@@ -5281,7 +5282,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[
             Pi/2 - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi/2 + 
-             ArcTan[2 $CellContext`A]]}, {(-(1/9)) $CellContext`A 
+             ArcTan[2 $CellContext`A]]}, {((-(1/9)) $CellContext`A) 
             Tan[$CellContext`\[Beta]], 
             Inequality[
             Pi/2 + ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
@@ -5290,8 +5291,9 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              Tan[$CellContext`\[Beta]]^4/$CellContext`A^2), 
             Inequality[
             Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
-             LessEqual, Pi + ArcTan[2 $CellContext`A]]}, {(1/
-             9) $CellContext`A Tan[$CellContext`\[Beta]], 
+             LessEqual, Pi + 
+             ArcTan[2 $CellContext`A]]}, {((1/9) $CellContext`A) 
+            Tan[$CellContext`\[Beta]], 
             Inequality[
             Pi + ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, (3 Pi)/2 - ArcTan[2 $CellContext`A]]}, {
@@ -5299,7 +5301,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             
             Inequality[(3 Pi)/2 - ArcTan[2 $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
-             ArcTan[2 $CellContext`A]]}, {(-(1/9)) $CellContext`A 
+             ArcTan[2 $CellContext`A]]}, {((-(1/9)) $CellContext`A) 
             Tan[$CellContext`\[Beta]], 
             
             Inequality[(3 Pi)/2 + ArcTan[2 $CellContext`A], 
@@ -5312,11 +5314,12 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              Inequality[
              2 Pi - ArcTan[1/2, 1 - $CellContext`A], 
               Less, $CellContext`\[Beta], LessEqual, 2 
-              Pi]]}, {((-4) ($CellContext`A - 1)^2 (2 + $CellContext`A) 
+              Pi]]}, {((((-4) ($CellContext`A - 1)^2) (2 + $CellContext`A)) 
               Tan[$CellContext`\[Beta]] + 
-             3 (-3 + 4 Sqrt[2] 
+             3 (-3 + (4 Sqrt[2]) 
                 Sqrt[(1 - $CellContext`A) 
-                  Tan[$CellContext`\[Beta]]] + $CellContext`A (4 - 4 Sqrt[2] 
+                  Tan[$CellContext`\[Beta]]] + $CellContext`A (
+                 4 - (4 Sqrt[2]) 
                  Sqrt[(1 - $CellContext`A) Tan[$CellContext`\[Beta]]])))/(
             36 $CellContext`A^2), 
             Inequality[
@@ -5326,12 +5329,12 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[
             Pi/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, Pi/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {(
-             4 (-1 + $CellContext`A)^2 (2 + $CellContext`A) 
-              Tan[$CellContext`\[Beta]] - 
-             3 (3 - 4 Sqrt[2] 
-              Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]] + 
-              4 $CellContext`A (-1 + 
+             ArcTan[1/2, 
+               1 - $CellContext`A]]}, {(((4 (-1 + $CellContext`A)^2) (
+                2 + $CellContext`A)) Tan[$CellContext`\[Beta]] - 
+             3 (3 - (4 Sqrt[2]) 
+              Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]] + (
+                4 $CellContext`A) (-1 + 
                 Sqrt[2] 
                  Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]])))/(
             36 $CellContext`A^2), 
@@ -5345,11 +5348,12 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Pi - ArcTan[1/2, 1 - $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi + 
              ArcTan[1/2, 
-               1 - $CellContext`A]]}, {((-4) ($CellContext`A - 1)^2 (
-               2 + $CellContext`A) Tan[$CellContext`\[Beta]] + 
-             3 (-3 + 4 Sqrt[2] 
+               1 - $CellContext`A]]}, {((((-4) ($CellContext`A - 1)^2) (
+                2 + $CellContext`A)) Tan[$CellContext`\[Beta]] + 
+             3 (-3 + (4 Sqrt[2]) 
                 Sqrt[(1 - $CellContext`A) 
-                  Tan[$CellContext`\[Beta]]] + $CellContext`A (4 - 4 Sqrt[2] 
+                  Tan[$CellContext`\[Beta]]] + $CellContext`A (
+                 4 - (4 Sqrt[2]) 
                  Sqrt[(1 - $CellContext`A) Tan[$CellContext`\[Beta]]])))/(
             36 $CellContext`A^2), 
             Inequality[
@@ -5359,12 +5363,12 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             
             Inequality[(3 Pi)/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {(
-             4 (-1 + $CellContext`A)^2 (2 + $CellContext`A) 
-              Tan[$CellContext`\[Beta]] - 
-             3 (3 - 4 Sqrt[2] 
-              Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]] + 
-              4 $CellContext`A (-1 + 
+             ArcTan[1/2, 
+               1 - $CellContext`A]]}, {(((4 (-1 + $CellContext`A)^2) (
+                2 + $CellContext`A)) Tan[$CellContext`\[Beta]] - 
+             3 (3 - (4 Sqrt[2]) 
+              Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]] + (
+                4 $CellContext`A) (-1 + 
                 Sqrt[2] 
                  Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]])))/(
             36 $CellContext`A^2), 
@@ -5408,10 +5412,11 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
           Sqrt[(-2 + FE`h$$141) FE`h$$141] + 
           ArcCosh[1 - FE`h$$141])^2), $CellContext`VarXh[
          Pattern[$CellContext`h, 
-          Blank[]]] := (64 (-2 + $CellContext`h)^3 $CellContext`h^3 + 
-         9 ((-1 + $CellContext`h) 
-            Sqrt[(-(-2 + $CellContext`h)) $CellContext`h] + 
-           ArcCos[1 - $CellContext`h]) (4 ArcCos[1 - $CellContext`h] + 
+          
+          Blank[]]] := ((64 (-2 + $CellContext`h)^3) $CellContext`h^3 + (
+           9 ((-1 + $CellContext`h) 
+             Sqrt[(-(-2 + $CellContext`h)) $CellContext`h] + 
+            ArcCos[1 - $CellContext`h])) (4 ArcCos[1 - $CellContext`h] + 
            Sin[4 ArcSin[1 - $CellContext`h]]))/(
         144 ((-1 + $CellContext`h) 
            Sqrt[(-(-2 + $CellContext`h)) $CellContext`h] + 
@@ -5454,7 +5459,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Or[0 <= $CellContext`\[Beta] <= ArcTan[2 $CellContext`A], 
              Inequality[
              2 Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
-              LessEqual, 2 Pi]]}, {(1/9) $CellContext`A 
+              LessEqual, 2 Pi]]}, {((1/9) $CellContext`A) 
             Cot[$CellContext`\[Beta]], 
             Inequality[
              ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], LessEqual, 
@@ -5464,7 +5469,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[
             Pi/2 - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi/2 + 
-             ArcTan[2 $CellContext`A]]}, {(-(1/9)) $CellContext`A 
+             ArcTan[2 $CellContext`A]]}, {((-(1/9)) $CellContext`A) 
             Cot[$CellContext`\[Beta]], 
             Inequality[
             Pi/2 + ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
@@ -5472,8 +5477,9 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
            1/12 - Tan[$CellContext`\[Beta]]^2/(144 $CellContext`A^2), 
             Inequality[
             Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
-             LessEqual, Pi + ArcTan[2 $CellContext`A]]}, {(1/
-             9) $CellContext`A Cot[$CellContext`\[Beta]], 
+             LessEqual, Pi + 
+             ArcTan[2 $CellContext`A]]}, {((1/9) $CellContext`A) 
+            Cot[$CellContext`\[Beta]], 
             Inequality[
             Pi + ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, (3 Pi)/2 - ArcTan[2 $CellContext`A]]}, {(1/576) (
@@ -5482,7 +5488,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             
             Inequality[(3 Pi)/2 - ArcTan[2 $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
-             ArcTan[2 $CellContext`A]]}, {(-(1/9)) $CellContext`A 
+             ArcTan[2 $CellContext`A]]}, {((-(1/9)) $CellContext`A) 
             Cot[$CellContext`\[Beta]], 
             
             Inequality[(3 Pi)/2 + ArcTan[2 $CellContext`A], 
@@ -5494,9 +5500,9 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              Inequality[
              2 Pi - ArcTan[1/2, 1 - $CellContext`A], 
               Less, $CellContext`\[Beta], LessEqual, 2 
-              Pi]]}, {((-4) (1 - $CellContext`A)^2 (2 + $CellContext`A) 
+              Pi]]}, {((((-4) (1 - $CellContext`A)^2) (2 + $CellContext`A)) 
               Cot[$CellContext`\[Beta]] - 9 + 
-             12 $CellContext`A + (1 - $CellContext`A) (12 Sqrt[2] 
+             12 $CellContext`A + (1 - $CellContext`A) ((12 Sqrt[2]) 
                Sqrt[(1 - $CellContext`A) Cot[$CellContext`\[Beta]]]))/(
             36 $CellContext`A^2), 
             Inequality[
@@ -5507,10 +5513,10 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[
             Pi/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, Pi/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {(
-             4 (1 - $CellContext`A)^2 (2 + $CellContext`A) 
-              Cot[$CellContext`\[Beta]] - 9 + 
-             12 $CellContext`A + (1 - $CellContext`A) (12 Sqrt[2] 
+             ArcTan[1/2, 
+               1 - $CellContext`A]]}, {(((4 (1 - $CellContext`A)^2) (
+                2 + $CellContext`A)) Cot[$CellContext`\[Beta]] - 9 + 
+             12 $CellContext`A + (1 - $CellContext`A) ((12 Sqrt[2]) 
                Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]]))/(
             36 $CellContext`A^2), 
             Inequality[
@@ -5522,10 +5528,9 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Pi - ArcTan[1/2, 1 - $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi + 
              ArcTan[1/2, 
-               1 - $CellContext`A]]}, {((-4) ($CellContext`A - 1)^2 (
-               2 + $CellContext`A) Cot[$CellContext`\[Beta]] - 9 + 
-             12 $CellContext`A + 
-             3 (1 - $CellContext`A) (4 Sqrt[2] 
+               1 - $CellContext`A]]}, {((((-4) ($CellContext`A - 1)^2) (
+                2 + $CellContext`A)) Cot[$CellContext`\[Beta]] - 9 + 
+             12 $CellContext`A + (3 (1 - $CellContext`A)) ((4 Sqrt[2]) 
                Sqrt[(1 - $CellContext`A) Cot[$CellContext`\[Beta]]]))/(
             36 $CellContext`A^2), 
             Inequality[
@@ -5536,10 +5541,10 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             
             Inequality[(3 Pi)/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {(
-             4 (1 - $CellContext`A)^2 (2 + $CellContext`A) 
-              Cot[$CellContext`\[Beta]] - 9 + 
-             12 $CellContext`A + (1 - $CellContext`A) (12 Sqrt[2] 
+             ArcTan[1/2, 
+               1 - $CellContext`A]]}, {(((4 (1 - $CellContext`A)^2) (
+                2 + $CellContext`A)) Cot[$CellContext`\[Beta]] - 9 + 
+             12 $CellContext`A + (1 - $CellContext`A) ((12 Sqrt[2]) 
                Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]]))/(
             36 $CellContext`A^2), 
             
@@ -5593,7 +5598,6 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              1 - Sqrt[2] Sqrt[(-$CellContext`A) Tan[$CellContext`\[Beta]]], 
               0}, {1, Sqrt[2] 
               Sqrt[(-$CellContext`A) Cot[$CellContext`\[Beta]]]}}, 
-            
             Inequality[(3 Pi)/2 + ArcTan[2 $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, 2 Pi - ArcTan[
              2 $CellContext`A]]}}], 1/2 < $CellContext`A < 1, 
@@ -5660,9 +5664,8 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
           Blank[]]] := Which[$CellContext`A <= 1/2, 
          Piecewise[{{-((Tan[$CellContext`\[Beta]] 
               Sqrt[12 $CellContext`A^2 - Tan[$CellContext`\[Beta]]^2])/Sqrt[
-             48 $CellContext`A^4 + 
-              24 $CellContext`A^2 Tan[$CellContext`\[Beta]]^2 - 
-              Tan[$CellContext`\[Beta]]^4]), 
+             48 $CellContext`A^4 + (24 $CellContext`A^2) 
+               Tan[$CellContext`\[Beta]]^2 - Tan[$CellContext`\[Beta]]^4]), 
             Or[0 <= $CellContext`\[Beta] <= ArcTan[2 $CellContext`A], 
              Inequality[
              2 Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
@@ -5672,9 +5675,8 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              Pi/2 - ArcTan[
              2 $CellContext`A]]}, {-((Cot[$CellContext`\[Beta]] 
               Sqrt[12 $CellContext`A^2 - Cot[$CellContext`\[Beta]]^2])/Sqrt[
-             48 $CellContext`A^4 + 
-              24 $CellContext`A^2 Cot[$CellContext`\[Beta]]^2 - 
-              Cot[$CellContext`\[Beta]]^4]), 
+             48 $CellContext`A^4 + (24 $CellContext`A^2) 
+               Cot[$CellContext`\[Beta]]^2 - Cot[$CellContext`\[Beta]]^4]), 
             Inequality[
             Pi/2 - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi/2 + ArcTan[2 $CellContext`A]]}, {1/2, 
@@ -5683,9 +5685,8 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              LessEqual, Pi - ArcTan[
              2 $CellContext`A]]}, {-((Tan[$CellContext`\[Beta]] 
               Sqrt[12 $CellContext`A^2 - Tan[$CellContext`\[Beta]]^2])/Sqrt[
-             48 $CellContext`A^4 + 
-              24 $CellContext`A^2 Tan[$CellContext`\[Beta]]^2 - 
-              Tan[$CellContext`\[Beta]]^4]), 
+             48 $CellContext`A^4 + (24 $CellContext`A^2) 
+               Tan[$CellContext`\[Beta]]^2 - Tan[$CellContext`\[Beta]]^4]), 
             Inequality[
             Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi + ArcTan[2 $CellContext`A]]}, {-(1/2), 
@@ -5694,9 +5695,8 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              LessEqual, (3 Pi)/2 - ArcTan[
              2 $CellContext`A]]}, {-((Cot[$CellContext`\[Beta]] 
               Sqrt[12 $CellContext`A^2 - Cot[$CellContext`\[Beta]]^2])/Sqrt[
-             48 $CellContext`A^4 + 
-              24 $CellContext`A^2 Cot[$CellContext`\[Beta]]^2 - 
-              Cot[$CellContext`\[Beta]]^4]), 
+             48 $CellContext`A^4 + (24 $CellContext`A^2) 
+               Cot[$CellContext`\[Beta]]^2 - Cot[$CellContext`\[Beta]]^4]), 
             
             Inequality[(3 Pi)/2 - ArcTan[2 $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
@@ -5707,97 +5707,91 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              2 $CellContext`A]]}}], 1/2 < $CellContext`A < 1, 
          Piecewise[{{-((Tan[$CellContext`\[Beta]] 
               Sqrt[12 $CellContext`A^2 - Tan[$CellContext`\[Beta]]^2])/Sqrt[
-             48 $CellContext`A^4 + 
-              24 $CellContext`A^2 Tan[$CellContext`\[Beta]]^2 - 
-              Tan[$CellContext`\[Beta]]^4]), 
+             48 $CellContext`A^4 + (24 $CellContext`A^2) 
+               Tan[$CellContext`\[Beta]]^2 - Tan[$CellContext`\[Beta]]^4]), 
             Or[0 <= $CellContext`\[Beta] <= ArcTan[1/2, 1 - $CellContext`A], 
              Inequality[
              2 Pi - ArcTan[1/2, 1 - $CellContext`A], 
               Less, $CellContext`\[Beta], LessEqual, 2 
-              Pi]]}, {((-1 + $CellContext`A) (17 + 
-              2 (-5 + $CellContext`A) $CellContext`A - 6 
-              Sqrt[2] (Sqrt[(1 - $CellContext`A) Cot[$CellContext`\[Beta]]] + 
+              Pi]]}, {((-1 + $CellContext`A) (
+              17 + (2 (-5 + $CellContext`A)) $CellContext`A - (6 Sqrt[2]) (
+               Sqrt[(1 - $CellContext`A) Cot[$CellContext`\[Beta]]] + 
                Sqrt[(1 - $CellContext`A) Tan[$CellContext`\[Beta]]])))/(
-            Sqrt[(-4) (-1 + $CellContext`A)^2 (2 + $CellContext`A) 
+            Sqrt[(((-4) (-1 + $CellContext`A)^2) (2 + $CellContext`A)) 
                Cot[$CellContext`\[Beta]] + 
-              3 (-3 + 4 $CellContext`A + (1 - $CellContext`A) 4 Sqrt[2] 
+              3 (-3 + 4 $CellContext`A + (((1 - $CellContext`A) 4) Sqrt[2]) 
                  Sqrt[(1 - $CellContext`A) Cot[$CellContext`\[Beta]]])] 
-            Sqrt[(-4) (-1 + $CellContext`A)^2 (2 + $CellContext`A) 
+            Sqrt[(((-4) (-1 + $CellContext`A)^2) (2 + $CellContext`A)) 
                Tan[$CellContext`\[Beta]] + 
-              3 (-3 + 4 $CellContext`A + (1 - $CellContext`A) 4 Sqrt[2] 
+              3 (-3 + 4 $CellContext`A + (((1 - $CellContext`A) 4) Sqrt[2]) 
                  Sqrt[(1 - $CellContext`A) Tan[$CellContext`\[Beta]]])]), 
             Inequality[
              ArcTan[1/2, 1 - $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi/2 - ArcTan[
              1/2, 1 - $CellContext`A]]}, {-((Cot[$CellContext`\[Beta]] 
               Sqrt[12 $CellContext`A^2 - Cot[$CellContext`\[Beta]]^2])/Sqrt[
-             48 $CellContext`A^4 + 
-              24 $CellContext`A^2 Cot[$CellContext`\[Beta]]^2 - 
-              Cot[$CellContext`\[Beta]]^4]), 
+             48 $CellContext`A^4 + (24 $CellContext`A^2) 
+               Cot[$CellContext`\[Beta]]^2 - Cot[$CellContext`\[Beta]]^4]), 
             Inequality[
             Pi/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, Pi/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {-(((-1 + $CellContext`A) (17 + 
-               2 (-5 + $CellContext`A) $CellContext`A - 6 Sqrt[2] 
-               Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]] - 6 
-               Sqrt[2] 
+             ArcTan[1/2, 1 - $CellContext`A]]}, {-(((-1 + $CellContext`A) (
+               17 + (2 (-5 + $CellContext`A)) $CellContext`A - (6 Sqrt[2]) 
+               Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]] - (6 
+                Sqrt[2]) 
                Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]]))/(
-             Sqrt[4 (-1 + $CellContext`A)^2 (2 + $CellContext`A) 
+             Sqrt[((4 (-1 + $CellContext`A)^2) (2 + $CellContext`A)) 
                 Cot[$CellContext`\[Beta]] + 
-               3 (-3 + 4 $CellContext`A + 
-                 4 (1 - $CellContext`A) Sqrt[2] 
+               3 (-3 + 4 $CellContext`A + ((4 (1 - $CellContext`A)) Sqrt[2]) 
                   Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]])] 
-             Sqrt[4 (-1 + $CellContext`A)^2 (2 + $CellContext`A) 
+             Sqrt[((4 (-1 + $CellContext`A)^2) (2 + $CellContext`A)) 
                 Tan[$CellContext`\[Beta]] + 
-               3 (-3 + 4 $CellContext`A + (1 - $CellContext`A) 4 Sqrt[2] 
+               3 (-3 + 4 $CellContext`A + (((1 - $CellContext`A) 4) Sqrt[2]) 
                   Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]])])), 
             Inequality[
             Pi/2 + ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, Pi - ArcTan[
              1/2, 1 - $CellContext`A]]}, {-((Tan[$CellContext`\[Beta]] 
               Sqrt[12 $CellContext`A^2 - Tan[$CellContext`\[Beta]]^2])/Sqrt[
-             48 $CellContext`A^4 + 
-              24 $CellContext`A^2 Tan[$CellContext`\[Beta]]^2 - 
-              Tan[$CellContext`\[Beta]]^4]), 
+             48 $CellContext`A^4 + (24 $CellContext`A^2) 
+               Tan[$CellContext`\[Beta]]^2 - Tan[$CellContext`\[Beta]]^4]), 
             Inequality[
             Pi - ArcTan[1/2, 1 - $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {((-1 + $CellContext`A) (17 + 
-              2 (-5 + $CellContext`A) $CellContext`A - 6 
-              Sqrt[2] (Sqrt[(1 - $CellContext`A) Cot[$CellContext`\[Beta]]] + 
+             ArcTan[1/2, 1 - $CellContext`A]]}, {((-1 + $CellContext`A) (
+              17 + (2 (-5 + $CellContext`A)) $CellContext`A - (6 Sqrt[2]) (
+               Sqrt[(1 - $CellContext`A) Cot[$CellContext`\[Beta]]] + 
                Sqrt[(1 - $CellContext`A) Tan[$CellContext`\[Beta]]])))/(
-            Sqrt[(-4) (-1 + $CellContext`A)^2 (2 + $CellContext`A) 
+            Sqrt[(((-4) (-1 + $CellContext`A)^2) (2 + $CellContext`A)) 
                Cot[$CellContext`\[Beta]] + 
-              3 (-3 + 4 $CellContext`A + (1 - $CellContext`A) 4 Sqrt[2] 
+              3 (-3 + 4 $CellContext`A + (((1 - $CellContext`A) 4) Sqrt[2]) 
                  Sqrt[(1 - $CellContext`A) Cot[$CellContext`\[Beta]]])] 
-            Sqrt[(-4) (-1 + $CellContext`A)^2 (2 + $CellContext`A) 
+            Sqrt[(((-4) (-1 + $CellContext`A)^2) (2 + $CellContext`A)) 
                Tan[$CellContext`\[Beta]] + 
-              3 (-3 + 4 $CellContext`A + (1 - $CellContext`A) 4 Sqrt[2] 
+              3 (-3 + 4 $CellContext`A + (((1 - $CellContext`A) 4) Sqrt[2]) 
                  Sqrt[(1 - $CellContext`A) Tan[$CellContext`\[Beta]]])]), 
             Inequality[
             Pi + ArcTan[1/2, 1 - $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, (3 Pi)/2 - ArcTan[
              1/2, 1 - $CellContext`A]]}, {-((Cot[$CellContext`\[Beta]] 
               Sqrt[12 $CellContext`A^2 - Cot[$CellContext`\[Beta]]^2])/Sqrt[
-             48 $CellContext`A^4 + 
-              24 $CellContext`A^2 Cot[$CellContext`\[Beta]]^2 - 
-              Cot[$CellContext`\[Beta]]^4]), 
+             48 $CellContext`A^4 + (24 $CellContext`A^2) 
+               Cot[$CellContext`\[Beta]]^2 - Cot[$CellContext`\[Beta]]^4]), 
             
             Inequality[(3 Pi)/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {-(((-1 + $CellContext`A) (17 + 
-               2 (-5 + $CellContext`A) $CellContext`A - 6 Sqrt[2] 
-               Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]] - 6 
-               Sqrt[2] 
+             ArcTan[1/2, 1 - $CellContext`A]]}, {-(((-1 + $CellContext`A) (
+               17 + (2 (-5 + $CellContext`A)) $CellContext`A - (6 Sqrt[2]) 
+               Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]] - (6 
+                Sqrt[2]) 
                Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]]))/(
-             Sqrt[4 (-1 + $CellContext`A)^2 (2 + $CellContext`A) 
+             Sqrt[((4 (-1 + $CellContext`A)^2) (2 + $CellContext`A)) 
                 Cot[$CellContext`\[Beta]] + 
-               3 (-3 + 4 $CellContext`A + 
-                 4 (1 - $CellContext`A) Sqrt[2] 
+               3 (-3 + 4 $CellContext`A + ((4 (1 - $CellContext`A)) Sqrt[2]) 
                   Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]])] 
-             Sqrt[4 (-1 + $CellContext`A)^2 (2 + $CellContext`A) 
+             Sqrt[((4 (-1 + $CellContext`A)^2) (2 + $CellContext`A)) 
                 Tan[$CellContext`\[Beta]] + 
-               3 (-3 + 4 $CellContext`A + (1 - $CellContext`A) 4 Sqrt[2] 
+               3 (-3 + 4 $CellContext`A + (((1 - $CellContext`A) 4) Sqrt[2]) 
                   Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]])])), 
             
             Inequality[(3 Pi)/2 + ArcTan[1/2, 1 - $CellContext`A], 
@@ -6481,9 +6475,8 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
          79/204, (1/2 + 23 Sqrt[3])/51}, {
          77/204, (1/2 + (47 Sqrt[3])/2)/51}, {
          79/204, (1/2 + 24 Sqrt[3])/51}, {
-         77/204, (1/2 + (49 Sqrt[3])/2)/51}, {
-         79/204, (1/2 + 25 Sqrt[3])/51}, {
-         77/204, (1/2 + (51 Sqrt[3])/2)/51}, {
+         77/204, (1/2 + (49 Sqrt[3])/2)/51}, {79/204, (1/2 + 25 Sqrt[3])/51}, 
+         {77/204, (1/2 + (51 Sqrt[3])/2)/51}, {
          79/204, (1/2 + 26 Sqrt[3])/51}, {
          77/204, (1/2 + (53 Sqrt[3])/2)/51}, {
          79/204, (1/2 + 27 Sqrt[3])/51}, {
@@ -6730,8 +6723,9 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
          107/204, (1/2 + 11 Sqrt[3])/51}, {
          35/68, (1/2 + (23 Sqrt[3])/2)/51}, {
          107/204, (1/2 + 12 Sqrt[3])/51}, {
-         35/68, (1/2 + (25 Sqrt[3])/2)/51}, {107/204, (1/2 + 13 Sqrt[3])/51},
-          {35/68, (1/2 + (27 Sqrt[3])/2)/51}, {
+         35/68, (1/2 + (25 Sqrt[3])/2)/51}, {
+         107/204, (1/2 + 13 Sqrt[3])/51}, {
+         35/68, (1/2 + (27 Sqrt[3])/2)/51}, {
          107/204, (1/2 + 14 Sqrt[3])/51}, {
          35/68, (1/2 + (29 Sqrt[3])/2)/51}, {
          107/204, (1/2 + 15 Sqrt[3])/51}, {
@@ -7544,8 +7538,9 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
          169/204, (1/2 + (53 Sqrt[3])/2)/51}, {
          57/68, (1/2 + 27 Sqrt[3])/51}, {
          169/204, (1/2 + (55 Sqrt[3])/2)/51}, {
-         57/68, (1/2 + 28 Sqrt[3])/51}, {169/204, (1/2 + (57 Sqrt[3])/2)/51},
-          {57/68, (1/2 + 29 Sqrt[3])/51}, {175/204, 1/102}, {
+         57/68, (1/2 + 28 Sqrt[3])/51}, {
+         169/204, (1/2 + (57 Sqrt[3])/2)/51}, {
+         57/68, (1/2 + 29 Sqrt[3])/51}, {175/204, 1/102}, {
          173/204, (1/2 + Sqrt[3]/2)/51}, {175/204, (1/2 + Sqrt[3])/51}, {
          173/204, (1/2 + (3 Sqrt[3])/2)/51}, {
          175/204, (1/2 + 2 Sqrt[3])/51}, {
@@ -23934,7 +23929,7 @@ gQNyiZwit+CAXIMDco8cJBfJSXITDshVcpbcJYfJZTggt8lxcp2c/////xfJ
 }, Open  ]]
 },
 WindowSize->{1251, 716},
-WindowMargins->{{Automatic, 6}, {-10, Automatic}},
+WindowMargins->{{Automatic, -249}, {-23, Automatic}},
 FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
 2014)",
 StyleDefinitions->"Default.nb"
@@ -23962,46 +23957,46 @@ Cell[CellGroupData[{
 Cell[152851, 4087, 30471, 647, 1163, "Input",
  InitializationCell->True,
  CellID->518614895],
-Cell[183325, 4736, 181505, 3237, 554, "Output"]
+Cell[183325, 4736, 181736, 3232, 554, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[364867, 7978, 9083, 222, 592, "Input"],
-Cell[373953, 8202, 122698, 2133, 315, "Output"]
+Cell[365098, 7973, 9083, 222, 592, "Input"],
+Cell[374184, 8197, 122698, 2133, 315, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[496688, 10340, 5825, 138, 233, "Input"],
-Cell[502516, 10480, 60631, 1051, 247, "Output"]
+Cell[496919, 10335, 5825, 138, 233, "Input"],
+Cell[502747, 10475, 60631, 1051, 247, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[563184, 11536, 5793, 138, 241, "Input"],
-Cell[568980, 11676, 96318, 1639, 238, "Output"]
+Cell[563415, 11531, 5793, 138, 241, "Input"],
+Cell[569211, 11671, 96318, 1639, 238, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[665335, 13320, 2850, 83, 157, "Input"],
-Cell[668188, 13405, 115044, 1914, 255, "Output"]
+Cell[665566, 13315, 2850, 83, 157, "Input"],
+Cell[668419, 13400, 115044, 1914, 255, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[783269, 15324, 6255, 148, 226, "Input"],
-Cell[789527, 15474, 68728, 1171, 255, "Output"]
+Cell[783500, 15319, 6255, 148, 226, "Input"],
+Cell[789758, 15469, 68728, 1171, 255, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[858292, 16650, 6016, 140, 224, "Input"],
-Cell[864311, 16792, 63090, 1083, 241, "Output"]
+Cell[858523, 16645, 6016, 140, 224, "Input"],
+Cell[864542, 16787, 63090, 1083, 241, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[927450, 17881, 95, 1, 64, "Section"],
+Cell[927681, 17876, 95, 1, 64, "Section"],
 Cell[CellGroupData[{
-Cell[927570, 17886, 9085, 220, 592, "Input"],
-Cell[936658, 18108, 234947, 4594, 315, "Output"]
+Cell[927801, 17881, 9085, 220, 592, "Input"],
+Cell[936889, 18103, 234947, 4594, 315, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1171642, 22707, 9159, 223, 626, "Input"],
-Cell[1180804, 22932, 22084, 357, 315, "Output"]
+Cell[1171873, 22702, 9159, 223, 626, "Input"],
+Cell[1181035, 22927, 22084, 357, 315, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1202925, 23294, 9207, 223, 626, "Input"],
-Cell[1212135, 23519, 25594, 412, 315, "Output"]
+Cell[1203156, 23289, 9207, 223, 626, "Input"],
+Cell[1212366, 23514, 25594, 412, 315, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
