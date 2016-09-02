@@ -1,7 +1,7 @@
 
 \section{Simulation}\label{sec:simulation}
 
-Two simulations were implemented using wall-friction for position control.  The first controls the position of two robots, the second controls the position of $n$ robots.  All code is available online at [link withheld for review].
+Two simulations were implemented using wall-friction for position control.  The first controls the position of two robots, the second controls the position of $n$ robots.  All code is available online at \citet{Zhao2016mathematica,Zhao2016mathematicaSquare}.
 
 Two additional simulations were performed using wall-friction to control variance and covariance.  The first is an open-loop algorithm that demonstrates the effect of varying friction levels.  The second uses a closed-loop controller to achieve desired variance and covariance values.
 
@@ -20,7 +20,7 @@ Each row has five snapshots taken every quarter second. For the sake of brevity 
 
 In the worse case, adjusting both $\Delta r_x$ and $\Delta r_y$ requires two iterations.   Two iterations of Alg. \ref{alg:XControl} are only required if $|\Delta e_x - \Delta s_x|>L$. 
 Similarly,  two iterations %of Alg. \ref{alg:YControl} 
-are only required if $|\Delta e_y - \Delta s_y|>L$.
+are only required if $|\Delta e_y - \Delta s_y|>L$. An online interactive demonstration and source code of the algorithm are available at \citet{Shahrokhi2015mathematicaParticle}.
 
 
 %\textcolor{red}{Shiva:  what is the complexity of this algorithm?  How many steps in the worst case?  When does worst case happen?}
@@ -45,7 +45,7 @@ are only required if $|\Delta e_y - \Delta s_y|>L$.
 
 
 \subsection{Position Control of $n$ Robots}
-Alg. \ref{alg:PosControlNRobots}  was simulated in {\sc Matlab} using square block robots with unity width.
+Alg. \ref{alg:PosControlNRobots}  was simulated in {\sc Matlab} using square block robots with unity width. Code is available at \citet{Arun2015}.
 Simulation results are shown in Fig.~\ref{fig:4diagramsplots.pdf} for arrangements with an increasing number of robots,  $n$= [8, 46, 130, 390, 862]. 
 The distance moved grows quadratically with the number of robots $n$. A best-fit line $210 n^2 + 1200n-10,000$ is overlaid by the data..
 
