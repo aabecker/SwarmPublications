@@ -1,5 +1,10 @@
 \section{Introduction}\label{sec:Intro}
-Micro- and nano-robots can be manufactured in large numbers, see recent examples in~\citet{Chowdhury2015}, \citet{martel2014computer}, \citet{kim2015imparting}, \citet{Donald2013}, \citet{Ghosh2009}, \citet{Ou2013} or \citet{qiu2015magnetic}.
+Particle swarms steered by a global force is common in applied mathematics, biology, and computer graphics. 
+\begin{align}
+[\dot{x}_i, \dot{y}_i]^\top = [u_x, u_y]^\top, \qquad i \in [1,n] \label{eq:swarmDynamics}
+\end{align}
+The control problem is to design $u_x(t), u_y(t)$ to make all $n$ particles achieve a task.
+As a current example, micro- and nano-robots can be manufactured in large numbers, see~\citet{Chowdhury2015}, \citet{martel2014computer}, \citet{kim2015imparting}, \citet{Donald2013}, \citet{Ghosh2009}, \citet{Ou2013} or \citet{qiu2015magnetic}.
 Someday large swarms of robots will be remotely guided
  1)  ex vivo to assemble structures in parallel and 
 2) through the human body, to cure disease, heal tissue, and prevent infection. %Both tasks are high   as described in \citet{munoz2014review} \citet{sitti2015biomedical} . 
@@ -26,7 +31,7 @@ This paper focuses on using boundary walls and wall friction to break the symmet
 
 
 %One surprising result was that humans that only knew the swarm's mean and covariance completed the task faster that humans who knew the position of every robot~\cite{Becker2013b}. Our previous work focused on a block-pushing task, where a swarm of robots pushed a larger block through a 2D maze. 
-Even without obstacles or boundaries, the mean position of a swarm is controllable.  By adding rectangular boundary walls, some higher-order moments such as the swarm's position variance orthogonal to the boundary walls ($\sigma_x$ and $\sigma_y$ for a workspace with axis-aligned walls) are also controllable. 
+Even without obstacles or boundaries, the mean position of the swarm in \eqref{eq:swarmDynamics} is controllable.  By adding rectangular boundary walls, some higher-order moments such as the swarm's position variance orthogonal to the boundary walls ($\sigma_x$ and $\sigma_y$ for a workspace with axis-aligned walls) are also controllable. 
 %The usefulness of these techniques was recently demonstrated by several automatic controllers. One controller steered a swarm of robots to push a larger block through a 2D maze~\citet{ShahrokhiIROS2015}. 
 A limitation is that global control can only compress a swarm orthogonal to obstacles.  However, navigating through narrow passages often requires control of the variance and the covariance.
 %This means the swarm could not navigate workspaces with narrow corridors with other orientations, such as those shown in Fig.\ \ref{fig:covFriction}.
