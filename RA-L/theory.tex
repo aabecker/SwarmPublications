@@ -14,7 +14,7 @@
 \begin{center}
 \includegraphics[width=\linewidth]{CircleFill.pdf} 
 \vspace{-1em}
-\caption{Pushing the swarm against a circular boundary wall allows limited control of the shape of the swarm, as a function of the fill level $h$ and the commanded movement direction $\beta$. Left plot shows locus of possible mean positions for four values of $h$. The locus of possible mean positions are concentric circles. See online interactive demonstration at \citep{Shahrokhi2015mathematicaParticle}.}
+\caption{Pushing the swarm against a circular boundary wall allows limited control of the shape of the swarm, as a function of the fill level $h$ and the commanded movement direction $\beta$. Left plot shows locus of possible mean positions for four values of $h$. The locus of possible mean positions are concentric circles. See online interactive demonstration at \citep{Zhao2016mathematica}.}  
 \label{fig:CircleFill}
 \end{center}
 \end{figure*} 
@@ -89,7 +89,12 @@ F \sin(\theta), & \text{else} \end{cases} \\ %\sign(F \sin(\theta) ) \cdot  \max
  Fig.~\ref{fig:friction} shows the resultant forces on two robots when one is touching a wall. As illustrated, both experiences different net forces although each receives the same inputs.
   For ease of analysis, the following algorithms assume $\mu_f$ is infinite and robots touching the wall are prevented from sliding along the wall.
 This means that if one robot is touching the wall and another robot is free, if the control input is parallel or into the wall, the touching robot will not move. 
-The next section shows how a system with friction model \eqref{eq:frictionmodel} and two orthogonal walls are sufficient to arbitrarily position two robots. 
+There are many alternate models of friction that also break control symmetry. Fig.~\ref{fig:friction}c shows fluid flow along a boundary.  Fluid in the free-flow region moves uniformly, but flow decreases to zero in the boundary layer.  
+\begin{align}
+INSERT FORMULA \label{eq:boundarylayerflow}
+\end{align}
+
+The next section shows how a system with friction model \eqref{eq:frictionmodel} and two orthogonal walls can arbitrarily position two robots. 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.8\columnwidth]{friction.pdf} 
@@ -140,14 +145,14 @@ The next section shows how a system with friction model \eqref{eq:frictionmodel}
 %\vspace{-1em}
 \caption{\label{fig:shapeControlMathematica1}{Frames from an implementation of Alg.\ \ref{alg:PosControl2Robots}: two robot positioning using walls with infinite friction. The algorithm only requires friction along the bottom and left walls.
 Robot initial positions are shown by a crosshair, and final positions by a circled crosshair.  Dashed lines show the shortest route if robots could be controlled independently.  Solid arrows show path given by  Alg.\ \ref{alg:PosControl2Robots}.
-Online demonstration and source code at \citet{Shahrokhi2015mathematicaParticle}.
+Online demonstration and source code at \citep{Shahrokhi2015mathematicaParticle}.
 %The bottom row shows an extreme case where the robots must switch position.
 }
 %\vspace{-2em}
 }
 \end{figure*}
 
-This section describes Alg.~\ref{alg:PosControl2Robots}, an algorithm that uses wall-friction to arbitrarily position two robots in a rectangular workspace.  This algorithm  introduces concepts that will be used for multi-robot positioning. It only requires collisions with two orthogonal walls, in this case, the bottom and left walls. Fig.~\ref{fig:shapeControlMathematica1} shows a Mathematica implementation of the algorithm, and is useful as a visual reference for the following description.
+This section describes Alg.~\ref{alg:PosControl2Robots}, which uses wall-friction to arbitrarily position two robots in a rectangular workspace.  This algorithm  introduces concepts that will be used for multi-robot positioning. It only requires collisions with two orthogonal walls, in this case, the bottom and left walls. Fig.~\ref{fig:shapeControlMathematica1} shows a Mathematica implementation of the algorithm, and is useful as a visual reference for the following description.
 
 Assume two robots are initialized at $s_1$ and $s_2$ with corresponding goal destinations $e_1$ and $e_2$. 
 Denote the current positions of the robots  $r_1$ and $r_2$. 
@@ -340,7 +345,6 @@ First, the robots are moved left away from the right wall, and down so robot $k$
 Second, a set of $\operatorname{DriftMove()}$s are executed that move robot $k$ to the left wall with no net movement of the other robots.
 Third, a set of $\operatorname{DriftMove()}$s are executed that  move robot $k$ to its target height and return the other robots to their initial heights. 
 Fourth, all robots except robot $k$ are pushed left until robot $k$ is in the correct relative $x$ position compared to robots 1 to $k-1$.
-
 Finally, all robots are moved right until robot $k$ is in the desired target position.
 
 
