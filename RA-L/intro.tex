@@ -1,13 +1,13 @@
 \section{Introduction}\label{sec:Intro}
-Particle swarms steered by a global force is common in applied mathematics, biology, and computer graphics. 
+Particle swarms steered by a global force are common in applied mathematics, biology, and computer graphics. 
 \begin{align}
 [\dot{x}_i, \dot{y}_i]^\top = [u_x, u_y]^\top, \qquad i \in [1,n] \label{eq:swarmDynamics}
 \end{align}
 The control problem is to design $u_x(t), u_y(t)$ to make all $n$ particles achieve a task.
 As a current example, micro- and nano-robots can be manufactured in large numbers, see~\citet{Chowdhury2015}, \citet{martel2014computer}, \citet{kim2015imparting}, \citet{Donald2013}, \citet{Ghosh2009}, \citet{Ou2013} or \citet{qiu2015magnetic}.
 Someday large swarms of robots will be remotely guided
- 1)  ex vivo to assemble structures in parallel and 
-2) through the human body, to cure disease, heal tissue, and prevent infection. %Both tasks are high   as described in \citet{munoz2014review} \citet{sitti2015biomedical} . 
+  ex vivo to assemble structures in parallel and 
+ through the human body, to cure disease, heal tissue, and prevent infection. %Both tasks are high   as described in \citet{munoz2014review} \citet{sitti2015biomedical} . 
  For each application, large numbers of micro robots are required  to deliver sufficient payloads, but the small size of these robots makes it difficult to perform onboard computation.  Instead, these robots are often controlled by a global, broadcast signal. 
 These applications require control techniques that can reliably exploit large populations despite high under-actuation.  
  
