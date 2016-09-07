@@ -91,7 +91,7 @@ F \sin(\theta), & \text{else} \end{cases} \\ %\sign(F \sin(\theta) ) \cdot  \max
 This means that if one robot is touching the wall and another robot is free, if the control input is parallel or into the wall, the touching robot will not move. 
 There are many alternate models of friction that also break control symmetry. Fig.~\ref{fig:friction}c shows fluid flow along a boundary.  Fluid in the free-flow region moves uniformly, but flow decreases to zero in the boundary layer.  
 \begin{align}
-INSERT FORMULA \label{eq:boundarylayerflow}
+u(y) = u_0 [1- \frac{(y-h)^2}{h^2} = u_0 \frac{y}{h} [2- \frac{y}{h}] \label{eq:boundarylayerflow}
 \end{align}
 
 The next section shows how a system with friction model \eqref{eq:frictionmodel} and two orthogonal walls can arbitrarily position two robots. 
