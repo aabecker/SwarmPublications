@@ -1,165 +1,165 @@
-
-\documentclass[conference]{IEEEtran}
-\usepackage{times}
-
-% numbers option provides compact numerical references in the text. 
-\usepackage[numbers]{natbib}
-\usepackage{multicol}
-\usepackage[bookmarks=true]{hyperref}
-
-\usepackage{bbm}
-\usepackage{calc}
-\usepackage{url}
-\usepackage{hyperref}
-\hypersetup{
-  colorlinks =true,
-  urlcolor = black,
-  linkcolor = black
-}
-\usepackage{graphicx}
-\usepackage[cmex10]{amsmath}
-\usepackage{bm}
-\usepackage{amssymb}
-\usepackage{rotating}
-
-
-%\usepackage{xfrac}
-\usepackage{nicefrac}
-\usepackage{cite}
-\usepackage[caption=false,font=footnotesize]{subfig}
-\usepackage[usenames, dvipsnames]{color}
-\usepackage{colortbl}
-%\usepackage{caption}
-
-%\usepackage{wrapfig}
-\usepackage{overpic}
-%\usepackage{subfigure}
-%\usepackage{textcomp}
-\graphicspath{{./pictures/pdf/},{./pictures/ps/},{./pictures/png/},{./pictures/jpg/}}
-\usepackage{breqn} %for breaking equations automatically
-\usepackage[ruled]{algorithm}
-\usepackage{algpseudocode}
-%\usepackage{algorithmic}
-\usepackage{multirow}
-\usepackage{todonotes}
-
-%\newcommand{\todo}[1]{\vspace{5 mm}\par \noindent \framebox{\begin{minipage}[c]{0.98 \columnwidth} \ttfamily\flushleft \textcolor{red}{#1}\end{minipage}}\vspace{5 mm}\par}
-% uncomment this to hide all red todos
-%\renewcommand{\todo}{}
-
-%% ABBREVIATIONS
-\newcommand{\qstart}{q_{\text{start}}}
-\newcommand{\qgoal}{q_{\text{goal}}}
-\newcommand{\pstart}{p_{\text{start}}}
-\newcommand{\pgoal}{p_{\text{goal}}}
-\newcommand{\xstart}{x_{\text{start}}}
-\newcommand{\xgoal}{x_{\text{goal}}}
-\newcommand{\ystart}{y_{\text{start}}}
-\newcommand{\ygoal}{y_{\text{goal}}}
-\newcommand{\gammastart}{\gamma_{\text{start}}}
-\newcommand{\gammagoal}{\gamma_{\text{goal}}}
-\providecommand{\proc}[1]{\textsc{#1}}
-
-
-\newcommand{\ARLfull}{Aero\-space Ro\-bot\-ics La\-bora\-tory }
-\newcommand{\ARL}{\textsc{arl}}
-\newcommand{\JPL}{\textsc{jpl}}
-\newcommand{\PRM}{\textsc{prm}}
-
-\newcommand{\CM}{\textsc{cm}}
-\newcommand{\SVM}{\textsc{svm}}
-\newcommand{\NN}{\textsc{nn}}
-\newcommand{\prm}{\textsc{prm}}
-\newcommand{\lemur}{\textsc{lemur}}
-\newcommand{\Lemur}{\textsc{Lemur}}
-\newcommand{\LP}{\textsc{lp}} 
-\newcommand{\SOCP}{\textsc{socp}}
-\newcommand{\SDP}{\textsc{sdp}}
-\newcommand{\NP}{\textsc{np}}
-\newcommand{\SAT}{\textsc{sat}}
-\newcommand{\LMI}{\textsc{lmi}}
-\newcommand{\hrp}{\textsc{hrp\nobreakdash-2}}
-\newcommand{\DOF}{\textsc{dof}}
-\newcommand{\UIUC}{\textsc{uiuc}}
-%% MACROS
-
-
-\providecommand{\abs}[1]{\left\lvert#1\right\rvert}
-\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
-\providecommand{\normn}[2]{\left\lVert#1\right\rVert_#2}
-\providecommand{\dualnorm}[1]{\norm{#1}_\ast}
-\providecommand{\dualnormn}[2]{\norm{#1}_{#2\ast}}
-\providecommand{\set}[1]{\lbrace\,#1\,\rbrace}
-\providecommand{\cset}[2]{\lbrace\,{#1}\nobreak\mid\nobreak{#2}\,\rbrace}
-\providecommand{\lscal}{<}
-\providecommand{\gscal}{>}
-\providecommand{\lvect}{\prec}
-\providecommand{\gvect}{\succ}
-\providecommand{\leqscal}{\leq}
-\providecommand{\geqscal}{\geq}
-\providecommand{\leqvect}{\preceq}
-\providecommand{\geqvect}{\succeq}
-\providecommand{\onevect}{\mathbf{1}}
-\providecommand{\zerovect}{\mathbf{0}}
-\providecommand{\field}[1]{\mathbb{#1}}
-\providecommand{\C}{\field{C}}
-\providecommand{\R}{\field{R}}
-\newcommand{\Cspace}{\mathcal{Q}}
-\newcommand{\Uspace}{\mathcal{U}}
-\providecommand{\Fspace}{\Cspace_\text{free}}
-\providecommand{\Hcal}{$\mathcal{H}$}
-\providecommand{\Vcal}{$\mathcal{V}$}
-\DeclareMathOperator{\conv}{conv}
-\DeclareMathOperator{\cone}{cone}
-\DeclareMathOperator{\homog}{homog}
-\DeclareMathOperator{\domain}{dom}
-\DeclareMathOperator{\range}{range}
-\DeclareMathOperator{\sign}{sgn}
-\providecommand{\polar}{\triangle}
-\providecommand{\ainner}{\underline{a}}
-\providecommand{\aouter}{\overline{a}}
-\providecommand{\binner}{\underline{b}}
-\providecommand{\bouter}{\overline{b}}
-\newcommand{\D}{\nobreakdash-\textsc{d}}
-%\newcommand{\Fspace}{\mathcal{F}}
-\providecommand{\Fspace}{\Cspace_\text{free}}
-\providecommand{\free}{\text{\{}\mathsf{free}\text{\}}}
-\providecommand{\iff}{\Leftrightarrow}
-\providecommand{\subinner}[1]{#1_{\text{inner}}}
-\providecommand{\subouter}[1]{#1_{\text{outer}}}
-\providecommand{\Ppoly}{\mathcal{X}}
-\providecommand{\Pproj}{\mathcal{Y}}
-\providecommand{\Pinner}{\subinner{\Pproj}}
-\providecommand{\Pouter}{\subouter{\Pproj}}
-\DeclareMathOperator{\argmax}{arg\,max}
-\providecommand{\Aineq}{B}
-\providecommand{\Aeq}{A}
-\providecommand{\bineq}{u}
-\providecommand{\beq}{t}
-\DeclareMathOperator{\area}{area}
-\newcommand{\contact}[1]{\Cspace_{#1}}
-\newcommand{\feasible}[1]{\Fspace_{#1}}
-\newcommand{\dd}{\; \mathrm{d}}
-\newcommand{\figwid}{0.22\columnwidth}
-\newcommand{\TRUE}{\textbf{true}}
-\newcommand{\FALSE}{\textbf{false}}
-\DeclareMathOperator{\atan2}{atan2}
-
-
-\newtheorem{theorem}{Theorem}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{lemma}[theorem]{Lemma}
-
-
-\pdfinfo{
-   /Author (Shiva Shahrokhi, Arun Mahadev, and Aaron T. Becker)
-   /Title  (Supplement toAlgorithms For Shaping a Particle Swarm With a Shared Control Input Using Boundary Interaction)
-   /CreationDate (D:20160129120000)
-   /Subject (Simple Robots)
-   /Keywords (Robots;Uniform Control Inputs)
-}
-
-\begin{document}
+%
+%\documentclass[conference]{IEEEtran}
+%\usepackage{times}
+%
+%% numbers option provides compact numerical references in the text. 
+%\usepackage[numbers]{natbib}
+%\usepackage{multicol}
+%\usepackage[bookmarks=true]{hyperref}
+%
+%\usepackage{bbm}
+%\usepackage{calc}
+%\usepackage{url}
+%\usepackage{hyperref}
+%\hypersetup{
+%  colorlinks =true,
+%  urlcolor = black,
+%  linkcolor = black
+%}
+%\usepackage{graphicx}
+%\usepackage[cmex10]{amsmath}
+%\usepackage{bm}
+%\usepackage{amssymb}
+%\usepackage{rotating}
+%
+%
+%%\usepackage{xfrac}
+%\usepackage{nicefrac}
+%\usepackage{cite}
+%\usepackage[caption=false,font=footnotesize]{subfig}
+%\usepackage[usenames, dvipsnames]{color}
+%\usepackage{colortbl}
+%%\usepackage{caption}
+%
+%%\usepackage{wrapfig}
+%\usepackage{overpic}
+%%\usepackage{subfigure}
+%%\usepackage{textcomp}
+%\graphicspath{{./pictures/pdf/},{./pictures/ps/},{./pictures/png/},{./pictures/jpg/}}
+%\usepackage{breqn} %for breaking equations automatically
+%\usepackage[ruled]{algorithm}
+%\usepackage{algpseudocode}
+%%\usepackage{algorithmic}
+%\usepackage{multirow}
+%\usepackage{todonotes}
+%
+%%\newcommand{\todo}[1]{\vspace{5 mm}\par \noindent \framebox{\begin{minipage}[c]{0.98 \columnwidth} \ttfamily\flushleft \textcolor{red}{#1}\end{minipage}}\vspace{5 mm}\par}
+%% uncomment this to hide all red todos
+%%\renewcommand{\todo}{}
+%
+%%% ABBREVIATIONS
+%\newcommand{\qstart}{q_{\text{start}}}
+%\newcommand{\qgoal}{q_{\text{goal}}}
+%\newcommand{\pstart}{p_{\text{start}}}
+%\newcommand{\pgoal}{p_{\text{goal}}}
+%\newcommand{\xstart}{x_{\text{start}}}
+%\newcommand{\xgoal}{x_{\text{goal}}}
+%\newcommand{\ystart}{y_{\text{start}}}
+%\newcommand{\ygoal}{y_{\text{goal}}}
+%\newcommand{\gammastart}{\gamma_{\text{start}}}
+%\newcommand{\gammagoal}{\gamma_{\text{goal}}}
+%\providecommand{\proc}[1]{\textsc{#1}}
+%
+%
+%\newcommand{\ARLfull}{Aero\-space Ro\-bot\-ics La\-bora\-tory }
+%\newcommand{\ARL}{\textsc{arl}}
+%\newcommand{\JPL}{\textsc{jpl}}
+%\newcommand{\PRM}{\textsc{prm}}
+%
+%\newcommand{\CM}{\textsc{cm}}
+%\newcommand{\SVM}{\textsc{svm}}
+%\newcommand{\NN}{\textsc{nn}}
+%\newcommand{\prm}{\textsc{prm}}
+%\newcommand{\lemur}{\textsc{lemur}}
+%\newcommand{\Lemur}{\textsc{Lemur}}
+%\newcommand{\LP}{\textsc{lp}} 
+%\newcommand{\SOCP}{\textsc{socp}}
+%\newcommand{\SDP}{\textsc{sdp}}
+%\newcommand{\NP}{\textsc{np}}
+%\newcommand{\SAT}{\textsc{sat}}
+%\newcommand{\LMI}{\textsc{lmi}}
+%\newcommand{\hrp}{\textsc{hrp\nobreakdash-2}}
+%\newcommand{\DOF}{\textsc{dof}}
+%\newcommand{\UIUC}{\textsc{uiuc}}
+%%% MACROS
+%
+%
+%\providecommand{\abs}[1]{\left\lvert#1\right\rvert}
+%\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+%\providecommand{\normn}[2]{\left\lVert#1\right\rVert_#2}
+%\providecommand{\dualnorm}[1]{\norm{#1}_\ast}
+%\providecommand{\dualnormn}[2]{\norm{#1}_{#2\ast}}
+%\providecommand{\set}[1]{\lbrace\,#1\,\rbrace}
+%\providecommand{\cset}[2]{\lbrace\,{#1}\nobreak\mid\nobreak{#2}\,\rbrace}
+%\providecommand{\lscal}{<}
+%\providecommand{\gscal}{>}
+%\providecommand{\lvect}{\prec}
+%\providecommand{\gvect}{\succ}
+%\providecommand{\leqscal}{\leq}
+%\providecommand{\geqscal}{\geq}
+%\providecommand{\leqvect}{\preceq}
+%\providecommand{\geqvect}{\succeq}
+%\providecommand{\onevect}{\mathbf{1}}
+%\providecommand{\zerovect}{\mathbf{0}}
+%\providecommand{\field}[1]{\mathbb{#1}}
+%\providecommand{\C}{\field{C}}
+%\providecommand{\R}{\field{R}}
+%\newcommand{\Cspace}{\mathcal{Q}}
+%\newcommand{\Uspace}{\mathcal{U}}
+%\providecommand{\Fspace}{\Cspace_\text{free}}
+%\providecommand{\Hcal}{$\mathcal{H}$}
+%\providecommand{\Vcal}{$\mathcal{V}$}
+%\DeclareMathOperator{\conv}{conv}
+%\DeclareMathOperator{\cone}{cone}
+%\DeclareMathOperator{\homog}{homog}
+%\DeclareMathOperator{\domain}{dom}
+%\DeclareMathOperator{\range}{range}
+%\DeclareMathOperator{\sign}{sgn}
+%\providecommand{\polar}{\triangle}
+%\providecommand{\ainner}{\underline{a}}
+%\providecommand{\aouter}{\overline{a}}
+%\providecommand{\binner}{\underline{b}}
+%\providecommand{\bouter}{\overline{b}}
+%\newcommand{\D}{\nobreakdash-\textsc{d}}
+%%\newcommand{\Fspace}{\mathcal{F}}
+%\providecommand{\Fspace}{\Cspace_\text{free}}
+%\providecommand{\free}{\text{\{}\mathsf{free}\text{\}}}
+%\providecommand{\iff}{\Leftrightarrow}
+%\providecommand{\subinner}[1]{#1_{\text{inner}}}
+%\providecommand{\subouter}[1]{#1_{\text{outer}}}
+%\providecommand{\Ppoly}{\mathcal{X}}
+%\providecommand{\Pproj}{\mathcal{Y}}
+%\providecommand{\Pinner}{\subinner{\Pproj}}
+%\providecommand{\Pouter}{\subouter{\Pproj}}
+%\DeclareMathOperator{\argmax}{arg\,max}
+%\providecommand{\Aineq}{B}
+%\providecommand{\Aeq}{A}
+%\providecommand{\bineq}{u}
+%\providecommand{\beq}{t}
+%\DeclareMathOperator{\area}{area}
+%\newcommand{\contact}[1]{\Cspace_{#1}}
+%\newcommand{\feasible}[1]{\Fspace_{#1}}
+%\newcommand{\dd}{\; \mathrm{d}}
+%\newcommand{\figwid}{0.22\columnwidth}
+%\newcommand{\TRUE}{\textbf{true}}
+%\newcommand{\FALSE}{\textbf{false}}
+%\DeclareMathOperator{\atan2}{atan2}
+%
+%
+%\newtheorem{theorem}{Theorem}
+%\newtheorem{definition}[theorem]{Definition}
+%\newtheorem{lemma}[theorem]{Lemma}
+%
+%
+%\pdfinfo{
+%   /Author (Shiva Shahrokhi, Arun Mahadev, and Aaron T. Becker)
+%   /Title  (Supplement toAlgorithms For Shaping a Particle Swarm With a Shared Control Input Using Boundary Interaction)
+%   /CreationDate (D:20160129120000)
+%   /Subject (Simple Robots)
+%   /Keywords (Robots;Uniform Control Inputs)
+%}
+%
+%\begin{document}
 
 % paper title
 \title{\huge{ \emph{Supplement to} 
@@ -167,24 +167,17 @@ Algorithms For Shaping a Particle Swarm\\ With a Shared Control Input Using Boun
 
 \author{Shiva Shahrokhi, Arun Mahadev, and Aaron T. Becker}
 
-
+\newpage
 \maketitle
+
+{\huge{ \emph{Supplement to} 
+Algorithms For Shaping a Particle Swarm\\ With a Shared Control Input Using Boundary Interaction}}\\
 
 \begin{abstract}
 %Also 
 Includes algorithms and equations too lengthy for main paper, but potentially useful for the community.
 Also links to videos and demonstration code for the algorithms.
 
-Consider a swarm of agents that are controlled by the same global inputs and have no autonomy. This paper presents algorithms for shaping such swarms in 2D.
-
-This model is common for current micro- and nano-robots, whose small size makes it difficult to perform onboard computation or contain a power and propulsion source. For this reason these robots are usually powered and controlled by global inputs, such as a uniform external electric or magnetic field, and every robot receives exactly the same control inputs.
-Due to their small size, large numbers of micro-robots are required to deliver sufficient payloads.
- Nevertheless, these applications require precision control of the shape and position of the robot swarm. Precision control requires breaking the symmetry caused by the global input.  
-
-A promising technique uses collisions with boundary walls to shape the swarm, however, the range of configurations created by conforming a swarm to a boundary wall is limited. This paper describes the set of stable configurations of a swarm in two canonical workspaces, a circle and a square. 
-
-To increase the diversity of configurations, we add boundary interaction to our model.  We provide algorithms using friction with walls to place two robots at arbitrary locations in a rectangular workspace.
-Next, we extend this algorithm to place $n$ robots at desired locations. We conclude with efficient techniques to control the covariance of a swarm not possible without wall-friction. Simulations and hardware implementations with 100 robots validate these results.
 
 \end{abstract}
 
@@ -222,13 +215,13 @@ An online demonstration and source code of the algorithm are at \citet{Shahrokhi
 An implementation of Alg. 4  in {\sc Matlab} that illustrates how the two robots positioning algorithm is extendable to $n$ robots. In this video all  robots gets the same input, but by exploiting wall friction each robot reaches its goal, the formation "UH".
 Full resolution video: \url{https://youtu.be/uhpsAyPwKeI}.
 Full code is available at \citet{Arun2015}.
-Note that this code uses discretized version of Algorithm 3.  The continuous-movement version is illustrated in Fig.\ref{PositionNrobots.pdf}.
+Note that this code uses discretized version of Algorithm 3.  The continuous-movement version is illustrated in Fig.\ref{fig:PositionNrobotsCont}.
 \begin{figure}
 \begin{center}
-	\includegraphics[width=1.0\columnwidth]{PositionNrobots.pdf}
+	\includegraphics[width=1.0\columnwidth]{PositionNrobotsComp.pdf}
 \end{center}
 \vspace{-1em}
-\caption{\label{fig:construction2d}
+\caption{\label{fig:PositionNrobotsCont}
 Illustration of Alg.\ \ref{alg:PosControlNRobots}, $n$ robot position control  using wall friction.
 }
 \end{figure}
@@ -526,7 +519,7 @@ This work was supported by the National Science Foundation under Grant No.\ \hre
 \bibliographystyle{plainnat}
 \footnotesize
 \bibliography{IEEEabrv,ShapingSwarmFrictionSharedInput}
-\end{document}
+%\end{document}
 
 
 
