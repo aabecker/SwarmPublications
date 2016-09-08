@@ -85,7 +85,7 @@ Control performance is sensitive to the desired clearance $\epsilon$.  As $\epsi
 
 \subsection{Efficient Control of Covariance}
 %A set of simulations were conducted to demonstrate the importance of boundary friction.  
-Random disturbances impair the performance of Alg. \ref{alg:PosControl2Robots} and Alg. \ref{alg:PosControlNRobots}. Still, we are able to control covariance of the swarm. This section demonstrates simulations of controlling covariance of the swarm.
+Random disturbances impair the performance of Alg. \ref{alg:PosControl2Robots} and Alg. \ref{alg:PosControlNRobots}. Due to central limit theorem, we are able to control covariance of large swarms. This section demonstrates simulations of controlling covariance of the swarm.
 These simulations use  the 2D physics engine Box2D, by \citep{catto2010box2d}.
  144 disc-shaped robots were controlled by an open-loop control input as illustrated in Fig. \ref{fig:SimCovarianceFuncFrictionOpenLoop}.  All robots had  the same initial conditions, but in four tests the boundary friction was $F_f = \{0,1/3 F, 2/3F, F\}$.
  Without friction, covariance has minimal variation.  As friction increases, the covariance can be manipulated to greater degrees.

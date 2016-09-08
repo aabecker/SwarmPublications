@@ -40,16 +40,16 @@ Hardware platform:  table with 1$\times$1 m workspace, surrounded by eight  trig
 \vspace{-1em}
 \end{figure}
 \subsection{Hardware Experiment: Position Control of Two Robots}
-The walls of the hardware platform have almost infinite friction, due to a laser-cut, zigzag border. When a kilobot is steered into the zigzag border, they pin themselves to the wall unless the global input directs them away from the wall.  This wall friction is sufficient to enable independent control of two kilobots, as shown in Fig.~\ref{fig:storyReal}.
+The walls of the hardware platform have almost infinite friction, due to a laser-cut, slotted border. When a kilobot is steered into the slotted border, they pin themselves to the wall unless the global input directs them away from the wall.  Even though the kilobots are stochastic, this wall friction is sufficient to enable independent control of two kilobots, as shown in Fig.~\ref{fig:storyReal}.
 
 \subsection{Hardware Experiment: Position Control of n Robots}
-The hardware setup has a bounded platform, magnetic sliders, and a magnetic guide board.  Designs for each are available at \citep{arunhardware}. The pink boundary is toothed with a white free space, as shown in Fig \ref{fig:construction2d}. Only discrete, 1 cm moves in the $x$ and $y$ directions are used. The goal configuration highlighted in the top right corner represents a `U' made of seven sliders. The dark red configuration is the current position of the sliders. 
+Kilobots have too much stochasticity to implement Alg. \ref{alg:PosControlNRobots}. Instead, a hardware setup with a bounded platform, magnetic sliders, and a magnetic guide board was used.  Designs for each are available at \citep{arunhardware}. The pink boundary is toothed with a white free space, as shown in Fig \ref{fig:construction2d}. Only discrete, 1 cm moves in the $x$ and $y$ directions are used. The goal configuration highlighted in the top right corner represents a `U' made of seven sliders. The dark red configuration is the current position of the sliders. 
 Due to the discretized movements allowed by the boundary, drift moves follow a 1 cm square.  Free robots return to their start positions but robots on the boundary to move laterally, generating a net sliding motion.
 
 Fig. \ref{fig:construction2d} follows the motion of the sliders through iterations  $k$=1, 2 and 7. All robots receive the same control inputs, but boundary interactions breaks the control symmetry.  Robots reach their respective goal position in a first-in, first-out arrangement beginning with the bottom-left robot from the staging zone occupying the top-right position of the build zone.
 
 \subsection{Hardware Experiment: Control of Covariance}
-To demonstrate covariance control $n$=100 robots were placed on the workspace and manually steered with lights, using friction with the boundary walls to vary the covariance from  -4000 to 3000 cm$^2$.  The resulting covariance is plotted in Fig.~\ref{fig:covExperiment}, along with snapshots of the swarm.
+To demonstrate covariance control of up to 100 kilobots were placed on the workspace and manually steered with lights, using friction with the boundary walls to vary the covariance from  -4000 to 3000 cm$^2$.  The resulting covariance is plotted in Fig.~\ref{fig:covExperiment}, along with snapshots of the swarm.
 
 
 
@@ -60,7 +60,7 @@ To demonstrate covariance control $n$=100 robots were placed on the workspace an
 \end{center}
 \vspace{-1em}
 \caption{\label{fig:covExperiment}
-Hardware demonstration steering 100 kilobot robots to desired covariance. The goal covariance is negative in first 100 seconds and is positive in the next 100 seconds. The actual covariance is shown in different trials. Frames above the plot show output from machine vision system and an overlaid covariance ellipse.
+Hardware demonstration steering $\approx 50$ kilobot robots to desired covariance. The goal covariance is negative in first 100 seconds and is positive in the next 100 seconds. The actual covariance is shown in different trials. Frames above the plot show output from machine vision system and an overlaid covariance ellipse.
 \vspace{-1em}
 }
 \end{figure}
