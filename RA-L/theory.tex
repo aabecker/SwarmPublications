@@ -344,19 +344,19 @@ Let $(0,0)$ be the lower left corner of the workspace, $p_k$ the $x,y$ position 
 
 Alg. \ref{alg:PosControlNRobots} proceeds as follows:  
 First, the robots are moved left away from the right wall, and down so robot $k$ touches the bottom wall.
-Second, a set of $\operatorname{DriftMove()}$s are executed that move robot $k$ to the left wall with no net movement of the other robots.
-Third, a set of $\operatorname{DriftMove()}$s are executed that  move robot $k$ to its target height and return the other robots to their initial heights. 
+Second, a set of $\operatorname{DriftMove}$s are executed that move robot $k$ to the left wall with no net movement of the other robots.
+Third, a set of $\operatorname{DriftMove}$s are executed that  move robot $k$ to its target height and return the other robots to their initial heights. 
 Fourth, all robots except robot $k$ are pushed left until robot $k$ is in the correct relative $x$ position compared to robots 1 to $k-1$.
 Finally, all robots are moved right until robot $k$ is in the desired target position.
 
 
 \subsection{Controlling Covariance Using Wall Friction}\label{subsec:ClosedLoopCovarianceControl}
-Assume an open workspace with infinite boundary friction. Goal variances and covariance are  $(\sigma_{goalx}^2,\sigma_{goaly}^2, \sigma_{goalxy}$ and mean, variances and covariance of the swarm  are $( \bar{x},\bar{y},\sigma_x^2,\sigma_y^2, \sigma_{xy})$. For our experiments, $c_1 = 0.1$.
+Assume an open workspace with infinite boundary friction. Goal variances and covariance are  $(\sigma_{goalx}^2,\sigma_{goaly}^2, \sigma_{goalxy})$ and mean, variances and covariance of the swarm  are $( \bar{x},\bar{y},\sigma_x^2,\sigma_y^2, \sigma_{xy})$. For our experiments, $c_1 = 0.1$.
 %$\sigma_x^2$ decreases when the swarm is pushed into vertical walls, and $\sigma_y^2$ decreases when the swarm is pushed into horizontal walls. Alg.~\ref{alg:CovCont} procedes as follows:
 \begin{enumerate}
 \item swarm is pushed into the left wall until $\sigma_x^2< c_1\sigma_{goalx}^2$.  
 \item swarm's mean position is moved to the center of the workspace
-\item swarm is pushed into the bottom wall until $\sigma_y^2 \le \sigma_{goalt}^2$. 
+\item swarm is pushed into the bottom wall until $\sigma_y^2 \le \sigma_{goaly}^2$. 
 \item if $\sigma_{goalxy}>0$ swarm slides right until $\sigma_{xy} \ge \sigma_{goalxy}$ \\
 else swarm slides left until $\sigma_{xy} \le \sigma_{goalxy}$ 
 \item  swarm's mean position is moved to the center of the workspace

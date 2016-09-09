@@ -9,7 +9,7 @@ Two additional simulations were performed using wall-friction to control varianc
 
 Algorithms \ref{alg:PosControl2Robots} and \ref{alg:XControl}, %\ref{alg:YControl}, 
 were implemented in Mathematica using point robots (radius = $0$).  Fig.~\ref{fig:shapeControlMathematica1}  shows  an implementation of this algorithm. 
-Robot initial positions are shown by a crosshair, and final positions by a circled crosshair.  Dashed lines show the shortest route if robots could be controlled independently.  The path given by  Alg.\ \ref{alg:PosControl2Robots} is shown with solid arrows.
+Robot initial positions are shown by crosshairs, and final positions by circled crosshairs.  Dashed lines show the shortest route if robots could be controlled independently.  The path given by  Alg.\ \ref{alg:PosControl2Robots} is shown with solid arrows.
 Each row has five snapshots taken every quarter second. For the sake of brevity axis-aligned moves were replaced with oblique moves that combine two moves simultaneously. 
  $\Delta r_x$ is adjusted to $\Delta e_x$ in the second snapshot at $t = 0.25$. 
  The following frames  adjust $\Delta r_y$ to $\Delta e_y$. 
@@ -98,7 +98,7 @@ Open-loop simulation with 144 disc robots and varying levels of boundary frictio
 }
 \end{figure}
 
- 144 disc-shaped robots were also controlled by a closed-loop controller using the procedure in \S \ref{subsec:ClosedLoopCovarianceControl}. Fig. \ref{fig:CovVarControlPlot} illustrates that covariance and variances in $x$ and $y$ axis were controlled from a set of initial conditions.
+ 144 disc-shaped robots were also controlled by a closed-loop controller using the procedure in \S \ref{subsec:ClosedLoopCovarianceControl}. Fig. \ref{fig:CovVarControlPlot} illustrates that covariance and variances in $x$ and $y$ directions were controlled from a set of initial conditions.
 \begin{figure}
 \begin{center}
 	\includegraphics[width=1.0\columnwidth]{CovVarControlPlot2.pdf}
