@@ -2,14 +2,14 @@
 \section{Conclusion and Future Work}\label{sec:conclusion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This paper presented techniques for controlling the shape of a swarm of robots using global inputs and interaction with boundary friction forces.  
+This paper presented techniques for controlling the shape of a swarm of robots using uniform global inputs and interaction with boundary friction forces.  
 The paper provided algorithms for precise position control, as well as demonstrations of efficient covariance control. 
-Extending algorithms \ref{alg:XControl} and \ref{alg:PosControl2Robots} to 3D is straightforward but increases the complexity.
+Extending algorithms \ref{alg:PosControl2Robots} and \ref{alg:XControl}  to 3D is straightforward but increases the complexity.
 Future efforts should be directed toward improving the technology and tailoring it to specific robot applications.
 
-  With regard to technological advances, this includes designing controllers that efficiently regulate $\sigma_{xy}$, perhaps using Lyapunov-inspired controllers as in \citep{kim2015imparting}. %\citept{Becker2013a,becker2014simultaneously}.
- Additionally, this paper assumed that wall friction was nearly infinite.  The algorithms require retooling to handle small $\mu_f$ friction coefficients.  It may be possible to rank controllability as a function of friction.
-  In hardware, the wall friction can be varied by laser-cutting boundary walls with different of profiles. 
+  With regard to technological advances, this includes designing controllers that efficiently regulate $\sigma_{xy}$, perhaps using Lyapunov-inspired controllers as in \citep{kim2015imparting}. %\citep{Becker2013a,becker2014simultaneously}.
+ Additionally, this paper assumed nearly infinite wall friction.  The algorithms require retooling to handle small $\mu_f$ friction coefficients.  It may be possible to rank controllability as a function of friction.
+%  In hardware, the wall friction can be varied by laser-cutting boundary walls with different of profiles. 
   
     
 
