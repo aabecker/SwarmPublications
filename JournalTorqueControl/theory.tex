@@ -23,6 +23,14 @@ Here $F_i$ is the force that the $i$th robot applies.  If all robots are identic
 Not all robots are in contact with the object.  $\rho_i$ is an indicator variable: $\rho_i$ is 1 if the robot is in direct contact with the object or touching a chain of robots where at least one robot is in contact with the object. Otherwise $\rho_i = 0$.
 The moment arm is the robot's position $P_i$ to the object's COM $O=[O_x,O_y]^{\top}$.
 
+\begin{equation}
+P(x) = \frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}}
+\end{equation}
+\begin{equation}
+\tau = \int_0^1\frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}} x \, dx
+\end{equation}
 
-
-
+\begin{equation}
+\frac{1}{2} \mu  (\text{erf}(1.41421 (1-\mu ))+\text{erf}(1.41421 \mu ))+0.199471 \left(e^{-2. \mu
+   ^2}-e^{-2. (\mu -1)^2}\right)
+\end{equation}
