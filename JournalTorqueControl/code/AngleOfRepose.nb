@@ -1,0 +1,603 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     24024,        594]
+NotebookOptionsPosition[     23417,        568]
+NotebookOutlinePosition[     23774,        584]
+CellTagsIndexPosition[     23731,        581]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Angle of Repose\n",
+ StyleBox["Shiva Shahrokhi and Aaron T. Becker", "Subsubsection"],
+ "\n",
+ StyleBox["when granular media is dropped in a pile, it forms a cone.  The \
+maximum slope of the cone depends on the material used, but is very \
+repeatable (due to CLT) and is called the angle of repose.  I believe \
+kilobots also have an angle of repose, but we must test this\n\n", "Text"],
+ ButtonBox["https://en.wikipedia.org/wiki/Angle_of_repose",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://en.wikipedia.org/wiki/Angle_of_repose"], None},
+  ButtonNote->"https://en.wikipedia.org/wiki/Angle_of_repose"],
+ StyleBox["\nThe angle of repose, or critical angle of repose,[1] of a \
+granular material is the steepest angle of descent or dip relative to the \
+horizontal plane to which a material can be piled without slumping. At this \
+angle, the material on the slope face is on the verge of sliding. The angle \
+of repose can range from 0\[Degree] to 90\[Degree]. ", "Text"]
+}], "Subchapter",
+ CellChangeTimes->{{3.683824312938307*^9, 3.6838243915394907`*^9}, {
+  3.683824998055793*^9, 3.683825027831605*^9}, {3.683903155498979*^9, 
+  3.6839031755126743`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"l", " ", "=", " ", "1"}], ";"}], " ", 
+   RowBox[{"(*", 
+    RowBox[{"width", " ", "of", " ", "bar", " ", "holding", " ", "material"}],
+     "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "a", ",", "b", ",", "p", ",", "c", ",", "lside", ",", "h", ",", "d", 
+         ",", "Area"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Graphics", "[", " ", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"a", "=", " ", 
+            RowBox[{
+             RowBox[{"l", "/", "2"}], "*", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Cos", "[", "\[Theta]", "]"}], ",", 
+               RowBox[{"Sin", "[", "\[Theta]", "]"}]}], "}"}]}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"b", " ", "=", " ", 
+            RowBox[{
+             RowBox[{"l", "/", "2"}], "*", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Cos", "[", "\[Alpha]", "]"}], ",", 
+               RowBox[{"Sin", "[", "\[Alpha]", "]"}]}], "}"}]}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"c", " ", "=", " ", 
+            RowBox[{
+             RowBox[{"l", "/", "2"}], "*", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "0"}], "}"}]}]}], ";", "\[IndentingNewLine]", 
+           
+           RowBox[{"p", " ", "=", "  ", 
+            RowBox[{
+             RowBox[{"l", "/", "10"}], "*", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Sin", "[", "\[Theta]", "]"}], ",", 
+               RowBox[{"-", 
+                RowBox[{"Cos", "[", "\[Theta]", "]"}]}]}], "}"}]}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"h", " ", "=", " ", 
+            RowBox[{"l", "/", "2"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"d", " ", "=", " ", 
+            RowBox[{"l", "/", "2"}]}], ";", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", "White"}], ",", 
+          RowBox[{"Rectangle", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "l"}], ",", 
+              RowBox[{"-", "l"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"l", ",", "2"}], "}"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", "Pink", ",", 
+          RowBox[{"(*", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"Rotate", "[", 
+               RowBox[{
+                RowBox[{"Rectangle", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "l"}], "/", "2"}], ",", 
+                    RowBox[{"-", ".1"}]}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"l", "/", "2"}], ",", "0"}], "}"}]}], "]"}], ",", 
+                
+                RowBox[{
+                 RowBox[{"-", "\[Theta]"}], " ", 
+                 RowBox[{"\[Pi]", "/", "180"}]}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "0"}], "}"}]}], "]"}], "}"}], "]"}], ","}],
+            "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"Polygon", "[", 
+           RowBox[{"{", 
+            RowBox[{"a", ",", 
+             RowBox[{"a", "+", "p"}], ",", 
+             RowBox[{
+              RowBox[{"-", "a"}], "+", "p"}], ",", 
+             RowBox[{"-", "a"}]}], "}"}], "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+           "draw", " ", "piles", " ", "of", " ", "stuff", " ", "on", " ", 
+            "ground"}], "*)"}], "\[IndentingNewLine]", "Brown", ",", 
+          RowBox[{"Polygon", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "l"}], "/", "2"}], 
+                 RowBox[{"Cos", "[", "\[Theta]", "]"}]}], "-", 
+                RowBox[{"h", " ", 
+                 RowBox[{"Cos", "[", "\[Alpha]", "]"}]}]}], ",", 
+               RowBox[{
+                RowBox[{"-", "d"}], "-", "h"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "l"}], "/", "2"}], 
+                RowBox[{"Cos", "[", "\[Theta]", "]"}]}], ",", 
+               RowBox[{
+                RowBox[{"h", " ", 
+                 RowBox[{"Sin", "[", "\[Alpha]", "]"}]}], "-", "h", "-", 
+                "d"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "l"}], "/", "2"}], 
+                 RowBox[{"Cos", "[", "\[Theta]", "]"}]}], "+", 
+                RowBox[{"h", " ", 
+                 RowBox[{"Cos", "[", "\[Alpha]", "]"}]}]}], ",", 
+               RowBox[{
+                RowBox[{"-", "h"}], "-", "d"}]}], "}"}]}], "}"}], "]"}], ",", 
+          "\[IndentingNewLine]", "Brown", ",", 
+          RowBox[{"Polygon", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"l", "/", "2"}], 
+                 RowBox[{"Cos", "[", "\[Theta]", "]"}]}], "-", 
+                RowBox[{"h", " ", 
+                 RowBox[{"Cos", "[", "\[Alpha]", "]"}]}]}], ",", 
+               RowBox[{
+                RowBox[{"-", "d"}], "-", "h"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"l", "/", "2"}], 
+                RowBox[{"Cos", "[", "\[Theta]", "]"}]}], ",", 
+               RowBox[{
+                RowBox[{"h", " ", 
+                 RowBox[{"Sin", "[", "\[Alpha]", "]"}]}], "-", "h", "-", 
+                "d"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"l", "/", "2"}], 
+                 RowBox[{"Cos", "[", "\[Theta]", "]"}]}], "+", 
+                RowBox[{"h", " ", 
+                 RowBox[{"Cos", "[", "\[Alpha]", "]"}]}]}], ",", 
+               RowBox[{
+                RowBox[{"-", "h"}], "-", "d"}]}], "}"}]}], "}"}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{"granular", " ", "media"}], "*)"}], "\[IndentingNewLine]", 
+          
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"\[Alpha]", ">", 
+             RowBox[{"Abs", "[", "\[Theta]", "]"}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"lside", "=", 
+               FractionBox[
+                RowBox[{"l", " ", 
+                 RowBox[{"Sin", "[", 
+                  RowBox[{"\[Theta]", "+", "\[Alpha]"}], "]"}]}], 
+                RowBox[{"Sin", "[", 
+                 RowBox[{"\[Pi]", "-", 
+                  RowBox[{"2", "\[Alpha]"}]}], "]"}]]}], ";", 
+              RowBox[{"Polygon", "[", 
+               RowBox[{"{", 
+                RowBox[{"a", ",", 
+                 RowBox[{
+                  RowBox[{"lside", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Cos", "[", "\[Alpha]", "]"}], ",", 
+                    RowBox[{"Sin", "[", "\[Alpha]", "]"}]}], "}"}]}], "-", 
+                  "a"}], ",", 
+                 RowBox[{"-", "a"}]}], "}"}], "]"}]}], "}"}], ",", 
+            RowBox[{
+             RowBox[{"lside", "=", "0"}], ";"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{"Black", ",", 
+            RowBox[{"Text", "[", 
+             RowBox[{
+              RowBox[{"N", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"l", "/", "2"}], 
+                   RowBox[{"Cos", "[", "\[Theta]", "]"}]}], "+", 
+                  RowBox[{"h", " ", 
+                   RowBox[{"Cos", "[", "\[Alpha]", "]"}]}]}], ",", 
+                 RowBox[{
+                  RowBox[{"-", "h"}], "-", "d"}]}], "}"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0"}], "}"}]}], "]"}], ","}], "*)"}], 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{"draw", " ", "angle", " ", "of", " ", "repose"}], "*)"}], 
+          "\[IndentingNewLine]", "Black", ",", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "a"}], "+", 
+              RowBox[{"c", "/", "2"}]}], ",", 
+             RowBox[{"-", "a"}], ",", 
+             RowBox[{
+              RowBox[{"-", "a"}], "+", " ", 
+              RowBox[{
+               RowBox[{"l", "/", "4"}], "*", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Cos", "[", "\[Alpha]", "]"}], ",", 
+                 RowBox[{"Sin", "[", "\[Alpha]", "]"}]}], "}"}]}]}]}], "}"}], 
+           "]"}], ",", "\[IndentingNewLine]", "Black", ",", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"a", "-", 
+              RowBox[{"c", "/", "2"}]}], ",", "a", ",", 
+             RowBox[{"a", "+", " ", 
+              RowBox[{
+               RowBox[{"l", "/", "4"}], "*", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", 
+                  RowBox[{"Cos", "[", "\[Alpha]", "]"}]}], ",", 
+                 RowBox[{"Sin", "[", "\[Alpha]", "]"}]}], "}"}]}]}]}], "}"}], 
+           "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"Circle", "[", 
+           RowBox[{
+            RowBox[{"-", "a"}], ",", 
+            RowBox[{"l", "/", "6"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "\[Alpha]"}], "}"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Circle", "[", 
+           RowBox[{"a", ",", 
+            RowBox[{"l", "/", "6"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\[Pi]", ",", 
+              RowBox[{"\[Pi]", "-", "\[Alpha]"}]}], "}"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+           "measure", " ", "weight", " ", "of", " ", "granular", " ", "media",
+             "  ", 
+            RowBox[{"(", 
+             RowBox[{
+             "proportional", " ", "to", " ", "area", " ", "of", " ", 
+              "triangle"}], ")"}]}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Area", " ", "=", " ", 
+            RowBox[{
+             RowBox[{"1", "/", "2"}], " ", "lside", " ", "l", " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{"\[Alpha]", "-", "\[Theta]"}], "]"}]}]}], ";", 
+           "\[IndentingNewLine]", "Black"}], ",", 
+          RowBox[{"Text", "[", 
+           RowBox[{
+            RowBox[{"StringForm", "[", 
+             RowBox[{"\"\<Area = ``\>\"", ",", 
+              RowBox[{"N", "[", 
+               RowBox[{"Round", "[", 
+                RowBox[{"Area", ",", "0.01"}], "]"}], "]"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", 
+              RowBox[{
+               RowBox[{"-", "1"}], "/", "2"}]}], "}"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+           "measure", " ", "torque", " ", "of", " ", "granular", " ", 
+            "media"}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{"draw", " ", "a", " ", "scale"}], "*)"}], 
+          "\[IndentingNewLine]", "Blue", ",", 
+          RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+          RowBox[{"Point", "[", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0"}], "}"}], "]"}]}], "\[IndentingNewLine]", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         "\[IndentingNewLine]", "}"}], "]"}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\[Alpha]", ",", 
+         RowBox[{"\[Pi]", "/", "4"}], ",", "\"\<Angle of Repose\>\""}], "}"}],
+        " ", ",", "0", ",", 
+       RowBox[{"5", 
+        RowBox[{"\[Pi]", "/", "12"}]}], ",", 
+       RowBox[{"\[Pi]", "/", "36"}], ",", 
+       RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\[Theta]", ",", "0"}], "}"}], " ", ",", 
+       RowBox[{
+        RowBox[{"-", " ", "5"}], 
+        RowBox[{"\[Pi]", "/", "12"}]}], ",", " ", 
+       RowBox[{"5", 
+        RowBox[{"\[Pi]", "/", "12"}]}], ",", 
+       RowBox[{"\[Pi]", "/", "36"}], ",", 
+       RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "add", " ", "setter", " ", "bar", " ", "so", " ", "you", " ", "can", 
+       " ", "select", " ", "the", " ", "material", " ", "to", " ", 
+       RowBox[{"use", ".", "  ", "Should"}], " ", "change", " ", "the", " ", 
+       "angle", " ", "or", " ", "repose", " ", "and", " ", "the", " ", 
+       "color", " ", "of", " ", "the", " ", "granular", " ", "media"}], 
+      "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"material", ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<sand\>\"", ",", "\"\<salt\>\"", ",", "\"\<corn\>\"", ",", 
+         "\"\<wheat\>\""}], "}"}]}], "}"}]}], "\[IndentingNewLine]", 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQB2IQ3fJILSms6LWj2vE7GSA6KVsnF0SfipFZDaJFHFdu
+AtGW3Mu3gegDBl6PaoD0rxOOz0H0tO72ryDa6+xfMF3MODd/LkhfJUc7iG76
+nNsNoo8Z7loGohdO7F4FosX2n10NojV2yW0F0T2NtQdB9LZKlmMgumi5zgkQ
+/WTa+kebgXTLOobfIPpSWMB/EM11N4NxC5DuOMvJBqJdxLpUQTTLpFZtEJ0y
+d4MhiLaW1DUD0ULni61B9L3yCAcQHfS22xlEzzh02gNEvz0xORhEh+jtjwXR
+iz6w5oPokn0JxSA6YX5uCYj+5PewEkQrde/rA9ENYfOyTgBpg7D0fBB9k3NF
+MYhOSm5qBNHHqlb8OA2yR/LNbxANACaexPo=
+  "]],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`material$$ = 
+    "sand", $CellContext`\[Alpha]$$ = Rational[1, 4] 
+    Pi, $CellContext`\[Theta]$$ = Rational[-1, 12] Pi, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`\[Alpha]$$], Rational[1, 4] Pi, "Angle of Repose"}, 
+      0, Rational[5, 12] Pi, Rational[1, 36] Pi}, {{
+       Hold[$CellContext`\[Theta]$$], 0}, Rational[-5, 12] Pi, 
+      Rational[5, 12] Pi, Rational[1, 36] Pi}, {
+      Hold[$CellContext`material$$], {"sand", "salt", "corn", "wheat"}}}, 
+    Typeset`size$$ = {293., {214., 218.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`\[Alpha]$1445102$$ = 
+    0, $CellContext`\[Theta]$1445103$$ = 0, $CellContext`material$1445104$$ = 
+    0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`material$$ = 
+        "sand", $CellContext`\[Alpha]$$ = 
+        Rational[1, 4] Pi, $CellContext`\[Theta]$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`\[Alpha]$$, $CellContext`\[Alpha]$1445102$$, 0], 
+        Hold[$CellContext`\[Theta]$$, $CellContext`\[Theta]$1445103$$, 0], 
+        Hold[$CellContext`material$$, $CellContext`material$1445104$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`a$, $CellContext`b$, $CellContext`p$, \
+$CellContext`c$, $CellContext`lside$, $CellContext`h$, $CellContext`d$, 
+         Area$}, 
+        Graphics[{$CellContext`a$ = ($CellContext`l/2) {
+              Cos[$CellContext`\[Theta]$$], 
+              
+              Sin[$CellContext`\[Theta]$$]}; $CellContext`b$ = \
+($CellContext`l/2) {
+              Cos[$CellContext`\[Alpha]$$], 
+              
+              Sin[$CellContext`\[Alpha]$$]}; $CellContext`c$ = \
+($CellContext`l/2) {1, 0}; $CellContext`p$ = ($CellContext`l/10) {
+              Sin[$CellContext`\[Theta]$$], -
+              Cos[$CellContext`\[Theta]$$]}; $CellContext`h$ = $CellContext`l/
+            2; $CellContext`d$ = $CellContext`l/2; White, 
+          Rectangle[{-$CellContext`l, -$CellContext`l}, {$CellContext`l, 2}], 
+          Pink, 
+          
+          Polygon[{$CellContext`a$, $CellContext`a$ + $CellContext`p$, \
+-$CellContext`a$ + $CellContext`p$, -$CellContext`a$}], Brown, 
+          
+          Polygon[{{((-$CellContext`l)/2) 
+              Cos[$CellContext`\[Theta]$$] - $CellContext`h$ 
+             Cos[$CellContext`\[Alpha]$$], -$CellContext`d$ - \
+$CellContext`h$}, {((-$CellContext`l)/2) 
+             Cos[$CellContext`\[Theta]$$], $CellContext`h$ 
+              Sin[$CellContext`\[Alpha]$$] - $CellContext`h$ - \
+$CellContext`d$}, {((-$CellContext`l)/2) 
+              Cos[$CellContext`\[Theta]$$] + $CellContext`h$ 
+              Cos[$CellContext`\[Alpha]$$], -$CellContext`h$ - \
+$CellContext`d$}}], Brown, 
+          
+          Polygon[{{($CellContext`l/2) 
+              Cos[$CellContext`\[Theta]$$] - $CellContext`h$ 
+             Cos[$CellContext`\[Alpha]$$], -$CellContext`d$ - \
+$CellContext`h$}, {($CellContext`l/2) 
+             Cos[$CellContext`\[Theta]$$], $CellContext`h$ 
+              Sin[$CellContext`\[Alpha]$$] - $CellContext`h$ - \
+$CellContext`d$}, {($CellContext`l/2) 
+              Cos[$CellContext`\[Theta]$$] + $CellContext`h$ 
+              Cos[$CellContext`\[Alpha]$$], -$CellContext`h$ - \
+$CellContext`d$}}], 
+          
+          If[$CellContext`\[Alpha]$$ > 
+           Abs[$CellContext`\[Theta]$$], {$CellContext`lside$ = \
+$CellContext`l Sin[$CellContext`\[Theta]$$ + $CellContext`\[Alpha]$$]/Sin[
+              Pi - 2 $CellContext`\[Alpha]$$]; 
+            Polygon[{$CellContext`a$, $CellContext`lside$ {
+                  Cos[$CellContext`\[Alpha]$$], 
+                  
+                  Sin[$CellContext`\[Alpha]$$]} - $CellContext`a$, \
+-$CellContext`a$}]}, $CellContext`lside$ = 0; Null], Black, 
+          Line[{-$CellContext`a$ + $CellContext`c$/
+             2, -$CellContext`a$, -$CellContext`a$ + ($CellContext`l/4) {
+               Cos[$CellContext`\[Alpha]$$], 
+               Sin[$CellContext`\[Alpha]$$]}}], Black, 
+          
+          Line[{$CellContext`a$ - $CellContext`c$/
+            2, $CellContext`a$, $CellContext`a$ + ($CellContext`l/
+              4) {-Cos[$CellContext`\[Alpha]$$], 
+               Sin[$CellContext`\[Alpha]$$]}}], 
+          
+          Circle[-$CellContext`a$, $CellContext`l/6, {
+           0, $CellContext`\[Alpha]$$}], 
+          
+          Circle[$CellContext`a$, $CellContext`l/6, {
+           Pi, Pi - $CellContext`\[Alpha]$$}], 
+          Area$ = (1/2) $CellContext`lside$ $CellContext`l 
+            Sin[$CellContext`\[Alpha]$$ - $CellContext`\[Theta]$$]; Black, 
+          Text[
+           StringForm["Area = ``", 
+            N[
+             Round[Area$, 0.01]]], {0, (-1)/2}], Blue, 
+          PointSize[Large], 
+          Point[{0, 0}]}]], 
+      "Specifications" :> {{{$CellContext`\[Alpha]$$, Rational[1, 4] Pi, 
+          "Angle of Repose"}, 0, Rational[5, 12] Pi, Rational[1, 36] Pi, 
+         Appearance -> "Labeled"}, {{$CellContext`\[Theta]$$, 0}, 
+         Rational[-5, 12] Pi, Rational[5, 12] Pi, Rational[1, 36] Pi, 
+         Appearance -> "Labeled"}, {$CellContext`material$$, {
+         "sand", "salt", "corn", "wheat"}}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{351., {285., 290.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.684058102301015*^9, 3.684058124582138*^9}, {
+  3.6840652353852167`*^9, 3.684065247781168*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Compute the Torque about the center of the object", "Subsection",
+ CellChangeTimes->{{3.684065388893179*^9, 3.684065402042365*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Torque", "[", "\[Theta]_", "]"}], " ", ":=", " ", 
+  RowBox[{
+   SubsuperscriptBox["\[Integral]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "l"}], "/", "2"}], 
+     RowBox[{"Cos", "[", "\[Theta]", "]"}]}], 
+    RowBox[{
+     RowBox[{"l", "/", "2"}], 
+     RowBox[{"Cos", "[", "\[Theta]", "]"}]}]], 
+   RowBox[{"x", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"heightTop", "[", "x", "]"}], "-", 
+      RowBox[{"heightBottom", "[", "x", "]"}]}], ")"}], 
+    RowBox[{"\[DifferentialD]", "x"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.684065277136952*^9, 3.684065369793248*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Get", " ", "a", " ", "list", " ", "of", " ", 
+  RowBox[{"materials", ":"}]}]], "Input",
+ CellChangeTimes->{{3.6840176001933947`*^9, 3.684017604379888*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Ashes", " ", "40"}], "\[IndentingNewLine]", 
+ RowBox[{"Asphalt", " ", "30"}], "\[IndentingNewLine]", "Bark"}], "Input",
+ CellChangeTimes->{{3.684017584732729*^9, 3.684017597044734*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{976, 714},
+WindowMargins->{{48, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 1191, 21, 233, "Subchapter"],
+Cell[CellGroupData[{
+Cell[1796, 47, 14146, 352, 923, "Input"],
+Cell[15945, 401, 6257, 127, 626, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22239, 533, 137, 1, 44, "Subsection"],
+Cell[22379, 536, 615, 18, 49, "Input"],
+Cell[22997, 556, 179, 3, 28, "Input"],
+Cell[23179, 561, 210, 3, 63, "Input"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
