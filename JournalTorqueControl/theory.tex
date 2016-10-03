@@ -22,15 +22,28 @@ F_{total} &= \sum\limits_{i=1}^n \rho_i F_i  \label{eq:swarmforce}
 Here $F_i$ is the force that the $i$th robot applies.  If all robots are identical and the control input is uniform, the force is equivalent for every robot and $F_i = F_c$.
 Not all robots are in contact with the object.  $\rho_i$ is an indicator variable: $\rho_i$ is 1 if the robot is in direct contact with the object or touching a chain of robots where at least one robot is in contact with the object. Otherwise $\rho_i = 0$.
 The moment arm is the robot's position $P_i$ to the object's COM $O=[O_x,O_y]^{\top}$.
-
+%normal distribution
 \begin{equation}
 P(x) = \frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}}
 \end{equation}
-\begin{equation}
-\tau = \int_0^1\frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}} x \, dx
-\end{equation}
+%defining torque
+\begin{align} \nonumber
+\tau &= \int_0^1\frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}} x \, dx\\ \nonumber
+&= \frac{(-e^{-\frac{(-1+\mu)^2}{2\sigma^2}}+e^{-\frac{-\mu^2}{2\sigma^2}})\sigma}{\sqrt{2\pi}}\\ 
+&+ \frac{1}{2}\mu(erf(\frac{1-\mu}{\sqrt{2}\sigma})+erf(\frac{\mu}{\sqrt{2}\sigma})) 
+\end{align}
+%taking derivative of torque
+\begin{align} 
+\frac{d\tau}{d\mu} &= -\frac{e^{-\frac{{-1+\mu}^2}{2\sigma^2}}}{\sqrt{2\pi}\sigma} + \frac{1}{2}(erf(\frac{1-\mu}{\sqrt{2}\sigma})+erf(\frac{\mu}{\sqrt{2}\sigma})) 
+\end{align}
 
-\begin{equation}
-\frac{1}{2} \mu  (\text{erf}(1.41421 (1-\mu ))+\text{erf}(1.41421 \mu ))+0.199471 \left(e^{-2. \mu
-   ^2}-e^{-2. (\mu -1)^2}\right)
-\end{equation}
+
+%triangular distribution
+\begin{align}
+P(x) &=  \left\{
+\begin{array}{ll}
+    \frac{2(x-a)}{(b-a)(c-a)}, &  \textrm{for   } a \leq x \leq c\\
+     \frac{2(b-x)}{(b-a)(b-c)}, &  \textrm{for   } c < x \leq b\\
+\end{array} 
+\right.
+\end{align}
