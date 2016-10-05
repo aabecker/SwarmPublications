@@ -83,20 +83,25 @@ PDF of Triangular distributions with the same $\mu$ and different $\sigma$s.
 \vspace{-1em}
 \end{figure}
 %defining torque
-\begin{align*}
+
+\lipsum[1]
+\begin{strip}
+\begin{align}
 \tau_t &=  \left\{
 \begin{array}{ll}
-    \mu, &  \mu<1 \& \sqrt{6} \mu + 6 \sigma < \sqrt{6} \& \sqrt{6} \mu > 6 \sigma\\
-    \frac{2-3\mu+3\sqrt{6}\sigma}{36\sigma^2}, & (\mu>1\&\sqrt{6}\mu \leq 6\sigma) \| \mu =1 \& \sigma \geq \frac{1}{\sqrt{6}})\\
-    \frac{-2+3\mu-2\mu^3+3\sqrt{6}\sigma}{36\sigma^2}, &  \mu<1 \& \sqrt{6}\mu+6\sigma\geq \sqrt{6} \& \sqrt{6} \mu \leq 6\sigma\\
-    \frac{1}{2}-\frac{\sigma}{\sqrt{6}}, &   \mu = 1 \& \sigma < \frac{1}{\sqrt{6}}\\
-    -\frac{2+\mu^3+3\sqrt{6}\mu^2\sigma+3\sqrt{6}\sigma(-1+2\sigma^2)-3\mu(1+6\sigma^2}{36\sigma^2} & \mu<1 \& \sqrt{6} \mu + 6 \sigma \geq \sqrt{6} \& \sqrt{6} \mu > 6 \sigma\\
-    \frac{2+\mu^3-3\sqrt{6}\mu^2\sigma+3\sqrt{6}\sigma(1-2\sigma^2)+3\mu(-1+6\sigma^2}{36\sigma^2} & \mu>1 \& 0<\sqrt{6}\mu-6\sigma<\sqrt{6}\\
-    \frac{1}{36}(18\mu-\frac{\mu^3}{\sigma^2} + \frac{3\sqrt{6}\mu^2}{\sigma}+6\sqrt{6}\sigma) &  \sqrt{6} \mu+6\sigma<\sqrt{6}\&\sqrt{6}\mu\leq 6\sigma\\
-     0, & \textrm{otherwise}\\ 
+    \mu, &   \textrm{for     }\mu<1 \& \sqrt{6} \mu + 6 \sigma < \sqrt{6} \& \sqrt{6} \mu > 6 \sigma\\
+    \frac{2-3\mu+3\sqrt{6}\sigma}{36\sigma^2}, & \textrm{for     } (\mu>1\&\sqrt{6}\mu \leq 6\sigma) | \mu =1 \& \sigma \geq \frac{1}{\sqrt{6}})\\
+    \frac{-2+3\mu-2\mu^3+3\sqrt{6}\sigma}{36\sigma^2}, &   \textrm{for     } \mu<1 \& \sqrt{6}\mu+6\sigma\geq \sqrt{6} \& \sqrt{6} \mu \leq 6\sigma\\
+    \frac{1}{2}-\frac{\sigma}{\sqrt{6}}, &   \textrm{for     } \mu = 1 \& \sigma < \frac{1}{\sqrt{6}}\\
+    -\frac{2+\mu^3+3\sqrt{6}\mu^2\sigma+3\sqrt{6}\sigma(-1+2\sigma^2)-3\mu(1+6\sigma^2}{36\sigma^2} &  \textrm{for     } \mu<1 \& \sqrt{6} \mu + 6 \sigma \geq \sqrt{6} \& \sqrt{6} \mu > 6 \sigma\\
+    \frac{2+\mu^3-3\sqrt{6}\mu^2\sigma+3\sqrt{6}\sigma(1-2\sigma^2)+3\mu(-1+6\sigma^2}{36\sigma^2} &  \textrm{for     } \mu>1 \& 0<\sqrt{6}\mu-6\sigma<\sqrt{6}\\
+    \frac{1}{36}(18\mu-\frac{\mu^3}{\sigma^2} + \frac{3\sqrt{6}\mu^2}{\sigma}+6\sqrt{6}\sigma) &  \textrm{for     }  \sqrt{6} \mu+6\sigma<\sqrt{6}\&\sqrt{6}\mu\leq 6\sigma\\
+     0, &  \textrm{otherwise}\\ 
 \end{array} 
 \right.
-\end{align*}
+\end{align}
+\end{strip}
+\lipsum[3-5]
 
 \begin{figure}
 \begin{center}
