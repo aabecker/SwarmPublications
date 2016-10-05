@@ -25,14 +25,36 @@ The moment arm is the robot's position $P_i$ to the object's COM $O=[O_x,O_y]^{\
 Consider a normal distribution, 
 %normal distribution
 \begin{equation}
-P(x) = \frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}}
+P(x)_{n} = \frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}}
 \end{equation}
+\begin{figure}
+\begin{center}
+	\includegraphics[width=0.8\columnwidth]{Normal.pdf}
+\end{center}
+\vspace{-1em}
+\caption{\label{fig:pdfNorm}
+PDF of Normal distributions with the same $\mu$ and different $\sigma$s.
+}
+\vspace{-1em}
+\end{figure}
+
+
 %defining torque
 \begin{align} \nonumber
 \tau &= \int_0^1\frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}} x \, dx\\ \nonumber
 &= \frac{(-e^{-\frac{(-1+\mu)^2}{2\sigma^2}}+e^{-\frac{-\mu^2}{2\sigma^2}})\sigma}{\sqrt{2\pi}}\\ 
 &+ \frac{1}{2}\mu(erf(\frac{1-\mu}{\sqrt{2}\sigma})+erf(\frac{\mu}{\sqrt{2}\sigma})) 
 \end{align}
+\begin{figure}
+\begin{center}
+	\includegraphics[width=0.8\columnwidth]{TorqueNormal.pdf}
+\end{center}
+\vspace{-1em}
+\caption{\label{fig:torqueNorm}
+Torque as a function of the mean position, $\mu$ which is the pushing location when the swarm is normally distributed with different standard deviations.
+}
+\vspace{-1em}
+\end{figure}
 %taking derivative of torque
 \begin{align} 
 \frac{d\tau}{d\mu} &= -\frac{e^{-\frac{{-1+\mu}^2}{2\sigma^2}}}{\sqrt{2\pi}\sigma} + \frac{1}{2}(erf(\frac{1-\mu}{\sqrt{2}\sigma})+erf(\frac{\mu}{\sqrt{2}\sigma})) 
@@ -41,10 +63,103 @@ P(x) = \frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \m
 
 %triangular distribution
 \begin{align}
-P(x) &=  \left\{
+P(x)_{t} &=  \left\{
 \begin{array}{ll}
-    \frac{2(x-a)}{(b-a)(c-a)}, &  \textrm{for   } a \leq x \leq c\\
-     \frac{2(b-x)}{(b-a)(b-c)}, &  \textrm{for   } c < x \leq b\\
+    \frac{x-\mu + \sqrt{6} \sigma}{6\sigma^2}, &  \textrm{for   } \mu-\sqrt{6}\sigma \leq x \leq \mu\\
+     \frac{-x+\mu + \sqrt{6} \sigma}{6\sigma^2}, &  \textrm{for   } \mu < x \leq \mu+ \sqrt{6}\sigma\\
+     0, & \textrm{otherwise}\\
 \end{array} 
 \right.
 \end{align}
+
+\begin{figure}
+\begin{center}
+	\includegraphics[width=0.8\columnwidth]{Triangular.pdf}
+\end{center}
+\vspace{-1em}
+\caption{\label{fig:pdfTri}
+PDF of Triangular distributions with the same $\mu$ and different $\sigma$s.
+}
+\vspace{-1em}
+\end{figure}
+%defining torque
+\begin{align}
+\tau_t &=  \left\{
+\begin{array}{ll}
+    \mu, &  \mu<1 \& \sqrt{6} \mu + 6 \sigma < \sqrt{6} \& \sqrt{6} \mu > 6 \sigma\\
+    \frac{2-3\mu+3\sqrt{6}\sigma}{36\sigma^2}, & (\mu>1\&\sqrt{6}\mu \leq 6\sigma) \| \mu =1 \& \sigma \geq \frac{1}{\sqrt{6}})\\
+    \frac{-2+3\mu-2\mu^3+3\sqrt{6}\sigma}{36\sigma^2}, &  \mu<1 \& \sqrt{6}\mu+6\sigma\geq \sqrt{6} \& \sqrt{6} \mu \leq 6\sigma\\
+    \frac{1}{2}-\frac{\sigma}{\sqrt{6}}, &   \mu = 1 \& \sigma < \frac{1}{\sqrt{6}}\\
+    -\frac{2+\mu^3+3\sqrt{6}\mu^2\sigma+3\sqrt{6}\sigma(-1+2\sigma^2)-3\mu(1+6\sigma^2}{36\sigma^2} & \mu<1 \& \sqrt{6} \mu + 6 \sigma \geq \sqrt{6} \& \sqrt{6} \mu > 6 \sigma\\
+    \frac{2+\mu^3-3\sqrt{6}\mu^2\sigma+3\sqrt{6}\sigma(1-2\sigma^2)+3\mu(-1+6\sigma^2}{36\sigma^2} & \mu>1 \& 0<\sqrt{6}\mu-6\sigma<\sqrt{6}\\
+    \frac{1}{36}(18\mu-\frac{\mu^3}{\sigma^2} + \frac{3\sqrt{6}\mu^2}{\sigma}+6\sqrt{6}\sigma) &  \sqrt{6} \mu+6\sigma<\sqrt{6}\&\sqrt{6}\mu\leq 6\sigma\\
+     0, & \textrm{otherwise}\\ 
+\end{array} 
+\right.
+\end{align}
+
+\begin{figure}
+\begin{center}
+	\includegraphics[width=0.8\columnwidth]{TorqueTri.pdf}
+\end{center}
+\vspace{-1em}
+\caption{\label{fig:torqueTri}
+Torque as a function of the mean position, $\mu$ which is the pushing location when the swarm is distributed by triangular distribution with different standard deviations.
+}
+\vspace{-1em}
+\end{figure}
+
+
+%uniform distribution
+\begin{align}
+P(x)_{u} &=  \left\{
+\begin{array}{ll}
+    \frac{1}{2\sqrt{3}\sigma}, &  \textrm{for   } \mu-\sqrt{3}\sigma \leq x \leq \mu-\sqrt{3}\\
+     0, & \textrm{otherwise}\\
+\end{array} 
+\right.
+\end{align}
+
+\begin{figure}
+\begin{center}
+	\includegraphics[width=0.8\columnwidth]{Uniform.pdf}
+\end{center}
+\vspace{-1em}
+\caption{\label{fig:pdfUni}
+The Uniform distribution with different standard deviations and the same mean.
+}
+\vspace{-1em}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+	\includegraphics[width=0.8\columnwidth]{TorqueUni.pdf}
+\end{center}
+\vspace{-1em}
+\caption{\label{fig:torqueUni}
+Torque as a function of the mean position, $\mu$ which is the pushing location when the swarm is uniformly distributed with different standard deviations.
+}
+\vspace{-1em}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+	\includegraphics[width=0.8\columnwidth]{BestLocationPivot.pdf}
+\end{center}
+\vspace{-1em}
+\caption{\label{fig:besLocPiv}
+Comparison for three different distributions for the best location to push the object.
+}
+\vspace{-1em}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+	\includegraphics[width=0.8\columnwidth]{MaxTorquePivot.pdf}
+\end{center}
+\vspace{-1em}
+\caption{\label{fig:maxTorPiv}
+Comparison for three different distributions for the maximum torque possible.
+}
+\vspace{-1em}
+\end{figure}
