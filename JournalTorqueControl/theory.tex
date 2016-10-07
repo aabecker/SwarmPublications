@@ -34,57 +34,49 @@ Second, the torque applied to a free rod of length 2 from $[-1,0]$ to $[1,0]$, i
 \end{equation}
 This section considers three canonical probability distributions: uniform, triangular, and normal. 
 
+\begin{figure*}
+\centering
+\renewcommand{\figwid}{0.66\columnwidth}
+\begin{overpic}[width =\figwid]{Uniform.pdf}%\put(1,55){a)}
+\end{overpic}
+\begin{overpic}[width =\figwid]{Triangular.pdf}
+\end{overpic}
+\begin{overpic}[width =\figwid]{Normal.pdf}
+\end{overpic}
+\vspace{-0.5em}
+\caption{\label{fig:PDF} Three different distributions are examined in this work: uniform, triangular, and normal.
+%\vspace{-2em}
+}
+\end{figure*}
+
+\begin{figure*}
+\centering
+\renewcommand{\figwid}{0.66\columnwidth}
+\begin{overpic}[width =\figwid]{TorqueUni.pdf}%\put(1,55){a)}
+\end{overpic}
+\begin{overpic}[width =\figwid]{TorqueTri.pdf}
+\end{overpic}
+\begin{overpic}[width =\figwid]{TorqueNormal.pdf}
+\end{overpic}
+\vspace{-0.5em}
+\caption{\label{fig:torque} Torque with regard to mean position, $\mu$. Mean position is the pushing location.
+%\vspace{-2em}
+}
+\end{figure*}
 %uniform distribution
 \begin{align}
-P(x)_{u} &=  \left\{
+p_u(x) &=  \left\{
 \begin{array}{ll}
-    \frac{1}{2\sqrt{3}\sigma}, &  \textrm{for   } \mu-\sqrt{3}\sigma \leq x \leq \mu-\sqrt{3}\\
+    \frac{1}{2\sqrt{3}\sigma}, &  \textrm{for   } \mu-\sqrt{3}\sigma \leq x \leq \mu+\sqrt{3}\sigma\\
      0, & \textrm{otherwise}\\
 \end{array} 
 \right.
 \end{align}
 
-%normal distribution
-\begin{equation}
-p_n(x) = \frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}}
-\end{equation}
-\begin{figure}
-\begin{center}
-	\includegraphics[width=0.8\columnwidth]{Normal.pdf}
-\end{center}
-\vspace{-1em}
-\caption{\label{fig:pdfNorm}
-PDF of Normal distributions with the same $\mu$ and different $\sigma$s.
-}
-\vspace{-1em}
-\end{figure}
-
-
-%defining torque
-\begin{align} \nonumber
-\tau &= \int_0^1\frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}} x \, dx\\ \nonumber
-&= \frac{(-e^{-\frac{(-1+\mu)^2}{2\sigma^2}}+e^{-\frac{-\mu^2}{2\sigma^2}})\sigma}{\sqrt{2\pi}}\\ 
-&+ \frac{1}{2}\mu(erf(\frac{1-\mu}{\sqrt{2}\sigma})+erf(\frac{\mu}{\sqrt{2}\sigma})) 
-\end{align}
-\begin{figure}
-\begin{center}
-	\includegraphics[width=0.8\columnwidth]{TorqueNormal.pdf}
-\end{center}
-\vspace{-1em}
-\caption{\label{fig:torqueNorm}
-Torque as a function of the mean position, $\mu$ which is the pushing location when the swarm is normally distributed with different standard deviations.
-}
-\vspace{-1em}
-\end{figure}
-%taking derivative of torque
-\begin{align} 
-\frac{d\tau}{d\mu} &= -\frac{e^{-\frac{{-1+\mu}^2}{2\sigma^2}}}{\sqrt{2\pi}\sigma} + \frac{1}{2}(erf(\frac{1-\mu}{\sqrt{2}\sigma})+erf(\frac{\mu}{\sqrt{2}\sigma})) 
-\end{align}
-
 
 %triangular distribution
 \begin{align}
-P(x)_{t} &=  \left\{
+p_t(x) &=  \left\{
 \begin{array}{ll}
     \frac{x-\mu + \sqrt{6} \sigma}{6\sigma^2}, &  \textrm{for   } \mu-\sqrt{6}\sigma \leq x \leq \mu\\
      \frac{-x+\mu + \sqrt{6} \sigma}{6\sigma^2}, &  \textrm{for   } \mu < x \leq \mu+ \sqrt{6}\sigma\\
@@ -92,163 +84,183 @@ P(x)_{t} &=  \left\{
 \end{array} 
 \right.
 \end{align}
+%normal distribution
+\begin{equation}
+p_n(x) = \frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}}
+\end{equation}
 
-\begin{figure}
-\begin{center}
-	\includegraphics[width=0.8\columnwidth]{Triangular.pdf}
-\end{center}
-\vspace{-1em}
-\caption{\label{fig:pdfTri}
-PDF of Triangular distributions with the same $\mu$ and different $\sigma$s.
-}
-\vspace{-1em}
-\end{figure}
-%defining torque
+%defining torque uniform distribution
+\begin{align}
+l &= \max{0,\mu -\sqrt{3} \sigma}\\
+u &= \min{1,\mu+\sqrt{3}\sigma}\\
+\tau_u &= -\frac{l^2}{4\sqrt{3}\sigma}+ \frac{u^2}{4\sqrt{3}\sigma} \textrm{  for    }  u>l
+\end{align}
 
-\begin{strip}
+%define torque for triangular:
+\begin{align}
+l_1 &= \max{0,\mu-\sqrt{6}\sigma}\\ \nonumber
+l_2 &= \max{0,\mu}\\ \nonumber
+u_1 &= \min{1,\mu}\\ \nonumber
+u_2 &= \min{1,\mu+\sqrt{6}\sigma} \nonumber
+\end{align}
 \begin{align}
 \tau_t &=  \left\{
 \begin{array}{ll}
-    \mu, &   \textrm{for     }\mu<1 \& \sqrt{6} \mu + 6 \sigma < \sqrt{6} \& \sqrt{6} \mu > 6 \sigma\\
-    \frac{2-3\mu+3\sqrt{6}\sigma}{36\sigma^2}, & \textrm{for     } (\mu>1\&\sqrt{6}\mu \leq 6\sigma) | \mu =1 \& \sigma \geq \frac{1}{\sqrt{6}})\\
-    \frac{-2+3\mu-2\mu^3+3\sqrt{6}\sigma}{36\sigma^2}, &   \textrm{for     } \mu<1 \& \sqrt{6}\mu+6\sigma\geq \sqrt{6} \& \sqrt{6} \mu \leq 6\sigma\\
-    \frac{1}{2}-\frac{\sigma}{\sqrt{6}}, &   \textrm{for     } \mu = 1 \& \sigma < \frac{1}{\sqrt{6}}\\
-    -\frac{2+\mu^3+3\sqrt{6}\mu^2\sigma+3\sqrt{6}\sigma(-1+2\sigma^2)-3\mu(1+6\sigma^2}{36\sigma^2} &  \textrm{for     } \mu<1 \& \sqrt{6} \mu + 6 \sigma \geq \sqrt{6} \& \sqrt{6} \mu > 6 \sigma\\
-    \frac{2+\mu^3-3\sqrt{6}\mu^2\sigma+3\sqrt{6}\sigma(1-2\sigma^2)+3\mu(-1+6\sigma^2}{36\sigma^2} &  \textrm{for     } \mu>1 \& 0<\sqrt{6}\mu-6\sigma<\sqrt{6}\\
-    \frac{1}{36}(18\mu-\frac{\mu^3}{\sigma^2} + \frac{3\sqrt{6}\mu^2}{\sigma}+6\sqrt{6}\sigma) &  \textrm{for     }  \sqrt{6} \mu+6\sigma<\sqrt{6}\&\sqrt{6}\mu\leq 6\sigma\\
-     0, &  \textrm{otherwise}\\ 
+\frac{-2{l_1}^3+3{l_1}^2(\mu-\sqrt{6}\sigma)+{u_1}^2(2u_1 - 3\mu+3\sqrt{6}\sigma}{36\sigma^2}, &   \textrm{for     } u_1 > l_1\\
+\frac{2{l_2}^3-3{l_2}^2(\mu+\sqrt{6}\sigma)+{u_2}^2(-2u_1 + 3\mu+3\sqrt{6}\sigma}{36\sigma^2}, &   \textrm{for     } u_2 > l_2\\
 \end{array} 
 \right.
 \end{align}
-\end{strip}
 
-
-\begin{figure}
-\begin{center}
-	\includegraphics[width=0.8\columnwidth]{TorqueTri.pdf}
-\end{center}
-\vspace{-1em}
-\caption{\label{fig:torqueTri}
-Torque as a function of the mean position, $\mu$ which is the pushing location when the swarm is distributed by triangular distribution with different standard deviations.
-}
-\vspace{2em}
-\end{figure}
-
-
-\newpage
-\begin{figure}
-\begin{center}
-	\includegraphics[width=0.8\columnwidth]{Uniform.pdf}
-\end{center}
-%\vspace{-1em}
-\caption{\label{fig:pdfUni}
-The Uniform distribution with different standard deviations and the same mean.
-}
-\vspace{-1em}
-\end{figure}
-%uniform torque
-\begin{align}
-\mu = \textrm{Max}[1-\sqrt{3}\sigma,\sqrt{3}\sigma]
+%defining torque normal distribution
+\begin{align} \nonumber
+\tau_n &= \int_0^1\frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}} x \, dx\\ \nonumber
+&= \frac{(-e^{-\frac{(-1+\mu)^2}{2\sigma^2}}+e^{-\frac{-\mu^2}{2\sigma^2}})\sigma}{\sqrt{2\pi}}\\ 
+&+ \frac{1}{2}\mu(\erf(\frac{1-\mu}{\sqrt{2}\sigma})+\erf(\frac{\mu}{\sqrt{2}\sigma})) 
 \end{align}
-\begin{figure}
-\begin{center}
-	\includegraphics[width=0.8\columnwidth]{TorqueUni.pdf}
-\end{center}
-\vspace{-1em}
-\caption{\label{fig:torqueUni}
-Torque as a function of the mean position, $\mu$ which is the pushing location when the swarm is uniformly distributed with different standard deviations.
-}
-\vspace{-1em}
-\end{figure}
 
 
-\newpage
+
+%taking derivative of torque
+\begin{align} 
+\frac{d\tau}{d\mu} &= -\frac{e^{-\frac{{-1+\mu}^2}{2\sigma^2}}}{\sqrt{2\pi}\sigma} + \frac{1}{2}(\erf(\frac{1-\mu}{\sqrt{2}\sigma})+\erf(\frac{\mu}{\sqrt{2}\sigma})) 
+\end{align}
+
+
+%%uniform torque
+%\begin{align}
+%\mu = \textrm{Max}[1-\sqrt{3}\sigma,\sqrt{3}\sigma]
+%\end{align}
+
+
+
 
 \section{Free object torque}
-%torque normal free
-
-\begin{strip}
-\begin{align} \nonumber
-\tau = \int_{-1}^1\frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}} x \, dx = \frac{(-e^{-\frac{(-1+\mu)^2}{2\sigma^2}}+e^{-\frac{-(1+\mu)^2}{2\sigma^2}})\sigma}{\sqrt{2\pi}}+ \frac{1}{2}\mu(erf(\frac{1-\mu}{\sqrt{2}\sigma})+erf(\frac{1+\mu}{\sqrt{2}\sigma})) 
-\end{align}
-\end{strip}
-%torque triangular free
-
-
-\begin{strip}
+%torque uniform free
 \begin{align}
-\tau_t &=  \left\{
+l &= \max{-1,\mu -\sqrt{3} \sigma}\\
+u &= \min{1,\mu+\sqrt{3}\sigma}\\
+\tau_{uf} &= -\frac{l^2}{4\sqrt{3}\sigma}+ \frac{u^2}{4\sqrt{3}\sigma} \textrm{  for    }  u>l
+\end{align}
+%torque triangular free
+\begin{align}
+l_1 &= \max{-1,\mu-\sqrt{6}\sigma}\\ \nonumber
+l_2 &= \max{-1,\mu}\\ \nonumber
+u_1 &= \min{1,\mu}\\ \nonumber
+u_2 &= \min{1,\mu+\sqrt{6}\sigma} \nonumber
+\end{align}
+\begin{align}
+\tau_{tf} &=  \left\{
 \begin{array}{ll}
-    \mu, &   \textrm{for     }\sqrt{6}(1+\mu)\geq 6\sigma \& \sqrt{6}\mu + 6 \sigma < \sqrt{6} \& \sigma>0\\
-     -\frac{1}{9\sigma^2},   & \textrm{for     } (\mu=-1\&3\sigma \geq \sqrt{6} | \mu <-1 \& \sqrt{6}\mu+6\sigma > \sqrt{6})\\
-   \frac{1}{9\sigma^2}, & \textrm{for     } (\mu>1\&\sqrt{6}(1+\mu) \leq 6\sigma) | \mu =1 \& 3\sigma \geq \sqrt{6})\\
-    -\frac{\mu(-3+\mu^2)}{18\sigma^2}, & -1<\mu<1 \& \sqrt{6}(1+\mu) <6\sigma \& \sqrt{6}\mu + 6\sigma\geq\sqrt{6}\\
-    \frac{1}{2}-\frac{\sigma}{\sqrt{6}}, & \textrm{for     } \mu = 1 \& 0< \sigma < \sqrt{\frac{2}{\sqrt{3}}}\\
-    -\frac{1}{2}+\frac{\sigma}{\sqrt{6}}, & \textrm{for     } \mu = -1 \&0< \sigma < \sqrt{\frac{2}{\sqrt{3}}}\\
-    -\frac{2+\mu^3+3\sqrt{6}\mu^2\sigma+3\sqrt{6}\sigma(-1+2\sigma^2)-3\mu(1+6\sigma^2}{36\sigma^2} &  \textrm{for     }  \sqrt{6} \mu+6\sigma\geq\sqrt{6}\&\mu<1\&\sqrt{6}(1+\mu)\geq 6\sigma\\
-   \frac{2+\mu^3-3\sqrt{6}\mu^2\sigma+3\sqrt{6}\sigma(1-2\sigma^2)+3\mu(-1+6\sigma^2}{36\sigma^2} &  \textrm{for     } \mu>1 \& -\sqrt{6}< \sqrt{6}\mu-6\sigma< \sqrt{6} \\
-     \frac{2-\mu^3+3\sqrt{6}\mu^2\sigma+3\sqrt{6}\sigma(-1+2\sigma^2)+3\mu(1+6\sigma^2}{36\sigma^2} &  \textrm{for     } \mu>-1 \& -\sqrt{6}(1+\mu)<6\sigma\& \sqrt{6}\mu+6\sigma< \sqrt{6} \\
-     \frac{-2+\mu^3+3\sqrt{6}\mu^2\sigma+3\sqrt{6}\sigma(-1+2\sigma^2)+3\mu(-1+6\sigma^2}{36\sigma^2} &  \textrm{for     } \mu<-1 \& -\sqrt{6}< \sqrt{6}\mu+6\sigma< \sqrt{6} \\
-     0, &  \textrm{otherwise}\\
+\frac{-2{l_1}^3+3{l_1}^2(\mu-\sqrt{6}\sigma)+{u_1}^2(2u_1 - 3\mu+3\sqrt{6}\sigma}{36\sigma^2}, &   \textrm{for     } u_1 > l_1\\
+\frac{2{l_2}^3-3{l_2}^2(\mu+\sqrt{6}\sigma)+{u_2}^2(-2u_1 + 3\mu+3\sqrt{6}\sigma}{36\sigma^2}, &   \textrm{for     } u_2 > l_2\\
 \end{array} 
 \right.
 \end{align}
-\end{strip}
 
+%torque normal free
 
-%torque uniform free
+\begin{align} \nonumber
+\tau_{nf} &= \int_{-1}^1\frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}} x \, dx\\
+ &= \frac{(-e^{-\frac{(-1+\mu)^2}{2\sigma^2}}+e^{-\frac{-(1+\mu)^2}{2\sigma^2}})\sigma}{\sqrt{2\pi}}\\
+ &+ \frac{1}{2}\mu(\erf(\frac{1-\mu}{\sqrt{2}\sigma})+\erf(\frac{1+\mu}{\sqrt{2}\sigma})) 
+\end{align}
 
+%limits and equations
 
+Consider robots are uniformly distributed. Finding the best place to guide the mean position:
+% best place to push for uniform
+\begin{align}
+\left\{
+\begin{array}{ll}
+\mu = 1-\sqrt{3}\sigma &   \textrm{for     } \sigma > \frac{1}{2\sqrt{3}}\\
+\mu = \sqrt{3}\sigma &   \textrm{otherwise}\\
+\end{array} 
+\right.
+\end{align}
+%best place to push for triangular:
 
+%best place to push for normal distribution:
+For triangular and normal distributions, the best place to push if $\sigma = 0$ is 1. The best place to push moves in the $x$ direction when $\sigma$ gets bigger. We used L'hopital rule and found third derivative of the torque to find the limit when standard deviation goes to infinity. It was because the first derivative had undefined numerator and denominator and we were not able to calculate it. The result is:
+
+\begin{align}
+\lim_{\sigma\to\infty} \frac{d^3x}{d\mu}(\tau_n)= -1+\frac{3\mu}{2}
+\end{align}
+
+which means the best position to push the rod moves left until it reaches $\mu = \frac{2}{3}$.
 
 %pivoted comparisons:
-
-\begin{figure}
-\begin{center}
-	\includegraphics[width=0.8\columnwidth]{BestLocationPivot.pdf}
-\end{center}
-\vspace{-1em}
-\caption{\label{fig:besLocPiv}
-Comparison for three different distributions for the best location to push the object.
+\begin{figure*}
+\centering
+\renewcommand{\figwid}{\columnwidth}
+\begin{overpic}[width =\figwid]{BestLocationPivot.pdf}%\put(1,55){a)}
+\end{overpic}
+\begin{overpic}[width =\figwid]{TorqueFreeBestPush.pdf}
+\end{overpic}
+\vspace{-0.5em}
+\caption{\label{fig:bestLoc} Best location to push in two different situations: when the object is pivoted, and when the object is free.
+%\vspace{-2em}
 }
-\vspace{0em}
-\end{figure}
+\end{figure*}
 
-
-\begin{figure}
-\begin{center}
-	\includegraphics[width=0.8\columnwidth]{MaxTorquePivot.pdf}
-\end{center}
+%\begin{figure}
+%\begin{center}
+%	\includegraphics[width=0.8\columnwidth]{BestLocationPivot.pdf}
+%\end{center}
+%\vspace{-1em}
+%\caption{\label{fig:besLocPiv}
+%Comparison for three different distributions for the best location to push the object.
+%}
 %\vspace{0em}
-\caption{\label{fig:maxTorPiv}
-Comparison for three different distributions for the maximum torque possible.
+%\end{figure}
+
+\begin{figure*}
+\centering
+\renewcommand{\figwid}{\columnwidth}
+\begin{overpic}[width =\figwid]{MaxTorquePivot.pdf}%\put(1,55){a)}
+\end{overpic}
+\begin{overpic}[width =\figwid]{TorqueFreeComparison.pdf}
+\end{overpic}
+\vspace{-0.5em}
+\caption{\label{fig:maxTorque} Maximum torque possible in two situations: pivoted object and free object.
+%\vspace{-2em}
 }
-\vspace{0em}
-\end{figure}
+\end{figure*}
 
-%free comparisons
-
-\begin{figure}
-\begin{center}
-	\includegraphics[width=0.8\columnwidth]{TorqueFreeComparison.pdf}
-\end{center}
-\vspace{-1em}
-\caption{\label{fig:maxTorqueFree}
-Comparison for three different distributions for the maximum torque possible.
-}
-\vspace{0em}
-\end{figure}
-
-
-\begin{figure}
-\begin{center}
-	\includegraphics[width=0.8\columnwidth]{TorqueFreeBestPush.pdf}
-\end{center}
+%\begin{figure}
+%\begin{center}
+%	\includegraphics[width=0.8\columnwidth]{MaxTorquePivot.pdf}
+%\end{center}
+%%\vspace{0em}
+%\caption{\label{fig:maxTorPiv}
+%Comparison for three different distributions for the maximum torque possible.
+%}
 %\vspace{0em}
-\caption{\label{fig:bestLocFree}
-Comparison for three different distributions for the best location to push the object.
-}
-\vspace{0em}
-\end{figure}
+%\end{figure}
+%
+%%free comparisons
+%
+%\begin{figure}
+%\begin{center}
+%	\includegraphics[width=0.8\columnwidth]{TorqueFreeComparison.pdf}
+%\end{center}
+%\vspace{-1em}
+%\caption{\label{fig:maxTorqueFree}
+%Comparison for three different distributions for the maximum torque possible.
+%}
+%\vspace{0em}
+%\end{figure}
+
+
+%\begin{figure}
+%\begin{center}
+%	\includegraphics[width=0.8\columnwidth]{TorqueFreeBestPush.pdf}
+%\end{center}
+%%\vspace{0em}
+%\caption{\label{fig:bestLocFree}
+%Comparison for three different distributions for the best location to push the object.
+%}
+%\vspace{0em}
+%\end{figure}
 
 
