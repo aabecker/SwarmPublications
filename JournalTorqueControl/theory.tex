@@ -107,10 +107,60 @@ where $\tau_{left}$ and $\tau_{right}$ are defined as:
 Also, torque when swarm is normally distributed is defined by:
 %defining torque normal distribution
 \begin{align} \nonumber
-\tau_n &= \frac{(e^{\frac{\mu^2}{2\sigma^2}}-e^{\frac{(1-\mu)^2}{2\sigma^2}})\sigma}{\sqrt{2\pi}}+ \frac{1}{2}\mu(\erf(\frac{1-\mu}{\sqrt{2}\sigma})+\erf(\frac{\mu}{\sqrt{2}\sigma})) 
+\tau_n &= \frac{(e^{\frac{\mu^2}{2\sigma^2}}-e^{\frac{(1-\mu)^2}{2\sigma^2}})\sigma}{\sqrt{2\pi}}+ \frac{1}{2}\mu(\erf\left(\frac{1-\mu}{\sqrt{2}\sigma}\right)+\erf\left(\frac{\mu}{\sqrt{2}\sigma}\right)) 
+\end{align}
+
+Consider robots are uniformly distributed. The mean position that maximizes torque is:
+% best place to push for uniform
+\begin{align}
+\left\{
+\begin{array}{ll}
+\mu = 1-\sqrt{3}\sigma &   \textrm{for     } \sigma < \frac{1}{2\sqrt{3}}\\
+\mu = \sqrt{3}\sigma &   \textrm{otherwise}\\
+\end{array} 
+\right.
+\end{align}
+
+Thus the torque would be:
+\begin{align}
+\tau_{umax} =\left\{
+\begin{array}{ll}
+1-\sqrt{3}\sigma &   \textrm{for     } \sigma \leq \frac{1}{2\sqrt{3}}\\
+\frac{1}{4 \sqrt{3}\sigma} &   \sigma > \frac{1}{2\sqrt{3}}\\
+\end{array} 
+\right.
+\end{align}
+%best place to push for triangular:
+For the swarm that has triangularly distributed, the mean position that maximizes torque is:
+
+\begin{align}
+\left\{
+\begin{array}{ll}
+\mu = -\sqrt{6} + \sqrt{12\sigma^2 +1} &   \textrm{for     } 0< \sigma  <\frac{1}{2\sqrt{3}} \\
+\mu = \frac{\sqrt{2}}{2} &   \textrm{for     } \sigma \geq \frac{1}{2\sqrt{3}} 
+\end{array} 
+\right.
+\end{align}
+
+Thus the torque would be:
+\begin{align}
+\tau_{tmax} =\left\{
+\begin{array}{ll}
+\frac{-1 + \sqrt{1+12\sigma^2}^{\frac{3}{2}}- 18\sigma^3\sqrt{6}}{18\sigma^2} &   \textrm{for     } \sigma \leq \frac{1}{2\sqrt{3}}\\
+\frac{\sqrt{2}-2+3\sqrt{6}}{36\sigma^2} &   \sigma > \frac{1}{2\sqrt{3}}\\
+\end{array} 
+\right.
 \end{align}
 
 
+%best place to push for normal distribution:
+For all distributions, the $\mu$ that maximizes torque if $\sigma = 0$ is 1. For the $\tau_{pivot}$ case, the optimal $\mu$ moves in the $-x$ direction as $\sigma$ increases and approaches a limit. We used L'H\^opital's rule and found third derivative of the torque to find the limit when standard deviation goes to infinity. It was because in the first derivative numerator and denominator were both going to zero and we were not able to calculate the limit. The result is:
+
+\begin{align}
+\lim_{\sigma\to\infty} \frac{d^3x}{d\mu}(\tau_n)= -1+\frac{3\mu}{2}
+\end{align}
+
+which means the best position to push the rod moves left until it reaches $\mu = \frac{2}{3}$.
 
 
 
@@ -124,68 +174,39 @@ Also, torque when swarm is normally distributed is defined by:
 
 
 \subsection{Free object torque}
+
+For calculating torque in free object when the swarm has a uniform distribution, we again defined $l_f$ and $u_f$ for simplicity of the following derivations. Therefore, the torque applied is:
 %torque uniform free
 \begin{align}
-l &= \max({-1,\mu -\sqrt{3} \sigma})\\
-u &= \min({1,\mu+\sqrt{3}\sigma})\\
-\tau_{uf} &= -\frac{l^2}{4\sqrt{3}\sigma}+ \frac{u^2}{4\sqrt{3}\sigma} \textrm{  for    }  u>l
+l_f &= \max({-1,\mu -\sqrt{3} \sigma}),\, u_f = \min({1,\mu+\sqrt{3}\sigma})\\
+\tau_{uf} &= -\frac{l_f^2}{4\sqrt{3}\sigma}+ \frac{u_f^2}{4\sqrt{3}\sigma} \textrm{  for    }  u_f>l_f
 \end{align}
+
 %torque triangular free
+To simplify the following derivations for triangular distribution we use:
 \begin{align}
-l_1 &= \max({-1,\mu-\sqrt{6}\sigma})\\ \nonumber
-l_2 &= \max({-1,\mu})\\ \nonumber
-u_1 &= \min({1,\mu})\\ \nonumber
-u_2 &= \min({1,\mu+\sqrt{6}\sigma}) \nonumber
+l_{f1} &= \max({-1,\mu-\sqrt{6}\sigma}), \,l_{f2} = \max({-1,\mu})\\ \nonumber
+u_{f1} &= \min({1,\mu}), \, u_{f2} = \min({1,\mu+\sqrt{6}\sigma}) \nonumber
 \end{align}
 \begin{align}
 \tau_{tf} &=  \left\{
 \begin{array}{ll}
-\frac{-2{l_1}^3+3{l_1}^2(\mu-\sqrt{6}\sigma)+{u_1}^2(2u_1 - 3\mu+3\sqrt{6}\sigma}{36\sigma^2}, &   \textrm{for     } u_1 > l_1\\
-\frac{2{l_2}^3-3{l_2}^2(\mu+\sqrt{6}\sigma)+{u_2}^2(-2u_1 + 3\mu+3\sqrt{6}\sigma}{36\sigma^2}, &   \textrm{for     } u_2 > l_2\\
+\frac{-2{l_{f1}}^3+3{l_{f1}}^2(\mu-\sqrt{6}\sigma)+{u_{f1}}^2(2u_{f1} - 3\mu+3\sqrt{6}\sigma}{36\sigma^2}, &   \textrm{for     } u_{f1} > l_{f1}\\
+\frac{2{l_{f2}}^3-3{l_{f2}}^2(\mu+\sqrt{6}\sigma)+{u_{f2}}^2(-2u_{f2} + 3\mu+3\sqrt{6}\sigma}{36\sigma^2}, &   \textrm{for     } u_{f2} > l_{f2}\\
 \end{array} 
 \right.
 \end{align}
 
 %torque normal free
-
+Also, torque when swarm is normally distributed is defined by:
 \begin{align} \nonumber
-\tau_{nf} &= \int_{-1}^1\frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}} x \, dx\\
- &= \frac{(-e^{-\frac{(-1+\mu)^2}{2\sigma^2}}+e^{-\frac{-(1+\mu)^2}{2\sigma^2}})\sigma}{\sqrt{2\pi}}\\
- &+ \frac{1}{2}\mu(\erf(\frac{1-\mu}{\sqrt{2}\sigma})+\erf(\frac{1+\mu}{\sqrt{2}\sigma})) 
+\tau_{nf} &= \frac{\left(-e^{-\frac{(-1+\mu)^2}{2\sigma^2}}+e^{-\frac{-(1+\mu)^2}{2\sigma^2}}\right)\sigma}{\sqrt{2\pi}}\\
+ &+ \frac{1}{2}\mu\left(\erf(\frac{1-\mu}{\sqrt{2}\sigma})+\erf(\frac{1+\mu}{\sqrt{2}\sigma})\right) 
 \end{align}
 
 %limits and equations
 
-Consider robots are uniformly distributed. Finding the best place to guide the mean position:
-% best place to push for uniform
-\begin{align}
-\left\{
-\begin{array}{ll}
-\mu = 1-\sqrt{3}\sigma &   \textrm{for     } \sigma > \frac{1}{2\sqrt{3}}\\
-\mu = \sqrt{3}\sigma &   \textrm{otherwise}\\
-\end{array} 
-\right.
-\end{align}
 
-Thus the torque would be:
-\begin{align}
-\tau_{umax} =\left\{
-\begin{array}{ll}
-\sqrt{3}\sigma &   \textrm{for     } \sigma \leq \frac{1}{2\sqrt{3}}\\
-\frac{1}{4 \sqrt{3}\sigma} &   \sigma > \frac{1}{2\sqrt{3}}\\
-\end{array} 
-\right.
-\end{align}
-%best place to push for triangular:
-
-%best place to push for normal distribution:
-For all distributions, the optimal place to push if $\sigma = 0$ is 1. The best place to push moves in the $x$ direction when $\sigma$ gets bigger. We used L'Hopital's rule and found third derivative of the torque to find the limit when standard deviation goes to infinity. It was because in the first derivative numerator and denominator were both going to zero and we were not able to calculate the limit. The result is:
-
-\begin{align}
-\lim_{\sigma\to\infty} \frac{d^3x}{d\mu}(\tau_n)= -1+\frac{3\mu}{2}
-\end{align}
-
-which means the best position to push the rod moves left until it reaches $\mu = \frac{2}{3}$.
 
 %pivoted comparisons:
 \begin{figure*}
