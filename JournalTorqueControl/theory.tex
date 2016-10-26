@@ -24,15 +24,36 @@ Not all robots are in contact with the object.  $\rho_i$ is an indicator variabl
 The moment arm is the robot's position $P_i$ to the object's COM $O=[O_x,O_y]^{\top}$.
 
 \section{Instantiating torque from swarm distribution}
-Consider a swarm of robots with probability density $p(x)$. This section examines where to steer the mean of the probability distribution to maximize torque. We examine two problems. First, the torque applied to a rod of length 1 pivoted at 0 when $\theta = 0$ is:
+
+Consider a swarm of robots with probability density $p(x)$. This section considers three canonical probability distributions: uniform, triangular, and normal, all parameterized by mean, $\mu$ and standard deviation, $\sigma$. They are described by:
+
+%uniform distribution
+\begin{align}
+p_u(x) &=  \left\{
+\begin{array}{ll}
+    \frac{1}{2\sqrt{3}\sigma}, &  \textrm{for   } \mu-\sqrt{3}\sigma \leq x \leq \mu+\sqrt{3}\sigma\\
+     0, & \textrm{otherwise}\\
+\end{array} 
+\right.\\
+%triangular distribution
+p_t(x) &=  \left\{
+\begin{array}{ll}
+    \frac{x-\mu + \sqrt{6} \sigma}{6\sigma^2}, &  \textrm{for   } \mu-\sqrt{6}\sigma \leq x \leq \mu\\
+     \frac{-x+\mu + \sqrt{6} \sigma}{6\sigma^2}, &  \textrm{for   } \mu < x \leq \mu+ \sqrt{6}\sigma\\
+     0, & \textrm{otherwise}\\
+\end{array} 
+\right.\\
+%normal distribution
+p_n(x) &= \frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}}
+\end{align}
+This section examines where to steer the mean of the probability distribution to maximize torque. We discuss two problems: pivoted object torque and free object torque
+\subsection{Pivoted object torque}
+
+In this problem, the torque applied to a rod of length 1 pivoted at 0 when $\theta = 0$ is:
 \begin{equation}
 \tau_{pivot} = \int_0^1 x\,p(x)\, dx
 \end{equation}
-Second, the torque applied to a free rod of length 2 from $[-1,0]$ to $[1,0]$, is:
-\begin{equation}
-\tau_{free} = \int_{-1}^1 x\,p(x)\, dx
-\end{equation}
-This section considers three canonical probability distributions: uniform, triangular, and normal, all parameterized by mean, $\mu$ and standard deviation, $\sigma$. They are described by:
+
 
 \begin{figure*}
 \centering
@@ -63,65 +84,52 @@ This section considers three canonical probability distributions: uniform, trian
 %\vspace{-2em}
 }
 \end{figure*}
-%uniform distribution
-\begin{align}
-p_u(x) &=  \left\{
-\begin{array}{ll}
-    \frac{1}{2\sqrt{3}\sigma}, &  \textrm{for   } \mu-\sqrt{3}\sigma \leq x \leq \mu+\sqrt{3}\sigma\\
-     0, & \textrm{otherwise}\\
-\end{array} 
-\right.\\
-%triangular distribution
-p_t(x) &=  \left\{
-\begin{array}{ll}
-    \frac{x-\mu + \sqrt{6} \sigma}{6\sigma^2}, &  \textrm{for   } \mu-\sqrt{6}\sigma \leq x \leq \mu\\
-     \frac{-x+\mu + \sqrt{6} \sigma}{6\sigma^2}, &  \textrm{for   } \mu < x \leq \mu+ \sqrt{6}\sigma\\
-     0, & \textrm{otherwise}\\
-\end{array} 
-\right.\\
-%normal distribution
-p_n(x) &= \frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}}
-\end{align}
 
-\subsection{Pivoted object torque}
-For calculating torque in pivoted object when the swarm has a uniform distribution, we defined $l$ and $u$ for simplicity of the following derivations. Therefore, the torque applied is:
+
+First,  $l$ and $u$ for simplicity of the following derivations are defined for the uniform distribution. 
 %defining torque uniform distribution
 \begin{align}
-l &= \max(0,\mu -\sqrt{3} \sigma) \, , u = \min({1,\mu+\sqrt{3}\sigma})\\
-\tau_u &= -\frac{l^2}{4\sqrt{3}\sigma}+ \frac{u^2}{4\sqrt{3}\sigma} \textrm{  for    }  u>l
+l &= \max(0,\mu -\sqrt{3} \sigma) \, , u = \min({1,\mu+\sqrt{3}\sigma})
 \end{align}
-To simplify the following derivations for triangular distribution we use:
+Therefore, the torque applied is:
+\begin{align}
+\tau_u &=  \frac{u^2-l^2}{4\sqrt{3}\sigma} \textrm{  for    }  u>l
+\end{align}
+To simplify derivations for triangular distribution we define bounds of integration as:
 %define torque for triangular:
 \begin{align}
 l_1 &= \max({0,\mu-\sqrt{6}\sigma})\, , l_2 = \max({0,\mu})\\ \nonumber
-u_1 &= \min({1,\mu})\, , u_2 = \min({1,\mu+\sqrt{6}\sigma})\\ \nonumber
-\tau_t &= \frac{\tau_{left} + \tau_{right}}{36\sigma^2}\nonumber
+u_1 &= \min({1,\mu})\, , u_2 = \min({1,\mu+\sqrt{6}\sigma}) \nonumber
+\end{align}
+Thus, torque is:
+\begin{align}
+\tau_t &= \frac{\tau_{left} + \tau_{right}}{36\sigma^2}
 \end{align}
 where $\tau_{left}$ and $\tau_{right}$ are defined as:
 \begin{align}
-\tau_{left} &=  -2{l_1}^3+3{l_1}^2(\mu-\sqrt{6}\sigma)\\ \nonumber
-&+{u_1}^2(2u_1 - 3\mu+3\sqrt{6}\sigma), & \textrm{for     } u_1 > l_1\\ \nonumber
+\tau_{left} &=  {u_1}^2(2u_1 - 3\mu+3\sqrt{6}\sigma)\\ \nonumber
+&-2{l_1}^3+3{l_1}^2(\mu-\sqrt{6}\sigma), & \textrm{for     } u_1 > l_1\\ \nonumber
 \tau_{right} &= 2{l_2}^3-3{l_2}^2(\mu+\sqrt{6}\sigma)\\ \nonumber
-&+{u_2}^2(-2u_2 + 3\mu+3\sqrt{6}\sigma),  & \textrm{for     } u_2 > l_2\\ \nonumber
+&-{u_2}^2(2u_2 - 3\mu-3\sqrt{6}\sigma),  & \textrm{for     } u_2 > l_2\\ \nonumber
 \end{align}
-Also, torque when swarm is normally distributed is defined by:
+Torque by a uniformly distributed swarm is defined by:
 %defining torque normal distribution
 \begin{align} \nonumber
-\tau_n &= \frac{(e^{\frac{\mu^2}{2\sigma^2}}-e^{\frac{(1-\mu)^2}{2\sigma^2}})\sigma}{\sqrt{2\pi}}+ \frac{1}{2}\mu(\erf\left(\frac{1-\mu}{\sqrt{2}\sigma}\right)+\erf\left(\frac{\mu}{\sqrt{2}\sigma}\right)) 
+\tau_n &= \frac{\left(e^{\frac{\mu^2}{2\sigma^2}}-e^{\frac{(1-\mu)^2}{2\sigma^2}}\right)\sigma}{\sqrt{2\pi}}+ \frac{\mu}{2}\left(\erf\left(\frac{1-\mu}{\sqrt{2}\sigma}\right)+\erf\left(\frac{\mu}{\sqrt{2}\sigma}\right)\right) 
 \end{align}
 
-Consider robots are uniformly distributed. The mean position that maximizes torque is:
+Consider a uniformly distributed swarm. The mean position that maximizes torque is computed.
 % best place to push for uniform
 \begin{align}
-\left\{
+\mu=\left\{
 \begin{array}{ll}
-\mu = 1-\sqrt{3}\sigma &   \textrm{for     } \sigma < \frac{1}{2\sqrt{3}}\\
-\mu = \sqrt{3}\sigma &   \textrm{otherwise}\\
+1-\sqrt{3}\sigma &   \textrm{for     } \sigma < \frac{1}{2\sqrt{3}}\\
+\sqrt{3}\sigma &   \textrm{for     } \sigma > \frac{1}{2\sqrt{3}}\\
 \end{array} 
 \right.
 \end{align}
 
-Thus the torque would be:
+The resulting torque is:
 \begin{align}
 \tau_{umax} =\left\{
 \begin{array}{ll}
@@ -131,22 +139,22 @@ Thus the torque would be:
 \right.
 \end{align}
 %best place to push for triangular:
-For the swarm that has triangularly distributed, the mean position that maximizes torque is:
+For a triangularly distributed swarm, the mean position that maximizes torque is:
 
 \begin{align}
-\left\{
+\mu= \left\{
 \begin{array}{ll}
-\mu = -\sqrt{6} + \sqrt{12\sigma^2 +1} &   \textrm{for     } 0< \sigma  <\frac{1}{2\sqrt{3}} \\
-\mu = \frac{\sqrt{2}}{2} &   \textrm{for     } \sigma \geq \frac{1}{2\sqrt{3}} 
+ \sqrt{12\sigma^2 +1}  -\sqrt{6}\sigma &   \textrm{for     } 0< \sigma  <\frac{1}{2\sqrt{3}} \\
+ \frac{\sqrt{2}}{2} &   \textrm{for     } \sigma \geq \frac{1}{2\sqrt{3}} 
 \end{array} 
 \right.
 \end{align}
 
-Thus the torque would be:
-\begin{align}
+Thus the torque is computed by:
+\begin{align}\label{eq:triMaxTorque}
 \tau_{tmax} =\left\{
 \begin{array}{ll}
-\frac{-1 + \sqrt{1+12\sigma^2}^{\frac{3}{2}}- 18\sigma^3\sqrt{6}}{18\sigma^2} &   \textrm{for     } \sigma \leq \frac{1}{2\sqrt{3}}\\
+\frac{(1+12\sigma^2)^{\frac{3}{2}}- 18\sigma^3\sqrt{6}-1}{18\sigma^2} &   \textrm{for     } \sigma \leq \frac{1}{2\sqrt{3}}\\
 \frac{\sqrt{2}-2+3\sqrt{6}}{36\sigma^2} &   \sigma > \frac{1}{2\sqrt{3}}\\
 \end{array} 
 \right.
@@ -154,56 +162,69 @@ Thus the torque would be:
 
 
 %best place to push for normal distribution:
-For all distributions, the $\mu$ that maximizes torque if $\sigma = 0$ is 1. For the $\tau_{pivot}$ case, the optimal $\mu$ moves in the $-x$ direction as $\sigma$ increases and approaches a limit. We used L'H\^opital's rule and found third derivative of the torque to find the limit when standard deviation goes to infinity. It was because in the first derivative numerator and denominator were both going to zero and we were not able to calculate the limit. The result is:
+For all distributions, the $\mu$ that maximizes torque if $\sigma = 0$ is 1. For the $\tau_{pivot}$ case, the optimal $\mu$ moves in the $-x$ direction as $\sigma$ increases and approaches a limit. This limit is $\mu = 0$ for a uniformly distributed swarm and $\mu = \frac{\sqrt{2}}{2}$ for a triangularly distributed swarm as we can see from Eq.\ref{eq:triMaxTorque}. We used L'H\^opital's rule and found third derivative of the torque to find the limit when standard deviation goes to infinity. It was because in the first derivative numerator and denominator were both going to infinity and we were not able to calculate the limit. The result is:
 
 \begin{align}
-\lim_{\sigma\to\infty} \frac{d^3x}{d\mu}(\tau_n)= -1+\frac{3\mu}{2}
+\lim_{\sigma\to\infty} \frac{d^3\tau_n}{d\mu}= \frac{3\mu}{2}-1
 \end{align}
 
 which means the best position to push the rod moves left until it reaches $\mu = \frac{2}{3}$.
 
 
 
-
-%%uniform torque
-%\begin{align}
-%\mu = \textrm{Max}[1-\sqrt{3}\sigma,\sqrt{3}\sigma]
-%\end{align}
-
-
-
-
 \subsection{Free object torque}
-
-For calculating torque in free object when the swarm has a uniform distribution, we again defined $l_f$ and $u_f$ for simplicity of the following derivations. Therefore, the torque applied is:
+In this problem, the torque applied to a free rod of length 2 from $[-1,0]$ to $[1,0]$, is:
+\begin{equation}
+\tau_{free} = \int_{-1}^1 x\,p(x)\, dx
+\end{equation}
+For calculating free object torque for a uniformly distributed swarm, $l_f$ and $u_f$ are defined for simplicity of derivations. 
 %torque uniform free
 \begin{align}
-l_f &= \max({-1,\mu -\sqrt{3} \sigma}),\, u_f = \min({1,\mu+\sqrt{3}\sigma})\\
-\tau_{uf} &= -\frac{l_f^2}{4\sqrt{3}\sigma}+ \frac{u_f^2}{4\sqrt{3}\sigma} \textrm{  for    }  u_f>l_f
+l_f &= \max({-1,\mu -\sqrt{3} \sigma}),\, u_f = \min({1,\mu+\sqrt{3}\sigma})
+\end{align}
+
+Therefore, the torque applied is:
+\begin{align}
+\tau_{uf} &= \frac{u_f^2-l_f^2}{4\sqrt{3}\sigma} \textrm{  for    }  u_f>l_f
 \end{align}
 
 %torque triangular free
-To simplify the following derivations for triangular distribution we use:
+To simplify derivations for a triangularly distributed swarm, we define bounds of integration as:
 \begin{align}
 l_{f1} &= \max({-1,\mu-\sqrt{6}\sigma}), \,l_{f2} = \max({-1,\mu})\\ \nonumber
 u_{f1} &= \min({1,\mu}), \, u_{f2} = \min({1,\mu+\sqrt{6}\sigma}) \nonumber
 \end{align}
+Torque is:
 \begin{align}
-\tau_{tf} &=  \left\{
-\begin{array}{ll}
-\frac{-2{l_{f1}}^3+3{l_{f1}}^2(\mu-\sqrt{6}\sigma)+{u_{f1}}^2(2u_{f1} - 3\mu+3\sqrt{6}\sigma}{36\sigma^2}, &   \textrm{for     } u_{f1} > l_{f1}\\
-\frac{2{l_{f2}}^3-3{l_{f2}}^2(\mu+\sqrt{6}\sigma)+{u_{f2}}^2(-2u_{f2} + 3\mu+3\sqrt{6}\sigma}{36\sigma^2}, &   \textrm{for     } u_{f2} > l_{f2}\\
-\end{array} 
-\right.
+\tau_{tf} = \frac{\tau_{fleft}+ \tau_{fright}}{36\sigma^2}
+\end{align}
+where $\tau_{fleft}$ and $\tau_{fright}$ is defined as
+\begin{align}\nonumber
+\tau_{fleft} &=  {u_{f1}}^2(2u_{f1} - 3\mu+3\sqrt{6}\sigma)\\ \nonumber
+&-2{l_{f1}}^3+3{l_{f1}}^2(\mu-\sqrt{6}\sigma) &   \textrm{for     } u_{f1} > l_{f1}\\ \nonumber
+\tau_{fright} &= 2{l_{f2}}^3-3{l_{f2}}^2(\mu+\sqrt{6}\sigma)\\ \nonumber
+&+{u_{f2}}^2( 3\mu-2u_{f2}+3\sqrt{6}\sigma) &   \textrm{for     } u_{f2} > l_{f2}\\ \nonumber
 \end{align}
 
 %torque normal free
-Also, torque when swarm is normally distributed is defined by:
+Also, torque of a normally distributed swarm is defined by:
 \begin{align} \nonumber
-\tau_{nf} &= \frac{\left(-e^{-\frac{(-1+\mu)^2}{2\sigma^2}}+e^{-\frac{-(1+\mu)^2}{2\sigma^2}}\right)\sigma}{\sqrt{2\pi}}\\
+\tau_{nf} &= \frac{\left(e^{\frac{-(1+\mu)^2}{2\sigma^2}}-e^{-\frac{(-1+\mu)^2}{2\sigma^2}}\right)\sigma}{\sqrt{2\pi}}\\
  &+ \frac{1}{2}\mu\left(\erf(\frac{1-\mu}{\sqrt{2}\sigma})+\erf(\frac{1+\mu}{\sqrt{2}\sigma})\right) 
 \end{align}
 
+Maximum torque of a uniformly distributed swarm for a free object has the same boundary as the pivoted object. The difference is because the pivoted object even when the swarm is pushing all the length of the object, they are applying torque, but for the free object, if the swarm pushes the whole length of the object, they would just apply force.
+
+For triangularly distributed swarm we have:
+
+\begin{align}
+\mu= \left\{
+\begin{array}{ll}
+ \sqrt{12\sigma^2 +1}  -\sqrt{6}\sigma &   \textrm{for     }  \sigma  <\frac{2}{\sqrt{6}} \\
+1 &   \textrm{for     } \sigma \geq \frac{2}{\sqrt{6}} 
+\end{array} 
+\right.
+\end{align}
 %limits and equations
 
 
@@ -214,7 +235,7 @@ Also, torque when swarm is normally distributed is defined by:
 \renewcommand{\figwid}{\columnwidth}
 \begin{overpic}[width =\figwid]{BestLocationPivot.pdf}%\put(1,55){a)}
 \end{overpic}
-\begin{overpic}[width =\figwid]{TorqueFreeBestPush.pdf}
+\begin{overpic}[width =\figwid]{MaxTorquePivot.pdf}%\put(1,55){a)}
 \end{overpic}
 \vspace{-0.5em}
 \caption{\label{fig:bestLoc} Best location to push in two different situations: when the object is pivoted, and when the object is free.
@@ -222,21 +243,11 @@ Also, torque when swarm is normally distributed is defined by:
 }
 \end{figure*}
 
-%\begin{figure}
-%\begin{center}
-%	\includegraphics[width=0.8\columnwidth]{BestLocationPivot.pdf}
-%\end{center}
-%\vspace{-1em}
-%\caption{\label{fig:besLocPiv}
-%Comparison for three different distributions for the best location to push the object.
-%}
-%\vspace{0em}
-%\end{figure}
 
 \begin{figure*}
 \centering
 \renewcommand{\figwid}{\columnwidth}
-\begin{overpic}[width =\figwid]{MaxTorquePivot.pdf}%\put(1,55){a)}
+\begin{overpic}[width =\figwid]{TorqueFreeBestPush.pdf}
 \end{overpic}
 \begin{overpic}[width =\figwid]{TorqueFreeComparison.pdf}
 \end{overpic}
@@ -245,45 +256,4 @@ Also, torque when swarm is normally distributed is defined by:
 %\vspace{-2em}
 }
 \end{figure*}
-
-%\begin{figure}
-%\begin{center}
-%	\includegraphics[width=0.8\columnwidth]{MaxTorquePivot.pdf}
-%\end{center}
-%%\vspace{0em}
-%\caption{\label{fig:maxTorPiv}
-%Comparison for three different distributions for the maximum torque possible.
-%}
-%\vspace{0em}
-%\end{figure}
-%
-%%free comparisons
-%
-%\begin{figure}
-%\begin{center}
-%	\includegraphics[width=0.8\columnwidth]{TorqueFreeComparison.pdf}
-%\end{center}
-%\vspace{-1em}
-%\caption{\label{fig:maxTorqueFree}
-%Comparison for three different distributions for the maximum torque possible.
-%}
-%\vspace{0em}
-%\end{figure}
-
-
-%\begin{figure}
-%\begin{center}
-%	\includegraphics[width=0.8\columnwidth]{TorqueFreeBestPush.pdf}
-%\end{center}
-%%\vspace{0em}
-%\caption{\label{fig:bestLocFree}
-%Comparison for three different distributions for the best location to push the object.
-%}
-%\vspace{0em}
-%\end{figure}
-
-%taking derivative of torque
-\begin{align} 
-\frac{d\tau}{d\mu} &= -\frac{e^{-\frac{{-1+\mu}^2}{2\sigma^2}}}{\sqrt{2\pi}\sigma} + \frac{1}{2}(\erf(\frac{1-\mu}{\sqrt{2}\sigma})+\erf(\frac{\mu}{\sqrt{2}\sigma})) 
-\end{align}
 
