@@ -170,7 +170,19 @@ For all distributions, the $\mu$ that maximizes torque if $\sigma = 0$ is 1. For
 
 which means the best position to push the rod moves left until it reaches $\mu = \frac{2}{3}$.
 
-
+%pivoted comparisons:
+\begin{figure*}
+\centering
+\renewcommand{\figwid}{\columnwidth}
+\begin{overpic}[width =\figwid]{BestLocationPivot.pdf}%\put(1,55){a)}
+\end{overpic}
+\begin{overpic}[width =\figwid]{MaxTorquePivot.pdf}%\put(1,55){a)}
+\end{overpic}
+\vspace{-0.5em}
+\caption{\label{fig:bestLoc} Best location to push and maximum torque plot in pivoted object.
+%\vspace{-2em}
+}
+\end{figure*}
 
 \subsection{Free object torque}
 In this problem, the torque applied to a free rod of length 2 from $[-1,0]$ to $[1,0]$, is:
@@ -228,22 +240,7 @@ For triangularly distributed swarm we have:
 %limits and equations
 
 
-
-%pivoted comparisons:
-\begin{figure*}
-\centering
-\renewcommand{\figwid}{\columnwidth}
-\begin{overpic}[width =\figwid]{BestLocationPivot.pdf}%\put(1,55){a)}
-\end{overpic}
-\begin{overpic}[width =\figwid]{MaxTorquePivot.pdf}%\put(1,55){a)}
-\end{overpic}
-\vspace{-0.5em}
-\caption{\label{fig:bestLoc} Best location to push in two different situations: when the object is pivoted, and when the object is free.
-%\vspace{-2em}
-}
-\end{figure*}
-
-
+%free torque comparison
 \begin{figure*}
 \centering
 \renewcommand{\figwid}{\columnwidth}
@@ -252,7 +249,7 @@ For triangularly distributed swarm we have:
 \begin{overpic}[width =\figwid]{TorqueFreeComparison.pdf}
 \end{overpic}
 \vspace{-0.5em}
-\caption{\label{fig:maxTorque} Maximum torque possible in two situations: pivoted object and free object.
+\caption{\label{fig:maxTorque} Best location to push and maximum torque plot in free object.
 %\vspace{-2em}
 }
 \end{figure*}
