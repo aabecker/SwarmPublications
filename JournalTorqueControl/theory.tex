@@ -114,7 +114,7 @@ where $\tau_{left}$ and $\tau_{right}$ are defined as:
 \end{align}
 Torque by a uniformly distributed swarm is defined by:
 %defining torque normal distribution
-\begin{align} \nonumber
+\begin{align} \label{eq:normalTorque}
 \tau_n &= \frac{\left(e^{\frac{\mu^2}{2\sigma^2}}-e^{\frac{(1-\mu)^2}{2\sigma^2}}\right)\sigma}{\sqrt{2\pi}}+ \frac{\mu}{2}\left(\erf\left(\frac{1-\mu}{\sqrt{2}\sigma}\right)+\erf\left(\frac{\mu}{\sqrt{2}\sigma}\right)\right) 
 \end{align}
 
@@ -162,13 +162,19 @@ Thus the torque is computed by:
 
 
 %best place to push for normal distribution:
-For all distributions, the $\mu$ that maximizes torque if $\sigma = 0$ is 1. For the $\tau_{pivot}$ case, the optimal $\mu$ moves in the $-x$ direction as $\sigma$ increases and approaches a limit. This limit is $\mu = 0$ for a uniformly distributed swarm and $\mu = \frac{\sqrt{2}}{2}$ for a triangularly distributed swarm as we can see from Eq.\ref{eq:triMaxTorque}. We used L'H\^opital's rule and found third derivative of the torque to find the limit when standard deviation goes to infinity. It was because in the first derivative numerator and denominator were both going to infinity and we were not able to calculate the limit. The result is:
-
+For all distributions, the $\mu$ that maximizes torque if $\sigma = 0$ is 1. For the $\tau_{pivot}$ case, the optimal $\mu$ moves in the $-x$ direction as $\sigma$ increases and approaches a limit. This limit is $\mu = 0$ for a uniformly distributed swarm and $\mu = \frac{\sqrt{2}}{2}$ for a triangularly distributed swarm as we can see from Eq.\ref{eq:triMaxTorque}. %We used L'H\^opital's rule and found third derivative of the torque to find the limit when standard deviation goes to infinity. It was because in the first derivative numerator and denominator were both going to infinity and we were not able to calculate the limit. The result is:
+The first derivative of Eq.\ref{eq:normalTorque} is:
 \begin{align}
-\lim_{\sigma\to\infty} \frac{d^3\tau_n}{d\mu}= \frac{3\mu}{2}-1
+\frac{d_{\tau}}{d_{\mu}}= \frac{1}{2}\left(\erf{\frac{1-\mu}{\sqrt{2}\sigma}}+ \erf{\frac{\mu}{\sqrt{2}\sigma}}\right)- \frac{e^{\frac{-(\mu-1)^2}{2\sigma^2}}}{\sqrt{2\pi}\sigma}
 \end{align}
 
-which means the best position to push the rod moves left until it reaches $\mu = \frac{2}{3}$.
+The limit as $\sigma\to\infty$ is $\frac{2 - 3 \mu}{\sigma^3 6 \sqrt{2 \pi}}$ which goes to zero as the swarm variance increases. However, the zero of the numerator is $\mu = \frac{2}{3}$ which means the best position to push the rod moves left until it reaches $\mu = \frac{2}{3}$.
+
+%\begin{align}
+%\lim_{\sigma\to\infty} \frac{d^3\tau_n}{d\mu}= \frac{3\mu}{2}-1
+%\end{align}
+
+%which means the best position to push the rod moves left until it reaches $\mu = \frac{2}{3}$.
 
 %pivoted comparisons:
 \begin{figure*}
