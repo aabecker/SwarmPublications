@@ -1,9 +1,13 @@
 \section{Introduction}\label{sec:Intro}
 Particle swarms propelled by a global force are common in applied mathematics, biology, and computer graphics. 
+If the $i$th particle has position $[x_i,y_i]$ and velocity $[\dot{x}_i, \dot{y}_i]$, then
 \begin{align}
-[\dot{x}_i, \dot{y}_i]^\top = [u_x, u_y]^\top, \qquad i \in [1,n] \label{eq:swarmDynamics}
+[\dot{x}_i, \dot{y}_i]^\top = \mathbf{u}(t), \qquad i \in [1,n]. \label{eq:swarmDynamics} %[u_x, u_y]^\top
 \end{align}
-Here $x_i$ and $y_i$ regard to the position and respectively $\dot{x}_i, \dot{y}_i$ are velocities of the particles. Our control problem is to design the control inputs $u_x(t), u_y(t)$ to make all $n$ particles achieve a task.
+These system dynamics represent particle swarms in low-Reynolds number environments, where viscosity dominates inertial forces and so velocity is proportional to input force~\citep{Purcell1977}. 
+ In this regime, the input force command $\mathbf{u}(t)$ controls the velocity of the robots.  
+  The same model can be generalized to particles moved by fluid flow where the vector direction of fluid flow $\mathbf{u}(t)$ controls the velocity of particles, or for a swarm of robots that move at a constant speed in a direction specified by a global input $\mathbf{u}(t)$~\citep{Rubenstein2012}.
+ Our control problem is to design the control inputs $\mathbf{u}(t)$ to make all $n$ particles achieve a task.
 As a current example, micro- and nano-robots can be manufactured in large numbers, see~\citep{Chowdhury2015}, \citep{martel2014computer}, \citep{kim2015imparting}, \citep{Donald2013}, \citep{Ghosh2009}, \citep{Ou2013} or \citep{qiu2015magnetic}.
 Someday large swarms of robots will be remotely guided
 to assemble structures in parallel and 
@@ -39,9 +43,11 @@ Swarm shape control is necessary for navigation through narrow passages, for sel
 
 
 
-The paper is arranged as follows. First Sec. \ref{subsec:FluidInTank} provides analytical position control results in two canonical workspaces with frictionless walls.  These results are limited in the set of shapes that can be generated.  To extend the range of possible shapes, Sec.  \ref{subsec:WallFriction} introduces general models for boundary interaction.  We prove that two orthogonal boundaries with high friction are sufficient to arbitrarily position two robots in Sec.  \ref{sec:PostionControl2Robots}, and Sec.  \ref{sec:PostionControlnRobots} extends this to prove a rectangular workspace with high-friction boundaries can position a swarm of $n$ robots arbitrarily within a subset of the workspace.
+The paper is arranged as follows. 
+After a review of recent related work in Sec.  \ref{sec:RelatedWork},
+ Sec. \ref{subsec:FluidInTank} provides analytical position control results of stable configurations in two canonical workspaces with frictionless walls.  These results are limited in the set of shapes that can be generated.  To extend the range of possible shapes, Sec.  \ref{subsec:WallFriction} introduces general models for boundary interaction.  We prove that two orthogonal boundaries with high friction are sufficient to arbitrarily position two robots in Sec.  \ref{sec:PostionControl2Robots}, and Sec.  \ref{sec:PostionControlnRobots} extends this to prove a rectangular workspace with high-friction boundaries can position a swarm of $n$ robots arbitrarily within a subset of the workspace.
 Both algorithms require robots with low process noise and require time proportional to the number of robots, so Sec.  \ref{subsec:ClosedLoopCovarianceControl} introduces a robust and efficient technique to control swarm covariance.
-Sec.  \ref{sec:simulation} describes implementations of the algorithms in simulation and  Sec.  \ref{sec:expResults} describes hardware experiments with up to 100 robots, as shown in Fig.~\ref{fig:IntroPic}. After a review of recent related work in Sec.  \ref{sec:RelatedWork}, we end with directions for future research in Sec.  \ref{sec:conclusion}.
+Sec.  \ref{sec:simulation} describes implementations of the algorithms in simulation and  Sec.  \ref{sec:expResults} describes hardware experiments with up to 100 robots, as shown in Fig.~\ref{fig:IntroPic}.  We end with directions for future research in Sec.  \ref{sec:conclusion}.
 %For controlling $Sec. igma_{xy}$, we prove that the swarm position covariance $Sec. igma_{xy}$ is controllable given boundaries with non-zero friction. 
 %We then prove that two orthogonal boundaries with high friction are sufficient to arbitrarily position a swarm of $n$ robots. 
 %We conclude by designing controllers that efficiently regulate $Sec. igma_{xy}$.
