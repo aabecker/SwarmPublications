@@ -230,13 +230,13 @@ $(0,0)$ is bottom corner, $s_1$ is topmost, leftmost robot,
 \Else
 \State $sign \gets 0$
 \EndIf
-\State Move to $(-r_1.x , -\min(R_2.y , R_1.y+ \Delta e_y)+\epsilon)$
-\State Move to $(-\min(|-r_2.x+ \Delta e_x|, r_2.x), sign \, \min(\max(r_1.y + \Delta e_y, r_2.y)-\epsilon,L-\epsilon)+ \epsilon)$
+\State Move by $(-r_1.x , -\min(r_2.y , r_1.y+ \Delta e_y)+\epsilon)$
+\State Move by $(-\min(|-r_2.x+ \Delta e_x|, r_2.x), sign \, \min(\max(r_1.y + \Delta e_y, r_2.y)-\epsilon,L-\epsilon)+ \epsilon)$
 \If {$r_2.y \neq r_1.y$}
-\State Move to $(\max(\epsilon, \Delta e_x- (r_2.x - r_1.x)), -\min(r_1.y , r_2.y))$
-\State Move to $\Delta e_x , (|sign|-1) \epsilon$
+\State Move by $(\max(\epsilon, \Delta e_x- (r_2.x - r_1.x)), -\min(r_1.y , r_2.y))$
+\State Move by $\Delta e_x , (|sign|-1) \epsilon$
 \EndIf
-\State Move to $(e_2.x - r_2.x, e_2.y - r_2.y)$
+\State Move by $(e_2.x - r_2.x, e_2.y - r_2.y)$
 \end{algorithmic}
 \end{algorithm}
 
