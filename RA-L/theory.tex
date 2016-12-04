@@ -224,7 +224,7 @@ $(0,0)$ is bottom corner, $s_1$ is rightmost robot,
 $(0,0)$ is bottom corner, $s_1$ is top-leftmost robot, 
  $L$ is length of the walls. Current robot positions are $(r_1,r_2)$.
 \Ensure $(e_1, e_2) , (s_1, s_2)$ all have $\epsilon$ distance with the walls.
-\Ensure $s_1.x > s_2.x$ and $s_1.y \geq s_2.y$ if not, rotate the workspace $90^{\circ}$.
+\Ensure $s_1.x < s_2.x$ and $s_1.y \geq s_2.y$ if not, rotate the workspace $90^{\circ}$.
 \State $epsilon \gets$ diameter of the robot
 \State $\Delta e_y = e_2.y - e_1.y$
 \State $\Delta e_x = e_2.x - e_1.x$
@@ -243,7 +243,7 @@ $(0,0)$ is bottom corner, $s_1$ is top-leftmost robot,
 \State Move by $(L- r_1.x , \epsilon)$ \Comment{Touch Right wall}
 \State Move by $(0, \Delta e_y - r_2.y)$ \Comment{Adjust $y$}
 \EndIf
-\State Move by $(e_2.x - r_2.x, e_2.y - r_2.y)$ \Comment{Go to the goal position}
+\State Move by $(e_2.x - r_2.x, e_2.y - r_2.y)$ \Comment{Go to goal}
 \end{algorithmic}
 \end{algorithm}
 
