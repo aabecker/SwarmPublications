@@ -235,10 +235,10 @@ $(0,0)$ is bottom corner, $s_1$ is top-leftmost robot,
 \EndIf
 \State Move by $(-r_1.x , -\min(r_2.y , r_1.y+ \Delta e_y)+\epsilon)$ \Comment{Touch left wall}
 \State Move by $(-\min(|-r_2.x+ \Delta e_x|, r_2.x), sign \, \min(\max(r_1.y + \Delta e_y, r_2.y)-\epsilon,L-\epsilon)+ \epsilon)$ \Comment{Adjust  $y$}
-%\If {$r_2.y \neq r_1.y$}
+\If {$r_2.y \neq r_1.y$}
 \State Move by $(\max(\epsilon, \Delta e_x- (r_2.x - r_1.x)), -\min(r_1.y , r_2.y))$ \Comment{Touch bottom wall}
 \State Move by $(\Delta e_x , (|sign|-1) \epsilon)$ \Comment{Adjust $x$}
-%\EndIf
+\EndIf
 \If {$\Delta e_y \neq r_2.y - r_1.y$}
 \State Move by $(L- r_1.x , \epsilon)$ \Comment{Touch Right wall}
 \State Move by $(0, \Delta e_y - r_2.y)$ \Comment{Adjust $y$}
