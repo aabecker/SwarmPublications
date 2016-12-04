@@ -221,8 +221,10 @@ $(0,0)$ is bottom corner, $s_1$ is rightmost robot,
 \caption{GenerateDesired spacing($s_1,s_2,e_1,e_2,L$)}\label{alg:XControl}
 \begin{algorithmic}[1]
 \Require knowledge of starting $(s_1,s_2)$ and ending $(e_1,e_2)$ positions of  two robots. 
-$(0,0)$ is bottom corner, $s_1$ is topmost, leftmost robot, 
+$(0,0)$ is bottom corner, $s_1$ is top-leftmost robot, 
  $L$ is length of the walls. Current robot positions are $(r_1,r_2)$.
+\Ensure $(e_1, e_2) , (s_1, s_2)$ all have $\epsilon$ distance with the walls.
+\State $epsilon \gets$ diameter of the robot
 \State $\Delta e_y = e_2.y - e_1.y$
 \State $\Delta e_x = e_2.x - e_1.x$
 \If {$\Delta e_y \neq 0$}
@@ -230,13 +232,17 @@ $(0,0)$ is bottom corner, $s_1$ is topmost, leftmost robot,
 \Else
 \State $sign \gets 0$
 \EndIf
-\State Move by $(-r_1.x , -\min(r_2.y , r_1.y+ \Delta e_y)+\epsilon)$
-\State Move by $(-\min(|-r_2.x+ \Delta e_x|, r_2.x), sign \, \min(\max(r_1.y + \Delta e_y, r_2.y)-\epsilon,L-\epsilon)+ \epsilon)$
-\If {$r_2.y \neq r_1.y$}
-\State Move by $(\max(\epsilon, \Delta e_x- (r_2.x - r_1.x)), -\min(r_1.y , r_2.y))$
-\State Move by $\Delta e_x , (|sign|-1) \epsilon$
+\State Move by $(-r_1.x , -\min(r_2.y , r_1.y+ \Delta e_y)+\epsilon)$ \Comment{Touch left wall}
+\State Move by $(-\min(|-r_2.x+ \Delta e_x|, r_2.x), sign \, \min(\max(r_1.y + \Delta e_y, r_2.y)-\epsilon,L-\epsilon)+ \epsilon)$ \Comment{Adjust  $y$}
+%\If {$r_2.y \neq r_1.y$}
+\State Move by $(\max(\epsilon, \Delta e_x- (r_2.x - r_1.x)), -\min(r_1.y , r_2.y))$ \Comment{Touch bottom wall}
+\State Move by $(\Delta e_x , (|sign|-1) \epsilon)$ \Comment{Adjust $x$}
+%\EndIf
+\If {$\Delta e_y \neq r_2.y - r_1.y$}
+\State Move by $(L- r_1.x , \epsilon)$ \Comment{Touch Right wall}
+\State Move by $(0, \Delta e_y - r_2.y)$ \Comment{Adjust $y$}
 \EndIf
-\State Move by $(e_2.x - r_2.x, e_2.y - r_2.y)$
+\State Move by $(e_2.x - r_2.x, e_2.y - r_2.y)$ \Comment{Go to the goal position}
 \end{algorithmic}
 \end{algorithm}
 
