@@ -220,12 +220,13 @@ $(0,0)$ is bottom corner, $s_1$ is rightmost robot,
 \begin{algorithm}
 \caption{GenerateDesired spacing($s_1,s_2,e_1,e_2,L$)}\label{alg:XControl}
 \begin{algorithmic}[1]
+\scriptsize
 \Require knowledge of starting $(s_1,s_2)$ and ending $(e_1,e_2)$ positions of  two robots. 
-$(0,0)$ is bottom corner, $s_1$ is top-leftmost robot, 
+$(0,0)$ is bottom corner, $s_1$ is leftmost robot, 
  $L$ is length of the walls. Current robot positions are $(r_1,r_2)$.
-\Ensure $(e_1, e_2) , (s_1, s_2)$ all have $\epsilon$ distance with the walls.
-\Ensure $s_1.x < s_2.x$ and $s_1.y \geq s_2.y$ if not, rotate the workspace $90^{\circ}$.
-\State $epsilon \gets$ diameter of the robot
+\Ensure $(e_1, e_2) , (s_1, s_2)$ all at least $\epsilon$ distance from walls.
+\Ensure $s_1.x < s_2.x$ and $s_1.y \geq s_2.y$ if not, rotate workspace coordinates $90^{\circ}$.
+\State $\epsilon \gets$ robot diameter
 \State $\Delta e_y = e_2.y - e_1.y$
 \State $\Delta e_x = e_2.x - e_1.x$
 \If {$\Delta e_y \neq 0$}
@@ -233,15 +234,15 @@ $(0,0)$ is bottom corner, $s_1$ is top-leftmost robot,
 \Else
 \State $sign \gets 0$
 \EndIf
-\State Move by $(-r_1.x , -\min(r_2.y , r_1.y+ \Delta e_y)+\epsilon)$ \Comment{Touch left wall}
-\State Move by $(-\min(|-r_2.x+ \Delta e_x|, r_2.x), sign \, \min(\max(r_1.y + \Delta e_y, r_2.y)-\epsilon,L-\epsilon)+ \epsilon)$ \Comment{Adjust  $y$}
+\State Move $\left(-r_1.x , -\min \left(r_2.y , r_1.y+ \Delta e_y \right)+\epsilon \right)$ \Comment{Touch left wall}
+\State Move $(-\min(|-r_2.x+ \Delta e_x|, r_2.x), sign \, \min(\max(r_1.y + \Delta e_y, r_2.y)-\epsilon,L-\epsilon)+ \epsilon)$ \Comment{Adjust  $y$}
 \If {$r_2.y \neq r_1.y$}
-\State Move by $(\max(\epsilon, -\Delta e_x+ (r_2.x - r_1.x)), -\min(r_1.y , r_2.y))$ \Comment{Touch bottom wall}
-\State Move by $(\Delta e_x , (|sign|-1) \epsilon)$ \Comment{Adjust $x$}
+\State Move $(\max(\epsilon, -\Delta e_x+ (r_2.x - r_1.x)), -\min(r_1.y , r_2.y))$ \Comment{Touch bottom wall}
+\State Move $(\Delta e_x , (|sign|-1) \epsilon)$ \Comment{Adjust $x$}
 \EndIf
 \If {$\Delta e_y \neq r_2.y - r_1.y$}
-\State Move by $(L- r_1.x , \epsilon)$ \Comment{Touch right wall}
-\State Move by $(0, \Delta e_y - r_2.y)$ \Comment{Adjust $y$}
+\State Move $(L- r_1.x , \epsilon)$ \Comment{Touch right wall}
+\State Move $(0, \Delta e_y - r_2.y)$ \Comment{Adjust $y$}
 \EndIf
 \State Move by $(e_2.x - r_2.x, e_2.y - r_2.y)$ \Comment{Go to goal}
 \end{algorithmic}
