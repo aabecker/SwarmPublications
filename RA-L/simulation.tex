@@ -7,8 +7,8 @@ Two additional simulations were performed using wall-friction to control varianc
 
 \subsection{Position Control of Two Robots}
 
-Algorithms \ref{alg:PosControl2Robots} and \ref{alg:XControl}, %\ref{alg:YControl}, 
-were implemented in Mathematica using point robots (radius = $0$).  Fig.~\ref{fig:shapeControlMathematica1}  shows  an implementation of this algorithm. 
+Algorithms \ref{alg:PosControl2Robots} %\ref{alg:YControl}, 
+was implemented in Mathematica using point robots (radius = $0$).  Fig.~\ref{fig:shapeControlMathematica1}  shows  an implementation of this algorithm. 
 Robot initial positions are shown by crosshairs, and final positions by circled crosshairs.  Dashed lines show the shortest route if robots could be controlled independently.  The path given by  Alg.\ \ref{alg:PosControl2Robots} is shown with solid arrows.
 %Each row has five snapshots taken every quarter second. 
 For the sake of brevity axis-aligned moves were replaced with oblique moves that combine two moves simultaneously.
@@ -80,11 +80,11 @@ Control performance is sensitive to the desired clearance $\epsilon$.  As $\epsi
 }
 \end{figure}
 
-\subsection{Efficient Control of Covariance}
+\subsection{Efficient Control of Correlation}
 %A set of simulations were conducted to demonstrate the importance of boundary friction.  
-Random disturbances impair the performance of Alg. \ref{alg:PosControl2Robots} and Alg. \ref{alg:PosControlNRobots}. However, due to the central limit theorem, we can control the covariance of large swarms. This section demonstrates controlling swarm covariance in simulation, using the 2D physics engine Box2D~\citep{catto2010box2d}.
+Random disturbances impair the performance of Alg. \ref{alg:PosControl2Robots} and Alg. \ref{alg:PosControlNRobots}. However, due to the central limit theorem, we can control the correlation of large numbers of particles. This section demonstrates controlling swarm correlation in simulation, using the 2D physics engine Box2D~\citep{catto2010box2d}.
  144 disc-shaped robots with boundary layer model \eqref{eq:boundarylayerflow} were controlled by an open-loop control input as illustrated in Fig. \ref{fig:SimCovarianceFuncFrictionOpenLoop}.  All robots had  the same initial conditions, but in four tests the boundary friction was $F_f = \{0,1/3 F, 2/3F, F\}$.
- Without friction, covariance has minimal variation.  As friction increases, the covariance can be manipulated to greater degrees.
+ Without friction, covariance has minimal variation.  As friction increases, the correlation can be manipulated to greater degrees.
 
 
 \begin{figure}
