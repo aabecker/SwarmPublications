@@ -46,6 +46,7 @@ from Section  \ref{subsec:ClosedLoopCovarianceControl}.
 The maximum correlation using boundary layer friction $\displaystyle  \max_{w,L} \left( \rho(A,h,w,L) \right)$ can be found by gradient descent, as shown in Fig.~\ref{fig:ControlledCorrelation}. 
 For swarms with small area, this method enables generating the full range of correlations $\pm 1$, while the stable configuration method from Section \ref{sec:theory} could only generate correlations $\pm 1/2$.  As  the swarm area $A$ increases above $\approx 0.43$, the stable configuration method is more effective.
 Larger boundary layers $h$ enable more control of correlation.
+The multimedia attachment shows efficient control of correlation with simulations using the 2D physics engine Box2D~\citep{catto2010box2d} and 144 disc-shaped robots with boundary layer model \eqref{eq:boundarylayerflow}.
 
 
 
@@ -55,6 +56,6 @@ Larger boundary layers $h$ enable more control of correlation.
 \end{center}
 \vspace{-1em}
 \caption{\label{fig:ControlledCorrelation}
-Analytical results comparing maximum correlation under the boundary layer friction model of \eqref{eq:correlationFriction} with four boundary layer thicknesses $h$ and the stable triangular configuration \eqref{eq:GravityCorrelation}.
+Analytical results comparing maximum correlation $\rho_{xy}$ under the boundary layer friction model of \eqref{eq:correlationFriction} with four boundary layer thicknesses $h$ and the stable triangular configuration \eqref{eq:GravityCorrelation}.
 }
 \end{figure}
