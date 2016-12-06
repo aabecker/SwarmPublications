@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[   1243420,      24101]
-NotebookOptionsPosition[   1241398,      24027]
-NotebookOutlinePosition[   1241760,      24043]
-CellTagsIndexPosition[   1241717,      24040]
+NotebookDataLength[   1283485,      24914]
+NotebookOptionsPosition[   1281176,      24831]
+NotebookOutlinePosition[   1281537,      24847]
+CellTagsIndexPosition[   1281494,      24844]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -4738,8 +4738,8 @@ Cell[BoxData[
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`A$$ = 0.125, $CellContext`showParticles$$ = 
-    False, $CellContext`\[Beta]$$ = 4.23, Typeset`show$$ = True, 
+   DynamicModuleBox[{$CellContext`A$$ = 0.4, $CellContext`showParticles$$ = 
+    False, $CellContext`\[Beta]$$ = 0, Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{{
@@ -4756,16 +4756,16 @@ Cell[BoxData[
          Manipulate`Place[3]}]], Manipulate`Dump`ThisIsNotAControl}}, 
     Typeset`size$$ = {532., {221.134033203125, 226.865966796875}}, 
     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    False, $CellContext`\[Beta]$183623$$ = 0, $CellContext`A$183624$$ = 
-    0, $CellContext`showParticles$183625$$ = False}, 
+    False, $CellContext`\[Beta]$603657$$ = 0, $CellContext`A$603658$$ = 
+    0, $CellContext`showParticles$603659$$ = False}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      2, StandardForm, 
       "Variables" :> {$CellContext`A$$ = 0.125, $CellContext`showParticles$$ = 
         False, $CellContext`\[Beta]$$ = 0}, "ControllerVariables" :> {
-        Hold[$CellContext`\[Beta]$$, $CellContext`\[Beta]$183623$$, 0], 
-        Hold[$CellContext`A$$, $CellContext`A$183624$$, 0], 
+        Hold[$CellContext`\[Beta]$$, $CellContext`\[Beta]$603657$$, 0], 
+        Hold[$CellContext`A$$, $CellContext`A$603658$$, 0], 
         Hold[$CellContext`showParticles$$, \
-$CellContext`showParticles$183625$$, False]}, 
+$CellContext`showParticles$603659$$, False]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -4966,14 +4966,14 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              Inequality[
              2 Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
               LessEqual, 2 Pi]]}, {
-           1 - (1/3) Sqrt[2] Sqrt[$CellContext`A Tan[$CellContext`\[Beta]]], 
+           1 - ((1/3) Sqrt[2]) Sqrt[$CellContext`A Tan[$CellContext`\[Beta]]], 
             Inequality[
              ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], LessEqual, 
              Pi/2 - ArcTan[2 $CellContext`A]]}, {
            1/2 + Cot[$CellContext`\[Beta]]/(12 $CellContext`A), 
             Inequality[
             Pi/2 - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
-             LessEqual, Pi/2 + ArcTan[2 $CellContext`A]]}, {(1/3) Sqrt[2] 
+             LessEqual, Pi/2 + ArcTan[2 $CellContext`A]]}, {((1/3) Sqrt[2]) 
             Sqrt[(-$CellContext`A) Tan[$CellContext`\[Beta]]], 
             Inequality[
             Pi/2 + ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
@@ -4981,7 +4981,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Tan[$CellContext`\[Beta]]^2/(24 $CellContext`A), 
             Inequality[
             Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
-             LessEqual, Pi + ArcTan[2 $CellContext`A]]}, {(1/3) Sqrt[2] 
+             LessEqual, Pi + ArcTan[2 $CellContext`A]]}, {((1/3) Sqrt[2]) 
             Sqrt[$CellContext`A Tan[$CellContext`\[Beta]]], 
             Inequality[
             Pi + ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
@@ -4991,7 +4991,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[(3 Pi)/2 - ArcTan[2 $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
              ArcTan[2 $CellContext`A]]}, {
-           1 - (1/3) Sqrt[2] 
+           1 - ((1/3) Sqrt[2]) 
             Sqrt[(-$CellContext`A) Tan[$CellContext`\[Beta]]], 
             
             Inequality[(3 Pi)/2 + ArcTan[2 $CellContext`A], 
@@ -5003,8 +5003,8 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Or[0 <= $CellContext`\[Beta] <= ArcTan[1/2, 1 - $CellContext`A], 
              Inequality[
              2 Pi - ArcTan[1/2, 1 - $CellContext`A], 
-              Less, $CellContext`\[Beta], LessEqual, 2 Pi]]}, {(3 + 
-             2 Sqrt[2] ($CellContext`A - 1) 
+              Less, $CellContext`\[Beta], LessEqual, 2 Pi]]}, {(
+             3 + ((2 Sqrt[2]) ($CellContext`A - 1)) 
               Sqrt[(1 - $CellContext`A) Tan[$CellContext`\[Beta]]])/(
             6 $CellContext`A), 
             Inequality[
@@ -5015,8 +5015,8 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[
             Pi/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, Pi/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {(-3 + 6 $CellContext`A - 2 
-             Sqrt[2] ($CellContext`A - 1) 
+             ArcTan[1/2, 1 - $CellContext`A]]}, {(-3 + 
+             6 $CellContext`A - ((2 Sqrt[2]) ($CellContext`A - 1)) 
              Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]])/(
             6 $CellContext`A), 
             Inequality[
@@ -5027,8 +5027,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[
             Pi - ArcTan[1/2, 1 - $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi + ArcTan[1/2, 1 - $CellContext`A]]}, {(-3 + 
-             6 $CellContext`A + 
-             2 (1 - $CellContext`A) Sqrt[2] 
+             6 $CellContext`A + ((2 (1 - $CellContext`A)) Sqrt[2]) 
               Sqrt[(1 - $CellContext`A) Tan[$CellContext`\[Beta]]])/(
             6 $CellContext`A), 
             Inequality[
@@ -5038,15 +5037,15 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             
             Inequality[(3 Pi)/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {(3 + 
-             2 Sqrt[2] ($CellContext`A - 1) 
+             ArcTan[1/2, 1 - $CellContext`A]]}, {(
+             3 + ((2 Sqrt[2]) ($CellContext`A - 1)) 
               Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]])/(
             6 $CellContext`A), 
             
             Inequality[(3 Pi)/2 + ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, 2 Pi - ArcTan[
              1/2, 1 - $CellContext`A]]}}], $CellContext`A == 1, 1/
-         2], $CellContext`Meany[
+         2], $CellContext`A$$ = 0.4, $CellContext`Meany[
          Pattern[$CellContext`\[Beta], 
           Blank[]], 
          Pattern[$CellContext`A, 
@@ -5059,15 +5058,15 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              Inequality[
              2 Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
               LessEqual, 2 Pi]]}, {
-           1 - (1/3) Sqrt[2] Sqrt[$CellContext`A Cot[$CellContext`\[Beta]]], 
-            ArcTan[2 $CellContext`A] <= $CellContext`\[Beta] <= 
+           1 - ((1/3) Sqrt[2]) Sqrt[$CellContext`A Cot[$CellContext`\[Beta]]],
+             ArcTan[2 $CellContext`A] <= $CellContext`\[Beta] <= 
             Pi/2 - ArcTan[2 $CellContext`A]}, {
            1 - $CellContext`A/2 - Cot[$CellContext`\[Beta]]^2/(
             24 $CellContext`A), 
             Inequality[
             Pi/2 - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi/2 + ArcTan[2 $CellContext`A]]}, {
-           1 - (1/3) Sqrt[2] 
+           1 - ((1/3) Sqrt[2]) 
             Sqrt[(-$CellContext`A) Cot[$CellContext`\[Beta]]], 
             Inequality[
             Pi/2 + ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
@@ -5075,7 +5074,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
            1/2 - Tan[$CellContext`\[Beta]]/(12 $CellContext`A), 
             Inequality[
             Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
-             LessEqual, Pi + ArcTan[2 $CellContext`A]]}, {(1/3) Sqrt[2] 
+             LessEqual, Pi + ArcTan[2 $CellContext`A]]}, {((1/3) Sqrt[2]) 
             Sqrt[$CellContext`A Cot[$CellContext`\[Beta]]], 
             Inequality[
             Pi + ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
@@ -5085,7 +5084,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             
             Inequality[(3 Pi)/2 - ArcTan[2 $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
-             ArcTan[2 $CellContext`A]]}, {(1/3) Sqrt[2] 
+             ArcTan[2 $CellContext`A]]}, {((1/3) Sqrt[2]) 
             Sqrt[(-$CellContext`A) Cot[$CellContext`\[Beta]]], 
             
             Inequality[(3 Pi)/2 + ArcTan[2 $CellContext`A], 
@@ -5097,7 +5096,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              Inequality[
              2 Pi - ArcTan[1/2, 1 - $CellContext`A], 
               Less, $CellContext`\[Beta], LessEqual, 2 Pi]]}, {(
-             3 + ($CellContext`A - 1) 2 Sqrt[2] 
+             3 + ((($CellContext`A - 1) 2) Sqrt[2]) 
               Sqrt[(1 - $CellContext`A) Cot[$CellContext`\[Beta]]])/(
             6 $CellContext`A), 
             Inequality[
@@ -5108,8 +5107,9 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[
             Pi/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, Pi/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {(3 - (1 - $CellContext`A) 2 
-             Sqrt[2] Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]])/(
+             ArcTan[1/2, 1 - $CellContext`A]]}, {(
+             3 - (((1 - $CellContext`A) 2) Sqrt[2]) 
+             Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]])/(
             6 $CellContext`A), 
             Inequality[
             Pi/2 + ArcTan[1/2, 1 - $CellContext`A], 
@@ -5119,7 +5119,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[
             Pi - ArcTan[1/2, 1 - $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi + ArcTan[1/2, 1 - $CellContext`A]]}, {(-3 + 
-             6 $CellContext`A + (1 - $CellContext`A) 2 Sqrt[2] 
+             6 $CellContext`A + (((1 - $CellContext`A) 2) Sqrt[2]) 
               Sqrt[(1 - $CellContext`A) Cot[$CellContext`\[Beta]]])/(
             6 $CellContext`A), 
             Inequality[
@@ -5131,7 +5131,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[(3 Pi)/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
              ArcTan[1/2, 1 - $CellContext`A]]}, {(-3 + 
-             6 $CellContext`A + (1 - $CellContext`A) 2 Sqrt[2] 
+             6 $CellContext`A + (((1 - $CellContext`A) 2) Sqrt[2]) 
               Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]])/(
             6 $CellContext`A), 
             
@@ -5143,8 +5143,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
           Blank[]], 
          Pattern[$CellContext`A, 
           Blank[]]] := Which[$CellContext`A <= 1/2, 
-         Piecewise[{{(1/288) 
-            Tan[$CellContext`\[Beta]] (-12 + 
+         Piecewise[{{((1/288) Tan[$CellContext`\[Beta]]) (-12 + 
              Tan[$CellContext`\[Beta]]^2/$CellContext`A^2), 
             Or[0 <= $CellContext`\[Beta] <= ArcTan[2 $CellContext`A], 
              Inequality[
@@ -5152,16 +5151,16 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
               LessEqual, 2 Pi]]}, {-($CellContext`A/18), 
             Inequality[
              ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], LessEqual, 
-             Pi/2 - ArcTan[2 $CellContext`A]]}, {(1/288) 
-            Cot[$CellContext`\[Beta]] (-12 + 
+             Pi/2 - ArcTan[2 $CellContext`A]]}, {((1/288) 
+             Cot[$CellContext`\[Beta]]) (-12 + 
              Cot[$CellContext`\[Beta]]^2/$CellContext`A^2), 
             Inequality[
             Pi/2 - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi/2 + ArcTan[2 $CellContext`A]]}, {$CellContext`A/18, 
             Inequality[
             Pi/2 + ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
-             LessEqual, Pi - ArcTan[2 $CellContext`A]]}, {(1/288) 
-            Tan[$CellContext`\[Beta]] (-12 + 
+             LessEqual, Pi - ArcTan[2 $CellContext`A]]}, {((1/288) 
+             Tan[$CellContext`\[Beta]]) (-12 + 
              Tan[$CellContext`\[Beta]]^2/$CellContext`A^2), 
             Inequality[
             Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
@@ -5169,8 +5168,8 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              18), 
             Inequality[
             Pi + ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
-             LessEqual, (3 Pi)/2 - ArcTan[2 $CellContext`A]]}, {(1/288) 
-            Cot[$CellContext`\[Beta]] (-12 + 
+             LessEqual, (3 Pi)/2 - ArcTan[2 $CellContext`A]]}, {((1/288) 
+             Cot[$CellContext`\[Beta]]) (-12 + 
              Cot[$CellContext`\[Beta]]^2/$CellContext`A^2), 
             
             Inequality[(3 Pi)/2 - ArcTan[2 $CellContext`A], 
@@ -5180,58 +5179,60 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[(3 Pi)/2 + ArcTan[2 $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, 2 Pi - ArcTan[
              2 $CellContext`A]]}}], 1/2 < $CellContext`A < 1, 
-         Piecewise[{{(1/288) 
-            Tan[$CellContext`\[Beta]] (-12 + 
+         Piecewise[{{((1/288) Tan[$CellContext`\[Beta]]) (-12 + 
              Tan[$CellContext`\[Beta]]^2/$CellContext`A^2), 
             Or[0 <= $CellContext`\[Beta] <= ArcTan[1/2, 1 - $CellContext`A], 
              Inequality[
              2 Pi - ArcTan[1/2, 1 - $CellContext`A], 
               Less, $CellContext`\[Beta], LessEqual, 2 
               Pi]]}, {(($CellContext`A - 
-              1) ((-6) Sqrt[2 - 2 $CellContext`A] Sqrt[
-                 Tan[$CellContext`\[Beta]]] + (17 + 
-               2 (-5 + $CellContext`A) $CellContext`A) - 6 
-              Sqrt[2 - 2 $CellContext`A] Sqrt[
+              1) (((-6) Sqrt[2 - 2 $CellContext`A]) Sqrt[
+                 Tan[$CellContext`\[Beta]]] + (
+               17 + (2 (-5 + $CellContext`A)) $CellContext`A) - (6 
+               Sqrt[2 - 2 $CellContext`A]) Sqrt[
                 Cot[$CellContext`\[Beta]]]))/(36 $CellContext`A^2), 
             Inequality[
              ArcTan[1/2, 1 - $CellContext`A], Less, $CellContext`\[Beta], 
-             LessEqual, Pi/2 - ArcTan[1/2, 1 - $CellContext`A]]}, {(1/288) 
-            Cot[$CellContext`\[Beta]] (-12 + 
+             LessEqual, Pi/2 - ArcTan[1/2, 1 - $CellContext`A]]}, {((1/288) 
+             Cot[$CellContext`\[Beta]]) (-12 + 
              Cot[$CellContext`\[Beta]]^2/$CellContext`A^2), 
             Inequality[
             Pi/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, Pi/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {(($CellContext`A - 1) (-17 - 
-              2 (-5 + $CellContext`A) $CellContext`A + 
-              6 Sqrt[2] (Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]] + 
+             ArcTan[1/2, 1 - $CellContext`A]]}, {(($CellContext`A - 
+              1) (-17 - (
+               2 (-5 + $CellContext`A)) $CellContext`A + (6 Sqrt[2]) (
+                Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]] + 
                 Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]])))/(
             36 $CellContext`A^2), 
             Inequality[
             Pi/2 + ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, Pi - ArcTan[
-             1/2, 1 - $CellContext`A]]}, {(1/288) 
-            Tan[$CellContext`\[Beta]] (-12 + 
+             1/2, 1 - $CellContext`A]]}, {((1/288) 
+             Tan[$CellContext`\[Beta]]) (-12 + 
              Tan[$CellContext`\[Beta]]^2/$CellContext`A^2), 
             Inequality[
             Pi - ArcTan[1/2, 1 - $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi + 
              ArcTan[1/2, 1 - $CellContext`A]]}, {(($CellContext`A - 
-              1) ((-6) Sqrt[2 - 2 $CellContext`A] Sqrt[
-                 Tan[$CellContext`\[Beta]]] + (17 + 
-               2 (-5 + $CellContext`A) $CellContext`A) - 6 
-              Sqrt[2 - 2 $CellContext`A] Sqrt[
+              1) (((-6) Sqrt[2 - 2 $CellContext`A]) Sqrt[
+                 Tan[$CellContext`\[Beta]]] + (
+               17 + (2 (-5 + $CellContext`A)) $CellContext`A) - (6 
+               Sqrt[2 - 2 $CellContext`A]) Sqrt[
                 Cot[$CellContext`\[Beta]]]))/(36 $CellContext`A^2), 
             Inequality[
             Pi + ArcTan[1/2, 1 - $CellContext`A], Less, $CellContext`\[Beta], 
-             LessEqual, (3 Pi)/2 - ArcTan[1/2, 1 - $CellContext`A]]}, {(1/288)
-              Cot[$CellContext`\[Beta]] (-12 + 
+             LessEqual, (3 Pi)/2 - ArcTan[
+             1/2, 1 - $CellContext`A]]}, {((1/288) 
+             Cot[$CellContext`\[Beta]]) (-12 + 
              Cot[$CellContext`\[Beta]]^2/$CellContext`A^2), 
             
             Inequality[(3 Pi)/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {(($CellContext`A - 1) (-17 - 
-              2 (-5 + $CellContext`A) $CellContext`A + 
-              6 Sqrt[2] (Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]] + 
+             ArcTan[1/2, 1 - $CellContext`A]]}, {(($CellContext`A - 
+              1) (-17 - (
+               2 (-5 + $CellContext`A)) $CellContext`A + (6 Sqrt[2]) (
+                Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]] + 
                 Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]])))/(
             36 $CellContext`A^2), 
             
@@ -5295,7 +5296,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Or[0 <= $CellContext`\[Beta] <= ArcTan[2 $CellContext`A], 
              Inequality[
              2 Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
-              LessEqual, 2 Pi]]}, {(1/9) $CellContext`A 
+              LessEqual, 2 Pi]]}, {((1/9) $CellContext`A) 
             Tan[$CellContext`\[Beta]], 
             Inequality[
              ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], LessEqual, 
@@ -5304,7 +5305,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[
             Pi/2 - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi/2 + 
-             ArcTan[2 $CellContext`A]]}, {(-(1/9)) $CellContext`A 
+             ArcTan[2 $CellContext`A]]}, {((-(1/9)) $CellContext`A) 
             Tan[$CellContext`\[Beta]], 
             Inequality[
             Pi/2 + ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
@@ -5313,8 +5314,9 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              Tan[$CellContext`\[Beta]]^4/$CellContext`A^2), 
             Inequality[
             Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
-             LessEqual, Pi + ArcTan[2 $CellContext`A]]}, {(1/
-             9) $CellContext`A Tan[$CellContext`\[Beta]], 
+             LessEqual, Pi + 
+             ArcTan[2 $CellContext`A]]}, {((1/9) $CellContext`A) 
+            Tan[$CellContext`\[Beta]], 
             Inequality[
             Pi + ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, (3 Pi)/2 - ArcTan[2 $CellContext`A]]}, {
@@ -5322,7 +5324,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             
             Inequality[(3 Pi)/2 - ArcTan[2 $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
-             ArcTan[2 $CellContext`A]]}, {(-(1/9)) $CellContext`A 
+             ArcTan[2 $CellContext`A]]}, {((-(1/9)) $CellContext`A) 
             Tan[$CellContext`\[Beta]], 
             
             Inequality[(3 Pi)/2 + ArcTan[2 $CellContext`A], 
@@ -5335,11 +5337,12 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              Inequality[
              2 Pi - ArcTan[1/2, 1 - $CellContext`A], 
               Less, $CellContext`\[Beta], LessEqual, 2 
-              Pi]]}, {((-4) ($CellContext`A - 1)^2 (2 + $CellContext`A) 
+              Pi]]}, {((((-4) ($CellContext`A - 1)^2) (2 + $CellContext`A)) 
               Tan[$CellContext`\[Beta]] + 
-             3 (-3 + 4 Sqrt[2] 
+             3 (-3 + (4 Sqrt[2]) 
                 Sqrt[(1 - $CellContext`A) 
-                  Tan[$CellContext`\[Beta]]] + $CellContext`A (4 - 4 Sqrt[2] 
+                  Tan[$CellContext`\[Beta]]] + $CellContext`A (
+                 4 - (4 Sqrt[2]) 
                  Sqrt[(1 - $CellContext`A) Tan[$CellContext`\[Beta]]])))/(
             36 $CellContext`A^2), 
             Inequality[
@@ -5349,12 +5352,12 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[
             Pi/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, Pi/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {(
-             4 (-1 + $CellContext`A)^2 (2 + $CellContext`A) 
-              Tan[$CellContext`\[Beta]] - 
-             3 (3 - 4 Sqrt[2] 
-              Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]] + 
-              4 $CellContext`A (-1 + 
+             ArcTan[1/2, 
+               1 - $CellContext`A]]}, {(((4 (-1 + $CellContext`A)^2) (
+                2 + $CellContext`A)) Tan[$CellContext`\[Beta]] - 
+             3 (3 - (4 Sqrt[2]) 
+              Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]] + (
+                4 $CellContext`A) (-1 + 
                 Sqrt[2] 
                  Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]])))/(
             36 $CellContext`A^2), 
@@ -5368,11 +5371,12 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Pi - ArcTan[1/2, 1 - $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi + 
              ArcTan[1/2, 
-               1 - $CellContext`A]]}, {((-4) ($CellContext`A - 1)^2 (
-               2 + $CellContext`A) Tan[$CellContext`\[Beta]] + 
-             3 (-3 + 4 Sqrt[2] 
+               1 - $CellContext`A]]}, {((((-4) ($CellContext`A - 1)^2) (
+                2 + $CellContext`A)) Tan[$CellContext`\[Beta]] + 
+             3 (-3 + (4 Sqrt[2]) 
                 Sqrt[(1 - $CellContext`A) 
-                  Tan[$CellContext`\[Beta]]] + $CellContext`A (4 - 4 Sqrt[2] 
+                  Tan[$CellContext`\[Beta]]] + $CellContext`A (
+                 4 - (4 Sqrt[2]) 
                  Sqrt[(1 - $CellContext`A) Tan[$CellContext`\[Beta]]])))/(
             36 $CellContext`A^2), 
             Inequality[
@@ -5382,12 +5386,12 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             
             Inequality[(3 Pi)/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {(
-             4 (-1 + $CellContext`A)^2 (2 + $CellContext`A) 
-              Tan[$CellContext`\[Beta]] - 
-             3 (3 - 4 Sqrt[2] 
-              Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]] + 
-              4 $CellContext`A (-1 + 
+             ArcTan[1/2, 
+               1 - $CellContext`A]]}, {(((4 (-1 + $CellContext`A)^2) (
+                2 + $CellContext`A)) Tan[$CellContext`\[Beta]] - 
+             3 (3 - (4 Sqrt[2]) 
+              Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]] + (
+                4 $CellContext`A) (-1 + 
                 Sqrt[2] 
                  Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]])))/(
             36 $CellContext`A^2), 
@@ -5440,7 +5444,8 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
         144 ((-1 + $CellContext`h) 
            Sqrt[(-(-2 + $CellContext`h)) $CellContext`h] + 
           ArcCos[1 - $CellContext`h])^2), FE`h$$27 = 0.5, FE`h$$138 = 0.463, 
-       FE`h$$141 = 0.463, FE`h$$233 = 0.5, $CellContext`VarYh[
+       FE`h$$141 = 0.463, $CellContext`h = 1/2, FE`h$$233 = 
+       0.5, $CellContext`VarYh[
          Blank[0.5]] := (
          I ((I Sqrt[(-(-2 + FE`h$$27)) FE`h$$27]) (3 + 
             FE`h$$27 (1 + (2 (-3 + FE`h$$27)) FE`h$$27)) - 3 
@@ -5478,7 +5483,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Or[0 <= $CellContext`\[Beta] <= ArcTan[2 $CellContext`A], 
              Inequality[
              2 Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
-              LessEqual, 2 Pi]]}, {(1/9) $CellContext`A 
+              LessEqual, 2 Pi]]}, {((1/9) $CellContext`A) 
             Cot[$CellContext`\[Beta]], 
             Inequality[
              ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], LessEqual, 
@@ -5488,7 +5493,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[
             Pi/2 - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi/2 + 
-             ArcTan[2 $CellContext`A]]}, {(-(1/9)) $CellContext`A 
+             ArcTan[2 $CellContext`A]]}, {((-(1/9)) $CellContext`A) 
             Cot[$CellContext`\[Beta]], 
             Inequality[
             Pi/2 + ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
@@ -5496,8 +5501,9 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
            1/12 - Tan[$CellContext`\[Beta]]^2/(144 $CellContext`A^2), 
             Inequality[
             Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
-             LessEqual, Pi + ArcTan[2 $CellContext`A]]}, {(1/
-             9) $CellContext`A Cot[$CellContext`\[Beta]], 
+             LessEqual, Pi + 
+             ArcTan[2 $CellContext`A]]}, {((1/9) $CellContext`A) 
+            Cot[$CellContext`\[Beta]], 
             Inequality[
             Pi + ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, (3 Pi)/2 - ArcTan[2 $CellContext`A]]}, {(1/576) (
@@ -5506,7 +5512,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             
             Inequality[(3 Pi)/2 - ArcTan[2 $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
-             ArcTan[2 $CellContext`A]]}, {(-(1/9)) $CellContext`A 
+             ArcTan[2 $CellContext`A]]}, {((-(1/9)) $CellContext`A) 
             Cot[$CellContext`\[Beta]], 
             
             Inequality[(3 Pi)/2 + ArcTan[2 $CellContext`A], 
@@ -5518,9 +5524,9 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              Inequality[
              2 Pi - ArcTan[1/2, 1 - $CellContext`A], 
               Less, $CellContext`\[Beta], LessEqual, 2 
-              Pi]]}, {((-4) (1 - $CellContext`A)^2 (2 + $CellContext`A) 
+              Pi]]}, {((((-4) (1 - $CellContext`A)^2) (2 + $CellContext`A)) 
               Cot[$CellContext`\[Beta]] - 9 + 
-             12 $CellContext`A + (1 - $CellContext`A) (12 Sqrt[2] 
+             12 $CellContext`A + (1 - $CellContext`A) ((12 Sqrt[2]) 
                Sqrt[(1 - $CellContext`A) Cot[$CellContext`\[Beta]]]))/(
             36 $CellContext`A^2), 
             Inequality[
@@ -5531,10 +5537,10 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Inequality[
             Pi/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, Pi/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {(
-             4 (1 - $CellContext`A)^2 (2 + $CellContext`A) 
-              Cot[$CellContext`\[Beta]] - 9 + 
-             12 $CellContext`A + (1 - $CellContext`A) (12 Sqrt[2] 
+             ArcTan[1/2, 
+               1 - $CellContext`A]]}, {(((4 (1 - $CellContext`A)^2) (
+                2 + $CellContext`A)) Cot[$CellContext`\[Beta]] - 9 + 
+             12 $CellContext`A + (1 - $CellContext`A) ((12 Sqrt[2]) 
                Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]]))/(
             36 $CellContext`A^2), 
             Inequality[
@@ -5546,10 +5552,9 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
             Pi - ArcTan[1/2, 1 - $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi + 
              ArcTan[1/2, 
-               1 - $CellContext`A]]}, {((-4) ($CellContext`A - 1)^2 (
-               2 + $CellContext`A) Cot[$CellContext`\[Beta]] - 9 + 
-             12 $CellContext`A + 
-             3 (1 - $CellContext`A) (4 Sqrt[2] 
+               1 - $CellContext`A]]}, {((((-4) ($CellContext`A - 1)^2) (
+                2 + $CellContext`A)) Cot[$CellContext`\[Beta]] - 9 + 
+             12 $CellContext`A + (3 (1 - $CellContext`A)) ((4 Sqrt[2]) 
                Sqrt[(1 - $CellContext`A) Cot[$CellContext`\[Beta]]]))/(
             36 $CellContext`A^2), 
             Inequality[
@@ -5557,12 +5562,13 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              LessEqual, (3 Pi)/2 - ArcTan[1/2, 1 - $CellContext`A]]}, {(1/
              576) (48 $CellContext`A^2 + 24 Cot[$CellContext`\[Beta]]^2 - 
              Cot[$CellContext`\[Beta]]^4/$CellContext`A^2), 
+            
             Inequality[(3 Pi)/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {(
-             4 (1 - $CellContext`A)^2 (2 + $CellContext`A) 
-              Cot[$CellContext`\[Beta]] - 9 + 
-             12 $CellContext`A + (1 - $CellContext`A) (12 Sqrt[2] 
+             ArcTan[1/2, 
+               1 - $CellContext`A]]}, {(((4 (1 - $CellContext`A)^2) (
+                2 + $CellContext`A)) Cot[$CellContext`\[Beta]] - 9 + 
+             12 $CellContext`A + (1 - $CellContext`A) ((12 Sqrt[2]) 
                Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]]))/(
             36 $CellContext`A^2), 
             
@@ -5683,9 +5689,8 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
           Blank[]]] := Which[$CellContext`A <= 1/2, 
          Piecewise[{{-((Tan[$CellContext`\[Beta]] 
               Sqrt[12 $CellContext`A^2 - Tan[$CellContext`\[Beta]]^2])/Sqrt[
-             48 $CellContext`A^4 + 
-              24 $CellContext`A^2 Tan[$CellContext`\[Beta]]^2 - 
-              Tan[$CellContext`\[Beta]]^4]), 
+             48 $CellContext`A^4 + (24 $CellContext`A^2) 
+               Tan[$CellContext`\[Beta]]^2 - Tan[$CellContext`\[Beta]]^4]), 
             Or[0 <= $CellContext`\[Beta] <= ArcTan[2 $CellContext`A], 
              Inequality[
              2 Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
@@ -5695,9 +5700,8 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              Pi/2 - ArcTan[
              2 $CellContext`A]]}, {-((Cot[$CellContext`\[Beta]] 
               Sqrt[12 $CellContext`A^2 - Cot[$CellContext`\[Beta]]^2])/Sqrt[
-             48 $CellContext`A^4 + 
-              24 $CellContext`A^2 Cot[$CellContext`\[Beta]]^2 - 
-              Cot[$CellContext`\[Beta]]^4]), 
+             48 $CellContext`A^4 + (24 $CellContext`A^2) 
+               Cot[$CellContext`\[Beta]]^2 - Cot[$CellContext`\[Beta]]^4]), 
             Inequality[
             Pi/2 - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi/2 + ArcTan[2 $CellContext`A]]}, {1/2, 
@@ -5706,9 +5710,8 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              LessEqual, Pi - ArcTan[
              2 $CellContext`A]]}, {-((Tan[$CellContext`\[Beta]] 
               Sqrt[12 $CellContext`A^2 - Tan[$CellContext`\[Beta]]^2])/Sqrt[
-             48 $CellContext`A^4 + 
-              24 $CellContext`A^2 Tan[$CellContext`\[Beta]]^2 - 
-              Tan[$CellContext`\[Beta]]^4]), 
+             48 $CellContext`A^4 + (24 $CellContext`A^2) 
+               Tan[$CellContext`\[Beta]]^2 - Tan[$CellContext`\[Beta]]^4]), 
             Inequality[
             Pi - ArcTan[2 $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi + ArcTan[2 $CellContext`A]]}, {-(1/2), 
@@ -5717,10 +5720,8 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              LessEqual, (3 Pi)/2 - ArcTan[
              2 $CellContext`A]]}, {-((Cot[$CellContext`\[Beta]] 
               Sqrt[12 $CellContext`A^2 - Cot[$CellContext`\[Beta]]^2])/Sqrt[
-             48 $CellContext`A^4 + 
-              24 $CellContext`A^2 Cot[$CellContext`\[Beta]]^2 - 
-              Cot[$CellContext`\[Beta]]^4]), 
-            
+             48 $CellContext`A^4 + (24 $CellContext`A^2) 
+               Cot[$CellContext`\[Beta]]^2 - Cot[$CellContext`\[Beta]]^4]), 
             Inequality[(3 Pi)/2 - ArcTan[2 $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
              ArcTan[2 $CellContext`A]]}, {1/2, 
@@ -5730,98 +5731,91 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
              2 $CellContext`A]]}}], 1/2 < $CellContext`A < 1, 
          Piecewise[{{-((Tan[$CellContext`\[Beta]] 
               Sqrt[12 $CellContext`A^2 - Tan[$CellContext`\[Beta]]^2])/Sqrt[
-             48 $CellContext`A^4 + 
-              24 $CellContext`A^2 Tan[$CellContext`\[Beta]]^2 - 
-              Tan[$CellContext`\[Beta]]^4]), 
+             48 $CellContext`A^4 + (24 $CellContext`A^2) 
+               Tan[$CellContext`\[Beta]]^2 - Tan[$CellContext`\[Beta]]^4]), 
             Or[0 <= $CellContext`\[Beta] <= ArcTan[1/2, 1 - $CellContext`A], 
              Inequality[
              2 Pi - ArcTan[1/2, 1 - $CellContext`A], 
               Less, $CellContext`\[Beta], LessEqual, 2 
-              Pi]]}, {((-1 + $CellContext`A) (17 + 
-              2 (-5 + $CellContext`A) $CellContext`A - 6 
-              Sqrt[2] (Sqrt[(1 - $CellContext`A) Cot[$CellContext`\[Beta]]] + 
+              Pi]]}, {((-1 + $CellContext`A) (
+              17 + (2 (-5 + $CellContext`A)) $CellContext`A - (6 Sqrt[2]) (
+               Sqrt[(1 - $CellContext`A) Cot[$CellContext`\[Beta]]] + 
                Sqrt[(1 - $CellContext`A) Tan[$CellContext`\[Beta]]])))/(
-            Sqrt[(-4) (-1 + $CellContext`A)^2 (2 + $CellContext`A) 
+            Sqrt[(((-4) (-1 + $CellContext`A)^2) (2 + $CellContext`A)) 
                Cot[$CellContext`\[Beta]] + 
-              3 (-3 + 4 $CellContext`A + (1 - $CellContext`A) 4 Sqrt[2] 
+              3 (-3 + 4 $CellContext`A + (((1 - $CellContext`A) 4) Sqrt[2]) 
                  Sqrt[(1 - $CellContext`A) Cot[$CellContext`\[Beta]]])] 
-            Sqrt[(-4) (-1 + $CellContext`A)^2 (2 + $CellContext`A) 
+            Sqrt[(((-4) (-1 + $CellContext`A)^2) (2 + $CellContext`A)) 
                Tan[$CellContext`\[Beta]] + 
-              3 (-3 + 4 $CellContext`A + (1 - $CellContext`A) 4 Sqrt[2] 
+              3 (-3 + 4 $CellContext`A + (((1 - $CellContext`A) 4) Sqrt[2]) 
                  Sqrt[(1 - $CellContext`A) Tan[$CellContext`\[Beta]]])]), 
             Inequality[
              ArcTan[1/2, 1 - $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi/2 - ArcTan[
              1/2, 1 - $CellContext`A]]}, {-((Cot[$CellContext`\[Beta]] 
               Sqrt[12 $CellContext`A^2 - Cot[$CellContext`\[Beta]]^2])/Sqrt[
-             48 $CellContext`A^4 + 
-              24 $CellContext`A^2 Cot[$CellContext`\[Beta]]^2 - 
-              Cot[$CellContext`\[Beta]]^4]), 
+             48 $CellContext`A^4 + (24 $CellContext`A^2) 
+               Cot[$CellContext`\[Beta]]^2 - Cot[$CellContext`\[Beta]]^4]), 
             Inequality[
             Pi/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, Pi/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {-(((-1 + $CellContext`A) (17 + 
-               2 (-5 + $CellContext`A) $CellContext`A - 6 Sqrt[2] 
-               Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]] - 6 
-               Sqrt[2] 
+             ArcTan[1/2, 1 - $CellContext`A]]}, {-(((-1 + $CellContext`A) (
+               17 + (2 (-5 + $CellContext`A)) $CellContext`A - (6 Sqrt[2]) 
+               Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]] - (6 
+                Sqrt[2]) 
                Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]]))/(
-             Sqrt[
-              4 (-1 + $CellContext`A)^2 (2 + $CellContext`A) 
+             Sqrt[((4 (-1 + $CellContext`A)^2) (2 + $CellContext`A)) 
                 Cot[$CellContext`\[Beta]] + 
-               3 (-3 + 4 $CellContext`A + 
-                 4 (1 - $CellContext`A) Sqrt[2] 
+               3 (-3 + 4 $CellContext`A + ((4 (1 - $CellContext`A)) Sqrt[2]) 
                   Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]])] 
-             Sqrt[4 (-1 + $CellContext`A)^2 (2 + $CellContext`A) 
+             Sqrt[((4 (-1 + $CellContext`A)^2) (2 + $CellContext`A)) 
                 Tan[$CellContext`\[Beta]] + 
-               3 (-3 + 4 $CellContext`A + (1 - $CellContext`A) 4 Sqrt[2] 
+               3 (-3 + 4 $CellContext`A + (((1 - $CellContext`A) 4) Sqrt[2]) 
                   Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]])])), 
             Inequality[
             Pi/2 + ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, Pi - ArcTan[
              1/2, 1 - $CellContext`A]]}, {-((Tan[$CellContext`\[Beta]] 
               Sqrt[12 $CellContext`A^2 - Tan[$CellContext`\[Beta]]^2])/Sqrt[
-             48 $CellContext`A^4 + 
-              24 $CellContext`A^2 Tan[$CellContext`\[Beta]]^2 - 
-              Tan[$CellContext`\[Beta]]^4]), 
+             48 $CellContext`A^4 + (24 $CellContext`A^2) 
+               Tan[$CellContext`\[Beta]]^2 - Tan[$CellContext`\[Beta]]^4]), 
             Inequality[
             Pi - ArcTan[1/2, 1 - $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, Pi + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {((-1 + $CellContext`A) (17 + 
-              2 (-5 + $CellContext`A) $CellContext`A - 6 
-              Sqrt[2] (Sqrt[(1 - $CellContext`A) Cot[$CellContext`\[Beta]]] + 
+             ArcTan[1/2, 1 - $CellContext`A]]}, {((-1 + $CellContext`A) (
+              17 + (2 (-5 + $CellContext`A)) $CellContext`A - (6 Sqrt[2]) (
+               Sqrt[(1 - $CellContext`A) Cot[$CellContext`\[Beta]]] + 
                Sqrt[(1 - $CellContext`A) Tan[$CellContext`\[Beta]]])))/(
-            Sqrt[(-4) (-1 + $CellContext`A)^2 (2 + $CellContext`A) 
+            Sqrt[(((-4) (-1 + $CellContext`A)^2) (2 + $CellContext`A)) 
                Cot[$CellContext`\[Beta]] + 
-              3 (-3 + 4 $CellContext`A + (1 - $CellContext`A) 4 Sqrt[2] 
+              3 (-3 + 4 $CellContext`A + (((1 - $CellContext`A) 4) Sqrt[2]) 
                  Sqrt[(1 - $CellContext`A) Cot[$CellContext`\[Beta]]])] 
-            Sqrt[(-4) (-1 + $CellContext`A)^2 (2 + $CellContext`A) 
+            Sqrt[(((-4) (-1 + $CellContext`A)^2) (2 + $CellContext`A)) 
                Tan[$CellContext`\[Beta]] + 
-              3 (-3 + 4 $CellContext`A + (1 - $CellContext`A) 4 Sqrt[2] 
+              3 (-3 + 4 $CellContext`A + (((1 - $CellContext`A) 4) Sqrt[2]) 
                  Sqrt[(1 - $CellContext`A) Tan[$CellContext`\[Beta]]])]), 
             Inequality[
             Pi + ArcTan[1/2, 1 - $CellContext`A], Less, $CellContext`\[Beta], 
              LessEqual, (3 Pi)/2 - ArcTan[
              1/2, 1 - $CellContext`A]]}, {-((Cot[$CellContext`\[Beta]] 
               Sqrt[12 $CellContext`A^2 - Cot[$CellContext`\[Beta]]^2])/Sqrt[
-             48 $CellContext`A^4 + 
-              24 $CellContext`A^2 Cot[$CellContext`\[Beta]]^2 - 
-              Cot[$CellContext`\[Beta]]^4]), 
+             48 $CellContext`A^4 + (24 $CellContext`A^2) 
+               Cot[$CellContext`\[Beta]]^2 - Cot[$CellContext`\[Beta]]^4]), 
             
             Inequality[(3 Pi)/2 - ArcTan[1/2, 1 - $CellContext`A], 
              Less, $CellContext`\[Beta], LessEqual, (3 Pi)/2 + 
-             ArcTan[1/2, 1 - $CellContext`A]]}, {-(((-1 + $CellContext`A) (17 + 
-               2 (-5 + $CellContext`A) $CellContext`A - 6 Sqrt[2] 
-               Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]] - 6 
-               Sqrt[2] 
+             ArcTan[1/2, 1 - $CellContext`A]]}, {-(((-1 + $CellContext`A) (
+               17 + (2 (-5 + $CellContext`A)) $CellContext`A - (6 Sqrt[2]) 
+               Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]] - (6 
+                Sqrt[2]) 
                Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]]))/(
-             Sqrt[4 (-1 + $CellContext`A)^2 (2 + $CellContext`A) 
+             Sqrt[((4 (-1 + $CellContext`A)^2) (2 + $CellContext`A)) 
                 Cot[$CellContext`\[Beta]] + 
-               3 (-3 + 4 $CellContext`A + 
-                 4 (1 - $CellContext`A) Sqrt[2] 
+               3 (-3 + 4 $CellContext`A + ((4 (1 - $CellContext`A)) Sqrt[2]) 
                   Sqrt[($CellContext`A - 1) Cot[$CellContext`\[Beta]]])] 
-             Sqrt[4 (-1 + $CellContext`A)^2 (2 + $CellContext`A) 
+             Sqrt[((4 (-1 + $CellContext`A)^2) (2 + $CellContext`A)) 
                 Tan[$CellContext`\[Beta]] + 
-               3 (-3 + 4 $CellContext`A + (1 - $CellContext`A) 4 Sqrt[2] 
+               3 (-3 + 4 $CellContext`A + (((1 - $CellContext`A) 4) Sqrt[2]) 
                   Sqrt[($CellContext`A - 1) Tan[$CellContext`\[Beta]]])])), 
             
             Inequality[(3 Pi)/2 + ArcTan[1/2, 1 - $CellContext`A], 
@@ -6179,9 +6173,8 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
          43/204, (1/2 + 22 Sqrt[3])/51}, {
          41/204, (1/2 + (45 Sqrt[3])/2)/51}, {
          43/204, (1/2 + 23 Sqrt[3])/51}, {
-         41/204, (1/2 + (47 Sqrt[3])/2)/51}, {
-         43/204, (1/2 + 24 Sqrt[3])/51}, {
-         41/204, (1/2 + (49 Sqrt[3])/2)/51}, {
+         41/204, (1/2 + (47 Sqrt[3])/2)/51}, {43/204, (1/2 + 24 Sqrt[3])/51},
+          {41/204, (1/2 + (49 Sqrt[3])/2)/51}, {
          43/204, (1/2 + 25 Sqrt[3])/51}, {
          41/204, (1/2 + (51 Sqrt[3])/2)/51}, {
          43/204, (1/2 + 26 Sqrt[3])/51}, {
@@ -6942,8 +6935,9 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
          41/68, (1/2 + 13 Sqrt[3])/51}, {
          121/204, (1/2 + (27 Sqrt[3])/2)/51}, {
          41/68, (1/2 + 14 Sqrt[3])/51}, {
-         121/204, (1/2 + (29 Sqrt[3])/2)/51}, {41/68, (1/2 + 15 Sqrt[3])/51}, 
-         {121/204, (1/2 + (31 Sqrt[3])/2)/51}, {
+         121/204, (1/2 + (29 Sqrt[3])/2)/51}, {
+         41/68, (1/2 + 15 Sqrt[3])/51}, {
+         121/204, (1/2 + (31 Sqrt[3])/2)/51}, {
          41/68, (1/2 + 16 Sqrt[3])/51}, {
          121/204, (1/2 + (33 Sqrt[3])/2)/51}, {
          41/68, (1/2 + 17 Sqrt[3])/51}, {
@@ -7998,7 +7992,7 @@ $CellContext`A$$]}}, {$CellContext`\[Beta]$$, 0, 2 Pi},
   Manipulate`InterpretManipulate[1]]], "Output",
  CellChangeTimes->{{3.662954332318384*^9, 3.6629543331621237`*^9}, 
    3.6818260266911163`*^9, 3.6818289619966803`*^9, {3.6884173448676767`*^9, 
-   3.688417346268063*^9}}]
+   3.688417346268063*^9}, 3.6900527678794937`*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -9071,7 +9065,7 @@ hQNyN2eIA3LZOsQBuQ0H5Doc/P///wu+JATg
         0.29238879829087033`, 0.9049971204774259}]]}, 
      {RGBColor[0.560181, 0.691569, 0.194885], Opacity[0], EdgeForm[{RGBColor[
        NCache[
-        Rational[22, 23], 0.9565217391304348], 0, 0], Thickness[Large], 
+        Rational[4, 5], 0.8], 0, 0], Thickness[Large], 
       Dashing[{Small, Small}]}], 
       InterpretationBox[
        GeometricTransformationBox[DiskBox[{0, 0}], 
@@ -9490,7 +9484,7 @@ HJBrcEDuwQG5CAfkJhyQqwk2Dsjd+zYOyGU4ILfhgFyfbePg////X7zB/4A=
         0.3916934345890312, 0.8574045318333193}]]}, 
      {RGBColor[0.560181, 0.691569, 0.194885], Opacity[0], EdgeForm[{RGBColor[
        NCache[
-        Rational[21, 23], 0.9130434782608695], 0, 0], Thickness[Large], 
+        Rational[3, 5], 0.6], 0, 0], Thickness[Large], 
       Dashing[{Small, Small}]}], 
       InterpretationBox[
        GeometricTransformationBox[DiskBox[{0, 0}], 
@@ -9817,7 +9811,7 @@ wQG5CAfkZoDFAbkKB+Suz+KAXF5pcUBuwwG5fsDi4P///1/8M/c9
         0.44584671729451564`, 0.7412022659166596}]]}, 
      {RGBColor[0.560181, 0.691569, 0.194885], Opacity[0], EdgeForm[{RGBColor[
        NCache[
-        Rational[20, 23], 0.8695652173913043], 0, 0], Thickness[Large], 
+        Rational[2, 5], 0.4], 0, 0], Thickness[Large], 
       Dashing[{Small, Small}]}], 
       InterpretationBox[
        GeometricTransformationBox[DiskBox[{0, 0}], 
@@ -10343,7 +10337,7 @@ yC04INfIOXIPDshFcpLcJEfJVTggd8lhchkOyG1ynFwn5/////8FhqgJ7Q==
         0.6191348439444397}]]}, 
      {RGBColor[0.560181, 0.691569, 0.194885], Opacity[0], EdgeForm[{RGBColor[
        NCache[
-        Rational[19, 23], 0.8260869565217391], 0, 0], Thickness[Large], 
+        Rational[1, 5], 0.2], 0, 0], Thickness[Large], 
       Dashing[{Small, Small}]}], 
       InterpretationBox[
        GeometricTransformationBox[DiskBox[{0, 0}], 
@@ -10388,7 +10382,817 @@ yC04INfIOXIPDshFcpLcJEfJVTggd8lhchkOyG1ynFwn5/////8FhqgJ7Q==
    3.662955526661893*^9, 3.662955594793055*^9}, {3.6629557096102943`*^9, 
    3.6629557530432673`*^9}, 3.662955789600017*^9, 3.662955853569131*^9, 
    3.662955908454163*^9, 3.662955940263385*^9, 3.681826027807919*^9, 
-   3.681826126152094*^9, {3.6818289582116823`*^9, 3.681828977840639*^9}}]
+   3.681826126152094*^9, {3.6818289582116823`*^9, 3.681828977840639*^9}, 
+   3.690052769243779*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"N", "[", 
+  RowBox[{"Covxy", "[", 
+   RowBox[{
+    RowBox[{"3", 
+     RowBox[{"\[Pi]", "/", "4"}]}], ",", 
+    RowBox[{"3", "/", "4"}]}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6900528909040337`*^9, 3.690052901580563*^9}}],
+
+Cell[BoxData["0.026416279330388006`"], "Output",
+ CellChangeTimes->{{3.690052897771429*^9, 3.690052901940772*^9}}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{3.690052928004252*^9, 3.690052977272558*^9},
+ EmphasizeSyntaxErrors->True],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Module", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y", ",", "mean", ",", "cov", ",", 
+     RowBox[{"bwid", "=", "0.05"}], ",", "varx", ",", "vary", ",", 
+     "robRegion", ",", "padding", ",", "padding2", ",", 
+     RowBox[{"imsize", "=", "220"}], ",", "fs"}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"padding", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"30", ",", "6"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "15"}], "}"}]}], "}"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"padding2", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"30", ",", "6"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "30"}], "}"}]}], "}"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Av", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{"3", "/", "4"}], "}"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Graphics", "[", 
+     RowBox[{
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"White", ",", 
+          RowBox[{"Rectangle", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", ".2"}], ",", 
+              RowBox[{"-", ".2"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1.2", ",", "1.2"}], "}"}]}], "]"}]}], "}"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{"Pink", ",", 
+          RowBox[{"Rectangle", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", "0"}], "}"}], "-", "bwid"}], ",", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1"}], "}"}], "+", "bwid"}]}], "]"}]}], 
+         RowBox[{"(*", "obstacles", "*)"}], "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{"White", ",", 
+          RowBox[{"Rectangle", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "1"}], "}"}]}], "]"}]}], 
+         RowBox[{"(*", 
+          RowBox[{"interior", " ", "region", " ", "of", " ", "square"}], 
+          "*)"}], "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{"Black", ",", 
+          RowBox[{"Text", "[", 
+           RowBox[{
+            RowBox[{"StringForm", "[", 
+             RowBox[{
+             "\"\<Area=``,mean=``,cov=``\>\"", ",", "A", ",", "mean", ",", 
+              RowBox[{"Chop", "[", "cov", "]"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"1", "/", "2"}], ",", "1.2"}], "}"}]}], "]"}], ","}], 
+         "*)"}], " ", 
+        RowBox[{"(*", 
+         RowBox[{"optional", " ", "title", " ", "info"}], "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{"draw", " ", "the", " ", "robot", " ", "region"}], "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"{", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"\[Beta]", "=", 
+              RowBox[{"\[Pi]", " ", 
+               RowBox[{"3", "/", "4"}]}]}], ";", 
+             RowBox[{"A", " ", "=", " ", 
+              RowBox[{
+              "Av", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}]}], 
+             ";", "\[IndentingNewLine]", 
+             RowBox[{"x", "=", 
+              RowBox[{"Meanx", "[", 
+               RowBox[{"\[Beta]", ",", "A"}], "]"}]}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"y", "=", 
+              RowBox[{"Meany", "[", 
+               RowBox[{"\[Beta]", ",", "A"}], "]"}]}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"mean", "=", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", "y"}], "}"}]}], ";", "\[IndentingNewLine]", 
+             RowBox[{"cov", "=", 
+              RowBox[{"Covxy", "[", 
+               RowBox[{"\[Beta]", ",", "A"}], "]"}]}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"varx", " ", "=", " ", 
+              RowBox[{"Varx", "[", 
+               RowBox[{"\[Beta]", ",", "A"}], "]"}]}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"vary", " ", "=", "  ", 
+              RowBox[{"Vary", "[", 
+               RowBox[{"\[Beta]", ",", "A"}], "]"}]}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{"Blue", ",", 
+               RowBox[{"Polygon", "[", 
+                RowBox[{"RobotRegion", "[", 
+                 RowBox[{"\[Beta]", ",", "A"}], "]"}], "]"}]}], "}"}]}], ",", 
+            "\[IndentingNewLine]", "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{"draw", " ", "the", " ", "mean", " ", "path"}], "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"ColorData", "[", 
+                RowBox[{"97", ",", "\"\<ColorList\>\""}], "]"}], 
+               "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], ",", 
+              "Thick", ",", " ", 
+              RowBox[{"Line", "[", 
+               RowBox[{
+                StyleBox["MeanPath", "Input"], "[", 
+                RowBox[{"A", ",", 
+                 RowBox[{"\[Pi]", "/", "64"}]}], "]"}], "]"}]}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{
+             "draw", " ", "the", " ", "direction", " ", "of", " ", "the", " ",
+               "vector"}], "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"Blue", ",", 
+              RowBox[{"Thickness", "[", ".01", "]"}], ",", 
+              RowBox[{"Arrow", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{
+                   FractionBox["1", "2"], ",", 
+                   FractionBox["1", "2"]}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{
+                    FractionBox["1", "2"], "+", 
+                    RowBox[{
+                    FractionBox["1", "4"], 
+                    RowBox[{"Cos", "[", "\[Beta]", "]"}]}]}], ",", 
+                   RowBox[{
+                    FractionBox["1", "2"], "+", 
+                    RowBox[{
+                    FractionBox["1", "4"], 
+                    RowBox[{"Sin", "[", "\[Beta]", "]"}]}]}]}], "}"}]}], 
+                "}"}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{"draw", " ", "the", " ", "mean"}], "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"Red", ",", 
+              RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+              RowBox[{"Point", "[", "mean", "]"}]}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"(*", "text", "*)"}], "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"fs", " ", "=", " ", "16"}], ";", "\[IndentingNewLine]", 
+             RowBox[{"Text", "[", 
+              RowBox[{
+               RowBox[{"Style", "[", 
+                RowBox[{
+                 RowBox[{"StringForm", "[", 
+                  RowBox[{
+                  "\"\<\!\(\*SubscriptBox[\\\"\[Rho]\\\", \n \
+StyleBox[\\\"xy\\\",\\nFontSlant->\\\"Italic\\\"]]\)=``\>\"", ",", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"Round", "[", 
+                    RowBox[{
+                    RowBox[{"N", "[", 
+                    RowBox[{"Covxy", "[", 
+                    RowBox[{
+                    RowBox[{"3", 
+                    RowBox[{"\[Pi]", "/", "4"}]}], ",", 
+                    RowBox[{"3", "/", "4"}]}], "]"}], "\[IndentingNewLine]", 
+                    "]"}], ",", "0.01"}], "]"}]}], "]"}], ",", 
+                 RowBox[{"Directive", "[", 
+                  RowBox[{"(*", 
+                   RowBox[{
+                    RowBox[{"FontFamily", "\[Rule]", "\"\<Times\>\""}], ","}],
+                    "*)"}], 
+                  RowBox[{"FontSize", "\[Rule]", "fs"}], "]"}]}], "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"1", "/", "2"}], ",", "1.16"}], "}"}]}], "]"}]}], 
+            ",", "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{"draw", " ", "the", " ", "covariance", " ", "ellipse"}], 
+             "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"ColorData", "[", 
+                RowBox[{"97", ",", "\"\<ColorList\>\""}], "]"}], 
+               "\[LeftDoubleBracket]", "3", "\[RightDoubleBracket]"}], ",", 
+              RowBox[{"Opacity", "[", "0", "]"}], ",", 
+              RowBox[{"EdgeForm", "[", 
+               RowBox[{"{", 
+                RowBox[{"Thick", ",", 
+                 RowBox[{"Darker", "[", 
+                  RowBox[{"Red", ",", 
+                   FractionBox[
+                    RowBox[{"i", "-", "1"}], 
+                    RowBox[{
+                    RowBox[{"Length", "[", "hv", "]"}], "+", "5"}]]}], 
+                  "]"}]}], "}"}], "]"}], ",", 
+              RowBox[{"Ellipsoid", "[", 
+               RowBox[{"mean", ",", 
+                RowBox[{"4", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"varx", ",", " ", "cov"}], "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"cov", ",", "vary"}], "}"}]}], "}"}]}]}], "]"}]}],
+              "}"}]}], "}"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", 
+            RowBox[{"Length", "@", "Av"}]}], "}"}]}], "]"}]}], 
+       "\[IndentingNewLine]", "}"}], ",", 
+      RowBox[{"ImageSize", "\[Rule]", "200"}]}], "]"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6629553671504793`*^9, 3.662955475707678*^9}, {
+   3.662955524871251*^9, 3.662955621252379*^9}, {3.662955654893051*^9, 
+   3.662955752158389*^9}, {3.662955787055831*^9, 3.6629557886622267`*^9}, {
+   3.662955851189958*^9, 3.662955852733364*^9}, {3.662955906372387*^9, 
+   3.6629559076990833`*^9}, {3.6629559383593197`*^9, 3.662955939142283*^9}, 
+   3.6818260229943047`*^9, 3.6818261237829447`*^9, 3.6818289758783083`*^9, {
+   3.690052780187215*^9, 3.690052851092627*^9}, {3.690052939616679*^9, 
+   3.690053026640622*^9}, {3.69005305719633*^9, 3.690053063301306*^9}, {
+   3.6900532074488077`*^9, 3.690053217262184*^9}, 3.690053273991046*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {GrayLevel[1], RectangleBox[{-0.2, -0.2}, {1.2, 1.2}]}, 
+   {RGBColor[1, 0.5, 0.5], RectangleBox[{-0.05, -0.05}, {1.05, 1.05}]}, 
+   {GrayLevel[1], RectangleBox[{0, 0}]}, {
+    {RGBColor[0, 0, 1], 
+     PolygonBox[
+      NCache[{{1, 1}, {0, 1}, {0, 0}, {1 - 2^Rational[-1, 2], 0}, {
+        1, 2^Rational[-1, 2]}}, {{1, 1}, {0, 1}, {0, 0}, {
+        0.29289321881345254`, 0}, {1, 0.7071067811865475}}]]}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], Thickness[Large], 
+     LineBox[NCache[{{Rational[5, 8], Rational[1, 2]}, {
+        Rational[5, 8] + Rational[-1, 18] Tan[Rational[1, 64] Pi]^2, 
+         Rational[1, 9] (Rational[9, 2] + Tan[Rational[1, 64] Pi])}, {
+        Rational[5, 8] + Rational[-1, 18] Tan[Rational[1, 32] Pi]^2, 
+         Rational[1, 9] (Rational[9, 2] + Tan[Rational[1, 32] Pi])}, {
+        Rational[5, 8] + Rational[-1, 18] Tan[Rational[3, 64] Pi]^2, 
+         Rational[1, 9] (Rational[9, 2] + Tan[Rational[3, 64] Pi])}, {
+        Rational[5, 8] + Rational[-1, 18] Tan[Rational[1, 16] Pi]^2, 
+         Rational[1, 9] (Rational[9, 2] + Tan[Rational[1, 16] Pi])}, {
+        Rational[5, 8] + Rational[-1, 18] Tan[Rational[5, 64] Pi]^2, 
+         Rational[1, 9] (Rational[9, 2] + Tan[Rational[5, 64] Pi])}, {
+        Rational[5, 8] + Rational[-1, 18] Tan[Rational[3, 32] Pi]^2, 
+         Rational[1, 9] (Rational[9, 2] + Tan[Rational[3, 32] Pi])}, {
+        Rational[5, 8] + Rational[-1, 18] Tan[Rational[7, 64] Pi]^2, 
+         Rational[1, 9] (Rational[9, 2] + Tan[Rational[7, 64] Pi])}, {
+        Rational[5, 8] + Rational[-1, 18] Tan[Rational[1, 8] Pi]^2, 
+         Rational[1, 9] (Rational[9, 2] + Tan[Rational[1, 8] Pi])}, {
+        Rational[5, 8] + Rational[-1, 18] Tan[Rational[9, 64] Pi]^2, 
+         Rational[1, 9] (Rational[9, 2] + Tan[Rational[9, 64] Pi])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[5, 32] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[5, 32] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[11, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[11, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[3, 16] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[3, 16] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[13, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[13, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[7, 32] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[7, 32] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[15, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[15, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + Rational[-1, 2] 2^Rational[-1, 2]), 
+         Rational[2, 9] (3 + Rational[-1, 2] 2^Rational[-1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[15, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[15, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[7, 32] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[7, 32] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[13, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[13, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[3, 16] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[3, 16] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[11, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[11, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[5, 32] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[5, 32] Pi])^
+            Rational[1, 2])}, {
+        Rational[1, 9] (Rational[9, 2] + Tan[Rational[9, 64] Pi]), 
+         Rational[5, 8] + Rational[-1, 18] Tan[Rational[9, 64] Pi]^2}, {
+        Rational[1, 9] (Rational[9, 2] + Tan[Rational[1, 8] Pi]), 
+         Rational[5, 8] + Rational[-1, 18] Tan[Rational[1, 8] Pi]^2}, {
+        Rational[1, 9] (Rational[9, 2] + Tan[Rational[7, 64] Pi]), 
+         Rational[5, 8] + Rational[-1, 18] Tan[Rational[7, 64] Pi]^2}, {
+        Rational[1, 9] (Rational[9, 2] + Tan[Rational[3, 32] Pi]), 
+         Rational[5, 8] + Rational[-1, 18] Tan[Rational[3, 32] Pi]^2}, {
+        Rational[1, 9] (Rational[9, 2] + Tan[Rational[5, 64] Pi]), 
+         Rational[5, 8] + Rational[-1, 18] Tan[Rational[5, 64] Pi]^2}, {
+        Rational[1, 9] (Rational[9, 2] + Tan[Rational[1, 16] Pi]), 
+         Rational[5, 8] + Rational[-1, 18] Tan[Rational[1, 16] Pi]^2}, {
+        Rational[1, 9] (Rational[9, 2] + Tan[Rational[3, 64] Pi]), 
+         Rational[5, 8] + Rational[-1, 18] Tan[Rational[3, 64] Pi]^2}, {
+        Rational[1, 9] (Rational[9, 2] + Tan[Rational[1, 32] Pi]), 
+         Rational[5, 8] + Rational[-1, 18] Tan[Rational[1, 32] Pi]^2}, {
+        Rational[1, 9] (Rational[9, 2] + Tan[Rational[1, 64] Pi]), 
+         Rational[5, 8] + Rational[-1, 18] Tan[Rational[1, 64] Pi]^2}, {
+        Rational[1, 2], Rational[5, 8]}, {
+        Rational[1, 9] (Rational[9, 2] - Tan[Rational[1, 64] Pi]), 
+         Rational[5, 8] + Rational[-1, 18] Tan[Rational[1, 64] Pi]^2}, {
+        Rational[1, 9] (Rational[9, 2] - Tan[Rational[1, 32] Pi]), 
+         Rational[5, 8] + Rational[-1, 18] Tan[Rational[1, 32] Pi]^2}, {
+        Rational[1, 9] (Rational[9, 2] - Tan[Rational[3, 64] Pi]), 
+         Rational[5, 8] + Rational[-1, 18] Tan[Rational[3, 64] Pi]^2}, {
+        Rational[1, 9] (Rational[9, 2] - Tan[Rational[1, 16] Pi]), 
+         Rational[5, 8] + Rational[-1, 18] Tan[Rational[1, 16] Pi]^2}, {
+        Rational[1, 9] (Rational[9, 2] - Tan[Rational[5, 64] Pi]), 
+         Rational[5, 8] + Rational[-1, 18] Tan[Rational[5, 64] Pi]^2}, {
+        Rational[1, 9] (Rational[9, 2] - Tan[Rational[3, 32] Pi]), 
+         Rational[5, 8] + Rational[-1, 18] Tan[Rational[3, 32] Pi]^2}, {
+        Rational[1, 9] (Rational[9, 2] - Tan[Rational[7, 64] Pi]), 
+         Rational[5, 8] + Rational[-1, 18] Tan[Rational[7, 64] Pi]^2}, {
+        Rational[1, 9] (Rational[9, 2] - Tan[Rational[1, 8] Pi]), 
+         Rational[5, 8] + Rational[-1, 18] Tan[Rational[1, 8] Pi]^2}, {
+        Rational[1, 9] (Rational[9, 2] - Tan[Rational[9, 64] Pi]), 
+         Rational[5, 8] + Rational[-1, 18] Tan[Rational[9, 64] Pi]^2}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[5, 32] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[5, 32] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[11, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[11, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[3, 16] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[3, 16] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[13, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[13, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[7, 32] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[7, 32] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[15, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[15, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + Rational[1, 2] 2^Rational[-1, 2]), 
+         Rational[2, 9] (3 + Rational[-1, 2] 2^Rational[-1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[15, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[15, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[7, 32] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[7, 32] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[13, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[13, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[3, 16] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[3, 16] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[11, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[11, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[5, 32] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[5, 32] Pi])^
+            Rational[1, 2])}, {
+        Rational[3, 8] + Rational[1, 18] Tan[Rational[9, 64] Pi]^2, 
+         Rational[1, 2] + Rational[1, 9] Tan[Rational[9, 64] Pi]}, {
+        Rational[3, 8] + Rational[1, 18] Tan[Rational[1, 8] Pi]^2, 
+         Rational[1, 2] + Rational[1, 9] Tan[Rational[1, 8] Pi]}, {
+        Rational[3, 8] + Rational[1, 18] Tan[Rational[7, 64] Pi]^2, 
+         Rational[1, 2] + Rational[1, 9] Tan[Rational[7, 64] Pi]}, {
+        Rational[3, 8] + Rational[1, 18] Tan[Rational[3, 32] Pi]^2, 
+         Rational[1, 2] + Rational[1, 9] Tan[Rational[3, 32] Pi]}, {
+        Rational[3, 8] + Rational[1, 18] Tan[Rational[5, 64] Pi]^2, 
+         Rational[1, 2] + Rational[1, 9] Tan[Rational[5, 64] Pi]}, {
+        Rational[3, 8] + Rational[1, 18] Tan[Rational[1, 16] Pi]^2, 
+         Rational[1, 2] + Rational[1, 9] Tan[Rational[1, 16] Pi]}, {
+        Rational[3, 8] + Rational[1, 18] Tan[Rational[3, 64] Pi]^2, 
+         Rational[1, 2] + Rational[1, 9] Tan[Rational[3, 64] Pi]}, {
+        Rational[3, 8] + Rational[1, 18] Tan[Rational[1, 32] Pi]^2, 
+         Rational[1, 2] + Rational[1, 9] Tan[Rational[1, 32] Pi]}, {
+        Rational[3, 8] + Rational[1, 18] Tan[Rational[1, 64] Pi]^2, 
+         Rational[1, 2] + Rational[1, 9] Tan[Rational[1, 64] Pi]}, {
+        Rational[3, 8], Rational[1, 2]}, {
+        Rational[3, 8] + Rational[1, 18] Tan[Rational[1, 64] Pi]^2, 
+         Rational[1, 2] + Rational[-1, 9] Tan[Rational[1, 64] Pi]}, {
+        Rational[3, 8] + Rational[1, 18] Tan[Rational[1, 32] Pi]^2, 
+         Rational[1, 2] + Rational[-1, 9] Tan[Rational[1, 32] Pi]}, {
+        Rational[3, 8] + Rational[1, 18] Tan[Rational[3, 64] Pi]^2, 
+         Rational[1, 2] + Rational[-1, 9] Tan[Rational[3, 64] Pi]}, {
+        Rational[3, 8] + Rational[1, 18] Tan[Rational[1, 16] Pi]^2, 
+         Rational[1, 2] + Rational[-1, 9] Tan[Rational[1, 16] Pi]}, {
+        Rational[3, 8] + Rational[1, 18] Tan[Rational[5, 64] Pi]^2, 
+         Rational[1, 2] + Rational[-1, 9] Tan[Rational[5, 64] Pi]}, {
+        Rational[3, 8] + Rational[1, 18] Tan[Rational[3, 32] Pi]^2, 
+         Rational[1, 2] + Rational[-1, 9] Tan[Rational[3, 32] Pi]}, {
+        Rational[3, 8] + Rational[1, 18] Tan[Rational[7, 64] Pi]^2, 
+         Rational[1, 2] + Rational[-1, 9] Tan[Rational[7, 64] Pi]}, {
+        Rational[3, 8] + Rational[1, 18] Tan[Rational[1, 8] Pi]^2, 
+         Rational[1, 2] + Rational[-1, 9] Tan[Rational[1, 8] Pi]}, {
+        Rational[3, 8] + Rational[1, 18] Tan[Rational[9, 64] Pi]^2, 
+         Rational[1, 2] + Rational[-1, 9] Tan[Rational[9, 64] Pi]}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[5, 32] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[5, 32] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[11, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[11, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[3, 16] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[3, 16] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[13, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[13, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[7, 32] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[7, 32] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[15, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[15, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + Rational[1, 2] 2^Rational[-1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] 2^Rational[-1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[15, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[15, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[7, 32] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[7, 32] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[13, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[13, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[3, 16] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[3, 16] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[11, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[11, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[5, 32] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[5, 32] Pi])^
+            Rational[1, 2])}, {
+        Rational[1, 2] + Rational[-1, 9] Tan[Rational[9, 64] Pi], 
+         Rational[3, 8] + Rational[1, 18] Tan[Rational[9, 64] Pi]^2}, {
+        Rational[1, 2] + Rational[-1, 9] Tan[Rational[1, 8] Pi], 
+         Rational[3, 8] + Rational[1, 18] Tan[Rational[1, 8] Pi]^2}, {
+        Rational[1, 2] + Rational[-1, 9] Tan[Rational[7, 64] Pi], 
+         Rational[3, 8] + Rational[1, 18] Tan[Rational[7, 64] Pi]^2}, {
+        Rational[1, 2] + Rational[-1, 9] Tan[Rational[3, 32] Pi], 
+         Rational[3, 8] + Rational[1, 18] Tan[Rational[3, 32] Pi]^2}, {
+        Rational[1, 2] + Rational[-1, 9] Tan[Rational[5, 64] Pi], 
+         Rational[3, 8] + Rational[1, 18] Tan[Rational[5, 64] Pi]^2}, {
+        Rational[1, 2] + Rational[-1, 9] Tan[Rational[1, 16] Pi], 
+         Rational[3, 8] + Rational[1, 18] Tan[Rational[1, 16] Pi]^2}, {
+        Rational[1, 2] + Rational[-1, 9] Tan[Rational[3, 64] Pi], 
+         Rational[3, 8] + Rational[1, 18] Tan[Rational[3, 64] Pi]^2}, {
+        Rational[1, 2] + Rational[-1, 9] Tan[Rational[1, 32] Pi], 
+         Rational[3, 8] + Rational[1, 18] Tan[Rational[1, 32] Pi]^2}, {
+        Rational[1, 2] + Rational[-1, 9] Tan[Rational[1, 64] Pi], 
+         Rational[3, 8] + Rational[1, 18] Tan[Rational[1, 64] Pi]^2}, {
+        Rational[1, 2], Rational[3, 8]}, {
+        Rational[1, 2] + Rational[1, 9] Tan[Rational[1, 64] Pi], 
+         Rational[3, 8] + Rational[1, 18] Tan[Rational[1, 64] Pi]^2}, {
+        Rational[1, 2] + Rational[1, 9] Tan[Rational[1, 32] Pi], 
+         Rational[3, 8] + Rational[1, 18] Tan[Rational[1, 32] Pi]^2}, {
+        Rational[1, 2] + Rational[1, 9] Tan[Rational[3, 64] Pi], 
+         Rational[3, 8] + Rational[1, 18] Tan[Rational[3, 64] Pi]^2}, {
+        Rational[1, 2] + Rational[1, 9] Tan[Rational[1, 16] Pi], 
+         Rational[3, 8] + Rational[1, 18] Tan[Rational[1, 16] Pi]^2}, {
+        Rational[1, 2] + Rational[1, 9] Tan[Rational[5, 64] Pi], 
+         Rational[3, 8] + Rational[1, 18] Tan[Rational[5, 64] Pi]^2}, {
+        Rational[1, 2] + Rational[1, 9] Tan[Rational[3, 32] Pi], 
+         Rational[3, 8] + Rational[1, 18] Tan[Rational[3, 32] Pi]^2}, {
+        Rational[1, 2] + Rational[1, 9] Tan[Rational[7, 64] Pi], 
+         Rational[3, 8] + Rational[1, 18] Tan[Rational[7, 64] Pi]^2}, {
+        Rational[1, 2] + Rational[1, 9] Tan[Rational[1, 8] Pi], 
+         Rational[3, 8] + Rational[1, 18] Tan[Rational[1, 8] Pi]^2}, {
+        Rational[1, 2] + Rational[1, 9] Tan[Rational[9, 64] Pi], 
+         Rational[3, 8] + Rational[1, 18] Tan[Rational[9, 64] Pi]^2}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[5, 32] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[5, 32] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[11, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[11, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[3, 16] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[3, 16] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[13, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[13, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[7, 32] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[7, 32] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Cot[Rational[15, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Tan[Rational[15, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + Rational[-1, 2] 2^Rational[-1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] 2^Rational[-1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[15, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[15, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[7, 32] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[7, 32] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[13, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[13, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[3, 16] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[3, 16] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[11, 64] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[11, 64] Pi])^
+            Rational[1, 2])}, {
+        Rational[2, 9] (3 + 
+          Rational[-1, 2] (Rational[1, 2] Tan[Rational[5, 32] Pi])^
+            Rational[1, 2]), 
+         Rational[2, 9] (Rational[3, 2] + 
+          Rational[1, 2] (Rational[1, 2] Cot[Rational[5, 32] Pi])^
+            Rational[1, 2])}, {
+        Rational[5, 8] + Rational[-1, 18] Tan[Rational[9, 64] Pi]^2, 
+         Rational[1, 9] (Rational[9, 2] - Tan[Rational[9, 64] Pi])}, {
+        Rational[5, 8] + Rational[-1, 18] Tan[Rational[1, 8] Pi]^2, 
+         Rational[1, 9] (Rational[9, 2] - Tan[Rational[1, 8] Pi])}, {
+        Rational[5, 8] + Rational[-1, 18] Tan[Rational[7, 64] Pi]^2, 
+         Rational[1, 9] (Rational[9, 2] - Tan[Rational[7, 64] Pi])}, {
+        Rational[5, 8] + Rational[-1, 18] Tan[Rational[3, 32] Pi]^2, 
+         Rational[1, 9] (Rational[9, 2] - Tan[Rational[3, 32] Pi])}, {
+        Rational[5, 8] + Rational[-1, 18] Tan[Rational[5, 64] Pi]^2, 
+         Rational[1, 9] (Rational[9, 2] - Tan[Rational[5, 64] Pi])}, {
+        Rational[5, 8] + Rational[-1, 18] Tan[Rational[1, 16] Pi]^2, 
+         Rational[1, 9] (Rational[9, 2] - Tan[Rational[1, 16] Pi])}, {
+        Rational[5, 8] + Rational[-1, 18] Tan[Rational[3, 64] Pi]^2, 
+         Rational[1, 9] (Rational[9, 2] - Tan[Rational[3, 64] Pi])}, {
+        Rational[5, 8] + Rational[-1, 18] Tan[Rational[1, 32] Pi]^2, 
+         Rational[1, 9] (Rational[9, 2] - Tan[Rational[1, 32] Pi])}, {
+        Rational[5, 8] + Rational[-1, 18] Tan[Rational[1, 64] Pi]^2, 
+         Rational[1, 9] (Rational[9, 2] - Tan[Rational[1, 64] Pi])}, {
+        Rational[5, 8], Rational[1, 2]}}, CompressedData["
+1:eJxdlWlIVFEYhkdnatQWW7QoxLKMMP2TpWgFHxXZQmm0QEWLaEWhlbaALWq7
+/WqhjDZ/6I8hEwsREUqDog3T0HK5M+MyM9eEFsOK1GywBe9zogaGA/fOOef7
+3vf53glL2bdmh6/JZDrx+/tnHfp0ytDqkmLn1PquQV1qHFUplVEu2WIrrMv/
+oUtQdmCEbaNLamsn7/R+0+Vk05oaS55LOvbHxA526xLw8W3PqAqXlCZWv8nU
+dbkWGl32U3eJ355wb2izLoNhZ7pCgtwS8Oq6ueqpLpa028/uLnHL2Nw7Se/L
+fp93M/PR8MNumZBx9OLsG7ocPtXy/Phdt5ye3zzteY4u1Z+6dns73bL3rcU8
+IlWXI+MmHfIGe8QSY8+NW6pL4YOJC74u9Mi+WbaKkZG6LC9J9fTt9og1J+vH
+4tG6JOaOH2g975FHSTmFV3s80lDQ55tQ5pGwtKaTFQ1/V57zO/ZxDudyD/dS
+B3VRJ3XTB33RJ32jA7qgE7qhI7qiM7rjA77gE77hI77iM77DQfqKs/Mu2TrU
++5Zh7tLylR1qv3fdprTez+3q/I8z54Z25rer++sf3ywwxbWr+sxV36KftbSp
++vsi7u0vOtim+ht4EZL9ZVSb6n/099UZg0WtSp/T06KjrLGtSr8AZ12wtdGp
+9H14rj5v0jGn0j+9OG7+mCin8ifFxz4iweNQ/m19MmbgQIFD+fsgYv3Alc0O
+5X92srn6dahDcdBjDvTP0u2Kg7CS8itdxXbFQX/+KtOFTLviYHpM7/d38XbF
+Qf+5tfczfe2Kg6Yp/h23XmqSZXDQ7lOSHHlLk1MGBx9Sa/vzDmqKg54ZldbH
+azXFgS3lzIaQeE1xsGhy/mVzuKY42LWzZo41SFMcJJRXbW/00xQHpcsebov2
+1RQHQ75rigPe7zE4YL9mcMD5cMD93QYH1AcH1G8xOKC/foMD+ocD9Ak0OEA/
+OEBfOEB/OMAfOMA/OMBfOMB/Vp7zO/ZxDudyD/dSB3VRJ3XTB33RJ32jA7oo
+Dgzd0BFd0Rnd8QFf8Anf8BFf8fnf+f/LBe/hhv1wxflwx/1wSX1wqzgwuKY/
+uKd/5gJ9mBv0Y67Ql7lDf+YSf5hb/GOu8Ze5x39yAQ7IDTggV+CA3IEDcgkO
+yC04INfIOXIPDshFcpLcJEfJVTggd8lhchkOyG1ynFwn5/////8FhqgJ7Q==
+
+       "]]]}, 
+    {RGBColor[0, 0, 1], Thickness[0.01], 
+     ArrowBox[NCache[{{Rational[1, 2], Rational[1, 2]}, {
+        Rational[1, 2] + Rational[-1, 4] 2^Rational[-1, 2], Rational[1, 2] + 
+         Rational[1, 4] 2^Rational[-1, 2]}}, {{0.5, 0.5}, {
+       0.32322330470336313`, 0.6767766952966369}}]]}, 
+    {RGBColor[1, 0, 0], PointSize[Large], 
+     PointBox[NCache[{
+       Rational[2, 9] (Rational[3, 2] + Rational[1, 2] 2^Rational[-1, 2]), 
+        Rational[2, 9] (3 + Rational[-1, 2] 2^Rational[-1, 2])}, {
+       0.4119007534651719, 0.5880992465348279}]]}, InsetBox[
+     StyleBox[
+      InterpretationBox["\<\"\\!\\(\\*SubscriptBox[\\\"\[Rho]\\\", \\n \
+StyleBox[\\\"xy\\\",\\nFontSlant->\\\"Italic\\\"]]\\)=\\!\\(TraditionalForm\\`\
+0.03`\\)\"\>",
+       StringForm[
+       "\!\(\*SubscriptBox[\"\[Rho]\", \n StyleBox[\"xy\",\n\
+FontSlant->\"Italic\"]]\)=``", 0.03],
+       Editable->False],
+      StripOnInput->False,
+      FontSize->16], NCache[{Rational[1, 2], 1.16}, {0.5, 1.16}]], 
+    {RGBColor[0.560181, 0.691569, 0.194885], Opacity[0], EdgeForm[{RGBColor[
+     1, 0, 0], Thickness[Large]}], 
+     InterpretationBox[
+      GeometricTransformationBox[DiskBox[{0, 0}], 
+       NCache[{{{
+          Rational[
+            4, 9] (Rational[-11, 16] - 
+             3 (3 - 2 2^Rational[1, 2] + 3 (-1 + 2^Rational[-1, 2])))^
+            Rational[1, 2], 0}, {
+          Rational[1, 9] (Rational[85, 8] - 6 
+            2^Rational[1, 2]) (Rational[-11, 16] - 
+             3 (3 - 2 2^Rational[1, 2] + 3 (-1 + 2^Rational[-1, 2])))^
+            Rational[-1, 2], (
+            Rational[16, 81] (Rational[-11, 16] + 3 2^Rational[-1, 2]) + 
+            Rational[-1, 81] (Rational[85, 8] - 6 2^Rational[1, 2])^2/(
+             Rational[-11, 16] - 
+             3 (3 - 2 2^Rational[1, 2] + 3 (-1 + 2^Rational[-1, 2]))))^
+           Rational[1, 2]}}, {
+         Rational[2, 9] (Rational[3, 2] + Rational[1, 2] 2^Rational[-1, 2]), 
+          Rational[2, 9] (3 + Rational[-1, 2] 2^Rational[-1, 2])}}, {{{
+          0.5321877221125427, 0}, {0.1985485815082499, 
+          0.49376333637523007`}}, {0.4119007534651719, 0.5880992465348279}}]],
+      Ellipsoid[{
+       Rational[2, 9] (Rational[3, 2] + Rational[1, 2] 2^Rational[-1, 2]), 
+        Rational[2, 9] (3 + Rational[-1, 2] 2^Rational[-1, 2])}, {{
+        Rational[16, 81] (Rational[-11, 16] - 
+          3 (3 - 2 2^Rational[1, 2] + 3 (-1 + 2^Rational[-1, 2]))), 
+         Rational[4, 81] (Rational[85, 8] - 6 2^Rational[1, 2])}, {
+        Rational[4, 81] (Rational[85, 8] - 6 2^Rational[1, 2]), 
+         Rational[16, 81] (Rational[-11, 16] + 3 2^Rational[-1, 2])}}]]}}},
+  ImageSize->200]], "Output",
+ CellChangeTimes->{{3.690052793634468*^9, 3.690052851490161*^9}, {
+   3.690052983943516*^9, 3.690053027009203*^9}, 3.690053064184898*^9, {
+   3.6900532081615973`*^9, 3.690053217598776*^9}, 3.690053274607774*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -24026,7 +24830,7 @@ gQNyiZwit+CAXIMDco8cJBfJSXITDshVcpbcJYfJZTggt8lxcp2c/////xfJ
 }, Open  ]]
 },
 WindowSize->{1251, 716},
-WindowMargins->{{Automatic, -36}, {-123, Automatic}},
+WindowMargins->{{Automatic, -50}, {-22, Automatic}},
 FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
 2014)",
 StyleDefinitions->"Default.nb"
@@ -24054,46 +24858,55 @@ Cell[CellGroupData[{
 Cell[152900, 4088, 30471, 647, 1163, "Input",
  InitializationCell->True,
  CellID->518614895],
-Cell[183374, 4737, 182837, 3263, 550, "Output"]
+Cell[183374, 4737, 183110, 3257, 550, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[366248, 8005, 9616, 234, 634, "Input"],
-Cell[375867, 8241, 123187, 2149, 315, "Output"]
+Cell[366521, 7999, 9616, 234, 634, "Input"],
+Cell[376140, 8235, 123145, 2150, 315, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[499091, 10395, 6183, 148, 250, "Input"],
-Cell[505277, 10545, 60649, 1053, 235, "Output"]
+Cell[499322, 10390, 253, 7, 28, "Input"],
+Cell[499578, 10399, 114, 1, 28, "Output"]
+}, Open  ]],
+Cell[499707, 10403, 120, 2, 28, "Input"],
+Cell[CellGroupData[{
+Cell[499852, 10409, 10531, 250, 725, "Input"],
+Cell[510386, 10661, 28446, 533, 216, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[565963, 11603, 6125, 148, 258, "Input"],
-Cell[572091, 11753, 96076, 1635, 221, "Output"]
+Cell[538869, 11199, 6183, 148, 250, "Input"],
+Cell[545055, 11349, 60649, 1053, 235, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[668204, 13393, 3012, 86, 174, "Input"],
-Cell[671219, 13481, 115044, 1914, 255, "Output"]
+Cell[605741, 12407, 6125, 148, 258, "Input"],
+Cell[611869, 12557, 96076, 1635, 221, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[786300, 15400, 6689, 158, 258, "Input"],
-Cell[792992, 15560, 68649, 1170, 234, "Output"]
+Cell[707982, 14197, 3012, 86, 174, "Input"],
+Cell[710997, 14285, 115044, 1914, 255, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[861678, 16735, 6323, 149, 241, "Input"],
-Cell[868004, 16886, 63038, 1081, 258, "Output"]
+Cell[826078, 16204, 6689, 158, 258, "Input"],
+Cell[832770, 16364, 68649, 1170, 234, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[901456, 17539, 6323, 149, 241, "Input"],
+Cell[907782, 17690, 63038, 1081, 224, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[931091, 17973, 95, 1, 64, "Section"],
+Cell[970869, 18777, 95, 1, 64, "Section"],
 Cell[CellGroupData[{
-Cell[931211, 17978, 9085, 220, 592, "Input"],
-Cell[940299, 18200, 234947, 4594, 315, "Output"]
+Cell[970989, 18782, 9085, 220, 592, "Input"],
+Cell[980077, 19004, 234947, 4594, 315, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1175283, 22799, 9159, 223, 626, "Input"],
-Cell[1184445, 23024, 22084, 357, 315, "Output"]
+Cell[1215061, 23603, 9159, 223, 626, "Input"],
+Cell[1224223, 23828, 22084, 357, 315, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1206566, 23386, 9207, 223, 626, "Input"],
-Cell[1215776, 23611, 25594, 412, 315, "Output"]
+Cell[1246344, 24190, 9207, 223, 626, "Input"],
+Cell[1255554, 24415, 25594, 412, 315, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
