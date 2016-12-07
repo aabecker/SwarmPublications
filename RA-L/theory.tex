@@ -96,10 +96,10 @@ F \sin(\theta), & \text{else} \end{cases} \\ %\sign(F \sin(\theta) ) \cdot  \max
 Though each receives the same inputs,  they experience different net forces.
   For ease of analysis, the following algorithms assume $\mu_f$ is infinite and robots touching the wall are prevented from sliding along the wall.
 This means that if one robot is touching the wall and another robot is free, the touching robot will not move when the control input is parallel or into the wall. 
-There are many alternate models of friction that also break control symmetry. Fig.~\ref{fig:friction}c shows fluid flow along a boundary.  Fluid in the free-flow region moves uniformly, but flow decreases to zero in the boundary layer.  
+There are many alternate models of friction that also break control symmetry. Fig.~\ref{fig:friction}c shows fluid flow along a boundary.  Fluid in the free-flow region moves uniformly, but flow decreases to zero in the boundary layer \citep{fluidMechanics}.  
 \begin{align}
 %u(y) = u_0 \left(1- \frac{(y-h)^2}{h^2}\right) = u_0 \frac{y}{h} \left(2- \frac{y}{h}\right) \label{eq:boundarylayerflow} THiS EQUATION IS TERRIBLE! PLOT IT.
-F_{forward}(y) &= F - F_f\begin{cases}  \frac{y-h}{h}   , &  y<h \label{eq:boundarylayerflow} \\
+F_{forward}(y) &= F - F_f\begin{cases}  \frac{h-y}{h}   , &  y<h \label{eq:boundarylayerflow} \\
 0, & \text{else} \end{cases}
 \end{align}
 
@@ -272,61 +272,42 @@ Fourth, all robots except robot $k$ are pushed left until robot $k$ is in the co
 Finally, all robots are moved right until robot $k$ is in the desired target position. Running time is $O(n(w+h))$.
 
 
-\subsection{Controlling Covariance Using Wall Friction}\label{subsec:ClosedLoopCovarianceControl}
-Assume an obstacle-free, bounded workspace with infinite boundary friction. Goal variances and covariance are  $(\sigma_{goalx}^2,\sigma_{goaly}^2, \sigma_{goalxy})$ and mean, variances and covariance of the swarm  are $( \bar{x},\bar{y},\sigma_x^2,\sigma_y^2, \sigma_{xy})$. 
-%$\sigma_x^2$ decreases when the swarm is pushed into vertical walls, and $\sigma_y^2$ decreases when the swarm is pushed into horizontal walls. Alg.~\ref{alg:CovCont} procedes as follows:
-\begin{enumerate}
-\item swarm pushed into the left wall until $\sigma_x^2 \le c_1\sigma_{goalx}^2$.  
-\item swarm's mean position is moved to the center of the workspace
-\item swarm pushed into the bottom wall until $\sigma_y^2 \le  \sigma_{goaly}^2$. 
-\item if $\sigma_{goalxy}>0$ swarm slides right until $\sigma_{xy} \ge \sigma_{goalxy}$ \\
-else swarm slides left until $\sigma_{xy} \le \sigma_{goalxy}$ 
-\item  swarm's mean position is moved to the center of the workspace
-\end{enumerate}
-The constant $c_1$ in step 1 should be less than 1 to ensure $\sigma_x^2$ stays within tolerance during the subsequent moves.
 
+\subsection{Maximizing Correlation Using Wall Friction}\label{subsec:ClosedLoopCovarianceControl}
+Using the environment to individually move $n$ particles to goal positions in Alg. \ref{alg:PosControlNRobots} requires $O(n^2)$ time, while  Alg. \ref{alg:PosControl2Robots} can only control two particles. The controllers in Section \ref{sec:theory} are efficient because they require only a single move but the range of possible configurations are limited. This section presents an efficient technique to generate desired correlations.
 
-%\begin{algorithm}
-%\caption{Swarm Covariance Control With Wall Friction}\label{alg:CovCont}
-%\begin{algorithmic}[1]
-%\Require  goal variances and covariance and mean, variances and covariance of the swarm  $(\sigma_{goalx}^2,\sigma_{goaly}^2, \sigma_{goalxy}, \bar{x},\bar{y},\sigma_x^2,\sigma_y^2, \sigma_{xy})$. 
-%%Swarm is Gaussian distributed (in limit it is uniformly distributed), 
-%$L_w$ is width of the walls and $L_h$ is the height of the wall. $(0,0)$ is top right corner. $\epsilon$ is the error for reaching covariance.
-%\If {$\sigma_x^2 > \sigma_{goalx}^2/10 $ }
-%\State $ \bar{x} \gets \sigma_{goalx}/10   $ \Comment{Move to left wall}
-%\State $MoveToCenter \gets true$
-%\Else
-%\If {$MoveToCenter$ }
-%\State   $ \bar{x} \gets L_w/2 $, $\bar{y} \gets L_h/2 $ \Comment{Move to the center}
-%\State $MoveToBottom \gets true$
-%\State $MoveToCenter \gets false$
-%\Else 
-%\If {$MoveToBottom $}
-%\State $ \bar{y} \gets L_h - \sigma_{goaly}   $ \Comment{Move to bottom}
-%\State $MoveToBottom \gets false$
-%\Else
-%\If {$\sigma_{xy} -\sigma_{goalxy} > \epsilon$}
-%\While  {$\sigma_{xy} -\sigma_{goalxy} > \epsilon$ }
-%\State $ \bar{x} \gets \bar{x} + \epsilon  $ \Comment{Move to right wall}
-%\EndWhile
-%\Else
-%\If {$\sigma_{xy} -\sigma_{goalxy} < \epsilon$ }
-%\While  {$\sigma_{xy} -\sigma_{goalxy} < \epsilon$ }
-%\State $ \bar{x} \gets \bar{x} - \epsilon  $ \Comment{Move to left wall}
-%\EndWhile
-%\EndIf
-%\EndIf
-%\EndIf
-%\EndIf
-%\EndIf
-%\State   $ \bar{x} \gets L_w/2 $, $\bar{y} \gets L_h/2 $ \Comment{Move to the center}
-%
-%\end{algorithmic}
-%\end{algorithm}
+Assume an obstacle-free, bounded, unit-size square workspace. 
+ As shown in Fig.~\ref{fig:SquareFill}, the maximum correlation occurs when the swarm is pushed in the direction $\beta = 3\pi/4$. 
+ This correlation as a function of swarm area $A$ is never larger than 1/2, and the maximum correlation decays to 0 as $A$ grows to 1. By  \eqref{eq:covAndcorrInSquareWorkspace}, this maximum correlation is:
+\begin{align} \label{eq:GravityCorrelation}
+\rho_{xy} =  \begin{cases}  \frac{1}{2}  , &  0\le A\le \frac{1}{2}  \\
+% \frac{3 A (2 (A-2) A+1)}{4 A \left(A^2+3 \sqrt{2-2 A}-6\right)-12 \sqrt{2-2 A}+17}-1
+ \frac{3 A (2 (A-2) A+1)}{4 A^3-24 A+\sqrt{2} (12 A-12) \sqrt{1-A}+17}-1
+ , & \frac{1}{2} \le A\le 1
+\end{cases}
+\end{align}
+ If friction obeys the linear boundary layer model of \eqref{eq:boundarylayerflow} with boundary layer thickness $h$ and maximum friction $F_f$ equal to the maximum applied force $F$, we can generate much larger correlations.
+Specifically, we can generate correlations larger than 1/2 by using boundary friction if the swarm size is smaller than $\approx 0.43$ and the boundary layer is sufficiently thick. 
 
-
-
-
+ Assume that the swarm is initialized in the lower-left corner, in a rectangle of width $w$ and height $A/w$. 
+ Such a rectangular configuration can be accomplished using the variance controllers from \citep{ShahrokhiIROS2015}. 
+  If the swarm is then commanded to move a distance $L$ to the right, components of the swarm outside the boundary friction layer of height $h$ move further than components near the boundary. 
+   The swarm is contained in a region $R$ composed of no more than three stacked components: at bottom a parallelogram inclined to the right top, at middle a rectangle, and at top a parallelogram inclined to the left top. These regions can be defined by the rectangle's left side, bottom, and top:
+\begin{align}
+r_{\text{left}} &= \min (L,1-w)\nonumber \\
+r_{\text{bottom}} &=\min \left(\frac{A}{w}, h\frac{r_{left}}{L}  \right)\nonumber \\
+r_{\text{top}}  &= \min \left(\frac{A}{w}, 1-h\frac{r_{left}}{L}  \right)
+\end{align}
+If $\frac{A}{w} \le r_{\text{top}}$ the top parallelogram has no area. 
+ Similarly, if $r_{\text{top}} \le r_{\text{bottom}}$ the rectangle has no area. 
+The mean, variance, and correlation are calculated  using \eqref{eq:meanInSquareWorkspace}, \eqref{eq:varInSquareWorkspace}, and \eqref{eq:covAndcorrInSquareWorkspace} over the region $R$:
+\begin{align} \iint_R f(x,y) \, dx \,dy &=  \int_0^{r_{\text{bottom}}}  \int_{\frac{L}{h}y}^{\frac{L}{h}y+w}  f(x,y)  dx \, dy \label{eq:correlationFriction} \\
+&+\int_{r_{\text{bottom}}}^{r_{\text{top}}} \int_{r_{\text{left}}}^{r_{\text{left}} +w} f(x,y)    dx \, dy \nonumber\\
+&+\int_{r_{\text{top}}}^{\frac{A}{w}} \int_{-\frac{L (y-r_{\text{top}})}{h}+r_{\text{left}}}^{r_{\text{left}}+w-\frac{L (y-r_{\text{top}})}{h}} f(x,y)   dx \, dy \nonumber
+\end{align}
+ 
+ Given an environment parameterized by $A$ and $h$, efficient correlation control consists of choosing the $w,L$ pair  that generates the desired positive correlation.
+  Negative correlations can be generated by initializing the swarm in the upper left, or lower right.
 
 
 
