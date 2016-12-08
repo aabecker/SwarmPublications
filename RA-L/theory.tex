@@ -22,9 +22,9 @@
 
 \subsection{Using Boundaries: stable configurations of a swarm}\label{subsec:FluidInTank}
 One method to control a swarm's shape in a bounded workspace is to simply push in a given direction until the swarm conforms to the boundary. Like fluid settling in a tank, the stable final configuration minimizes potential energy.
-\paragraph{Square workplace}
+\paragraph{Square workspace}
 %The formulas for means $(\bar{x},\bar{y})$, covariance $(\sigma^2_x,\sigma^2_y,\sigma_{xy})$, and correlation $\rho_{xy}$ are as follows: 
-We first examine the mean $(\bar{x},\bar{y})$, covariance $(\sigma^2_x,\sigma^2_y,\sigma_{xy})$, and correlation $\rho_{xy}$ of a very large swarm of robots as they move inside a square workplace under the influence of gravity pointing in the direction $\beta$. The swarm is large, but the robots are small in comparison, and together occupy a constant area $A$ ranging from [0,1]. Under a global input such as gravity, they flow like water, moving to a side of the workplace and forming a polygonal shape, as shown in Fig.~\ref{fig:SquareFill},  see also \citep{Zhao2016mathematicaSquare}.
+We first examine the mean $(\bar{x},\bar{y})$, covariance $(\sigma^2_x,\sigma^2_y,\sigma_{xy})$, and correlation $\rho_{xy}$ of a large swarm of robots as they move inside a square workspace under the influence of a force pulling in the direction $\beta$. The swarm is large, but the robots are small in comparison, and together occupy a constant area $A$ ranging from [0,1]. Under a global input, they move to a side of the workspace and form a polygonal shape, as shown in Fig.~\ref{fig:SquareFill},  see also \citep{Zhao2016mathematicaSquare}.
 
 The range for the global input angle $\beta $ is [0,2$\pi $). In this range, the swarm assumes eight different polygonal shapes. 
 These shapes alternate between triangles and trapezoids when the area $A$$<$1/2, and between squares with one corner removed and trapezoids when $A$$>$1/2.
@@ -55,7 +55,7 @@ The region of integration $R$ is the polygon containing the swarm. For example, 
 The full equations are included in the appendix~\citep{2016arXiv160901830S}, and are summarized in Fig.~\ref{fig:SquareFill}. A few highlights are that the correlation is maximized $\pm$1/2 when the swarm is in a triangular shape. The covariance of a triangle is always $\pm(A/18)$. Variance is minimized in the direction of $\beta$ and maximized orthogonal to $\beta$ when the swarm is in a rectangular shape. The range of mean positions are maximized when $A$ is small.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Circular workplace}
+\paragraph{Circular workspace}
 Though rectangular boundaries are common in artificial workspaces, biological workspaces are usually rounded.
 Similar calculations can be made for a circular workspace.  The workspace is a circle centered at (0,0) with radius 1 and thus area $\pi$.
 For notational simplicity, the swarm is parameterized by the global control input signal $\beta$ and the fill-level $h$.  
@@ -179,8 +179,8 @@ In the worse case, adjusting both $\Delta r_x$ and $\Delta r_y$ needs all the st
 \Require knowledge of starting $(s_1,s_2)$ and ending $(e_1,e_2)$ positions of  two robots. 
 $(0,0)$ is bottom corner, $s_1$ is leftmost robot, 
  $L$ is length of the walls. Current robot positions are $(r_1,r_2)$.
+ Assume $s_1.x < s_2.x$ and $s_1.y \geq s_2.y$ if not, rotate workspace coordinates $90^{\circ}$.
 \Ensure $(e_1, e_2) , (s_1, s_2)$ all at least $\epsilon$ distance from walls.
-\Ensure $s_1.x < s_2.x$ and $s_1.y \geq s_2.y$ if not, rotate workspace coordinates $90^{\circ}$.
 \State $\epsilon \gets$ robot diameter
 \State $\Delta e_y = e_2.y - e_1.y$
 \State $\Delta e_x = e_2.x - e_1.x$
