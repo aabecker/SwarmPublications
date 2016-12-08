@@ -189,16 +189,23 @@ $(0,0)$ is bottom corner, $s_1$ is leftmost robot,
 %\Else
 %\State $sign \gets 0$
 %\EndIf
+%First Move
 \State Move $\left(-r_1.x , -\min \left(r_2.y , r_1.y+ \Delta e_y \right)+\epsilon \right)$ \Comment{Touch left wall}
-\State Move $(-\min(|-r_2.x+ \Delta e_x|, r_2.x), \sign(\Delta e_y) \, \min(\max(r_1.y + \Delta e_y, r_2.y)-\epsilon,L-r_2.y-\epsilon)+ \epsilon)$ \Comment{Adjust  $y$}
-\If {$r_2.y \neq r_1.y$}
-\State Move $(\max(\epsilon, -\Delta e_x+ (r_2.x - r_1.x)), -\min(r_1.y , r_2.y))$ \Comment{Touch bottom wall}
-\State Move $(\Delta e_x , (|\sign(\Delta e_y)|-1) \epsilon)$ \Comment{Adjust $x$}
-\EndIf
+%Second Move
+%(-\min(|-r_2.x+ \Delta e_x|, r_2.x),
+\State Move $ (r_2.x, |\sign(\Delta e_y)| \, \min(r_1.y - r_2.y + \Delta e_y-\epsilon,L-r_2.y-\epsilon)+ \epsilon)$ \Comment{Adjust  $y$}
+%Third Move
+\State Move $(\max(\epsilon, -\sign(r_2.y - r_1.y)\Delta e_x), -\min(r_1.y , r_2.y))$ \Comment{Touch bottom wall}
+%Fourth Move
+\State Move $(\sign(r_2.y - r_1.y)\Delta e_x , (|\sign(\Delta e_y)|-1) |r_2.y - r_1.y|)$ \Comment{Adjust $x$}
 \If {$\Delta e_y \neq r_2.y - r_1.y$}
-\State Move $(L- r_1.x , \epsilon)$ \Comment{Touch right wall}
-\State Move $(0, \Delta e_y - r_2.y)$ \Comment{Adjust $y$}
+%Fifth Move
+%TODO This step is not correct.
+\State Move $(L- \max(r_1.x, r_2.x) , \epsilon)$ \Comment{Touch right wall}
+%Sixth Move
+\State Move $(0, -\sign(\Delta e_x)\Delta e_y -\max(r_1.y, r_2.y)- \min(r_1.y, r_2.y)$ \Comment{Adjust $y$}
 \EndIf
+%Seventh Move
 \State Move by $(e_2.x - r_2.x, e_2.y - r_2.y)$ \Comment{Go to goal}
 \end{algorithmic}
 \end{algorithm}
