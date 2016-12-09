@@ -18,6 +18,7 @@
 \caption{Pushing the swarm against a circular boundary wall allows limited control of the shape of the swarm, as a function of the fill level $h$ and the commanded movement direction $\beta$. Left plot shows locus of possible mean positions for four values of $h$. The locus of possible mean positions are concentric circles. See online interactive demonstration at \citep{Zhao2016mathematica}.}  
 \label{fig:CircleFill}
 \end{center}
+\vspace{-1em}
 \end{figure*} 
 
 \subsection{Using Boundaries: stable configurations of a swarm}\label{subsec:FluidInTank}
@@ -113,7 +114,7 @@ The next section shows how a system in a rectangularly bounded workspace with fr
 \vspace{-1em}
 \caption{(a,b) Wall friction reduces the force for going forward $F_{\text{\emph{forward}}}$ on a robot near a wall, but not for a free robot. (c) velocity of a fluid reduces to zero at the boundary.
 \label{fig:friction}
-}
+}\vspace{-1em}
 \end{center}
 \end{figure} 
 
@@ -136,19 +137,20 @@ The next section shows how a system in a rectangularly bounded workspace with fr
 \end{overpic}}\\
 
 \caption{\label{fig:shapeControlMathematica1}{Frames from an implementation of Alg.\ \ref{alg:PosControl2Robots}: two robot positioning using walls with infinite friction. The algorithm only requires friction along the bottom and right walls.
-Robot initial positions are shown by a crosshair, and final positions by a circled crosshair.  Dashed lines show the shortest route if robots could be controlled independently.  Solid arrows show path given by  Alg.\ \ref{alg:PosControl2Robots}.
+Robot initial positions are shown by a square, and final positions by a circle.  Dashed lines show the shortest route if robots could be controlled independently.  Solid arrows show path given by  Alg.\ \ref{alg:PosControl2Robots}.
 Online demonstration and source code at \citep{Shahrokhi2015mathematicaParticle}.
 %The bottom row shows an extreme case where the robots must switch position.
 }
-%\vspace{-2em}
+\vspace{-1em}
 }
 \end{figure*}
 
 Alg.~\ref{alg:PosControl2Robots} uses wall-friction to arbitrarily position two robots in a rectangular workspace.  This algorithm  introduces concepts that will be used for multi-robot positioning. Fig.~\ref{fig:shapeControlMathematica1} shows a Mathematica implementation of the algorithm, and is useful as a visual reference for the following description.
 
 Assume two robots are initialized at $s_1$ and $s_2$ with corresponding goal destinations $e_1$ and $e_2$. 
+We can exploit symmetry in the solution by labeling the leftmost  (or, if they have the same $x$ coordinate, the topmost) robot $s_1$.  If $s_1$ is not also the topmost robot, we rotate the coordinate frame by 90$^\circ$.
 Denote the current positions of the robots  $r_1$ and $r_2$. 
-Values $.x$ and $.y$ denote the $x$ and $y$ coordinates, i.e., $s_1.x$ and $s_1.y$ denote the $x$ and $y$ locations of $s_1$. Also the sign function is:
+Values $.x$ and $.y$ denote the $x$ and $y$ coordinates, i.e., $s_1.x$ and $s_1.y$ denote the $x$ and $y$ locations of $s_1$. Define the sign function as:
 \begin{align}
 \sign (x) = \begin{cases}  1, &  x > 0 \\
 0, & x=0\\
@@ -244,6 +246,7 @@ A drift move consists of repeating a triangular movement sequence $\{ (\beta/2,-
 \vspace{-1em}
 \caption{\label{fig:driftmove}
 A  $\operatorname{DriftMove}(\alpha, \beta, \epsilon)$ to the right repeats a triangular movement sequence $\{ (\beta/2,-\epsilon),(\beta/2,\epsilon),(-\alpha,0)\}$. Robot $A$ touching a top wall moves right $\beta$ units, while robots not touching the top move right $\beta-\alpha$.}
+\vspace{-1em}
 \end{figure}
 
 Let $(0,0)$ be the lower left corner of the workspace, $p_k$ the $x,y$ position of the $k$th robot, and $f_k$ the final $x,y$ position of the $k$th robot. Label the robots in the staging zone from left-to-right and bottom-to-top, and the $f_k$ configurations top-to-bottom and right-to-left as shown in Fig.~\ref{fig:construction2d}.
