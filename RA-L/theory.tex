@@ -204,11 +204,18 @@ $\epsilon $ is a small, nonzero, user-specified value.
 \State Move $(\sign(r_2.y - r_1.y)\Delta e_x , (|\sign(\Delta e_y)|-1) |r_2.y - r_1.y|)$ \Comment{Adjust $x$}
 \If {$\Delta e_y \neq r_2.y - r_1.y$}
 %Fifth Move
-%TODO This step is not correct.
-\State Move $(L- \max(r_1.x, r_2.x) , \epsilon)$ \Comment{Touch right wall}
+\If {$\Delta e_x \neq 0$}
+\State Move $(\sign(r_2.y- r_1.y)\Delta e_x, |\sign(\Delta e_y)-1| |r_1.y-r_2.y|)$ \Comment{Touch right wall}
+\Else
+\State Move  $(|\sign(\Delta e_y -r_2.y+ r_1.y)| \epsilon, |\sign(\Delta e_y)-1| |r_1.y-r_2.y|)$ \Comment{Touch right wall}
+\EndIf
 %Sixth Move
-\State Move $(0, -\sign(\Delta e_x)\Delta e_y -\max(r_1.y, r_2.y)- \min(r_1.y, r_2.y)$ 
+\If {$\Delta e_x < 0$}
+\State Move $(L - \max(r_1.x, r_2.x), \epsilon)$
+\Else 
+\State Move $(L - \max(r_1.x, r_2.x),\Delta e_y -\max(r_1.y, r_2.y)$ 
 \Statex \Comment{Adjust $y$}
+\EndIf
 \EndIf
 %Seventh Move
 \State Move $(e_2.x - r_2.x, e_2.y - r_2.y)$ \Comment{Go to goal}
