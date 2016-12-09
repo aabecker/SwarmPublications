@@ -185,8 +185,9 @@ In the worse case, adjusting both $\Delta r_x$ and $\Delta r_y$ needs all four s
 $(0,0)$ is bottom corner, $s_1$ is leftmost robot, 
  $L$ is length of the walls. Current robot positions are $(r_1,r_2)$.
  Assume $s_1.x < s_2.x$ and $s_1.y \geq s_2.y$. If not, rotate workspace coordinates $90^{\circ}$.
+$\epsilon $ is a small, nonzero, user-specified value.
+ 
 \Ensure $(e_1, e_2) , (s_1, s_2)$ all at least $\epsilon$ distance from walls.
-\State $\epsilon \gets$ robot diameter
 \State $\Delta e_y = e_2.y - e_1.y$
 \State $\Delta e_x = e_2.x - e_1.x$
 \State Move $\left(-r_1.x , -\min \left(r_2.y , r_1.y+ \Delta e_y \right)+\epsilon \right)$ \Comment{Touch left wall}
