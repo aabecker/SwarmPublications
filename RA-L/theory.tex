@@ -24,12 +24,12 @@
 One method to control a swarm's shape in a bounded workspace is to simply push in a given direction until the swarm conforms to the boundary. Like fluid settling in a tank, the stable final configuration minimizes potential energy.
 \paragraph{Square workspace}
 %The formulas for means $(\bar{x},\bar{y})$, covariance $(\sigma^2_x,\sigma^2_y,\sigma_{xy})$, and correlation $\rho_{xy}$ are as follows: 
-We first examine the mean $(\bar{x},\bar{y})$, covariance $(\sigma^2_x,\sigma^2_y,\sigma_{xy})$, and correlation $\rho_{xy}$ of a large swarm of robots as they move inside a square workspace under the influence of a force pulling in the direction $\beta$. The swarm is large, but the robots are small in comparison, and together occupy a constant area $A$ ranging from [0,1]. Under a global input, they move to a side of the workspace and form a polygonal shape, as shown in Fig.~\ref{fig:SquareFill},  see also \citep{Zhao2016mathematicaSquare}.
+We first examine the mean $(\bar{x},\bar{y})$, covariance $(\sigma^2_x,\sigma^2_y,\sigma_{xy})$, and correlation $\rho_{xy}$ of a large swarm of robots as they move inside a square workspace under the influence of a force pulling in the direction $\beta$. The swarm is large, but the robots are small in comparison, and together occupy a constant area $A$, $A\in [0,1]$. Under a global input, the swarm moves to a side of the workspace and forms a polygonal shape that minimizes potential energy, as shown in Fig.~\ref{fig:SquareFill},  see also \citep{Zhao2016mathematicaSquare}.
 
 The range for the global input angle $\beta $ is [0,2$\pi $). In this range, the swarm assumes eight different polygonal shapes. 
 These shapes alternate between triangles and trapezoids when the area $A$$<$1/2, and between squares with one corner removed and trapezoids when $A$$>$1/2.
 
-Computing means, variances, covariance, and correlation requires integrating over the region $R$, the region containing the swarm:  %This is simplified using an indicator function $\bm{1}_A(x,y)$ that returns 1 if inside the region containing the swarm, and 0 else. 
+Computing means, variances, covariance, and correlation requires integrating over $R$, the region containing the swarm:  %This is simplified using an indicator function $\bm{1}_A(x,y)$ that returns 1 if inside the region containing the swarm, and 0 else. 
 %The formulas for means $(\bar{x},\bar{y})$, covariance $(\sigma^2_x,\sigma^2_y,\sigma_{xy})$, and correlation $\rho_{xy}$ are as follows: %, integrated over the unit square with $x$ and $y$ from 0 to 1:
 
 \begin{align}
@@ -79,10 +79,13 @@ Variance $\sigma^2_x(\beta,h)$ is maximized at $\beta = \pi/2+n \pi$ and $h\appr
 Global inputs move a swarm uniformly.  
 Shape control requires breaking this uniform symmetry.  
 A swarm inside an axis-aligned rectangular workspace can reduce variance normal to a wall by simply pushing the swarm into the boundary. 
-Controlling covariance by pushing the swarm into a boundary requires changes to the boundary.  
-An obstacle in the lower-right corner is enough to generate positive covariance, but generating both positive and negative covariance requires additional obstacles.  
-Requiring a special obstacle configuration also makes shape control dependent on the local environment. 
-Instead of pushing our robots directly into a wall, this paper examines an oblique approach, by using boundaries that generate friction with the robots.  These frictional forces are  sufficient to break the symmetry caused by uniform inputs.  Robots touching a wall have a friction force that opposes movement along the boundary.  
+If the swarm can flow around each other, pushing the swarm into a boundary produces the limited set of configurations presented in Sec.~\ref{subsec:FluidInTank}.
+%Controlling covariance by pushing the swarm into a boundary requires changes to the boundary.  
+%An obstacle in the lower-right corner is enough to generate positive covariance, but generating both positive and negative covariance requires additional obstacles.  
+%Requiring a special obstacle configuration also makes shape control dependent on the local environment. 
+Instead of pushing our robots directly into a wall, the following sections examine an oblique approach  using boundaries that generate friction with the robots. 
+ These frictional forces are  sufficient to break the symmetry caused by uniform inputs.  
+Robots touching a wall have a friction force that opposes movement along the boundary.  
 This causes robots along the boundary to move more slowly than robots in free-space. 
   
 Let the control input be a vector force $\vec{F}$ with magnitude $F$ and orientation $\theta$ with respect to a line perpendicular to and into the nearest boundary. $N$ is the normal or perpendicular force between the robot and the boundary. The force of friction $F_f$ is nonzero if the robot is in contact with the boundary and  $\sin(\theta) < 0$. The resulting net force on the robot, $F_{\text{\emph{forward}}}$, is aligned with the wall and given by
@@ -103,7 +106,7 @@ F_{forward}(y) &= F - F_f\begin{cases}  \frac{h-y}{h}   , &  y<h \label{eq:bound
 0, & \text{else} \end{cases}
 \end{align}
 
-The next section shows how a system with friction model \eqref{eq:frictionmodel} and two orthogonal walls can arbitrarily position two robots. 
+The next section shows how a system in a rectangularly bounded workspace with friction model \eqref{eq:frictionmodel} can arbitrarily position two robots. 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.8\columnwidth]{friction.pdf} 
@@ -117,7 +120,7 @@ The next section shows how a system with friction model \eqref{eq:frictionmodel}
 
 
 \section{Algorithms}\label{sec:algorithms}
-\subsection{Position Control of $2$ Robots Using Wall Friction}\label{sec:PostionControl2Robots}
+\subsection{Position Control of Two Robots Using Wall Friction}\label{sec:PostionControl2Robots}
 \begin{figure*}
 \centering
 \renewcommand{\figwid}{0.4\columnwidth}
@@ -164,38 +167,34 @@ Second, $\Delta r_x -\Delta e_x$ is reduced to zero with the bottom wall.
 Third, if the robots were not correctly positioned relative to each other, $\Delta r_y -\Delta e_y$ is reduced to zero with the right wall.
 %First, $|\Delta r_x - \Delta e_x |$ is reduced to zero while  $\Delta r_y$ is kept constant in Alg.~\ref{alg:XControl}. 
 %Second, $|\Delta r_y - \Delta e_y |$ is reduced to zero while  $\Delta r_x$ is kept constant. % in Alg.~\ref{alg:YControl}. 
-Last, the robots, now correctly positioned relative to each other, are moved to their goal locations.
+Lastly, the robots, now correctly positioned relative to each other, are moved to their goal locations.
 
-In the worse case, adjusting both $\Delta r_x$ and $\Delta r_y$ needs all the steps. The worst case path length is $2(\sqrt{2}+1)L$.
+In the worse case, adjusting both $\Delta r_x$ and $\Delta r_y$ needs all four steps. The worst case path length is $2(\sqrt{2}+1)L$.
 
 
 
 
 
 \begin{algorithm}
-\caption{GenerateDesired spacing($s_1,s_2,e_1,e_2,L$)}\label{alg:PosControl2Robots}
+\caption{GenerateDesiredSpacing($s_1,s_2,e_1,e_2,L$)}\label{alg:PosControl2Robots}
 \begin{algorithmic}[1]
 \scriptsize
 \Require knowledge of starting $(s_1,s_2)$ and ending $(e_1,e_2)$ positions of  two robots. 
 $(0,0)$ is bottom corner, $s_1$ is leftmost robot, 
  $L$ is length of the walls. Current robot positions are $(r_1,r_2)$.
- Assume $s_1.x < s_2.x$ and $s_1.y \geq s_2.y$ if not, rotate workspace coordinates $90^{\circ}$.
+ Assume $s_1.x < s_2.x$ and $s_1.y \geq s_2.y$. If not, rotate workspace coordinates $90^{\circ}$.
 \Ensure $(e_1, e_2) , (s_1, s_2)$ all at least $\epsilon$ distance from walls.
 \State $\epsilon \gets$ robot diameter
 \State $\Delta e_y = e_2.y - e_1.y$
 \State $\Delta e_x = e_2.x - e_1.x$
-%\If {$\Delta e_y \neq 0$}
-%\State $sign \gets \frac{|\Delta e_y|}{\Delta e_y}$
-%\Else
-%\State $sign \gets 0$
-%\EndIf
-%First Move
 \State Move $\left(-r_1.x , -\min \left(r_2.y , r_1.y+ \Delta e_y \right)+\epsilon \right)$ \Comment{Touch left wall}
 %Second Move
 %(-\min(|-r_2.x+ \Delta e_x|, r_2.x),
-\State Move $ (r_2.x, |\sign(\Delta e_y)| \, \min(r_1.y - r_2.y + \Delta e_y-\epsilon,L-r_2.y-\epsilon)+ \epsilon)$ \Comment{Adjust  $y$}
+\State Move $ (r_2.x, |\sign(\Delta e_y)| \, \min(r_1.y - r_2.y + \Delta e_y-\epsilon,L-r_2.y-\epsilon)+ \epsilon)$
+\Statex \Comment{Adjust  $y$}
 %Third Move
-\State Move $(\max(\epsilon, -\sign(r_2.y - r_1.y)\Delta e_x), -\min(r_1.y , r_2.y))$ \Comment{Touch bottom wall}
+\State Move $(\max(\epsilon, -\sign(r_2.y - r_1.y)\Delta e_x), -\min(r_1.y , r_2.y))$ 
+\Statex \Comment{Touch bottom wall}
 %Fourth Move
 \State Move $(\sign(r_2.y - r_1.y)\Delta e_x , (|\sign(\Delta e_y)|-1) |r_2.y - r_1.y|)$ \Comment{Adjust $x$}
 \If {$\Delta e_y \neq r_2.y - r_1.y$}
@@ -203,10 +202,11 @@ $(0,0)$ is bottom corner, $s_1$ is leftmost robot,
 %TODO This step is not correct.
 \State Move $(L- \max(r_1.x, r_2.x) , \epsilon)$ \Comment{Touch right wall}
 %Sixth Move
-\State Move $(0, -\sign(\Delta e_x)\Delta e_y -\max(r_1.y, r_2.y)- \min(r_1.y, r_2.y)$ \Comment{Adjust $y$}
+\State Move $(0, -\sign(\Delta e_x)\Delta e_y -\max(r_1.y, r_2.y)- \min(r_1.y, r_2.y)$ 
+\Statex \Comment{Adjust $y$}
 \EndIf
 %Seventh Move
-\State Move by $(e_2.x - r_2.x, e_2.y - r_2.y)$ \Comment{Go to goal}
+\State Move $(e_2.x - r_2.x, e_2.y - r_2.y)$ \Comment{Go to goal}
 \end{algorithmic}
 \end{algorithm}
 
@@ -265,8 +265,8 @@ Let $(0,0)$ be the lower left corner of the workspace, $p_k$ the $x,y$ position 
 \State $\operatorname{DriftMove}(\alpha, \beta, \epsilon)$ up   %move kth robot to f_{ky} and leave the rest in position.
 \EndFor
 
-\State move($r+\epsilon-f_{kx}, 0$)  % move the group to the left until k is in the correct relative x position
-\State move($f_{kx}-r, 0$)  
+\State Move ($r+\epsilon-f_{kx}, 0$)  % move the group to the left until k is in the correct relative x position
+\State Move ($f_{kx}-r, 0$)  
 
 \end{algorithmic}
 \end{algorithm}
@@ -283,7 +283,7 @@ Finally, all robots are moved right until robot $k$ is in the desired target pos
 \subsection{Maximizing Correlation Using Wall Friction}\label{subsec:ClosedLoopCovarianceControl}
 Using the environment to individually move $n$ particles to goal positions in Alg. \ref{alg:PosControlNRobots} requires $O(n^2)$ time, while  Alg. \ref{alg:PosControl2Robots} can only control two particles. The controllers in Section \ref{sec:theory} are efficient because they require only a single move but the range of possible configurations are limited. This section presents an efficient technique to generate desired correlations.
 
-Assume an obstacle-free, bounded, unit-size square workspace. 
+Assume an obstacle-free, bounded, unit-size, square workspace. 
  As shown in Fig.~\ref{fig:SquareFill}, the maximum correlation occurs when the swarm is pushed in the direction $\beta = 3\pi/4$. 
  This correlation as a function of swarm area $A$ is never larger than 1/2, and the maximum correlation decays to 0 as $A$ grows to 1. By  \eqref{eq:covAndcorrInSquareWorkspace}, this maximum correlation is:
 \begin{align} \label{eq:GravityCorrelation}
@@ -293,8 +293,8 @@ Assume an obstacle-free, bounded, unit-size square workspace.
  , & \frac{1}{2} \le A\le 1
 \end{cases}
 \end{align}
- If friction obeys the linear boundary layer model of \eqref{eq:boundarylayerflow} with boundary layer thickness $h$ and maximum friction $F_f$ equal to the maximum applied force $F$, we can generate much larger correlations.
-Specifically, we can generate correlations larger than 1/2 by using boundary friction if the swarm size is smaller than $\approx 0.43$ and the boundary layer is sufficiently thick. 
+ If friction obeys the linear boundary layer model of \eqref{eq:boundarylayerflow} with boundary layer thickness $h$ and maximum friction $F_f$ equal to the maximum applied force $F$, we can generate  larger correlations.
+ If the swarm size is smaller than $\approx 0.43$ and the boundary layer is sufficiently thick we can generate correlations larger than 1/2  using boundary friction.
 
  Assume that the swarm is initialized in the lower-left corner, in a rectangle of width $w$ and height $A/w$. 
  Such a rectangular configuration can be accomplished using the variance controllers from \citep{ShahrokhiIROS2015}. 

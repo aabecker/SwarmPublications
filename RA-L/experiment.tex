@@ -45,7 +45,7 @@ The hardware platform walls have almost infinite friction, due to a laser-cut, s
 Kilobots have too much stochasticity to implement Alg. \ref{alg:PosControlNRobots}. Instead, a hardware setup with a bounded platform, magnetic sliders, and a magnetic guide board was used.  Designs for each are available at \citep{Arun2016Thingiverse}. The pink boundary is toothed with a white free space, as shown in Fig \ref{fig:construction2d}. Only discrete, 1 cm moves in the $x$ and $y$ directions are used. The goal configuration highlighted in the top right corner represents a `U' made of seven sliders. The dark red configuration is the current position of the sliders. 
 Due to the discretized movements allowed by the boundary, drift moves follow a 1 cm square.  Free robots return to their start positions but robots on the boundary to move laterally, generating a net sliding motion.
 
-Fig. \ref{fig:construction2d} follows the motion of the sliders through iterations  $k$=1, 2, and 7. All robots receive the same control inputs, but boundary interactions break the control symmetry.  Robots reach their respective goal position in a first-in, first-out arrangement beginning with the bottom-left robot from the staging zone occupying the top-right position of the build zone.
+Fig. \ref{fig:construction2d} follows the motion of the sliders through iterations  $k$=1, 2, and 7. All robots receive the same control inputs, but boundary interactions break the control symmetry.  Robots reach their goal positions in a first-in, first-out arrangement beginning with the bottom-left robot from the staging zone occupying the top-right position of the build zone.
 
 \subsection{Hardware Experiment: Control of Covariance}
 To demonstrate covariance control, up to 100 kilobots were placed on the workspace and manually steered with lights, using friction with the boundary walls to vary the covariance from  -4000 to 3000 cm$^2$.  The resulting covariance is plotted in Fig.~\ref{fig:covExperiment}, along with snapshots of the swarm.
@@ -60,7 +60,7 @@ To demonstrate covariance control, up to 100 kilobots were placed on the workspa
 \vspace{-1em}
 \caption{\label{fig:covExperiment}
 Hardware demonstration steering $\approx 50$ kilobot robots to desired covariance. The goal covariance is negative in first 100 seconds and is positive in the next 100 seconds. The actual covariance is shown in different trials. Frames above the plot show output from machine vision system and an overlaid covariance ellipse.
-\vspace{-1em}
+\vspace{-2.5 em}
 }
 \end{figure}
 

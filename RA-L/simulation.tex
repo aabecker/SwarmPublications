@@ -7,19 +7,20 @@ Two additional simulations were performed using wall-friction to control varianc
 
 \subsection{Position Control of Two Robots}
 
-Algorithms \ref{alg:PosControl2Robots} %\ref{alg:YControl}, 
-was implemented in Mathematica using point robots (radius = $0$).  Fig.~\ref{fig:shapeControlMathematica1}  shows  an implementation of this algorithm. 
-Robot initial positions are shown by crosshairs, and final positions by circled crosshairs.  Dashed lines show the shortest route if robots could be controlled independently.  The path given by  Alg.\ \ref{alg:PosControl2Robots} is shown with solid arrows.
+Algorithm \ref{alg:PosControl2Robots}  was implemented in Mathematica using point robots (radius = $0$). 
+An online interactive demonstration and source code of the algorithm are available at \citep{Shahrokhi2015mathematicaParticle}.
+  Fig.~\ref{fig:shapeControlMathematica1}  shows  an implementation of this algorithm wiht robot initial positions shown by hollow squares and final positions by circles. 
+ Dashed lines show the shortest route if robots could be controlled independently, solid lines the generated path.
+
+   %The path given by our algorithm is shown with solid arrows.
 %Each row has five snapshots taken every quarter second. 
-For the sake of brevity axis-aligned moves were replaced with oblique moves that combine two moves simultaneously.
+%For the sake of brevity axis-aligned moves were replaced with oblique moves that combine 
+%jjkjk klklk klklklk klklk lklkl lklklklkl  klklklklk lklklklklk lklklkl klklklkl klklklk klklklk klklk klk klkl
 % THES IMAGES DON'T DO THIS ANYMORE 
 % $\Delta r_x$ is adjusted to $\Delta e_x$ in the second snapshot at $t = 0.25$. 
 % The following frames  adjust $\Delta r_y$ to $\Delta e_y$. 
 % $\Delta r_y$ is corrected by $t = 0.75$. 
 % Finally, the algorithm moves the robots to their corresponding destinations.
-An online interactive demonstration and source code of the algorithm are available at \citep{Shahrokhi2015mathematicaParticle}.
-
-
 
 \subsection{Position Control of $n$ Robots}
 Alg. \ref{alg:PosControlNRobots}  was simulated in {\sc Matlab} using square block robots with unity width. Code is available at \citep{Arun2015}.
