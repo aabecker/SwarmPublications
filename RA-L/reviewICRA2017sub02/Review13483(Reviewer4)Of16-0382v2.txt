@@ -1,0 +1,72 @@
+The manuscript improved significantly and the authors addressed my
+comments carefully. However, there are still places that raise
+questions and places that haven't fixed following the authors' response
+to the reviewers.
+
+* Sect. I, Para. 1: It'd be great if the authors introduce what u(t) is
+and what type of u(t) is discussed through the manuscript.
+
+* Sect. I, Para. 3, "Both algorithms require robots...": What are these
+two algorithms? I don't see where these algorithms are introduced in
+the paragraph. Are these one with frictionless walls and another with
+high friction?
+
+* Sect. III, Para. 4: In Eq. (4), could you please check if the
+equation for \rho_{xy} is correct, especially the numerator part of the
+fraction. Just a suggestion, but instead of \sigma_{xy}, cov(x,y) may
+be a better symbol for covariance.
+
+* In Sect. III, the authors introduced the square workspace with
+parameters A and \beta and the circular workspace with parameters h and
+\beta. However, later in the manuscript, the square workspace is
+expressed with h and \beta without clear explanation about the
+relationship between A and h for the square workspace. Could you please
+add relevant explanation?
+
+* Sect. III.B, Para. 2: the authors changed |\theta| < \pi/2 in the
+initial manuscript to sin(\theta) < 0 in the revised manuscript.
+Considering the angle reference for \theta, it looks to me that
+|\theta| < \pi/2 is correct. Could you please double check this part?
+
+* Eq. (9) needs more explanations, e.g., what \mu_f is and what each
+case for F_f represents.
+
+* Sect. III.B, Para. 2, "the following algorithms assume \mu_f is
+infinite...": If \mu_f is infinite, then F_f = Fsin(\theta) following
+Eq. (9) (unless N = 0), which means F_{forward} = 0. Could you be more
+specific about this case and even add relationship between N and \mu_f?
+
+* Eq. (10): Do you mean F-F_f has two cases? If so, the equality sign
+is missing in the equation.
+
+* Just a minor comment and suggestion. In my opinion, if some symbols
+such as e_1, e_2, s_1, s_2 are defined as vectors, some part of the
+manuscript could be more clear and concise.
+
+* Please move Fig. 6 after Fig. 5.
+
+* Sect. IV.A, Para. 4: L is not introduced.
+
+* Alg. 1: How does Move() function work?
+
+* Sect. IV.B, Para. 2, "The minimum workspace is then...": The sentence
+looks incomplete.
+
+* Eq. (14): What is f(x,y)? I don't think it has introduced in the
+manuscript. If it was introduced earlier in the manuscript, it'd be
+great if the authors remind the readers of what f(x,y) was.
+
+* Sect. V, Para. 2: In the response to the reviewers, the authors
+stated that they removed a closed-loop controller from the manuscript,
+but there's a sentence about a closed-loop controller here. Does the
+manuscript still include some contents about a closed-loop controller?
+
+* Sect. V.B, Para. 2: To me, this is the first time to see the name for
+\epsilon, "the amount of clearance". Could you introduce the name for
+\epsilon earlier?
+
+* In the manuscript and submitted video, the authors introduce a light
+source as a global input. Do you assume that light intensity from a
+light source will be uniform throughout the domain where robots perform
+a shaping mission? If this is an assumption, how would you justify if
+it's a valid assumption?

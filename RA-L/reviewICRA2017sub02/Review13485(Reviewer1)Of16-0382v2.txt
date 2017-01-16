@@ -1,0 +1,25 @@
+The authors answered all the questions and comments asked by reviewers
+and revised the paper. However, the clarity of the revised paper is
+still not very good. The main contribution of this paper is difficultly
+to be caught. Detailed comments are as follows:
+1.	In Pg.1, Sect. I, Line 14-15:  “Our control problem is to
+design the control inputs u(t) to make all n particles achieve a task.”
+ However, the control u(t) cannot be found in the following sections.
+2.	From Eq.(1), the control u(t) is the velocity of the robots.
+However, in Pg.2, Sect.III, Part A, “For notational simplicity, the
+swarm is parameterized by the global control input signal \beta and the
+fill-level h.”	This sentence is in front of Eq.(7).  Is \beta the
+global control input signal? \beta is the movement direction of the
+robot according to Fig.2. 
+3.	What is the meaning of “the fill-level h ”?
+4.	And in Pg.3, Sect.III, Part B, what is uf? Why it is assumed to
+be infinite? In Eq.(9), as uf.N<Fsin(\sita), Ff=uf.N. If uf is
+infinite, Ff should be only as Fsin(\sita).
+5.	The Eq.(10) is confused. Is y the component of position vector
+[x,y]? 
+6.	How does DriftMove() work?  Are \beta and \alfa angles?
+
+In general, this paper has publish points and the multimedia video
+shows abundant simulation and experiement  results. However,there are a
+number of ambiguous expressions in this paper. Authors should improve
+the clarity of this paper.    

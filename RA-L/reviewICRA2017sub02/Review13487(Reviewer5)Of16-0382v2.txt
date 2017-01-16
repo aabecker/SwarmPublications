@@ -1,0 +1,85 @@
+This paper contributes to designing algorithms for a global input that
+controls the shape of swarming robots in a closed area. The global
+input, which means that all the robots have the same input force
+command u, may be helpful to controlling micro- and nano-robots lack of
+on-board computation.
+
+First of all, any algorithm proposed in the paper do not use some
+results in section III, explicitly. Section III-A includes mean and
+variance positions when robots form a certain shape, but Algorithm 1
+and Algorithm 2 in section IV never use mean and variance positions.
+Section IV-C only describes one sentence about a variance controller
+developed by previous work [1]. However, it is not clear that the
+variance controller use such mean and variance positions in Section
+III-A.
+ 
+The previous review of this paper clearly indicates that Algorithm 1
+has critical error. Although authors revise Algorithm 1 to correct
+error, it still presents error. Let s_1, s_2, e_1, and e_2 be the first
+starting point, the second starting point, the first goal point, and
+the second goal point. Because those points are arbitrary points in
+this paper, let s_1, s_2, e_1, and e_2 be (0,0), (2,2), (2,2), and
+(0,0). Let wall length L be 3. The goal of Algorithm 1 is to make the
+first starting point move the first goal point, and the second starting
+point move the second goal point. However, Algorithm 1 generates that
+both final positions are (0,0), and hence, this revised algorithm is
+wrong. 
+
+This paper describes a triangular movement as a drift movement, but
+Fig. 6 shows square-like drift movement that cannot be defined by a
+triangular movement. At the seventh sequence in k = 7 in Fig. 6, a
+drift movement is shown but it is not triangular movement.
+
+Ambiguous and error expressions in the paper are as follows.
+1.	Equation (9) is not position-dependent friction model, but this
+paper says “this algorithm exploits the position-dependent friction
+model (9).” 
+2.	This paper does not describe the robustness of algorithms, but
+this paper says “robust and efficient covariance control.”
+3.	This paper does not define positive direction, but this paper
+says “we rotate the coordinate frame by 90 degrees.” 
+4.	This paper does not define what is correctly positioned, but
+this paper says “if the robots were not correctly positioned relative
+each other.”
+5.	This paper does not show relationships between algorithms and
+number of walls including frictions, but this paper says “the algorithm
+only requires friction along the bottom and right walls.”    
+6.	This paper says “sin(theta)<0,” but sin(theta)>0 in Fig. 4. 
+7.	This paper says “the covariance of a triangle is always
++-(A/18),” but there is no evidence. 
+8.	This paper says “the robots are small in comparison, and
+together occupy a constant area A,” but this paper does not show how to
+compute A. If A is the summation of the area of individual robot,
+sometimes, computing A is meaningless if robots are distributed
+sparsely. 
+9.	This paper says “R is the region containing swarm,” but this
+paper does not show how to rigorously define R and how to compute R. 
+10.	Equation (10) has a parenthesis, but it is unclear whether
+terms inside the parenthesis represent F_f or not.  
+11.	This paper says “designing controllers efficiently regulate
+sigma_{xy},” but this paper does not show the regulation of sigma_{xy}.
+  
+Abused notations are as follows.
+1.	Equation (1) is wrong: the left side of equation (1) is
+velocity, and the right side of equation (1) is force. Both are not
+equal. 
+2.	In the second page, beta is direction of the global input
+force, but beta is an incremental movement of the robot in the fifth
+page.
+3.	In the forth page, epsilon is spacing between the wall and a
+zone, but epsilon is an incremental movement of drift move function in
+the fifth page. Also varepsilon is used for the same incremental
+movement.
+4.	In the forth page, h is height for a boundary layer, but h_b,
+and h_s are used for the dimension of a zone. 
+5.	In the forth page, r is the position of the robot, but r is the
+radius of robot in the fifth page. In the sixth page, r represents
+sub-regions of R.
+6.	In the third page, sigma_{xy} is correlation, but sigma_{xy} is
+maximum correlation in the fifth page.
+7.	In the first page, u is the global input force command, but F
+is control input force vector in the second page. 
+
+[1] S. Shahrokhi and A. T. Becker, “Stochastic swarm control with
+global inputs,” in Intelligent Robots and Systems (IROS), 2015 IEEE/RSJ
+International Conference on, Sep. 2015, pp. 421–427.
