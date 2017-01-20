@@ -123,6 +123,7 @@ The next section shows how a system in a rectangularly bounded workspace with fr
 \section{Algorithms}\label{sec:algorithms}
 \subsection{Position Control of Two Robots Using Wall Friction}\label{sec:PostionControl2Robots}
 \begin{figure*}
+\vspace{0.5em}
 \centering
 \renewcommand{\figwid}{0.32\columnwidth}
 {\begin{overpic}[width =\figwid]{S1.pdf}\put(65,80){Start}
@@ -137,7 +138,7 @@ The next section shows how a system in a rectangularly bounded workspace with fr
 \end{overpic}
 \begin{overpic}[width =\figwid]{S6.pdf}\put(50,80){Move 5}
 \end{overpic}}\\
-
+\vspace{-0.5em}
 \caption{\label{fig:shapeControlMathematica1}{Frames from an implementation of Alg.\ \ref{alg:PosControl2Robots}: two robot positioning using walls with infinite friction. The algorithm only requires friction along the bottom and right walls.
 Robot initial positions are shown by a square, and final positions by a circle.  Dashed lines show the shortest route if robots could be controlled independently.  Solid arrows show path given by  Alg.\ \ref{alg:PosControl2Robots}.
 Online demonstration and source code at \citep{Shahrokhi2015mathematicaParticle}.
@@ -204,17 +205,17 @@ $\epsilon $ is a small, nonzero, user-specified value.
 \State Move $(\sign(r_2.y - r_1.y)\Delta e_x , (|\sign(\Delta e_y)|-1) |r_2.y - r_1.y|)$ \Comment{Adjust $x$}
 \If {$\Delta e_y \neq r_2.y - r_1.y$}
 %Fifth Move
-\If {$\Delta e_x \neq 0$}
-\State Move $(\sign(r_2.y- r_1.y)\Delta e_x, |\sign(\Delta e_y)-1| |r_1.y-r_2.y|)$ \Comment{Touch right wall}
-\Else
-\State Move  $(|\sign(\Delta e_y -r_2.y+ r_1.y)| \epsilon, |\sign(\Delta e_y)-1| |r_1.y-r_2.y|)$ \Comment{Touch right wall}
+\If {$\Delta e_x \neq 0$} \Comment{Touch right wall}
+\State Move $(\sign(r_2.y- r_1.y)\Delta e_x, |\sign(\Delta e_y)-1| |r_1.y-r_2.y|)$ 
+\Else \Comment{Touch right wall}
+\State Move  $(|\sign(\Delta e_y -r_2.y+ r_1.y)| \epsilon, |\sign(\Delta e_y)-1| |r_1.y-r_2.y|)$
 \EndIf
 %Sixth Move
-\If {$\Delta e_x < 0$}
+\If {$\Delta e_x < 0$}  \Comment{Adjust $y$}
 \State Move $(L - \max(r_1.x, r_2.x), \epsilon)$
-\Else 
+\Else  \Comment{Adjust $y$}
 \State Move $(L - \max(r_1.x, r_2.x),\Delta e_y -\max(r_1.y, r_2.y)$ 
-\Statex \Comment{Adjust $y$}
+%\Statex \Comment{Adjust $y$}
 \EndIf
 \EndIf
 %Seventh Move
@@ -227,11 +228,13 @@ $\epsilon $ is a small, nonzero, user-specified value.
 
 
 
+
 \subsection{Position Control of $n$ Robots Using Wall Friction}\label{sec:PostionControlnRobots}
 Alg. \ref{alg:PosControl2Robots}  can be extended to control the position of $n$ robots using wall friction under several constraints. The solution described here is an iterative procedure with $n$ loops. The $k$th loop moves the $k$th robot from a \emph{staging zone} to the desired position in a \emph{build zone}. All robots move according to the global input, but due to wall friction, at the end the $k$th loop, robots 1 through $k$ are in their desired final configuration in the build zone, and robots $k+1$ to $n$ are in the staging zone. See Fig.~\ref{fig:construction2d} for a schematic of the build and staging zones.
 
 
 \begin{figure}
+\vspace{0.5em}
 \begin{center}
 	\includegraphics[width=1.0\columnwidth]{multirobotSliderHardware.pdf}
 \end{center}
@@ -240,7 +243,6 @@ Alg. \ref{alg:PosControl2Robots}  can be extended to control the position of $n$
 Illustration of Alg.\ \ref{alg:PosControlNRobots}, $n$ robot position control  using wall friction.
 }
 \end{figure}
-
 
 Assume an open workspace with four axis-aligned walls with infinite friction.
 The axis-aligned build zone of dimension $(w_b, h_b)$ containing the final configuration of $n$ robots must be disjoint from the axis-aligned staging zone of dimension $(w_s, h_s)$  containing the starting configuration of $n$ robots. Without loss of generality, assume the build zone  is above the staging zone. 
