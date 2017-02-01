@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     24190,        557]
-NotebookOptionsPosition[     23744,        537]
-NotebookOutlinePosition[     24102,        553]
-CellTagsIndexPosition[     24059,        550]
+NotebookDataLength[     44501,       1072]
+NotebookOptionsPosition[     43555,       1035]
+NotebookOutlinePosition[     43913,       1051]
+CellTagsIndexPosition[     43870,       1048]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -21,45 +21,158 @@ Notebook[{
 
 Cell[CellGroupData[{
 Cell["\<\
-Idea
-Base case 1:  deltaX and deltaY are 0, simply move robots to final position
+Uses dynamic programming to find an optional path for 2 robots actuated by \
+global inputs\
+\>", "Section",
+ CellChangeTimes->{{3.6949518688287697`*^9, 3.694951887018344*^9}}],
 
+Cell["\<\
+Feb1,  email me at end of work day with progress
+1.) make a test case to ensure base case 1 works 
+2.) test rotation code
+3.) test if achievable in 3 moves for a move up -- do we get into the correct \
+code?
+4.) see  if achievable in 3 moves for \[OpenCurlyQuote]r\[CloseCurlyQuote] \
+\[OpenCurlyQuote]l\[CloseCurlyQuote] \[OpenCurlyQuote]d\[CloseCurlyQuote]
+\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.694957212842634*^9, 3.694957326738517*^9}, {
+  3.6949573972144117`*^9, 3.694957413205287*^9}}],
 
-We build a list that is like an A* algorithm.  Each item in the list has 5 \
-entries, and the list is sorted based on the first entry:
-{A*pathLength, current_path_length, r1, r2, MOVES}
+Cell[CellGroupData[{
 
-MOVES is the moves that have been applied to the robots: {{x1,y1},{x2,y2}} \
-for a two move sequence.
-r1 and r2 are the positions of robot 1 and 2 after applying MOVES to them.
-current_path_length is the sum of the euclidean distances of MOVES.
-
-A*pathLength is current_path_length + an admissible heuristic (the maximum \
-distance of r1 or r2 from their goal positions).
-
-How the solver works:
-Start with start positions s1,s2 and goal positions g1, g2.
-
-optimalPathList = { 
-   {max( distance(g1,s1), distance(g2,s2) ), 0, s1,s2, {} }
-
-While forever
-  if the first item in optimalPathList, the A*pathLength == \
-current_path_length,
-we have the optimal solution, so return the MOVES for the first item
-else
-   Pop  the first item from the list, and then call  {move1, move2, r1new, \
-r2new} = wallFrictionMove(direction, r1, r2, g1, g2) for the 4 walls 
-if already in contact with one wall, also try a DRIFT_move. Add all the new \
-moves to optimalPathList
-end while
-
-wallFrictionMove(direction, r1, r2, g1, g2)  should first see if Base case 1: \
-is possible, next see if  deltaX and deltaY can be reduced to 0, else try to \
-reduce  deltaX and deltaY.   We will need to ensure that the robots never \
-overlap, which means that wallFrictionMove might return several options.\
-\>", "Subsection",
- CellChangeTimes->{{3.6939406005404882`*^9, 3.693940616693581*^9}}],
+Cell[TextData[{
+ StyleBox["Idea\n", "Text"],
+ StyleBox["Base case 1:", "Text",
+  FontWeight->"Bold"],
+ StyleBox["  deltaX and deltaY are 0, simply move robots to final position\n",
+   "Text"],
+ StyleBox["Base case 2:", "Text",
+  FontWeight->"Bold"],
+ StyleBox["  In 2 moves we can make both deltaX and deltaY 0, implement this \
+move, then call ", "Text"],
+ StyleBox["Base case 1:", "Text",
+  FontWeight->"Bold"],
+ StyleBox["\n\nWe build a list like in an A* algorithm.  Each item in the \
+list has 4 entries, and the list is sorted based on the first entry:\n{", 
+  "Text"],
+ StyleBox["estimatedPathLength", "Text",
+  FontWeight->"Bold"],
+ StyleBox[",  ", "Text"],
+ StyleBox["r1, r2", "Text",
+  FontWeight->"Bold"],
+ StyleBox[", ", "Text"],
+ StyleBox["MOVES", "Text",
+  FontWeight->"Bold"],
+ StyleBox["}\n\n", "Text"],
+ StyleBox["MOVES", "Text",
+  FontWeight->"Bold"],
+ StyleBox[" is the moves that have been applied to the robots: \
+{{x1,y1},{x2,y2}} for a two move sequence.\n", "Text"],
+ StyleBox["r1", "Text",
+  FontWeight->"Bold"],
+ StyleBox[" and ", "Text"],
+ StyleBox["r2 ", "Text",
+  FontWeight->"Bold"],
+ StyleBox["are the positions of robot 1 and 2 after applying ", "Text"],
+ StyleBox["MOVES", "Text",
+  FontWeight->"Bold"],
+ StyleBox[" to them.\n\n", "Text"],
+ StyleBox["estimatedPathLength", "Text",
+  FontWeight->"Bold"],
+ StyleBox[" is the sum of the euclidean distances of ", "Text"],
+ StyleBox["MOVES", "Text",
+  FontWeight->"Bold"],
+ StyleBox[" + an admissible heuristic (the maximum distance of", "Text"],
+ StyleBox[" r1 ", "Text",
+  FontWeight->"Bold"],
+ StyleBox["or ", "Text"],
+ StyleBox["r2", "Text",
+  FontWeight->"Bold"],
+ StyleBox[" from their goal positions).\n\nHow the solver works:\nStart with \
+start positions ", "Text"],
+ StyleBox["s1,s2", "Text",
+  FontWeight->"Bold"],
+ StyleBox[" and goal positions ", "Text"],
+ StyleBox["g1, g2", "Text",
+  FontWeight->"Bold"],
+ StyleBox[".\n\n", "Text"],
+ StyleBox["optimalPathList", "Text",
+  FontWeight->"Bold"],
+ StyleBox[" = { \n   {Max( distance(g1,s1), distance(g2,s2) ), s1,s2, {} }\n\n\
+", "Text"],
+ StyleBox["While", "Text",
+  FontWeight->"Bold"],
+ StyleBox[" forever\n     ", "Text"],
+ StyleBox[" if ", "Text",
+  FontWeight->"Bold"],
+ StyleBox["the first item in ", "Text"],
+ StyleBox["optimalPathList", "Text",
+  FontWeight->"Bold"],
+ StyleBox[", the ", "Text"],
+ StyleBox["estimatedPathLength", "Text",
+  FontWeight->"Bold"],
+ StyleBox[" == sum of the euclidean distances of ", "Text"],
+ StyleBox["MOVES", "Text",
+  FontWeight->"Bold"],
+ StyleBox[",\n           we have the optimal solution, so return the ", 
+  "Text"],
+ StyleBox["MOVES", "Text",
+  FontWeight->"Bold"],
+ StyleBox[" for the first item\n    ", "Text"],
+ StyleBox["else", "Text",
+  FontWeight->"Bold"],
+ StyleBox["\n          ", "Text"],
+ StyleBox["Pop ", "Text",
+  FontWeight->"Bold"],
+ StyleBox[" the first item from the list,  \n                  call  {move1, \
+move2, r1new, r2new} = ", "Text"],
+ StyleBox["wallFrictionMove", "Text",
+  FontWeight->"Bold"],
+ StyleBox["(direction, r1, r2, g1, g2) for the 4 walls \n                 ", 
+  "Text"],
+ StyleBox[" if", "Text",
+  FontWeight->"Bold"],
+ StyleBox[" already in contact with one wall, also try a ", "Text"],
+ StyleBox["DRIFT_move", "Text",
+  FontWeight->"Bold"],
+ StyleBox[". Add all the new moves to ", "Text"],
+ StyleBox["optimalPathList", "Text",
+  FontWeight->"Bold"],
+ StyleBox["\n", "Text"],
+ StyleBox["end while", "Text",
+  FontWeight->"Bold"],
+ StyleBox["\n\n", "Text"],
+ StyleBox["wallFrictionMove", "Text",
+  FontWeight->"Bold"],
+ StyleBox["(direction, r1, r2, g1, g2)  should first see if ", "Text"],
+ StyleBox["Base case 1", "Text",
+  FontWeight->"Bold"],
+ StyleBox[": is possible, next see if  ", "Text"],
+ StyleBox["Base case 2", "Text",
+  FontWeight->"Bold"],
+ StyleBox[" is possible, else try to reduce  ", "Text"],
+ StyleBox["deltaX", "Text",
+  FontWeight->"Bold"],
+ StyleBox[" and ", "Text"],
+ StyleBox["deltaY", "Text",
+  FontWeight->"Bold"],
+ StyleBox[".   We will need to ensure that the robots never overlap, which \
+means that ", "Text"],
+ StyleBox["wallFrictionMove", "Text",
+  FontWeight->"Bold"],
+ StyleBox[" might return several options.\n\n\n", "Text"],
+ "(g2x-g1x)",
+ StyleBox["= ", "Text"],
+ "\[CapitalDelta]gx\n(r2x-r1x)",
+ StyleBox["= ", "Text"],
+ "\[CapitalDelta]rx\n\[CapitalDelta]gx-\[CapitalDelta]rx = \[CapitalDelta]ex"
+}], "Subsection",
+ CellChangeTimes->{{3.6939406005404882`*^9, 3.693940616693581*^9}, {
+  3.694951912024303*^9, 3.694951961912994*^9}, {3.694952032107266*^9, 
+  3.694952184718564*^9}, {3.694952236477687*^9, 3.694952239352273*^9}, {
+  3.694952550956744*^9, 3.6949525902932053`*^9}, {3.694952650348186*^9, 
+  3.694952682936309*^9}}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -72,118 +185,383 @@ Cell[BoxData[
       RowBox[{"EuclideanDistance", "[", 
        RowBox[{"g1", ",", "s1"}], "]"}], ",", 
       RowBox[{"EuclideanDistance", "[", 
-       RowBox[{"g2", ",", "s2"}], "]"}]}], "]"}]}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"g2", ",", "s2"}], "]"}]}], "]"}]}], " ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "a", " ", "distance", " ", "measurement", " ", "that", " ", "never", " ", 
+     "over", " ", "estimates", " ", "to", " ", "possible", " ", "distance"}], 
+    " ", "*)"}], " ", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"wallFrictionMoveDir", "[", 
      RowBox[{
-     "dir_", ",", "prevr1_", ",", " ", "prevr2_", ",", "r1_", ",", "r2_", ",",
-       "g1_", ",", "g2_", ",", "currentPathLength_", ",", "moves_", ",", 
-      "\[Epsilon]_"}], "]"}], ":=", 
-    RowBox[{"(*", 
-     RowBox[{
-      RowBox[{
-      "moves", " ", "to", " ", "contact", " ", "wall", " ", "in", " ", 
-       "direction", " ", "dir"}], ",", " ", 
-      RowBox[{
-      "then", " ", "moves", " ", "second", " ", "robot", " ", "while", " ", 
-       "first", " ", "robot", " ", "is", " ", "touching", " ", 
-       RowBox[{"wall", ".", "  ", "If"}], " ", "one", " ", "robot", " ", "is",
-        " ", "already", " ", "touching", " ", "the", " ", "wall", " ", "in", 
-       " ", "direction", " ", "dir"}], ",", " ", 
-      RowBox[{"just", " ", "moves", " ", "the", " ", "second", " ", 
-       RowBox[{"robot", ".", "  ", "Movements"}], " ", "are", " ", "chosen", 
-       " ", "to", " ", "minimize", " ", "\[CapitalDelta]x", " ", "and", " ", 
-       RowBox[{"\[CapitalDelta]y", ".", "  ", "If"}], " ", "robots", " ", 
-       "would", " ", "end", " ", "up", " ", "overlapping"}], ",", " ", 
-      RowBox[{
-       RowBox[{"returns", " ", "multiple", " ", "possibilities"}], " ", "+", 
-       RowBox[{"/", 
-        RowBox[{"-", " ", "\[Epsilon]"}]}]}]}], "  ", "*)"}], 
-    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     "dir_", ",", "s1_", ",", "s2_", ",", "g1_", ",", "g2_", ",", "moves_", 
+      ",", "\[Epsilon]_"}], "]"}], ":=", 
     RowBox[{"Module", "[", 
      RowBox[{
-      RowBox[{"{", " ", 
-       RowBox[{
-        RowBox[{"\[CapitalDelta]r", "=", " ", 
-         RowBox[{"prevr2", "-", "r2"}]}], ";", "\[IndentingNewLine]", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\[CapitalDelta]ex", ",", " ", "\[CapitalDelta]ey"}], "}"}],
-          " ", "=", " ", 
-         RowBox[{"g2", "-", "g1"}]}], ";"}], "\[IndentingNewLine]", "}"}], 
+      RowBox[{"{", 
+       RowBox[{"\[CapitalDelta]ex", ",", " ", "\[CapitalDelta]ey"}], "}"}], 
       ",", "\[IndentingNewLine]", 
-      RowBox[{"(*", " ", 
+      RowBox[{"(*", "\[IndentingNewLine]", 
        RowBox[{
-        RowBox[{"if", " ", "move", " ", "is", " ", "up"}], ",", " ", 
-        RowBox[{"call", " ", "wallFrictionMoveUp"}], ",", " ", 
-        RowBox[{"otherwise", " ", "rotate", " ", "frame"}], ",", " ", 
-        RowBox[{"then", " ", "unrotate", " ", "answers"}]}], "*)"}], 
-      "\[IndentingNewLine]", 
-      RowBox[{"If", "[", 
-       RowBox[{
-        RowBox[{"\[CapitalDelta]r", " ", "\[Equal]", " ", 
-         RowBox[{"{", 
-          RowBox[{"\[CapitalDelta]ex", ",", " ", "\[CapitalDelta]ey"}], 
-          "}"}]}], ",", "\[IndentingNewLine]", 
-        RowBox[{"{", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"s1", " ", "=", " ", 
+          RowBox[{
+          "starting", " ", "position", " ", "of", " ", "robot", " ", "1", " ",
+            "for", " ", "this", " ", "move"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"s2", " ", "=", " ", 
+          RowBox[{
+          "starting", " ", "position", " ", "of", " ", "robot", " ", "2", " ",
+            "for", " ", "this", " ", "move"}]}], ";", "\[IndentingNewLine]", 
          RowBox[{
-          RowBox[{"\[CapitalDelta]r", "=", "  ", 
-           RowBox[{"{", 
+         "moves", " ", "to", " ", "contact", " ", "wall", " ", "in", " ", 
+          "direction", " ", 
+          RowBox[{
+          "dir", ".", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", "  ", "If"}], " ", "one", " ", "robot", " ",
+           "is", " ", "already", " ", "touching", " ", "the", " ", "wall", 
+          " ", "in", " ", "direction", " ", "dir"}]}], ",", " ", 
+        RowBox[{
+         RowBox[{"just", " ", "moves", " ", "the", " ", "second", " ", 
+          RowBox[{
+          "robot", ".", " ", "\[IndentingNewLine]", " ", "Movements"}], " ", 
+          "are", " ", "chosen", " ", "to", " ", "minimize"}], " ", "|", 
+         "\[CapitalDelta]ex", "|", " ", "and", " ", "|", "\[CapitalDelta]ey", 
+         "|"}], ",", " ", 
+        RowBox[{
+        "the", " ", "error", " ", "from", " ", "the", " ", "desired", " ", 
+         "spacing", " ", "of", " ", "the", " ", "robots"}], ",", " ", 
+        RowBox[{
+         RowBox[{"where", " ", "\[CapitalDelta]ex"}], " ", "=", " ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"g2x", "-", "g1x"}], ")"}], " ", "-", " ", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"r2x", "-", "r1x"}], ")"}], "  ", "and", " ", 
+            "\[CapitalDelta]ey"}]}], " ", "=", " ", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"g2y", "-", "g1y"}], ")"}], " ", "-", " ", 
+           RowBox[{
             RowBox[{
-             RowBox[{
-              RowBox[{
-              "g2", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
-              "-", "  ", 
-              RowBox[{
-              "r2", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}], 
-             ",", " ", 
-             RowBox[{
-              RowBox[{
-              "g2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-              "-", " ", 
-              RowBox[{
-              "r2", "\[LeftDoubleBracket]", "2", 
-               "\[RightDoubleBracket]"}]}]}], "}"}]}], ";", 
-          "\[IndentingNewLine]", 
+             RowBox[{"(", 
+              RowBox[{"r2y", "-", "r1y"}], ")"}], " ", ".", "  ", "If"}], " ",
+             "robots", " ", "would", " ", "end", " ", "up", " ", 
+            "overlapping"}]}]}]}], ",", " ", 
+        RowBox[{
+         RowBox[{"returns", " ", "multiple", " ", "possibilities"}], " ", "+", 
+         RowBox[{"/", 
+          RowBox[{"-", " ", "\[Epsilon]"}]}]}]}], "  ", "*)"}], 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"STEP", " ", "1"}], ":", " ", 
+         RowBox[{"is", " ", "base", " ", "case", " ", "1", " ", 
+          RowBox[{"possible", "?", "  ", "If"}], " ", "so"}]}], ",", " ", 
+        RowBox[{"do", " ", "it", " ", "and", " ", "return"}]}], "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\[CapitalDelta]ex", ",", " ", "\[CapitalDelta]ey"}], "}"}], 
+        " ", "=", " ", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"g2", "-", "g1"}], ")"}], "-", 
+         RowBox[{"(", 
+          RowBox[{"s2", "-", "s1"}], ")"}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"\[CapitalDelta]ex", "\[Equal]", "0"}], " ", "&&", " ", 
+          RowBox[{"\[CapitalDelta]ey", " ", "\[Equal]", "0"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
           RowBox[{"AppendTo", "[", 
-           RowBox[{"moves", ",", " ", "\[CapitalDelta]r"}], "]"}], ";", 
+           RowBox[{"moves", ",", " ", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+               "g2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+               "-", "  ", 
+               RowBox[{
+               "s2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}],
+               ",", " ", 
+              RowBox[{
+               RowBox[{
+               "g2", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+               "-", " ", 
+               RowBox[{
+               "s2", "\[LeftDoubleBracket]", "2", 
+                "\[RightDoubleBracket]"}]}]}], "}"}]}], "]"}], ";", 
           "\[IndentingNewLine]", 
-          RowBox[{"Return", " ", "[", "moves", "]"}]}], "\[IndentingNewLine]",
-          "}"}]}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
-     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"Return", "[", 
+           RowBox[{"{", " ", 
+            RowBox[{"{", " ", 
+             RowBox[{
+              RowBox[{"distanceMoved", "[", " ", "moves", "]"}], ",", "g1", 
+              ",", "g2", ",", "moves"}], " ", "}"}], "  ", "}"}], "]"}]}]}], 
+        "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"OTHERWISE", ",", " ", 
+         RowBox[{
+         "move", " ", "in", " ", "the", " ", "desired", " ", "direction", " ",
+           "to", " ", "contact", " ", "a", " ", 
+          RowBox[{"wall", ".", "  ", "\[IndentingNewLine]", 
+           RowBox[{"We", "'"}]}], "ll", " ", "need", " ", "to", " ", "rotate",
+           " ", "the", " ", "coordinate", " ", "frames", " ", "so", " ", 
+          "the", " ", "movement", " ", "is", " ", "up"}], ",", " ", 
+         RowBox[{
+         "and", " ", "ensure", " ", "robot", " ", "1", " ", "is", " ", "the", 
+          " ", "first", " ", "to", " ", 
+          RowBox[{"contact", ".", "\[IndentingNewLine]", "then"}], " ", 
+          RowBox[{"we", "'"}], "ll", " ", "call", " ", "wallFrictionMoveUp"}],
+          ",", " ", "\[IndentingNewLine]", 
+         RowBox[{"then", " ", "we", " ", "take", " ", "the", " ", "answer"}], 
+         ",", " ", 
+         RowBox[{
+         "and", " ", "reassign", " ", "robot", " ", "1", " ", "and", " ", "2",
+           " ", "to", " ", "match", " ", "original", "\[IndentingNewLine]", 
+          "then", " ", "rotate", " ", "answer", " ", "into", " ", "original", 
+          " ", "coordinate", " ", "frame"}]}], "*)"}], "\[IndentingNewLine]", 
+       
+       RowBox[{
+        RowBox[{"Module", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+           "r1", ",", "r2", ",", "newPathEntries", ",", "s1t", ",", "s2t", 
+            ",", "g1t", ",", "g2t", ",", "movest"}], "}"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+            RowBox[{"if", " ", "move", " ", "is", " ", "up"}], ",", " ", 
+            RowBox[{"call", " ", "wallFrictionMoveUp"}], ",", " ", 
+            RowBox[{"otherwise", " ", "rotate", " ", "frame"}], ",", " ", 
+            RowBox[{"then", " ", "unrotate", " ", "answers"}]}], "*)"}], 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"dir", "\[Equal]", "\"\<u\>\""}], ",", " ", 
+             RowBox[{"newPathEntries", "=", " ", 
+              RowBox[{"wallFrictionMoveUp", "[", 
+               RowBox[{
+               "s1", ",", "s2", ",", "g1", ",", "g2", ",", "moves", ",", 
+                "\[Epsilon]"}], "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
+           RowBox[{"(*", " ", 
+            RowBox[{
+             RowBox[{"if", " ", "move", " ", "is", " ", "down"}], ",", " ", 
+             RowBox[{"rotate", " ", "frame", " ", "180", " ", "deg"}], ",", 
+             " ", 
+             RowBox[{"then", " ", "unrotate", " ", "answers"}]}], "*)"}], 
+           "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"dir", "\[Equal]", "\"\<d\>\""}], ",", " ", 
+             "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"s1t", ",", "s2t", ",", "g1t", ",", "g2t"}], "}"}], 
+               "=", " ", 
+               RowBox[{"Map", "[", 
+                RowBox[{"rotate180", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"s1", ",", "s2", ",", "g1", ",", "g2"}], "}"}]}], 
+                "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"movest", "=", " ", 
+               RowBox[{"Map", "[", 
+                RowBox[{"rotate180inplace", ",", "moves"}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"newPathEntries", "=", " ", 
+               RowBox[{"wallFrictionMoveUp", "[", 
+                RowBox[{
+                "s1t", ",", "s2t", ",", "g1t", ",", "g2t", ",", "movest", ",",
+                  "\[Epsilon]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"(*", 
+               RowBox[{"undo", " ", "the", " ", "change"}], "*)"}], 
+              "\[IndentingNewLine]", 
+              RowBox[{"newPathEntries", "=", 
+               RowBox[{"Table", "[", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{
+                   "aPathEntry", "\[LeftDoubleBracket]", "1", 
+                    "\[RightDoubleBracket]"}], ",", 
+                   RowBox[{"Map", "[", 
+                    RowBox[{"rotate180", ",", 
+                    RowBox[{
+                    "aPathEntry", "\[LeftDoubleBracket]", "2", 
+                    "\[RightDoubleBracket]"}]}], "]"}], " ", ",", 
+                   RowBox[{"Map", "[", 
+                    RowBox[{"rotate180", ",", 
+                    RowBox[{
+                    "aPathEntry", "\[LeftDoubleBracket]", "3", 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"Map", "[", 
+                    RowBox[{"rotate180inplace", ",", 
+                    RowBox[{
+                    "aPathEntry", "\[LeftDoubleBracket]", "4", 
+                    "\[RightDoubleBracket]"}]}], "]"}]}], " ", "}"}], 
+                 "\[IndentingNewLine]", "  ", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"aPathEntry", ",", " ", "newPathEntries"}], "}"}]}],
+                 "]"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+           "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"(*", " ", 
+            RowBox[{
+             RowBox[{"if", " ", "move", " ", "is", " ", "right"}], ",", " ", 
+             RowBox[{"rotate", " ", "frame", " ", "90", " ", "deg"}], ",", 
+             " ", 
+             RowBox[{"then", " ", "unrotate", " ", "answers"}]}], "*)"}], 
+           "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"dir", "\[Equal]", "\"\<r\>\""}], ",", " ", 
+             "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"s1t", ",", "s2t", ",", "g1t", ",", "g2t"}], "}"}], 
+               "=", " ", 
+               RowBox[{"Map", "[", 
+                RowBox[{"rotate90", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"s1", ",", "s2", ",", "g1", ",", "g2"}], "}"}]}], 
+                "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"movest", "=", " ", 
+               RowBox[{"Map", "[", 
+                RowBox[{"rotate90inplace", ",", "moves"}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"newPathEntries", "=", " ", 
+               RowBox[{"wallFrictionMoveUp", "[", 
+                RowBox[{
+                "s1t", ",", "s2t", ",", "g1t", ",", "g2t", ",", "movest", ",",
+                  "\[Epsilon]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"(*", 
+               RowBox[{"undo", " ", "the", " ", "change"}], "*)"}], 
+              "\[IndentingNewLine]", 
+              RowBox[{"newPathEntries", "=", 
+               RowBox[{"Table", "[", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{
+                   "aPathEntry", "\[LeftDoubleBracket]", "1", 
+                    "\[RightDoubleBracket]"}], ",", 
+                   RowBox[{"Map", "[", 
+                    RowBox[{"rotate90", ",", 
+                    RowBox[{
+                    "aPathEntry", "\[LeftDoubleBracket]", "2", 
+                    "\[RightDoubleBracket]"}]}], "]"}], " ", ",", 
+                   RowBox[{"Map", "[", 
+                    RowBox[{"rotate90", ",", 
+                    RowBox[{
+                    "aPathEntry", "\[LeftDoubleBracket]", "3", 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"Map", "[", 
+                    RowBox[{"rotate90inplace", ",", 
+                    RowBox[{
+                    "aPathEntry", "\[LeftDoubleBracket]", "4", 
+                    "\[RightDoubleBracket]"}]}], "]"}]}], " ", "}"}], 
+                 "\[IndentingNewLine]", "  ", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"aPathEntry", ",", " ", "newPathEntries"}], "}"}]}],
+                 "]"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+           "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"(*", " ", 
+            RowBox[{
+             RowBox[{"if", " ", "move", " ", "is", " ", "left"}], ",", " ", 
+             RowBox[{"rotate", " ", "frame", " ", "270", " ", "deg"}], ",", 
+             " ", 
+             RowBox[{"then", " ", "unrotate", " ", "answers"}]}], "*)"}], 
+           "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"dir", "\[Equal]", "\"\<l\>\""}], ",", " ", 
+             "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"s1t", ",", "s2t", ",", "g1t", ",", "g2t"}], "}"}], 
+               "=", " ", 
+               RowBox[{"Map", "[", 
+                RowBox[{"rotate270", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"s1", ",", "s2", ",", "g1", ",", "g2"}], "}"}]}], 
+                "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"movest", "=", " ", 
+               RowBox[{"Map", "[", 
+                RowBox[{"rotate270inplace", ",", "moves"}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"newPathEntries", "=", " ", 
+               RowBox[{"wallFrictionMoveUp", "[", 
+                RowBox[{
+                "s1t", ",", "s2t", ",", "g1t", ",", "g2t", ",", "movest", ",",
+                  "\[Epsilon]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"(*", 
+               RowBox[{"undo", " ", "the", " ", "change"}], "*)"}], 
+              "\[IndentingNewLine]", 
+              RowBox[{"newPathEntries", "=", 
+               RowBox[{"Table", "[", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{
+                   "aPathEntry", "\[LeftDoubleBracket]", "1", 
+                    "\[RightDoubleBracket]"}], ",", 
+                   RowBox[{"Map", "[", 
+                    RowBox[{"rotate270", ",", 
+                    RowBox[{
+                    "aPathEntry", "\[LeftDoubleBracket]", "2", 
+                    "\[RightDoubleBracket]"}]}], "]"}], " ", ",", 
+                   RowBox[{"Map", "[", 
+                    RowBox[{"rotate270", ",", 
+                    RowBox[{
+                    "aPathEntry", "\[LeftDoubleBracket]", "3", 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"Map", "[", 
+                    RowBox[{"rotate270inplace", ",", 
+                    RowBox[{
+                    "aPathEntry", "\[LeftDoubleBracket]", "4", 
+                    "\[RightDoubleBracket]"}]}], "]"}]}], " ", "}"}], 
+                 "\[IndentingNewLine]", "  ", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"aPathEntry", ",", " ", "newPathEntries"}], "}"}]}],
+                 "]"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}], 
+        RowBox[{"(*", 
+         RowBox[{"end", " ", "inner", " ", "module"}], "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", "newPathEntries", "]"}]}], ";"}]}], 
+     "\[IndentingNewLine]", "]"}]}], 
+   RowBox[{"(*", 
+    RowBox[{"end", " ", "outer", " ", "module"}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"wallFrictionMoveUp", "[", 
      RowBox[{
-     "r1_", ",", "r2_", ",", "g1_", ",", "g2_", ",", "currentPathLength_", 
-      ",", "moves_", ",", "\[Epsilon]_"}], "]"}], ":=", "\[IndentingNewLine]", 
+     "r1in_", ",", "r2in_", ",", "g1in_", ",", "g2in_", ",", "moves_", ",", 
+      "\[Epsilon]_"}], "]"}], ":=", " ", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
     RowBox[{"Module", "[", 
      RowBox[{
-      RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{"{", 
        RowBox[{
-        RowBox[{
-         RowBox[{"\[CapitalDelta]ey", " ", "=", " ", 
-          RowBox[{
-           RowBox[{
-           "g2", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], "-", 
-           
-           RowBox[{
-           "g1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}]}], 
-         RowBox[{"(*", 
-          RowBox[{"desired", " ", "y", " ", "difference"}], "*)"}], ";", 
-         "\[IndentingNewLine]", 
-         RowBox[{"\[CapitalDelta]ex", " ", "=", " ", 
-          RowBox[{
-           RowBox[{
-           "g2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], "-", 
-           
-           RowBox[{
-           "g1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}]}], 
-         " ", 
-         RowBox[{"(*", 
-          RowBox[{"desired", " ", "x", " ", "difference"}], "*)"}], ";", 
-         "\[IndentingNewLine]", 
+       "r1", ",", "r2", ",", "g1", ",", "g2", ",", "\[CapitalDelta]gx", ",", 
+        "\[CapitalDelta]gy", ",", "m1", ",", "m2", ",", "\[IndentingNewLine]",
+         "\[CapitalDelta]ey", " ", ",", 
+        RowBox[{"\[CapitalDelta]ex", " ", ";", "\[IndentingNewLine]", 
          RowBox[{"L", "=", " ", "1"}]}], " ", 
         RowBox[{"(*", 
          RowBox[{"size", " ", "of", " ", "workspace"}], "*)"}], ",", 
@@ -198,185 +576,171 @@ Cell[BoxData[
        RowBox[{"(*", 
         RowBox[{"desired", " ", "moves", " ", "for", " ", "r2"}], "*)"}], 
        "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+        "robot", " ", "1", " ", "must", " ", "contact", " ", "this", " ", 
+         "wall", " ", 
+         RowBox[{"first", ".", " ", "If"}], " ", "not"}], ",", " ", 
+        RowBox[{"switch", " ", 
+         RowBox[{"entries", ".", "  ", "Remember"}], " ", "to", " ", "switch",
+          " ", "again", " ", "at", " ", 
+         RowBox[{"end", "!"}], "\[IndentingNewLine]", " ", "then", " ", 
+         "move", " ", "robot", "  ", "while", " ", "first", " ", "robot", " ",
+          "is", " ", "touching", " ", "wall"}]}], "*)"}], 
+      "\[IndentingNewLine]", 
       RowBox[{
-       RowBox[{"\[CapitalDelta]r", "=", " ", 
-        RowBox[{"r2", "-", "r1"}]}], ";", "\[IndentingNewLine]", 
        RowBox[{"If", "[", 
         RowBox[{
-         RowBox[{"\[CapitalDelta]r", " ", "\[Equal]", " ", 
-          RowBox[{"{", 
-           RowBox[{"\[CapitalDelta]ex", ",", " ", "\[CapitalDelta]ey"}], 
-           "}"}]}], ",", "\[IndentingNewLine]", 
-         RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
           RowBox[{
-           RowBox[{"\[CapitalDelta]r", "=", "  ", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-               "g2", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
-               "-", "  ", 
-               RowBox[{
-               "r2", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}],
-               ",", " ", 
-              RowBox[{
-               RowBox[{
-               "g2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-               "-", " ", 
-               RowBox[{
-               "r2", "\[LeftDoubleBracket]", "2", 
-                "\[RightDoubleBracket]"}]}]}], "}"}]}], ";", 
-           "\[IndentingNewLine]", 
-           RowBox[{"AppendTo", "[", 
-            RowBox[{"moves", ",", " ", "\[CapitalDelta]r"}], "]"}], ";"}], 
-          "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
-         RowBox[{"{", 
-          RowBox[{"If", "[", 
+          "r1in", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], "<", 
+          RowBox[{
+          "r2in", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}], 
+         ",", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"r1", ",", "r2", ",", "g1", ",", "g2"}], "}"}], "=", 
+          RowBox[{"{", 
+           RowBox[{"r2in", ",", "r1in", ",", "g2in", ",", "g1in"}], "}"}]}], 
+         ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"r1", ",", "r2", ",", "g1", ",", "g2"}], "}"}], "=", 
+          RowBox[{"{", 
+           RowBox[{"r1in", ",", "r2in", ",", "g1in", ",", "g2in"}], "}"}]}]}],
+         "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\[CapitalDelta]gx", ",", "\[CapitalDelta]gx"}], "}"}], " ", 
+        "=", " ", 
+        RowBox[{"g2", "-", "g1"}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"\[CapitalDelta]gx", " ", ">", "0"}], " ", "&&", " ", 
+          RowBox[{"\[CapitalDelta]gx", " ", "<", " ", 
            RowBox[{
             RowBox[{
-             RowBox[{
-             "r1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
-             " ", ">", " ", 
-             RowBox[{
-             "r2", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}], 
-            ",", "\[IndentingNewLine]", 
-            RowBox[{"(*", 
-             RowBox[{"r1", " ", "is", " ", "the", " ", "top", " ", "robot"}], 
-             "*)"}], "\[IndentingNewLine]", 
-            RowBox[{"If", "[", 
-             RowBox[{
-              RowBox[{
-               RowBox[{"\[CapitalDelta]ey", " ", ">", "0"}], " ", "&&", " ", 
-               RowBox[{"\[CapitalDelta]ey", " ", "<", " ", 
-                RowBox[{
-                 RowBox[{
-                 "r1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}],
-                  "-", " ", 
-                 RowBox[{
-                 "r2", "\[LeftDoubleBracket]", "2", 
-                  "\[RightDoubleBracket]"}]}]}], " ", "&&", 
-               RowBox[{"\[CapitalDelta]ex", " ", ">", " ", 
-                RowBox[{
-                 RowBox[{
-                 "r2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}],
-                  "+", " ", "\[Epsilon]", " ", "-", "1"}]}], " ", "&&", " ", 
-               RowBox[{"\[CapitalDelta]ex", " ", "<", " ", "1"}]}], ",", 
-              "\[IndentingNewLine]", 
-              RowBox[{"(*", 
-               RowBox[{"Achievable", " ", "range"}], "*)"}], 
-              "\[IndentingNewLine]", 
-              RowBox[{"(*", 
-               RowBox[{
-               "move", " ", "r1", " ", "and", " ", "r2", " ", "so", " ", 
-                "that", " ", "r1", " ", "will", " ", "touch", " ", "the", " ",
-                 "up", " ", "wall"}], "*)"}], "\[IndentingNewLine]", 
-              RowBox[{
-               RowBox[{"\[CapitalDelta]r", "=", 
-                RowBox[{"{", 
-                 RowBox[{
-                  RowBox[{
-                   FractionBox[
-                    RowBox[{"1", "-", 
-                    RowBox[{
-                    "r1", "\[LeftDoubleBracket]", "2", 
-                    "\[RightDoubleBracket]"}]}], 
-                    RowBox[{"2", "-", 
-                    RowBox[{
-                    "r1", "\[LeftDoubleBracket]", "2", 
-                    "\[RightDoubleBracket]"}], "-", 
-                    RowBox[{
-                    "g1", "\[LeftDoubleBracket]", "2", 
-                    "\[RightDoubleBracket]"}]}]], 
-                   RowBox[{"(", 
-                    RowBox[{
-                    RowBox[{
-                    "g2", " ", "\[LeftDoubleBracket]", "1", 
-                    "\[RightDoubleBracket]"}], "-", 
-                    RowBox[{
-                    "r2", " ", "\[LeftDoubleBracket]", "1", 
-                    "\[RightDoubleBracket]"}]}], ")"}]}], ",", 
-                  RowBox[{"1", "-", 
-                   RowBox[{
-                   "r1", "\[LeftDoubleBracket]", "2", 
-                    "\[RightDoubleBracket]"}]}]}], "}"}]}], ";", 
-               RowBox[{"r1", " ", "+=", "  ", "\[CapitalDelta]r"}], ";", " ", 
-               
-               RowBox[{"r2", " ", "+=", " ", "\[CapitalDelta]r"}], ";", 
-               "\[IndentingNewLine]", 
-               RowBox[{"(*", 
-                RowBox[{
-                "move", " ", "r2", " ", "to", " ", "get", " ", "correct", " ",
-                  "spacing"}], "*)"}], "\[IndentingNewLine]", 
-               RowBox[{"\[CapitalDelta]r", "=", 
-                RowBox[{"{", 
-                 RowBox[{
-                  RowBox[{"\[CapitalDelta]ex", "-", 
-                   RowBox[{"(", 
-                    RowBox[{
-                    RowBox[{
-                    "r2", "\[LeftDoubleBracket]", "1", 
-                    "\[RightDoubleBracket]"}], "-", 
-                    RowBox[{
-                    "r1", "\[LeftDoubleBracket]", "1", 
-                    "\[RightDoubleBracket]"}]}], ")"}]}], ",", 
-                  RowBox[{"\[CapitalDelta]ey", "-", 
-                   RowBox[{"(", 
-                    RowBox[{
-                    RowBox[{
-                    "r2", "\[LeftDoubleBracket]", "2", 
-                    "\[RightDoubleBracket]"}], "-", 
-                    RowBox[{
-                    "r1", "\[LeftDoubleBracket]", "2", 
-                    "\[RightDoubleBracket]"}]}], ")"}]}]}], " ", "}"}]}], ";", 
-               RowBox[{"r2", " ", "+=", " ", "\[CapitalDelta]r"}]}], ","}], 
-             "\[IndentingNewLine]", "\[IndentingNewLine]", 
-             RowBox[{"(*", 
-              RowBox[{"not", " ", "achievable", " ", "range"}], "*)"}], 
-             "\[IndentingNewLine]", "\[IndentingNewLine]", 
-             "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", ","}], 
-           "\[IndentingNewLine]", 
-           RowBox[{"(*", 
-            RowBox[{"r2", " ", "is", " ", "the", " ", "top", " ", "robot"}], 
-            "*)"}], "\[IndentingNewLine]", 
-           RowBox[{"(*", 
+            "r1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], "-",
+             " ", 
+            RowBox[{
+            "r2", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}]}], 
+          " ", "&&", 
+          RowBox[{"\[CapitalDelta]gx", " ", ">", " ", 
+           RowBox[{
+            RowBox[{
+            "r2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], "+",
+             " ", "\[Epsilon]", " ", "-", "1"}]}], " ", "&&", " ", 
+          RowBox[{"\[CapitalDelta]gy", " ", "<", " ", "1"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{"in", " ", "Achievable", " ", "range"}], "*)"}], 
+         "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{
+          "move", " ", "r1", " ", "and", " ", "r2", " ", "so", " ", "that", 
+           " ", "r1", " ", "will", " ", "touch", " ", "the", " ", "up", " ", 
+           "wall"}], "*)"}], "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"m1", "=", 
+           RowBox[{"{", 
             RowBox[{
              RowBox[{
-              RowBox[{
+              FractionBox[
+               RowBox[{"1", "-", 
+                RowBox[{
+                "r1", "\[LeftDoubleBracket]", "2", 
+                 "\[RightDoubleBracket]"}]}], 
+               RowBox[{"2", "-", 
+                RowBox[{
+                "r1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+                "-", 
+                RowBox[{
+                "g1", "\[LeftDoubleBracket]", "2", 
+                 "\[RightDoubleBracket]"}]}]], 
+              RowBox[{"(", 
                RowBox[{
                 RowBox[{
-                 RowBox[{
-                  RowBox[{
-                   RowBox[{
-                    RowBox[{"\[IndentingNewLine]", 
-                    RowBox[{
-                    "1.", " ", "which", " ", "robot", " ", "hits", " ", "top",
-                     " ", 
-                    RowBox[{"first", "?", "\[IndentingNewLine]", "2."}]}], 
-                    ")"}], " ", "what", " ", "is", " ", "range", " ", "of", 
-                    " ", "possible", "  ", "\[CapitalDelta]x", " ", "and", 
-                    " ", "\[CapitalDelta]y", " ", "that", " ", "can", " ", 
-                    "be", " ", "achieved", "\[IndentingNewLine]", "3."}], 
-                   ")"}], " ", "move", " ", "to", " ", "minimize", " ", 
-                  "\[CapitalDelta]x", " ", "and", " ", 
-                  RowBox[{"\[CapitalDelta]y", ".", "  ", "If"}], " ", 
-                  "\[CapitalDelta]x", " ", "and", " ", "\[CapitalDelta]y", 
-                  " ", "can", " ", "be", " ", "made", " ", "to", " ", 
-                  "zero"}], ",", " ", 
-                 RowBox[{"do", " ", 
-                  RowBox[{"it", ".", "  ", "Otherwise"}], " ", "minimise", 
-                  " ", "them", "\[IndentingNewLine]", "4."}]}], ")"}], " ", 
-               "update", " ", 
-               RowBox[{"{", 
+                "g2", " ", "\[LeftDoubleBracket]", "1", 
+                 "\[RightDoubleBracket]"}], "-", 
                 RowBox[{
-                 RowBox[{"A", "*", "pathLength"}], ",", 
-                 RowBox[{"current_path", "_length"}], ",", "r1", ",", "r2", 
-                 ",", "MOVES"}], "}"}]}], " ", "&"}], " ", "store", " ", 
-             "it"}], "\[IndentingNewLine]", "\[IndentingNewLine]", "*)"}], 
-           "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", "}"}]}], 
+                "r2", " ", "\[LeftDoubleBracket]", "1", 
+                 "\[RightDoubleBracket]"}]}], ")"}]}], ",", 
+             RowBox[{"1", "-", 
+              RowBox[{
+              "r1", "\[LeftDoubleBracket]", "2", 
+               "\[RightDoubleBracket]"}]}]}], "}"}]}], ";", 
+          RowBox[{"r1", " ", "+=", "  ", "m1"}], ";", " ", 
+          RowBox[{"r2", " ", "+=", " ", "m1"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"moves", ",", " ", 
+            RowBox[{"{", "m1", "}"}]}], "]"}], ";", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+           "move", " ", "r2", " ", "to", " ", "get", " ", "correct", " ", 
+            "spacing"}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"m2", "=", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"\[CapitalDelta]ex", "-", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                "r2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+                "-", 
+                RowBox[{
+                "r1", "\[LeftDoubleBracket]", "1", 
+                 "\[RightDoubleBracket]"}]}], ")"}]}], ",", 
+             RowBox[{"\[CapitalDelta]ey", "-", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                "r2", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+                "-", 
+                RowBox[{
+                "r1", "\[LeftDoubleBracket]", "2", 
+                 "\[RightDoubleBracket]"}]}], ")"}]}]}], " ", "}"}]}], ";", 
+          RowBox[{"r2", " ", "+=", " ", "m2"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"moves", ",", " ", 
+            RowBox[{"{", "m2", "}"}]}], "]"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"Return", "[", " ", 
+           RowBox[{"{", 
+            RowBox[{"{", " ", 
+             RowBox[{
+              RowBox[{"distanceMoved", "[", " ", "moves", "]"}], ",", "g1in", 
+              ",", "g2in", ",", "moves"}], " ", "}"}], " ", "}"}], " ", 
+           "]"}]}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{"not", " ", "achievable", " ", "range"}], "*)"}], 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Print", "[", "\"\<not achieveable\>\"", "]"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Return", "[", " ", 
+           RowBox[{"{", 
+            RowBox[{"{", " ", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"distanceMoved", "[", " ", "moves", "]"}], "+", "1"}], 
+              ",", "g1in", ",", "g2in", ",", "moves"}], " ", "}"}], " ", 
+            "}"}], " ", "]"}]}]}], " ", 
+        RowBox[{"(*", 
+         RowBox[{"THIS", " ", "IS", " ", "A", " ", "NULL", " ", "MOVE"}], 
+         "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+         "move", " ", "the", " ", "robots", " ", "to", " ", "minimize", " ", 
+          "the", " ", 
+          RowBox[{"error", ".", "  ", "This"}], " ", "might", " ", "return", 
+          " ", "multiple", " ", "solutions"}], "*)"}], "\[IndentingNewLine]", 
         "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"RotateCW90", "[", "r_", "]"}], ":=", 
+    RowBox[{"rotate90", "[", "r_", "]"}], ":=", 
     RowBox[{"{", 
      RowBox[{
       RowBox[{"1", "-", " ", 
@@ -385,7 +749,7 @@ Cell[BoxData[
       RowBox[{"r", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], 
      "}"}]}], "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"RotateCW90inplace", "[", "r_", "]"}], ":=", 
+    RowBox[{"rotate90inplace", "[", "r_", "]"}], ":=", 
     RowBox[{"{", 
      RowBox[{
       RowBox[{"-", " ", 
@@ -394,7 +758,7 @@ Cell[BoxData[
       RowBox[{"r", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], 
      "}"}]}], "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"RotateCCW90", "[", "r_", "]"}], " ", ":=", " ", 
+    RowBox[{"rotate270", "[", "r_", "]"}], " ", ":=", " ", 
     RowBox[{"{", 
      RowBox[{
       RowBox[{"r", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
@@ -402,7 +766,49 @@ Cell[BoxData[
       RowBox[{"1", "-", " ", 
        RowBox[{
        "r", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}]}], 
-     "}"}]}]}]}]], "Input",
+     "}"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"rotate270inplace", "[", "r_", "]"}], " ", ":=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"r", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+      ",", 
+      RowBox[{"-", " ", 
+       RowBox[{
+       "r", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}]}], 
+     "}"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"rotate180", "[", "r_", "]"}], " ", ":=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "-", 
+       RowBox[{"r", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], 
+      ",", 
+      RowBox[{"1", "-", " ", 
+       RowBox[{
+       "r", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}]}], 
+     "}"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"rotate180inplace", "[", "r_", "]"}], " ", ":=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"r", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], 
+      ",", 
+      RowBox[{"-", " ", 
+       RowBox[{
+       "r", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}]}], 
+     "}"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"distanceMoved", "[", "moves_", "]"}], ":=", " ", 
+     RowBox[{"Total", "[", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"Norm", "[", "m", "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"m", ",", "moves2"}], "}"}]}], "]"}], "]"}]}], 
+    ";"}]}]}]], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.6939408528236227`*^9, 3.693940888469677*^9}, {
    3.6939411305091133`*^9, 3.693941178437819*^9}, {3.693941387876739*^9, 
@@ -424,7 +830,21 @@ Cell[BoxData[
    3.69445816056343*^9}, {3.6944590515411797`*^9, 3.694459057212715*^9}, {
    3.694789332143281*^9, 3.6947893625847692`*^9}, {3.694797839893197*^9, 
    3.694797986266018*^9}, {3.694798020460239*^9, 3.694798110533209*^9}, {
-   3.694802568905859*^9, 3.6948025759023943`*^9}}],
+   3.694802568905859*^9, 3.6948025759023943`*^9}, {3.694952267818956*^9, 
+   3.694952387671607*^9}, {3.69495242737435*^9, 3.6949524933882837`*^9}, {
+   3.694952716828657*^9, 3.694952875425663*^9}, {3.694952961359168*^9, 
+   3.69495311078391*^9}, {3.694953177959278*^9, 3.694953206904295*^9}, 
+   3.694953353572682*^9, {3.69495374669226*^9, 3.6949537480438547`*^9}, {
+   3.694953989397366*^9, 3.69495432042314*^9}, {3.6949543709899073`*^9, 
+   3.694954402358076*^9}, {3.6949544336109457`*^9, 3.694954489316423*^9}, {
+   3.694954519838024*^9, 3.694954619638063*^9}, {3.694954676439558*^9, 
+   3.6949549862473917`*^9}, {3.694955026267868*^9, 3.694955089067938*^9}, {
+   3.694955263726976*^9, 3.6949552675503683`*^9}, {3.694955317972886*^9, 
+   3.694955348540511*^9}, {3.694955389960005*^9, 3.694955546827735*^9}, {
+   3.694955905292438*^9, 3.694956138265617*^9}, {3.6949561742960587`*^9, 
+   3.694956339677886*^9}, {3.694956481622334*^9, 3.6949567563090343`*^9}, {
+   3.694956795713811*^9, 3.694956926826346*^9}, {3.694956977884089*^9, 
+   3.694957174068321*^9}, {3.694957349151458*^9, 3.694957381496011*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -438,105 +858,183 @@ Cell[BoxData[
     RowBox[{"s1_", ",", "s2_", ",", " ", "g1_", ",", "g2_"}], "]"}], ":=", 
    RowBox[{"Module", "[", 
     RowBox[{
-     RowBox[{"{", "optimalPathList", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"optimalPathList", ",", "bestMoveSeq", ",", " ", "dist1"}], 
+      "}"}], ",", "\[IndentingNewLine]", 
      RowBox[{"(*", 
       RowBox[{"{", 
        RowBox[{
-        RowBox[{"A", "*", "pathLength"}], ",", 
-        RowBox[{"current_path", "_length"}], ",", "r1", ",", "r2", ",", 
-        "MOVES"}], "}"}], "*)"}], "\[IndentingNewLine]", 
-     RowBox[{"optimalPathList", "=", 
-      RowBox[{
+        StyleBox[
+         RowBox[{"e", 
+          StyleBox["stimatedPathLength", "Text",
+           FontWeight->"Bold"]}]], ",", "r1", ",", "r2", ",", "MOVES"}], 
+       "}"}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"optimalPathList", "=", 
        RowBox[{"{", 
         RowBox[{
          RowBox[{
           RowBox[{"admissibleHeuristic", "[", 
            RowBox[{"s1", ",", "s2", ",", " ", "g1", ",", "g2"}], "]"}], "+", 
-          "0"}], ",", "0", ",", "s1", ",", "s2", ",", 
-         RowBox[{"{", "}"}]}], "}"}], "\[IndentingNewLine]", 
-       RowBox[{"While", "[", 
+          "0"}], ",", "s1", ",", "s2", ",", 
+         RowBox[{"{", "}"}]}], "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"dist1", " ", "=", " ", 
+       RowBox[{"distanceMoved", "[", " ", 
+        RowBox[{"optimalPathList", "\[LeftDoubleBracket]", 
+         RowBox[{"1", ",", "4"}], "\[RightDoubleBracket]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"While", "[", 
+       RowBox[{
         RowBox[{
+         RowBox[{"optimalPathList", "\[LeftDoubleBracket]", 
+          RowBox[{"1", ",", "1"}], "\[RightDoubleBracket]"}], " ", 
+         "\[NotEqual]", "dist1"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Module", "[", 
          RowBox[{
-          RowBox[{"optimalPathList", "\[LeftDoubleBracket]", 
-           RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}], " ", 
-          "\[NotEqual]", " ", 
-          RowBox[{"optimalPathList", "\[LeftDoubleBracket]", 
-           RowBox[{"1", ",", "1"}], "\[RightDoubleBracket]"}]}], " ", ",", 
-         "\[IndentingNewLine]", 
-         RowBox[{"Module", "[", 
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{
-            "pathToExplore", ",", "r1", ",", "r2", ",", "wallMoves", ",", 
-             "moves", ",", "currentPathLength"}], "}"}], ",", 
-           "\[IndentingNewLine]", 
-           RowBox[{"(*", 
-            RowBox[{"body", " ", "of", " ", "while", " ", "loop"}], "*)"}], 
-           "\[IndentingNewLine]", 
+          RowBox[{"{", 
            RowBox[{
-            RowBox[{"pathToExplore", " ", "=", " ", 
-             RowBox[{"First", "[", "optimalPathList", "]"}]}], ";", 
-            "\[IndentingNewLine]", 
-            RowBox[{"Delete", "[", 
-             RowBox[{"optimalPathList", ",", "1"}], "]"}], ";", 
-            "\[IndentingNewLine]", 
-            RowBox[{"currentPathLength", " ", "=", " ", 
+           "pathToExplore", ",", "r1", ",", "r2", ",", "wallMoves", ",", 
+            "moves", ",", "currentPathLength"}], "}"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{"body", " ", "of", " ", "while", " ", "loop"}], "*)"}], 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"pathToExplore", " ", "=", " ", 
+            RowBox[{"First", "[", "optimalPathList", "]"}]}], ";", " ", 
+           RowBox[{"(*", 
+            RowBox[{"pop", " ", "off", " ", "first", " ", "entry"}], "*)"}], 
+           "\[IndentingNewLine]", 
+           RowBox[{"Delete", "[", 
+            RowBox[{"optimalPathList", ",", "1"}], "]"}], ";", 
+           "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"r1", " ", "=", " ", 
+            RowBox[{
+            "optimalPathList", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"r2", " ", "=", " ", 
+            RowBox[{
+            "optimalPathList", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"moves", "=", " ", 
+            RowBox[{
+            "optimalPathList", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ";", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Table", "[", "\[IndentingNewLine]", 
+            RowBox[{
              RowBox[{
-             "optimalPathList", "\[LeftDoubleBracket]", "2", 
-              "\[RightDoubleBracket]"}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{"r1", " ", "=", " ", 
-             RowBox[{
-             "optimalPathList", "\[LeftDoubleBracket]", "3", 
-              "\[RightDoubleBracket]"}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{"r2", " ", "=", " ", 
-             RowBox[{
-             "optimalPathList", "\[LeftDoubleBracket]", "4", 
-              "\[RightDoubleBracket]"}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{"moves", "=", " ", 
-             RowBox[{
-             "optimalPathList", "\[LeftDoubleBracket]", "5", 
-              "\[RightDoubleBracket]"}]}], ";", "\[IndentingNewLine]", 
-            "\[IndentingNewLine]", 
-            RowBox[{"Table", "[", "\[IndentingNewLine]", 
-             RowBox[{
-              RowBox[{
-               RowBox[{"wallMoves", " ", "=", " ", 
-                RowBox[{"wallFrictionMoveDir", "[", 
-                 RowBox[{
-                 "\"\<u\>\"", ",", "r1", ",", "r2", ",", "g1", ",", "g2", ",",
-                   "currentPathLength", ",", "moves"}], "]"}]}], ";", 
-               "\[IndentingNewLine]", 
-               RowBox[{"optimalPathList", "=", 
-                RowBox[{"Join", "[", 
-                 RowBox[{"optimalPathList", ",", "wallMoves"}], "]"}]}], 
-               ";"}], ",", 
-              RowBox[{"{", 
-               RowBox[{"dir", ",", 
-                RowBox[{"{", 
-                 RowBox[{
-                 "\"\<u\>\"", ",", "\"\<d\>\"", ",", "\"\<l\>\"", ",", 
-                  "\"\<r\>\""}], "}"}]}], "}"}]}], "]"}], ";", 
-            "\[IndentingNewLine]", 
-            RowBox[{"optimalPathList", " ", "=", " ", 
-             RowBox[{"Sort", "[", "optimalPathList", "]"}]}], ";"}]}], 
-          "\[IndentingNewLine]", "]"}]}], "]"}]}]}]}], "\[IndentingNewLine]", 
-    "]"}]}]}]], "Input",
+              RowBox[{"wallMoves", " ", "=", " ", 
+               RowBox[{"wallFrictionMoveDir", "[", 
+                RowBox[{
+                "dir", ",", "r1", ",", "r2", ",", "g1", ",", "g2", ",", 
+                 "moves"}], "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"optimalPathList", "=", 
+               RowBox[{"Join", "[", 
+                RowBox[{"optimalPathList", ",", "wallMoves"}], "]"}]}], ";"}],
+              ",", "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{"dir", ",", 
+               RowBox[{"{", 
+                RowBox[{
+                "\"\<u\>\"", ",", "\"\<d\>\"", ",", "\"\<l\>\"", ",", 
+                 "\"\<r\>\""}], "}"}]}], "}"}]}], "]"}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"optimalPathList", " ", "=", " ", 
+            RowBox[{"Sort", "[", "optimalPathList", "]"}]}], ";"}]}], 
+         "\[IndentingNewLine]", "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{"return", " ", "the", " ", "best", " ", "movement"}], "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"bestMoveSeq", "=", 
+       RowBox[{"optimalPathList", "\[LeftDoubleBracket]", 
+        RowBox[{"1", ",", "4"}], "\[RightDoubleBracket]"}]}]}]}], 
+    "\[IndentingNewLine]", "]"}]}]}]], "Input",
  CellChangeTimes->{{3.693940726427231*^9, 3.69394085900465*^9}, {
-  3.693940895539198*^9, 3.6939409666319933`*^9}, {3.693941015818716*^9, 
-  3.693941070387782*^9}, {3.6939411957594147`*^9, 3.693941207223578*^9}, {
-  3.69394124639567*^9, 3.69394141470152*^9}, {3.6939414777790194`*^9, 
-  3.693941602916482*^9}, {3.693941719143827*^9, 3.6939417800565577`*^9}, {
-  3.693941813999855*^9, 3.69394183001812*^9}, {3.6945254015518847`*^9, 
-  3.6945254358842783`*^9}}],
+   3.693940895539198*^9, 3.6939409666319933`*^9}, {3.693941015818716*^9, 
+   3.693941070387782*^9}, {3.6939411957594147`*^9, 3.693941207223578*^9}, {
+   3.69394124639567*^9, 3.69394141470152*^9}, {3.6939414777790194`*^9, 
+   3.693941602916482*^9}, {3.693941719143827*^9, 3.6939417800565577`*^9}, {
+   3.693941813999855*^9, 3.69394183001812*^9}, {3.6945254015518847`*^9, 
+   3.6945254358842783`*^9}, {3.69495315352875*^9, 3.694953153935306*^9}, {
+   3.694953365339604*^9, 3.6949534511634703`*^9}, {3.6949534979686403`*^9, 
+   3.69495352316755*^9}, {3.694953558657641*^9, 3.694953604338295*^9}, {
+   3.694953659629985*^9, 3.694953783907632*^9}, 3.694953852200987*^9}],
 
 Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.694525462789328*^9, 3.694525505608941*^9}, 
    3.6945317807599707`*^9, {3.694531928172214*^9, 3.6945319296362867`*^9}, 
-   3.694783300509295*^9}]
+   3.694783300509295*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"distanceMoved", "[", "moves_", "]"}], ":=", " ", 
+   RowBox[{"Total", "[", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"Norm", "[", "m", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"m", ",", "moves2"}], "}"}]}], "]"}], "]"}]}], ";"}]], "Input",\
+
+ CellChangeTimes->{{3.694953346346113*^9, 3.694953348255649*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"moves2", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"1", ",", "1"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"4", ",", "3"}], "}"}]}], "}"}]}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.694953213575666*^9, 3.6949532790765553`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "3"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.694953294640411*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Total", "[", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"Norm", "[", "m", "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"m", ",", "moves2"}], "}"}]}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.694953284249366*^9, 3.6949533285828753`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"5", "+", 
+  SqrtBox["2"]}]], "Output",
+ CellChangeTimes->{{3.694953322860997*^9, 3.69495332906155*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "moves2", "]"}]], "Input",
+ CellChangeTimes->{{3.694953288978594*^9, 3.694953297781901*^9}}],
+
+Cell[BoxData["2"], "Output",
+ CellChangeTimes->{3.694953298218465*^9}]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 },
-WindowSize->{808, 619},
-WindowMargins->{{Automatic, 14}, {33, Automatic}},
+WindowSize->{1036, 648},
+WindowMargins->{{Automatic, 12}, {Automatic, 0}},
 FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
 2014)",
 StyleDefinitions->"Default.nb"
@@ -553,11 +1051,28 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 1645, 39, 919, "Subsection"],
-Cell[2228, 63, 16675, 363, 1411, "Input",
+Cell[580, 22, 185, 4, 99, "Section"],
+Cell[768, 28, 509, 11, 155, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[1302, 43, 4695, 131, 696, "Subsection"],
+Cell[6000, 176, 30379, 670, 2054, "Input",
  InitializationCell->True],
-Cell[18906, 428, 4625, 101, 352, "Input"],
-Cell[23534, 531, 194, 3, 28, "Input"]
+Cell[36382, 848, 5246, 113, 420, "Input"],
+Cell[41631, 963, 194, 3, 28, "Input"],
+Cell[41828, 968, 375, 11, 28, "Input"],
+Cell[CellGroupData[{
+Cell[42228, 983, 393, 11, 80, "Input"],
+Cell[42624, 996, 213, 7, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[42874, 1008, 271, 7, 28, "Input"],
+Cell[43148, 1017, 127, 3, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[43312, 1025, 130, 2, 28, "Input"],
+Cell[43445, 1029, 70, 1, 28, "Output"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 }
 ]
