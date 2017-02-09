@@ -156,7 +156,15 @@ $\epsilon $ is a small, nonzero, user-specified value.
 
 \subsection{Position Control of $n$ Robots Using Wall Friction}\label{sec:PostionControlnRobots}
 Alg. \ref{alg:PosControl2Robots}  can be extended to control the position of $n$ robots using wall friction under several constraints. The solution described here is an iterative procedure with $n$ loops. The $k$th loop moves the $k$th robot from a \emph{staging zone} to the desired position in a \emph{build zone}. All robots move according to the global input, but due to wall friction, at the end the $k$th loop, robots 1 through $k$ are in their desired final configuration in the build zone, and robots $k+1$ to $n$ are in the staging zone. See Fig.~\ref{fig:construction2d} for a schematic of the build and staging zones.
-
+\begin{figure}
+\begin{center}
+	\includegraphics[width=1.0\columnwidth]{PositionNrobotsComp.pdf}
+\end{center}
+\vspace{-1em}
+\caption{\label{fig:simulationNrobot}
+Illustration of Alg.\ \ref{alg:PosControlNRobots}, $n$ robot position control  using wall friction.
+}
+\end{figure}
 
 \begin{figure}
 \begin{center}
@@ -167,6 +175,8 @@ Alg. \ref{alg:PosControl2Robots}  can be extended to control the position of $n$
 Illustration of Alg.\ \ref{alg:PosControlNRobots}, $n$ robot position control  using wall friction.
 }
 \end{figure}
+
+
 
 
 Assume an open workspace with four axis-aligned walls with infinite friction.

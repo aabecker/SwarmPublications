@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     51012,       1062]
-NotebookOptionsPosition[     50531,       1041]
-NotebookOutlinePosition[     50891,       1057]
-CellTagsIndexPosition[     50848,       1054]
+NotebookDataLength[     50757,       1056]
+NotebookOptionsPosition[     50249,       1035]
+NotebookOutlinePosition[     50660,       1053]
+CellTagsIndexPosition[     50617,       1050]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -32,349 +32,348 @@ Cell[BoxData[
     RowBox[{"y", ",", 
      RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "]"}]], "Input"],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
- RowBox[{"Manipulate", "[", 
-  RowBox[{
-   RowBox[{"Module", "[", 
-    RowBox[{
-     RowBox[{"{", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"r", " ", "=", " ", 
-        RowBox[{"1", "/", "40"}]}], " ", 
-       RowBox[{"(*", 
-        RowBox[{
-        "radius", " ", "of", " ", "start", " ", "and", " ", "end", " ", 
-         "markers"}], "*)"}], ",", "\[IndentingNewLine]", 
-       RowBox[{"thickness", " ", "=", " ", "0.002"}], ",", 
-       "\[IndentingNewLine]", 
-       RowBox[{"(*", 
-        RowBox[{"left", " ", "robot"}], "*)"}], " ", "ps1", ",", "pe1", ",", 
-       "\[IndentingNewLine]", 
-       RowBox[{"(*", 
-        RowBox[{"right", " ", "robot"}], "*)"}], " ", "ps2", ",", "pe2", ",", 
-       "\[IndentingNewLine]", 
-       RowBox[{"(*", 
-        RowBox[{"current", " ", "particle", " ", "position"}], "*)"}], " ", 
-       "pm1", ",", "pm2", ",", "offset", ",", "\[IndentingNewLine]", 
-       RowBox[{"c1", "=", "Blue"}], ",", 
-       RowBox[{"c2", " ", "=", "Magenta"}]}], "}"}], ",", 
-     "\[IndentingNewLine]", 
-     RowBox[{"(*", 
-      RowBox[{
-      "ensure", " ", "robots", " ", "do", " ", "not", " ", "overlap"}], 
-      "*)"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Manipulate", "[", 
+   RowBox[{
+    RowBox[{"Module", "[", 
      RowBox[{
-      RowBox[{"If", "[", 
+      RowBox[{"{", "\[IndentingNewLine]", 
        RowBox[{
-        RowBox[{
-         RowBox[{"EuclideanDistance", "[", 
-          RowBox[{"s1", ",", "s2"}], "]"}], "<", "\[Epsilon]"}], ",", " ", 
-        RowBox[{"If", "[", 
+        RowBox[{"r", " ", "=", " ", 
+         RowBox[{"1", "/", "40"}]}], " ", 
+        RowBox[{"(*", 
          RowBox[{
-          RowBox[{
-           RowBox[{
-           "s1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], "<", 
-           
-           RowBox[{
-           "s2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], 
-          ",", 
-          RowBox[{"If", "[", 
-           RowBox[{
-            RowBox[{
-             RowBox[{
-             "s1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-             ">", 
-             RowBox[{"2", "\[Epsilon]"}]}], ",", 
-            RowBox[{
-             RowBox[{
-             "s1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-             " ", "=", 
-             RowBox[{
-              RowBox[{
-              "s2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-              " ", "-", " ", "\[Epsilon]"}]}], ",", 
-            RowBox[{
-             RowBox[{
-             "s2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-             " ", "=", 
-             RowBox[{
-              RowBox[{
-              "s1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-              " ", "+", "\[Epsilon]"}]}]}], "]"}], ",", 
-          RowBox[{"If", "[", 
-           RowBox[{
-            RowBox[{
-             RowBox[{
-             "s2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-             ">", 
-             RowBox[{"2", "\[Epsilon]"}]}], ",", 
-            RowBox[{
-             RowBox[{
-             "s2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-             "=", " ", 
-             RowBox[{
-              RowBox[{
-              "s1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-              "-", " ", "\[Epsilon]"}]}], ",", 
-            RowBox[{
-             RowBox[{
-             "s1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-             " ", "=", 
-             RowBox[{
-              RowBox[{
-              "s2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-              "+", " ", "\[Epsilon]"}]}]}], "]"}]}], "]"}]}], "]"}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"If", "[", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"EuclideanDistance", "[", 
-          RowBox[{"e1", ",", "e2"}], "]"}], "<", "\[Epsilon]"}], ",", " ", 
-        RowBox[{"If", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{
-           "e1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], "<", 
-           
-           RowBox[{
-           "e2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], 
-          ",", 
-          RowBox[{"If", "[", 
-           RowBox[{
-            RowBox[{
-             RowBox[{
-             "e1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-             ">", 
-             RowBox[{"2", "\[Epsilon]"}]}], ",", 
-            RowBox[{
-             RowBox[{
-             "e1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-             " ", "=", 
-             RowBox[{
-              RowBox[{
-              "e2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-              " ", "-", " ", "\[Epsilon]"}]}], ",", 
-            RowBox[{
-             RowBox[{
-             "e2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-             " ", "=", 
-             RowBox[{
-              RowBox[{
-              "e1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-              " ", "+", "\[Epsilon]"}]}]}], "]"}], ",", 
-          RowBox[{"If", "[", 
-           RowBox[{
-            RowBox[{
-             RowBox[{
-             "e2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-             ">", 
-             RowBox[{"2", "\[Epsilon]"}]}], ",", 
-            RowBox[{
-             RowBox[{
-             "e2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-             "=", " ", 
-             RowBox[{
-              RowBox[{
-              "e1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-              "-", " ", "\[Epsilon]"}]}], ",", 
-            RowBox[{
-             RowBox[{
-             "e1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-             " ", "=", 
-             RowBox[{
-              RowBox[{
-              "e2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-              "+", " ", "\[Epsilon]"}]}]}], "]"}]}], "]"}]}], "]"}], ";", 
+         "radius", " ", "of", " ", "start", " ", "and", " ", "end", " ", 
+          "markers"}], "*)"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"thickness", " ", "=", " ", "0.002"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{"left", " ", "robot"}], "*)"}], " ", "ps1", ",", "pe1", ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{"right", " ", "robot"}], "*)"}], " ", "ps2", ",", "pe2", ",",
+         "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{"current", " ", "particle", " ", "position"}], "*)"}], " ", 
+        "pm1", ",", "pm2", ",", "offset", ",", "\[IndentingNewLine]", 
+        RowBox[{"c1", "=", "Blue"}], ",", 
+        RowBox[{"c2", " ", "=", "Magenta"}]}], "}"}], ",", 
       "\[IndentingNewLine]", 
       RowBox[{"(*", 
-       RowBox[{"ensure", " ", "ps1", " ", "is", " ", "leftmost"}], "*)"}], 
-      "\[IndentingNewLine]", 
+       RowBox[{
+       "ensure", " ", "robots", " ", "do", " ", "not", " ", "overlap"}], 
+       "*)"}], "\[IndentingNewLine]", 
       RowBox[{
-       RowBox[{"{", 
-        RowBox[{"ps1", " ", ",", "pe1", ",", "ps2", ",", "pe2"}], "}"}], " ", 
-       "=", " ", 
        RowBox[{"If", "[", 
         RowBox[{
          RowBox[{
+          RowBox[{"EuclideanDistance", "[", 
+           RowBox[{"s1", ",", "s2"}], "]"}], "<", "\[Epsilon]"}], ",", " ", 
+         RowBox[{"If", "[", 
           RowBox[{
            RowBox[{
-           "s1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], "<", 
-           " ", 
-           RowBox[{
-           "s2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], 
-          " ", "||", " ", 
-          RowBox[{"(", 
-           RowBox[{
             RowBox[{
-             RowBox[{
-             "s1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-             "\[Equal]", "  ", 
-             RowBox[{
-             "s2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], 
-            " ", "&&", 
+            "s1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], "<", 
             RowBox[{
-             RowBox[{
-             "s1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
-             "<", "  ", 
-             RowBox[{
-             "s2", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}]}],
-            ")"}]}], "  ", ",", 
-         RowBox[{"{", 
-          RowBox[{"s1", " ", ",", "e1", ",", "s2", ",", "e2"}], "}"}], ",", 
-         RowBox[{"{", 
-          RowBox[{"s2", ",", "e2", ",", "s1", " ", ",", "e1"}], "}"}]}], 
-        "]"}]}], ";", "\[IndentingNewLine]", 
-      RowBox[{"Graphics", "[", 
-       RowBox[{
-        RowBox[{"{", "\[IndentingNewLine]", 
-         RowBox[{"(*", "workspace", "*)"}], "\[IndentingNewLine]", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{"Darker", "[", "Red", "]"}], ",", " ", 
-            RowBox[{"Rectangle", "[", 
+            "s2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], 
+           ",", 
+           RowBox[{"If", "[", 
+            RowBox[{
              RowBox[{
               RowBox[{
-               RowBox[{"-", "0.025"}], 
-               RowBox[{"{", 
-                RowBox[{"1", ",", "1"}], "}"}]}], ",", 
-              RowBox[{"1.025", 
-               RowBox[{"{", 
-                RowBox[{"1", ",", "1"}], "}"}]}]}], "]"}]}], "}"}], ",", 
-          "\[IndentingNewLine]", 
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{"Lighter", "[", 
-             RowBox[{"Gray", ",", "0.8"}], "]"}], ",", " ", 
-            RowBox[{"Rectangle", "[", 
+              "s1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              ">", 
+              RowBox[{"2", "\[Epsilon]"}]}], ",", 
              RowBox[{
-              RowBox[{"{", 
-               RowBox[{"0", ",", "0"}], "}"}], ",", 
-              RowBox[{"{", 
-               RowBox[{"1", ",", "1"}], "}"}]}], "]"}]}], "}"}], ",", 
-          "\[IndentingNewLine]", 
-          RowBox[{"{", 
-           RowBox[{"White", ",", " ", 
-            RowBox[{"Rectangle", "[", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{"\[Epsilon]", ",", " ", "\[Epsilon]"}], "}"}], ",", 
-              RowBox[{"{", 
+              RowBox[{
+              "s1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              " ", "=", 
+              RowBox[{
                RowBox[{
-                RowBox[{"1", "-", "\[Epsilon]"}], ",", 
-                RowBox[{"1", "-", "\[Epsilon]"}]}], "}"}]}], "]"}]}], "}"}], 
-          ",", "\[IndentingNewLine]", 
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{"Lighter", "[", 
-             RowBox[{"Gray", ",", "0.7"}], "]"}], ",", 
-            RowBox[{"Opacity", "[", "0.8", "]"}], ",", " ", 
-            RowBox[{"Disk", "[", 
-             RowBox[{"ps2", ",", "\[Epsilon]"}], "]"}]}], "}"}], ",", 
-          "\[IndentingNewLine]", 
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{"Lighter", "[", 
-             RowBox[{"Gray", ",", "0.7"}], "]"}], ",", 
-            RowBox[{"Opacity", "[", "0.8", "]"}], ",", " ", 
-            RowBox[{"Disk", "[", 
-             RowBox[{"pe2", ",", "\[Epsilon]"}], "]"}]}], "}"}], ",", 
-          "\[IndentingNewLine]", 
-          RowBox[{"PointSize", "[", "0.01", "]"}], ",", "\[IndentingNewLine]", 
-          RowBox[{"Arrowheads", "[", ".02", "]"}], ",", "\[IndentingNewLine]", 
-          RowBox[{"Thickness", "[", "thickness", "]"}], ",", 
-          "\[IndentingNewLine]", 
-          RowBox[{"(*", 
-           RowBox[{
-            RowBox[{"starting", " ", "poses"}], ",", " ", 
+               "s2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+               " ", "-", " ", "\[Epsilon]"}]}], ",", 
+             RowBox[{
+              RowBox[{
+              "s2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              " ", "=", 
+              RowBox[{
+               RowBox[{
+               "s1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+               " ", "+", "\[Epsilon]"}]}]}], "]"}], ",", 
+           RowBox[{"If", "[", 
             RowBox[{
-            "dashed", " ", "line", " ", "from", " ", "start", " ", "to", " ", 
-             "end"}]}], "*)"}], "\[IndentingNewLine]", 
-          RowBox[{"{", 
-           RowBox[{"c1", ",", 
-            RowBox[{"{", " ", 
              RowBox[{
-              RowBox[{"Opacity", "[", ".3", "]"}], ",", "Dashed", ",", 
-              RowBox[{"Arrow", "[", 
-               RowBox[{"{", 
-                RowBox[{"ps1", ",", "pe1"}], "}"}], "]"}]}], "}"}], ",", 
-            RowBox[{"Point", "@", "ps1"}], ",", 
-            RowBox[{"EdgeForm", "[", 
-             RowBox[{"Directive", "[", 
-              RowBox[{"c1", ",", 
-               RowBox[{"Thickness", "[", "thickness", "]"}]}], "]"}], "]"}], 
-            ",", 
-            RowBox[{"FaceForm", "[", "None", "]"}], ",", 
-            RowBox[{"Rectangle", "[", 
+              RowBox[{
+              "s2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              ">", 
+              RowBox[{"2", "\[Epsilon]"}]}], ",", 
              RowBox[{
-              RowBox[{"ps1", "-", 
+              RowBox[{
+              "s2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              "=", " ", 
+              RowBox[{
                RowBox[{
-                RowBox[{"2", "/", "3"}], "r", " ", 
-                RowBox[{"{", 
-                 RowBox[{"1", ",", "1"}], "}"}]}]}], ",", 
-              RowBox[{"ps1", "+", 
-               RowBox[{
-                RowBox[{"2", "/", "3"}], "r", 
-                RowBox[{"{", 
-                 RowBox[{"1", ",", "1"}], "}"}]}]}]}], "]"}], ",", 
-            RowBox[{"Circle", "[", 
-             RowBox[{"pe1", ",", "r"}], "]"}]}], "}"}], ",", 
-          "\[IndentingNewLine]", 
-          RowBox[{"{", 
-           RowBox[{"c2", ",", 
-            RowBox[{"{", " ", 
+               "s1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+               "-", " ", "\[Epsilon]"}]}], ",", 
              RowBox[{
-              RowBox[{"Opacity", "[", ".3", "]"}], ",", "Dashed", ",", 
-              RowBox[{"Arrow", "[", 
-               RowBox[{"{", 
-                RowBox[{"ps2", ",", "pe2"}], "}"}], "]"}]}], "}"}], ",", 
-            RowBox[{"Point", "@", "ps2"}], ",", 
-            RowBox[{"EdgeForm", "[", 
-             RowBox[{"Directive", "[", 
-              RowBox[{"c2", ",", 
-               RowBox[{"Thickness", "[", "thickness", "]"}]}], "]"}], "]"}], 
-            ",", 
-            RowBox[{"FaceForm", "[", "None", "]"}], ",", 
-            RowBox[{"Rectangle", "[", 
-             RowBox[{
-              RowBox[{"ps2", "-", 
+              RowBox[{
+              "s1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              " ", "=", 
+              RowBox[{
                RowBox[{
-                RowBox[{"2", "/", "3"}], "r", " ", 
-                RowBox[{"{", 
-                 RowBox[{"1", ",", "1"}], "}"}]}]}], ",", 
-              RowBox[{"ps2", "+", 
-               RowBox[{
-                RowBox[{"2", "/", "3"}], "r", 
-                RowBox[{"{", 
-                 RowBox[{"1", ",", "1"}], "}"}]}]}]}], "]"}], ",", " ", 
-            RowBox[{"Circle", "[", 
-             RowBox[{"pe2", ",", "r"}], "]"}]}], "}"}], "\[IndentingNewLine]",
-           ",", 
-          RowBox[{"Inset", "[", 
+               "s2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+               "+", " ", "\[Epsilon]"}]}]}], "]"}]}], "]"}]}], "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"EuclideanDistance", "[", 
+           RowBox[{"e1", ",", "e2"}], "]"}], "<", "\[Epsilon]"}], ",", " ", 
+         RowBox[{"If", "[", 
+          RowBox[{
            RowBox[{
-            RowBox[{"RegionPlot", "[", 
+            RowBox[{
+            "e1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], "<", 
+            RowBox[{
+            "e2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], 
+           ",", 
+           RowBox[{"If", "[", 
+            RowBox[{
              RowBox[{
-              RowBox[{"x", "<", 
-               RowBox[{"-", "3"}]}], ",", 
-              RowBox[{"{", 
-               RowBox[{"x", ",", 
-                RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
-              RowBox[{"{", 
-               RowBox[{"y", ",", 
-                RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
-              RowBox[{"Epilog", "\[Rule]", 
-               RowBox[{"{", "\[IndentingNewLine]", 
-                RowBox[{"(*", 
-                 RowBox[{"reachable", " ", "region"}], "*)"}], 
-                "\[IndentingNewLine]", 
+              RowBox[{
+              "e1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              ">", 
+              RowBox[{"2", "\[Epsilon]"}]}], ",", 
+             RowBox[{
+              RowBox[{
+              "e1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              " ", "=", 
+              RowBox[{
+               RowBox[{
+               "e2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+               " ", "-", " ", "\[Epsilon]"}]}], ",", 
+             RowBox[{
+              RowBox[{
+              "e2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              " ", "=", 
+              RowBox[{
+               RowBox[{
+               "e1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+               " ", "+", "\[Epsilon]"}]}]}], "]"}], ",", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+              "e2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              ">", 
+              RowBox[{"2", "\[Epsilon]"}]}], ",", 
+             RowBox[{
+              RowBox[{
+              "e2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              "=", " ", 
+              RowBox[{
+               RowBox[{
+               "e1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+               "-", " ", "\[Epsilon]"}]}], ",", 
+             RowBox[{
+              RowBox[{
+              "e1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              " ", "=", 
+              RowBox[{
+               RowBox[{
+               "e2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+               "+", " ", "\[Epsilon]"}]}]}], "]"}]}], "]"}]}], "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"ensure", " ", "ps1", " ", "is", " ", "leftmost"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"ps1", " ", ",", "pe1", ",", "ps2", ",", "pe2"}], "}"}], " ",
+         "=", " ", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{
+            "s1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], "<",
+             " ", 
+            RowBox[{
+            "s2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], 
+           " ", "||", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+              "s1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              "\[Equal]", "  ", 
+              RowBox[{
+              "s2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], 
+             " ", "&&", 
+             RowBox[{
+              RowBox[{
+              "s1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+              "<", "  ", 
+              RowBox[{
+              "s2", "\[LeftDoubleBracket]", "2", 
+               "\[RightDoubleBracket]"}]}]}], ")"}]}], "  ", ",", 
+          RowBox[{"{", 
+           RowBox[{"s1", " ", ",", "e1", ",", "s2", ",", "e2"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"s2", ",", "e2", ",", "s1", " ", ",", "e1"}], "}"}]}], 
+         "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{"(*", "workspace", "*)"}], "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Darker", "[", "Red", "]"}], ",", " ", 
+             RowBox[{"Rectangle", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "0.025"}], 
+                RowBox[{"{", 
+                 RowBox[{"1", ",", "1"}], "}"}]}], ",", 
+               RowBox[{"1.025", 
+                RowBox[{"{", 
+                 RowBox[{"1", ",", "1"}], "}"}]}]}], "]"}]}], "}"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Lighter", "[", 
+              RowBox[{"Gray", ",", "0.8"}], "]"}], ",", " ", 
+             RowBox[{"Rectangle", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"0", ",", "0"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1"}], "}"}]}], "]"}]}], "}"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"{", 
+            RowBox[{"White", ",", " ", 
+             RowBox[{"Rectangle", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"\[Epsilon]", ",", " ", "\[Epsilon]"}], "}"}], ",", 
+               RowBox[{"{", 
                 RowBox[{
+                 RowBox[{"1", "-", "\[Epsilon]"}], ",", 
+                 RowBox[{"1", "-", "\[Epsilon]"}]}], "}"}]}], "]"}]}], "}"}], 
+           ",", "\[IndentingNewLine]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Lighter", "[", 
+              RowBox[{"Gray", ",", "0.7"}], "]"}], ",", 
+             RowBox[{"Opacity", "[", "0.8", "]"}], ",", " ", 
+             RowBox[{"Disk", "[", 
+              RowBox[{"ps2", ",", "\[Epsilon]"}], "]"}]}], "}"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Lighter", "[", 
+              RowBox[{"Gray", ",", "0.7"}], "]"}], ",", 
+             RowBox[{"Opacity", "[", "0.8", "]"}], ",", " ", 
+             RowBox[{"Disk", "[", 
+              RowBox[{"pe2", ",", "\[Epsilon]"}], "]"}]}], "}"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"PointSize", "[", "0.01", "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Arrowheads", "[", ".02", "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Thickness", "[", "thickness", "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{
+             RowBox[{"starting", " ", "poses"}], ",", " ", 
+             RowBox[{
+             "dashed", " ", "line", " ", "from", " ", "start", " ", "to", " ",
+               "end"}]}], "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"{", 
+            RowBox[{"c1", ",", 
+             RowBox[{"{", " ", 
+              RowBox[{
+               RowBox[{"Opacity", "[", ".3", "]"}], ",", "Dashed", ",", 
+               RowBox[{"Arrow", "[", 
+                RowBox[{"{", 
+                 RowBox[{"ps1", ",", "pe1"}], "}"}], "]"}]}], "}"}], ",", 
+             RowBox[{"Point", "@", "ps1"}], ",", 
+             RowBox[{"EdgeForm", "[", 
+              RowBox[{"Directive", "[", 
+               RowBox[{"c1", ",", 
+                RowBox[{"Thickness", "[", "thickness", "]"}]}], "]"}], "]"}], 
+             ",", 
+             RowBox[{"FaceForm", "[", "None", "]"}], ",", 
+             RowBox[{"Rectangle", "[", 
+              RowBox[{
+               RowBox[{"ps1", "-", 
+                RowBox[{
+                 RowBox[{"2", "/", "3"}], "r", " ", 
                  RowBox[{"{", 
-                  RowBox[{"LightBlue", ",", 
-                   RowBox[{"EdgeForm", "[", "Blue", "]"}], ",", 
-                   "\[IndentingNewLine]", 
-                   RowBox[{"Rectangle", "[", 
+                  RowBox[{"1", ",", "1"}], "}"}]}]}], ",", 
+               RowBox[{"ps1", "+", 
+                RowBox[{
+                 RowBox[{"2", "/", "3"}], "r", 
+                 RowBox[{"{", 
+                  RowBox[{"1", ",", "1"}], "}"}]}]}]}], "]"}], ",", 
+             RowBox[{"Circle", "[", 
+              RowBox[{"pe1", ",", "r"}], "]"}]}], "}"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"{", 
+            RowBox[{"c2", ",", 
+             RowBox[{"{", " ", 
+              RowBox[{
+               RowBox[{"Opacity", "[", ".3", "]"}], ",", "Dashed", ",", 
+               RowBox[{"Arrow", "[", 
+                RowBox[{"{", 
+                 RowBox[{"ps2", ",", "pe2"}], "}"}], "]"}]}], "}"}], ",", 
+             RowBox[{"Point", "@", "ps2"}], ",", 
+             RowBox[{"EdgeForm", "[", 
+              RowBox[{"Directive", "[", 
+               RowBox[{"c2", ",", 
+                RowBox[{"Thickness", "[", "thickness", "]"}]}], "]"}], "]"}], 
+             ",", 
+             RowBox[{"FaceForm", "[", "None", "]"}], ",", 
+             RowBox[{"Rectangle", "[", 
+              RowBox[{
+               RowBox[{"ps2", "-", 
+                RowBox[{
+                 RowBox[{"2", "/", "3"}], "r", " ", 
+                 RowBox[{"{", 
+                  RowBox[{"1", ",", "1"}], "}"}]}]}], ",", 
+               RowBox[{"ps2", "+", 
+                RowBox[{
+                 RowBox[{"2", "/", "3"}], "r", 
+                 RowBox[{"{", 
+                  RowBox[{"1", ",", "1"}], "}"}]}]}]}], "]"}], ",", " ", 
+             RowBox[{"Circle", "[", 
+              RowBox[{"pe2", ",", "r"}], "]"}]}], "}"}], 
+           "\[IndentingNewLine]", ",", 
+           RowBox[{"Inset", "[", 
+            RowBox[{
+             RowBox[{"RegionPlot", "[", 
+              RowBox[{
+               RowBox[{"x", "<", 
+                RowBox[{"-", "3"}]}], ",", 
+               RowBox[{"{", 
+                RowBox[{"x", ",", 
+                 RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"y", ",", 
+                 RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+               RowBox[{"Epilog", "\[Rule]", 
+                RowBox[{"{", "\[IndentingNewLine]", 
+                 RowBox[{"(*", 
+                  RowBox[{"reachable", " ", "region"}], "*)"}], 
+                 "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"LightBlue", ",", 
+                    RowBox[{"EdgeForm", "[", "Blue", "]"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"Rectangle", "[", 
                     RowBox[{
                     RowBox[{"{", 
                     RowBox[{
@@ -394,13 +393,13 @@ Cell[BoxData[
                     "\[RightDoubleBracket]"}]}]}], "}"}], ",", 
                     RowBox[{"{", 
                     RowBox[{"1", ",", "0"}], "}"}]}], "]"}]}], 
-                  "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
-                 RowBox[{"{", 
-                  RowBox[{"LightGreen", ",", 
-                   RowBox[{"EdgeForm", "[", "Blue", "]"}], ",", 
-                   RowBox[{"Opacity", "[", "0.5", "]"}], ",", 
-                   "\[IndentingNewLine]", 
-                   RowBox[{"Rectangle", "[", 
+                   "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+                  RowBox[{"{", 
+                   RowBox[{"LightGreen", ",", 
+                    RowBox[{"EdgeForm", "[", "Blue", "]"}], ",", 
+                    RowBox[{"Opacity", "[", "0.5", "]"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"Rectangle", "[", 
                     RowBox[{
                     RowBox[{"{", 
                     RowBox[{"0", ",", 
@@ -421,8 +420,8 @@ Cell[BoxData[
                     RowBox[{
                     "ps1", "\[LeftDoubleBracket]", "2", 
                     "\[RightDoubleBracket]"}]}]}], "}"}]}], "]"}], ",", 
-                   "\[IndentingNewLine]", "Black", ",", " ", 
-                   RowBox[{"Text", "[", 
+                    "\[IndentingNewLine]", "Black", ",", " ", 
+                    RowBox[{"Text", "[", 
                     RowBox[{"\"\<Reachable Region\>\"", ",", 
                     RowBox[{"{", 
                     RowBox[{
@@ -440,135 +439,137 @@ Cell[BoxData[
                     RowBox[{
                     "ps1", "\[LeftDoubleBracket]", "2", 
                     "\[RightDoubleBracket]"}]}], "2"]}], "}"}]}], "]"}]}], 
-                  "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
-                 RowBox[{"(*", 
-                  RowBox[{"current", " ", "deltas"}], "*)"}], 
-                 "\[IndentingNewLine]", "Red", ",", 
-                 RowBox[{"Rectangle", "[", 
-                  RowBox[{
-                   RowBox[{"ps2", "-", "ps1", "-", 
+                   "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+                  RowBox[{"(*", 
+                   RowBox[{"current", " ", "deltas"}], "*)"}], 
+                  "\[IndentingNewLine]", "Red", ",", 
+                  RowBox[{"Rectangle", "[", 
+                   RowBox[{
+                    RowBox[{"ps2", "-", "ps1", "-", 
                     RowBox[{
                     RowBox[{"4", "/", "3"}], "r", " ", 
                     RowBox[{"{", 
                     RowBox[{"1", ",", "1"}], "}"}]}]}], ",", 
-                   RowBox[{"ps2", "-", "ps1", "+", 
+                    RowBox[{"ps2", "-", "ps1", "+", 
                     RowBox[{
                     RowBox[{"4", "/", "3"}], "r", 
                     RowBox[{"{", 
                     RowBox[{"1", ",", "1"}], "}"}]}]}]}], "]"}], ",", 
-                 "\[IndentingNewLine]", 
-                 RowBox[{"(*", 
-                  RowBox[{"goal", " ", "deltas"}], "*)"}], 
-                 "\[IndentingNewLine]", "Green", ",", "\[IndentingNewLine]", 
-                 RowBox[{"Disk", "[", 
-                  RowBox[{
-                   RowBox[{"pe2", "-", "pe1"}], ",", 
-                   RowBox[{"2", "r"}]}], "]"}]}], "\[IndentingNewLine]", 
-                "\[IndentingNewLine]", "}"}]}], ",", 
-              RowBox[{"FrameLabel", "\[Rule]", 
-               RowBox[{"{", 
-                RowBox[{
-                "\"\<\[CapitalDelta]x\>\"", ",", "\"\<\[CapitalDelta]y\>\""}],
-                 "}"}]}], ",", 
-              RowBox[{"ImageSize", "\[Rule]", "250"}]}], "]"}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"(*", 
+                   RowBox[{"goal", " ", "deltas"}], "*)"}], 
+                  "\[IndentingNewLine]", "Green", ",", "\[IndentingNewLine]", 
+                  
+                  RowBox[{"Disk", "[", 
+                   RowBox[{
+                    RowBox[{"pe2", "-", "pe1"}], ",", 
+                    RowBox[{"2", "r"}]}], "]"}]}], "\[IndentingNewLine]", 
+                 "\[IndentingNewLine]", "}"}]}], ",", 
+               RowBox[{"FrameLabel", "\[Rule]", 
+                RowBox[{"{", 
+                 RowBox[{
+                 "\"\<\[CapitalDelta]x\>\"", ",", 
+                  "\"\<\[CapitalDelta]y\>\""}], "}"}]}], ",", 
+               RowBox[{"ImageSize", "\[Rule]", "250"}]}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"1.5", ",", ".5"}], "}"}]}], "]"}]}], 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", "}"}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "600"}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
             RowBox[{"{", 
-             RowBox[{"1.5", ",", ".5"}], "}"}]}], "]"}]}], 
-         "\[IndentingNewLine]", "\[IndentingNewLine]", "}"}], ",", 
-        RowBox[{"ImageSize", "\[Rule]", "600"}], ",", 
-        RowBox[{"PlotRange", "\[Rule]", 
+             RowBox[{
+              RowBox[{"-", "0.05"}], ",", "2.05"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", ".05"}], ",", "1.05"}], "}"}]}], "}"}]}]}], 
+        "]"}]}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"Row", "[", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{"Control", "@", 
+       RowBox[{"{", 
+        RowBox[{
          RowBox[{"{", 
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"-", "0.05"}], ",", "2.05"}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"-", ".05"}], ",", "1.05"}], "}"}]}], "}"}]}]}], 
-       "]"}]}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}], ",", 
-   "\[IndentingNewLine]", 
-   RowBox[{"Row", "[", 
-    RowBox[{"{", "\[IndentingNewLine]", 
-     RowBox[{"Control", "@", 
+          RowBox[{"\[Epsilon]", ",", 
+           RowBox[{"1", "/", "1000"}], ",", "\"\<\[Epsilon]\>\""}], "}"}], 
+         ",", 
+         RowBox[{"1", "/", "1000"}], ",", 
+         RowBox[{"1", "/", "10"}], ",", 
+         RowBox[{"1", "/", "1000"}], ",", "Slider", ",", 
+         RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}]}], 
+      "}"}], "]"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
       RowBox[{"{", 
-       RowBox[{
+       RowBox[{"s1", ",", 
         RowBox[{"{", 
-         RowBox[{"\[Epsilon]", ",", 
-          RowBox[{"1", "/", "1000"}], ",", "\"\<\[Epsilon]\>\""}], "}"}], ",", 
-        RowBox[{"1", "/", "1000"}], ",", 
-        RowBox[{"1", "/", "10"}], ",", 
-        RowBox[{"1", "/", "1000"}], ",", "Slider", ",", 
-        RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}]}], 
-     "}"}], "]"}], ",", "\[IndentingNewLine]", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"s1", ",", 
+         RowBox[{
+          RowBox[{"3", "/", "4"}], ",", 
+          RowBox[{"1", "/", "5"}]}], "}"}]}], "}"}], ",", 
+      RowBox[{
        RowBox[{"{", 
-        RowBox[{
-         RowBox[{"3", "/", "4"}], ",", 
-         RowBox[{"1", "/", "5"}]}], "}"}]}], "}"}], ",", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"0", ",", "0"}], "}"}], "+", " ", "\[Epsilon]"}], ",", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"1", ",", "1"}], "}"}], "-", " ", "\[Epsilon]"}], ",", 
-     "Locator", ",", 
-     RowBox[{"Appearance", "\[Rule]", "None"}]}], "}"}], ",", 
-   "\[IndentingNewLine]", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"s2", ",", 
+        RowBox[{"0", ",", "0"}], "}"}], "+", " ", "\[Epsilon]"}], ",", 
+      RowBox[{
        RowBox[{"{", 
-        RowBox[{
-         RowBox[{"1", "/", "4"}], ",", 
-         RowBox[{"4", "/", "5"}]}], "}"}]}], "}"}], ",", 
+        RowBox[{"1", ",", "1"}], "}"}], "-", " ", "\[Epsilon]"}], ",", 
+      "Locator", ",", 
+      RowBox[{"Appearance", "\[Rule]", "None"}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
      RowBox[{
       RowBox[{"{", 
-       RowBox[{"0", ",", "0"}], "}"}], "+", " ", "\[Epsilon]"}], ",", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"1", ",", "1"}], "}"}], "-", " ", "\[Epsilon]"}], ",", 
-     "Locator", ",", 
-     RowBox[{"Appearance", "\[Rule]", "None"}]}], "}"}], ",", 
-   "\[IndentingNewLine]", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"e1", ",", 
+       RowBox[{"s2", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"1", "/", "4"}], ",", 
+          RowBox[{"4", "/", "5"}]}], "}"}]}], "}"}], ",", 
+      RowBox[{
        RowBox[{"{", 
-        RowBox[{
-         RowBox[{"2", "/", "3"}], ",", 
-         RowBox[{"1", "/", "2"}]}], "}"}]}], "}"}], ",", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"0", ",", "0"}], "}"}], "+", " ", "\[Epsilon]"}], ",", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"1", ",", "1"}], "}"}], "-", " ", "\[Epsilon]"}], ",", 
-     "Locator", ",", 
-     RowBox[{"Appearance", "\[Rule]", "None"}]}], "}"}], ",", 
-   "\[IndentingNewLine]", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"e2", ",", 
+        RowBox[{"0", ",", "0"}], "}"}], "+", " ", "\[Epsilon]"}], ",", 
+      RowBox[{
        RowBox[{"{", 
-        RowBox[{
-         RowBox[{"1", "/", "2"}], ",", 
-         RowBox[{"2", "/", "3"}]}], "}"}]}], "}"}], ",", 
+        RowBox[{"1", ",", "1"}], "}"}], "-", " ", "\[Epsilon]"}], ",", 
+      "Locator", ",", 
+      RowBox[{"Appearance", "\[Rule]", "None"}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
      RowBox[{
       RowBox[{"{", 
-       RowBox[{"0", ",", "0"}], "}"}], "+", " ", "\[Epsilon]"}], ",", 
+       RowBox[{"e1", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"2", "/", "3"}], ",", 
+          RowBox[{"1", "/", "2"}]}], "}"}]}], "}"}], ",", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}], "+", " ", "\[Epsilon]"}], ",", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1"}], "}"}], "-", " ", "\[Epsilon]"}], ",", 
+      "Locator", ",", 
+      RowBox[{"Appearance", "\[Rule]", "None"}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
      RowBox[{
       RowBox[{"{", 
-       RowBox[{"1", ",", "1"}], "}"}], "-", " ", "\[Epsilon]"}], ",", 
-     "Locator", ",", 
-     RowBox[{"Appearance", "\[Rule]", "None"}]}], "}"}], 
-   "\[IndentingNewLine]", ",", " ", 
-   RowBox[{"SaveDefinitions", "\[Rule]", "True"}]}], "\[IndentingNewLine]", 
-  "]"}]], "Input",
+       RowBox[{"e2", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"1", "/", "2"}], ",", 
+          RowBox[{"2", "/", "3"}]}], "}"}]}], "}"}], ",", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}], "+", " ", "\[Epsilon]"}], ",", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1"}], "}"}], "-", " ", "\[Epsilon]"}], ",", 
+      "Locator", ",", 
+      RowBox[{"Appearance", "\[Rule]", "None"}]}], "}"}], 
+    "\[IndentingNewLine]", ",", " ", 
+    RowBox[{"SaveDefinitions", "\[Rule]", "True"}]}], "\[IndentingNewLine]", 
+   "]"}], "\[IndentingNewLine]"}]], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.642115739423017*^9, 3.64211581465235*^9}, {
    3.64211639741261*^9, 3.6421164758259487`*^9}, {3.642116679890699*^9, 
@@ -794,15 +795,24 @@ Cell[BoxData[
    3.694355335979095*^9, 3.694355366970969*^9}, {3.694355403917519*^9, 
    3.694355514656114*^9}, {3.6943624247842407`*^9, 3.694362441054174*^9}, {
    3.694362635824542*^9, 3.694362658672331*^9}, {3.694362761549713*^9, 
-   3.6943627881493387`*^9}, {3.694362818835002*^9, 3.6943628459038277`*^9}}],
+   3.6943627881493387`*^9}, {3.694362818835002*^9, 3.6943628459038277`*^9}, {
+   3.695586434743629*^9, 3.695586446174452*^9}, {3.6955865188087587`*^9, 
+   3.6955865928980227`*^9}, 3.6955866353722763`*^9, 3.6955866836463213`*^9, {
+   3.6955867181292667`*^9, 3.695586765286201*^9}}],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`e1$$ = {0.5135, 0.62}, $CellContext`e2$$ = {
-    0.9895, 0.844}, $CellContext`s1$$ = {0.999, 0.736}, $CellContext`s2$$ = {
-    0.4575, 0.10600000000000001`}, $CellContext`\[Epsilon]$$ = Rational[
-    1, 1000], Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+   DynamicModuleBox[{$CellContext`e1$$ = {
+     Rational[2, 3], 
+     Rational[1, 2]}, $CellContext`e2$$ = {
+     Rational[1, 2], 
+     Rational[2, 3]}, $CellContext`s1$$ = {
+     Rational[3, 4], 
+     Rational[1, 5]}, $CellContext`s2$$ = {
+     Rational[1, 4], 
+     Rational[4, 5]}, $CellContext`\[Epsilon]$$ = Rational[1, 1000], 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
     Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
     1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
        Hold[$CellContext`\[Epsilon]$$], 
@@ -834,9 +844,9 @@ Cell[BoxData[
       Dynamic[{0, 0} + $CellContext`\[Epsilon]$$], 
       Dynamic[{1, 1} - $CellContext`\[Epsilon]$$]}}, Typeset`size$$ = {
     600., {155., 159.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = False, $CellContext`\[Epsilon]$95045$$ = 
-    0, $CellContext`s1$95046$$ = 0, $CellContext`s2$95047$$ = 
-    0, $CellContext`e1$95048$$ = 0, $CellContext`e2$95049$$ = 0}, 
+    Typeset`skipInitDone$$ = False, $CellContext`\[Epsilon]$25948$$ = 
+    0, $CellContext`s1$25949$$ = 0, $CellContext`s2$25950$$ = 
+    0, $CellContext`e1$25951$$ = 0, $CellContext`e2$25952$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      2, StandardForm, "Variables" :> {$CellContext`e1$$ = {
           Rational[2, 3], 
@@ -848,11 +858,11 @@ Cell[BoxData[
           Rational[1, 4], 
           Rational[4, 5]}, $CellContext`\[Epsilon]$$ = Rational[1, 1000]}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`\[Epsilon]$$, $CellContext`\[Epsilon]$95045$$, 0], 
-        Hold[$CellContext`s1$$, $CellContext`s1$95046$$, 0], 
-        Hold[$CellContext`s2$$, $CellContext`s2$95047$$, 0], 
-        Hold[$CellContext`e1$$, $CellContext`e1$95048$$, 0], 
-        Hold[$CellContext`e2$$, $CellContext`e2$95049$$, 0]}, 
+        Hold[$CellContext`\[Epsilon]$$, $CellContext`\[Epsilon]$25948$$, 0], 
+        Hold[$CellContext`s1$$, $CellContext`s1$25949$$, 0], 
+        Hold[$CellContext`s2$$, $CellContext`s2$25950$$, 0], 
+        Hold[$CellContext`e1$$, $CellContext`e1$25951$$, 0], 
+        Hold[$CellContext`e2$$, $CellContext`e2$25952$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -877,7 +887,8 @@ $CellContext`\[Epsilon]$$,
             Part[$CellContext`s1$$, 1] - $CellContext`\[Epsilon]$$, 
             Part[$CellContext`s1$$, 1] = 
             Part[$CellContext`s2$$, 1] + $CellContext`\[Epsilon]$$]]]; 
-        If[EuclideanDistance[$CellContext`e1$$, $CellContext`e2$$] < \
+        If[
+         EuclideanDistance[$CellContext`e1$$, $CellContext`e2$$] < \
 $CellContext`\[Epsilon]$$, 
           If[Part[$CellContext`e1$$, 1] < Part[$CellContext`e2$$, 1], 
            If[
@@ -1005,33 +1016,16 @@ $CellContext`s1$$, $CellContext`e1$$}]; Graphics[{{
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
-    Initialization:>({Attributes[PlotRange] = {ReadProtected}}; 
-     Typeset`initDone$$ = True),
+    Initialization:>({$CellContext`\[Epsilon]$$ = 1/1000, 
+       Attributes[PlotRange] = {ReadProtected}}; Typeset`initDone$$ = True),
     SynchronousInitialization->True,
     UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
     UnsavedVariables:>{Typeset`initDone$$},
     UntrackedVariables:>{Typeset`size$$}], "Manipulate",
    Deployed->True,
    StripOnInput->False],
-  Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{{3.694190090532847*^9, 3.69419013360113*^9}, {
-   3.694190171676916*^9, 3.6941902251973677`*^9}, {3.694190271254949*^9, 
-   3.694190280173609*^9}, {3.694190320598928*^9, 3.694190361238618*^9}, {
-   3.6941904358102617`*^9, 3.694190448073493*^9}, 3.694190539680892*^9, {
-   3.694190575819647*^9, 3.694190642404523*^9}, {3.6941906734469547`*^9, 
-   3.6941906809009542`*^9}, {3.69419071397003*^9, 3.694190721531458*^9}, {
-   3.6941908506515408`*^9, 3.694190882931686*^9}, {3.694190982071197*^9, 
-   3.694190998602075*^9}, {3.694191033198923*^9, 3.694191048081653*^9}, {
-   3.694191094034829*^9, 3.694191151678343*^9}, {3.694191244928864*^9, 
-   3.694191268256868*^9}, 3.6941913267949266`*^9, {3.694191470006218*^9, 
-   3.694191479240356*^9}, {3.694195884815559*^9, 3.6941959454627028`*^9}, 
-   3.694199880707427*^9, {3.694262686376239*^9, 3.694262686744031*^9}, {
-   3.694355320625222*^9, 3.694355369136047*^9}, 3.694355426985283*^9, 
-   3.694355524589238*^9, 3.694362443918092*^9, {3.694362642173257*^9, 
-   3.694362659430191*^9}, {3.694362770230929*^9, 3.694362788647522*^9}, {
-   3.694362839247814*^9, 3.694362846431314*^9}, {3.695482114178824*^9, 
-   3.695482114517158*^9}}]
-}, Open  ]],
+  Manipulate`InterpretManipulate[1]]], "Input",
+ CellChangeTimes->{3.695586824868964*^9}],
 
 Cell[BoxData["\[IndentingNewLine]"], "Input",
  CellChangeTimes->{3.6941908830660753`*^9}],
@@ -1039,8 +1033,10 @@ Cell[BoxData["\[IndentingNewLine]"], "Input",
 Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.694372241907255*^9, 3.694372244062015*^9}}]
 },
-WindowSize->{1135, 624},
-WindowMargins->{{21, Automatic}, {-16, Automatic}},
+WindowSize->{1280, 687},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
 FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
 2014)",
 StyleDefinitions->"Default.nb"
@@ -1057,13 +1053,11 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[558, 20, 357, 12, 28, "Input"],
-Cell[CellGroupData[{
-Cell[940, 36, 37810, 760, 1100, "Input",
+Cell[918, 34, 38574, 766, 1136, "Input",
  InitializationCell->True],
-Cell[38753, 798, 11575, 234, 462, "Output"]
-}, Open  ]],
-Cell[50343, 1035, 89, 1, 46, "Input"],
-Cell[50435, 1038, 92, 1, 28, "Input"]
+Cell[39495, 802, 10563, 225, 428, InheritFromParent],
+Cell[50061, 1029, 89, 1, 46, "Input"],
+Cell[50153, 1032, 92, 1, 28, "Input"]
 }
 ]
 *)
