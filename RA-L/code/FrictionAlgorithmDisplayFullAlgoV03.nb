@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[    196945,       4531]
-NotebookOptionsPosition[    194610,       4450]
-NotebookOutlinePosition[    194968,       4466]
-CellTagsIndexPosition[    194925,       4463]
+NotebookDataLength[    197467,       4546]
+NotebookOptionsPosition[    195132,       4465]
+NotebookOutlinePosition[    195490,       4481]
+CellTagsIndexPosition[    195447,       4478]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1959,16 +1959,14 @@ Cell[BoxData[
               RowBox[{"{", 
                RowBox[{"1.55", ",", ".9"}], "}"}]}], "]"}], ",", 
             "\[IndentingNewLine]", 
-            RowBox[{"(*", 
+            RowBox[{"Text", "[", 
              RowBox[{
-              RowBox[{"Text", "[", 
+              RowBox[{"Style", "[", 
                RowBox[{
-                RowBox[{"Style", "[", 
-                 RowBox[{
-                  RowBox[{"StringForm", "[", 
-                   RowBox[{"\"\<Total Distance `` \>\"", ",", " ", 
-                    RowBox[{"Round", "[", 
-                    RowBox[{
+                RowBox[{"StringForm", "[", 
+                 RowBox[{"\"\<Total Distance `` \>\"", ",", " ", 
+                  RowBox[{"Round", "[", 
+                   RowBox[{
                     RowBox[{"N", "[", 
                     RowBox[{"Total", "[", 
                     RowBox[{"Table", "[", 
@@ -1984,9 +1982,9 @@ Cell[BoxData[
                     RowBox[{"i", ",", "2", ",", " ", 
                     RowBox[{"Length", "[", "path", "]"}]}], "}"}]}], "]"}], 
                     " ", "]"}], " ", "]"}], ",", ".01"}], "]"}]}], "]"}], ",", 
-                  RowBox[{"FontSize", "\[Rule]", "18"}]}], "]"}], ",", 
-                RowBox[{"{", 
-                 RowBox[{"1.55", ",", ".8"}], "}"}]}], "]"}], ","}], "*)"}], 
+                RowBox[{"FontSize", "\[Rule]", "18"}]}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"1.55", ",", ".8"}], "}"}]}], "]"}], ",", 
             "\[IndentingNewLine]", 
             RowBox[{
              RowBox[{"offset", " ", "=", " ", 
@@ -2424,15 +2422,21 @@ Cell[BoxData[
    3.6955835988077803`*^9, 3.695583644209766*^9}, {3.695583686615691*^9, 
    3.695583700457582*^9}, {3.696165720594521*^9, 3.696165744020872*^9}, {
    3.696165791211068*^9, 3.696165814683569*^9}, {3.6961659635484333`*^9, 
-   3.6961659753152447`*^9}, 3.696166594392756*^9}],
+   3.6961659753152447`*^9}, 3.696166594392756*^9, 3.696186757827435*^9}],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`e1$$ = {0.858, 0.656}, $CellContext`e2$$ = {
-    0.774, 0.386}, $CellContext`progress$$ = 1, $CellContext`s1$$ = {0.75, 
-    0.2}, $CellContext`s2$$ = {0.4905, 0.708}, $CellContext`\[Epsilon]$$ = 
-    Rational[1, 1000], Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+   DynamicModuleBox[{$CellContext`e1$$ = {
+     Rational[2, 3], 
+     Rational[1, 2]}, $CellContext`e2$$ = {
+     Rational[1, 2], 
+     Rational[2, 3]}, $CellContext`progress$$ = 1, $CellContext`s1$$ = {
+     Rational[3, 4], 
+     Rational[1, 5]}, $CellContext`s2$$ = {
+     Rational[1, 4], 
+     Rational[4, 5]}, $CellContext`\[Epsilon]$$ = Rational[1, 1000], 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
     Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
     1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
        Hold[$CellContext`progress$$], 1, "progress"}, 0, 1, 
@@ -2467,10 +2471,10 @@ Cell[BoxData[
       Dynamic[{0, 0} + $CellContext`\[Epsilon]$$], 
       Dynamic[{1, 1} - $CellContext`\[Epsilon]$$]}}, Typeset`size$$ = {
     800., {207., 212.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = False, $CellContext`progress$11066$$ = 
-    0, $CellContext`\[Epsilon]$11067$$ = 0, $CellContext`s1$11068$$ = 
-    0, $CellContext`s2$11069$$ = 0, $CellContext`e1$11070$$ = 
-    0, $CellContext`e2$11071$$ = 0}, 
+    Typeset`skipInitDone$$ = False, $CellContext`progress$23520$$ = 
+    0, $CellContext`\[Epsilon]$23521$$ = 0, $CellContext`s1$23522$$ = 
+    0, $CellContext`s2$23523$$ = 0, $CellContext`e1$23524$$ = 
+    0, $CellContext`e2$23525$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      2, StandardForm, "Variables" :> {$CellContext`e1$$ = {
           Rational[2, 3], 
@@ -2482,12 +2486,12 @@ Cell[BoxData[
           Rational[1, 4], 
           Rational[4, 5]}, $CellContext`\[Epsilon]$$ = Rational[1, 1000]}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`progress$$, $CellContext`progress$11066$$, 0], 
-        Hold[$CellContext`\[Epsilon]$$, $CellContext`\[Epsilon]$11067$$, 0], 
-        Hold[$CellContext`s1$$, $CellContext`s1$11068$$, 0], 
-        Hold[$CellContext`s2$$, $CellContext`s2$11069$$, 0], 
-        Hold[$CellContext`e1$$, $CellContext`e1$11070$$, 0], 
-        Hold[$CellContext`e2$$, $CellContext`e2$11071$$, 0]}, 
+        Hold[$CellContext`progress$$, $CellContext`progress$23520$$, 0], 
+        Hold[$CellContext`\[Epsilon]$$, $CellContext`\[Epsilon]$23521$$, 0], 
+        Hold[$CellContext`s1$$, $CellContext`s1$23522$$, 0], 
+        Hold[$CellContext`s2$$, $CellContext`s2$23523$$, 0], 
+        Hold[$CellContext`e1$$, $CellContext`e1$23524$$, 0], 
+        Hold[$CellContext`e2$$, $CellContext`e2$23525$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -2547,6 +2551,7 @@ $CellContext`s1$$, $CellContext`e1$$}]; $CellContext`rotateSolution$ =
 $CellContext`pe2$} = 
             Map[$CellContext`RotateCCW90, {$CellContext`ps1$, \
 $CellContext`pe1$, $CellContext`ps2$, $CellContext`pe2$}]; True, 
+           
            False]; {$CellContext`path$, $CellContext`path1$, \
 $CellContext`path2$} = $CellContext`achieveDesiredSpacing[$CellContext`ps1$, \
 $CellContext`ps2$, $CellContext`pe1$, $CellContext`pe2$, $CellContext`\
@@ -2660,8 +2665,19 @@ $CellContext`path2$ = Map[$CellContext`RotateCW90, $CellContext`path2$];
              Style[
               StringForm[
               "Move `` of ``", $CellContext`mvNum$ + 1, 
-               Length[$CellContext`path$] - 1], FontSize -> 18], {1.55, 
-             0.9}], $CellContext`offset$ = {1.55, 0.5} - (1/2) 
+               Length[$CellContext`path$] - 1], FontSize -> 18], {1.55, 0.9}], 
+            Text[
+             Style[
+              StringForm["Total Distance `` ", 
+               Round[
+                N[
+                 Total[
+                  Table[
+                   EuclideanDistance[
+                    Part[$CellContext`path$, $CellContext`i], {0, 
+                    0}], {$CellContext`i, 2, 
+                    Length[$CellContext`path$]}]]], 0.01]], FontSize -> 18], {
+             1.55, 0.8}], $CellContext`offset$ = {1.55, 0.5} - (1/2) 
               Part[$CellContext`path$, $CellContext`mvNum$ + 2, 
                 Span[1, All]]; {
               Opacity[0.3], 
@@ -2765,7 +2781,6 @@ $CellContext`ps2, $CellContext`pe1, $CellContext`pe2, "u"]}, {
                  "d", (Part[$CellContext`pe2, 1] - 
                     Part[$CellContext`ps2, 1])^2 + (Part[$CellContext`pe2, 2] + 
                     Part[$CellContext`ps2, 
-                    
                     2])^2 + $CellContext`effectContractMv1[$CellContext`ps1, \
 $CellContext`ps2, $CellContext`pe1, $CellContext`pe2, "d"]}, {
                  "l", (Part[$CellContext`pe1, 1] + 
@@ -2805,7 +2820,6 @@ $CellContext`BestDir ==
 \[CapitalDelta]ex - (Part[$CellContext`r2, 1] - 
                  Part[$CellContext`r1, 1]), $CellContext`\[CapitalDelta]ey - (
                  Part[$CellContext`r2, 2] - Part[$CellContext`r1, 2])}; 
-              
               AddTo[$CellContext`r2, $CellContext`\[CapitalDelta]r], \
 $CellContext`BestDir == 
               "r", $CellContext`\[CapitalDelta]r = {
@@ -3005,7 +3019,8 @@ $CellContext`ps2 + $CellContext`\[CapitalDelta]r; If[
    3.6914536208541937`*^9}, {3.691453663960705*^9, 3.691453754576407*^9}, {
    3.6955833379865828`*^9, 3.69558333831251*^9}, {3.6955836263248253`*^9, 
    3.6955836471557083`*^9}, 3.695583688630116*^9, {3.6960992984335327`*^9, 
-   3.69609929885686*^9}, 3.696166235437778*^9, 3.696166597530229*^9}]
+   3.69609929885686*^9}, 3.696166235437778*^9, 3.696166597530229*^9, {
+   3.696186705907447*^9, 3.69618670618939*^9}, 3.6961867604873333`*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4471,60 +4486,60 @@ Cell[558, 18, 1781, 42, 303, "Text"],
 Cell[2342, 62, 58543, 1267, 2148, "Input",
  InitializationCell->True],
 Cell[CellGroupData[{
-Cell[60910, 1333, 50396, 1093, 1730, "Input",
+Cell[60910, 1333, 50338, 1091, 1730, "Input",
  InitializationCell->True],
-Cell[111309, 2428, 29969, 579, 532, "Output"]
+Cell[111251, 2426, 30549, 596, 566, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[141315, 3012, 359, 10, 35, "Input"],
-Cell[141677, 3024, 254, 3, 28, "Output"]
+Cell[141837, 3027, 359, 10, 35, "Input"],
+Cell[142199, 3039, 254, 3, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[141968, 3032, 213, 3, 28, "Input"],
-Cell[142184, 3037, 365, 6, 28, "Output"]
+Cell[142490, 3047, 213, 3, 28, "Input"],
+Cell[142706, 3052, 365, 6, 28, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[142598, 3049, 100, 1, 44, "Subsection"],
+Cell[143120, 3064, 100, 1, 44, "Subsection"],
 Cell[CellGroupData[{
-Cell[142723, 3054, 30, 0, 28, "Input"],
-Cell[142756, 3056, 855, 31, 48, "Output"]
+Cell[143245, 3069, 30, 0, 28, "Input"],
+Cell[143278, 3071, 855, 31, 48, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[143648, 3092, 182, 3, 28, "Input"],
-Cell[143833, 3097, 184, 5, 48, "Output"]
+Cell[144170, 3107, 182, 3, 28, "Input"],
+Cell[144355, 3112, 184, 5, 48, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[144054, 3107, 157, 3, 28, "Input"],
-Cell[144214, 3112, 770, 28, 48, "Output"]
+Cell[144576, 3122, 157, 3, 28, "Input"],
+Cell[144736, 3127, 770, 28, 48, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[145021, 3145, 364, 10, 46, "Input"],
-Cell[145388, 3157, 547, 19, 48, "Output"],
-Cell[145938, 3178, 549, 19, 48, "Output"]
+Cell[145543, 3160, 364, 10, 46, "Input"],
+Cell[145910, 3172, 547, 19, 48, "Output"],
+Cell[146460, 3193, 549, 19, 48, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[146524, 3202, 978, 30, 97, "Input"],
-Cell[147505, 3234, 2213, 78, 86, "Output"]
+Cell[147046, 3217, 978, 30, 97, "Input"],
+Cell[148027, 3249, 2213, 78, 86, "Output"]
 }, Open  ]],
-Cell[149733, 3315, 2393, 70, 90, "Input"],
+Cell[150255, 3330, 2393, 70, 90, "Input"],
 Cell[CellGroupData[{
-Cell[152151, 3389, 1341, 39, 35, "Input"],
-Cell[153495, 3430, 586, 12, 24, "Message"],
-Cell[154084, 3444, 585, 12, 24, "Message"],
-Cell[154672, 3458, 586, 12, 24, "Message"],
-Cell[155261, 3472, 605, 12, 24, "Message"],
-Cell[155869, 3486, 795, 23, 28, "Output"]
+Cell[152673, 3404, 1341, 39, 35, "Input"],
+Cell[154017, 3445, 586, 12, 24, "Message"],
+Cell[154606, 3459, 585, 12, 24, "Message"],
+Cell[155194, 3473, 586, 12, 24, "Message"],
+Cell[155783, 3487, 605, 12, 24, "Message"],
+Cell[156391, 3501, 795, 23, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[156701, 3514, 18578, 456, 688, "Input"],
-Cell[175282, 3972, 558, 12, 24, "Message"],
-Cell[175843, 3986, 560, 12, 24, "Message"],
-Cell[176406, 4000, 558, 12, 24, "Message"],
-Cell[176967, 4014, 577, 12, 24, "Message"],
-Cell[177547, 4028, 707, 21, 35, "Output"]
+Cell[157223, 3529, 18578, 456, 688, "Input"],
+Cell[175804, 3987, 558, 12, 24, "Message"],
+Cell[176365, 4001, 560, 12, 24, "Message"],
+Cell[176928, 4015, 558, 12, 24, "Message"],
+Cell[177489, 4029, 577, 12, 24, "Message"],
+Cell[178069, 4043, 707, 21, 35, "Output"]
 }, Open  ]],
-Cell[178269, 4052, 16325, 395, 655, "Input"]
+Cell[178791, 4067, 16325, 395, 655, "Input"]
 }, Closed]]
 }
 ]
