@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    174783,       3991]
-NotebookOptionsPosition[    173617,       3952]
-NotebookOutlinePosition[    173978,       3968]
-CellTagsIndexPosition[    173935,       3965]
+NotebookDataLength[    175209,       4001]
+NotebookOptionsPosition[    173930,       3958]
+NotebookOutlinePosition[    174291,       3974]
+CellTagsIndexPosition[    174248,       3971]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -285,11 +285,11 @@ Cell[BoxData[
         RowBox[{
          RowBox[{
           RowBox[{
-          "0", "\[LessEqual]", " ", "\[CapitalDelta]ex", "\[LessEqual]", " ", 
-           "0.0001"}], " ", "&&", " ", 
+           RowBox[{"-", "0.01"}], "\[LessEqual]", " ", "\[CapitalDelta]ex", 
+           "\[LessEqual]", " ", "0.01"}], " ", "&&", " ", 
           RowBox[{
-          "0", "\[LessEqual]", " ", "\[CapitalDelta]ey", " ", "<", " ", 
-           "0.0001"}]}], ",", "\[IndentingNewLine]", 
+           RowBox[{"-", "0.01"}], "\[LessEqual]", " ", "\[CapitalDelta]ey", 
+           " ", "<", " ", "0.01"}]}], ",", "\[IndentingNewLine]", 
          RowBox[{
           RowBox[{"AppendTo", "[", 
            RowBox[{"path", ",", " ", 
@@ -317,8 +317,8 @@ Cell[BoxData[
           RowBox[{"Return", "[", " ", 
            RowBox[{"{", " ", 
             RowBox[{
-             RowBox[{"distanceMoved", "[", " ", "path", "]"}], ",", "s1", ",",
-              "s2", ",", "path", ",", "path1", ",", "path2", ",", " ", 
+             RowBox[{"distanceMoved", "[", " ", "path", "]"}], ",", "g1", ",",
+              "g2", ",", "path", ",", "path1", ",", "path2", ",", " ", 
              "True"}], " ", "}"}], "  ", "]"}]}]}], "]"}], ";", 
        "\[IndentingNewLine]", "\[IndentingNewLine]", 
        RowBox[{"(*", 
@@ -1060,106 +1060,102 @@ Cell[BoxData[
             "change", " ", "m1", " ", "and", " ", "m2", " ", "so", " ", 
              "that", " ", "it", " ", "would", " ", "stay", " ", "in", " ", 
              "the", " ", "bound"}]}], "*)"}], "\[IndentingNewLine]", 
-          RowBox[{"If", "[", 
-           RowBox[{
+          RowBox[{
+           RowBox[{"If", "[", 
             RowBox[{
              RowBox[{
-             "r2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-             "\[GreaterEqual]", " ", "1"}], ",", " ", 
-            RowBox[{
-             RowBox[{"r1", " ", "-=", " ", "m1"}], ";", " ", 
-             RowBox[{"r2", "-=", " ", "m2"}], ";", " ", 
-             RowBox[{"r2", "-=", "m1"}], ";", " ", 
-             RowBox[{"m1", " ", "=", " ", 
-              RowBox[{"{", 
-               RowBox[{
+              RowBox[{
+              "r2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              "\[GreaterEqual]", " ", "1"}], ",", " ", 
+             RowBox[{
+              RowBox[{"r1", " ", "-=", " ", "m1"}], ";", " ", 
+              RowBox[{"r2", "-=", " ", "m2"}], ";", " ", 
+              RowBox[{"r2", "-=", "m1"}], ";", " ", 
+              RowBox[{"m1", " ", "=", " ", 
+               RowBox[{"{", 
                 RowBox[{
-                 RowBox[{"(", 
-                  RowBox[{"1", "-", "\[CapitalDelta]gx"}], ")"}], "-", 
                  RowBox[{
-                 "r1", "\[LeftDoubleBracket]", "1", 
-                  "\[RightDoubleBracket]"}]}], ",", 
-                RowBox[{"1", "-", 
-                 RowBox[{
-                 "r1", "\[LeftDoubleBracket]", "2", 
-                  "\[RightDoubleBracket]"}]}]}], "}"}]}], ";", " ", 
-             RowBox[{"r1", "+=", " ", "m1"}], ";", " ", 
-             RowBox[{"r2", "+=", "m1"}], ";", 
-             RowBox[{"m2", "=", 
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"\[CapitalDelta]gx", "-", 
-                 RowBox[{"(", 
+                  RowBox[{"(", 
+                   RowBox[{"1", "-", "\[CapitalDelta]gx"}], ")"}], "-", 
                   RowBox[{
+                  "r1", "\[LeftDoubleBracket]", "1", 
+                   "\[RightDoubleBracket]"}]}], ",", 
+                 RowBox[{"1", "-", 
+                  RowBox[{
+                  "r1", "\[LeftDoubleBracket]", "2", 
+                   "\[RightDoubleBracket]"}]}]}], "}"}]}], ";", " ", 
+              RowBox[{"r1", "+=", " ", "m1"}], ";", " ", 
+              RowBox[{"r2", "+=", "m1"}], ";", 
+              RowBox[{"m2", "=", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"\[CapitalDelta]gx", "-", 
+                  RowBox[{"(", 
                    RowBox[{
-                   "r2", "\[LeftDoubleBracket]", "1", 
+                    RowBox[{
+                    "r2", "\[LeftDoubleBracket]", "1", 
                     "\[RightDoubleBracket]"}], "-", 
-                   RowBox[{
-                   "r1", "\[LeftDoubleBracket]", "1", 
+                    RowBox[{
+                    "r1", "\[LeftDoubleBracket]", "1", 
                     "\[RightDoubleBracket]"}]}], ")"}]}], ",", 
-                RowBox[{"\[CapitalDelta]gy", "-", 
-                 RowBox[{"(", 
-                  RowBox[{
+                 RowBox[{"\[CapitalDelta]gy", "-", 
+                  RowBox[{"(", 
                    RowBox[{
-                   "r2", "\[LeftDoubleBracket]", "2", 
+                    RowBox[{
+                    "r2", "\[LeftDoubleBracket]", "2", 
                     "\[RightDoubleBracket]"}], "-", 
-                   RowBox[{
-                   "r1", "\[LeftDoubleBracket]", "2", 
+                    RowBox[{
+                    "r1", "\[LeftDoubleBracket]", "2", 
                     "\[RightDoubleBracket]"}]}], ")"}]}]}], " ", "}"}]}], ";",
-              " ", 
-             RowBox[{"r2", "+=", " ", "m2"}], ";", 
-             RowBox[{
-             "Print", "[", 
-              "\"\<Are we here that it doesn't work?Achievable. r2:\>\"", 
-              "]"}], ";", 
-             RowBox[{"Print", "[", "r2", "]"}]}]}], "]"}], ";", 
-          "\[IndentingNewLine]", 
-          RowBox[{"If", "[", 
-           RowBox[{
+               " ", 
+              RowBox[{"r2", "+=", " ", "m2"}], ";"}]}], "]"}], 
+           "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
             RowBox[{
              RowBox[{
-             "r2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-             "\[LessEqual]", " ", "0"}], ",", " ", 
-            RowBox[{
-             RowBox[{"r1", " ", "-=", " ", "m1"}], ";", " ", 
-             RowBox[{"r2", "-=", " ", "m2"}], ";", " ", 
-             RowBox[{"r2", "-=", "m1"}], ";", " ", 
-             RowBox[{"m1", " ", "=", " ", 
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"\[CapitalDelta]gx", "-", 
-                 RowBox[{
-                 "r1", "\[LeftDoubleBracket]", "1", 
-                  "\[RightDoubleBracket]"}]}], ",", 
-                RowBox[{"1", "-", 
-                 RowBox[{
-                 "r1", "\[LeftDoubleBracket]", "2", 
-                  "\[RightDoubleBracket]"}]}]}], "}"}]}], ";", " ", 
-             RowBox[{"r1", "+=", " ", "m1"}], ";", " ", 
-             RowBox[{"r2", "+=", "m1"}], ";", 
-             RowBox[{"m2", "=", 
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"\[CapitalDelta]gx", "-", 
-                 RowBox[{"(", 
+              RowBox[{
+              "r2", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              "\[LessEqual]", " ", "0"}], ",", " ", 
+             RowBox[{
+              RowBox[{"r1", " ", "-=", " ", "m1"}], ";", " ", 
+              RowBox[{"r2", "-=", " ", "m2"}], ";", " ", 
+              RowBox[{"r2", "-=", "m1"}], ";", " ", 
+              RowBox[{"m1", " ", "=", " ", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"\[CapitalDelta]gx", "-", 
                   RowBox[{
+                  "r1", "\[LeftDoubleBracket]", "1", 
+                   "\[RightDoubleBracket]"}]}], ",", 
+                 RowBox[{"1", "-", 
+                  RowBox[{
+                  "r1", "\[LeftDoubleBracket]", "2", 
+                   "\[RightDoubleBracket]"}]}]}], "}"}]}], ";", " ", 
+              RowBox[{"r1", "+=", " ", "m1"}], ";", " ", 
+              RowBox[{"r2", "+=", "m1"}], ";", 
+              RowBox[{"m2", "=", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"\[CapitalDelta]gx", "-", 
+                  RowBox[{"(", 
                    RowBox[{
-                   "r2", "\[LeftDoubleBracket]", "1", 
+                    RowBox[{
+                    "r2", "\[LeftDoubleBracket]", "1", 
                     "\[RightDoubleBracket]"}], "-", 
-                   RowBox[{
-                   "r1", "\[LeftDoubleBracket]", "1", 
+                    RowBox[{
+                    "r1", "\[LeftDoubleBracket]", "1", 
                     "\[RightDoubleBracket]"}]}], ")"}]}], ",", 
-                RowBox[{"\[CapitalDelta]gy", "-", 
-                 RowBox[{"(", 
-                  RowBox[{
+                 RowBox[{"\[CapitalDelta]gy", "-", 
+                  RowBox[{"(", 
                    RowBox[{
-                   "r2", "\[LeftDoubleBracket]", "2", 
+                    RowBox[{
+                    "r2", "\[LeftDoubleBracket]", "2", 
                     "\[RightDoubleBracket]"}], "-", 
-                   RowBox[{
-                   "r1", "\[LeftDoubleBracket]", "2", 
+                    RowBox[{
+                    "r1", "\[LeftDoubleBracket]", "2", 
                     "\[RightDoubleBracket]"}]}], ")"}]}]}], " ", "}"}]}], ";",
-              " ", 
-             RowBox[{"r2", "+=", " ", "m2"}]}]}], "]"}], ";"}], 
+               " ", 
+              RowBox[{"r2", "+=", " ", "m2"}]}]}], "]"}]}], ";"}], 
          "\[IndentingNewLine]", "\[IndentingNewLine]", ",", 
          "\[IndentingNewLine]", 
          RowBox[{"(*", 
@@ -1347,10 +1343,8 @@ Cell[BoxData[
                    "r1", "\[LeftDoubleBracket]", "2", 
                     "\[RightDoubleBracket]"}]}], ")"}]}]}], " ", "}"}]}], ";",
               " ", 
-             RowBox[{"r2", "+=", " ", "m2"}], ";", " ", 
-             RowBox[{
-             "Print", "[", "\"\<Are we here that it doesn't work?\>\"", 
-              "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+             RowBox[{"r2", "+=", " ", "m2"}]}]}], "]"}], ";", 
+          "\[IndentingNewLine]", 
           RowBox[{"If", "[", 
            RowBox[{
             RowBox[{
@@ -1753,7 +1747,25 @@ Cell[BoxData[
    3.6962525067041473`*^9, 3.6962525094401197`*^9}, {3.696253551438973*^9, 
    3.696253562406337*^9}, {3.6962538889064503`*^9, 3.6962539375692053`*^9}, {
    3.696261576948176*^9, 3.696261778994083*^9}, {3.696262264588214*^9, 
-   3.696262269002935*^9}}],
+   3.696262269002935*^9}, {3.696263031214798*^9, 3.696263031853006*^9}, 
+   3.6962630894937162`*^9, {3.696263259648288*^9, 3.6962632613096333`*^9}, {
+   3.696264438484576*^9, 3.696264441707724*^9}, {3.696267900167506*^9, 
+   3.696267902332087*^9}, {3.696269109818372*^9, 3.696269122529334*^9}, {
+   3.6962691919026213`*^9, 3.696269196429139*^9}, {3.696269238917575*^9, 
+   3.696269244676887*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"Norm", "[", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "4"}], "}"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.696267783244866*^9, 3.696267795505888*^9}}],
+
+Cell[BoxData["5"], "Output",
+ CellChangeTimes->{3.6962677963019333`*^9}]
+}, Open  ]],
 
 Cell[BoxData[
  RowBox[{
@@ -2779,15 +2791,10 @@ Cell[BoxData[
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`e1$$ = {
-     Rational[1, 2], 
-     Rational[2, 3]}, $CellContext`e2$$ = {
-     Rational[2, 3], 
-     Rational[1, 2]}, $CellContext`progress$$ = 1, $CellContext`s1$$ = {
-     Rational[1, 4], 
-     Rational[4, 5]}, $CellContext`s2$$ = {
-     Rational[3, 4], 
-     Rational[1, 5]}, $CellContext`\[Epsilon]$$ = Rational[1, 1000], 
+   DynamicModuleBox[{$CellContext`e1$$ = {0.7135, 
+    0.593}, $CellContext`e2$$ = {0.501, 0.504}, $CellContext`progress$$ = 
+    1, $CellContext`s1$$ = {0.2175, 0.7030000000000001}, $CellContext`s2$$ = {
+    0.75, 0.2}, $CellContext`\[Epsilon]$$ = Rational[1, 1000], 
     Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
     Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
     1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
@@ -2823,10 +2830,10 @@ Cell[BoxData[
       Dynamic[{0, 0} + $CellContext`\[Epsilon]$$], 
       Dynamic[{1, 1} - $CellContext`\[Epsilon]$$]}}, Typeset`size$$ = {
     800., {207., 212.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = False, $CellContext`progress$60023$$ = 
-    0, $CellContext`\[Epsilon]$60024$$ = 0, $CellContext`s2$60025$$ = 
-    0, $CellContext`s1$60026$$ = 0, $CellContext`e2$60027$$ = 
-    0, $CellContext`e1$60028$$ = 0}, 
+    Typeset`skipInitDone$$ = False, $CellContext`progress$50513$$ = 
+    0, $CellContext`\[Epsilon]$50514$$ = 0, $CellContext`s2$50515$$ = 
+    0, $CellContext`s1$50516$$ = 0, $CellContext`e2$50517$$ = 
+    0, $CellContext`e1$50518$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      2, StandardForm, "Variables" :> {$CellContext`e1$$ = {
           Rational[1, 2], 
@@ -2838,12 +2845,12 @@ Cell[BoxData[
           Rational[3, 4], 
           Rational[1, 5]}, $CellContext`\[Epsilon]$$ = Rational[1, 1000]}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`progress$$, $CellContext`progress$60023$$, 0], 
-        Hold[$CellContext`\[Epsilon]$$, $CellContext`\[Epsilon]$60024$$, 0], 
-        Hold[$CellContext`s2$$, $CellContext`s2$60025$$, 0], 
-        Hold[$CellContext`s1$$, $CellContext`s1$60026$$, 0], 
-        Hold[$CellContext`e2$$, $CellContext`e2$60027$$, 0], 
-        Hold[$CellContext`e1$$, $CellContext`e1$60028$$, 0]}, 
+        Hold[$CellContext`progress$$, $CellContext`progress$50513$$, 0], 
+        Hold[$CellContext`\[Epsilon]$$, $CellContext`\[Epsilon]$50514$$, 0], 
+        Hold[$CellContext`s2$$, $CellContext`s2$50515$$, 0], 
+        Hold[$CellContext`s1$$, $CellContext`s1$50516$$, 0], 
+        Hold[$CellContext`e2$$, $CellContext`e2$50517$$, 0], 
+        Hold[$CellContext`e1$$, $CellContext`e1$50518$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -3120,16 +3127,17 @@ $CellContext`path1 = $CellContext`pm1, $CellContext`path2 = \
 $CellContext`pm2}, {$CellContext`\[CapitalDelta]ex, $CellContext`\
 \[CapitalDelta]ey} = ($CellContext`g2 - $CellContext`g1) - ($CellContext`s2 - \
 $CellContext`s1); If[
-           And[0 <= $CellContext`\[CapitalDelta]ex <= 0.0001, 
-            Inequality[
-            0, LessEqual, $CellContext`\[CapitalDelta]ey, Less, 0.0001]], 
+           And[-0.01 <= $CellContext`\[CapitalDelta]ex <= 0.01, 
+            
+            Inequality[-0.01, LessEqual, $CellContext`\[CapitalDelta]ey, Less,
+              0.01]], 
            AppendTo[$CellContext`path, {
              Part[$CellContext`g2, 1] - Part[$CellContext`s2, 1], 
               Part[$CellContext`g2, 2] - Part[$CellContext`s2, 2]}]; 
            AppendTo[$CellContext`path1, $CellContext`g1]; 
            AppendTo[$CellContext`path2, $CellContext`g2]; Return[{
-              $CellContext`distanceMoved[$CellContext`path], $CellContext`s1, \
-$CellContext`s2, $CellContext`path, $CellContext`path1, $CellContext`path2, 
+              $CellContext`distanceMoved[$CellContext`path], $CellContext`g1, \
+$CellContext`g2, $CellContext`path, $CellContext`path1, $CellContext`path2, 
               True}]]; 
          Module[{$CellContext`r1, $CellContext`r2, \
 $CellContext`newPathEntries, $CellContext`s1t, $CellContext`s2t, \
@@ -3246,11 +3254,12 @@ $CellContext`L =
           1, $CellContext`\[CapitalDelta]r, $CellContext`path1 = \
 $CellContext`pm1, $CellContext`path2 = $CellContext`pm2, $CellContext`path = \
 $CellContext`moves, $CellContext`isMirrored = False, $CellContext`isFlipped = 
-          False}, 
-         If[Part[$CellContext`r1in, 2] < Part[$CellContext`r2in, 2], 
+          False}, If[
+          Part[$CellContext`r1in, 2] < Part[$CellContext`r2in, 2], 
            If[
            Part[$CellContext`r1in, 1] > 
             Part[$CellContext`r2in, 
+              
               1], {$CellContext`r1, $CellContext`r2, $CellContext`g1, \
 $CellContext`g2} = {$CellContext`r2in, $CellContext`r1in, $CellContext`g2in, \
 $CellContext`g1in}; $CellContext`isFlipped = 
@@ -3290,7 +3299,8 @@ $CellContext`g2in}];
 {1 - Part[$CellContext`r2, 1], 1 - Part[$CellContext`r1, 2]}; 
              AddTo[$CellContext`r1, $CellContext`m1]; 
              AddTo[$CellContext`r2, $CellContext`m1]]; 
-           If[Part[$CellContext`r2, 1] < 0, 
+           If[
+            Part[$CellContext`r2, 1] < 0, 
              SubtractFrom[$CellContext`r1, $CellContext`m1]; 
              SubtractFrom[$CellContext`r2, $CellContext`m1]; $CellContext`m1 = \
 {-Part[$CellContext`r2, 1], 1 - Part[$CellContext`r1, 2]}; 
@@ -3301,31 +3311,29 @@ $CellContext`g2in}];
               Part[$CellContext`r2, 2] - Part[$CellContext`r1, 2])}; 
            AddTo[$CellContext`r2, $CellContext`m2]; 
            If[Part[$CellContext`r2, 1] >= 1, 
-             SubtractFrom[$CellContext`r1, $CellContext`m1]; 
-             SubtractFrom[$CellContext`r2, $CellContext`m2]; 
-             SubtractFrom[$CellContext`r2, $CellContext`m1]; $CellContext`m1 = \
+              SubtractFrom[$CellContext`r1, $CellContext`m1]; 
+              SubtractFrom[$CellContext`r2, $CellContext`m2]; 
+              SubtractFrom[$CellContext`r2, $CellContext`m1]; $CellContext`m1 = \
 {(1 - $CellContext`\[CapitalDelta]gx) - Part[$CellContext`r1, 1], 1 - 
-                Part[$CellContext`r1, 2]}; 
-             AddTo[$CellContext`r1, $CellContext`m1]; 
-             AddTo[$CellContext`r2, $CellContext`m1]; $CellContext`m2 = \
+                 Part[$CellContext`r1, 2]}; 
+              AddTo[$CellContext`r1, $CellContext`m1]; 
+              AddTo[$CellContext`r2, $CellContext`m1]; $CellContext`m2 = \
 {$CellContext`\[CapitalDelta]gx - (Part[$CellContext`r2, 1] - 
-                Part[$CellContext`r1, 1]), $CellContext`\[CapitalDelta]gy - (
-                Part[$CellContext`r2, 2] - Part[$CellContext`r1, 2])}; 
-             AddTo[$CellContext`r2, $CellContext`m2]; 
-             Print["Are we here that it doesn't work?Achievable. r2:"]; 
-             Print[$CellContext`r2]]; 
-           If[Part[$CellContext`r2, 1] <= 0, 
-             SubtractFrom[$CellContext`r1, $CellContext`m1]; 
-             SubtractFrom[$CellContext`r2, $CellContext`m2]; 
-             SubtractFrom[$CellContext`r2, $CellContext`m1]; $CellContext`m1 = \
+                 Part[$CellContext`r1, 1]), $CellContext`\[CapitalDelta]gy - (
+                 Part[$CellContext`r2, 2] - Part[$CellContext`r1, 2])}; 
+              AddTo[$CellContext`r2, $CellContext`m2]; Null] 
+            If[Part[$CellContext`r2, 1] <= 0, 
+              SubtractFrom[$CellContext`r1, $CellContext`m1]; 
+              SubtractFrom[$CellContext`r2, $CellContext`m2]; 
+              SubtractFrom[$CellContext`r2, $CellContext`m1]; $CellContext`m1 = \
 {$CellContext`\[CapitalDelta]gx - Part[$CellContext`r1, 1], 1 - 
-                Part[$CellContext`r1, 2]}; 
-             AddTo[$CellContext`r1, $CellContext`m1]; 
-             AddTo[$CellContext`r2, $CellContext`m1]; $CellContext`m2 = \
+                 Part[$CellContext`r1, 2]}; 
+              AddTo[$CellContext`r1, $CellContext`m1]; 
+              AddTo[$CellContext`r2, $CellContext`m1]; $CellContext`m2 = \
 {$CellContext`\[CapitalDelta]gx - (Part[$CellContext`r2, 1] - 
-                Part[$CellContext`r1, 1]), $CellContext`\[CapitalDelta]gy - (
-                Part[$CellContext`r2, 2] - Part[$CellContext`r1, 2])}; 
-             AddTo[$CellContext`r2, $CellContext`m2]]; Null, 
+                 Part[$CellContext`r1, 1]), $CellContext`\[CapitalDelta]gy - (
+                 Part[$CellContext`r2, 2] - Part[$CellContext`r1, 2])}; 
+              AddTo[$CellContext`r2, $CellContext`m2]]; Null, 
            Print["not achieveable"]; 
            If[Part[$CellContext`r2, 1] - Part[$CellContext`r1, 1] - 
               1 > $CellContext`\[CapitalDelta]gx, \
@@ -3372,8 +3380,7 @@ $CellContext`\[CapitalDelta]gy];
 {$CellContext`\[CapitalDelta]tgx - (Part[$CellContext`r2, 1] - 
                 Part[$CellContext`r1, 1]), $CellContext`\[CapitalDelta]tgy - (
                 Part[$CellContext`r2, 2] - Part[$CellContext`r1, 2])}; 
-             AddTo[$CellContext`r2, $CellContext`m2]; 
-             Print["Are we here that it doesn't work?"]]; 
+             AddTo[$CellContext`r2, $CellContext`m2]]; 
            If[Part[$CellContext`r2, 1] < 0, 
              SubtractFrom[$CellContext`r1, $CellContext`m1]; 
              SubtractFrom[$CellContext`r2, $CellContext`m2]; 
@@ -3411,9 +3418,7 @@ $CellContext`\[CapitalDelta]gy];
             Map[$CellContext`mirror, {$CellContext`r1, $CellContext`r2}]; 
            Null]; If[$CellContext`isFlipped, 
            AppendTo[$CellContext`path1, $CellContext`r2]; 
-           AppendTo[$CellContext`path2, $CellContext`r1]; Print["r1:"]; 
-           Print[$CellContext`r1]; Print["r2:"]; Print[$CellContext`r2]; 
-           Return[{
+           AppendTo[$CellContext`path2, $CellContext`r1]; Return[{
               If[
                Or[$CellContext`m1 == {0, 0}, $CellContext`m2 == {0, 0}], 
                Infinity, $CellContext`distanceMoved[$CellContext`path] + \
@@ -3421,9 +3426,7 @@ $CellContext`admissibleHeuristic[$CellContext`r2, $CellContext`r1, \
 $CellContext`g2, $CellContext`g1]], $CellContext`r2, $CellContext`r1, \
 $CellContext`path, $CellContext`path1, $CellContext`path2, False}], 
            AppendTo[$CellContext`path1, $CellContext`r1]; 
-           AppendTo[$CellContext`path2, $CellContext`r2]; Print["r1:"]; 
-           Print[$CellContext`r1]; Print["r2:"]; Print[$CellContext`r2]; 
-           Return[{
+           AppendTo[$CellContext`path2, $CellContext`r2]; Return[{
               If[
                Or[$CellContext`m1 == {0, 0}, $CellContext`m2 == {0, 0}], 
                Infinity, $CellContext`distanceMoved[$CellContext`path] + \
@@ -3465,7 +3468,10 @@ $CellContext`path, $CellContext`path1, $CellContext`path2,
    Deployed->True,
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{3.6962623619479628`*^9}]
+ CellChangeTimes->{
+  3.6962623619479628`*^9, 3.696263126933514*^9, 3.696263276757559*^9, 
+   3.696264452327794*^9, 3.6962645094552717`*^9, 3.696269139498596*^9, 
+   3.6962692067174273`*^9, {3.69626925396846*^9, 3.6962692631840563`*^9}}]
 }, Open  ]],
 
 Cell[BoxData[
@@ -3972,25 +3978,29 @@ Cell[580, 22, 185, 4, 99, "Section"],
 Cell[768, 28, 685, 16, 251, "Subsubsection"],
 Cell[CellGroupData[{
 Cell[1478, 48, 4695, 131, 696, "Subsection"],
-Cell[6176, 181, 72702, 1574, 3737, "Input",
+Cell[6176, 181, 72892, 1573, 3737, "Input",
  InitializationCell->True],
-Cell[78881, 1757, 11237, 214, 675, "Input"],
 Cell[CellGroupData[{
-Cell[90143, 1975, 32553, 801, 1509, "Input"],
-Cell[122699, 2778, 34798, 689, 566, "Output"]
+Cell[79093, 1758, 208, 5, 46, "Input"],
+Cell[79304, 1765, 72, 1, 28, "Output"]
 }, Open  ]],
-Cell[157512, 3470, 891, 27, 63, "Input"],
-Cell[158406, 3499, 855, 27, 46, "Input"],
-Cell[159264, 3528, 1089, 32, 63, "Input"],
-Cell[160356, 3562, 2264, 46, 28, "Input"],
-Cell[162623, 3610, 118, 2, 28, "Input"],
-Cell[162744, 3614, 1112, 32, 46, "Input"],
-Cell[163859, 3648, 559, 16, 49, "Input"],
-Cell[164421, 3666, 393, 7, 46, "Input"],
-Cell[164817, 3675, 497, 14, 49, "Input"],
-Cell[165317, 3691, 466, 14, 28, "Input"],
-Cell[165786, 3707, 175, 3, 28, "Input"],
-Cell[165964, 3712, 7625, 236, 395, "Input"]
+Cell[79391, 1769, 11237, 214, 675, "Input"],
+Cell[CellGroupData[{
+Cell[90653, 1987, 32553, 801, 1509, "Input"],
+Cell[123209, 2790, 34601, 683, 532, "Output"]
+}, Open  ]],
+Cell[157825, 3476, 891, 27, 63, "Input"],
+Cell[158719, 3505, 855, 27, 46, "Input"],
+Cell[159577, 3534, 1089, 32, 63, "Input"],
+Cell[160669, 3568, 2264, 46, 28, "Input"],
+Cell[162936, 3616, 118, 2, 28, "Input"],
+Cell[163057, 3620, 1112, 32, 46, "Input"],
+Cell[164172, 3654, 559, 16, 49, "Input"],
+Cell[164734, 3672, 393, 7, 46, "Input"],
+Cell[165130, 3681, 497, 14, 49, "Input"],
+Cell[165630, 3697, 466, 14, 28, "Input"],
+Cell[166099, 3713, 175, 3, 28, "Input"],
+Cell[166277, 3718, 7625, 236, 356, "Input"]
 }, Open  ]]
 }, Open  ]]
 }
