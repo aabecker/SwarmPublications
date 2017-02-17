@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    143185,       3362]
-NotebookOptionsPosition[    142017,       3324]
-NotebookOutlinePosition[    142378,       3340]
-CellTagsIndexPosition[    142335,       3337]
+NotebookDataLength[    198209,       4669]
+NotebookOptionsPosition[    190888,       4475]
+NotebookOutlinePosition[    191249,       4491]
+CellTagsIndexPosition[    191206,       4488]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1389,7 +1389,7 @@ Cell[BoxData[
                   RowBox[{"Abs", "[", 
                    RowBox[{"1", "-", 
                     RowBox[{
-                    "r1", "\[LeftDoubleBracket]", "1", 
+                    "r2", "\[LeftDoubleBracket]", "1", 
                     "\[RightDoubleBracket]"}]}], "]"}]}], "]"}], ",", 
                 RowBox[{"1", "-", 
                  RowBox[{
@@ -1796,14 +1796,8 @@ Cell[BoxData[
    3.696350658471527*^9}, {3.696350721350988*^9, 3.6963507439442883`*^9}, {
    3.696350993561509*^9, 3.6963510709155407`*^9}, {3.696351127940382*^9, 
    3.696351265731701*^9}, {3.6963514556621637`*^9, 3.696351475518982*^9}, {
-   3.696351606896888*^9, 3.696351643519766*^9}}],
-
-Cell[BoxData[
- RowBox[{"\[IndentingNewLine]", 
-  RowBox[{"Norm", "[", 
-   RowBox[{"{", 
-    RowBox[{"3", ",", "4"}], "}"}], "]"}]}]], "Input",
- CellChangeTimes->{{3.696267783244866*^9, 3.696267795505888*^9}}],
+   3.696351606896888*^9, 3.696351643519766*^9}, {3.6963522515383472`*^9, 
+   3.696352252223336*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -2020,6 +2014,8 @@ Cell[BoxData[
    3.696186371651759*^9}, {3.696188233554964*^9, 3.6961882383227873`*^9}, {
    3.696188392819615*^9, 3.6961884027222567`*^9}, {3.6962499073225527`*^9, 
    3.6962499079540863`*^9}}],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -2826,6 +2822,1161 @@ Cell[BoxData[
    3.696348271920081*^9}],
 
 Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`e1$$ = {0.8215, 
+    0.937}, $CellContext`e2$$ = {0.001, 0.021}, $CellContext`progress$$ = 
+    1, $CellContext`s1$$ = {0.123, 0.065}, $CellContext`s2$$ = {0.9265, 
+    0.811}, $CellContext`\[Epsilon]$$ = Rational[1, 1000], Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`progress$$], 1, "progress"}, 0, 1, 
+      Rational[1, 420]}, {{
+       Hold[$CellContext`\[Epsilon]$$], 
+       Rational[1, 1000], "\[Epsilon]"}, 
+      Rational[1, 1000], 
+      Rational[1, 10], 
+      Rational[1, 1000]}, {
+      Hold[
+       Row[{
+         Manipulate`Place[1], 
+         Manipulate`Place[2]}]], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`s2$$], {
+        Rational[3, 4], 
+        Rational[1, 5]}}, 
+      Dynamic[{0, 0} + $CellContext`\[Epsilon]$$], 
+      Dynamic[{1, 1} - $CellContext`\[Epsilon]$$]}, {{
+       Hold[$CellContext`s1$$], {
+        Rational[1, 4], 
+        Rational[4, 5]}}, 
+      Dynamic[{0, 0} + $CellContext`\[Epsilon]$$], 
+      Dynamic[{1, 1} - $CellContext`\[Epsilon]$$]}, {{
+       Hold[$CellContext`e2$$], {
+        Rational[2, 3], 
+        Rational[1, 2]}}, 
+      Dynamic[{0, 0} + $CellContext`\[Epsilon]$$], 
+      Dynamic[{1, 1} - $CellContext`\[Epsilon]$$]}, {{
+       Hold[$CellContext`e1$$], {
+        Rational[1, 2], 
+        Rational[2, 3]}}, 
+      Dynamic[{0, 0} + $CellContext`\[Epsilon]$$], 
+      Dynamic[{1, 1} - $CellContext`\[Epsilon]$$]}}, Typeset`size$$ = {
+    800., {207., 212.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`progress$6796$$ = 
+    0, $CellContext`\[Epsilon]$6797$$ = 0, $CellContext`s2$6798$$ = 
+    0, $CellContext`s1$6799$$ = 0, $CellContext`e2$6800$$ = 
+    0, $CellContext`e1$6801$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, "Variables" :> {$CellContext`e1$$ = {
+          Rational[1, 2], 
+          Rational[2, 3]}, $CellContext`e2$$ = {
+          Rational[2, 3], 
+          Rational[1, 2]}, $CellContext`progress$$ = 1, $CellContext`s1$$ = {
+          Rational[1, 4], 
+          Rational[4, 5]}, $CellContext`s2$$ = {
+          Rational[3, 4], 
+          Rational[1, 5]}, $CellContext`\[Epsilon]$$ = Rational[1, 1000]}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`progress$$, $CellContext`progress$6796$$, 0], 
+        Hold[$CellContext`\[Epsilon]$$, $CellContext`\[Epsilon]$6797$$, 0], 
+        Hold[$CellContext`s2$$, $CellContext`s2$6798$$, 0], 
+        Hold[$CellContext`s1$$, $CellContext`s1$6799$$, 0], 
+        Hold[$CellContext`e2$$, $CellContext`e2$6800$$, 0], 
+        Hold[$CellContext`e1$$, $CellContext`e1$6801$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`movesAndPositions$, $CellContext`path$, \
+$CellContext`path1$, $CellContext`path2$, $CellContext`r$ = 
+         1/40, $CellContext`thickness$ = 
+         0.002, $CellContext`rotateSolution$, $CellContext`ps1$, \
+$CellContext`pe1$, $CellContext`ps2$, $CellContext`pe2$, $CellContext`pm1$, \
+$CellContext`pm2$, $CellContext`offset$, $CellContext`c1$ = 
+         Blue, $CellContext`c2$ = 
+         Magenta, $CellContext`mvNum$, $CellContext`mvFrac$}, \
+{$CellContext`ps1$, $CellContext`pe1$, $CellContext`ps2$, $CellContext`pe2$} = \
+{$CellContext`s1$$, $CellContext`e1$$, $CellContext`s2$$, $CellContext`e2$$}; \
+{$CellContext`path$, $CellContext`path1$, $CellContext`path2$} = \
+$CellContext`optimal2robotPath[$CellContext`ps1$, $CellContext`ps2$, \
+$CellContext`pe1$, $CellContext`pe2$, $CellContext`\[Epsilon]$$]; \
+$CellContext`mvNum$ = 
+         Floor[$CellContext`progress$$ (Length[$CellContext`path$] - 
+            1)]; $CellContext`mvFrac$ = 
+         FractionalPart[$CellContext`progress$$ (Length[$CellContext`path$] - 
+            1)]; $CellContext`pm2$ = 
+         If[$CellContext`mvFrac$ > 0, 
+           Part[$CellContext`path2$, $CellContext`mvNum$ + 1, 
+             Span[1, All]] + $CellContext`mvFrac$ (
+             Part[$CellContext`path2$, $CellContext`mvNum$ + 2, 
+               Span[1, All]] - 
+             Part[$CellContext`path2$, $CellContext`mvNum$ + 1, 
+              Span[1, All]]), 
+           Part[$CellContext`path2$, $CellContext`mvNum$ + 1, 
+            Span[1, All]]]; $CellContext`pm1$ = 
+         If[$CellContext`mvFrac$ > 0, 
+           Part[$CellContext`path1$, $CellContext`mvNum$ + 1, 
+             Span[1, All]] + $CellContext`mvFrac$ (
+             Part[$CellContext`path1$, $CellContext`mvNum$ + 2, 
+               Span[1, All]] - 
+             Part[$CellContext`path1$, $CellContext`mvNum$ + 1, 
+              Span[1, All]]), 
+           Part[$CellContext`path1$, $CellContext`mvNum$ + 1, 
+            Span[1, All]]]; Graphics[{{
+            Darker[Red], 
+            Rectangle[(-0.025) {1, 1}, 1.025 {1, 1}]}, {
+            Lighter[Gray, 0.8], 
+            Rectangle[{0, 0}, {1, 1}]}, {White, 
+            
+            Rectangle[{$CellContext`\[Epsilon]$$, $CellContext`\[Epsilon]$$}, \
+{1 - $CellContext`\[Epsilon]$$, 1 - $CellContext`\[Epsilon]$$}]}, {
+            Lighter[Gray, 0.8], 
+            Disk[$CellContext`ps2$, $CellContext`\[Epsilon]$$]}, {
+            Lighter[Gray, 0.8], 
+            Disk[$CellContext`pe2$, $CellContext`\[Epsilon]$$]}, 
+           PointSize[0.01], 
+           Arrowheads[0.02], 
+           Thickness[$CellContext`thickness$], {$CellContext`c1$, {
+             Opacity[0.3], Dashed, 
+             Arrow[{$CellContext`ps1$, $CellContext`pe1$}]}, 
+            Point[$CellContext`ps1$], 
+            EdgeForm[
+             Directive[$CellContext`c1$, 
+              Thickness[$CellContext`thickness$]]], 
+            FaceForm[None], 
+            
+            Rectangle[$CellContext`ps1$ - (2/3) $CellContext`r$ {1, 
+              1}, $CellContext`ps1$ + (2/3) $CellContext`r$ {1, 1}], 
+            Circle[$CellContext`pe1$, $CellContext`r$]}, {$CellContext`c2$, {
+             Opacity[0.3], Dashed, 
+             Arrow[{$CellContext`ps2$, $CellContext`pe2$}]}, 
+            Point[$CellContext`ps2$], 
+            EdgeForm[
+             Directive[$CellContext`c2$, 
+              Thickness[$CellContext`thickness$]]], 
+            FaceForm[None], 
+            
+            Rectangle[$CellContext`ps2$ - (2/3) $CellContext`r$ {1, 
+              1}, $CellContext`ps2$ + (2/3) $CellContext`r$ {1, 1}], 
+            Circle[$CellContext`pe2$, $CellContext`r$]}, {$CellContext`c1$, 
+            Table[
+             Arrow[{
+               Part[$CellContext`path1$, $CellContext`i, 
+                Span[1, All]], 
+               Part[$CellContext`path1$, $CellContext`i + 1, 
+                Span[1, All]]}], {$CellContext`i, 1, $CellContext`mvNum$}], 
+            Arrow[{
+              Part[$CellContext`path1$, $CellContext`mvNum$ + 1, 
+               Span[1, All]], $CellContext`pm1$}], {
+             If[
+              Or[
+              Part[$CellContext`pm1$, 1] == 0, Part[$CellContext`pm1$, 2] == 
+               0, Part[$CellContext`pm1$, 1] == 1, Part[$CellContext`pm1$, 2] == 
+               1], {
+               Point[$CellContext`pm1$], 
+               PointSize[0.005], White, 
+               Point[$CellContext`pm1$]}, 
+              Point[$CellContext`pm1$]]}}, {$CellContext`c2$, 
+            Table[
+             Arrow[{
+               Part[$CellContext`path2$, $CellContext`i, 
+                Span[1, All]], 
+               Part[$CellContext`path2$, $CellContext`i + 1, 
+                Span[1, All]]}], {$CellContext`i, 1, $CellContext`mvNum$}], 
+            Arrow[{
+              Part[$CellContext`path2$, $CellContext`mvNum$ + 1, 
+               Span[1, All]], $CellContext`pm2$}], {
+             If[
+              Or[
+              Part[$CellContext`pm2$, 1] == 0, Part[$CellContext`pm2$, 2] == 
+               0, Part[$CellContext`pm2$, 1] == 1, Part[$CellContext`pm2$, 2] == 
+               1], 
+              Darker[$CellContext`c2$], $CellContext`c2$], 
+             Point[{$CellContext`pm2$}]}}, {
+           If[$CellContext`mvNum$ + 1 == 
+              Length[$CellContext`path$], {$CellContext`mvNum$ = 
+               Length[$CellContext`path$] - 2, $CellContext`mvFrac$ = 1}]; 
+            Darker[Red], 
+            Text[
+             Style[
+              StringForm[
+              "Move `` of ``", $CellContext`mvNum$ + 1, 
+               Length[$CellContext`path$] - 1], FontSize -> 18], {1.55, 0.9}], 
+            Text[
+             Style[
+              StringForm["Total Distance `` ", 
+               Round[
+                N[
+                 Total[
+                  Table[
+                   EuclideanDistance[
+                    Part[$CellContext`path$, $CellContext`i], {0, 
+                    0}], {$CellContext`i, 2, 
+                    Length[$CellContext`path$]}]]], 0.01]], FontSize -> 18], {
+             1.55, 0.8}], $CellContext`offset$ = {1.55, 0.5} - (1/2) 
+              Part[$CellContext`path$, $CellContext`mvNum$ + 2, 
+                Span[1, All]]; {
+              Opacity[0.3], 
+              
+              Arrow[{$CellContext`offset$, $CellContext`offset$ + 
+                Part[$CellContext`path$, $CellContext`mvNum$ + 2, 
+                  Span[1, All]]}]}, 
+            
+            Point[$CellContext`offset$ + $CellContext`mvFrac$ 
+              Part[$CellContext`path$, $CellContext`mvNum$ + 2, 
+                Span[1, All]]], 
+            
+            Arrow[{$CellContext`offset$, $CellContext`offset$ + \
+$CellContext`mvFrac$ Part[$CellContext`path$, $CellContext`mvNum$ + 2, 
+                 Span[1, All]]}]}}, ImageSize -> 800, 
+          PlotRange -> {{-0.05, 2.05}, {-0.05, 1.05}}]], 
+      "Specifications" :> {{{$CellContext`progress$$, 1, "progress"}, 0, 1, 
+         Rational[1, 420], ControlType -> Slider, Appearance -> "Labeled", 
+         ControlPlacement -> 1}, {{$CellContext`\[Epsilon]$$, 
+          Rational[1, 1000], "\[Epsilon]"}, 
+         Rational[1, 1000], 
+         Rational[1, 10], 
+         Rational[1, 1000], ControlType -> Slider, Appearance -> "Labeled", 
+         ControlPlacement -> 2}, 
+        Row[{
+          Manipulate`Place[1], 
+          Manipulate`Place[2]}], {{$CellContext`s2$$, {
+           Rational[3, 4], 
+           Rational[1, 5]}}, 
+         Dynamic[{0, 0} + $CellContext`\[Epsilon]$$], 
+         Dynamic[{1, 1} - $CellContext`\[Epsilon]$$], ControlType -> Locator, 
+         Appearance -> None}, {{$CellContext`s1$$, {
+           Rational[1, 4], 
+           Rational[4, 5]}}, 
+         Dynamic[{0, 0} + $CellContext`\[Epsilon]$$], 
+         Dynamic[{1, 1} - $CellContext`\[Epsilon]$$], ControlType -> Locator, 
+         Appearance -> None}, {{$CellContext`e2$$, {
+           Rational[2, 3], 
+           Rational[1, 2]}}, 
+         Dynamic[{0, 0} + $CellContext`\[Epsilon]$$], 
+         Dynamic[{1, 1} - $CellContext`\[Epsilon]$$], ControlType -> Locator, 
+         Appearance -> None}, {{$CellContext`e1$$, {
+           Rational[1, 2], 
+           Rational[2, 3]}}, 
+         Dynamic[{0, 0} + $CellContext`\[Epsilon]$$], 
+         Dynamic[{1, 1} - $CellContext`\[Epsilon]$$], ControlType -> Locator, 
+         Appearance -> None}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{851., {255., 260.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`optimal2robotPath[
+         Pattern[$CellContext`s1, 
+          Blank[]], 
+         Pattern[$CellContext`s2, 
+          Blank[]], 
+         Pattern[$CellContext`g1, 
+          Blank[]], 
+         Pattern[$CellContext`g2, 
+          Blank[]], 
+         Pattern[$CellContext`\[Epsilon], 
+          Blank[]]] := 
+       Module[{$CellContext`optimalPathList, $CellContext`bestMoveSeq, \
+$CellContext`dist1, $CellContext`iter = 
+          0}, $CellContext`optimalPathList = {{
+            Infinity, $CellContext`s1, $CellContext`s2, {{0, 
+             0}}, {$CellContext`s1}, {$CellContext`s2}, 
+             False}}; $CellContext`dist1 = \
+$CellContext`distanceMoved[$CellContext`admissibleHeuristic[$CellContext`s1, \
+$CellContext`s2, $CellContext`g1, $CellContext`g2] + 0]; 
+         While[Part[$CellContext`optimalPathList, 1, 7] != True, 
+           
+           Module[{$CellContext`pathToExplore, $CellContext`r1, \
+$CellContext`r2, $CellContext`wallMoves, $CellContext`moves, \
+$CellContext`pm1, $CellContext`pm2, $CellContext`isPathComplete}, \
+$CellContext`pathToExplore = 
+             First[$CellContext`optimalPathList]; \
+$CellContext`optimalPathList = 
+             Delete[$CellContext`optimalPathList, 1]; $CellContext`r1 = 
+             Part[$CellContext`pathToExplore, 2]; $CellContext`r2 = 
+             Part[$CellContext`pathToExplore, 3]; $CellContext`moves = 
+             Part[$CellContext`pathToExplore, 4]; $CellContext`pm1 = 
+             Part[$CellContext`pathToExplore, 5]; $CellContext`pm2 = 
+             Part[$CellContext`pathToExplore, 6]; $CellContext`isPathComplete = 
+             Part[$CellContext`pathToExplore, 7]; AddTo[$CellContext`iter, 1]; 
+            If[$CellContext`isPathComplete != True, 
+              Table[$CellContext`wallMoves = \
+$CellContext`wallFrictionMoveDir[$CellContext`dir, $CellContext`r1, \
+$CellContext`r2, $CellContext`g1, $CellContext`g2, $CellContext`moves, \
+$CellContext`pm1, $CellContext`pm2, $CellContext`\[Epsilon]]; \
+$CellContext`optimalPathList = 
+                 AppendTo[$CellContext`optimalPathList, \
+$CellContext`wallMoves]; 
+                Null, {$CellContext`dir, {
+                 "u", "d", "l", "r"}}]; $CellContext`optimalPathList = 
+               SortBy[$CellContext`optimalPathList, First]; Null]]]; Return[{
+            Part[
+             Part[$CellContext`optimalPathList, 1], 4], 
+            Part[
+             Part[$CellContext`optimalPathList, 1], 5], 
+            Part[
+             Part[$CellContext`optimalPathList, 1], 
+             6]}]], $CellContext`distanceMoved[
+         Pattern[$CellContext`moves, 
+          Blank[]]] := Total[
+         Table[
+          
+          Norm[$CellContext`m], {$CellContext`m, $CellContext`moves}]], \
+$CellContext`admissibleHeuristic[
+         Pattern[$CellContext`s1, 
+          Blank[]], 
+         Pattern[$CellContext`s2, 
+          Blank[]], 
+         Pattern[$CellContext`g1, 
+          Blank[]], 
+         Pattern[$CellContext`g2, 
+          Blank[]]] := Max[
+         EuclideanDistance[$CellContext`g1, $CellContext`s1], 
+         EuclideanDistance[$CellContext`g2, $CellContext`s2]], \
+$CellContext`wallFrictionMoveDir[
+         Pattern[$CellContext`dir, 
+          Blank[]], 
+         Pattern[$CellContext`s1, 
+          Blank[]], 
+         Pattern[$CellContext`s2, 
+          Blank[]], 
+         Pattern[$CellContext`g1, 
+          Blank[]], 
+         Pattern[$CellContext`g2, 
+          Blank[]], 
+         Pattern[$CellContext`moves, 
+          Blank[]], 
+         Pattern[$CellContext`pm1, 
+          Blank[]], 
+         Pattern[$CellContext`pm2, 
+          Blank[]], 
+         Pattern[$CellContext`\[Epsilon], 
+          Blank[]]] := 
+       Module[{$CellContext`\[CapitalDelta]ex, \
+$CellContext`\[CapitalDelta]ey, $CellContext`path = $CellContext`moves, \
+$CellContext`path1 = $CellContext`pm1, $CellContext`path2 = \
+$CellContext`pm2}, {$CellContext`\[CapitalDelta]ex, $CellContext`\
+\[CapitalDelta]ey} = ($CellContext`g2 - $CellContext`g1) - ($CellContext`s2 - \
+$CellContext`s1); If[
+           And[-0.01 <= $CellContext`\[CapitalDelta]ex <= 0.01, 
+            
+            Inequality[-0.01, LessEqual, $CellContext`\[CapitalDelta]ey, Less,
+              0.01]], 
+           AppendTo[$CellContext`path, {
+             Part[$CellContext`g2, 1] - Part[$CellContext`s2, 1], 
+              Part[$CellContext`g2, 2] - Part[$CellContext`s2, 2]}]; 
+           AppendTo[$CellContext`path1, $CellContext`g1]; 
+           AppendTo[$CellContext`path2, $CellContext`g2]; Return[{
+              $CellContext`distanceMoved[$CellContext`path], $CellContext`g1, \
+$CellContext`g2, $CellContext`path, $CellContext`path1, $CellContext`path2, 
+              True}]]; 
+         Module[{$CellContext`r1, $CellContext`r2, \
+$CellContext`newPathEntries, $CellContext`s1t, $CellContext`s2t, \
+$CellContext`g1t, $CellContext`g2t, $CellContext`movest, $CellContext`pm1st, \
+$CellContext`pm2st}, 
+           If[$CellContext`dir == 
+             "u", $CellContext`newPathEntries = \
+$CellContext`wallFrictionMoveUp[$CellContext`s1, $CellContext`s2, \
+$CellContext`g1, $CellContext`g2, $CellContext`moves, $CellContext`pm1, \
+$CellContext`pm2, $CellContext`\[Epsilon]]; Null]; 
+           If[$CellContext`dir == 
+             "d", {$CellContext`s1t, $CellContext`s2t, $CellContext`g1t, \
+$CellContext`g2t} = 
+              Map[$CellContext`rotate180, {$CellContext`s1, $CellContext`s2, \
+$CellContext`g1, $CellContext`g2}]; $CellContext`movest = 
+              Map[$CellContext`rotate180inplace, $CellContext`moves]; \
+$CellContext`pm1st = 
+              Map[$CellContext`rotate180, $CellContext`pm1]; \
+$CellContext`pm2st = 
+              Map[$CellContext`rotate180, $CellContext`pm2]; \
+$CellContext`newPathEntries = \
+$CellContext`wallFrictionMoveUp[$CellContext`s1t, $CellContext`s2t, \
+$CellContext`g1t, $CellContext`g2t, $CellContext`movest, $CellContext`pm1st, \
+$CellContext`pm2st, $CellContext`\[Epsilon]]; 
+             Part[$CellContext`newPathEntries, 2] = $CellContext`rotate180[
+                Part[$CellContext`newPathEntries, 2]]; 
+             Part[$CellContext`newPathEntries, 3] = $CellContext`rotate180[
+                Part[$CellContext`newPathEntries, 3]]; 
+             Part[$CellContext`newPathEntries, 4] = 
+              Map[$CellContext`rotate180inplace, 
+                Part[$CellContext`newPathEntries, 4]]; 
+             Part[$CellContext`newPathEntries, 5] = 
+              Map[$CellContext`rotate180, 
+                Part[$CellContext`newPathEntries, 5]]; 
+             Part[$CellContext`newPathEntries, 6] = 
+              Map[$CellContext`rotate180, 
+                Part[$CellContext`newPathEntries, 6]]; Null]; 
+           If[$CellContext`dir == 
+             "r", {$CellContext`s1t, $CellContext`s2t, $CellContext`g1t, \
+$CellContext`g2t} = 
+              Map[$CellContext`rotate90, {$CellContext`s1, $CellContext`s2, \
+$CellContext`g1, $CellContext`g2}]; $CellContext`movest = 
+              Map[$CellContext`rotate90inplace, $CellContext`moves]; \
+$CellContext`pm1st = 
+              Map[$CellContext`rotate90, $CellContext`pm1]; \
+$CellContext`pm2st = 
+              Map[$CellContext`rotate90, $CellContext`pm2]; \
+$CellContext`newPathEntries = \
+$CellContext`wallFrictionMoveUp[$CellContext`s1t, $CellContext`s2t, \
+$CellContext`g1t, $CellContext`g2t, $CellContext`movest, $CellContext`pm1st, \
+$CellContext`pm2st, $CellContext`\[Epsilon]]; 
+             Part[$CellContext`newPathEntries, 2] = $CellContext`rotate270[
+                Part[$CellContext`newPathEntries, 2]]; 
+             Part[$CellContext`newPathEntries, 3] = $CellContext`rotate270[
+                Part[$CellContext`newPathEntries, 3]]; 
+             Part[$CellContext`newPathEntries, 4] = 
+              Map[$CellContext`rotate270inplace, 
+                Part[$CellContext`newPathEntries, 4]]; 
+             Part[$CellContext`newPathEntries, 5] = 
+              Map[$CellContext`rotate270, 
+                Part[$CellContext`newPathEntries, 5]]; 
+             Part[$CellContext`newPathEntries, 6] = 
+              Map[$CellContext`rotate270, 
+                Part[$CellContext`newPathEntries, 6]]]; 
+           If[$CellContext`dir == 
+             "l", {$CellContext`s1t, $CellContext`s2t, $CellContext`g1t, \
+$CellContext`g2t} = 
+              Map[$CellContext`rotate270, {$CellContext`s1, $CellContext`s2, \
+$CellContext`g1, $CellContext`g2}]; $CellContext`movest = 
+              Map[$CellContext`rotate270inplace, $CellContext`moves]; \
+$CellContext`pm1st = 
+              Map[$CellContext`rotate270, $CellContext`pm1]; \
+$CellContext`pm2st = 
+              Map[$CellContext`rotate270, $CellContext`pm2]; \
+$CellContext`newPathEntries = \
+$CellContext`wallFrictionMoveUp[$CellContext`s1t, $CellContext`s2t, \
+$CellContext`g1t, $CellContext`g2t, $CellContext`movest, $CellContext`pm1st, \
+$CellContext`pm2st, $CellContext`\[Epsilon]]; 
+             Part[$CellContext`newPathEntries, 2] = $CellContext`rotate90[
+                Part[$CellContext`newPathEntries, 2]]; 
+             Part[$CellContext`newPathEntries, 3] = $CellContext`rotate90[
+                Part[$CellContext`newPathEntries, 3]]; 
+             Part[$CellContext`newPathEntries, 4] = 
+              Map[$CellContext`rotate90inplace, 
+                Part[$CellContext`newPathEntries, 4]]; 
+             Part[$CellContext`newPathEntries, 5] = Map[$CellContext`rotate90, 
+                Part[$CellContext`newPathEntries, 5]]; 
+             Part[$CellContext`newPathEntries, 6] = Map[$CellContext`rotate90, 
+                Part[$CellContext`newPathEntries, 6]]]; 
+           Return[$CellContext`newPathEntries]]], \
+$CellContext`wallFrictionMoveUp[
+         Pattern[$CellContext`r1in, 
+          Blank[]], 
+         Pattern[$CellContext`r2in, 
+          Blank[]], 
+         Pattern[$CellContext`g1in, 
+          Blank[]], 
+         Pattern[$CellContext`g2in, 
+          Blank[]], 
+         Pattern[$CellContext`moves, 
+          Blank[]], 
+         Pattern[$CellContext`pm1, 
+          Blank[]], 
+         Pattern[$CellContext`pm2, 
+          Blank[]], 
+         Pattern[$CellContext`\[Epsilon], 
+          Blank[]]] := 
+       Module[{$CellContext`r1, $CellContext`r2, $CellContext`g1, \
+$CellContext`g2, $CellContext`\[CapitalDelta]gx, \
+$CellContext`\[CapitalDelta]gy, $CellContext`m1, $CellContext`m2, \
+$CellContext`\[CapitalDelta]tgx, $CellContext`\[CapitalDelta]tgy, \
+$CellContext`\[CapitalDelta]ey, $CellContext`\[CapitalDelta]ex, \
+$CellContext`L = 
+          1, $CellContext`\[CapitalDelta]r, $CellContext`path1 = \
+$CellContext`pm1, $CellContext`path2 = $CellContext`pm2, $CellContext`path = \
+$CellContext`moves, $CellContext`isMirrored = False, $CellContext`isFlipped = 
+          False}, If[
+          Part[$CellContext`r1in, 2] < Part[$CellContext`r2in, 2], 
+           If[
+           Part[$CellContext`r1in, 1] > 
+            Part[$CellContext`r2in, 
+              
+              1], {$CellContext`r1, $CellContext`r2, $CellContext`g1, \
+$CellContext`g2} = {$CellContext`r2in, $CellContext`r1in, $CellContext`g2in, \
+$CellContext`g1in}; $CellContext`isFlipped = 
+             True, {$CellContext`r1, $CellContext`r2, $CellContext`g1, \
+$CellContext`g2} = 
+             Map[$CellContext`mirror, {$CellContext`r2in, $CellContext`r1in, \
+$CellContext`g2in, $CellContext`g1in}]; $CellContext`path = 
+             Map[$CellContext`mirrorInplace, $CellContext`moves]; \
+$CellContext`isFlipped = True; $CellContext`isMirrored = True], 
+           If[Part[$CellContext`r1in, 1] > 
+             Part[$CellContext`r2in, 
+               1], {$CellContext`r1, $CellContext`r2, $CellContext`g1, \
+$CellContext`g2} = 
+              Map[$CellContext`mirror, {$CellContext`r1in, $CellContext`r2in, \
+$CellContext`g1in, $CellContext`g2in}]; $CellContext`path = 
+              Map[$CellContext`mirrorInplace, $CellContext`moves]; \
+$CellContext`isMirrored = 
+              True, {$CellContext`r1, $CellContext`r2, $CellContext`g1, \
+$CellContext`g2} = {$CellContext`r1in, $CellContext`r2in, $CellContext`g1in, \
+$CellContext`g2in}]; 
+           Null]; {$CellContext`\[CapitalDelta]gx, $CellContext`\
+\[CapitalDelta]gy} = $CellContext`g2 - $CellContext`g1; If[
+           And[
+           Part[$CellContext`r2, 1] - Part[$CellContext`r1, 1] - 
+             1 <= $CellContext`\[CapitalDelta]gx <= 1, 
+            Part[$CellContext`r2, 2] - 
+             Part[$CellContext`r1, 2] <= $CellContext`\[CapitalDelta]gy <= 0],
+            Print["Achievable"]; $CellContext`m1 = {((1 - 
+                Part[$CellContext`r1, 2])/(2 - Part[$CellContext`g1, 2])) (
+               Part[$CellContext`g1, 1] - Part[$CellContext`r1, 1]), 1 - 
+              Part[$CellContext`r1, 2]}; 
+           AddTo[$CellContext`r1, $CellContext`m1]; 
+           AddTo[$CellContext`r2, $CellContext`m1]; 
+           If[Part[$CellContext`r2, 1] > 1, 
+             SubtractFrom[$CellContext`r1, $CellContext`m1]; 
+             SubtractFrom[$CellContext`r2, $CellContext`m1]; $CellContext`m1 = \
+{1 - Part[$CellContext`r2, 1], 1 - Part[$CellContext`r1, 2]}; 
+             AddTo[$CellContext`r1, $CellContext`m1]; 
+             AddTo[$CellContext`r2, $CellContext`m1]]; 
+           If[
+            Part[$CellContext`r2, 1] < 0, 
+             SubtractFrom[$CellContext`r1, $CellContext`m1]; 
+             SubtractFrom[$CellContext`r2, $CellContext`m1]; $CellContext`m1 = \
+{-Part[$CellContext`r2, 1], 1 - Part[$CellContext`r1, 2]}; 
+             AddTo[$CellContext`r1, $CellContext`m1]; 
+             AddTo[$CellContext`r2, $CellContext`m1]]; $CellContext`m2 = \
+{$CellContext`\[CapitalDelta]gx - (Part[$CellContext`r2, 1] - 
+              Part[$CellContext`r1, 1]), $CellContext`\[CapitalDelta]gy - (
+              Part[$CellContext`r2, 2] - Part[$CellContext`r1, 2])}; 
+           AddTo[$CellContext`r2, $CellContext`m2]; 
+           If[Part[$CellContext`r2, 1] >= 1, 
+              SubtractFrom[$CellContext`r1, $CellContext`m1]; 
+              SubtractFrom[$CellContext`r2, $CellContext`m2]; 
+              SubtractFrom[$CellContext`r2, $CellContext`m1]; $CellContext`m1 = \
+{(1 - $CellContext`\[CapitalDelta]gx) - Part[$CellContext`r1, 1], 1 - 
+                 Part[$CellContext`r1, 2]}; 
+              AddTo[$CellContext`r1, $CellContext`m1]; 
+              AddTo[$CellContext`r2, $CellContext`m1]; $CellContext`m2 = \
+{$CellContext`\[CapitalDelta]gx - (Part[$CellContext`r2, 1] - 
+                 Part[$CellContext`r1, 1]), $CellContext`\[CapitalDelta]gy - (
+                 Part[$CellContext`r2, 2] - Part[$CellContext`r1, 2])}; 
+              AddTo[$CellContext`r2, $CellContext`m2]; Null] 
+            If[Part[$CellContext`r2, 1] <= 0, 
+              SubtractFrom[$CellContext`r1, $CellContext`m1]; 
+              SubtractFrom[$CellContext`r2, $CellContext`m2]; 
+              SubtractFrom[$CellContext`r2, $CellContext`m1]; $CellContext`m1 = \
+{$CellContext`\[CapitalDelta]gx - Part[$CellContext`r1, 1], 1 - 
+                 Part[$CellContext`r1, 2]}; 
+              AddTo[$CellContext`r1, $CellContext`m1]; 
+              AddTo[$CellContext`r2, $CellContext`m1]; $CellContext`m2 = \
+{$CellContext`\[CapitalDelta]gx - (Part[$CellContext`r2, 1] - 
+                 Part[$CellContext`r1, 1]), $CellContext`\[CapitalDelta]gy - (
+                 Part[$CellContext`r2, 2] - Part[$CellContext`r1, 2])}; 
+              AddTo[$CellContext`r2, $CellContext`m2]]; Null, 
+           Print["not achieveable"]; 
+           If[Part[$CellContext`r2, 1] - Part[$CellContext`r1, 1] - 
+              1 > $CellContext`\[CapitalDelta]gx, \
+$CellContext`\[CapitalDelta]tgx = 
+             Part[$CellContext`r2, 1] - Part[$CellContext`r1, 1] - 
+              1, $CellContext`\[CapitalDelta]tgx = $CellContext`\
+\[CapitalDelta]gx]; 
+           If[$CellContext`\[CapitalDelta]gy > 
+             0, $CellContext`\[CapitalDelta]tgy = 
+             0, $CellContext`\[CapitalDelta]tgy = \
+$CellContext`\[CapitalDelta]gy]; 
+           If[$CellContext`\[CapitalDelta]gy < 
+             Part[$CellContext`r2, 2] - 
+              Part[$CellContext`r1, 2], $CellContext`\[CapitalDelta]tgy = 
+             Part[$CellContext`r2, 2] - 
+              Part[$CellContext`r1, 2]]; $CellContext`m1 = {
+             0, 1 - Part[$CellContext`r1, 2]}; 
+           AddTo[$CellContext`r1, $CellContext`m1]; 
+           AddTo[$CellContext`r2, $CellContext`m1]; 
+           If[Part[$CellContext`r2, 1] > 1, 
+             SubtractFrom[$CellContext`r1, $CellContext`m1]; 
+             SubtractFrom[$CellContext`r2, $CellContext`m1]; $CellContext`m1 = \
+{1 - Part[$CellContext`r2, 1], 1 - Part[$CellContext`r1, 2]}; 
+             AddTo[$CellContext`r1, $CellContext`m1]; 
+             AddTo[$CellContext`r2, $CellContext`m1]]; 
+           If[Part[$CellContext`r2, 1] < 0, 
+             SubtractFrom[$CellContext`r1, $CellContext`m1]; 
+             SubtractFrom[$CellContext`r2, $CellContext`m1]; $CellContext`m1 = \
+{-Part[$CellContext`r2, 1], 1 - Part[$CellContext`r1, 2]}; 
+             AddTo[$CellContext`r1, $CellContext`m1]; 
+             AddTo[$CellContext`r2, $CellContext`m1]]; $CellContext`m2 = \
+{$CellContext`\[CapitalDelta]tgx - (Part[$CellContext`r2, 1] - 
+              Part[$CellContext`r1, 1]), $CellContext`\[CapitalDelta]tgy - (
+              Part[$CellContext`r2, 2] - Part[$CellContext`r1, 2])}; 
+           AddTo[$CellContext`r2, $CellContext`m2]; 
+           If[Part[$CellContext`r2, 1] > 1, 
+             SubtractFrom[$CellContext`r1, $CellContext`m1]; 
+             SubtractFrom[$CellContext`r2, $CellContext`m2]; 
+             SubtractFrom[$CellContext`r2, $CellContext`m1]; $CellContext`m1 = \
+{-Min[
+                  
+                  Abs[(1 - $CellContext`\[CapitalDelta]tgx) - 
+                   Part[$CellContext`r1, 1]], 
+                  Part[$CellContext`r1, 1]], 1 - Part[$CellContext`r1, 2]}; 
+             AddTo[$CellContext`r1, $CellContext`m1]; 
+             AddTo[$CellContext`r2, $CellContext`m1]; $CellContext`m2 = {
+                Min[$CellContext`\[CapitalDelta]tgx - (
+                 Part[$CellContext`r2, 1] - Part[$CellContext`r1, 1]), 1 - 
+                 Part[$CellContext`r2, 
+                  2]], $CellContext`\[CapitalDelta]tgy - (
+                Part[$CellContext`r2, 2] - Part[$CellContext`r1, 2])}; 
+             AddTo[$CellContext`r2, $CellContext`m2]]; 
+           If[Part[$CellContext`r2, 1] < 0, 
+             SubtractFrom[$CellContext`r1, $CellContext`m1]; 
+             SubtractFrom[$CellContext`r2, $CellContext`m2]; 
+             SubtractFrom[$CellContext`r2, $CellContext`m1]; $CellContext`m1 = {
+                Min[
+                 
+                 Abs[$CellContext`\[CapitalDelta]tgx - 
+                  Part[$CellContext`r1, 1]], 
+                 Abs[1 - Part[$CellContext`r2, 1]]], 1 - 
+                Part[$CellContext`r1, 2]}; 
+             AddTo[$CellContext`r1, $CellContext`m1]; 
+             AddTo[$CellContext`r2, $CellContext`m1]; $CellContext`m2 = {
+                
+                Max[$CellContext`\[CapitalDelta]tgx - (
+                 Part[$CellContext`r2, 1] - Part[$CellContext`r1, 1]), -
+                 Part[$CellContext`r2, 
+                   1]], $CellContext`\[CapitalDelta]tgy - (
+                Part[$CellContext`r2, 2] - Part[$CellContext`r1, 2])}; 
+             AddTo[$CellContext`r2, $CellContext`m2]]; Null]; 
+         AppendTo[$CellContext`path, $CellContext`m1]; 
+         SubtractFrom[$CellContext`r2, $CellContext`m2]; 
+         If[$CellContext`isMirrored, 
+           If[$CellContext`isFlipped, AppendTo[$CellContext`path1, 
+              $CellContext`mirror[$CellContext`r2]]; 
+            AppendTo[$CellContext`path2, 
+              $CellContext`mirror[$CellContext`r1]], 
+            AppendTo[$CellContext`path1, 
+              $CellContext`mirror[$CellContext`r1]]; 
+            AppendTo[$CellContext`path2, 
+              $CellContext`mirror[$CellContext`r2]]], 
+           
+           If[$CellContext`isFlipped, 
+            AppendTo[$CellContext`path1, $CellContext`r2]; 
+            AppendTo[$CellContext`path2, $CellContext`r1], 
+            AppendTo[$CellContext`path1, $CellContext`r1]; 
+            AppendTo[$CellContext`path2, $CellContext`r2]]]; 
+         AddTo[$CellContext`r2, $CellContext`m2]; 
+         AppendTo[$CellContext`path, $CellContext`m2]; 
+         If[$CellContext`isMirrored, $CellContext`path = 
+            
+            Map[$CellContext`mirrorInplace, $CellContext`path]; \
+{$CellContext`r1, $CellContext`r2} = 
+            Map[$CellContext`mirror, {$CellContext`r1, $CellContext`r2}]; 
+           Null]; If[$CellContext`isFlipped, 
+           AppendTo[$CellContext`path1, $CellContext`r2]; 
+           AppendTo[$CellContext`path2, $CellContext`r1]; Return[{
+              If[
+               Or[$CellContext`m1 == {0, 0}, $CellContext`m2 == {0, 0}], 
+               Infinity, $CellContext`distanceMoved[$CellContext`path] + \
+$CellContext`admissibleHeuristic[$CellContext`r2, $CellContext`r1, \
+$CellContext`g2, $CellContext`g1]], $CellContext`r2, $CellContext`r1, \
+$CellContext`path, $CellContext`path1, $CellContext`path2, False}], 
+           AppendTo[$CellContext`path1, $CellContext`r1]; 
+           AppendTo[$CellContext`path2, $CellContext`r2]; Return[{
+              If[
+               Or[$CellContext`m1 == {0, 0}, $CellContext`m2 == {0, 0}], 
+               Infinity, $CellContext`distanceMoved[$CellContext`path] + \
+$CellContext`admissibleHeuristic[$CellContext`r1, $CellContext`r2, \
+$CellContext`g1, $CellContext`g2]], $CellContext`r1, $CellContext`r2, \
+$CellContext`path, $CellContext`path1, $CellContext`path2, 
+              False}]]], $CellContext`mirror[
+         Pattern[$CellContext`r, 
+          Blank[]]] := {1 - Part[$CellContext`r, 1], 
+         Part[$CellContext`r, 2]}, $CellContext`mirrorInplace[
+         Pattern[$CellContext`r, 
+          Blank[]]] := {-Part[$CellContext`r, 1], 
+         Part[$CellContext`r, 2]}, $CellContext`rotate180[
+         Pattern[$CellContext`r, 
+          Blank[]]] := {
+        1 - Part[$CellContext`r, 1], 1 - 
+         Part[$CellContext`r, 2]}, $CellContext`rotate180inplace[
+         Pattern[$CellContext`r, 
+          Blank[]]] := {-Part[$CellContext`r, 1], -
+         Part[$CellContext`r, 2]}, $CellContext`rotate90[
+         Pattern[$CellContext`r, 
+          Blank[]]] := {1 - Part[$CellContext`r, 2], 
+         Part[$CellContext`r, 1]}, $CellContext`rotate90inplace[
+         Pattern[$CellContext`r, 
+          Blank[]]] := {
+         Part[$CellContext`r, 2], -
+         Part[$CellContext`r, 1]}, $CellContext`rotate270[
+         Pattern[$CellContext`r, 
+          Blank[]]] := {
+         Part[$CellContext`r, 2], 1 - 
+         Part[$CellContext`r, 1]}, $CellContext`rotate270inplace[
+         Pattern[$CellContext`r, 
+          Blank[]]] := {-Part[$CellContext`r, 2], 
+         Part[$CellContext`r, 1]}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.696351777665226*^9, 3.696352285483547*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352440385346*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.69635244039789*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.69635244040764*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963524404157343`*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.69635244042428*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963524404321003`*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352440440393*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352440449452*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.6963524404583893`*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352440466364*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963524404754744`*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352440484048*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352440492865*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352440500839*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.6963524405086117`*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352440516626*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352445768965*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352445777144*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963524457829857`*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352445788869*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352445794689*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.69635244580056*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352445806406*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352445812379*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352445818232*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352445826556*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352445833331*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352445839325*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352448389038*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352448398188*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352448404552*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963524484106693`*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352448416684*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352448422841*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.6963524484289703`*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352448435115*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352448441217*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963524484473133`*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352448453643*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352448460013*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.6963524484661694`*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352448472238*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352448480091*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352448488819*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352448495824*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352448502191*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352448508349*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352448514491*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352450446479*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352450452813*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352450458946*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352450465246*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352450471469*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963524504775257`*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352450483594*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352450489728*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352450495989*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963524505021257`*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352450508196*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.69635245051425*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352452806319*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352452815114*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352452821213*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352452827116*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352452833109*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352452838982*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.6963524528450193`*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352452850975*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963524528569508`*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352452862852*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352452871257*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352452878221*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352452884199*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352452891383*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963524528996277`*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352452906993*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352452915721*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352452922484*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352452928686*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352452934963*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352452940889*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352452947094*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352452953114*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352452959384*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963524529680023`*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963524529746017`*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352452982914*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352452989912*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352467732842*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352467742064*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.69635246774894*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352467756012*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352467763117*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352467769973*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352467777034*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352467783991*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352467791354*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352467798253*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352467805283*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352467812355*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352622699141*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963526227074833`*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.69635262271341*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352622719954*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963526227260027`*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352622732011*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352622738049*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352622744001*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963526721479597`*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672156651*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672162776*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672168935*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672174965*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963526721811037`*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963526721870823`*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672194086*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963526722009163`*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672207041*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672214137*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963526722204943`*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963526722264442`*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672232449*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672240388*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672247409*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672253663*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672259645*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672265596*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672271592*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672277587*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672283609*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672289587*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672295823*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672302848*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672309512*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672315505*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672321768*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963526723279533`*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672334284*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352672340515*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.6963526723468018`*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352672353361*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352672359562*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963526723657207`*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672371881*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672378085*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672384184*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352672390197*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.696352672398686*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.6963526724074097`*^9}],
+
+Cell[BoxData["\<\"Achievable\"\>"], "Print",
+ CellChangeTimes->{3.69635267241418*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.6963526724206753`*^9}],
+
+Cell[BoxData["\<\"not achieveable\"\>"], "Print",
+ CellChangeTimes->{3.696352672428751*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
   RowBox[{"optimal2robotPath", "[", 
    RowBox[{
@@ -3344,24 +4495,180 @@ Cell[580, 22, 185, 4, 99, "Section"],
 Cell[768, 28, 685, 16, 251, "Subsubsection"],
 Cell[CellGroupData[{
 Cell[1478, 48, 4695, 131, 696, "Subsection"],
-Cell[6176, 181, 75138, 1617, 3737, "Input",
+Cell[6176, 181, 75190, 1618, 3771, "Input",
  InitializationCell->True],
-Cell[81317, 1800, 208, 5, 46, "Input"],
-Cell[81528, 1807, 11237, 214, 675, "Input"],
-Cell[92768, 2023, 32601, 802, 1509, "Input"],
-Cell[125372, 2827, 710, 22, 46, "Input"],
-Cell[126085, 2851, 627, 15, 63, "Input"],
-Cell[126715, 2868, 946, 30, 63, "Input"],
-Cell[127664, 2900, 1089, 32, 63, "Input"],
-Cell[128756, 2934, 2264, 46, 28, "Input"],
-Cell[131023, 2982, 118, 2, 28, "Input"],
-Cell[131144, 2986, 1112, 32, 46, "Input"],
-Cell[132259, 3020, 559, 16, 49, "Input"],
-Cell[132821, 3038, 393, 7, 46, "Input"],
-Cell[133217, 3047, 497, 14, 49, "Input"],
-Cell[133717, 3063, 466, 14, 28, "Input"],
-Cell[134186, 3079, 175, 3, 28, "Input"],
-Cell[134364, 3084, 7625, 236, 356, "Input"]
+Cell[81369, 1801, 11237, 214, 675, "Input"],
+Cell[CellGroupData[{
+Cell[92631, 2019, 32601, 802, 1509, "Input"],
+Cell[125235, 2823, 34839, 693, 532, "Output"],
+Cell[CellGroupData[{
+Cell[160099, 3520, 91, 1, 21, "Print"],
+Cell[160193, 3523, 90, 1, 21, "Print"],
+Cell[160286, 3526, 90, 1, 21, "Print"],
+Cell[160379, 3529, 93, 1, 21, "Print"],
+Cell[160475, 3532, 90, 1, 21, "Print"],
+Cell[160568, 3535, 93, 1, 21, "Print"],
+Cell[160664, 3538, 86, 1, 21, "Print"],
+Cell[160753, 3541, 86, 1, 21, "Print"],
+Cell[160842, 3544, 88, 1, 21, "Print"],
+Cell[160933, 3547, 86, 1, 21, "Print"],
+Cell[161022, 3550, 93, 1, 21, "Print"],
+Cell[161118, 3553, 91, 1, 21, "Print"],
+Cell[161212, 3556, 91, 1, 21, "Print"],
+Cell[161306, 3559, 91, 1, 21, "Print"],
+Cell[161400, 3562, 88, 1, 21, "Print"],
+Cell[161491, 3565, 86, 1, 21, "Print"],
+Cell[161580, 3568, 91, 1, 21, "Print"],
+Cell[161674, 3571, 91, 1, 21, "Print"],
+Cell[161768, 3574, 93, 1, 21, "Print"],
+Cell[161864, 3577, 91, 1, 21, "Print"],
+Cell[161958, 3580, 91, 1, 21, "Print"],
+Cell[162052, 3583, 90, 1, 21, "Print"],
+Cell[162145, 3586, 86, 1, 21, "Print"],
+Cell[162234, 3589, 86, 1, 21, "Print"],
+Cell[162323, 3592, 91, 1, 21, "Print"],
+Cell[162417, 3595, 91, 1, 21, "Print"],
+Cell[162511, 3598, 86, 1, 21, "Print"],
+Cell[162600, 3601, 86, 1, 21, "Print"],
+Cell[162689, 3604, 91, 1, 21, "Print"],
+Cell[162783, 3607, 91, 1, 21, "Print"],
+Cell[162877, 3610, 91, 1, 21, "Print"],
+Cell[162971, 3613, 93, 1, 21, "Print"],
+Cell[163067, 3616, 91, 1, 21, "Print"],
+Cell[163161, 3619, 91, 1, 21, "Print"],
+Cell[163255, 3622, 88, 1, 21, "Print"],
+Cell[163346, 3625, 86, 1, 21, "Print"],
+Cell[163435, 3628, 91, 1, 21, "Print"],
+Cell[163529, 3631, 93, 1, 21, "Print"],
+Cell[163625, 3634, 86, 1, 21, "Print"],
+Cell[163714, 3637, 86, 1, 21, "Print"],
+Cell[163803, 3640, 88, 1, 21, "Print"],
+Cell[163894, 3643, 86, 1, 21, "Print"],
+Cell[163983, 3646, 91, 1, 21, "Print"],
+Cell[164077, 3649, 91, 1, 21, "Print"],
+Cell[164171, 3652, 86, 1, 21, "Print"],
+Cell[164260, 3655, 86, 1, 21, "Print"],
+Cell[164349, 3658, 91, 1, 21, "Print"],
+Cell[164443, 3661, 91, 1, 21, "Print"],
+Cell[164537, 3664, 91, 1, 21, "Print"],
+Cell[164631, 3667, 91, 1, 21, "Print"],
+Cell[164725, 3670, 91, 1, 21, "Print"],
+Cell[164819, 3673, 91, 1, 21, "Print"],
+Cell[164913, 3676, 91, 1, 21, "Print"],
+Cell[165007, 3679, 93, 1, 21, "Print"],
+Cell[165103, 3682, 86, 1, 21, "Print"],
+Cell[165192, 3685, 86, 1, 21, "Print"],
+Cell[165281, 3688, 91, 1, 21, "Print"],
+Cell[165375, 3691, 93, 1, 21, "Print"],
+Cell[165471, 3694, 86, 1, 21, "Print"],
+Cell[165560, 3697, 85, 1, 21, "Print"],
+Cell[165648, 3700, 91, 1, 21, "Print"],
+Cell[165742, 3703, 91, 1, 21, "Print"],
+Cell[165836, 3706, 91, 1, 21, "Print"],
+Cell[165930, 3709, 91, 1, 21, "Print"],
+Cell[166024, 3712, 91, 1, 21, "Print"],
+Cell[166118, 3715, 91, 1, 21, "Print"],
+Cell[166212, 3718, 88, 1, 21, "Print"],
+Cell[166303, 3721, 86, 1, 21, "Print"],
+Cell[166392, 3724, 93, 1, 21, "Print"],
+Cell[166488, 3727, 91, 1, 21, "Print"],
+Cell[166582, 3730, 86, 1, 21, "Print"],
+Cell[166671, 3733, 86, 1, 21, "Print"],
+Cell[166760, 3736, 91, 1, 21, "Print"],
+Cell[166854, 3739, 91, 1, 21, "Print"],
+Cell[166948, 3742, 93, 1, 21, "Print"],
+Cell[167044, 3745, 91, 1, 21, "Print"],
+Cell[167138, 3748, 91, 1, 21, "Print"],
+Cell[167232, 3751, 91, 1, 21, "Print"],
+Cell[167326, 3754, 91, 1, 21, "Print"],
+Cell[167420, 3757, 91, 1, 21, "Print"],
+Cell[167514, 3760, 91, 1, 21, "Print"],
+Cell[167608, 3763, 91, 1, 21, "Print"],
+Cell[167702, 3766, 86, 1, 21, "Print"],
+Cell[167791, 3769, 86, 1, 21, "Print"],
+Cell[167880, 3772, 93, 1, 21, "Print"],
+Cell[167976, 3775, 93, 1, 21, "Print"],
+Cell[168072, 3778, 86, 1, 21, "Print"],
+Cell[168161, 3781, 86, 1, 21, "Print"],
+Cell[168250, 3784, 91, 1, 21, "Print"],
+Cell[168344, 3787, 91, 1, 21, "Print"],
+Cell[168438, 3790, 90, 1, 21, "Print"],
+Cell[168531, 3793, 91, 1, 21, "Print"],
+Cell[168625, 3796, 86, 1, 21, "Print"],
+Cell[168714, 3799, 86, 1, 21, "Print"],
+Cell[168803, 3802, 91, 1, 21, "Print"],
+Cell[168897, 3805, 91, 1, 21, "Print"],
+Cell[168991, 3808, 86, 1, 21, "Print"],
+Cell[169080, 3811, 86, 1, 21, "Print"],
+Cell[169169, 3814, 91, 1, 21, "Print"],
+Cell[169263, 3817, 91, 1, 21, "Print"],
+Cell[169357, 3820, 91, 1, 21, "Print"],
+Cell[169451, 3823, 93, 1, 21, "Print"],
+Cell[169547, 3826, 90, 1, 21, "Print"],
+Cell[169640, 3829, 91, 1, 21, "Print"],
+Cell[169734, 3832, 93, 1, 21, "Print"],
+Cell[169830, 3835, 91, 1, 21, "Print"],
+Cell[169924, 3838, 86, 1, 21, "Print"],
+Cell[170013, 3841, 86, 1, 21, "Print"],
+Cell[170102, 3844, 93, 1, 21, "Print"],
+Cell[170198, 3847, 91, 1, 21, "Print"],
+Cell[170292, 3850, 91, 1, 21, "Print"],
+Cell[170386, 3853, 91, 1, 21, "Print"],
+Cell[170480, 3856, 91, 1, 21, "Print"],
+Cell[170574, 3859, 93, 1, 21, "Print"],
+Cell[170670, 3862, 93, 1, 21, "Print"],
+Cell[170766, 3865, 91, 1, 21, "Print"],
+Cell[170860, 3868, 93, 1, 21, "Print"],
+Cell[170956, 3871, 91, 1, 21, "Print"],
+Cell[171050, 3874, 91, 1, 21, "Print"],
+Cell[171144, 3877, 93, 1, 21, "Print"],
+Cell[171240, 3880, 93, 1, 21, "Print"],
+Cell[171336, 3883, 91, 1, 21, "Print"],
+Cell[171430, 3886, 91, 1, 21, "Print"],
+Cell[171524, 3889, 91, 1, 21, "Print"],
+Cell[171618, 3892, 91, 1, 21, "Print"],
+Cell[171712, 3895, 91, 1, 21, "Print"],
+Cell[171806, 3898, 91, 1, 21, "Print"],
+Cell[171900, 3901, 91, 1, 21, "Print"],
+Cell[171994, 3904, 91, 1, 21, "Print"],
+Cell[172088, 3907, 91, 1, 21, "Print"],
+Cell[172182, 3910, 91, 1, 21, "Print"],
+Cell[172276, 3913, 91, 1, 21, "Print"],
+Cell[172370, 3916, 91, 1, 21, "Print"],
+Cell[172464, 3919, 91, 1, 21, "Print"],
+Cell[172558, 3922, 91, 1, 21, "Print"],
+Cell[172652, 3925, 91, 1, 21, "Print"],
+Cell[172746, 3928, 93, 1, 21, "Print"],
+Cell[172842, 3931, 91, 1, 21, "Print"],
+Cell[172936, 3934, 86, 1, 21, "Print"],
+Cell[173025, 3937, 88, 1, 21, "Print"],
+Cell[173116, 3940, 86, 1, 21, "Print"],
+Cell[173205, 3943, 86, 1, 21, "Print"],
+Cell[173294, 3946, 93, 1, 21, "Print"],
+Cell[173390, 3949, 91, 1, 21, "Print"],
+Cell[173484, 3952, 91, 1, 21, "Print"],
+Cell[173578, 3955, 91, 1, 21, "Print"],
+Cell[173672, 3958, 86, 1, 21, "Print"],
+Cell[173761, 3961, 86, 1, 21, "Print"],
+Cell[173850, 3964, 88, 1, 21, "Print"],
+Cell[173941, 3967, 85, 1, 21, "Print"],
+Cell[174029, 3970, 93, 1, 21, "Print"],
+Cell[174125, 3973, 91, 1, 21, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[174243, 3978, 710, 22, 46, "Input"],
+Cell[174956, 4002, 627, 15, 63, "Input"],
+Cell[175586, 4019, 946, 30, 63, "Input"],
+Cell[176535, 4051, 1089, 32, 63, "Input"],
+Cell[177627, 4085, 2264, 46, 28, "Input"],
+Cell[179894, 4133, 118, 2, 28, "Input"],
+Cell[180015, 4137, 1112, 32, 46, "Input"],
+Cell[181130, 4171, 559, 16, 49, "Input"],
+Cell[181692, 4189, 393, 7, 46, "Input"],
+Cell[182088, 4198, 497, 14, 49, "Input"],
+Cell[182588, 4214, 466, 14, 28, "Input"],
+Cell[183057, 4230, 175, 3, 28, "Input"],
+Cell[183235, 4235, 7625, 236, 356, "Input"]
 }, Open  ]]
 }, Open  ]]
 }
