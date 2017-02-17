@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     50757,       1056]
-NotebookOptionsPosition[     50249,       1035]
-NotebookOutlinePosition[     50660,       1053]
-CellTagsIndexPosition[     50617,       1050]
+NotebookDataLength[     50696,       1050]
+NotebookOptionsPosition[     50198,       1029]
+NotebookOutlinePosition[     50609,       1047]
+CellTagsIndexPosition[     50566,       1044]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -469,7 +469,7 @@ Cell[BoxData[
                 RowBox[{"{", 
                  RowBox[{
                  "\"\<\[CapitalDelta]x\>\"", ",", 
-                  "\"\<\[CapitalDelta]y\>\""}], "}"}]}], ",", 
+                  "\"\<\[CapitalDelta] y\>\""}], "}"}]}], ",", 
                RowBox[{"ImageSize", "\[Rule]", "250"}]}], "]"}], ",", 
              RowBox[{"{", 
               RowBox[{"1.5", ",", ".5"}], "}"}]}], "]"}]}], 
@@ -798,23 +798,18 @@ Cell[BoxData[
    3.6943627881493387`*^9}, {3.694362818835002*^9, 3.6943628459038277`*^9}, {
    3.695586434743629*^9, 3.695586446174452*^9}, {3.6955865188087587`*^9, 
    3.6955865928980227`*^9}, 3.6955866353722763`*^9, 3.6955866836463213`*^9, {
-   3.6955867181292667`*^9, 3.695586765286201*^9}}],
+   3.6955867181292667`*^9, 3.695586765286201*^9}, 3.696358898489448*^9}],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`e1$$ = {
-     Rational[2, 3], 
-     Rational[1, 2]}, $CellContext`e2$$ = {
-     Rational[1, 2], 
-     Rational[2, 3]}, $CellContext`s1$$ = {
-     Rational[3, 4], 
-     Rational[1, 5]}, $CellContext`s2$$ = {
-     Rational[1, 4], 
-     Rational[4, 5]}, $CellContext`\[Epsilon]$$ = Rational[1, 1000], 
-    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
-    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
-    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+   DynamicModuleBox[{$CellContext`e1$$ = {0.6666666666666666, 
+    0.5}, $CellContext`e2$$ = {0.5135, 0.32}, $CellContext`s1$$ = {0.839, 
+    0.14400000000000002`}, $CellContext`s2$$ = {0.2475, 
+    0.606}, $CellContext`\[Epsilon]$$ = Rational[1, 1000], Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
        Hold[$CellContext`\[Epsilon]$$], 
        Rational[1, 1000], "\[Epsilon]"}, 
       Rational[1, 1000], 
@@ -887,8 +882,7 @@ $CellContext`\[Epsilon]$$,
             Part[$CellContext`s1$$, 1] - $CellContext`\[Epsilon]$$, 
             Part[$CellContext`s1$$, 1] = 
             Part[$CellContext`s2$$, 1] + $CellContext`\[Epsilon]$$]]]; 
-        If[
-         EuclideanDistance[$CellContext`e1$$, $CellContext`e2$$] < \
+        If[EuclideanDistance[$CellContext`e1$$, $CellContext`e2$$] < \
 $CellContext`\[Epsilon]$$, 
           If[Part[$CellContext`e1$$, 1] < Part[$CellContext`e2$$, 1], 
            If[
@@ -937,8 +931,8 @@ $CellContext`s1$$, $CellContext`e1$$}]; Graphics[{{
               Thickness[$CellContext`thickness$]]], 
             FaceForm[None], 
             
-            Rectangle[$CellContext`ps1$ - (2/3) $CellContext`r$ {1, 
-              1}, $CellContext`ps1$ + (2/3) $CellContext`r$ {1, 1}], 
+            Rectangle[$CellContext`ps1$ - ((2/3) $CellContext`r$) {1, 
+              1}, $CellContext`ps1$ + ((2/3) $CellContext`r$) {1, 1}], 
             Circle[$CellContext`pe1$, $CellContext`r$]}, {$CellContext`c2$, {
              Opacity[0.3], Dashed, 
              Arrow[{$CellContext`ps2$, $CellContext`pe2$}]}, 
@@ -948,8 +942,8 @@ $CellContext`s1$$, $CellContext`e1$$}]; Graphics[{{
               Thickness[$CellContext`thickness$]]], 
             FaceForm[None], 
             
-            Rectangle[$CellContext`ps2$ - (2/3) $CellContext`r$ {1, 
-              1}, $CellContext`ps2$ + (2/3) $CellContext`r$ {1, 1}], 
+            Rectangle[$CellContext`ps2$ - ((2/3) $CellContext`r$) {1, 
+              1}, $CellContext`ps2$ + ((2/3) $CellContext`r$) {1, 1}], 
             Circle[$CellContext`pe2$, $CellContext`r$]}, 
            Inset[
             
@@ -974,10 +968,10 @@ $CellContext`s1$$, $CellContext`e1$$}]; Graphics[{{
                    1)/2, (Part[$CellContext`ps2$, 2] - 
                    Part[$CellContext`ps1$, 2])/2}]}, Red, 
                
-               Rectangle[$CellContext`ps2$ - $CellContext`ps1$ - (4/
-                 3) $CellContext`r$ {1, 
-                 1}, $CellContext`ps2$ - $CellContext`ps1$ + (4/
-                  3) $CellContext`r$ {1, 1}], Green, 
+               Rectangle[$CellContext`ps2$ - $CellContext`ps1$ - ((4/
+                  3) $CellContext`r$) {1, 
+                 1}, $CellContext`ps2$ - $CellContext`ps1$ + ((4/
+                   3) $CellContext`r$) {1, 1}], Green, 
                
                Disk[$CellContext`pe2$ - $CellContext`pe1$, 
                 2 $CellContext`r$]}, 
@@ -1053,11 +1047,11 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[558, 20, 357, 12, 28, "Input"],
-Cell[918, 34, 38574, 766, 1136, "Input",
+Cell[918, 34, 38597, 766, 1136, "Input",
  InitializationCell->True],
-Cell[39495, 802, 10563, 225, 428, InheritFromParent],
-Cell[50061, 1029, 89, 1, 46, "Input"],
-Cell[50153, 1032, 92, 1, 28, "Input"]
+Cell[39518, 802, 10489, 219, 428, "Input"],
+Cell[50010, 1023, 89, 1, 46, "Input"],
+Cell[50102, 1026, 92, 1, 28, "Input"]
 }
 ]
 *)

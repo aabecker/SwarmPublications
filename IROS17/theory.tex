@@ -201,18 +201,18 @@ Let $(0,0)$ be the lower left corner of the workspace, $p_k$ the $x,y$ position 
 \begin{algorithm}
 \caption{PositionControl$n$RobotsUsingWallFriction($k$)}\label{alg:PosControlNRobots}
 \begin{algorithmic}[1]
-\State move( $-\epsilon, r-p_{ky}$) % move  away from right wall and down till robot k touches bottom
+\State Move( $-\epsilon, r-p_{ky}$) % move  away from right wall and down till robot k touches bottom
 
 
 \While{ $p_{kx} > r$} 
-\State $\operatorname{DriftMove}(\epsilon, \min(p_{kx} - r,\epsilon), \epsilon)$ left   %drift move left until kth robot touches left wall
+\State $\operatorname{DriftMove}(\epsilon, \min(p_{kx} - r,\epsilon), \epsilon,left)$    %drift move left until kth robot touches left wall
 \EndWhile
 
 \State $m \gets \operatorname{ceil}(\frac{f_{ky}-r}{\epsilon})$
 \State $\beta \gets \frac{f_{ky}-r}{m}$
 \State $\alpha \gets \beta - \frac{r - p_{ky}-\epsilon}{m}$
 \For{ $m$ iterations}
-\State $\operatorname{DriftMove}(\alpha, \beta, \epsilon)$ up   %move kth robot to f_{ky} and leave the rest in position.
+\State $\operatorname{DriftMove}(\alpha, \beta, \epsilon,up)$    %move kth robot to f_{ky} and leave the rest in position.
 \EndFor
 
 \State Move ($r+\epsilon-f_{kx}, 0$)  % move the group to the left until k is in the correct relative x position
@@ -220,6 +220,18 @@ Let $(0,0)$ be the lower left corner of the workspace, $p_k$ the $x,y$ position 
 
 \end{algorithmic}
 \end{algorithm}
+
+
+\begin{algorithm}
+\caption{ {\sc DriftMove}($\alpha,\beta,\epsilon,direction$)}\label{alg:DriftMove}
+\begin{algorithmic}[1]
+\State Move( $-\epsilon, r-p_{ky}$) % move  away from right wall and down till robot k touches bottom
+\State Move ($r+\epsilon-f_{kx}, 0$)  % move the group to the left until k is in the correct relative x position
+\State Move ($f_{kx}-r, 0$)  
+
+\end{algorithmic}
+\end{algorithm}
+
 
 Alg. \ref{alg:PosControlNRobots} proceeds as follows:  
 First, the robots are moved left away from the right wall, and down so robot $k$ touches the bottom wall.
