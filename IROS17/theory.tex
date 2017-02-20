@@ -45,6 +45,23 @@ The next section shows how a system in a rectangularly bounded workspace with fr
 \end{center}
 \end{figure} 
 
+\begin{figure*}
+\centering
+\renewcommand{\figwid}{0.64\columnwidth}
+{\begin{overpic}[width =\figwid]{RegionMove1.pdf}
+\end{overpic}
+\begin{overpic}[width =\figwid]{RegionMove2.pdf}
+\end{overpic}
+\begin{overpic}[width =\figwid]{RegionMove3.pdf}
+\end{overpic}
+}\\
+
+
+\caption{\label{fig:regionMove}{Two rectangles representing the reachable regions for the current start and goal positions. The red square represents the starting $\Delta x$ and $\Delta y$ and the green circle represents the goal $\Delta x$ and $\Delta y$. The green rectangle illustrates one move reachable $\Delta x$ and $\Delta y$ by horizontal walls and the blue rectangle illustrates the vertical walls reachable region.
+}
+\vspace{-1em}
+}
+\end{figure*}
 
 
 \section{Algorithms}\label{sec:algorithms}
@@ -52,21 +69,49 @@ The next section shows how a system in a rectangularly bounded workspace with fr
 \begin{figure*}
 \centering
 \renewcommand{\figwid}{0.32\columnwidth}
-{\begin{overpic}[width =\figwid]{S1.pdf}\put(65,80){Start}
+{\begin{overpic}[width =\figwid]{story3Moves1.pdf}\put(65,80){Start}
 \end{overpic}
-\begin{overpic}[width =\figwid]{S2.pdf}\put(50,80){Move 1}
+\begin{overpic}[width =\figwid]{story3Moves2.pdf}\put(50,80){Move 1}
 \end{overpic}
-\begin{overpic}[width =\figwid]{S3.pdf}\put(50,80){Move 2}
+\begin{overpic}[width =\figwid]{story3Moves3.pdf}\put(50,80){Move 2}
 \end{overpic}
-\begin{overpic}[width =\figwid]{S4.pdf}\put(50,80){Move 3}
+\begin{overpic}[width =\figwid]{story3Moves4.pdf}\put(50,80){Move 3}
 \end{overpic}
-\begin{overpic}[width =\figwid]{S5.pdf}\put(50,80){Move 4}
+%\begin{overpic}[width =\figwid]{s5}\put(50,80){Move 4}
+%\end{overpic}
+%\begin{overpic}[width =\figwid]{S6.pdf}\put(50,80){Move 5}
+%\end{overpic}
+}\\
+{\begin{overpic}[width =\figwid]{story5move0.pdf}\put(10,80){Start}
 \end{overpic}
-\begin{overpic}[width =\figwid]{S6.pdf}\put(50,80){Move 5}
-\end{overpic}}\\
+\begin{overpic}[width =\figwid]{story5move1.pdf}\put(10,80){Move 1}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story5move2.pdf}\put(10,80){Move 2}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story5move3.pdf}\put(10,80){Move 3}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story5move4.pdf}\put(10,80){Move 4}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story5move5.pdf}\put(10,80){Move 5}
+\end{overpic}
+}\\
+{\begin{overpic}[width =\figwid]{story7move0.pdf}\put(65,80){Start}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story7move1.pdf}\put(50,80){Move 1}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story7move2.pdf}\put(50,80){Move 2}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story7move3.pdf}\put(50,80){Move 3}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story7move4.pdf}\put(50,80){Move 4}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story7move5.pdf}\put(50,80){Move 5}
+\end{overpic}
+}\\
 
-\caption{\label{fig:shapeControlMathematica1}{Frames from an implementation of Alg.\ \ref{alg:PosControl2Robots}: two robot positioning using walls with infinite friction. The algorithm only requires friction along the bottom and right walls.
-Robot initial positions are shown by a square, and final positions by a circle.  Dashed lines show the shortest route if robots could be controlled independently.  Solid arrows show path given by  Alg.\ \ref{alg:PosControl2Robots}.
+
+\caption{\label{fig:shapeControlMathematica1}{Frames from an implementation of Alg.\ \ref{alg:PosControl2Robots}: two robot positioning using walls with infinite friction. 
+Robot start positions are shown by a square, and goal positions by a circle.  Dashed lines show the shortest route if robots could be controlled independently.  Solid arrows show path given by  Alg.\ \ref{alg:PosControl2Robots}.
 Online demonstration and source code at \citep{Shahrokhi2015mathematicaParticle}.
 %The bottom row shows an extreme case where the robots must switch position.
 }
@@ -76,8 +121,8 @@ Online demonstration and source code at \citep{Shahrokhi2015mathematicaParticle}
 
 Alg.~\ref{alg:PosControl2Robots} uses wall-friction to arbitrarily position two robots in a rectangular workspace.  This algorithm  introduces concepts that will be used for multi-robot positioning. Fig.~\ref{fig:shapeControlMathematica1} shows a Mathematica implementation of the algorithm, and is useful as a visual reference for the following description.
 
-Assume two robots are initialized at $s_1$ and $s_2$ with corresponding goal destinations $e_1$ and $e_2$. 
-We can exploit symmetry in the solution by labeling the leftmost  (or, if they have the same $x$ coordinate, the topmost) robot $s_1$.  If $s_1$ is not also the topmost robot, we rotate the coordinate frame by 90$^\circ$.
+Assume two robots are initialized at $s_1$ and $s_2$ with corresponding goal destinations $g_1$ and $g_2$. 
+We can exploit symmetry in the solution by labeling the leftmost  (or, if they have the same $x$ coordinate, the topmost) robot $s_1$.  If $s_1$ is not also the topmost robot, we rotate the coordinate frame by 90$^\circ$ counterclockwise.
 Denote the current positions of the robots  $r_1$ and $r_2$. 
 Values $.x$ and $.y$ denote the $x$ and $y$ coordinates, i.e., $s_1.x$ and $s_1.y$ denote the $x$ and $y$ locations of $s_1$. Define the sign function as:
 \begin{align}
@@ -89,7 +134,7 @@ The algorithm assigns a global control input at every instance.
 The goal is to adjust 
  $\Delta r_x = r_2.x-r_1.x$ from $\Delta s_x = s_2.x-s_1.x$ to $\Delta e_x = e_2.x-e_1.x$ and  adjust 
  $\Delta r_y = r_2.y-r_1.y$ from $\Delta s_y = s_2.y-s_1.y$ to $\Delta e_y = e_2.y-e_1.y$ using a shared global control input. 
- This algorithm exploits the position-dependent friction model \eqref{eq:frictionmodel}.
+ %This algorithm exploits the position-dependent friction model \eqref{eq:frictionmodel}.
  %employing the assumption we have made earlier about the walls' friction. 
 
 Our algorithm solves the positioning problem in four steps: 
@@ -107,18 +152,18 @@ In the worse case, adjusting both $\Delta r_x$ and $\Delta r_y$ needs all four s
 
 
 \begin{algorithm}
-\caption{GenerateDesiredSpacing($s_1,s_2,e_1,e_2,L$)}\label{alg:PosControl2Robots}
+\caption{PoseControl2Robots($s_1,s_2,g_1,g_2,L$)}\label{alg:PosControl2Robots}
 \begin{algorithmic}[1]
 \scriptsize
-\Require knowledge of starting $(s_1,s_2)$ and ending $(e_1,e_2)$ positions of  two robots. 
-$(0,0)$ is bottom corner, $s_1$ is leftmost robot, 
+\Require knowledge of starting $(s_1,s_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
+$(0,0)$ is bottom corner,
  $L$ is length of the walls. Current robot positions are $(r_1,r_2)$.
- Assume $s_1.x < s_2.x$ and $s_1.y \geq s_2.y$. If not, rotate workspace coordinates $90^{\circ}$.
+ Assume $s_1.x < s_2.x$ and $s_1.y \geq s_2.y$. If not, rotate workspace coordinates counterclockwise $90^{\circ}$.
 $\epsilon $ is a small, nonzero, user-specified value.
  
-\Ensure $(e_1, e_2) , (s_1, s_2)$ all at least $\epsilon$ distance from walls.
-\State $\Delta e_y = e_2.y - e_1.y$
-\State $\Delta e_x = e_2.x - e_1.x$
+\Ensure $(g_1, g_2) , (s_1, s_2)$ all at least $\epsilon$ distance from walls.
+\State $\Delta g_y = e_2.y - e_1.y$
+\State $\Delta g_x = e_2.x - e_1.x$
 \State Move $\left(-r_1.x , -\min \left(r_2.y , r_1.y+ \Delta e_y \right)+\epsilon \right)$ \Comment{Touch left wall}
 %Second Move
 %(-\min(|-r_2.x+ \Delta e_x|, r_2.x),

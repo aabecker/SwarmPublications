@@ -25,13 +25,6 @@ They require techniques to shape the swarm that can reliably exploit large popul
 %This paper focuses on using boundary walls and wall friction to break the symmetry caused by the global input and control the shape of a swarm.} 
 %\end{figure}
 
-\begin{figure}
-\centering
-\begin{overpic}[width=0.95\columnwidth]{IntroSwarmPic.pdf}\end{overpic}
-\caption{\label{fig:IntroPic}
-Swarm of kilobots programmed to move toward the brightest light source as explained in Sec.  \ref{sec:expResults}. The current covariance ellipse and mean are shown in red, the desired covariance is shown in green.  Navigating a swarm using global inputs is challenging because each member receives the same control inputs. 
-This paper focuses on using boundary walls and wall friction to break the symmetry caused by the global input and control the shape of a swarm. See multimedia attachment for overview of the experiments.} \vspace{-1em}
-\end{figure}
 
 
 %One surprising result was that humans that only knew the swarm's mean and covariance completed the task faster that humans who knew the position of every robot~\citep{Becker2013b}. Our previous work focused on a block-pushing task, where a swarm of robots pushed a larger block through a 2D maze. 
@@ -41,6 +34,14 @@ This paper focuses on using boundary walls and wall friction to break the symmet
 Swarm shape control is necessary for navigation through narrow passages, for self-assembly, and for manipulating objects.
 
 
+\begin{figure}
+\centering
+\begin{overpic}[width=0.47\columnwidth]{twoRobotRegion.pdf}\end{overpic}
+\begin{overpic}[width=0.5\columnwidth]{Reflection.pdf}\end{overpic}
+\caption{\label{fig:IntroPic}
+All the robots get shared control input. Here in the left picture the wall has infinite friction. Therefore, when the first robot is touching the wall, the second robot can move to anywhere in the shaded area. We introduce a dynamic algorithm to find the shortest path the robots can move to get to their goal positions. Consider the reflection of the goal position to the wall that is aimed to be touched by one of the robots. In the right picture, it is shown that the shortest path with three moves is the straight line between the starting position of the robot and the reflection of the goal.
+} \vspace{-1em}
+\end{figure}
 
 
 The paper is arranged as follows. 
