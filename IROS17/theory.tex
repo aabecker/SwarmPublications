@@ -241,6 +241,10 @@ Number of moves needed.
 }
 \end{figure}
 
+
+The setup in ?? is an assembled practical setup that assumes that $\epsilon=2r = 1$ cm. It is a $7\times 7cm$ grid space. The wall friction is emulated by the jagged teeth design to keep rollers from moving out of place while implementing the drift move. The rollers are magnetic and can be controlled by magnetic steering. See video ``refer the video which shows moving rollers"  to see the algorithm at work. In the demonstration, the algorithm is a fixed step algorithm and all drift moves are an counterclockwise square move  of size $1cm\times1cm$. Once the kth roller gets to it?s designated location in every loop, a correction step is implemented. This makes the overall number of moves required for the fixed step algorithm more than that required for the Algorithm ?. ?? shows how there are only 6 stages per roller involved in Algorithm ??. The fixed step algorithm would go through 8 stages per roller as shown in ???. The fixed step algorithm can be found online. One significant difference between Algorithm ?? and the fixed move implementation of it is that, we can achieve higher accuracy in placing rollers in their precise location if Algorithm 2 is used. 
+
+
 Assume an open workspace with four axis-aligned walls with infinite friction.
 The axis-aligned build zone of dimension $(w_b, h_b)$ containing the final configuration of $n$ robots must be disjoint from the axis-aligned staging zone of dimension $(w_s, h_s)$  containing the starting configuration of $n$ robots. Without loss of generality, assume the build zone  is above the staging zone. 
 Furthermore, there must be at least $\epsilon$ space above the build zone, $\epsilon$ below the staging zone, and $\epsilon + 2r$ to the left of the build and staging zone, where $r$ is the radius of a robot.  The minimum workspace is then $(\epsilon + 2r + \max(w_b,w_s), 2\epsilon + h_s,h_b)$.
