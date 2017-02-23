@@ -170,18 +170,37 @@
 
 
 \begin{abstract}
-Consider a swarm of particles controlled by global inputs. 
-This paper presents algorithms for shaping such swarms in 2D using boundary walls.
-The range of configurations created by conforming a swarm to a boundary wall is limited. 
+There are driving applications for large populations of tiny robots in robotics, biology, and chemistry.
+These robots often lack onboard computation, actuation, and communication.
+Instead, these ``robots''  are  particles carrying some payload and the particle swarm is controlled by a shared, global control input.
+In previous work, we showed that the 2D position of each particle in such a swarm is controllable if the workspace contains a single obstacle the size of one particle.
+
+Requiring a small, rigid obstacle suspended in the middle of the workspace is a strong constraint, especially in 3D.
+%Often particles are placed into an em
+This paper relaxes this constraint, and provides position control algorithms that only require interactions with the boundaries.
+Both in vivo and artificial environments often have boundaries.
+We assume that particles in contact with the boundaries have zero velocity if the global control input pushes the particle into the wall.
+This paper provides an optimal shortest-path algorithm for a swarm with two particles, and a generalization to $n$-particle swarms.
+Results are validated with simulations and a hardware demonstration.
+
+
+
+
+
+
+
+%Consider a swarm of particles controlled by global inputs. 
+%This paper presents algorithms for shaping such swarms in 2D using boundary walls.
+%The range of configurations created by conforming a swarm to a boundary wall is limited. 
 %We describe the set of stable configurations of a particle swarm in two canonical workspaces, a circle and a square. 
 %To increase the diversity of configurations, we add boundary interaction to our model.  
-We provide algorithms using friction with walls to place two robots at arbitrary locations in a rectangular workspace.
-Next, we extend this algorithm to place $n$ agents at desired locations. 
+%We provide algorithms using friction with walls to place two robots at arbitrary locations in a rectangular workspace.
+%Next, we extend this algorithm to place $n$ agents at desired locations. 
 %We conclude with efficient techniques to generate correlations of a particle swarm not possible without wall-friction. 
-Simulations %and hardware implementations with 100 robots 
-validate these results.
+%Simulations %and hardware implementations with 100 robots 
+%validate these results.
 
-These methods may have particular relevance for micro- and nano-robots controlled by global inputs.
+%These methods may have particular relevance for micro- and nano-robots controlled by global inputs.
 %, whose small size limits onboard computation and power. For this reason they are usually powered and controlled by global inputs, such as a uniform external electric or magnetic field, and every robot receives the same control inputs.
 %Due to their small size, large numbers of micro-robots are required to deliver sufficient payloads.
 % Nevertheless, these applications require precision control of the shape and position of the robot swarm. Precision control requires breaking the symmetry caused by the global input.  
