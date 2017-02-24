@@ -4,9 +4,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \emph{Using Boundaries: Friction and Boundary Layers}\label{subsec:WallFriction}
+
 Global inputs move a swarm uniformly.  
-Shape control requires breaking this uniform symmetry.  
-A swarm inside an axis-aligned rectangular workspace can reduce variance normal to a wall by simply pushing the swarm into the boundary. 
+Shape control requires breaking this uniform symmetry.
+%A swarm inside an axis-aligned rectangular workspace can reduce variance normal to a wall by simply pushing the swarm into the boundary. 
 %If the swarm can flow around each other, pushing the swarm into a boundary produces the limited set of configurations presented in Sec.~\ref{subsec:FluidInTank}.
 %Controlling covariance by pushing the swarm into a boundary requires changes to the boundary.  
 %An obstacle in the lower-right corner is enough to generate positive covariance, but generating both positive and negative covariance requires additional obstacles.  
@@ -143,30 +144,37 @@ Online demonstration and source code at \citep{Shahrokhi2015mathematicaParticle}
 Alg.~\ref{alg:PosControl2Robots} uses wall-friction to arbitrarily position two robots in a rectangular workspace.  This algorithm  introduces concepts that will be used for multi-robot positioning. Fig.~\ref{fig:shapeControlMathematica1} shows a Mathematica implementation of the algorithm, and is useful as a visual reference for the following description.
 
 Assume two robots are initialized at $s_1$ and $s_2$ with corresponding goal destinations $g_1$ and $g_2$. 
-We can exploit symmetry in the solution by labeling the leftmost  (or, if they have the same $x$ coordinate, the topmost) robot $s_1$.  If $s_1$ is not also the topmost robot, we rotate the coordinate frame by 90$^\circ$ counterclockwise.
+We can exploit symmetry in the solution by labeling the leftmost  (or, if they have the same $x$ coordinate, the topmost) robot $s_1$.  If $s_1$ is not also the topmost robot, we mirror the coordinate frame by the right wall. To give an example to understand mirroring, consider the two starting position as $s_1 =  (0.2, 0.2) $ and $s_2 = (0.8, 0.8)$. Because the leftmost robot is not the topmost robot, we mirror the coordinate frame and by mirroring we will have new $s_1 = (0.2, 0.8)$ and new $s_2 = (0.8,0.2)$. We do this to reuse the main algorithm's logic and after the path is found, we unmirror the coordinate frame and translate the path.
+
 Denote the current positions of the robots  $r_1$ and $r_2$. 
-Values $.x$ and $.y$ denote the $x$ and $y$ coordinates, i.e., $s_1.x$ and $s_1.y$ denote the $x$ and $y$ locations of $s_1$. Define the sign function as:
-\begin{align}
-\sign (x) = \begin{cases}  1, &  x > 0 \\
-0, & x=0\\
--1, & x<0 \end{cases} 
-\end{align}
+Values $.x$ and $.y$ denote the $x$ and $y$ coordinates, i.e., $s_1.x$ and $s_1.y$ denote the $x$ and $y$ locations of $s_1$. 
 The algorithm assigns a global control input at every instance.
-The goal is to adjust 
- $\Delta r_x = r_2.x-r_1.x$ from $\Delta s_x = s_2.x-s_1.x$ to $\Delta e_x = e_2.x-e_1.x$ and  adjust 
- $\Delta r_y = r_2.y-r_1.y$ from $\Delta s_y = s_2.y-s_1.y$ to $\Delta e_y = e_2.y-e_1.y$ using a shared global control input. 
+The goal is to adjust the error in both coordinates,
+ $\Delta e =(\Delta e_x, \Delta e_y) =(g_2-g_1)- (s_2-s_1)$to $(0,0)$ using a shared global control input. 
  %This algorithm exploits the position-dependent friction model \eqref{eq:frictionmodel}.
  %employing the assumption we have made earlier about the walls' friction. 
+Our algorithm uses a dynamic search A* like method to find the shortest path in each move. Base case occurs when $\Delta e= (0,0)$. In this base case, simply the shortest path is a straight line between current position of each robot to its goal position. 
+If  $\Delta e\ineq (0,0)$ then we consider the reachable set as shown in Fig.~\ref{fig:regionMove}. If a robot is touching a wall, the other robot can go where ever in the reachable set while the first robot is not moving. Two reachable sets are possible, horizontal and vertical. 
+%Base case 1:  deltaX and deltaY are 0, simply move robots to final position
+%Base case 2:  In 2 moves we can make both deltaX and deltaY 0, implement this move, then call Base case 1:
+%
+%We build a list like in an A* algorithm.  Each item in the list has 4 entries, and the list is sorted based on the first entry:
+%{estimatedPathLength,  r1, r2, MOVES}
+%
+%MOVES is the moves that have been applied to the robots: {{x1,y1},{x2,y2}} for a two move sequence.
+%r1 and r2 are the positions of robot 1 and 2 after applying MOVES to them.
+%
+%estimatedPathLength is the sum of the euclidean distances of MOVES + an admissible heuristic (the maximum distance of r1 or r2 from their goal positions).
+%
+%Our algorithm solves the positioning problem in four steps: 
+%First, it adjusts $\Delta r_y , \Delta r_x$ as much as possible with the left wall.
+%Second, $\Delta r_x -\Delta e_x$ is reduced to zero with the bottom wall.
+%Third, if the robots were not correctly positioned relative to each other, $\Delta r_y -\Delta e_y$ is reduced to zero with the right wall.
+%%First, $|\Delta r_x - \Delta e_x |$ is reduced to zero while  $\Delta r_y$ is kept constant in Alg.~\ref{alg:XControl}. 
+%%Second, $|\Delta r_y - \Delta e_y |$ is reduced to zero while  $\Delta r_x$ is kept constant. % in Alg.~\ref{alg:YControl}. 
+%Lastly, the robots, now correctly positioned relative to each other, are moved to their goal locations.
 
-Our algorithm solves the positioning problem in four steps: 
-First, it adjusts $\Delta r_y , \Delta r_x$ as much as possible with the left wall.
-Second, $\Delta r_x -\Delta e_x$ is reduced to zero with the bottom wall.
-Third, if the robots were not correctly positioned relative to each other, $\Delta r_y -\Delta e_y$ is reduced to zero with the right wall.
-%First, $|\Delta r_x - \Delta e_x |$ is reduced to zero while  $\Delta r_y$ is kept constant in Alg.~\ref{alg:XControl}. 
-%Second, $|\Delta r_y - \Delta e_y |$ is reduced to zero while  $\Delta r_x$ is kept constant. % in Alg.~\ref{alg:YControl}. 
-Lastly, the robots, now correctly positioned relative to each other, are moved to their goal locations.
-
-In the worse case, adjusting both $\Delta r_x$ and $\Delta r_y$ needs all four steps. The worst case path length is $2(\sqrt{2}+1)L$.
+In the worse case, adjusting both $\Delta r_x$ and $\Delta r_y$ needs all four steps. If we consider the length of each side of the square workspace as L, the worst case path length is $(\sqrt{2}+2)L$.
 
 
 
