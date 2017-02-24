@@ -1,0 +1,112 @@
+
+
+\section{Position Control of $n$ Robots Using Wall Friction}\label{sec:PostionControlnRobots}
+Alg. \ref{alg:PosControl2Robots}  can be extended to control the position of $n$ robots using wall friction under several constraints. The solution described here is an iterative procedure with $n$ loops. The $k$th loop moves the $k$th robot from a \emph{staging zone} to the desired position in a \emph{build zone}. All robots move according to the global input, but due to wall friction, at the end the $k$th loop, robots 1 through $k$ are in their desired final configuration in the build zone, and robots $k+1$ to $n$ are in the staging zone. See Fig.~\ref{fig:construction2d} for a schematic of the build and staging zones.
+\begin{figure}
+\begin{center}
+	\includegraphics[width=1.0\columnwidth]{PositionNrobots.pdf}
+\end{center}
+\vspace{-1em}
+\caption{\label{fig:simulationNrobot}
+Illustration of Alg.\ \ref{alg:PosControlNRobots}, $n$ robot position control  using wall friction.
+}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+	\includegraphics[width=1.0\columnwidth]{multirobotSliderHardware.pdf}
+\end{center}
+\vspace{-1em}
+\caption{\label{fig:construction2d}
+Illustration of Alg.\ \ref{alg:PosControlNRobots}, $n$ robot position control  using wall friction.
+}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+	\includegraphics[width=1.0\columnwidth]{Contour.pdf}
+\end{center}
+\vspace{-1em}
+\caption{\label{fig:contour}
+The contour plot keeps 3 points steady.
+}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+	\includegraphics[width=1.0\columnwidth]{Number.pdf}
+\end{center}
+\vspace{-1em}
+\caption{\label{fig:numberPlot}
+Number of moves needed.
+}
+\end{figure}
+
+
+The setup in ?? is an assembled practical setup that assumes that $\epsilon=2r = 1$ cm. It is a $7\times 7cm$ grid space. The wall friction is emulated by the jagged teeth design to keep rollers from moving out of place while implementing the drift move. The rollers are magnetic and can be controlled by magnetic steering. See video ``refer the video which shows moving rollers"  to see the algorithm at work. In the demonstration, the algorithm is a fixed step algorithm and all drift moves are an counterclockwise square move  of size $1cm\times1cm$. Once the kth roller gets to it?s designated location in every loop, a correction step is implemented. This makes the overall number of moves required for the fixed step algorithm more than that required for the Algorithm ?. ?? shows how there are only 6 stages per roller involved in Algorithm ??. The fixed step algorithm would go through 8 stages per roller as shown in ???. The fixed step algorithm can be found online. One significant difference between Algorithm ?? and the fixed move implementation of it is that, we can achieve higher accuracy in placing rollers in their precise location if Algorithm 2 is used. 
+
+
+Assume an open workspace with four axis-aligned walls with infinite friction.
+The axis-aligned build zone of dimension $(w_b, h_b)$ containing the final configuration of $n$ robots must be disjoint from the axis-aligned staging zone of dimension $(w_s, h_s)$  containing the starting configuration of $n$ robots. Without loss of generality, assume the build zone  is above the staging zone. 
+Furthermore, there must be at least $\epsilon$ space above the build zone, $\epsilon$ below the staging zone, and $\epsilon + 2r$ to the left of the build and staging zone, where $r$ is the radius of a robot.  The minimum workspace is then $(\epsilon + 2r + \max(w_b,w_s), 2\epsilon + h_s,h_b)$.
+
+The $n$ robot position control algorithm relies on a $\operatorname{DriftMove}(\alpha, \beta, \epsilon)$ control input, shown in Fig.\  \ref{fig:driftmove}.
+A drift move consists of repeating a triangular movement sequence $\{ (\beta/2,-\epsilon),(\beta/2,\epsilon),(-\alpha,0)\}$. The robot touching a top wall moves right $\beta$ units, while robots not touching the top move right $\beta-\alpha$.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=.47\columnwidth]{driftmove0.pdf}
+	\includegraphics[width=.47\columnwidth]{driftmove1.pdf}
+	\includegraphics[width=.47\columnwidth]{driftmove2.pdf}
+	\includegraphics[width=.47\columnwidth]{driftmove3.pdf}
+\end{center}
+\vspace{-1em}
+\caption{\label{fig:driftmove}
+A  $\operatorname{DriftMove}(\alpha, \beta, \epsilon)$ to the right repeats a triangular movement sequence $\{ (\beta/2,-\epsilon),(\beta/2,\epsilon),(-\alpha,0)\}$. Robot $A$ touching a top wall moves right $\beta$ units, while robots not touching the top move right $\beta-\alpha$.}
+\vspace{-1em}
+\end{figure}
+
+Let $(0,0)$ be the lower left corner of the workspace, $p_k$ the $x,y$ position of the $k$th robot, and $f_k$ the final $x,y$ position of the $k$th robot. Label the robots in the staging zone from left-to-right and bottom-to-top, and the $f_k$ configurations top-to-bottom and right-to-left as shown in Fig.~\ref{fig:construction2d}.
+
+\begin{algorithm}
+\caption{PositionControl$n$RobotsUsingWallFriction($k$)}\label{alg:PosControlNRobots}
+\begin{algorithmic}[1]
+\State Move( $-\epsilon, r-p_{ky}$) % move  away from right wall and down till robot k touches bottom
+
+
+\While{ $p_{kx} > r$} 
+\State $\operatorname{DriftMove}(\epsilon, \min(p_{kx} - r,\epsilon), \epsilon,left)$    %drift move left until kth robot touches left wall
+\EndWhile
+
+\State $m \gets \operatorname{ceil}(\frac{f_{ky}-r}{\epsilon})$
+\State $\beta \gets \frac{f_{ky}-r}{m}$
+\State $\alpha \gets \beta - \frac{r - p_{ky}-\epsilon}{m}$
+\For{ $m$ iterations}
+\State $\operatorname{DriftMove}(\alpha, \beta, \epsilon,up)$    %move kth robot to f_{ky} and leave the rest in position.
+\EndFor
+
+\State Move ($r+\epsilon-f_{kx}, 0$)  % move the group to the left until k is in the correct relative x position
+\State Move ($f_{kx}-r, 0$)  
+
+\end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}
+\caption{ {\sc DriftMove}($\alpha,\beta,\epsilon,direction$)}\label{alg:DriftMove}
+\begin{algorithmic}[1]
+\State Move( $-\epsilon, r-p_{ky}$) % move  away from right wall and down till robot k touches bottom
+\State Move ($r+\epsilon-f_{kx}, 0$)  % move the group to the left until k is in the correct relative x position
+\State Move ($f_{kx}-r, 0$)  
+
+\end{algorithmic}
+\end{algorithm}
+
+
+Alg. \ref{alg:PosControlNRobots} proceeds as follows:  
+First, the robots are moved left away from the right wall, and down so robot $k$ touches the bottom wall.
+Second, a set of $\operatorname{DriftMove}$s are executed that move robot $k$ to the left wall with no net movement of the other robots.
+Third, a set of $\operatorname{DriftMove}$s are executed that  move robot $k$ to its target height and return the other robots to their initial heights. 
+Fourth, all robots except robot $k$ are pushed left until robot $k$ is in the correct relative $x$ position compared to robots 1 to $k-1$.
+Finally, all robots are moved right until robot $k$ is in the desired target position. Running time is $O(n(w+h))$.
+

@@ -1,0 +1,183 @@
+
+
+\section{Position Control of Two Robots Using Wall Friction}\label{sec:PostionControl2Robots}
+
+
+\begin{figure}
+\centering
+\begin{overpic}[width=0.47\columnwidth]{twoRobotRegionH.pdf}\end{overpic}
+\begin{overpic}[width=0.47\columnwidth]{twoRobotRegionV.pdf}\end{overpic}
+\caption{\label{fig:TwoRegions}
+Each robot gets the same control input. 
+(left) If robot 2 hits the bottom wall before robot 1 reaches a wall, robot 2 can reach anywhere along the green line, and  robot 1 can move to anywhere in the shaded area. 
+(right) Similarly, if robot 2 hits the right wall before robot 1 reaches a wall, robot 2 can reach anywhere along the green line, and  robot 1 can move to anywhere in the shaded area. 
+} \vspace{-1em}
+\end{figure}
+
+
+\begin{figure*}
+\centering
+\renewcommand{\figwid}{0.67\columnwidth}
+{\begin{overpic}[width =\figwid]{RegionMove1.pdf}
+\end{overpic}
+\begin{overpic}[width =\figwid]{RegionMove2.pdf}
+\end{overpic}
+\begin{overpic}[width =\figwid]{RegionMove3.pdf}
+\end{overpic}
+}\\
+
+
+\caption{\label{fig:regionMove}{Workspace and $\Delta$ configuration space for three sets of robot configurations with the same final goal. The red square represents the starting $\Delta x$ and $\Delta y$ and the green circle represents the goal $\Delta x$ and $\Delta y$. The green rectangle illustrates one move reachable $\Delta x$ and $\Delta y$ by horizontal walls and the blue rectangle illustrates the vertical walls reachable region.
+}
+\vspace{-1em}
+}
+\end{figure*}
+
+\begin{figure}
+\centering
+\begin{overpic}[width=0.5\columnwidth]{Reflection.pdf}\end{overpic}
+\caption{\label{fig:TwoRegions}
+Consider the reflection of the goal position to the wall that is aimed to be touched by one of the robots. In the right picture, it is shown that the shortest path with three moves is the straight line between the starting position of the robot and the reflection of the goal.
+} \vspace{-1em}
+\end{figure}
+\begin{figure*}
+\renewcommand{\figwid}{0.4\columnwidth}
+{\begin{overpic}[width =\figwid]{story3Moves1.pdf}\put(10,10){Start}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story3Moves2.pdf}\put(10,10){Move 1}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story3Moves3.pdf}\put(10,10){Move 2}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story3Moves4.pdf}\put(10,10){Move 3}
+\end{overpic}
+%\begin{overpic}[width =\figwid]{s5}\put(50,80){Move 4}
+%\end{overpic}
+%\begin{overpic}[width =\figwid]{S6.pdf}\put(50,80){Move 5}
+%\end{overpic}
+}\\
+
+%\vspace{1em}
+{
+\begin{overpic}[width =\figwid]{story5move1.pdf}\put(10,10){Move 1}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story5move2.pdf}\put(10,10){Move 2}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story5move3.pdf}\put(10,10){Move 3}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story5move4.pdf}\put(10,10){Move 4}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story5move5.pdf}\put(10,10){Move 5}
+\end{overpic}
+}\\
+
+%\vspace{1em}
+{
+\begin{overpic}[width =\figwid]{story7move1.pdf}\put(50,80){Move 1}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story7move2.pdf}\put(50,80){Move 2}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story7move5.pdf}\put(50,80){Move 4}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story7move6.pdf}\put(50,80){Move 6}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story7move7.pdf}\put(50,80){Move 7}
+\end{overpic}
+}\\
+
+
+\caption{\label{fig:shapeControlMathematica1}{Frames from an implementation of Alg.\ \ref{alg:PosControl2Robots}: two robot positioning using walls with infinite friction. 
+Robot start positions are shown by a square, and goal positions by a circle.  Dashed lines show the shortest route if robots could be controlled independently.  Solid arrows show path given by  Alg.\ \ref{alg:PosControl2Robots}.
+Online demonstration and source code at \citep{Shahrokhi2015mathematicaParticle}.
+%The bottom row shows an extreme case where the robots must switch position.
+}
+\vspace{-1em}
+}
+\end{figure*}
+
+Alg.~\ref{alg:PosControl2Robots} uses wall-friction to arbitrarily position two robots in a rectangular workspace.  This algorithm  introduces concepts that will be used for multi-robot positioning. Fig.~\ref{fig:shapeControlMathematica1} shows a Mathematica implementation of the algorithm, and is useful as a visual reference for the following description.
+
+Assume two robots are initialized at $s_1$ and $s_2$ with corresponding goal destinations $g_1$ and $g_2$. 
+We can exploit symmetry in the solution by labeling the leftmost  (or, if they have the same $x$ coordinate, the topmost) robot $s_1$.  If $s_1$ is not also the topmost robot, we mirror the coordinate frame by the right wall. To give an example to understand mirroring, consider the two starting position as $s_1 =  (0.2, 0.2) $ and $s_2 = (0.8, 0.8)$. Because the leftmost robot is not the topmost robot, we mirror the coordinate frame and by mirroring we will have new $s_1 = (0.2, 0.8)$ and new $s_2 = (0.8,0.2)$. We do this to reuse the main algorithm's logic and after the path is found, we unmirror the coordinate frame and translate the path.
+
+Denote the current positions of the robots  $r_1$ and $r_2$. 
+Values $.x$ and $.y$ denote the $x$ and $y$ coordinates, i.e., $s_1.x$ and $s_1.y$ denote the $x$ and $y$ locations of $s_1$. 
+The algorithm assigns a global control input at every instance.
+The goal is to adjust the error in both coordinates,
+ $\Delta e =(\Delta e_x, \Delta e_y) =(g_2-g_1)- (s_2-s_1)$to $(0,0)$ using a shared global control input. 
+ %This algorithm exploits the position-dependent friction model \eqref{eq:frictionmodel}.
+ %employing the assumption we have made earlier about the walls' friction. 
+Our algorithm uses a dynamic search A* like method to find the shortest path in each move. Base case occurs when $\Delta e= (0,0)$. In this base case, simply the shortest path is a straight line between current position of each robot to its goal position. 
+If  $\Delta e\neq (0,0)$ then we consider the reachable set as shown in Fig.~\ref{fig:regionMove}. If a robot is touching a wall, the other robot can go where ever in the reachable set while the first robot is not moving. Two reachable sets are possible, horizontal and vertical. 
+%Base case 1:  deltaX and deltaY are 0, simply move robots to final position
+%Base case 2:  In 2 moves we can make both deltaX and deltaY 0, implement this move, then call Base case 1:
+%
+%We build a list like in an A* algorithm.  Each item in the list has 4 entries, and the list is sorted based on the first entry:
+%{estimatedPathLength,  r1, r2, MOVES}
+%
+%MOVES is the moves that have been applied to the robots: {{x1,y1},{x2,y2}} for a two move sequence.
+%r1 and r2 are the positions of robot 1 and 2 after applying MOVES to them.
+%
+%estimatedPathLength is the sum of the euclidean distances of MOVES + an admissible heuristic (the maximum distance of r1 or r2 from their goal positions).
+%
+%Our algorithm solves the positioning problem in four steps: 
+%First, it adjusts $\Delta r_y , \Delta r_x$ as much as possible with the left wall.
+%Second, $\Delta r_x -\Delta e_x$ is reduced to zero with the bottom wall.
+%Third, if the robots were not correctly positioned relative to each other, $\Delta r_y -\Delta e_y$ is reduced to zero with the right wall.
+%%First, $|\Delta r_x - \Delta e_x |$ is reduced to zero while  $\Delta r_y$ is kept constant in Alg.~\ref{alg:XControl}. 
+%%Second, $|\Delta r_y - \Delta e_y |$ is reduced to zero while  $\Delta r_x$ is kept constant. % in Alg.~\ref{alg:YControl}. 
+%Lastly, the robots, now correctly positioned relative to each other, are moved to their goal locations.
+
+In the worse case, adjusting both $\Delta r_x$ and $\Delta r_y$ needs all four steps. If we consider the length of each side of the square workspace as L, the worst case path length is $(\sqrt{2}+2)L$.
+
+
+
+
+
+\begin{algorithm}
+\caption{PoseControl2Robots($s_1,s_2,g_1,g_2,L$)}\label{alg:PosControl2Robots}
+\begin{algorithmic}[1]
+\scriptsize
+\Require knowledge of starting $(s_1,s_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
+$(0,0)$ is bottom corner,
+ $L$ is length of the walls. Current robot positions are $(r_1,r_2)$.
+ Assume $s_1.x < s_2.x$ and $s_1.y \geq s_2.y$. If not, rotate workspace coordinates counterclockwise $90^{\circ}$.
+$\epsilon $ is a small, nonzero, user-specified value.
+ 
+\Ensure $(g_1, g_2) , (s_1, s_2)$ all at least $\epsilon$ distance from walls.
+\State $\Delta g_y = e_2.y - e_1.y$
+\State $\Delta g_x = e_2.x - e_1.x$
+\State Move $\left(-r_1.x , -\min \left(r_2.y , r_1.y+ \Delta e_y \right)+\epsilon \right)$ \Comment{Touch left wall}
+%Second Move
+%(-\min(|-r_2.x+ \Delta e_x|, r_2.x),
+\State Move $ (r_2.x, |\sign(\Delta e_y)| \, \min(r_1.y - r_2.y + \Delta e_y-\epsilon,L-r_2.y-\epsilon)+ \epsilon)$
+\Statex \Comment{Adjust  $y$}
+%Third Move
+\State Move $(\max(\epsilon, -\sign(r_2.y - r_1.y)\Delta e_x), -\min(r_1.y , r_2.y))$ 
+\Statex \Comment{Touch bottom wall}
+%Fourth Move
+\State Move $(\sign(r_2.y - r_1.y)\Delta e_x , (|\sign(\Delta e_y)|-1) |r_2.y - r_1.y|)$ \Comment{Adjust $x$}
+\If {$\Delta e_y \neq r_2.y - r_1.y$}
+%Fifth Move
+\If {$\Delta e_x \neq 0$}
+\State Move $(\sign(r_2.y- r_1.y)\Delta e_x, |\sign(\Delta e_y)-1| |r_1.y-r_2.y|)$ \Comment{Touch right wall}
+\Else
+\State Move  $(|\sign(\Delta e_y -r_2.y+ r_1.y)| \epsilon, |\sign(\Delta e_y)-1| |r_1.y-r_2.y|)$ \Comment{Touch right wall}
+\EndIf
+%Sixth Move
+\If {$\Delta e_x < 0$}
+\State Move $(L - \max(r_1.x, r_2.x), \epsilon)$
+\Else 
+\State Move $(L - \max(r_1.x, r_2.x),\Delta e_y -\max(r_1.y, r_2.y)$ 
+\Statex \Comment{Adjust $y$}
+\EndIf
+\EndIf
+%Seventh Move
+\State Move $(e_2.x - r_2.x, e_2.y - r_2.y)$ \Comment{Go to goal}
+\end{algorithmic}
+\end{algorithm}
+
+
+
+
+
+

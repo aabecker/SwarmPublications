@@ -4,7 +4,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Hardware Experiment: Position Control of n Robots}
-Kilobots have too much stochasticity to implement Alg. \ref{alg:PosControlNRobots}. Instead, a hardware setup with a bounded platform, magnetic sliders, and a magnetic guide board was used.  Designs for each are available at \citep{Arun2016Thingiverse}. The pink boundary is toothed with a white free space, as shown in Fig \ref{fig:construction2d}. Only discrete, 1 cm moves in the $x$ and $y$ directions are used. The goal configuration highlighted in the top right corner represents a `U' made of seven sliders. The dark red configuration is the current position of the sliders. 
+A hardware setup with a bounded platform, magnetic sliders, and a magnetic guide board was used to implement  Alg. \ref{alg:PosControlNRobots}. 
+  Designs for each are available at \citep{Arun2016Thingiverse}. 
+  The pink boundary is toothed with a white free space, as shown in Fig \ref{fig:construction2d}.
+    Only discrete, 1 cm moves in the $x$ and $y$ directions are used. The goal configuration highlighted in the top right corner represents a `U' made of seven sliders. The dark red configuration is the current position of the sliders. 
 Due to the discretized movements allowed by the boundary, drift moves follow a 1 cm square.  Free robots return to their start positions but robots on the boundary to move laterally, generating a net sliding motion.
 
 Fig. \ref{fig:construction2d} follows the motion of the sliders through iterations  $k$=1, 2, and 7. All robots receive the same control inputs, but boundary interactions break the control symmetry.  Robots reach their goal positions in a first-in, first-out arrangement beginning with the bottom-left robot from the staging zone occupying the top-right position of the build zone.
