@@ -8,7 +8,7 @@ Particle swarms propelled by a global field are common in applied mathematics, b
 % In this regime, the input force command $\mathbf{u}(t)$ controls the velocity of the robots.  
 %  The same model can be generalized to particles moved by fluid flow where the vector direction of fluid flow $\mathbf{u}(t)$ controls the velocity of particles, or for a swarm of robots that move at a constant speed in a direction specified by a global input $\mathbf{u}(t)$~\citep{Rubenstein2012}.
 % Our control problem is to design the control inputs $\mathbf{u}(t)$ to make all $n$ particles achieve a task.
-As a current example, micro- and nano-robots can be manufactured in large numbers, see~\citep{Chowdhury2015,martel2014computer,kim2015imparting,Donald2013,Ghosh2009,Ou2013,qiu2015magnetic}.
+As a current example, micro- and nano-robots can be manufactured in large numbers, see~\citep{Chowdhury2015}-\citep{qiu2015magnetic}.
 Someday large swarms of robots will be remotely guided
 to assemble structures in parallel and 
  through the human body to cure disease, heal tissue, and prevent infection. %Both tasks are high   as described in \citep{munoz2014review} \citep{sitti2015biomedical} . 
@@ -34,30 +34,17 @@ They require techniques to shape the swarm that can reliably exploit large popul
 Swarm shape control is necessary for navigation through narrow passages, for self-assembly, and for manipulating objects.
 \begin{figure}
 \centering
-\begin{overpic}[width=0.47\columnwidth]{story3Moves1.pdf}\end{overpic}
-\begin{overpic}[width=0.47\columnwidth]{story3Moves4.pdf}\end{overpic}
-\begin{overpic}[width=0.45\columnwidth]{monalizaBegin.pdf}\end{overpic}
-\begin{overpic}[width=0.4\columnwidth]{monalisa.pdf}\end{overpic}
+\vspace{1.5em}
+\begin{overpic}[width=0.47\columnwidth]{story3Moves1.pdf}\put(40, 102){n=2}\end{overpic}
+\begin{overpic}[width=0.47\columnwidth]{story3Moves4.pdf}\put(10, 102){Optimal shortest path}\end{overpic}\\
+\vspace{1em}
+\begin{overpic}[width=0.43\columnwidth]{monalizaBegin.pdf}\put(30, 100){n=862}\put(16,60){goal}\put(30,20){robots}\end{overpic}
+\begin{overpic}[width=0.38\columnwidth]{monalisa.pdf}\put(-3, 102){position control algorithm}\put(7,25){final configuration}\end{overpic}
 \caption{\label{fig:IntroPic}
-All the robots get shared control input. Here in the left picture the wall has infinite friction. Therefore, when the first robot is touching the wall, the second robot can move to anywhere in the shaded area. We introduce a dynamic algorithm to find the shortest path the robots can move to get to their goal positions. Consider the reflection of the goal position to the wall that is aimed to be touched by one of the robots. In the right picture, it is shown that the shortest path with three moves is the straight line between the starting position of the robot and the reflection of the goal.
+Dynamic algorithm to find the shortest path for two robots is designed. The two top pictures shows the initial position and goal position of the robots and the optimal shortest path by making use of wall friction when shared control input is applied. The two bottom pictures shows the n robot positioning using shared control input and boundary walls. 
 } \vspace{-1em}
 \end{figure}
 
-\begin{figure}
-\centering
-\begin{overpic}[width=0.5\columnwidth]{twoRobotRegion.pdf}\end{overpic}
-\caption{\label{fig:TwoRegions}
-All the robots get shared control input. Here in the left picture the wall has infinite friction. Therefore, when the first robot is touching the wall, the second robot can move to anywhere in the shaded area. We introduce a dynamic algorithm to find the shortest path the robots can move to get to their goal positions. Consider the reflection of the goal position to the wall that is aimed to be touched by one of the robots. In the right picture, it is shown that the shortest path with three moves is the straight line between the starting position of the robot and the reflection of the goal.
-} \vspace{-1em}
-\end{figure}
-
-\begin{figure}
-\centering
-\begin{overpic}[width=0.5\columnwidth]{Reflection.pdf}\end{overpic}
-\caption{\label{fig:TwoRegions}
-All the robots get shared control input. Here in the left picture the wall has infinite friction. Therefore, when the first robot is touching the wall, the second robot can move to anywhere in the shaded area. We introduce a dynamic algorithm to find the shortest path the robots can move to get to their goal positions. Consider the reflection of the goal position to the wall that is aimed to be touched by one of the robots. In the right picture, it is shown that the shortest path with three moves is the straight line between the starting position of the robot and the reflection of the goal.
-} \vspace{-1em}
-\end{figure}
 
 
 The paper is arranged as follows. 

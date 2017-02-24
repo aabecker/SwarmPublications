@@ -3,51 +3,71 @@
 \label{sec:theory}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Using Boundaries: Friction and Boundary Layers}\label{subsec:WallFriction}
+\emph{Using Boundaries: Friction and Boundary Layers}\label{subsec:WallFriction}
 Global inputs move a swarm uniformly.  
 Shape control requires breaking this uniform symmetry.  
 A swarm inside an axis-aligned rectangular workspace can reduce variance normal to a wall by simply pushing the swarm into the boundary. 
-If the swarm can flow around each other, pushing the swarm into a boundary produces the limited set of configurations presented in Sec.~\ref{subsec:FluidInTank}.
+%If the swarm can flow around each other, pushing the swarm into a boundary produces the limited set of configurations presented in Sec.~\ref{subsec:FluidInTank}.
 %Controlling covariance by pushing the swarm into a boundary requires changes to the boundary.  
 %An obstacle in the lower-right corner is enough to generate positive covariance, but generating both positive and negative covariance requires additional obstacles.  
 %Requiring a special obstacle configuration also makes shape control dependent on the local environment. 
-Instead of pushing our robots directly into a wall, the following sections examine an oblique approach  using boundaries that generate friction with the robots. 
- These frictional forces are  sufficient to break the symmetry caused by uniform inputs.  
-Robots touching a wall have a friction force that opposes movement along the boundary.  
-This causes robots along the boundary to move more slowly than robots in free-space. 
-  
-Let the control input be a vector force $\vec{F}$ with magnitude $F$ and orientation $\theta$ with respect to a line perpendicular to and into the nearest boundary. $N$ is the normal or perpendicular force between the robot and the boundary. The force of friction $F_f$ is nonzero if the robot is in contact with the boundary and  $\sin(\theta) < 0$. The resulting net force on the robot, $F_{\text{\emph{forward}}}$, is aligned with the wall and given by
-\begin{align}
-F_{\text{\emph{forward}}} &=  F \sin(\theta) - F_f  \nonumber \\
-\text{where }  F_f &= \begin{cases}  \mu_f N, &  \mu_f N < F \sin(\theta)  \label{eq:frictionmodel}  \\
-F \sin(\theta), & \text{else} \end{cases} \\ %\sign(F \sin(\theta) ) \cdot  \max(0, | F sin\theta |- |F_f|)
-\text{and } N &= F \cos(\theta) \nonumber
-\end{align}
- Fig.~\ref{fig:friction} shows the resultant forces on two robots when one is touching a wall. 
-Though each receives the same inputs,  they experience different net forces.
-  For ease of analysis, the following algorithms assume $\mu_f$ is infinite and robots touching the wall are prevented from sliding along the wall.
-This means that if one robot is touching the wall and another robot is free, the touching robot will not move when the control input is parallel or into the wall. 
-There are many alternate models of friction that also break control symmetry. Fig.~\ref{fig:friction}c shows fluid flow along a boundary.  Fluid in the free-flow region moves uniformly, but flow decreases to zero in the boundary layer \citep{fluidMechanics}.  
-\begin{align}
-%u(y) = u_0 \left(1- \frac{(y-h)^2}{h^2}\right) = u_0 \frac{y}{h} \left(2- \frac{y}{h}\right) \label{eq:boundarylayerflow} THiS EQUATION IS TERRIBLE! PLOT IT.
-F_{forward}(y) &= F - F_f\begin{cases}  \frac{h-y}{h}   , &  y<h \label{eq:boundarylayerflow} \\
-0, & \text{else} \end{cases}
-\end{align}
+%Instead of pushing our robots directly into a wall, 
+The following sections examine using boundaries that stop the particles if they are pushed into the wall.
+ These forces are  sufficient to break the symmetry caused by uniform inputs.  
+%Robots touching a wall have a friction force that opposes movement along the boundary.  
+%This causes robots along the boundary to move more slowly than robots in free-space. 
 
-The next section shows how a system in a rectangularly bounded workspace with friction model \eqref{eq:frictionmodel} can arbitrarily position two robots. 
-\begin{figure}[h]
-\begin{center}
-\includegraphics[width=0.8\columnwidth]{friction.pdf} 
-\vspace{-1em}
-\caption{(a,b) Wall friction reduces the force for going forward $F_{\text{\emph{forward}}}$ on a robot near a wall, but not for a free robot. (c) velocity of a fluid reduces to zero at the boundary.
-\label{fig:friction}
-}\vspace{-1em}
-\end{center}
-\end{figure} 
+
+\begin{figure}
+\centering
+\begin{overpic}[width=0.47\columnwidth]{twoRobotRegionH.pdf}\end{overpic}
+\begin{overpic}[width=0.47\columnwidth]{twoRobotRegionV.pdf}\end{overpic}
+\caption{\label{fig:TwoRegions}
+All the robots get shared control input. Here in the left picture the wall has infinite friction. Therefore, when the first robot is touching the wall, the second robot can move to anywhere in the shaded area. We introduce a dynamic algorithm to find the shortest path the robots can move to get to their goal positions. Consider the reflection of the goal position to the wall that is aimed to be touched by one of the robots. In the right picture, it is shown that the shortest path with three moves is the straight line between the starting position of the robot and the reflection of the goal.
+} \vspace{-1em}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{overpic}[width=0.5\columnwidth]{Reflection.pdf}\end{overpic}
+\caption{\label{fig:TwoRegions}
+All the robots get shared control input. Here in the left picture the wall has infinite friction. Therefore, when the first robot is touching the wall, the second robot can move to anywhere in the shaded area. We introduce a dynamic algorithm to find the shortest path the robots can move to get to their goal positions. Consider the reflection of the goal position to the wall that is aimed to be touched by one of the robots. In the right picture, it is shown that the shortest path with three moves is the straight line between the starting position of the robot and the reflection of the goal.
+} \vspace{-1em}
+\end{figure}
+
+  
+%Let the control input be a vector force $\vec{F}$ with magnitude $F$ and orientation $\theta$ with respect to a line perpendicular to and into the nearest boundary. $N$ is the normal or perpendicular force between the robot and the boundary. The force of friction $F_f$ is nonzero if the robot is in contact with the boundary and  $\sin(\theta) < 0$. The resulting net force on the robot, $F_{\text{\emph{forward}}}$, is aligned with the wall and given by
+%\begin{align}
+%F_{\text{\emph{forward}}} &=  F \sin(\theta) - F_f  \nonumber \\
+%\text{where }  F_f &= \begin{cases}  \mu_f N, &  \mu_f N < F \sin(\theta)  \label{eq:frictionmodel}  \\
+%F \sin(\theta), & \text{else} \end{cases} \\ %\sign(F \sin(\theta) ) \cdot  \max(0, | F sin\theta |- |F_f|)
+%\text{and } N &= F \cos(\theta) \nonumber
+%\end{align}
+% Fig.~\ref{fig:friction} shows the resultant forces on two robots when one is touching a wall. 
+%Though each receives the same inputs,  they experience different net forces.
+%  For ease of analysis, the following algorithms assume $\mu_f$ is infinite and robots touching the wall are prevented from sliding along the wall.
+%This means that if one robot is touching the wall and another robot is free, the touching robot will not move when the control input is parallel or into the wall. 
+%There are many alternate models of friction that also break control symmetry. Fig.~\ref{fig:friction}c shows fluid flow along a boundary.  Fluid in the free-flow region moves uniformly, but flow decreases to zero in the boundary layer \citep{fluidMechanics}.  
+%\begin{align}
+%%u(y) = u_0 \left(1- \frac{(y-h)^2}{h^2}\right) = u_0 \frac{y}{h} \left(2- \frac{y}{h}\right) \label{eq:boundarylayerflow} THiS EQUATION IS TERRIBLE! PLOT IT.
+%F_{forward}(y) &= F - F_f\begin{cases}  \frac{h-y}{h}   , &  y<h \label{eq:boundarylayerflow} \\
+%0, & \text{else} \end{cases}
+%\end{align}
+%
+%The next section shows how a system in a rectangularly bounded workspace with friction model \eqref{eq:frictionmodel} can arbitrarily position two robots. 
+%\begin{figure}[h]
+%\begin{center}
+%\includegraphics[width=0.8\columnwidth]{friction.pdf} 
+%\vspace{-1em}
+%\caption{(a,b) Wall friction reduces the force for going forward $F_{\text{\emph{forward}}}$ on a robot near a wall, but not for a free robot. (c) velocity of a fluid reduces to zero at the boundary.
+%\label{fig:friction}
+%}\vspace{-1em}
+%\end{center}
+%\end{figure} 
 
 \begin{figure*}
 \centering
-\renewcommand{\figwid}{0.64\columnwidth}
+\renewcommand{\figwid}{0.67\columnwidth}
 {\begin{overpic}[width =\figwid]{RegionMove1.pdf}
 \end{overpic}
 \begin{overpic}[width =\figwid]{RegionMove2.pdf}
@@ -57,55 +77,56 @@ The next section shows how a system in a rectangularly bounded workspace with fr
 }\\
 
 
-\caption{\label{fig:regionMove}{Two rectangles representing the reachable regions for the current start and goal positions. The red square represents the starting $\Delta x$ and $\Delta y$ and the green circle represents the goal $\Delta x$ and $\Delta y$. The green rectangle illustrates one move reachable $\Delta x$ and $\Delta y$ by horizontal walls and the blue rectangle illustrates the vertical walls reachable region.
+\caption{\label{fig:regionMove}{Workspace and $\Delta$ configuration space for three sets of robot configurations with the same final goal. The red square represents the starting $\Delta x$ and $\Delta y$ and the green circle represents the goal $\Delta x$ and $\Delta y$. The green rectangle illustrates one move reachable $\Delta x$ and $\Delta y$ by horizontal walls and the blue rectangle illustrates the vertical walls reachable region.
 }
 \vspace{-1em}
 }
 \end{figure*}
 
 
-\section{Algorithms}\label{sec:algorithms}
-\subsection{Position Control of Two Robots Using Wall Friction}\label{sec:PostionControl2Robots}
+%\section{Algorithms}\label{sec:algorithms}
+\section{Position Control of Two Robots Using Wall Friction}\label{sec:PostionControl2Robots}
 \begin{figure*}
-\centering
-\renewcommand{\figwid}{0.32\columnwidth}
-{\begin{overpic}[width =\figwid]{story3Moves1.pdf}\put(65,80){Start}
+\renewcommand{\figwid}{0.4\columnwidth}
+{\begin{overpic}[width =\figwid]{story3Moves1.pdf}\put(10,10){Start}
 \end{overpic}
-\begin{overpic}[width =\figwid]{story3Moves2.pdf}\put(50,80){Move 1}
+\begin{overpic}[width =\figwid]{story3Moves2.pdf}\put(10,10){Move 1}
 \end{overpic}
-\begin{overpic}[width =\figwid]{story3Moves3.pdf}\put(50,80){Move 2}
+\begin{overpic}[width =\figwid]{story3Moves3.pdf}\put(10,10){Move 2}
 \end{overpic}
-\begin{overpic}[width =\figwid]{story3Moves4.pdf}\put(50,80){Move 3}
+\begin{overpic}[width =\figwid]{story3Moves4.pdf}\put(10,10){Move 3}
 \end{overpic}
 %\begin{overpic}[width =\figwid]{s5}\put(50,80){Move 4}
 %\end{overpic}
 %\begin{overpic}[width =\figwid]{S6.pdf}\put(50,80){Move 5}
 %\end{overpic}
 }\\
-{\begin{overpic}[width =\figwid]{story5move0.pdf}\put(10,80){Start}
+
+%\vspace{1em}
+{
+\begin{overpic}[width =\figwid]{story5move1.pdf}\put(10,10){Move 1}
 \end{overpic}
-\begin{overpic}[width =\figwid]{story5move1.pdf}\put(10,80){Move 1}
+\begin{overpic}[width =\figwid]{story5move2.pdf}\put(10,10){Move 2}
 \end{overpic}
-\begin{overpic}[width =\figwid]{story5move2.pdf}\put(10,80){Move 2}
+\begin{overpic}[width =\figwid]{story5move3.pdf}\put(10,10){Move 3}
 \end{overpic}
-\begin{overpic}[width =\figwid]{story5move3.pdf}\put(10,80){Move 3}
+\begin{overpic}[width =\figwid]{story5move4.pdf}\put(10,10){Move 4}
 \end{overpic}
-\begin{overpic}[width =\figwid]{story5move4.pdf}\put(10,80){Move 4}
-\end{overpic}
-\begin{overpic}[width =\figwid]{story5move5.pdf}\put(10,80){Move 5}
+\begin{overpic}[width =\figwid]{story5move5.pdf}\put(10,10){Move 5}
 \end{overpic}
 }\\
-{\begin{overpic}[width =\figwid]{story7move0.pdf}\put(65,80){Start}
-\end{overpic}
+
+%\vspace{1em}
+{
 \begin{overpic}[width =\figwid]{story7move1.pdf}\put(50,80){Move 1}
 \end{overpic}
 \begin{overpic}[width =\figwid]{story7move2.pdf}\put(50,80){Move 2}
 \end{overpic}
-\begin{overpic}[width =\figwid]{story7move3.pdf}\put(50,80){Move 3}
+\begin{overpic}[width =\figwid]{story7move5.pdf}\put(50,80){Move 4}
 \end{overpic}
-\begin{overpic}[width =\figwid]{story7move4.pdf}\put(50,80){Move 4}
+\begin{overpic}[width =\figwid]{story7move6.pdf}\put(50,80){Move 6}
 \end{overpic}
-\begin{overpic}[width =\figwid]{story7move5.pdf}\put(50,80){Move 5}
+\begin{overpic}[width =\figwid]{story7move7.pdf}\put(50,80){Move 7}
 \end{overpic}
 }\\
 
@@ -199,11 +220,11 @@ $\epsilon $ is a small, nonzero, user-specified value.
 
 
 
-\subsection{Position Control of $n$ Robots Using Wall Friction}\label{sec:PostionControlnRobots}
+\section{Position Control of $n$ Robots Using Wall Friction}\label{sec:PostionControlnRobots}
 Alg. \ref{alg:PosControl2Robots}  can be extended to control the position of $n$ robots using wall friction under several constraints. The solution described here is an iterative procedure with $n$ loops. The $k$th loop moves the $k$th robot from a \emph{staging zone} to the desired position in a \emph{build zone}. All robots move according to the global input, but due to wall friction, at the end the $k$th loop, robots 1 through $k$ are in their desired final configuration in the build zone, and robots $k+1$ to $n$ are in the staging zone. See Fig.~\ref{fig:construction2d} for a schematic of the build and staging zones.
 \begin{figure}
 \begin{center}
-	\includegraphics[width=1.0\columnwidth]{PositionNrobotsComp.pdf}
+	\includegraphics[width=1.0\columnwidth]{PositionNrobots.pdf}
 \end{center}
 \vspace{-1em}
 \caption{\label{fig:simulationNrobot}
@@ -254,9 +275,10 @@ A drift move consists of repeating a triangular movement sequence $\{ (\beta/2,-
 
 \begin{figure}
 \begin{center}
-	\includegraphics[width=.3\columnwidth]{driftmove.pdf}
-	\includegraphics[width=.3\columnwidth]{driftmove2.pdf}
-	\includegraphics[width=.3\columnwidth]{driftmove3.pdf}
+\includegraphics[width=.47\columnwidth]{driftmove0.pdf}
+	\includegraphics[width=.47\columnwidth]{driftmove1.pdf}
+	\includegraphics[width=.47\columnwidth]{driftmove2.pdf}
+	\includegraphics[width=.47\columnwidth]{driftmove3.pdf}
 \end{center}
 \vspace{-1em}
 \caption{\label{fig:driftmove}

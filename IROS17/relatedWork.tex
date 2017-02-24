@@ -8,15 +8,15 @@ Controlling the \emph{shape}, or relative positions, of a swarm of robots is a k
 Instead, this paper focuses on centralized techniques that apply the same control input to each member of the swarm. 
 Precision control requires breaking the symmetry caused by the global input.  
 Symmetry can be broken using agents that respond differently to the global control, either through agent-agent reactions, see work modeling biological swarms \citep{bertozzi2015ring}, or engineered inhomogeneity  \citep{Donald2013,bretl2007,beckerIJRR2014}.
-This work assumes a uniform control \eqref{eq:swarmDynamics}  with homogenous agents, as in~\citep{Becker2013b}. 
-The techniques in this paper are inspired by fluid-flow techniques and artificial force-fields. 
+This work assumes a uniform control with homogenous agents, as in~\citep{Becker2013b}. 
+The techniques in this paper are inspired by artificial force-fields. 
 
-\emph{Fluid-flow:} 
-Fluid flow along boundaries generates a shear force that pushes different parts of a body in opposing directions. 
-Most introductory fluid dynamics textbooks provide models~\citep{Munson2013}.
-Similarly, a swarm of robots under global control pushed along a boundary will experience shear forces.  
-This is a position-dependent force, and so can be exploited to control the configuration or shape of the swarm.  
- \citep{spears2006physics}~used these forces to disperse a swarm's spatial position for coverage for physics-based swarm simulations.
+%\emph{Fluid-flow:} 
+%Fluid flow along boundaries generates a shear force that pushes different parts of a body in opposing directions. 
+%Most introductory fluid dynamics textbooks provide models~\citep{Munson2013}.
+%Similarly, a swarm of robots under global control pushed along a boundary will experience shear forces.  
+%This is a position-dependent force, and so can be exploited to control the configuration or shape of the swarm.  
+% \citep{spears2006physics}~used these forces to disperse a swarm's spatial position for coverage for physics-based swarm simulations.
 
 \emph{Artificial Force-fields:}
 Much research has focused on generating non-uniform artificial force-fields that can be used to rearrange passive components.  Applications have included techniques to design shear forces for sensorless manipulation of a single object by~\citep{lamiraux+2001:ra}.  
