@@ -8,7 +8,7 @@ Two additional simulations were performed using wall-friction to control varianc
 \subsection{Position Control of Two Robots}
 
 Algorithm \ref{alg:PosControl2Robots}  was implemented in Mathematica using point robots (radius = $0$). 
-An online interactive demonstration and source code of the algorithm are available at \citep{Shahrokhi2015mathematicaParticle}.
+An online interactive demonstration and source code of the algorithm are available at \cite{Shahrokhi2015mathematicaParticle}.
   Fig.~\ref{fig:shapeControlMathematica1}  shows  an implementation of this algorithm wiht robot initial positions shown by hollow squares and final positions by circles. 
  Dashed lines show the shortest route if robots could be controlled independently, solid lines the generated path.
 
@@ -23,7 +23,7 @@ An online interactive demonstration and source code of the algorithm are availab
 % Finally, the algorithm moves the robots to their corresponding destinations.
 
 \subsection{Position Control of $n$ Robots}
-Alg. \ref{alg:PosControlNRobots}  was simulated in {\sc Matlab} using square block robots with unity width. Code is available at \citep{Arun2015}.
+Alg. \ref{alg:PosControlNRobots}  was simulated in {\sc Matlab} using square block robots with unity width. Code is available at \cite{Arun2015}.
 Simulation results are shown in Fig.~\ref{fig:4diagramsplots.pdf} for arrangements with an increasing number of robots,  $n$= [8, 46, 130, 390, 862]. 
 The distance moved grows quadratically with the number of robots $n$. A best-fit line $210 n^2 + 1200n-10,000$ is overlaid by the data.
 
@@ -47,7 +47,7 @@ Control performance is sensitive to the desired clearance.  As $\epsilon$ increa
 \caption{\label{fig:4diagramsplots.pdf}
 The required number of moves under Alg. \ref{alg:PosControlNRobots}  using wall-friction to rearrange $n$ square-shaped 
 robots.  %The plot compares  \emph{Total distance}---the sum of the moves made by every robot, with \emph{LAP distance}---the shortest distance according to the Linear Assignment Problem using Manhattan distance.  
-See hardware implementation and simulation at \citep{Arun2015}.
+See hardware implementation and simulation at \cite{Arun2015}.
 }
 \end{figure}
 

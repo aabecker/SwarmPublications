@@ -13,7 +13,7 @@
 \makeatother
 
 % numbers option provides compact numerical references in the text. 
-\usepackage[numbers]{natbib}
+%\usepackage[numbers]{natbib}
 \usepackage{multicol}
 \usepackage[bookmarks=true]{hyperref}
 
@@ -172,15 +172,15 @@
 \begin{abstract}
 There are driving applications for large populations of tiny robots in robotics, biology, and chemistry.
 These robots often lack onboard computation, actuation, and communication.
-Instead, these ``robots''  are  particles carrying some payload and the particle swarm is controlled by a shared, global control input.
+Instead, these ``robots''  are  particles carrying some payload and the particle swarm is controlled by a shared, global control input such as a uniform magnetic gradient or electric field.
 In previous work, we showed that the 2D position of each particle in such a swarm is controllable if the workspace contains a single obstacle the size of one particle.
 
 Requiring a small, rigid obstacle suspended in the middle of the workspace is a strong constraint, especially in 3D.
 %Often particles are placed into an em
-This paper relaxes this constraint, and provides position control algorithms that only require interactions with the boundaries.
+This paper relaxes that constraint, and provides position control algorithms that only require interactions with the boundaries.
 Both in vivo and artificial environments often have boundaries.
 We assume that particles in contact with the boundaries have zero velocity if the global control input pushes the particle into the wall.
-This paper provides an optimal shortest-path algorithm for a swarm with two particles, and a generalization to $n$-particle swarms.
+This paper provides an optimal shortest-path algorithm for positioning a two-particle swarm, and a generalization to positioning an $n$-particle swarm.
 Results are validated with simulations and a hardware demonstration.
 
 
