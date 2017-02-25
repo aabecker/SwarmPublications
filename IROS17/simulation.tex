@@ -3,14 +3,38 @@
 
 Two simulations were implemented using wall-friction for position control.  The first controls the position of two robots, the second controls the position of $n$ robots.  
 
-Two additional simulations were performed using wall-friction to control variance and covariance.  The first is an open-loop algorithm that demonstrates the effect of varying friction levels.  The second uses a closed-loop controller to achieve desired variance and covariance values.
-
 \subsection{Position Control of Two Robots}
 
 Algorithm \ref{alg:PosControl2Robots}  was implemented in Mathematica using point robots (radius = $0$). 
-An online interactive demonstration and source code of the algorithm are available at \cite{Shahrokhi2015mathematicaParticle}.
-  Fig.~\ref{fig:shapeControlMathematica1}  shows  an implementation of this algorithm wiht robot initial positions shown by hollow squares and final positions by circles. 
- Dashed lines show the shortest route if robots could be controlled independently, solid lines the generated path.
+%An online interactive demonstration and source code of the algorithm are available at \cite{Shahrokhi2015mathematicaParticle}.
+  Fig.~\ref{fig:shapeControlMathematica1}  shows  an implementation of this algorithm with robot initial positions represented by hollow squares and final positions by circles. 
+ Dashed lines show the shortest route if robots could be controlled independently, while solid lines show the optimal shortest  path using uniform inputs.
+ 
+ The contour plots in Fig.~\ref{fig:contour} show the length of the shortest path for given $s_1,s_2,g_1$ with $g_2$ ranging over all the workspace.  This plot clearly shows the nonlinear nature of the path planning, with multiple isolate islands showing regions that are difficult to reach. 
+ The contour plots in Fig.~\ref{fig:numberPlot} show the same configurations, but plot the required number of moves.  There is never more than one $g_2$ position reachable in one move.  If two-move solutions exist, they only appear along the boundary.  If $g_2$ results in a contraction of $(\delta x, \delta y)$, there are many three move sequences. Four-move and six-move sequences are absent, but five and seven moves are sometimes required.
+
+\begin{figure}
+\begin{center}
+	\includegraphics[width=1.0\columnwidth]{Contour.pdf}
+\end{center}
+\vspace{-1em}
+\caption{\label{fig:contour}
+The contour plot keeps 3 points steady.
+}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+	\includegraphics[width=1.0\columnwidth]{Number.pdf}
+\end{center}
+\vspace{-1em}
+\caption{\label{fig:numberPlot}
+Number of moves needed.
+}
+\end{figure}
+
+
+
 
    %The path given by our algorithm is shown with solid arrows.
 %Each row has five snapshots taken every quarter second. 
@@ -29,14 +53,11 @@ The distance moved grows quadratically with the number of robots $n$. A best-fit
 
 In Fig.~\ref{fig:4diagramsplots.pdf}, the amount of clearance is $\epsilon=1$.
 Control performance is sensitive to the desired clearance.  As $\epsilon$ increases, the total distance decreases asymptotically, as shown in Fig.~\ref{fig:graphrobo.pdf}, because the robots have more room to maneuver and fewer $\operatorname{DriftMove}$s are required.
-%We observed that the value of ‘?’, greatly affects the total number of moves of commanded moves on the robots. The smaller the value of ‘?’ the greater is the number of moves required to move a said distance. The second graph plot(fig roboplot) is that of ‘?’ vs ‘total commanded moves’ which is the number of moves the global controller commands onto all the robots. Here we take the pattern 
+%We observed that the value of $\epsilon$, greatly affects the total number of moves of commanded moves on the robots. The smaller the value of ‘?’ the greater is the number of moves required to move a said distance. The second graph plot(fig roboplot) is that of ‘?’ vs ‘total commanded moves’ which is the number of moves the global controller commands onto all the robots. Here we take the pattern 
 %‘ROBO’ and calculate the ‘total commanded moves’ for ‘?’=[ 0.25,0.375,0.5,0.625,0.75,0.875,1]. We can notice an exponential fall in the total command moves. It can be inferred that there is a tradeoff between area of bounded region and the number of moves. For smaller ‘?’, smaller is the required area to implement algorithm but the longer is the time taken to complete the algorithm. Fig robo
 %Unit of ‘?’ is the ratio of minimum clearance value to the body length of a robot.
 
 
-
-%The total commanded distance is plotted, which is approximately -0.15v^3 + 385x^2-35000x+300000
-%We compare the total distance moved and commanded  with the  \emph{LAP distance}---the shortest distance according to the Linear Assignment Problem using Manhattan distance.   Because all robots are interchangeable, the LAP distance reduces to \[ \text{LAP} =   \sum_{k=1}^n  \left| f_{k,x}-p_{k,x} \right| +  \left|  f_{k,y}-p_{k,y}  \right| . \]
 
 
 \begin{figure}
@@ -46,7 +67,7 @@ Control performance is sensitive to the desired clearance.  As $\epsilon$ increa
 \vspace{-1em}
 \caption{\label{fig:4diagramsplots.pdf}
 The required number of moves under Alg. \ref{alg:PosControlNRobots}  using wall-friction to rearrange $n$ square-shaped 
-robots.  %The plot compares  \emph{Total distance}---the sum of the moves made by every robot, with \emph{LAP distance}---the shortest distance according to the Linear Assignment Problem using Manhattan distance.  
+robots.  
 See hardware implementation and simulation at \cite{Arun2015}.
 }
 \end{figure}

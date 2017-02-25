@@ -5,8 +5,32 @@
 
 \emph{Using Boundaries: Friction and Boundary Layers}\label{subsec:WallFriction}
 
-Global inputs move a swarm uniformly.  
+Global inputs in the absence of obstacles move a swarm uniformly.  
 Shape control requires breaking this uniform symmetry.
-
 The following sections examine using boundaries that stop the particles if they are pushed into the wall.
  These forces are  sufficient to break the symmetry caused by uniform inputs.  
+ 
+ If the $i$th particle has position $[x_i,y_i]$ and velocity $[\dot{x}_i, \dot{y}_i]$, then we assume the following system model:
+ \begin{align*}\label{eq:swarmDynamicsAndFric} 
+ \begin{bmatrix}
+ \dot{x}_i\\
+ \dot{y}_i
+ \end{bmatrix}
+ &=
+ \mathbf{u}(t)
+ +F(x_i,y_i, \mathbf{u}(t)), \qquad i \in [1,n].\\
+ F(x_i,y_i, \mathbf{u}(t)) &= \begin{cases}
+  - \mathbf{u}(t) & \begin{matrix}(x_i,y_i) \in  \textrm{boundary \textbf{and}}\\
+\mathbf{N}(\textrm{boundary$(x_i,y_i)$})\cdot   \mathbf{u}(t) \le 0 \end{matrix}
+ \\
+ 0 & \textrm{else} 
+ \end{cases}
+ \end{align*}
+ Here $\mathbf{N}(\textrm{boundary$(x_i,y_i)$})$ is the normal to the boundary at position $(x_i,y_i)$, and
+ $F(x_i,y_i, \mathbf{u}(t)) $ is the frictional force provided by the boundary.
+ 
+ 
+These system dynamics represent particle swarms in low-Reynolds number environments, where viscosity dominates inertial forces and so velocity is proportional to input force~\cite{Purcell1977}. 
+ In this regime, the input force command $\mathbf{u}(t)$ controls the velocity of the robots.  
+  The same model can be generalized to particles moved by fluid flow where the vector direction of fluid flow $\mathbf{u}(t)$ controls the velocity of particles, or for a swarm of robots that move at a constant speed in a direction specified by a global input $\mathbf{u}(t)$~\cite{Rubenstein2012}.
+ Our control problem is to design the control inputs $\mathbf{u}(t)$ to make all $n$ particles achieve a task.
