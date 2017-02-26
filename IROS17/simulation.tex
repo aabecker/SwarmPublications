@@ -13,25 +13,7 @@ Algorithm \ref{alg:PosControl2Robots}  was implemented in Mathematica using poin
  The contour plots in Fig.~\ref{fig:contour} show the length of the shortest path for given $s_1,s_2,g_1$ with $g_2$ ranging over all the workspace.  This plot clearly shows the nonlinear nature of the path planning, with multiple isolate islands showing regions that are difficult to reach. 
  The contour plots in Fig.~\ref{fig:numberPlot} show the same configurations, but plot the required number of moves.  There is never more than one $g_2$ position reachable in one move.  If two-move solutions exist, they only appear along the boundary.  If $g_2$ results in a contraction of $(\delta x, \delta y)$, there are many three move sequences. Four-move and six-move sequences are absent, but five and seven moves are sometimes required.
 
-\begin{figure}
-\begin{center}
-	\includegraphics[width=1.0\columnwidth]{Contour.pdf}
-\end{center}
-\vspace{-1em}
-\caption{\label{fig:contour}
-The contour plot keeps 3 points steady.
-}
-\end{figure}
 
-\begin{figure}
-\begin{center}
-	\includegraphics[width=1.0\columnwidth]{Number.pdf}
-\end{center}
-\vspace{-1em}
-\caption{\label{fig:numberPlot}
-Number of moves needed.
-}
-\end{figure}
 
 
 
