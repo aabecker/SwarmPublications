@@ -2,10 +2,11 @@
 
 \section{Position Control of $n$ Robots Using Wall Friction}\label{sec:PostionControlnRobots}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Alg. \ref{alg:PosControl2Robots}  can be extended to control the position of $n$ robots using wall friction under several constraints. 
+The ideas from Alg. \ref{alg:PosControl2Robots}  can be extended to control the position of $n$ particles using wall friction.
+The solution is not optimal, and requires the starting and final configurations of particles to be disjoint.
 The solution described here is an iterative procedure with $n$ loops. 
  The $k$th loop moves the $k$th robot from a \emph{staging zone} to the desired position in a \emph{build zone}. 
-  All robots move according to the global input, but due to wall friction, at the end the $k$th loop, robots 1 through $k$ are in their desired final configuration in the build zone, and robots $k+1$ to $n$ are in the staging zone. 
+  All robots move according to the global input, but due to wall friction, at the end of the $k^{\text{th}}$ loop, robots 1 through $k$ are in their desired final configuration in the build zone, and robots $k+1$ to $n$ are in the staging zone. 
    See Fig.~\ref{fig:simulationNrobot} for a schematic of the build and staging zones.
 
 \begin{figure}
@@ -19,11 +20,13 @@ Illustration of Alg.\ \ref{alg:PosControlNRobots}, $n$ robot position control  u
 \end{figure}
 
 Assume an open workspace with four axis-aligned walls with infinite friction.
-The axis-aligned build zone of dimension $(w_b, h_b)$ containing the final configuration of $n$ robots must be disjoint from the axis-aligned staging zone of dimension $(w_s, h_s)$  containing the starting configuration of $n$ robots. Without loss of generality, assume the build zone  is above the staging zone. 
+The axis-aligned build zone of dimension $(w_b, h_b)$ containing the final configuration of $n$ robots must be disjoint from the axis-aligned staging zone of dimension $(w_s, h_s)$  containing the starting configuration of $n$ robots.
+ Without loss of generality, assume the build zone  is above the staging zone. 
 Furthermore, there must be at least $\epsilon$ space above the build zone, $\epsilon$ below the staging zone, and $\epsilon + 2r$ to the left of the build and staging zone, where $r$ is the radius of a robot.  The minimum workspace is then $(\epsilon + 2r + \max(w_b,w_s), 2\epsilon + h_s,h_b)$.
 
 The $n$ robot position control algorithm relies on a $\text{\sc DriftMove}(\alpha, \beta, \epsilon,\theta)$ control input, described in Alg.~\ref{alg:DriftMove} and shown in Fig.\  \ref{fig:driftmove}.
-For $\theta = 0^\circ$, a drift move consists of repeating a triangular movement sequence $\{ (\beta/2,-\epsilon),(\beta/2,\epsilon),(-\alpha,0)\}$. Any particle touching a top wall moves right $\beta$ units, while every particle not touching the top move right $\beta-\alpha$.
+For $\theta = 0^\circ$, a drift move consists of repeating a triangular movement sequence $\{ (\beta/2,-\epsilon),(\beta/2,\epsilon),(-\alpha,0)\}$. 
+ Any particle touching a top wall moves right $\beta$ units, while every particle not touching the top moves right $\beta-\alpha$.
 
 \begin{figure}
 \begin{center}
@@ -79,9 +82,9 @@ particles touching the wall move $\beta$ units, while particles not touching the
 
 
 Alg. \ref{alg:PosControlNRobots} proceeds as follows:  
-First, the robots are moved left away from the right wall, and down so robot $k$ touches the bottom wall.
-Second, a set of $\operatorname{DriftMove}$s are executed that move robot $k$ to the left wall with no net movement of the other robots.
-Third, a set of $\operatorname{DriftMove}$s are executed that  move robot $k$ to its target height and return the other robots to their initial heights. 
+First, the robots are moved left away from the right wall, and down so all robots in $k$'s row touch the bottom wall.
+Second, a set of $\operatorname{DriftMove}$s are executed that move all robots in $k$'s row left until $k$ touches the left wall, with no net movement of the other robots.
+Third, a set of $\operatorname{DriftMove}$s are executed that move only robot $k$ to its target height and return the other robots to their initial heights. 
 Fourth, all robots except robot $k$ are pushed left until robot $k$ is in the correct relative $x$ position compared to robots 1 to $k-1$.
 Finally, all robots are moved right until robot $k$ is in the desired target position. Running time is $O(n(w+h))$.
 
@@ -94,7 +97,7 @@ Wall friction is emulated by a toothed wall design to keep particles from moving
 The workspace boundary is mounted on top of a white sheet of cardboard.
 Underneath the cardboard, a grid of 3mm diameter magnets glued with 1 cm spacing to a thin board generates the global control input.
  A video attachment  shows the algorithm at work. 
-This discretized setup requires several modification to Alg.~\ref{alg:PosControlNRobots}.
+This discretized setup requires several modifications to Alg.~\ref{alg:PosControlNRobots}.
  In this demonstration, all moves are 1 cm in length.
    All drift moves are an counterclockwise \emph{square} move  of size 1 cm$\times$1 cm. 
    Once the $k$th roller gets to its designated location in each loop, a correction step is implemented. 

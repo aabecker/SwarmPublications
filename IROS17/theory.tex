@@ -10,24 +10,21 @@ Shape control requires breaking this uniform symmetry.
 The following sections examine using boundaries that stop the particles if they are pushed into the wall.
  These forces are  sufficient to break the symmetry caused by uniform inputs.  
  
- If the $i$th particle has position $[x_i,y_i]$ and velocity $[\dot{x}_i, \dot{y}_i]$, then we assume the following system model:
+ If the $i^{\textrm{th}}$ particle has position $\mathbf{x}_i(t)$ and velocity $\dot{\mathbf{x}}_i(t)$,  we assume the following system model:
  \begin{align*}\label{eq:swarmDynamicsAndFric} 
- \begin{bmatrix}
- \dot{x}_i\\
- \dot{y}_i
- \end{bmatrix}
+\dot{\mathbf{x}}_i(t)
  &=
  \mathbf{u}(t)
- +F(x_i,y_i, \mathbf{u}(t)), \qquad i \in [1,n].\\
- F(x_i,y_i, \mathbf{u}(t)) &= \begin{cases}
-  - \mathbf{u}(t) & \begin{matrix}(x_i,y_i) \in  \textrm{boundary \textbf{and}}\\
-\mathbf{N}(\textrm{boundary$(x_i,y_i)$})\cdot   \mathbf{u}(t) \le 0 \end{matrix}
+ +F \left( \mathbf{x}_i(t), \mathbf{u}(t) \right), \qquad i \in [1,n].\\
+ F(\mathbf{x}_i(t), \mathbf{u}(t)) &= \begin{cases}
+  - \mathbf{u}(t) &\begin{matrix} \mathbf{x}_i(t) \in  \textrm{boundary \textbf{and}}\\
+\mathbf{N}(\textrm{boundary$(\mathbf{x}_i(t))$})\cdot   \mathbf{u}(t) \le 0 \end{matrix}
  \\
  0 & \textrm{else} 
  \end{cases}
  \end{align*}
- Here $\mathbf{N}(\textrm{boundary$(x_i,y_i)$})$ is the normal to the boundary at position $(x_i,y_i)$, and
- $F(x_i,y_i, \mathbf{u}(t)) $ is the frictional force provided by the boundary.
+ Here $\mathbf{N}(\textrm{boundary$(\mathbf{x}_i(t))$})$ is the normal to the boundary at position $\mathbf{x}_i(t)$, and
+ $F(\mathbf{x}_i(t), \mathbf{u}(t)) $ is the frictional force provided by the boundary.
  
  
 These system dynamics represent particle swarms in low-Reynolds number environments, where viscosity dominates inertial forces and so velocity is proportional to input force~\cite{Purcell1977}. 
