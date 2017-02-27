@@ -26,7 +26,6 @@ Each robot gets the same control input.
 \end{overpic}
 }\\
 
-
 \caption{\label{fig:regionMove}{Workspace and $\Delta$ configuration space for three sets of robot configurations with the same final goal. The red square represents the starting $\Delta x$ and $\Delta y$ and the green circle represents the goal $\Delta x$ and $\Delta y$. The green rectangle illustrates one move reachable $\Delta x$ and $\Delta y$ by horizontal walls and the blue rectangle illustrates the vertical walls reachable region.
 }
 \vspace{-1em}
@@ -58,7 +57,9 @@ Each robot gets the same control input.
 \centering
 \begin{overpic}[width=0.5\columnwidth]{Reflection.pdf}\end{overpic}
 \caption{\label{fig:reflection}
-Consider the reflection of the goal position to the wall that is aimed to be touched by one of the robots. In the right picture, it is shown that the shortest path with three moves is the straight line between the starting position of the robot and the reflection of the goal.
+If the goal configuration can be reached in three moves, the first move makes one particle hit a wall, the second move adjusts the relative spacing error $\Delta e$ to zero, and the third move takes the particles to their final positions. 
+The second move cannot be shortened, so optimization depends on choosing the location where the robot hits the wall. 
+ Since the shortest distance between two points is a straight line, reflecting the goal position across the boundary wall and plotting a straight line gives the optimal hit location.
 } \vspace{-1em}
 \end{figure}
 \begin{figure*}
