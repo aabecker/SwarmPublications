@@ -228,47 +228,68 @@ In the worse case, adjusting both $\Delta r_x$ and $\Delta r_y$ needs all four s
 \begin{algorithm}
 \caption{WallFrictionMoveUp($r_1,r_2,g_1,g_2,L, moves$)}\label{alg:Wallup}
 \begin{algorithmic}[1]
-\scriptsize
+%\scriptsize
 \Require knowledge of current $(r_1,r_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
 $(0,0)$ is bottom corner,
  $L$ is length of the walls. 
  The array \emph{moves} is the current moves up to the current position.
+ $m_1$ is the first move toward the wall or goal.
+ $m_2$ is the second move adjusting $\Delta e$.
  Assume $r_1.x < r_2.x$ and $r_1.y \geq r_2.y$. If not, mirror the coordinate frame and swap the robots.
  $\epsilon $ is a small, nonzero, user-specified value.
  
 \Ensure $(g_1, g_2) , (r_1, r_2)$ all at least $\epsilon$ distance from walls the goals and starting points have at least epsilon distance from each other.
 \State $\Delta e = (g_2 - g_1)- (r_2- r_1)$
+\State Admissible heuristic = $\max$(euclidian distance from goal)
 %\State $\Delta e_x = (g_2.x - g_1.x)- (r_2.x - r_1.x)$
-\If $\Delta e = (0,0)$
-\State 
+\If {$\Delta e = (0,0)$}
+\State $m_1 = (g_2.x -  r_2.x, g_2.y - r_2.y)$
+\State path $\gets$ path + $m_1$
+\State Return (total distance of path, path)
 \EndIf
-\State Move $\left(-r_1.x , -\min \left(r_2.y , r_1.y+ \Delta e_y \right)+\epsilon \right)$ \Comment{Touch left wall}
-%Second Move
-%(-\min(|-r_2.x+ \Delta e_x|, r_2.x),
-\State Move $ (r_2.x, |\sign(\Delta e_y)| \, \min(r_1.y - r_2.y + \Delta e_y-\epsilon,L-r_2.y-\epsilon)+ \epsilon)$
-\Statex \Comment{Adjust  $y$}
-%Third Move
-\State Move $(\max(\epsilon, -\sign(r_2.y - r_1.y)\Delta e_x), -\min(r_1.y , r_2.y))$ 
-\Statex \Comment{Touch bottom wall}
-%Fourth Move
-\State Move $(\sign(r_2.y - r_1.y)\Delta e_x , (|\sign(\Delta e_y)|-1) |r_2.y - r_1.y|)$ \Comment{Adjust $x$}
-\If {$\Delta e_y \neq r_2.y - r_1.y$}
-%Fifth Move
-\If {$\Delta e_x \neq 0$}
-\State Move $(\sign(r_2.y- r_1.y)\Delta e_x, |\sign(\Delta e_y)-1| |r_1.y-r_2.y|)$ \Comment{Touch right wall}
-\Else
-\State Move  $(|\sign(\Delta e_y -r_2.y+ r_1.y)| \epsilon, |\sign(\Delta e_y)-1| |r_1.y-r_2.y|)$ \Comment{Touch right wall}
+\If {$r_2.x - r_1.x - 1 + 2 \epsilon \leq  \Delta g_x \leq  1 ~ \&\&~ r_2.y - r_1,y \leq \Delta g_y \leq  0$} %\Comment{Reachable region}
+\State $m_1 = (\frac{1-r_1.y}{2-g_1.y-r_1.y} g_1.x -r_1.x, 1-r_1.y)$
+\If {$r_2.x + m_1.x >L$}
+\State $m_1.x = 1- r_2.x$
 \EndIf
-%Sixth Move
-\If {$\Delta e_x < 0$}
-\State Move $(L - \max(r_1.x, r_2.x), \epsilon)$
+\If {$r_2.x + m_1.x <0$}
+\State $m_1.x = -r_2.x$
+\EndIf
 \Else 
-\State Move $(L - \max(r_1.x, r_2.x),\Delta e_y -\max(r_1.y, r_2.y)$ 
-\Statex \Comment{Adjust $y$}
+\State $m_1 = (0, 1-r_1.y)$
+\State Adjust $\Delta g_x$ and $\Delta g_y$ %\Comment{To go to the nearest $\Delta g_x$ and $\Delta g_y$}
+%\State $\Delta g_x = r_2.x - r_1.x - 1 + 2 \epsilon
 \EndIf
+\State path $\gets$ path + $m_1$
+\State $r_1 = r_1 + m_1$ and $r_2 = r_2 + m_1$
+\State $m_2 = (\Delta g_x - (r_2.x- r_1.x), \Delta g_y - (r_2.y-r_1.y))$
+\If {Robots on each other or on the wall}
+\State Add $\pm \epsilon$ to $m_2.x$
 \EndIf
-%Seventh Move
-\State Move $(e_2.x - r_2.x, e_2.y - r_2.y)$ \Comment{Go to goal}
+\State path $\gets$ path + $m_2$
+%\State  $r_2 = r_2 + m_2$
+\State Unmirror if necessary
+\State Return(total distance of path + Admissible heuristic, path)
+\end{algorithmic}
+\end{algorithm}
+
+
+
+\begin{algorithm}
+\caption{DynamicOptimalSolutionFinder($r_1,r_2,g_1,g_2,L$)}\label{alg:Wallup}
+\begin{algorithmic}[1]
+%\scriptsize
+\Require knowledge of current $(r_1,r_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
+$(0,0)$ is bottom corner,
+ $L$ is length of the walls. 
+ $OptimalPathList$ is a List containing all the paths sorted by their total distance. 
+\State Pop the first element in OptimalPathList
+\While {We have not reached the goal in the first element}
+\State Call Alg. \ref{alg:Wallup} for all the four walls.
+\State Add the results to OptimalPathList
+\State Sort OptimalPathList
+\EndWhile
+\State Return(path)
 \end{algorithmic}
 \end{algorithm}
 
