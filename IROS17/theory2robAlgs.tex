@@ -37,18 +37,17 @@ Each robot gets the same control input.
 \begin{figure*}
 \centering
 \renewcommand{\figwid}{0.67\columnwidth}
-{\begin{overpic}[width =\figwid]{epsilonMin.pdf}\put(20,20){$\epsilon = 0.001$}
+{\begin{overpic}[width =\figwid]{epsilonMin.pdf}%\put(20,20){$\epsilon = 0.001$}
+\put(20, 3.1){{\scriptsize$\swarrow$}~$\epsilon = 0.001$}
 \end{overpic}
-\begin{overpic}[width =\figwid]{epsilonMed.pdf}\put(20,20){$\epsilon = 0.05$}
-
+\begin{overpic}[width =\figwid]{epsilonMed.pdf}%\put(20,20){$\epsilon = 0.05$}
+\put(20, 4){{\scriptsize$\updownarrow$}~$\epsilon = 0.05$}
 \end{overpic}
-\begin{overpic}[width =\figwid]{epsilonMax.pdf}\put(20,20){$\epsilon = 0.1$}
-
+\begin{overpic}[width =\figwid]{epsilonMax.pdf}%\put(20,20){$\epsilon = 0.1$}
+\put(20, 5){{\Large$\updownarrow$}~$\epsilon = 0.1$}
 \end{overpic}
 }\\
-
-
-\caption{\label{fig:epsilon}{By changing epsilon, the path changes and will ensure the minimum distance of $\epsilon$ between two robots.}
+\caption{\label{fig:epsilon}{Changing the minimum spacing $\epsilon$ changes the path.   $\epsilon$ is the minimum spacing between two robots and the minimum separation from the boundaries.}
 \vspace{-1em}
 }
 \end{figure*}
@@ -67,6 +66,7 @@ Consider the reflection of the goal position to the wall that is aimed to be tou
 {\begin{overpic}[width =\figwid]{story1mov0.pdf}\put(10,10){Start}
 \end{overpic}
 \begin{overpic}[width =\figwid]{story1move.pdf}\put(10,10){Move 1}
+\put(110,50){If $[\Delta x, \Delta y] = [0,0]$, only one move is needed}
 \end{overpic}
 }\\
 
@@ -172,7 +172,8 @@ Online demonstration and source code at \cite{Shahrokhi2015mathematicaParticle}.
 {\begin{overpic}[width =\figwid]{contourPlots.pdf}%\put(20,20){$\epsilon = 0.001$}
 \end{overpic}
 }\\
-\caption{\label{fig:contourPlots}{Starting positions of the robots and goal position of one robot is fixed, these contour plots calculate the distance if the other robot's goal position is at any other location. Number of moves are also showed in the bottom plots for the same configuration.}
+\caption{\label{fig:contourPlots}{Starting positions of robots $1$ and $2$ and goal position of  robot $2$ are fixed, and 
+ the contour plots calculate the distance if robot $1$'s goal position is varied in $x$ and $y$. The second row shows the number of moves required for the same configurations.}
 \vspace{-1em}
 }
 \end{figure*}

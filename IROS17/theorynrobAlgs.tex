@@ -3,7 +3,7 @@
 \section{Position Control of $n$ Robots Using Wall Friction}\label{sec:PostionControlnRobots}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The ideas from Alg. \ref{alg:PosControl2Robots}  can be extended to control the position of $n$ particles using wall friction.
-The solution is not optimal, and requires the starting and final configurations of particles to be disjoint.
+The solution is complete, but not optimal, and requires the starting and final configurations of particles to be disjoint.
 The solution described here is an iterative procedure with $n$ loops. 
  The $k$th loop moves the $k$th robot from a \emph{staging zone} to the desired position in a \emph{build zone}. 
   All robots move according to the global input, but due to wall friction, at the end of the $k^{\text{th}}$ loop, robots 1 through $k$ are in their desired final configuration in the build zone, and robots $k+1$ to $n$ are in the staging zone. 
@@ -21,8 +21,8 @@ Illustration of Alg.\ \ref{alg:PosControlNRobots}, $n$ robot position control  u
 
 Assume an open workspace with four axis-aligned walls with infinite friction.
 The axis-aligned build zone of dimension $(w_b, h_b)$ containing the final configuration of $n$ robots must be disjoint from the axis-aligned staging zone of dimension $(w_s, h_s)$  containing the starting configuration of $n$ robots.
- Without loss of generality, assume the build zone  is above the staging zone. 
-Furthermore, there must be at least $\epsilon$ space above the build zone, $\epsilon$ below the staging zone, and $\epsilon + 2r$ to the left of the build and staging zone, where $r$ is the radius of a robot.  The minimum workspace is then $(\epsilon + 2r + \max(w_b,w_s), 2\epsilon + h_s,h_b)$.
+ Without loss of generality, assume the build zone  is above the staging zone.  Let $d$ be the diameter the particles.
+Furthermore, there must be at least $\epsilon$ space above the build zone, $\epsilon$ below the staging zone, and $\epsilon + d$ to the left of the build and staging zone.  The minimum workspace is then $(\epsilon + d + \max(w_b,w_s), 2\epsilon + h_s,h_b)$.
 
 The $n$ robot position control algorithm relies on a $\text{\sc DriftMove}(\alpha, \beta, \epsilon,\theta)$ control input, described in Alg.~\ref{alg:DriftMove} and shown in Fig.\  \ref{fig:driftmove}.
 For $\theta = 0^\circ$, a drift move consists of repeating a triangular movement sequence $\{ (\beta/2,-\epsilon),(\beta/2,\epsilon),(-\alpha,0)\}$. 
@@ -46,22 +46,22 @@ Let $(0,0)$ be the lower left corner of the workspace, $p_k$ the $x,y$ position 
 \begin{algorithm}
 \caption{PositionControl$n$RobotsUsingWallFriction($k$)}\label{alg:PosControlNRobots}
 \begin{algorithmic}[1]
-\State Move( $-\epsilon, r-p_{ky}$) % move  away from right wall and down till robot k touches bottom
+\State Move( $-\epsilon, d/2-p_{ky}$) % move  away from right wall and down till robot k touches bottom
 
 
-\While{ $p_{kx} > r$} 
-\State $\text{\sc DriftMove}(\epsilon, \min(p_{kx} - r,\epsilon), \epsilon,180^\circ)$    %drift move left until kth robot touches left wall
+\While{ $p_{kx} > d/2$} 
+\State $\text{\sc DriftMove}(\epsilon, \min(p_{kx} - d/2,\epsilon), \epsilon,180^\circ)$    %drift move left until kth robot touches left wall
 \EndWhile
 
-\State $m \gets \operatorname{ceil}(\frac{f_{ky}-r}{\epsilon})$
-\State $\beta \gets \frac{f_{ky}-r}{m}$
-\State $\alpha \gets \beta - \frac{r - p_{ky}-\epsilon}{m}$
+\State $m \gets \operatorname{ceil}(\frac{f_{ky}-d/2}{\epsilon})$
+\State $\beta \gets \frac{f_{ky}-d/2}{m}$
+\State $\alpha \gets \beta - \frac{d/2 - p_{ky}-\epsilon}{m}$
 \For{ $m$ iterations}
 \State $\text{\sc DriftMove}(\alpha, \beta, \epsilon,90^\circ)$    %move kth robot to f_{ky} and leave the rest in position.
 \EndFor
 
-\State Move ($r+\epsilon-f_{kx}, 0$)  % move the group to the left until k is in the correct relative x position
-\State Move ($f_{kx}-r, 0$)  
+\State Move ($d/2+\epsilon-f_{kx}, 0$)  % move the group to the left until k is in the correct relative x position
+\State Move ($f_{kx}-d/2, 0$)  
 
 \end{algorithmic}
 \end{algorithm}
