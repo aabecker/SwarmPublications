@@ -11,18 +11,18 @@ The following sections examine using boundaries that stop the particles if they 
  These forces are  sufficient to break the symmetry caused by uniform inputs.  
  
  If the $i^{\textrm{th}}$ particle has position $\mathbf{x}_i(t)$ and velocity $\dot{\mathbf{x}}_i(t)$,  we assume the following system model:
- \begin{align*}\label{eq:swarmDynamicsAndFric} 
+ \begin{align}\label{eq:swarmDynamicsAndFric} 
 \dot{\mathbf{x}}_i(t)
  &=
  \mathbf{u}(t)
- +F \left( \mathbf{x}_i(t), \mathbf{u}(t) \right), \qquad i \in [1,n].\\
+ +F \left( \mathbf{x}_i(t), \mathbf{u}(t) \right), ~i \in [1,n].\\
  F(\mathbf{x}_i(t), \mathbf{u}(t)) &= \begin{cases}
   - \mathbf{u}(t) &\begin{matrix} \mathbf{x}_i(t) \in  \textrm{boundary \textbf{and}}\\
 \mathbf{N}(\textrm{boundary$(\mathbf{x}_i(t))$})\cdot   \mathbf{u}(t) \le 0 \end{matrix}
  \\
  0 & \textrm{else} 
- \end{cases}
- \end{align*}
+ \end{cases}\nonumber
+ \end{align}
  Here $\mathbf{N}(\textrm{boundary$(\mathbf{x}_i(t))$})$ is the normal to the boundary at position $\mathbf{x}_i(t)$, and
  $F(\mathbf{x}_i(t), \mathbf{u}(t)) $ is the frictional force provided by the boundary.
  

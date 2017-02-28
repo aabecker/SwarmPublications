@@ -35,7 +35,7 @@ We assume that particles in contact with the boundaries have zero velocity if th
 \begin{overpic}[width=0.47\columnwidth]{monalisa.pdf}\put(2, 102){position control algorithm}\put(12,25){final configuration}\end{overpic}
 \caption{\label{fig:IntroPic}
 Positioning particles that receive the same control inputs, but cannot move while a control input pushes them into a boundary.
-Top row shows the output of a dynamic algorithm that finds the shortest path for two particles.
+Top row shows the output of a best-first-search algorithm that finds the shortest path for two particles.
  Top left shows the initial position and goal position of the particles.  
  The shortest path consists of moving at angle 50$^\circ$ until the blue robot contacts the top wall, then moving the  magenta robot at angle 165$^\circ$ until the particles reach the desired relative spacing, then moving -60$^\circ$ to the goal positions.
  The two bottom pictures shows $n$-particle positioning using shared control inputs and boundary interaction. 
