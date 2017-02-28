@@ -8,7 +8,7 @@
 \begin{overpic}[width=0.47\columnwidth]{twoRobotRegionH.pdf}\end{overpic}
 \begin{overpic}[width=0.47\columnwidth]{twoRobotRegionV.pdf}\end{overpic}
 \caption{\label{fig:TwoRegions}
-Each robot gets the same control input. 
+Boundary interaction is used to change relative position. Each robot gets the same control input. 
 (left) If robot 2 hits the bottom wall before robot 1 reaches a wall, robot 2 can reach anywhere along the green line, and  robot 1 can move to anywhere in the shaded area. 
 (right) Similarly, if robot 2 hits the right wall before robot 1 reaches a wall, robot 2 can reach anywhere along the green line, and  robot 1 can move to anywhere in the shaded area. 
 } \vspace{-1em}
@@ -67,7 +67,7 @@ The second move cannot be shortened, so optimization depends on choosing the loc
 {\begin{overpic}[width =\figwid]{story1mov0.pdf}\put(10,10){Start}
 \end{overpic}
 \begin{overpic}[width =\figwid]{story1move.pdf}\put(10,10){Move 1}
-\put(110,50){If $[\Delta x, \Delta y] = [0,0]$, only one move is needed}
+\put(110,50){If $(\Delta e.x, \Delta e.y) = (0,0)$, only one move is needed}
 \end{overpic}
 }\\
 
@@ -158,8 +158,8 @@ The second move cannot be shortened, so optimization depends on choosing the loc
 %}\\
 
 \vspace{-1em}
-\caption{\label{fig:shapeControlMathematica1}{Frames from an implementation of Alg.\ \ref{alg:PosControl2Robots}: two robot positioning using walls with infinite friction. 
-Robot start positions are shown by a square, and goal positions by a circle.  Dashed lines show the shortest route if robots could be controlled independently.  Solid arrows show path given by  Alg.\ \ref{alg:PosControl2Robots}.
+\caption{\label{fig:shapeControlMathematica1}{Frames from an implementation of Alg.\ \ref{alg:optimalAlg}: two robot positioning using walls with infinite friction. 
+Robot start positions are shown by a square, and goal positions by a circle.  Dashed lines show the shortest route if robots could be controlled independently.  Solid arrows show path given by  Alg.\ \ref{alg:optimalAlg}.
 Online demonstration and source code at \cite{Shahrokhi2015mathematicaParticle}.
 %The bottom row shows an extreme case where the robots must switch position.
 }
@@ -180,27 +180,28 @@ Online demonstration and source code at \cite{Shahrokhi2015mathematicaParticle}.
 \end{figure*}
 
 
-Alg.~\ref{alg:PosControl2Robots} uses wall-friction to arbitrarily position two robots in a rectangular workspace.  This algorithm introduces concepts that will be used for multi-robot positioning. Fig.~\ref{fig:shapeControlMathematica1} shows a Mathematica implementation of the algorithm, and is useful as a visual reference for the following description.
+Alg.~\ref{alg:Wallup} uses wall-friction to arbitrarily position two robots in a rectangular workspace. This algorithm introduces concepts that will be used for multi-robot positioning. Fig.~\ref{fig:shapeControlMathematica1} shows a Mathematica implementation of the algorithm, and is useful as a visual reference for the following description.
 
-Assume two robots are initialized at $s_1$ and $s_2$ with corresponding goal destinations $g_1$ and $g_2$. 
-We can exploit symmetry in the solution by labeling the leftmost  (or, if they have the same $x$ coordinate, the topmost) robot $s_1$.  If $s_1$ is not also the topmost robot, we mirror the coordinate frame by the right wall. To give an example to understand mirroring, consider the two starting position as $s_1 =  (0.2, 0.2) $ and $s_2 = (0.8, 0.8)$. Because the leftmost robot is not the topmost robot, we mirror the coordinate frame and by mirroring we will have new $s_1 = (0.2, 0.8)$ and new $s_2 = (0.8,0.2)$. We do this to reuse the main algorithm's logic and after the path is found, we unmirror the coordinate frame and translate the path. To reuse the algorithm even more, we have implemented just the up wall and rotate the coordinate frame by 90, 180 or 270 degrees counterclockwise to get other walls paths and translate the path after the algorithm returns the path for the rotated coordinate frame.
+Assume two robots are initialized at $r_1$ and $r_2$ with corresponding goal destinations $g_1$ and $g_2$. 
+We can exploit symmetry in the solution by labeling the leftmost  (or, if they have the same $x$ coordinate, the topmost) robot $r_1$.  If $r_1$ is not also the topmost robot, we mirror the coordinate frame across the right wall. To give an example to understand mirroring, consider the two starting positions, $r_1 =  (0.2, 0.2) $ and $r_2 = (0.8, 0.8)$. Because the leftmost robot is not the topmost robot, we mirror the coordinate frame giving $r_1 = (0.2, 0.8)$ and $r_2 = (0.8,0.2)$. We do this to reuse the main algorithm's logic and after the path is found, we undo the mirrorring to the output path. Similarly, we exploit rotational symmetry and assume the command pushes a robot to hit the top wall. If a different wall is selected, we rotate the coordinate frame by 90$^{\circ}$ , 180$^{\circ}$  or 270$^{\circ}$ counterclockwise to get other walls paths and translate the path after the algorithm returns the path for the rotated coordinate frame.
 
 Denote the current positions of the robots  $r_1$ and $r_2$. 
-Values $.x$ and $.y$ denote the $x$ and $y$ coordinates, i.e., $s_1.x$ and $s_1.y$ denote the $x$ and $y$ locations of $s_1$. 
+Values $.x$ and $.y$ denote the $x$ and $y$ coordinates, i.e., $r_1.x$ and $r_1.y$ denote the $x$ and $y$ locations of $r_1$. 
 The algorithm assigns a global control input at every instance.
 The goal is to adjust the error in both coordinates,
- $\Delta e =(\Delta e_x, \Delta e_y) =(g_2-g_1)- (s_2-s_1)$to $(0,0)$ using a shared global control input. 
+ $\Delta e =(\Delta e.x, \Delta e.y) =\Delta g - \Delta r = (g_2-g_1)- (s_2-s_1)$to $(0,0)$ using a shared global control input. 
  %This algorithm exploits the position-dependent friction model \eqref{eq:frictionmodel}.
  %employing the assumption we have made earlier about the walls' friction. 
-Our algorithm uses a dynamic search A* like method to find the shortest path in each move. Base case occurs when $\Delta e= (0,0)$. In this base case, simply the shortest path is a straight line between current position of each robot to its goal position. 
-If  $\Delta e\neq (0,0)$ then we consider the reachable set as shown in Fig.~\ref{fig:regionMove}. If a robot is touching a wall, the other robot can go where ever in the reachable set while the first robot is not moving. 
+Our algorithm uses a A* like method of dynamic search to find the shortest path in each move. The base case occurs when $\Delta e= (0,0)$. In this base case, the shortest path is a straight line between current position of each robot to its goal position, see Fig. \ref{fig:shapeControlMathematica1} a.  
+If  $\Delta e\neq (0,0)$, we consult the two-move reachable sets shown in Fig.~\ref{fig:regionMove}. If a robot is touching a wall, the other robot can move to any position in the reachable set while the first robot is immobile. 
 Two reachable sets are possible, horizontal and vertical. 
-If $(\Delta g_x, \Delta g_y)$ is in the reachable set, one robot touches a wall and the other robot zeros the error in one move. It is shown as $m_2$ in Fig. \ref{fig:reflection}. For each wall to find the best place to minimize $m_1$ and $m_3$, the touching robot's goal is reflected on that wall. The minimum distance to get to the goal in two move when the robot should touch the wall, is the straight line between the robot and the reflection of the goal position on that wall. That point is selected when possible, and if it makes $m_2$ reach out of the workspace, the closest point to this point where the moving robot would not get out of the workspace is selected.
+If $(\Delta g.x, \Delta g.y)$ is in the reachable set, one robot touches a wall and the other robot zeros the error in one move. This is shown as $m_2$ in Fig. \ref{fig:reflection}. To find the best place to minimize $m_1$ and $m_3$, the touching robot's goal is reflected on that wall. The minimum distance to get to the goal in two move when the robot should touch the wall, is the straight line between the robot and the reflection of the goal position on that wall. 
+That point is selected when possible, but if it makes $m_2$ reach out of the workspace, the closest point to this point where the moving robot would not get out of the workspace is selected.
 
 If  $(\Delta g_x, \Delta g_y)$ is not in the reachable set, we choose the nearest $\Delta x$ and $\Delta y$ to $\Delta g_x$ and $\Delta g_y$ and reach there. In this step for simplicity we choose the straight line from the touching robot to the wall for the first move. This may cause the algorithm not to return the shortest path, but the difference is not significant. 
-Alg. \ref{alg:wallup} returns the total distance of the path added to the euclidian distance of the final position of the robots to their goal. We use euclidian distance as a heuristic to find the path faster.
+Alg. \ref{alg:Wallup} returns the total distance of the path added to the euclidian distance of the final position of the robots to their goal. We use euclidian distance as a heuristic to find the path faster.
 
-Alg. \ref{alg:dynamicAlg} is a dynamic search to find the shortest path by all the walls. It keeps a list containing all the possible paths with their current and final position of the robots. At each iteration, the algorithm sorts all the paths in the list by their total distance plus heuristic. It picks the shortest path, and calls Alg. \ref{alg:Wallup} for all the four walls. It keeps calling and sorting until the goal has reached. When the goal is reached, the algorithm returns the shortest path and the final solution.
+Alg. \ref{alg:optimalAlg} is a dynamic search to find the shortest path by all the walls. It keeps a list containing all the possible paths with their current and final position of the robots. At each iteration, the algorithm sorts all the paths in the list by their total distance plus heuristic. It picks the shortest path, and calls Alg. \ref{alg:Wallup} for all the four walls. It keeps calling and sorting until the goal has reached. When the goal is reached, the algorithm returns the shortest path and the final solution.
 %Base case 1:  deltaX and deltaY are 0, simply move robots to final position
 %Base case 2:  In 2 moves we can make both deltaX and deltaY 0, implement this move, then call Base case 1:
 %
@@ -277,7 +278,7 @@ $(0,0)$ is bottom corner,
 
 
 \begin{algorithm}
-\caption{DynamicOptimalSolutionFinder($r_1,r_2,g_1,g_2,L$)}\label{alg:Wallup}
+\caption{DynamicOptimalSolutionFinder($r_1,r_2,g_1,g_2,L$)}\label{alg:optimalAlg}
 \begin{algorithmic}[1]
 %\scriptsize
 \Require knowledge of current $(r_1,r_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
