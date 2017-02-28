@@ -195,13 +195,16 @@ The goal is to adjust the error in both coordinates,
 Our algorithm uses a A* like method of dynamic search to find the shortest path in each move. The base case occurs when $\Delta e= (0,0)$. In this base case, the shortest path is a straight line between current position of each robot to its goal position, see Fig. \ref{fig:shapeControlMathematica1} a.  
 If  $\Delta e\neq (0,0)$, we consult the two-move reachable sets shown in Fig.~\ref{fig:regionMove}. If a robot is touching a wall, the other robot can move to any position in the reachable set while the first robot is immobile. 
 Two reachable sets are possible, horizontal and vertical. 
-If $(\Delta g.x, \Delta g.y)$ is in the reachable set, one robot touches a wall and the other robot zeros the error in one move. This is shown as $m_2$ in Fig. \ref{fig:reflection}. To find the best place to minimize $m_1$ and $m_3$, the touching robot's goal is reflected on that wall. The minimum distance to get to the goal in two move when the robot should touch the wall, is the straight line between the robot and the reflection of the goal position on that wall. 
+%If $(\Delta g.x, \Delta g.y)$ is in the reachable set, one robot touches a wall and the other robot zeros the error in one move. This is shown as $m_2$ in Fig. \ref{fig:reflection}. To find the best place to minimize $m_1$ and $m_3$, the touching robot's goal is reflected on that wall. The minimum distance to get to the goal in two move when the robot should touch the wall, is the straight line between the robot and the reflection of the goal position on that wall. 
+If the goal configuration can be reached in three moves, the first move makes one particle hit a wall, the second move adjusts the relative spacing error $\Delta e$ to zero, and the third move takes the particles to their final positions. 
+The second move cannot be shortened, so optimization depends on choosing the location where the robot hits the wall. 
+ Since the shortest distance between two points is a straight line, reflecting the goal position across the boundary wall and plotting a straight line gives the optimal hit location.
 That point is selected when possible, but if it makes $m_2$ reach out of the workspace, the closest point to this point where the moving robot would not get out of the workspace is selected.
 
-If  $(\Delta g_x, \Delta g_y)$ is not in the reachable set, we choose the nearest $\Delta x$ and $\Delta y$ to $\Delta g_x$ and $\Delta g_y$ and reach there. In this step for simplicity we choose the straight line from the touching robot to the wall for the first move. This may cause the algorithm not to return the shortest path, but the difference is not significant. 
-Alg. \ref{alg:Wallup} returns the total distance of the path added to the euclidian distance of the final position of the robots to their goal. We use euclidian distance as a heuristic to find the path faster.
+If  $\Delta g$ is not in the reachable set, we choose the nearest reachable $\Delta x$ and $\Delta y$ to $\Delta g$. For simplicity in this step, we choose the straight line from the touching robot to the wall for the first move. This may cause the algorithm not to return the shortest path, but the difference is not significant. 
+Alg. \ref{alg:Wallup} uses an admissible heuristic that adds the current path length to the max Euclidian distance $||g-r||$ to direct exploration by expanding favorable routes first.
 
-Alg. \ref{alg:optimalAlg} is a dynamic search to find the shortest path by all the walls. It keeps a list containing all the possible paths with their current and final position of the robots. At each iteration, the algorithm sorts all the paths in the list by their total distance plus heuristic. It picks the shortest path, and calls Alg. \ref{alg:Wallup} for all the four walls. It keeps calling and sorting until the goal has reached. When the goal is reached, the algorithm returns the shortest path and the final solution.
+Alg. \ref{alg:optimalAlg} is a dynamic search to find the shortest path by trying out collisions with all the walls. It keeps a list containing all the possible paths with their current and final position of the robots. At each iteration, the algorithm sorts all the paths in the list by their total distance plus admissible heuristic. It selects the shortest path, and calls Alg. \ref{alg:Wallup} for all the four walls. It keeps calling and sorting until the goal is reached. When the goal is reached, the algorithm returns this shortest path.
 %Base case 1:  deltaX and deltaY are 0, simply move robots to final position
 %Base case 2:  In 2 moves we can make both deltaX and deltaY 0, implement this move, then call Base case 1:
 %
@@ -221,7 +224,8 @@ Alg. \ref{alg:optimalAlg} is a dynamic search to find the shortest path by all t
 %%Second, $|\Delta r_y - \Delta e_y |$ is reduced to zero while  $\Delta r_x$ is kept constant. % in Alg.~\ref{alg:YControl}. 
 %Lastly, the robots, now correctly positioned relative to each other, are moved to their goal locations.
 
-In the worse case, adjusting both $\Delta r_x$ and $\Delta r_y$ needs all four steps. If we consider the length of each side of the square workspace as L, the worst case path length is $(\sqrt{2}+2)L$.
+%In the worse case, adjusting both $\Delta r.x$ and $\Delta r.y$ needs all four steps. 
+If we consider the length of each side of the square workspace as L, the worst case path length is $(\sqrt{2}+2)L$.
 
 
 
