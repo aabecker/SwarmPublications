@@ -55,19 +55,26 @@ We  exploit symmetry in the solution by labeling the leftmost (or, if they have 
    This symmetry allows us to use a single function, Alg. \ref{alg:Wallup},  for collisions with all four walls. 
 
 \begin{algorithm}[htb]
-\caption{2ParticlePathFinder($r_1,r_2,g_1,g_2,L$)}\label{alg:optimalAlg}
+\caption{ { \sc 2-ParticlePathFinder}($r_1,r_2,g_1,g_2,L$)}\label{alg:optimalAlg}
 \begin{algorithmic}[1]
 %\scriptsize
 \Require knowledge of current $(r_1,r_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
 $(0,0)$ is bottom corner,
  $L$ is length of the walls. 
- $OptimalPathList$ contains all the paths sorted by their path length plus an admissible heuristic. 
- \State $OptimalPathList \gets \{ h(\{\},r_1,r_2,g_1,g_2  ) ,\{\},r_1,r_2\}$ 
-\While {We have not reached the goal in the first element}
-\State Pop the first element in $OptimalPathList$
-\State Call Alg. \ref{alg:Wallup} for all the four walls.
-\State Add the results to $OptimalPathList$
-\State Sort($OptimalPathList$)
+ $PathList$ contains all the paths sorted by their path length plus an admissible heuristic. 
+ \State  $PathList \gets \{\}$
+ \State $P \gets   \{ h(\{\},r_1,r_2,g_1,g_2  ) ,\{\},r_1,r_2\} $ \Comment $P$ contains the admissible heuristic, the move sequence, and the current robot positions
+\While {$P.r_1 \ne g_1$ \textbf{and} $P.r_2 \ne g_2$}
+\For{ $\theta \in \{0^\circ, 90^\circ, 180^\circ, 270^\circ \}$ }
+\State $(r_1,r_2,g_1,g_2) \gets$ {\sc Rotate}($P.r_1,P.r_2,g_1,g_2,\theta$)
+\State $\{d, $ \parbox[t]{.3\linewidth}{%
+ $moves, r_1,r_2\} \gets$\\
+ {\sc  PlanMoveUp}($r_1,r_2,g_1,g_2,L, P.moves$)}
+\State $(moves, r_1,r_2) \gets$ {\sc Rotate}($moves, r_1,r_2,-\theta$)
+\State   {\sc Push} $\{d, moves, r_1,r_2\} $ onto $PathList$
+\EndFor
+\State {\sc Sort}($PathList$) \Comment sort by admissible heuristic
+\State $P \gets $ {\sc Pop} first element of $PathList$
 \EndWhile
 \State \Return $moves$
 \end{algorithmic}
@@ -75,7 +82,7 @@ $(0,0)$ is bottom corner,
 
 
 \begin{algorithm}
-\caption{WallFrictionMoveUp($r_1,r_2,g_1,g_2,L, moves$)}\label{alg:Wallup}
+\caption{{\sc PlanMoveUp}($r_1,r_2,g_1,g_2,L, moves$)}\label{alg:Wallup}
 \begin{algorithmic}[1]
 %\scriptsize
 \Require knowledge of current $(r_1,r_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
@@ -92,15 +99,16 @@ $m_1$ is the first move toward the wall or goal.
 \If {$\Delta e = (0,0)$} \Comment{base case}
 \State $m_1  \gets g_2 -  r_2$
 \State $moves \gets \{ moves,   m_1 \}$
-\State \Return $\{h(moves, r_1,r_2,g_1,g_2), moves\}$
+\State $(r_1,r_2) \gets ${\sc ApplyMove}$(m_1,r_1,r_2)$
+\State \Return $\{h(moves, r_1,r_2,g_1,g_2), moves,r_1,r_2\}$
 \EndIf
 \If {$r_2.x - r_1.x - 1 + 2 \epsilon \leq  \Delta g.x \leq  1 ~\textbf{and}~r_2.y - r_1.y \leq \Delta g.y \leq  0$} \Comment{$\Delta g \in $ reachable region}
-\State $m_1 = \left(\frac{1-r_1.y}{2-g_1.y-r_1.y} (g_1.x -r_1.x), 1-r_1.y \right)$
+\State $m_1 \gets \left(\frac{1-r_1.y}{2-g_1.y-r_1.y} (g_1.x -r_1.x), 1-r_1.y \right)$
 \If {$r_2.x + m_1.x >L$}
-\State $m_1.x = 1- r_2.x$
-\EndIf
-\If {$r_2.x + m_1.x <0$}
-\State $m_1.x = -r_2.x$
+\State $m_1.x \gets 1- r_2.x$
+%\EndIf
+\Else \textbf{ if} {$r_2.x + m_1.x < 0$}  \textbf{then}
+\State $m_1.x \gets -r_2.x$
 \EndIf
 \Else 
 \State $m_1 = (0, 1-r_1.y)$
@@ -109,13 +117,14 @@ $m_1$ is the first move toward the wall or goal.
 %\State $\Delta g_x = r_2.x - r_1.x - 1 + 2 \epsilon
 \EndIf
 \State $moves \gets \{ moves,   m_1\}$
-\State $r_1 = r_1 + m_1$ \textbf{and} $r_2 = r_2 + m_1$
-\State $m_2 = \Delta g -  (r_2- r_1)$
-\If {robots on each other or on the wall}
-\State Add $\pm \epsilon$ to $m_2.x$
+\State $(r_1,r_2) \gets ${\sc ApplyMove}$(m_1,r_1,r_2)$
+\State $m_2 \gets \Delta g -  (r_2- r_1)$
+\If {robots on each other \textbf{or} on the wall}
+\State Add $\pm \epsilon$ to $m_2.x$ to avoid collision
 \EndIf
 \State $moves \gets \{ moves,   m_2\}$
-\State \Return $\{h(moves, r_1,r_2,g_1,g_2), moves\}$
+\State $(r_1,r_2) \gets ${\sc ApplyMove}$(m_2,r_1,r_2)$
+\State \Return $\{h(moves, r_1,r_2,g_1,g_2), moves,r_1,r_2\}$
 \end{algorithmic}
 \end{algorithm}
 
