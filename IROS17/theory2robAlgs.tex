@@ -172,7 +172,7 @@ Online demonstration and source code at \cite{Shahrokhi2015mathematicaParticle}.
 Boundary interaction is used to change the relative positions of the robots. Each robot gets the same control input. 
 (left) If robot 2 hits the bottom wall before robot 1 reaches a wall, robot 2 can reach anywhere along the green line, and  robot 1 can move to anywhere in the shaded area. 
 (right) Similarly, if robot 2 hits the right wall before robot 1 reaches a wall, robot 2 can reach anywhere along the green line, and  robot 1 can move to anywhere in the shaded area. 
-} \vspace{-1em}
+}
 \end{figure}
 If  $\Delta g$ is not in the reachable set, we choose the nearest reachable $\Delta x$ and $\Delta y$ to $\Delta g$. 
 %For simplicity in this step, we choose the straight line from the touching robot to the wall for the first move. This may cause the algorithm not to return the shortest path, but the difference is not significant. 
@@ -308,10 +308,10 @@ The second move cannot be shortened, so optimization depends on choosing the loc
 \put(20, 3.1){{\scriptsize$\swarrow$}~$\epsilon = 0.001$}
 \end{overpic}
 \begin{overpic}[width =\figwid]{epsilonMed.pdf}%\put(20,20){$\epsilon = 0.05$}
-\put(20, 4){{\scriptsize$\updownarrow$}~$\epsilon = 0.05$}
+\put(20, 3.9){{\tiny$\updownarrow$}~$\epsilon = 0.05$}
 \end{overpic}
 \begin{overpic}[width =\figwid]{epsilonMax.pdf}%\put(20,20){$\epsilon = 0.1$}
-\put(20, 5){{\Large$\updownarrow$}~$\epsilon = 0.1$}
+\put(20, 5){{\large$\updownarrow$}~$\epsilon = 0.1$}
 \end{overpic}
 }\\
 \caption{\label{fig:epsilon}{Changing the minimum spacing $\epsilon$ changes the path.   $\epsilon$ is the minimum spacing between two robots and the minimum separation from the boundaries.}
