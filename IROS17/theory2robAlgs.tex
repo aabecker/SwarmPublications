@@ -32,7 +32,7 @@ The reachable sets may change after each move, as shown in  Fig.~\ref{fig:region
 If the goal configuration can be reached in three moves:  $m_1$  makes one particle hit a wall, $m_2$ adjusts the relative spacing error $\Delta e$ to zero, and  $m_3$ takes the particles to their final positions, as shown in Fig. \ref{fig:shapeControlMathematica1}b. 
 $m_2$ cannot be shortened, so optimization depends on choosing the location where the robot hits the wall. 
  Since the shortest distance between two points is a straight line, reflecting the goal position across the boundary wall and plotting a straight line gives the optimal hit location, as shown in Fig. \ref{fig:reflection}.
-That point is selected when possible, but if this point would cause $m_2$ to push the moving robot out of the workspace, the hit point is translated until the moving robot will not leave the workspace.
+That point is selected when possible, but if this point would cause $m_2$ to push the moving robot out of the workspace, the hit point is translated until the moving robot will not leave the workspace. If $m_2$ causes the two particles to overlap, we add or subtract $\epsilon$ to $m_2.x$ to avoid collisions. This is shown in Fig. ~\ref{fig:epsilon} with three different $\epsilon$ values.
 
 If  $\Delta g$ is not in the reachable set, we choose the nearest reachable $\Delta x$ and $\Delta y$ to $\Delta g$. 
 %For simplicity in this step, we choose the straight line from the touching robot to the wall for the first move. This may cause the algorithm not to return the shortest path, but the difference is not significant. 
