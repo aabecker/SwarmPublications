@@ -6,34 +6,6 @@
 Alg.~\ref{alg:optimalAlg} uses wall-friction to arbitrarily position two robots in a rectangular workspace. 
  Fig.~\ref{fig:shapeControlMathematica1} shows a Mathematica implementation of the algorithm, and is useful as a visual reference for the following description.
 
-Assume two robots are initialized at $r_1$ and $r_2$ with corresponding goal destinations $g_1$ and $g_2$. 
-The solution is a best-first search algorithm that maintains a list of possible paths ($moves$), sorted according to an admissible heuristic on path length.
-The algorithm works by expanding the path with the shortest estimated length.
-Expanding a path means either moving directly to the goal, or pushing one robot to a wall and adjusting the relative position of the other robot.
-As soon as the goal is reached, the algorithm returns this shortest path.
-
-Denote the current positions of the robots  $r_1$ and $r_2$. 
-Values $.x$ and $.y$ denote the $x$ and $y$ coordinates, i.e., $r_1.x$ and $r_1.y$ denote the $x$ and $y$ locations of $r_1$. 
-The algorithm assigns a global control input at every instance.
-The goal is to zero the error in both coordinates,
- $\Delta e =(\Delta e.x, \Delta e.y) =\Delta g - \Delta r = (g_2-g_1)- (r_2-r_1)$ using a shared global control input. 
- The base case occurs when $\Delta e = (0,0)$. In this base case, the shortest path is a straight line between current position of each robot to its goal position, as shown in Fig. \ref{fig:shapeControlMathematica1}a.  
-If  $\Delta e\neq (0,0)$, we compute the two-move reachable sets shown in Fig.~\ref{fig:TwoRegions}.
- If a robot is touching a wall, the other robot can move to any position in the reachable set while the first robot is immobile. 
-Two reachable sets are possible, horizontal and vertical. 
-The reachable sets may change after each move, as shown in  Fig.~\ref{fig:regionMove}.
-   
-
- %This algorithm exploits the position-dependent friction model \eqref{eq:frictionmodel}.
- %employing the assumption we have made earlier about the walls' friction. 
-%Our algorithm uses an A*-like method to find the shortest path in each move. 
-%If $(\Delta g.x, \Delta g.y)$ is in the reachable set, one robot touches a wall and the other robot zeros the error in one move. This is shown as $m_2$ in Fig. \ref{fig:reflection}. To find the best place to minimize $m_1$ and $m_3$, the touching robot's goal is reflected on that wall. 
-%The minimum distance to get to the goal in two moves when the robot should touch the wall, is the straight line between the robot and the reflection of the goal position on that wall. 
-If the goal configuration can be reached in three moves:  $m_1$  makes one particle hit a wall, $m_2$ adjusts the relative spacing error $\Delta e$ to zero, and  $m_3$ takes the particles to their final positions, as shown in Fig. \ref{fig:shapeControlMathematica1}b. 
-$m_2$ cannot be shortened, so optimization depends on choosing the location where the robot hits the wall. 
- Since the shortest distance between two points is a straight line, reflecting the goal position across the boundary wall and plotting a straight line gives the optimal hit location, as shown in Fig. \ref{fig:reflection}.
-That point is selected when possible, but if this point would cause $m_2$ to push the moving robot out of the workspace, the hit point is translated until the moving robot will not leave the workspace. If $m_2$ causes the two particles to overlap, we add or subtract $\epsilon$ to $m_2.x$ to avoid collisions. This is shown in Fig. ~\ref{fig:epsilon} with three different $\epsilon$ values.
-
 \begin{figure*}
 \renewcommand{\figwid}{0.4\columnwidth}
 {\begin{overpic}[width =\figwid]{story1mov0.pdf}\put(10,10){Start}
@@ -164,6 +136,35 @@ Online demonstration and source code at \cite{Shahrokhi2015mathematicaParticle}.
 \vspace{-1em}
 }
 \end{figure*}
+Assume two robots are initialized at $r_1$ and $r_2$ with corresponding goal destinations $g_1$ and $g_2$. 
+The solution is a best-first search algorithm that maintains a list of possible paths ($moves$), sorted according to an admissible heuristic on path length.
+The algorithm works by expanding the path with the shortest estimated length.
+Expanding a path means either moving directly to the goal, or pushing one robot to a wall and adjusting the relative position of the other robot.
+As soon as the goal is reached, the algorithm returns this shortest path.
+
+Denote the current positions of the robots  $r_1$ and $r_2$. 
+Values $.x$ and $.y$ denote the $x$ and $y$ coordinates, i.e., $r_1.x$ and $r_1.y$ denote the $x$ and $y$ locations of $r_1$. 
+The algorithm assigns a global control input at every instance.
+The goal is to zero the error in both coordinates,
+ $\Delta e =(\Delta e.x, \Delta e.y) =\Delta g - \Delta r = (g_2-g_1)- (r_2-r_1)$ using a shared global control input. 
+ The base case occurs when $\Delta e = (0,0)$. In this base case, the shortest path is a straight line between current position of each robot to its goal position, as shown in Fig. \ref{fig:shapeControlMathematica1}a.  
+If  $\Delta e\neq (0,0)$, we compute the two-move reachable sets shown in Fig.~\ref{fig:TwoRegions}.
+ If a robot is touching a wall, the other robot can move to any position in the reachable set while the first robot is immobile. 
+Two reachable sets are possible, horizontal and vertical. 
+The reachable sets may change after each move, as shown in  Fig.~\ref{fig:regionMove}.
+   
+
+ %This algorithm exploits the position-dependent friction model \eqref{eq:frictionmodel}.
+ %employing the assumption we have made earlier about the walls' friction. 
+%Our algorithm uses an A*-like method to find the shortest path in each move. 
+%If $(\Delta g.x, \Delta g.y)$ is in the reachable set, one robot touches a wall and the other robot zeros the error in one move. This is shown as $m_2$ in Fig. \ref{fig:reflection}. To find the best place to minimize $m_1$ and $m_3$, the touching robot's goal is reflected on that wall. 
+%The minimum distance to get to the goal in two moves when the robot should touch the wall, is the straight line between the robot and the reflection of the goal position on that wall. 
+If the goal configuration can be reached in three moves:  $m_1$  makes one particle hit a wall, $m_2$ adjusts the relative spacing error $\Delta e$ to zero, and  $m_3$ takes the particles to their final positions, as shown in Fig. \ref{fig:shapeControlMathematica1}b. 
+$m_2$ cannot be shortened, so optimization depends on choosing the location where the robot hits the wall. 
+ Since the shortest distance between two points is a straight line, reflecting the goal position across the boundary wall and plotting a straight line gives the optimal hit location, as shown in Fig. \ref{fig:reflection}.
+That point is selected when possible, but if this point would cause $m_2$ to push the moving robot out of the workspace, the hit point is translated until the moving robot will not leave the workspace. If $m_2$ causes the two particles to overlap, we add or subtract $\epsilon$ to $m_2.x$ to avoid collisions. This is shown in Fig. ~\ref{fig:epsilon} with three different $\epsilon$ values.
+
+
 \begin{figure}
 \centering
 \begin{overpic}[width=0.47\columnwidth]{twoRobotRegionH.pdf}\end{overpic}
@@ -338,8 +339,8 @@ The second move cannot be shortened, so optimization depends on choosing the loc
 \put(97.5,11){3}
 \end{overpic}
 }\\
-\caption{\label{fig:contourPlots}{Starting positions of robots $1$ and $2$ and goal position of robot $2$ are fixed, and 
- the top row of contour plots show the distance if robot $1$'s goal position is varied in $x$ and $y$. The bottom row shows the number of moves required for the same configurations.}
+\caption{\label{fig:contourPlots}{Starting positions of robots $1$ and $2$ and goal position of robot $2$ are fixed, and $\epsilon=0.001$.
+ The top row of contour plots show the distance if robot $1$'s goal position is varied in $x$ and $y$. The bottom row shows the number of moves required for the same configurations.}
 \vspace{-1em}
 }
 \end{figure*}
