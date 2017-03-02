@@ -5,7 +5,7 @@
 The ideas from Alg. \ref{alg:optimalAlg}  can be extended to control the position of $n$ particles using wall friction.
 The solution is complete, but not optimal, and requires the starting and final configurations of particles to be disjoint.
 The solution described here is an iterative procedure with $n$ loops. 
- The $k$th loop moves the $k$th robot from a \emph{staging zone} to the desired position in a \emph{build zone}. 
+ The $k^{th}$ loop moves the $k^{th}$ robot from a \emph{staging zone} to the desired position in a \emph{build zone}. 
   All robots move according to the global input, but due to wall friction, at the end of the $k^{\text{th}}$ loop, robots 1 through $k$ are in their desired final configuration in the build zone, and robots $k+1$ to $n$ are in the staging zone. 
    See Fig.~\ref{fig:simulationNrobot} for a schematic of the build and staging zones.
 
@@ -21,10 +21,10 @@ Illustration of Alg.\ \ref{alg:PosControlNRobots}, $n$ robot position control  u
 
 Assume an open workspace with four axis-aligned walls with infinite friction.
 The axis-aligned build zone of dimension $(w_b, h_b)$ containing the final configuration of $n$ robots must be disjoint from the axis-aligned staging zone of dimension $(w_s, h_s)$  containing the starting configuration of $n$ robots.
- Without loss of generality, assume the build zone  is above the staging zone.  Let $d$ be the diameter the particles.
+ Without loss of generality, assume the build zone  is above the staging zone.  Let $d$ be the diameter of the particles.
 Furthermore, there must be at least $\epsilon$ space above the build zone, $\epsilon$ below the staging zone, and $\epsilon + d$ to the left of the build and staging zone.  The minimum workspace is then $(\epsilon + d + \max(w_b,w_s), 2\epsilon + h_s,h_b)$.
 
-The $n$ robot position control algorithm relies on a $\text{\sc DriftMove}(\alpha, \beta, \epsilon,\theta)$ control input, described in Alg.~\ref{alg:DriftMove} and shown in Fig.\  \ref{fig:driftmove}.
+The $n$ robots position control algorithm relies on a $\text{\sc DriftMove}(\alpha, \beta, \epsilon,\theta)$ control input, described in Alg.~\ref{alg:DriftMove} and shown in Fig.\  \ref{fig:driftmove}.
 For $\theta = 0^\circ$, a drift move consists of repeating a triangular movement sequence $\{ (\beta/2,-\epsilon),(\beta/2,\epsilon),(-\alpha,0)\}$. 
  Any particle touching a top wall moves right $\beta$ units, while every particle not touching the top moves right $\beta-\alpha$.
 
@@ -41,7 +41,7 @@ A  $\text{\sc DriftMove}(\alpha, \beta, \epsilon,0^\circ)$ repeats a triangular 
 \vspace{-1em}
 \end{figure}
 
-Let $(0,0)$ be the lower left corner of the workspace, $p_k$ the $x,y$ position of the $k$th robot, and $f_k$ the final $x,y$ position of the $k$th robot. Label the robots in the staging zone from left-to-right and bottom-to-top, and the $f_k$ configurations top-to-bottom and right-to-left as shown in Fig.~\ref{fig:construction2d}.
+Let $(0,0)$ be the lower left corner of the workspace, $p_k$ the $x,y$ position of the $k^{th}$ robot, and $f_k$ the final $x,y$ position of the $k^{th}$ robot. Label the robots in the staging zone from left-to-right and bottom-to-top, and the $f_k$ configurations top-to-bottom and right-to-left as shown in Fig.~\ref{fig:construction2d}.
 
 \begin{algorithm}
 \caption{PositionControl$n$RobotsUsingWallFriction($k$)}\label{alg:PosControlNRobots}
@@ -100,7 +100,7 @@ Underneath the cardboard, a grid of 3mm diameter magnets glued with 1 cm spacing
 This discretized setup requires several modifications to Alg.~\ref{alg:PosControlNRobots}.
  In this demonstration, all moves are 1 cm in length.
    All drift moves are an counterclockwise \emph{square} move  of size 1 cm$\times$1 cm. 
-   Once the $k$th roller gets to its designated location in each loop, a correction step is implemented. 
+   Once the $k^{th}$ roller gets to its designated location in each loop, a correction step is implemented. 
    This correction step increases by two the total number of moves required per particle.
    Fig.~\ref{fig:simulationNrobot} shows there are only 6 stages per particle involved in Alg.~\ref{alg:PosControlNRobots}.
 The fixed step algorithm requires 8 stages per particle as shown in Fig.~\ref{fig:construction2d}. 

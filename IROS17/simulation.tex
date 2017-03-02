@@ -10,7 +10,7 @@ Algorithm \ref{alg:optimalAlg}  was implemented in Mathematica using point robot
   Fig.~\ref{fig:shapeControlMathematica1}  shows  an implementation of this algorithm with robot initial positions represented by hollow squares and final positions by circles. 
  Dashed lines show the shortest route if robots could be controlled independently, while solid lines show the optimal shortest  path using uniform inputs.
  
- The contour plots in Fig.~\ref{fig:contourPlots} top row show the length of the shortest path for given $s_1,s_2,g_1$ with $g_2$ ranging over all the workspace.  This plot clearly shows the nonlinear nature of the path planning, with multiple isolate islands showing regions that are difficult to reach. 
+ The contour plots in Fig.~\ref{fig:contourPlots} top row show the length of the shortest path for given $s_1,s_2,g_1$ with $g_2$ ranging over all the workspace.  This plot clearly shows the nonlinear nature of the path planning, with multiple isolated islands showing regions that are difficult to reach. 
  If the length of each side of the square workspace is $L$, the worst case path length is $(\sqrt{2}+2)L$.
  
  The contour plots in Fig.~\ref{fig:contourPlots} bottom row show the same configurations, but plot the required number of moves.  There is never more than one $g_2$ position reachable in one move.  
