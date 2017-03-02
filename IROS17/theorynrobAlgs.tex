@@ -82,8 +82,8 @@ particles touching the wall move $\beta$ units, while particles not touching the
 
 
 Alg. \ref{alg:PosControlNRobots} proceeds as follows:  
-First, the robots are moved left away from the right wall, and down so all robots in $k$'s row touch the bottom wall.
-Second, a set of $\operatorname{DriftMove}$s are executed that move all robots in $k$'s row left until $k$ touches the left wall, with no net movement of the other robots.
+First, the robots are moved left away from the right wall, and down so all robots in $k^{th}$ row touch the bottom wall.
+Second, a set of $\operatorname{DriftMove}$s are executed that move all robots in $k^{th}$ row left until $k$ touches the left wall, with no net movement of the other robots.
 Third, a set of $\operatorname{DriftMove}$s are executed that move only robot $k$ to its target height and return the other robots to their initial heights. 
 Fourth, all robots except robot $k$ are pushed left until robot $k$ is in the correct relative $x$ position compared to robots 1 to $k-1$.
 Finally, all robots are moved right until robot $k$ is in the desired target position. Running time is $O(n(w+h))$.
