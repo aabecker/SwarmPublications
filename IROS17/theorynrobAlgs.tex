@@ -5,7 +5,7 @@
 The ideas from Alg. \ref{alg:optimalAlg}  can be extended to control the position of $n$ particles using wall friction.
 The solution is complete, but not optimal, and requires the starting and final configurations of particles to be disjoint.
 The solution described here is an iterative procedure with $n$ loops. 
- The $k^{th}$ loop moves the $k^{th}$ robot from a \emph{staging zone} to the desired position in a \emph{build zone}. 
+ The $k^{\text{th}}$ loop moves the $k^{\text{th}}$ robot from a \emph{staging zone} to the desired position in a \emph{build zone}. 
   All robots move according to the global input, but due to wall friction, at the end of the $k^{\text{th}}$ loop, robots 1 through $k$ are in their desired final configuration in the build zone, and robots $k+1$ to $n$ are in the staging zone. 
    See Fig.~\ref{fig:simulationNrobot} for a schematic of the build and staging zones.
 
@@ -41,7 +41,7 @@ A  $\text{\sc DriftMove}(\alpha, \beta, \epsilon,0^\circ)$ repeats a triangular 
 \vspace{-1em}
 \end{figure}
 
-Let $(0,0)$ be the lower left corner of the workspace, $p_k$ the $x,y$ position of the $k^{th}$ robot, and $f_k$ the final $x,y$ position of the $k^{th}$ robot. Label the robots in the staging zone from left-to-right and bottom-to-top, and the $f_k$ configurations top-to-bottom and right-to-left as shown in Fig.~\ref{fig:construction2d}.
+Let $(0,0)$ be the lower left corner of the workspace, $p_k$ the $x,y$ position of the $k^{\text{th}}$ robot, and $f_k$ the final $x,y$ position of the $k^{\text{th}}$ robot. Label the robots in the staging zone from left-to-right and bottom-to-top, and the $f_k$ configurations top-to-bottom and right-to-left as shown in Fig.~\ref{fig:construction2d}.
 
 \begin{algorithm}
 \caption{PositionControl$n$RobotsUsingWallFriction($k$)}\label{alg:PosControlNRobots}
@@ -82,8 +82,8 @@ particles touching the wall move $\beta$ units, while particles not touching the
 
 
 Alg. \ref{alg:PosControlNRobots} proceeds as follows:  
-First, the robots are moved left away from the right wall, and down so all robots in $k^{th}$ row touch the bottom wall.
-Second, a set of $\operatorname{DriftMove}$s are executed that move all robots in $k^{th}$ row left until $k$ touches the left wall, with no net movement of the other robots.
+First, the robots are moved left away from the right wall, and down so all robots in $k^{\text{th}}$ row touch the bottom wall.
+Second, a set of $\operatorname{DriftMove}$s are executed that move all robots in $k^{\text{th}}$ row left until $k$ touches the left wall, with no net movement of the other robots.
 Third, a set of $\operatorname{DriftMove}$s are executed that move only robot $k$ to its target height and return the other robots to their initial heights. 
 Fourth, all robots except robot $k$ are pushed left until robot $k$ is in the correct relative $x$ position compared to robots 1 to $k-1$.
 Finally, all robots are moved right until robot $k$ is in the desired target position. Running time is $O(n(w+h))$.
@@ -100,7 +100,7 @@ Underneath the cardboard, a grid of 3mm diameter magnets glued with 1 cm spacing
 This discretized setup requires several modifications to Alg.~\ref{alg:PosControlNRobots}.
  In this demonstration, all moves are 1 cm in length.
    All drift moves are an counterclockwise \emph{square} move  of size 1 cm$\times$1 cm. 
-   Once the $k^{th}$ roller gets to its designated location in each loop, a correction step is implemented. 
+   Once the $k^{\text{th}}$ roller gets to its designated location in each loop, a correction step is implemented. 
    This correction step increases by two the total number of moves required per particle.
    Fig.~\ref{fig:simulationNrobot} shows there are only 6 stages per particle involved in Alg.~\ref{alg:PosControlNRobots}.
 The fixed step algorithm requires 8 stages per particle as shown in Fig.~\ref{fig:construction2d}. 
