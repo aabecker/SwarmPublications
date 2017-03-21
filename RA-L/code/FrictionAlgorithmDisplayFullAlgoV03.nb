@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[    197467,       4546]
-NotebookOptionsPosition[    195132,       4465]
-NotebookOutlinePosition[    195490,       4481]
-CellTagsIndexPosition[    195447,       4478]
+NotebookDataLength[    197370,       4540]
+NotebookOptionsPosition[    195035,       4459]
+NotebookOutlinePosition[    195393,       4475]
+CellTagsIndexPosition[    195350,       4472]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -2427,16 +2427,11 @@ Cell[BoxData[
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`e1$$ = {
-     Rational[2, 3], 
-     Rational[1, 2]}, $CellContext`e2$$ = {
-     Rational[1, 2], 
-     Rational[2, 3]}, $CellContext`progress$$ = 1, $CellContext`s1$$ = {
-     Rational[3, 4], 
-     Rational[1, 5]}, $CellContext`s2$$ = {
-     Rational[1, 4], 
-     Rational[4, 5]}, $CellContext`\[Epsilon]$$ = Rational[1, 1000], 
-    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+   DynamicModuleBox[{$CellContext`e1$$ = {0.3075, 
+    0.49600000000000005`}, $CellContext`e2$$ = {0.3985, 
+    0.554}, $CellContext`progress$$ = 1, $CellContext`s1$$ = {0.75, 
+    0.2}, $CellContext`s2$$ = {0.25, 0.8}, $CellContext`\[Epsilon]$$ = 
+    Rational[7, 200], Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
     Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
     1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
        Hold[$CellContext`progress$$], 1, "progress"}, 0, 1, 
@@ -2551,7 +2546,6 @@ $CellContext`s1$$, $CellContext`e1$$}]; $CellContext`rotateSolution$ =
 $CellContext`pe2$} = 
             Map[$CellContext`RotateCCW90, {$CellContext`ps1$, \
 $CellContext`pe1$, $CellContext`ps2$, $CellContext`pe2$}]; True, 
-           
            False]; {$CellContext`path$, $CellContext`path1$, \
 $CellContext`path2$} = $CellContext`achieveDesiredSpacing[$CellContext`ps1$, \
 $CellContext`ps2$, $CellContext`pe1$, $CellContext`pe2$, $CellContext`\
@@ -2609,8 +2603,8 @@ $CellContext`path2$ = Map[$CellContext`RotateCW90, $CellContext`path2$];
               Thickness[$CellContext`thickness$]]], 
             FaceForm[None], 
             
-            Rectangle[$CellContext`ps1$ - (2/3) $CellContext`r$ {1, 
-              1}, $CellContext`ps1$ + (2/3) $CellContext`r$ {1, 1}], 
+            Rectangle[$CellContext`ps1$ - ((2/3) $CellContext`r$) {1, 
+              1}, $CellContext`ps1$ + ((2/3) $CellContext`r$) {1, 1}], 
             Circle[$CellContext`pe1$, $CellContext`r$]}, {$CellContext`c2$, {
              Opacity[0.3], Dashed, 
              Arrow[{$CellContext`ps2$, $CellContext`pe2$}]}, 
@@ -2620,8 +2614,8 @@ $CellContext`path2$ = Map[$CellContext`RotateCW90, $CellContext`path2$];
               Thickness[$CellContext`thickness$]]], 
             FaceForm[None], 
             
-            Rectangle[$CellContext`ps2$ - (2/3) $CellContext`r$ {1, 
-              1}, $CellContext`ps2$ + (2/3) $CellContext`r$ {1, 1}], 
+            Rectangle[$CellContext`ps2$ - ((2/3) $CellContext`r$) {1, 
+              1}, $CellContext`ps2$ + ((2/3) $CellContext`r$) {1, 1}], 
             Circle[$CellContext`pe2$, $CellContext`r$]}, {$CellContext`c1$, 
             Table[
              Arrow[{
@@ -2771,8 +2765,8 @@ $CellContext`ps1; AppendTo[$CellContext`moves, $CellContext`\[CapitalDelta]r];
             0, $CellContext`\[CapitalDelta]ey - (Part[$CellContext`ps2, 2] - 
              Part[$CellContext`ps1, 2]) > 0], 
            Module[{$CellContext`BestDir}, $CellContext`BestDir = Part[
-               
-               Sort[{{"u", (Part[$CellContext`pe1, 1] - 
+               Sort[{{
+                 "u", (Part[$CellContext`pe1, 1] - 
                     Part[$CellContext`ps1, 1])^2 + (2 $CellContext`L - 
                     Part[$CellContext`pe1, 2] - 
                     Part[$CellContext`ps1, 
@@ -4488,58 +4482,58 @@ Cell[2342, 62, 58543, 1267, 2148, "Input",
 Cell[CellGroupData[{
 Cell[60910, 1333, 50338, 1091, 1730, "Input",
  InitializationCell->True],
-Cell[111251, 2426, 30549, 596, 566, "Output"]
+Cell[111251, 2426, 30452, 590, 532, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[141837, 3027, 359, 10, 35, "Input"],
-Cell[142199, 3039, 254, 3, 28, "Output"]
+Cell[141740, 3021, 359, 10, 35, "Input"],
+Cell[142102, 3033, 254, 3, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[142490, 3047, 213, 3, 28, "Input"],
-Cell[142706, 3052, 365, 6, 28, "Output"]
+Cell[142393, 3041, 213, 3, 28, "Input"],
+Cell[142609, 3046, 365, 6, 28, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[143120, 3064, 100, 1, 44, "Subsection"],
+Cell[143023, 3058, 100, 1, 44, "Subsection"],
 Cell[CellGroupData[{
-Cell[143245, 3069, 30, 0, 28, "Input"],
-Cell[143278, 3071, 855, 31, 48, "Output"]
+Cell[143148, 3063, 30, 0, 28, "Input"],
+Cell[143181, 3065, 855, 31, 48, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[144170, 3107, 182, 3, 28, "Input"],
-Cell[144355, 3112, 184, 5, 48, "Output"]
+Cell[144073, 3101, 182, 3, 28, "Input"],
+Cell[144258, 3106, 184, 5, 48, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[144576, 3122, 157, 3, 28, "Input"],
-Cell[144736, 3127, 770, 28, 48, "Output"]
+Cell[144479, 3116, 157, 3, 28, "Input"],
+Cell[144639, 3121, 770, 28, 48, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[145543, 3160, 364, 10, 46, "Input"],
-Cell[145910, 3172, 547, 19, 48, "Output"],
-Cell[146460, 3193, 549, 19, 48, "Output"]
+Cell[145446, 3154, 364, 10, 46, "Input"],
+Cell[145813, 3166, 547, 19, 48, "Output"],
+Cell[146363, 3187, 549, 19, 48, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[147046, 3217, 978, 30, 97, "Input"],
-Cell[148027, 3249, 2213, 78, 86, "Output"]
+Cell[146949, 3211, 978, 30, 97, "Input"],
+Cell[147930, 3243, 2213, 78, 86, "Output"]
 }, Open  ]],
-Cell[150255, 3330, 2393, 70, 90, "Input"],
+Cell[150158, 3324, 2393, 70, 90, "Input"],
 Cell[CellGroupData[{
-Cell[152673, 3404, 1341, 39, 35, "Input"],
-Cell[154017, 3445, 586, 12, 24, "Message"],
-Cell[154606, 3459, 585, 12, 24, "Message"],
-Cell[155194, 3473, 586, 12, 24, "Message"],
-Cell[155783, 3487, 605, 12, 24, "Message"],
-Cell[156391, 3501, 795, 23, 28, "Output"]
+Cell[152576, 3398, 1341, 39, 35, "Input"],
+Cell[153920, 3439, 586, 12, 24, "Message"],
+Cell[154509, 3453, 585, 12, 24, "Message"],
+Cell[155097, 3467, 586, 12, 24, "Message"],
+Cell[155686, 3481, 605, 12, 24, "Message"],
+Cell[156294, 3495, 795, 23, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[157223, 3529, 18578, 456, 688, "Input"],
-Cell[175804, 3987, 558, 12, 24, "Message"],
-Cell[176365, 4001, 560, 12, 24, "Message"],
-Cell[176928, 4015, 558, 12, 24, "Message"],
-Cell[177489, 4029, 577, 12, 24, "Message"],
-Cell[178069, 4043, 707, 21, 35, "Output"]
+Cell[157126, 3523, 18578, 456, 688, "Input"],
+Cell[175707, 3981, 558, 12, 24, "Message"],
+Cell[176268, 3995, 560, 12, 24, "Message"],
+Cell[176831, 4009, 558, 12, 24, "Message"],
+Cell[177392, 4023, 577, 12, 24, "Message"],
+Cell[177972, 4037, 707, 21, 35, "Output"]
 }, Open  ]],
-Cell[178791, 4067, 16325, 395, 655, "Input"]
+Cell[178694, 4061, 16325, 395, 655, "Input"]
 }, Closed]]
 }
 ]
