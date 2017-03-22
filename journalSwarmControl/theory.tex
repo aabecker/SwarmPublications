@@ -261,7 +261,7 @@ If robots with radius $r$ are in a bounded environment with sides of length $[\e
 % Sloan minimized second moment U = 1/d^2 \sum_{i=1}^{n} || P_i - P ||^2 = (\sqrt{3} n^2)/(4 \pi), where d = 2r.
 % Therefore the variance is d^2 (\sqrt{3} n^2)/(4 \pi), or 4^r^2 (\sqrt{3} n^2)/(4 \pi) = r^2 (\sqrt{3} n^2)/(\pi)If we only need to reduce variance in a single axis, the variance can be reduced to zero, given sufficient space.
 
-We will prove the origin is globally asymptotically stabilizable by using a control-Lyapunov function, as in \citet{Lyapunov1992}.  A suitable Lyapunov function is the squared variance error:
+We will prove the origin is globally asymptotically stabilizable by using a control-Lyapunov function, as in \cite{Lyapunov1992}.  A suitable Lyapunov function is the squared variance error:
 \begin{align}
 \label{eq:LyapunovVariance}
 V(t,\bf{x})  &= \frac{1}{2} (\sigma^2(\mathbf{x}) - \sigma^2_{goal})^2\nonumber\\

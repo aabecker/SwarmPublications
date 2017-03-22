@@ -19,7 +19,7 @@ We developed a flexible testing framework for online human-swarm interaction stu
 %There are two halves to our framework: the server backend and the client-side (in-browser) frontend. The server backend is responsible for tabulating results, serving webpages containing the frontend code, and for issuing unique identifiers to each experiment participant. The in-browser frontend is responsible for running an experiment---that is to say, accepting user input, updating the state of the robot swarm, and ultimately evaluating task completion.
 
 %% wherein we outline the process that a user takes to participate in an experiment
-\subsection{Methods}
+%\subsection{Methods}
 
 %\paragraph{Overview}
 
@@ -30,7 +30,7 @@ This identifier is stored as a browser cookie and is attached to all results the
 A script on the participant's browser runs the experiment and posts the experiment data to the server. 
 %The participant is then given the option of playing again or trying a different experiment.
 
-A participant may view all of the experimental data we have gathered; this information is available as either a webpage, a JSON file, or a comma-separated value file.
+%A participant may view all of the experimental data we have gathered; this information is available as either a webpage, a JSON file, or a comma-separated value file.
 
 %% wherein we preach the good word of Ruby and describe what the backend actually does
 %\paragraph{Backend}
@@ -54,13 +54,13 @@ A participant may view all of the experimental data we have gathered; this infor
 %\dot{x}_i = u_x,  \qquad  \dot{y}_i = u_y.
 %\end{align}
 
-During the {\bf instantiation} phase, an experiment sets up the web page elements with help text and other information, and creates the obstacles, robots, and workpieces that will be present during the experiment. It will also randomly select which mode to run in, if applicable.
+%During the {\bf instantiation} phase, an experiment sets up the web page elements with help text and other information, and creates the obstacles, particles, and workpieces that will be present during the experiment. It will also randomly select which mode to run in, if applicable.
 
-During the {\bf simulation} phase the robots are moved according to user input and given a chance to interact with each other and the environment. The current state of the experiment is then drawn.
+%During the {\bf simulation} phase the robots are moved according to user input and given a chance to interact with each other and the environment. The current state of the experiment is then drawn.
 
-In the {\bf evaluation} phase the experiment's completion criteria are applied to the current experiment state: are the robots in the goal zone, are the workpieces in the correct place, and so forth. If the criteria are not met, the experiment repeats the simulation phase; if they are met, then the experiment proceeds to result submission.
+%In the {\bf evaluation} phase the experiment's completion criteria are applied to the current experiment state: are the robots in the goal zone, are the workpieces in the correct place, and so forth. If the criteria are not met, the experiment repeats the simulation phase; if they are met, then the experiment proceeds to result submission.
 
-In the {\bf submission} phase experiment results are combined with other user data and submitted to the server for collection.
+%In the {\bf submission} phase experiment results are combined with other user data and submitted to the server for collection.
 Anonymized human subject data was collected under IRB \#14357-01.
 
 %As a means of encouraging user interaction, the results of other runs of the experiment are shown to the participant after submission along with merit badges displaying the number of experiments completed.

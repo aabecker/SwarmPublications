@@ -4,28 +4,44 @@
 
 %Micro- and nanorobotics have the potential to revolutionize many applications including targeted material delivery, assembly, and surgery.  The same properties that promise breakthrough solutions---small size and large populations---present unique challenges to generating controlled motion.  
 Large populations of micro- and nanorobots are being produced in laboratories around the world, with diverse potential applications in drug delivery and construction, see \cite{Peyer2013,Shirai2005,Chiang2011}. These activities require robots that behave intelligently.
-Limited computation and communication rules out autonomous operation or direct control over individual units; instead we must rely on global control signals broadcast to the entire robot population.  Additionally, many promising applications will require direct human control, but user interfaces to thousands---or millions---of robots is a daunting human-swarm interaction (HSI) challenge. 
+Limited computation and communication rules out autonomous operation or direct control over individual units; instead we must rely on global control signals broadcast to the entire particle population.  Additionally, many promising applications will require direct human control, but user interfaces to thousands---or millions---of particles is a daunting human-swarm interaction (HSI) challenge. 
 
-Our previous work with over a hundred hardware robots and thousands of simulated robots demonstrated that direct human control of large swarms is possible, \cite{Becker2013b}. 
+Our previous work with over a hundred hardware robots and thousands of simulated particles demonstrated that direct human control of large swarms is possible, \cite{Becker2013b}. 
 Unfortunately, the logistical challenges of repeated experiments with over one hundred robots prevented large-scale tests. 
 There is currently no comprehensive understanding of user interfaces for controlling multi-robot systems with massive populations.  
 This paper presents a tool for investigating HSI methods through statistically significant numbers of experiments.  
 
+
 \begin{figure}
 \centering
+%\begin{overpic}[height=6cm]{CompleteMazeDescription.pdf}\end{overpic}
+\begin{overpic}[width=\columnwidth]{MainExpFig.pdf}\end{overpic}
+%\todo{I like the 'target' symbol, but it is not self-documenting.  We need a legend explaining the min and max variance ellipses, the goal region, the variance, the mean, the object COM, and the target mean position.  I think these are easiest to make in powerpoint.
+%Please use the same color and line style for the variance min and max as you use in Figure 4.
+%}
+%{blockpushingImageWithMeanAndVarianceOverlay.png}
+\caption{\label{fig:bigPictureMeanAndVarianceForSwarm} A swarm of particles, all controlled by a uniform force field, can be effectively controlled by a hybrid controller that knows only the mean and variance of the robot distribution.  Here a swarm of particles pushes a green hexagon toward the goal 
+%Simulation at left, screen capture from hardware experiment at right. 
+(see also Extension 2).}
+\end{figure}
+
+
+\begin{figure}
+%\centering
 \renewcommand{\figwid}{0.3\columnwidth}
 \begin{overpic}[width =\figwid]{VaryNum.pdf}	\put(10,80){\textbf{a} }\end{overpic}~
 \begin{overpic}[width =\figwid]{VaryVisMV.pdf}	\put(10,80){\textbf{b} }\end{overpic}~
 \begin{overpic}[width =\figwid]{VaryNoise.pdf}	\put(10,80){\textbf{c} }\end{overpic}\\
+\\
 \begin{overpic}[width =\figwid]{ControlPos.pdf}	\put(10,80){\textbf{d} }\end{overpic}~
 \begin{overpic}[width =\figwid]{VaryControl.pdf}	\put(10,80){\textbf{e} }\end{overpic}~
 \begin{overpic}[width =\figwid]{VaryForage.pdf}	\put(10,80){\textbf{f} }\end{overpic}
 \caption{\label{fig:5experiments}
-Screenshots from our online experiments controlling multi-robot systems with limited, global control.
-\textbf{(a)} Varying the number of robots from 1-500
+Screenshots from our online experiments controlling multi-particle systems with limited, global control.
+\textbf{(a)} Varying the number of particles from 1-500
 \textbf{(b)} Comparing 4 levels of visual feedback 
 \textbf{(c)} Varying noise from 0 to 200\% of control authority
-\textbf{(d)} Controlling the position of 1 to 10 robots
+\textbf{(d)} Controlling the position of 1 to 10 particles
 \textbf{(e)} Comparing 3 control architectures to assemble
 \textbf{(f)} Comparing 3 control architectures to forage.
 }
@@ -67,30 +83,19 @@ Screenshots from our online experiments controlling multi-robot systems with lim
 
 The goal was to test several scenarios involving large-scale human-swarm interaction (HSI), and to do so with a statistically-significant sample size. Towards this end, we created \href{http://www.swarmcontrol.net/show_results}{SwarmControl.net}, an open-source, online testing platform suitable for inexpensive deployment and data collection on a scale not yet seen in swarm robotics research. Screenshots from this platform are shown in Fig.~\ref{fig:5experiments}.  \href{https://github.com/crertel/swarmmanipulate.git}{All code} \href{http://www.swarmcontrol.net/show_results}{and experimental results} are online at \cite{Chris-Ertel2016}.
 
-Our online experiments show that numerous simple robots responding to global control inputs are directly controllable by a human operator without special training, that the visual feedback of the swarm state should be simple to increase task performance, and that humans perform swarm-object manipulation faster using attractive control schemes than repulsive control schemes.
+Our online experiments show that numerous particles responding to global control inputs are directly controllable by a human operator without special training, that the visual feedback of the swarm state should be simple to increase task performance, and that humans perform swarm-object manipulation faster using attractive control schemes than repulsive control schemes.
 
 %Inspired by our online experiments, because it is not always possible to gather pose information on each robot for feedback control and
 %It is not always practical to gather pose information on individual robots for feedback control; the robots might be difficult or impossible to sense individually due to their size and location. However, it is often possible to sense global properties of the group, such as mean position and density.
-Often robots are difficult or impossible to sense individually due to their size and location. 
+Often particles are difficult or impossible to sense individually due to their size and location. 
 For example, microrobots are smaller than the minimum resolution of a clinical MRI-scanner, see \cite{martel2014computer}, however it is often possible to sense global properties of the group, such as mean position and variance. 
-To make progress in automatic control with global inputs, this paper presents swarm manipulation controllers, inspired by our online experiments, that require only mean and variance measurements of the robot's positions.  
+To make progress in automatic control with global inputs, this paper presents swarm manipulation controllers, inspired by our online experiments, that require only mean and variance measurements of the particle's positions.  
 These controllers are used as primitives to perform the object manipulation task illustrated in Fig.~\ref{fig:bigPictureMeanAndVarianceForSwarm}.
 
-\begin{figure}
-\centering
-%\begin{overpic}[height=6cm]{CompleteMazeDescription.pdf}\end{overpic}
-\begin{overpic}[width=\columnwidth]{MainExpFig.pdf}\end{overpic}
-%\todo{I like the 'target' symbol, but it is not self-documenting.  We need a legend explaining the min and max variance ellipses, the goal region, the variance, the mean, the object COM, and the target mean position.  I think these are easiest to make in powerpoint.
-%Please use the same color and line style for the variance min and max as you use in Figure 4.
-%}
-%{blockpushingImageWithMeanAndVarianceOverlay.png}
-\caption{\label{fig:bigPictureMeanAndVarianceForSwarm} A swarm of robots, all controlled by a uniform force field, can be effectively controlled by a hybrid controller that knows only the mean and variance of the robot distribution.  Here a swarm of robots pushes a green hexagon toward the goal 
-%Simulation at left, screen capture from hardware experiment at right. 
-(see also Extension 2).}
-\end{figure}
+
  %function and implementation function
 
- Our paper is organized as follows.  After a discussion of related work in \S \ref{sec:RelatedWork},  we describe our experimental methods for an online human-user experiment in \S \ref{sec:expMethods}. We report the results of our online experiments in \S \ref{sec:expResults}. Inspired by these results, we prove that the mean and variance of a robot swarm are controllable in \S \ref{sec:theory}, and present automatic controllers in \S \ref{sec:simulation}. We use these controllers as primitives and present a framework for manipulating an object through a maze in \S \ref{sec:exp}. 
+ Our paper is organized as follows.  After a discussion of related work in \S \ref{sec:RelatedWork},  we describe our experimental methods for an online human-user experiment in \S \ref{sec:expMethods}. We report the results of our online experiments in \S \ref{sec:expResults}. Inspired by these results, we prove that the mean and variance of a particle swarm are controllable in \S \ref{sec:theory}, and present automatic controllers in \S \ref{sec:simulation}. We use these controllers as primitives and present a framework for manipulating an object through a maze in \S \ref{sec:exp}. 
  We conclude with implementations of these controllers in our hardware robots and use them to complete an object manipulation task with 100 kilobots in \S \ref{sec:realExperiment}.
  
  This paper is the synthesis of two preliminary conference papers.  \cite{swarmcontrol2013} covered the first three months of SwarmControl.net experiments, and \cite{ShahrokhiIROS2015} presented simulations of object manipulation.  This paper presents the final results from SwarmControl.net.  All hardware validation experiments are new.
