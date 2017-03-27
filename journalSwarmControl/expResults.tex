@@ -20,7 +20,8 @@ We designed six experiments to investigate human control of large swarms for man
 
 
 
-Transport of goods and materials between points is at the heart of all engineering and construction in real-world systems. This experiment varied from 1 to 500 the population of particles used to transport an object. The total area, maximum particle speed, and total net force the swarm could produce were constant. The particles pushed a large hexagonal object through an  {\sffamily S}-shaped maze. We hypothesized participants would complete the task faster with more particles. The results, shown in Fig.~\ref{fig:ResVaryNu}, do not support our hypothesis, indicating a minimum around 130 particles.
+%Transport of goods and materials between points is at the heart of all engineering and construction in real-world systems. 
+This experiment varied from 1 to 500 the population of particles used to transport an object. The total area, maximum particle speed, and total net force the swarm could produce were constant. The particles pushed a large hexagonal object through an  {\sffamily S}-shaped maze. We hypothesized participants would complete the task faster with more particles. The results, shown in Fig.~\ref{fig:ResVaryNu}, do not support our hypothesis, indicating a minimum around 130 particles.
 
 
 
@@ -48,7 +49,10 @@ Transport of goods and materials between points is at the heart of all engineeri
 }
 \end{figure}
 
-Sensing is expensive, especially on the nanoscale. To see nanocars~\cite{Chiang2011} fastened molecules that fluoresce light when activated by a strong light source. Unfortunately, multiple exposures can destroy these molecules, a process called \emph{photobleaching}. Photobleaching can be minimized by lowering the excitation light intensity, but \cite{Cazes2001} showed this increases the probability of missed detections.  This experiment explores manipulation with varying amounts of sensing information: {\bf full-state} sensing provides the most information by showing the position of all particles; {\bf convex-hull} draws a convex hull around the outermost particles; {\bf mean} provides the average position of the population; and {\bf mean + variance} adds a confidence ellipse. Fig.~\ref{fig:Visualization} shows screenshots of the same particle swarm with each type of visual feedback. Full-state requires $2n$ data points for $n$ particles. Convex-hull requires at worst $2n$, but according to \cite{har2011expected}, the expected number is $O(2 n^{1/3})$.  Mean requires two, and variance three, data points.  Mean and mean + variance are convenient even with millions of particles. 
+%Sensing is expensive, especially on the nanoscale. To see nanocars~\cite{Chiang2011} fastened molecules that fluoresce light when activated by a strong light source. 
+%Unfortunately, multiple exposures can destroy these molecules, a process called \emph{photobleaching}. 
+%Photobleaching can be minimized by lowering the excitation light intensity, but \cite{Cazes2001} showed this increases the probability of missed detections.  
+This experiment explores manipulation with varying amounts of sensing information: {\bf full-state} sensing provides the most information by showing the position of all particles; {\bf convex-hull} draws a convex hull around the outermost particles; {\bf mean} provides the average position of the population; and {\bf mean + variance} adds a confidence ellipse. Fig.~\ref{fig:Visualization} shows screenshots of the same particle swarm with each type of visual feedback. Full-state requires $2n$ data points for $n$ particles. Convex-hull requires at worst $2n$, but according to \cite{har2011expected}, the expected number is $O(2 n^{1/3})$.  Mean requires two, and variance three, data points.  Mean and mean + variance are convenient even with millions of particles. 
 
 %\begin{figure}[b!]
 %\renewcommand{\figwid}{0.5\columnwidth}
@@ -84,8 +88,9 @@ Anecdotal evidence from beta-testers who played the game suggests that tracking 
 %obscuring what the rest of the swarm is doing.   
 
 \paragraph{Varying noise:}
-Micro-particles are affected by random collisions with molecules. The effect of these collisions is called Brownian motion.
-This experiment varied the strength of these disturbances to study how noise affects human control of large swarms. Noise was applied at every timestep:
+%Micro-particles are affected by random collisions with molecules. The effect of these collisions is called Brownian motion.
+This experiment varied the strength of %these 
+disturbances to study how noise affects human control of large swarms. Noise was applied at every timestep:
 \begin{align*}
 \dot{x}_i &= u_x + m_i\cos(\psi_i)\\
  \dot{y}_i &= u_y + m_i\sin(\psi_i).
