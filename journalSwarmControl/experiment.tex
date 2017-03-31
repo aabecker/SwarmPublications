@@ -3,12 +3,12 @@
 \section{Object manipulation results}\label{sec:exp}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This section analyzes an \emph{object manipulation} task attempted by our hybrid, hysteresis-based controllers, inspired by the analysis of human users in \S \ref{sec:expResults}.  
-The swarm must deliver the object to the goal region.  To solve this object manipulation task, we divide the task into two components: designing a policy for the object, and designing a control law for the swarm to push the object according to the policy.
+This section analyzes an \emph{object manipulation} task attempted by our hybrid, hysteresis-based controllers.%, inspired by the analysis of human users in \S \ref{sec:expResults}.  
+The swarm must deliver the object to the goal region.  To solve this object manipulation task we divide the task into two components: designing a policy for the object, and designing a control law for the swarm to push the object according to the policy.
 
 \subsection{Learning a policy for the object}\label{subsec:objectpolicy}
 
-To design the policy, we first discretize the environment. 
+To design the policy we first discretize the environment. 
 In \cite{ShahrokhiIROS2015}, we used breadth-first search (BFS) on this discretized grid to determine $\mathbf{M}_{BFS}$, the shortest distance from any grid cell to the goal, and generated a gradient map $\nabla \mathbf{M}$  shown in Fig.~\ref{fig:BFSGradient}.  
 The object's center of mass is at $\mathbf{b}$ and has average radius $r_b$, so we define the desired direction for the object as $\mathbf{D}(\mathbf{b}) = \nabla \mathbf{M}(\mathbf{b})$. 
 The robots were directed behind the object at  $\mathbf{b} - 1.5 r_b \mathbf{D}(\mathbf{b})$, then directed to  $\mathbf{b} - 0.1 r_b \mathbf{D}(\mathbf{b})$ to push the object toward the goal location. 
@@ -225,7 +225,7 @@ Each shape was designed to have the same mass and area.
 \begin{overpic}[width =\figwid]{SimVeryShape.pdf}\put(1,55){d)}
 \end{overpic}
 \vspace{-0.5em}
-\caption{\label{fig:AutoVeryParam}Parameter sweep for a) number of robots, b) different noise values, c) object weight, and d) object shape.  Each bar is labelled with the number of trials. Completion time is in seconds.
+\caption{\label{fig:AutoVeryParam}Parameter sweep simulation studies for a) number of robots, b) different noise values, c) object weight, and d) object shape.  Each bar is labelled with the number of trials. Completion time is in seconds.
 %\vspace{-2em}
 }
 \end{figure*}

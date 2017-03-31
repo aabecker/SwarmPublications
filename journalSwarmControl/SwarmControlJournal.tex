@@ -167,15 +167,15 @@
 \pagestyle{empty}
 \begin{abstract}
 Microrobotics has the potential to revolutionize many applications including targeted material delivery, assembly, and surgery.  The same properties that promise breakthrough solutions---small size and large populations---present unique challenges for controlling motion. 
-This paper examines object manipulation by a swarm of particles, each actuated by the same, shared global input.
+This paper examines object manipulation by a swarm of particles, each actuated by the same shared global input.
 
-Most literature on robotic manipulation assumes intelligent agents.  Our system, with particles manipulated by a global signal has had less study.
-There are many parameters that can be studied, from control models to UI design. 
+Most literature on robotic manipulation assumes intelligent agents and not particle systems manipulated by a global signal.
+Many aspects of these systems can be studied, from control models to human factors.
 %Unfortunately, human-swarm interaction studies as conducted today are limited in sample size, are difficult to reproduce, and are prone to hardware failures. We present an alternative.
 %This paper first examines the perils, pitfalls, and possibilities we discovered by launching \href{http://www.swarmcontrol.net}{SwarmControl.net}, 
 To identify the key parameters, we used
 an online game where players steer swarms of up to 500 particles to complete manipulation challenges. We record statistics from over ten thousand players, and use the game to explore aspects of large-population particle control. We present the game framework as an open-source tool for large-scale user experiments. 
-Inspired by techniques where human operators performed well, this paper next investigates controllers that use only the mean and variance of the swarm. We prove that the mean position is controllable, then provide conditions under which variance is controllable.  We next derive automatic controllers for these and a hysteresis-based switching control to regulate the first two moments of the particle distribution. 
+Inspired by techniques where human operators performed well, this paper next investigates controllers that use only the mean and variance of the swarm. We prove that the mean position is controllable and then provide conditions under which variance is controllable.  We next derive automatic controllers for these and a hysteresis-based switching control to regulate the first two moments of the particle distribution. 
 %% DISCUSS ALGOITHRM
  Finally, we employ these controllers as primitives for an object manipulation task and implement all the automatic controllers on 100 kilobots controlled by the direction of a global light source.
 \end{abstract}

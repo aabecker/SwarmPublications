@@ -5,7 +5,7 @@
 %Micro- and nanorobotics have the potential to revolutionize many applications including targeted material delivery, assembly, and surgery.  The same properties that promise breakthrough solutions---small size and large populations---present unique challenges to generating controlled motion.  
 Large populations of micro- and nanorobots are being produced in laboratories around the world, with diverse potential applications in drug delivery and construction, see \cite{Peyer2013,Shirai2005,Chiang2011}. These activities require robots that behave intelligently.
 Limited computation and communication rules out autonomous operation or direct control over individual units; instead we must rely on global control signals broadcast to the entire particle population.    
-This paper examines object manipulation by a swarm of particles, each actuated by the same, shared global input, as illustrated in Fig.~{\ref{fig:bigPictureMeanAndVarianceForSwarm}.
+This paper examines object manipulation by a swarm of particles, each actuated by the same shared global input, as illustrated in Fig.~{\ref{fig:bigPictureMeanAndVarianceForSwarm}.
 
 This paper combines the content of two preliminary conference papers, extending their substance and providing full details in a
 single journal paper.
@@ -82,15 +82,15 @@ Screenshots from our online experiments controlling multi-particle systems with 
 %}
 %\end{figure}
 
-The goal was to test several scenarios involving large-scale human-swarm interaction (HSI), and to do so with a statistically-significant sample size. Towards this end, we created \href{http://www.swarmcontrol.net/show_results}{SwarmControl.net}, an open-source, online testing platform suitable for inexpensive deployment and data collection on a scale not yet seen in swarm robotics research. Screenshots from this platform are shown in Fig.~\ref{fig:5experiments}.  \href{https://github.com/crertel/swarmmanipulate.git}{All code} \href{http://www.swarmcontrol.net/show_results}{and experimental results} are online at \cite{Chris-Ertel2016}.
+The goal was to test several scenarios involving large-scale human-swarm interaction (HSI), and to do so with a statistically-significant sample size. Towards this end, we have created \href{http://www.swarmcontrol.net/show_results}{SwarmControl.net}: an open-source, online testing platform suitable for inexpensive deployment and data collection on a scale not yet seen in swarm robotics research. Screenshots from this platform are shown in Fig.~\ref{fig:5experiments}.  \href{https://github.com/crertel/swarmmanipulate.git}{All code} \href{http://www.swarmcontrol.net/show_results}{and experimental results} are online at \cite{Chris-Ertel2016}.
 
 Our online experiments show that numerous particles responding to global control inputs are directly controllable by a human operator without special training, that the visual feedback of the swarm state should be simple to increase task performance, and that humans perform swarm-object manipulation faster using attractive control schemes than repulsive control schemes.
 
 %Inspired by our online experiments, because it is not always possible to gather pose information on each robot for feedback control and
 %It is not always practical to gather pose information on individual robots for feedback control; the robots might be difficult or impossible to sense individually due to their size and location. However, it is often possible to sense global properties of the group, such as mean position and density.
 Often particles are difficult or impossible to sense individually due to their size and location. 
-For example, microrobots are smaller than the minimum resolution of a clinical MRI-scanner, see \cite{martel2014computer}, however it is often possible to sense global properties of the group, such as mean position and variance. 
-To make progress in automatic control with global inputs, this paper presents swarm manipulation controllers, inspired by our online experiments, that require only mean and variance measurements of the particle's positions.  
+For example, microrobots are smaller than the minimum resolution of a clinical MRI-scanner, see \cite{martel2014computer}, however it is often possible to sense global properties of the group such as mean position and variance. 
+To make progress in automatic control with global inputs, this paper presents swarm manipulation controllers inspired by our online experiments that require only mean and variance measurements of the particle's positions.  
 These controllers are used as primitives to perform the object manipulation task illustrated in Fig.~\ref{fig:bigPictureMeanAndVarianceForSwarm}.
 
 

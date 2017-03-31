@@ -59,12 +59,18 @@ Regulating mean $x$ position of 100 kilobots using control law \eqref{eq:PDcontr
 
 \subsection{Automated object manipulation (hardware~experiment)}
 
-The kilobots performed five successful runs of object manipulation through the obstacle maze, see Extension 2.
-Each trial used 100 kilobots. Trials two-five were performed in a row with no failures in between.  For each trial, fully charged kilobots were placed in the lower left-hand of the workspace, as shown in Fig.~\ref{fig:expSnapShot}.  The moveable object was placed in the lower center of the workspace.  {\sc Matlab} code for vision processing, the policy iteration of \S \ref{subsec:objectpolicy} and the algorithm of \S \ref{sec:AlgObjectManipulation} is available on {\sc Matlab} Central by \cite{Shahrokhi2015MDP}.
+The kilobots performed five successful runs manipulating a hexagonal object through an obstacle maze. Videos of these runs are in Extension 2.
+Each trial used 100 kilobots. Trials two through five were performed in a row with no failures in between.  For each trial, fully charged kilobots were placed in the lower left-hand of the workspace, as shown in Fig.~\ref{fig:expSnapShot}.  The moveable object was placed in the lower center of the workspace.  {\sc Matlab} code for vision processing, the policy iteration of \S \ref{subsec:objectpolicy} and the algorithm of \S \ref{sec:AlgObjectManipulation} is available on {\sc Matlab} Central by \cite{Shahrokhi2015MDP}.
 Trials were run until the object COM entered the goal region.  The trials ran for \{1465, 3457, 3000, 2162, 2707\} s.  This is $2558\pm771$ s (mean$\pm$std). 
+
+
+We also tested other object shapes. 
 A circular object completed in 3155 s.    
 A square object completed in 6871 s. 
-A rectangle and three equilateral triangle objects of varying sizes failed in a total of nine runs.  Failures occurred when the object was pushed into a corner, requiring torque to be unstuck.  This paper focuses on force, but not torque control. Swarm torque control is the subject of ongoing research in \cite{Shahrokhi2016CASE}.
+A rectangle and three equilateral triangle objects of varying sizes failed in a total of nine runs. 
+Manipulation failures occurred when the object was pushed into a corner, requiring torque to be unstuck.  
+%This paper focuses on force, but not torque control. 
+Swarm torque control is the subject of our ongoing research begun in \cite{Shahrokhi2016CASE}.
 
 %Rules: http://www.ijrr.org/historic/MMVideoGuideLines.pdf
 

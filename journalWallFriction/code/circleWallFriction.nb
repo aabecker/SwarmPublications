@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    191758,       4001]
-NotebookOptionsPosition[    190584,       3956]
-NotebookOutlinePosition[    190942,       3972]
-CellTagsIndexPosition[    190899,       3969]
+NotebookDataLength[    191865,       4001]
+NotebookOptionsPosition[    190691,       3956]
+NotebookOutlinePosition[    191049,       3972]
+CellTagsIndexPosition[    191006,       3969]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1155,30 +1155,32 @@ Cell[BoxData[
             "\[IndentingNewLine]", 
             RowBox[{"Arrowheads", "[", ".03", "]"}], ",", 
             "\[IndentingNewLine]", 
-            RowBox[{"Text", "[", 
+            RowBox[{"(*", 
              RowBox[{
-             "\"\<Grey region is reachable by other robot if one robot \
+              RowBox[{"Text", "[", 
+               RowBox[{
+               "\"\<Grey region is reachable by other robot if one robot \
 collides at green dot\>\"", ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", ".53"}], "}"}]}], "]"}], ",", 
+              "\[IndentingNewLine]", "\[IndentingNewLine]", 
               RowBox[{"{", 
-               RowBox[{"0", ",", ".53"}], "}"}]}], "]"}], ",", 
-            "\[IndentingNewLine]", "\[IndentingNewLine]", 
-            RowBox[{"{", 
-             RowBox[{"Gray", ",", 
-              RowBox[{"Polygon", "[", 
-               RowBox[{"Table", "[", 
-                RowBox[{
-                 RowBox[{
-                  RowBox[{"1", "/", "2"}], 
-                  RowBox[{"{", 
+               RowBox[{"Gray", ",", 
+                RowBox[{"Polygon", "[", 
+                 RowBox[{"Table", "[", 
+                  RowBox[{
                    RowBox[{
+                    RowBox[{"1", "/", "2"}], 
+                    RowBox[{"{", 
+                    RowBox[{
                     RowBox[{"Cos", "[", "a", "]"}], ",", 
                     RowBox[{"Sin", "[", "a", "]"}]}], "}"}]}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"a", ",", " ", 
-                   RowBox[{"\[Psi]", " ", "-", "\[Gamma]"}], " ", ",", 
-                   RowBox[{"\[Psi]", "+", "\[Gamma]"}], ",", 
-                   RowBox[{"\[Gamma]", "/", "20"}]}], "}"}]}], "]"}], "]"}]}],
-              "}"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"{", 
+                    RowBox[{"a", ",", " ", 
+                    RowBox[{"\[Psi]", " ", "-", "\[Gamma]"}], " ", ",", 
+                    RowBox[{"\[Psi]", "+", "\[Gamma]"}], ",", 
+                    RowBox[{"\[Gamma]", "/", "20"}]}], "}"}]}], "]"}], 
+                 "]"}]}], "}"}], ","}], "*)"}], "\[IndentingNewLine]", 
             RowBox[{"{", 
              RowBox[{"(*", 
               RowBox[{"wall", " ", "collision", " ", "points"}], "*)"}], 
@@ -1956,7 +1958,7 @@ collides at green dot\>\"", ",",
    3.6996294752449408`*^9}, {3.699629542455394*^9, 3.699629560832448*^9}, {
    3.699629631531713*^9, 3.69962967397091*^9}, {3.699629707156686*^9, 
    3.699629743987363*^9}, {3.699629842901697*^9, 3.6996298773268013`*^9}, 
-   3.699629921813963*^9}],
+   3.699629921813963*^9, 3.699706049605403*^9}],
 
 Cell[BoxData[
  TagBox[
@@ -2153,9 +2155,8 @@ $CellContext`\[Gamma]a$/20}]]},
               Thickness[$CellContext`thickness$]]], 
             FaceForm[None], 
             
-            Rectangle[$CellContext`ps1$ - (2/3) 
-             robotica`r$ {1, 1}, $CellContext`ps1$ + (2/3) 
-              robotica`r$ {1, 1}], 
+            Rectangle[$CellContext`ps1$ - ((2/3) robotica`r$) {1, 
+              1}, $CellContext`ps1$ + ((2/3) robotica`r$) {1, 1}], 
             Circle[$CellContext`pe1$, robotica`r$]}, {$CellContext`c2$, 
             Thickness[$CellContext`thickness$], {
              Opacity[0.3], Dashed, 
@@ -2166,9 +2167,8 @@ $CellContext`\[Gamma]a$/20}]]},
               Thickness[$CellContext`thickness$]]], 
             FaceForm[None], 
             
-            Rectangle[$CellContext`ps2$ - (2/3) 
-             robotica`r$ {1, 1}, $CellContext`ps2$ + (2/3) 
-              robotica`r$ {1, 1}], 
+            Rectangle[$CellContext`ps2$ - ((2/3) robotica`r$) {1, 
+              1}, $CellContext`ps2$ + ((2/3) robotica`r$) {1, 1}], 
             Circle[$CellContext`pe2$, robotica`r$]}, {Thin, Black, 
             Arrowheads[{-0.02, 0.02}], 
             Arrow[{$CellContext`ps1$, $CellContext`ps2$}]}, {Green, 
@@ -2212,10 +2212,10 @@ $CellContext`\[Alpha]$/2 +
                 0.1}], 
                Darker[Green], 
                
-               Rectangle[$CellContext`ps2$ - $CellContext`ps1$ - (4/3) 
-                robotica`r$ {1, 
-                 1}, $CellContext`ps2$ - $CellContext`ps1$ + (4/3) 
-                 robotica`r$ {1, 1}], 
+               Rectangle[$CellContext`ps2$ - $CellContext`ps1$ - ((4/3) 
+                 robotica`r$) {1, 
+                 1}, $CellContext`ps2$ - $CellContext`ps1$ + ((4/3) 
+                  robotica`r$) {1, 1}], 
                Text[
                 Style[
                  StringForm["\[CapitalDelta]r"], FontSize -> 16, Black, 
@@ -3982,27 +3982,27 @@ Cell[3066, 86, 50102, 829, 287, 16994, 285, "CachedBoxData", "BoxData", \
 Cell[CellGroupData[{
 Cell[53217, 921, 186, 2, 64, "Section"],
 Cell[CellGroupData[{
-Cell[53428, 927, 46308, 1031, 2416, "Input"],
-Cell[99739, 1960, 17397, 341, 532, "Output"]
+Cell[53428, 927, 46429, 1033, 2416, "Input"],
+Cell[99860, 1962, 17383, 339, 532, "Output"]
 }, Open  ]],
-Cell[117151, 2304, 87, 1, 46, "Input"]
+Cell[117258, 2304, 87, 1, 46, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[117275, 2310, 226, 3, 64, "Section"],
+Cell[117382, 2310, 226, 3, 64, "Section"],
 Cell[CellGroupData[{
-Cell[117526, 2317, 23552, 558, 1202, "Input"],
-Cell[141081, 2877, 9832, 189, 532, "Output"]
+Cell[117633, 2317, 23552, 558, 1202, "Input"],
+Cell[141188, 2877, 9832, 189, 532, "Output"]
 }, {2}]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[150959, 3072, 170, 2, 64, "Section"],
+Cell[151066, 3072, 170, 2, 64, "Section"],
 Cell[CellGroupData[{
-Cell[151154, 3078, 28791, 661, 1667, "Input"],
-Cell[179948, 3741, 10385, 205, 518, "Output"]
+Cell[151261, 3078, 28791, 661, 1667, "Input"],
+Cell[180055, 3741, 10385, 205, 518, "Output"]
 }, Open  ]],
-Cell[190348, 3949, 87, 1, 46, "Input"]
+Cell[190455, 3949, 87, 1, 46, "Input"]
 }, Open  ]],
-Cell[190450, 3953, 130, 1, 62, "Subchapter"]
+Cell[190557, 3953, 130, 1, 62, "Subchapter"]
 }
 ]
 *)

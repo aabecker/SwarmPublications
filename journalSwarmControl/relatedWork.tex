@@ -11,7 +11,7 @@ This section describes global control challenges and reviews highlights of human
 
 
 \subsection{Global control of microrobots}
-Small robots have been constructed with physical heterogeneity so that they respond differently to a global, broadcast control signal.  Examples include \emph{scratch-drive microrobots}, actuated and controlled by a DC voltage signal from a substrate by \cite{Donald2006,Donald2008};   magnetic structures  with different cross-sections that could be independently steered by \cite{Floyd2011,Diller2013};   \emph{MagMite} microrobots with different resonant frequencies and a global magnetic field by \cite{Frutiger2008}; and  magnetically controlled nanoscale helical screws constructed to stop movement at different cutoff frequencies of a global magnetic field by
+Small robots have been constructed with physical heterogeneity so that they respond differently to a global broadcast control signal.  Examples include \emph{scratch-drive microrobots}, actuated and controlled by a DC voltage signal from a substrate by \cite{Donald2006,Donald2008};   magnetic structures  with different cross-sections that can be independently steered by \cite{Floyd2011,Diller2013};   \emph{MagMite} microrobots with different resonant frequencies and a global magnetic field by \cite{Frutiger2008}; and  magnetically controlled nanoscale helical screws constructed to stop movement at different cutoff frequencies of a global magnetic field by
 \cite{Tottori2012} and \cite{Peyer2013}. 
 
 
@@ -95,7 +95,7 @@ These operations become intractable for large populations of robots. By focusing
 
  \subsection{Human-swarm interaction}
  
-  Most humans are able, with practice, steer a swarm of robots controlled by a global input. Prior to our paper, no algorithm existed. Using human input to learn how to control a dynamic system is a line of research with a rich history \cite{argall2009, abbeel2010}.This paper exploits insights gained from ``swarmcontrol.net", particularly the fact that having a swarm's mean and variance is sufficient for object manipulation through an obstacle field.
+  Most humans are able to, with practice, steer a swarm of robots controlled by a global input. Prior to our paper, no algorithm existed. Using human input to learn how to control a dynamic system is a line of research with a rich history \cite{argall2009, abbeel2010}.This paper exploits insights gained from ``swarmcontrol.net", particularly the fact that having a swarm's mean and variance is sufficient for object manipulation through an obstacle field.
   
  \cite{ayanian2014controlling} designed a user interface enabling an operator to maneuver a swarm of robots through a cluttered workspace by specifying the bounding prism for the swarm and then translating or scaling this prism. Our paper shares the concept of a global control input, but our robots have no onboard computation and cannot track a virtual boundary.
  
@@ -116,8 +116,7 @@ For instance, the studies \cite{bashyal2008human},  \cite{de2012controllability}
 \subsection{Block pushing and compliant manipulation}
 Unlike \emph{caging} manipulation, where robots form a rigid arrangement around an object, as in \cite{Sudsang2002,Fink2008}, our swarm of robots is unable to grasp the blocks they push, and so our manipulation strategies are similar to \emph{nonprehensile manipulation} techniques, e.g.~\cite{Lynch1999}, where forces must be applied along the center of mass of the moveable object. A key difference is that our robots are compliant and tend to flow around the object, making this similar to fluidic trapping as in \cite{Armani2006} and \cite{Becker2009}.  
 
-Our $n$-robot system with 2 control inputs and 4$n$ states is inherently under-actuated, and superficially bears resemblance to compliant, under-actuated manipulators.  Our swarms conform to the object to be manipulated, but lack the restoring force provided by flexures in \cite{odhner2014compliant} or silicone in \cite{deimel2014novel}.  Our swarms tend to disperse, so we require  artificial forces, such as the variance control primitives in \S \ref{sec:VarianceControl},
- to regroup the swarms.
+Our $n$-robot system with 2 control inputs and 4$n$ states is inherently under-actuated, and superficially bears resemblance to compliant, under-actuated manipulators.  Our swarms conform to the object to be manipulated, but lack the restoring force provided by flexures in \cite{odhner2014compliant} or silicone in \cite{deimel2014novel}.  Our swarms tend to disperse and so to regroup them we require artificial forces like the variance control primitives in\S \ref{sec:VarianceControl}.
  
 
  
