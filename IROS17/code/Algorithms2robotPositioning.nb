@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[    171178,       3573]
-NotebookOptionsPosition[    170450,       3542]
-NotebookOutlinePosition[    170808,       3558]
-CellTagsIndexPosition[    170765,       3555]
+NotebookDataLength[    171440,       3578]
+NotebookOptionsPosition[    170711,       3547]
+NotebookOutlinePosition[    171070,       3563]
+CellTagsIndexPosition[    171027,       3560]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -2470,10 +2470,10 @@ Cell[BoxData[
                   RowBox[{"{", 
                    RowBox[{
                    "\"\<\[CapitalDelta]x\>\"", ",", 
-                    "\"\<\[CapitalDelta]y\>\""}], "}"}]}], ",", 
+                    "\"\<\[CapitalDelta] y\>\""}], "}"}]}], ",", 
                  RowBox[{"LabelStyle", "\[Rule]", 
                   RowBox[{"Directive", "[", 
-                   RowBox[{"Black", ",", "Bold"}], "]"}]}], ",", 
+                   RowBox[{"Black", ",", "Bold", ",", "Large"}], "]"}]}], ",", 
                  RowBox[{"ImageSize", "\[Rule]", "385"}]}], "]"}], ",", 
                RowBox[{"{", 
                 RowBox[{"1.54", ",", ".45"}], "}"}]}], "]"}], ",", 
@@ -2773,16 +2773,18 @@ Cell[BoxData[
    3.6976608503633633`*^9, 3.697660897916971*^9}, {3.6976612220846643`*^9, 
    3.697661226216482*^9}, {3.697831022872184*^9, 3.6978310830738363`*^9}, {
    3.697831258189207*^9, 3.6978314077847013`*^9}, {3.6978314724385557`*^9, 
-   3.697831519213059*^9}, {3.697832356048625*^9, 3.697832384021798*^9}}],
+   3.697831519213059*^9}, {3.697832356048625*^9, 3.697832384021798*^9}, {
+   3.699711431437302*^9, 3.6997114347786293`*^9}, 3.699711570270441*^9}],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`e1$$ = {0.05, 0.95}, $CellContext`e2$$ = {
-    0.33, 0.66}, $CellContext`ifMove$$ = True, $CellContext`progress$$ = 
-    1, $CellContext`s1$$ = {0.95, 0.95}, $CellContext`s2$$ = {0.2, 
-    0.8}, $CellContext`\[Epsilon]$$ = Rational[1, 20], Typeset`show$$ = True, 
-    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+   DynamicModuleBox[{$CellContext`e1$$ = {0.7765, 
+    0.708}, $CellContext`e2$$ = {0.14400000000000002`, 
+    0.787}, $CellContext`ifMove$$ = True, $CellContext`progress$$ = 
+    1, $CellContext`s1$$ = {0.2095, 0.32}, $CellContext`s2$$ = {0.769, 
+    0.257}, $CellContext`\[Epsilon]$$ = Rational[1, 1000], Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{{
        Hold[$CellContext`ifMove$$], True, 
@@ -2812,11 +2814,11 @@ Cell[BoxData[
       Dynamic[{0, 0} + $CellContext`\[Epsilon]$$], 
       Dynamic[{1, 1} - $CellContext`\[Epsilon]$$]}}, Typeset`size$$ = {
     800., {207., 212.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = False, $CellContext`ifMove$149469$$ = 
-    False, $CellContext`progress$149470$$ = 
-    0, $CellContext`\[Epsilon]$149471$$ = 0, $CellContext`s1$149472$$ = 
-    0, $CellContext`s2$149473$$ = 0, $CellContext`e1$149474$$ = 
-    0, $CellContext`e2$149475$$ = 0}, 
+    Typeset`skipInitDone$$ = False, $CellContext`ifMove$12645$$ = 
+    False, $CellContext`progress$12646$$ = 
+    0, $CellContext`\[Epsilon]$12647$$ = 0, $CellContext`s1$12648$$ = 
+    0, $CellContext`s2$12649$$ = 0, $CellContext`e1$12650$$ = 
+    0, $CellContext`e2$12651$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      2, StandardForm, 
       "Variables" :> {$CellContext`e1$$ = {0.05, 0.95}, $CellContext`e2$$ = {
@@ -2824,14 +2826,13 @@ Cell[BoxData[
         1, $CellContext`s1$$ = {0.95, 0.95}, $CellContext`s2$$ = {0.2, 
          0.8}, $CellContext`\[Epsilon]$$ = Rational[1, 20]}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`ifMove$$, $CellContext`ifMove$149469$$, False], 
-        Hold[$CellContext`progress$$, $CellContext`progress$149470$$, 0], 
-        Hold[$CellContext`\[Epsilon]$$, $CellContext`\[Epsilon]$149471$$, 0], 
-        
-        Hold[$CellContext`s1$$, $CellContext`s1$149472$$, 0], 
-        Hold[$CellContext`s2$$, $CellContext`s2$149473$$, 0], 
-        Hold[$CellContext`e1$$, $CellContext`e1$149474$$, 0], 
-        Hold[$CellContext`e2$$, $CellContext`e2$149475$$, 0]}, 
+        Hold[$CellContext`ifMove$$, $CellContext`ifMove$12645$$, False], 
+        Hold[$CellContext`progress$$, $CellContext`progress$12646$$, 0], 
+        Hold[$CellContext`\[Epsilon]$$, $CellContext`\[Epsilon]$12647$$, 0], 
+        Hold[$CellContext`s1$$, $CellContext`s1$12648$$, 0], 
+        Hold[$CellContext`s2$$, $CellContext`s2$12649$$, 0], 
+        Hold[$CellContext`e1$$, $CellContext`e1$12650$$, 0], 
+        Hold[$CellContext`e2$$, $CellContext`e2$12651$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -2895,8 +2896,8 @@ $CellContext`mvNum$ =
               Thickness[$CellContext`thickness$]]], 
             FaceForm[None], 
             
-            Rectangle[$CellContext`ps1$ - ((2/3) $CellContext`r$) {1, 
-              1}, $CellContext`ps1$ + ((2/3) $CellContext`r$) {1, 1}], 
+            Rectangle[$CellContext`ps1$ - (2/3) $CellContext`r$ {1, 
+              1}, $CellContext`ps1$ + (2/3) $CellContext`r$ {1, 1}], 
             Circle[$CellContext`pe1$, $CellContext`r$]}, {$CellContext`c2$, {
              Opacity[0.3], Dashed, 
              Arrow[{$CellContext`ps2$, $CellContext`pe2$}]}, 
@@ -2906,8 +2907,8 @@ $CellContext`mvNum$ =
               Thickness[$CellContext`thickness$]]], 
             FaceForm[None], 
             
-            Rectangle[$CellContext`ps2$ - ((2/3) $CellContext`r$) {1, 
-              1}, $CellContext`ps2$ + ((2/3) $CellContext`r$) {1, 1}], 
+            Rectangle[$CellContext`ps2$ - (2/3) $CellContext`r$ {1, 
+              1}, $CellContext`ps2$ + (2/3) $CellContext`r$ {1, 1}], 
             Circle[$CellContext`pe2$, $CellContext`r$]}, {$CellContext`c1$, 
             Table[
              Arrow[{
@@ -2986,10 +2987,10 @@ $CellContext`mvNum$ =
                   0.1, Part[$CellContext`pm2$, 2] - Part[$CellContext`pm1$, 2]
                    - 0.1}], Red, 
                 
-                Rectangle[$CellContext`pm2$ - $CellContext`pm1$ - ((4/
-                   3) $CellContext`r$) {1, 
-                  1}, $CellContext`pm2$ - $CellContext`pm1$ + ((4/
-                    3) $CellContext`r$) {1, 1}], 
+                Rectangle[$CellContext`pm2$ - $CellContext`pm1$ - (4/
+                  3) $CellContext`r$ {1, 
+                  1}, $CellContext`pm2$ - $CellContext`pm1$ + (4/
+                   3) $CellContext`r$ {1, 1}], 
                 Text[
                  Style[
                   StringForm["\[CapitalDelta]g"], FontSize -> 24, Black, 
@@ -2997,9 +2998,9 @@ $CellContext`mvNum$ =
                  Part[$CellContext`pe2$, 1] - Part[$CellContext`pe1$, 1] + 
                   0.1, Part[$CellContext`pe2$, 2] - 
                   Part[$CellContext`pe1$, 2] + 0.1}]}, 
-              FrameLabel -> {"\[CapitalDelta]x", "\[CapitalDelta]y"}, 
-              LabelStyle -> Directive[Black, Bold], ImageSize -> 385], {1.54, 
-             0.45}], {
+              FrameLabel -> {"\[CapitalDelta]x", "\[CapitalDelta] y"}, 
+              LabelStyle -> Directive[Black, Bold, Large], ImageSize -> 
+              385], {1.54, 0.45}], {
             If[$CellContext`mvNum$ + 1 == 
                Length[$CellContext`path$], {$CellContext`mvNum$ = 
                 Length[$CellContext`path$] - 2, $CellContext`mvFrac$ = 1}]; 
@@ -3112,7 +3113,8 @@ $CellContext`optimalPathList =
              Part[$CellContext`optimalPathList, 1], 5], 
             Part[
              Part[$CellContext`optimalPathList, 1], 6]}]], $CellContext`g1 = {
-        1/2, 2/3}, $CellContext`wallFrictionMoveDir[
+        1/2, 2/3}, $CellContext`\[Epsilon]$$ = 
+       1/1000, $CellContext`wallFrictionMoveDir[
          Pattern[$CellContext`dir, 
           Blank[]], 
          Pattern[$CellContext`s1, 
@@ -3262,10 +3264,10 @@ $CellContext`wallFrictionMoveUp[
           Blank[]]] := 
        Module[{$CellContext`r1, $CellContext`r2, $CellContext`g1, \
 $CellContext`g2, $CellContext`\[CapitalDelta]gx, \
-$CellContext`\[CapitalDelta]gy, $CellContext`m0, $CellContext`m1, \
-$CellContext`m2, $CellContext`r1out, $CellContext`r2out, $CellContext`\
-\[CapitalDelta]tgx, $CellContext`\[CapitalDelta]tgy, $CellContext`\
-\[CapitalDelta]ey, $CellContext`\[CapitalDelta]ex, $CellContext`L = 
+$CellContext`\[CapitalDelta]gy, $CellContext`m1, $CellContext`m2, \
+$CellContext`r1out, $CellContext`r2out, $CellContext`\[CapitalDelta]tgx, \
+$CellContext`\[CapitalDelta]tgy, $CellContext`\[CapitalDelta]ey, \
+$CellContext`\[CapitalDelta]ex, $CellContext`L = 
           1, $CellContext`path1 = $CellContext`pm1, $CellContext`path2 = \
 $CellContext`pm2, $CellContext`path, $CellContext`isMirrored = 
           False, $CellContext`isFlipped = 
@@ -3294,10 +3296,11 @@ $CellContext`\[CapitalDelta]gy];
             Part[$CellContext`r1, 2], $CellContext`\[CapitalDelta]tgy = 
            Part[$CellContext`r2, 2] - Part[$CellContext`r1, 2], 
            Null, $CellContext`\[CapitalDelta]tgy = $CellContext`\
-\[CapitalDelta]gy]; $CellContext`m0 = {0, 0}; If[
+\[CapitalDelta]gy]; If[
            And[
-           Part[$CellContext`r2, 1] - Part[$CellContext`r1, 1] - 
-             1 <= $CellContext`\[CapitalDelta]tgx <= 1, 
+           Part[$CellContext`r2, 1] - Part[$CellContext`r1, 1] - 1 + 
+             2 $CellContext`\[Epsilon] <= $CellContext`\[CapitalDelta]tgx <= 
+            1 - 2 $CellContext`\[Epsilon], 
             Part[$CellContext`r2, 2] - 
              Part[$CellContext`r1, 2] <= $CellContext`\[CapitalDelta]tgy <= 
             0], $CellContext`m1 = {((1 - Part[$CellContext`r1, 2])/(2 - 
@@ -3492,7 +3495,8 @@ $CellContext`rotate180[
          Part[$CellContext`r, 1]}, $CellContext`rotate270inplace[
          Pattern[$CellContext`r, 
           Blank[]]] := {-Part[$CellContext`r, 2], 
-         Part[$CellContext`r, 1]}}; Typeset`initDone$$ = True),
+         Part[$CellContext`r, 1]}, Attributes[PlotRange] = {ReadProtected}}; 
+     Typeset`initDone$$ = True),
     SynchronousInitialization->True,
     UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
     UnsavedVariables:>{Typeset`initDone$$},
@@ -3536,12 +3540,13 @@ $CellContext`rotate180[
    3.697660855837616*^9, 3.697660901221385*^9}, 3.697661226984939*^9, 
    3.697830979522621*^9, {3.697831031243153*^9, 3.697831053842963*^9}, 
    3.697831084085804*^9, 3.697831365574383*^9, 3.6978314106340733`*^9, {
-   3.6978314748726177`*^9, 3.6978315222333612`*^9}, 3.697832390059154*^9}]
+   3.6978314748726177`*^9, 3.6978315222333612`*^9}, 3.697832390059154*^9, 
+   3.699711437930141*^9, 3.6997115748871317`*^9}]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1280, 687},
-WindowMargins->{{11, Automatic}, {Automatic, 0}},
+WindowMargins->{{152, Automatic}, {Automatic, 0}},
 FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
 2014)",
 StyleDefinitions->"Default.nb"
@@ -3564,8 +3569,8 @@ Cell[610, 21, 79120, 1649, 3683, "Input",
 Cell[79733, 1672, 369, 10, 40, "Input"],
 Cell[80105, 1684, 10124, 190, 471, "Input"],
 Cell[CellGroupData[{
-Cell[90254, 1878, 41038, 897, 1605, "Input"],
-Cell[131295, 2777, 39127, 761, 532, "Output"]
+Cell[90254, 1878, 41127, 898, 1605, "Input"],
+Cell[131384, 2778, 39299, 765, 566, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
