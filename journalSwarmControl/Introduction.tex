@@ -7,9 +7,10 @@ Large populations of micro- and nanorobots are being produced in laboratories ar
 Limited computation and communication rules out autonomous operation or direct control over individual units; instead we must rely on global control signals broadcast to the entire particle population.    
 This paper examines object manipulation by a swarm of particles, each actuated by the same shared global input, as illustrated in Fig.~{\ref{fig:bigPictureMeanAndVarianceForSwarm}.
 
-This paper combines the content of two preliminary conference papers, extending their substance and providing full details in a
-single journal paper.
-  \cite{swarmcontrol2013} covered the first three months of SwarmControl.net experiments, and \cite{ShahrokhiIROS2015} presented simulations of object manipulation.  This paper presents three years of results from new games at SwarmControl.net.  For object manipulation, this paper presents robust new algorithms for manipulation, path planning, and obstacle avoidance, and a rich set of parametric studies.  All hardware validation experiments are new.
+
+%%%% Move it to the cover letter.
+%This paper combines the content of two preliminary conference papers, extending their substance and providing full details in a single journal paper.
+ % \cite{swarmcontrol2013} covered the first three months of SwarmControl.net experiments, and \cite{ShahrokhiIROS2015} presented simulations of object manipulation.  This paper presents three years of results from new games at SwarmControl.net.  For object manipulation, this paper presents robust new algorithms for manipulation, path planning, and obstacle avoidance, and a rich set of parametric studies.  All hardware validation experiments are new.
 
 Many promising applications for particle swarms require direct human control, but user interfaces to thousands---or millions---of particles is a daunting human-swarm interaction (HSI) challenge. Our early work with over a hundred hardware robots and thousands of simulated particles demonstrated that direct human control of large swarms is possible, \cite{Becker2013b}. 
 Unfortunately, the logistical challenges of repeated experiments with over one hundred robots prevented large-scale tests. 
@@ -33,18 +34,18 @@ Here a swarm of particles (kilobot robots) pushes a green hexagon toward the goa
 \begin{overpic}[width =\figwid]{VaryNum.pdf}	\put(10,80){\textbf{a} }\end{overpic}~
 \begin{overpic}[width =\figwid]{VaryVisMV.pdf}	\put(10,80){\textbf{b} }\end{overpic}~
 \begin{overpic}[width =\figwid]{VaryNoise.pdf}	\put(10,80){\textbf{c} }\end{overpic}\\
-\\
-\begin{overpic}[width =\figwid]{ControlPos.pdf}	\put(10,80){\textbf{d} }\end{overpic}~
-\begin{overpic}[width =\figwid]{VaryControl.pdf}	\put(10,80){\textbf{e} }\end{overpic}~
-\begin{overpic}[width =\figwid]{VaryForage.pdf}	\put(10,80){\textbf{f} }\end{overpic}
+%\\
+%\begin{overpic}[width =\figwid]{ControlPos.pdf}	\put(10,80){\textbf{d} }\end{overpic}~
+%\begin{overpic}[width =\figwid]{VaryControl.pdf}	\put(10,80){\textbf{e} }\end{overpic}~
+%\begin{overpic}[width =\figwid]{VaryForage.pdf}	\put(10,80){\textbf{f} }\end{overpic}
 \caption{\label{fig:5experiments}
 Screenshots from our online experiments controlling multi-particle systems with limited, global control.
 \textbf{(a)} Varying the number of particles from 1-500
 \textbf{(b)} Comparing 4 levels of visual feedback 
 \textbf{(c)} Varying noise from 0 to 200\% of control authority
-\textbf{(d)} Controlling the position of 1 to 10 particles
-\textbf{(e)} Comparing 3 control architectures to assemble
-\textbf{(f)} Comparing 3 control architectures to forage.
+%\textbf{(d)} Controlling the position of 1 to 10 particles
+%\textbf{(e)} Comparing 3 control architectures to assemble
+%\textbf{(f)} Comparing 3 control architectures to forage.
 }
 \end{figure}
 

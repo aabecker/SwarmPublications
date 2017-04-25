@@ -16,12 +16,19 @@
 
 
 We developed a flexible testing framework for online human-swarm interaction studies. Over 5,000 humans performed over 20,000 swarm-robotics experiments with this framework, logging almost 700 hours of experiments.
+These experiments indicated three lessons to design automatic controllers for object manipulation with particle swarms:
+
+1) When the number of particles is large (>50) varying the number of particles does not significantly affect the performance.
+
+2) Swarm control is robust to IID noise.
+
+3) Controllers that only use the mean and variance of the swarm can perform better than controllers with full feedback.
 %There are two halves to our framework: the server backend and the client-side (in-browser) frontend. The server backend is responsible for tabulating results, serving webpages containing the frontend code, and for issuing unique identifiers to each experiment participant. The in-browser frontend is responsible for running an experiment---that is to say, accepting user input, updating the state of the robot swarm, and ultimately evaluating task completion.
 
 %% wherein we outline the process that a user takes to participate in an experiment
 %\subsection{Methods}
 
-%\paragraph{Overview}
+\subsection{Implementation}
 
 Our web server generates a unique identifier for each participant and sends it along with the landing page to the participant. 
 %This identifier is stored as a browser cookie and is attached to all results the participant generates. 

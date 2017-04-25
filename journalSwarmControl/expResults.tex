@@ -3,11 +3,11 @@
 %\emph{Human-swarm interaction results}\label{sec:expResults}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-We designed six experiments to investigate human control of large swarms for manipulation tasks.  Screenshots of each experiment are shown in Fig.~\ref{fig:5experiments}.  Each experiment examined the effects of varying a single parameter: population of particles for manipulation, four levels of visual feedback, different levels of Brownian noise, position control with 1 to 10 particles, and three control architectures for both assembly and foraging tasks. The users could choose which experiment to try, and our architecture randomly assigned a parameter value for each trial.  We recorded the completion time and the participant ID for each successful trial.  
+We designed six experiments to investigate human control of large swarms for manipulation tasks.  Screenshots of representative experiment are shown in Fig.~\ref{fig:5experiments}.  Each experiment examined the effects of varying a single parameter: population of particles for manipulation, four levels of visual feedback, different levels of Brownian noise, position control with 1 to 10 particles, and three control architectures for both assembly and foraging tasks. The users could choose which experiment to try, and our architecture randomly assigned a parameter value for each trial.  We recorded the completion time and the participant ID for each successful trial.  
 %As Fig.~\ref{fig:Learning} shows, one-third of all participants played only a single game.  Still, many played multiple games, and their decreasing completion times demonstrates their skills improved.
 
 
-\paragraph{Varying number}
+\subsection{Varying number}
 \begin{figure}
 \begin{overpic}[width = 0.9\columnwidth]{ResVaryNum.pdf}\end{overpic}
 %\begin{overpic}[width = 0.48\columnwidth]{measureLearning.pdf}\end{overpic}
@@ -25,7 +25,7 @@ This experiment varied from 1 to 500 the population of particles used to transpo
 
 
 
-\paragraph{Varying visualization}
+\subsection{Varying visualization}
 \begin{figure}[b!]
 \renewcommand{\figwid}{0.24\columnwidth}
 \begin{overpic}[width =\figwid]{VaryVisFS.pdf}\put(20,15){Full-state}\end{overpic}
@@ -87,7 +87,7 @@ Using ANOVA analysis, we rejected the null hypothesis that all visualization met
 Anecdotal evidence from beta-testers who played the game suggests that tracking 100 particles is overwhelming---similar to schooling phenomenons that confuse predators---while working with just the mean + variance is like using a ``spongy'' manipulator. Our beta-testers described convex-hull feedback as confusing and irritating.  A single particle left behind an obstacle will stretch the entire hull, obscuring the majority of the swarm.
 %obscuring what the rest of the swarm is doing.   
 
-\paragraph{Varying noise}
+\subsection{Varying noise}
 %Micro-particles are affected by random collisions with molecules. The effect of these collisions is called Brownian motion.
 This experiment varied the strength of %these 
 disturbances to study how noise affects human control of large swarms. Noise was applied at every timestep:
@@ -97,7 +97,7 @@ disturbances to study how noise affects human control of large swarms. Noise was
  \end{align*}
 $m_i,\psi_i$ were uniformly IID, with $m_i\in[0,M]$ and $\psi_i\in[0,2\pi]$. $M$ was a constant for each trial ranging from 0 to 200\% of the maximum control power ($u_{max}$).
  
-We hypothesized 200\% noise was the largest a human could be expected to control---at 200\% noise, the particles move erratically.  Disproving our hypothesis, the results in Fig.~\ref{fig:ResVaryNoisePosition}.a show only a 40\% increase in completion time for the maximum noise.
+We hypothesized 200\% noise was the largest a human could be expected to control---at 200\% noise, the particles move erratically.  Disproving our hypothesis, the results in Fig.~\ref{fig:ResVaryNoisePosition}.a show only a 40\% increase in completion time for the maximum noise. This indicates swarm control is robust to IID noise.
 
 \begin{figure}[b!]
 \renewcommand{\figwid}{0.49\columnwidth}
@@ -110,25 +110,25 @@ We hypothesized 200\% noise was the largest a human could be expected to control
 \end{figure}
 
 
-\paragraph{Position control}
-This online experiment examined how completion time scales with the number of particles $n$. Using a single square obstacle, users arranged $n\in[1,10]$ particles into a specified goal pattern.  The goal pattern formed a block  {\sffamily A} with 10 particles, and lesser numbers of particles used a subset of these goal positions. Our hypothesis was that completion time would increase linearly with the number of particles, as with our position control algorithm in \cite{Becker2013b}.  Our results roughly corroborate this, as shown in Fig.~\ref{fig:ResVaryNoisePosition}.b.  Though the number of particles presented to game players is uniformly distributed, larger $n$ are more difficult, and the number of successful experiments drops steadily as $n$ increases.
-
+%\paragraph{Position control}
+%This online experiment examined how completion time scales with the number of particles $n$. Using a single square obstacle, users arranged $n\in[1,10]$ particles into a specified goal pattern.  The goal pattern formed a block  {\sffamily A} with 10 particles, and lesser numbers of particles used a subset of these goal positions. Our hypothesis was that completion time would increase linearly with the number of particles, as with our position control algorithm in \cite{Becker2013b}.  Our results roughly corroborate this, as shown in Fig.~\ref{fig:ResVaryNoisePosition}.b.  Though the number of particles presented to game players is uniformly distributed, larger $n$ are more difficult, and the number of successful experiments drops steadily as $n$ increases.
+%
 
 
 %Time increases for $n>4$ particles. For $n\in[1,4]$ the goal patterns are not hollow, but starting at $n$=5 they are.  A better experiment design would randomly place the goal positions.  Initially we tried this, but beta-testers strongly disliked trying to arrange particles in random patterns.
 
 
-\paragraph{Varying control--Assembly}
-Ultimately, we want to use swarms of particles to build things. This experiment compared different control architectures modeled after real-world devices.
-
-We compared attractive and repulsive control with the global control used for the other experiments. The attractive and repulsive controllers were loosely modeled after scanning tunneling microscopes (STM), but also apply to magnetic manipulation, e.g.\ \cite{Khalil2013} and biological models, e.g. \cite{goodrich2012types}. STMs can be used to arrange atoms and make small assemblies, as described in \cite{avouris1995manipulation}. An STM tip is charged with electrical potential, and used to repel like-charged or to attract differently-charged molecules. In contrast, the global controller uses a uniform field (perhaps formed by parallel lines of differently-charged conductors) to pull molecules in the same direction.
-The experiment challenged players to assemble a three-block pyramid with a swarm of 16 particles.
-
+%\paragraph{Varying control--Assembly}
+%Ultimately, we want to use swarms of particles to build things. This experiment compared different control architectures modeled after real-world devices.
+%
+%We compared attractive and repulsive control with the global control used for the other experiments. The attractive and repulsive controllers were loosely modeled after scanning tunneling microscopes (STM), but also apply to magnetic manipulation, e.g.\ \cite{Khalil2013} and biological models, e.g. \cite{goodrich2012types}. STMs can be used to arrange atoms and make small assemblies, as described in \cite{avouris1995manipulation}. An STM tip is charged with electrical potential, and used to repel like-charged or to attract differently-charged molecules. In contrast, the global controller uses a uniform field (perhaps formed by parallel lines of differently-charged conductors) to pull molecules in the same direction.
+%The experiment challenged players to assemble a three-block pyramid with a swarm of 16 particles.
+%
 %\todo{describe controller model here, use an equation}
 
-The results were conclusive, as shown in Fig.~\ref{fig:ResVaryControl}a: attractive control was the fastest, followed by global control, with repulsive control a distant last.  The median time using repulsive control was four times longer than with attractive control.
-Using ANOVA analysis, we reject the null hypothesis that all controllers are equivalent, with $p$-value $3.37\times10^{-32}$.
-
+%The results were conclusive, as shown in Fig.~\ref{fig:ResVaryControl}a: attractive control was the fastest, followed by global control, with repulsive control a distant last.  The median time using repulsive control was four times longer than with attractive control.
+%Using ANOVA analysis, we reject the null hypothesis that all controllers are equivalent, with $p$-value $3.37\times10^{-32}$.
+%
 %%\begin{figure}
 %%\begin{overpic}[width = 0.39\columnwidth]{attractiveForce.pdf}\end{overpic}
 %%\begin{overpic}[width = 0.6\columnwidth]{understandingForces.pdf}\end{overpic}
@@ -138,22 +138,22 @@ Using ANOVA analysis, we reject the null hypothesis that all controllers are equ
 %%}
 %%\end{figure}
 
-\begin{figure}[b!]
-\renewcommand{\figwid}{0.45\columnwidth}
-\begin{overpic}[width =\figwid]{ResVaryControl.pdf}\end{overpic}
-\begin{overpic}[width =\figwid]{ResVaryForage.pdf}\end{overpic}
-\vspace{-.5em}
-\caption{\label{fig:ResVaryControl} Completion time depends on both the task and the control type. Left: Attractive control resulted in the shortest completion time and repulsive the longest for building a three-block pyramid. Right: in the foraging test, global control resulted in the shortest completion time and attractive the longest.
-%\vspace{-1em}
-}
-\end{figure}
-
-\paragraph{Varying control--Foraging}
-Collecting and delivering resources is necessary for drug delivery.
-This experiment also compared attractive and repulsive control with the global control used for the other experiments. The experiment challenged players to collect particles using a swarm of 100 particles and return the particles to a home region. The particles encapsulate the particles on contact. 
-
-%\todo{describe controller model here, use an equation}
-
-The results were conclusive, as shown in Fig.~\ref{fig:ResVaryControl}.b: global control was the fastest, followed by repulsive control, with attractive control last.  Using ANOVA analysis, we reject the null hypothesis that all controllers are equivalent, with $p$-value $2.96\times10^{-6}$.
-
-
+%\begin{figure}[b!]
+%\renewcommand{\figwid}{0.45\columnwidth}
+%\begin{overpic}[width =\figwid]{ResVaryControl.pdf}\end{overpic}
+%\begin{overpic}[width =\figwid]{ResVaryForage.pdf}\end{overpic}
+%\vspace{-.5em}
+%\caption{\label{fig:ResVaryControl} Completion time depends on both the task and the control type. Left: Attractive control resulted in the shortest completion time and repulsive the longest for building a three-block pyramid. Right: in the foraging test, global control resulted in the shortest completion time and attractive the longest.
+%%\vspace{-1em}
+%}
+%\end{figure}
+%
+%\paragraph{Varying control--Foraging}
+%Collecting and delivering resources is necessary for drug delivery.
+%This experiment also compared attractive and repulsive control with the global control used for the other experiments. The experiment challenged players to collect particles using a swarm of 100 particles and return the particles to a home region. The particles encapsulate the particles on contact. 
+%
+%%\todo{describe controller model here, use an equation}
+%
+%The results were conclusive, as shown in Fig.~\ref{fig:ResVaryControl}.b: global control was the fastest, followed by repulsive control, with attractive control last.  Using ANOVA analysis, we reject the null hypothesis that all controllers are equivalent, with $p$-value $2.96\times10^{-6}$.
+%
+%
