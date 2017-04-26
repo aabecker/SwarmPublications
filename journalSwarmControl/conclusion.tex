@@ -2,15 +2,20 @@
 \section{Conclusion}\label{sec:conclusion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
  
-    Micro- and nanorobotics have the potential to revolutionize many applications including targeted material delivery, assembly, and surgery.  Their small size makes individual control and autonomy challenging, so currently these robots are steered by global control inputs such as magnetic fields or chemical gradients. To investigate this control challenge, this paper introduced \href{http://www.swarmcontrol.net}{SwarmControl.net}, an open-source tool for large-scale user experiments where human users steer swarms of robots to accomplish tasks.  Analysis of the game play results revealed benefits of measuring and controlling statistics of the swarm rather than full state feedback.
+    %Micro- and nanorobotics have the potential to revolutionize many applications including targeted material delivery, assembly, and surgery.  
+  The small size of micro and nano particles makes individual control and autonomy challenging, so currently these particles are steered by global control inputs such as magnetic fields or chemical gradients. To investigate this control challenge, this paper introduced \href{http://www.swarmcontrol.net}{SwarmControl.net}, an open-source tool for large-scale user experiments where human users steer swarms of robots to accomplish tasks.  Analysis of the game play results revealed benefits of measuring and controlling statistics of the swarm rather than full state feedback.
 
-Inspired by human operators, this paper designed controllers and controllability results using only the mean and variance of a robot swarm. 
-These controllers were used as primitives for an object manipulation task.
+Inspired by the three lessons from swarmcontrol.net, this paper designed controllers and controllability results using only the mean and variance of a particle swarm. 
+We developed a hysteresis based controller to regulate the position and variance of a swarm. We designed a controller for object manipulation using policy iteration for path planning, regions for outlier rejection and potential fields for minimizing moving the object backwards. These controllers were used as primitives for an object manipulation task.
 All automatic controllers were implemented using 100 kilobots steered by the direction of a global light source.
 These experiments culminated in an object manipulation task in a workspace with obstacles.
     
-  Manipulation by large populations of robots has many open questions. We invite other collaborators to submit their own experiments for large-scale trials to \href{http://www.swarmcontrol.net}{SwarmControl.net}.
-Topics of interest include control with nonuniform flow such as fluid in an artery, gradient control fields like that of an MRI, competitive playing, multi-modal control, optimal-control, and targeted drug delivery in a vascular network. 
+ % Manipulation by large populations of robots has many open questions. We invite other collaborators to submit their own experiments for large-scale trials to \href{http://www.swarmcontrol.net}{SwarmControl.net}.
+
+
+Our main goal is to perform assembly using particle swarms to manipulate and attach components. This task requires controlling the position and orientation of components, manipulate them through obstacles and other components, and apply force and torque to components. This work provides foundational algorithms and techniques for steering swarms, object manipulation, and addressing obstacle fields, but there are many opportunities to extend the work.
+
+Topics of interest include control with nonuniform flow such as fluid in an artery, gradient control fields like that of an MRI, competitive playing, multi-modal control, optimal-control, and targeted drug delivery in a vascular network.
 
 %\begin{figure}
 %\begin{overpic}[width = 0.48\columnwidth]{Worldbrowsing.pdf}\end{overpic}

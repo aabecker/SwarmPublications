@@ -15,7 +15,7 @@ This paper examines object manipulation by a swarm of particles, each actuated b
 Many promising applications for particle swarms require direct human control, but user interfaces to thousands---or millions---of particles is a daunting human-swarm interaction (HSI) challenge. Our early work with over a hundred hardware robots and thousands of simulated particles demonstrated that direct human control of large swarms is possible, \cite{Becker2013b}. 
 Unfortunately, the logistical challenges of repeated experiments with over one hundred robots prevented large-scale tests. 
 There is currently no comprehensive understanding of user interfaces for controlling multi-robot systems with massive populations.  
-This paper presents a tool for investigating HSI methods through statistically significant numbers of experiments.  
+One contribution of this paper is a tool for investigating HSI methods through statistically significant numbers of experiments.  
 
 
 \begin{figure}
@@ -28,64 +28,6 @@ Here a swarm of particles (kilobot robots) pushes a green hexagon toward the goa
 \end{figure}
 
 
-\begin{figure}
-%\centering
-\renewcommand{\figwid}{0.3\columnwidth}
-\begin{overpic}[width =\figwid]{VaryNum.pdf}	\put(10,80){\textbf{a} }\end{overpic}~
-\begin{overpic}[width =\figwid]{VaryVisMV.pdf}	\put(10,80){\textbf{b} }\end{overpic}~
-\begin{overpic}[width =\figwid]{VaryNoise.pdf}	\put(10,80){\textbf{c} }\end{overpic}\\
-%\\
-%\begin{overpic}[width =\figwid]{ControlPos.pdf}	\put(10,80){\textbf{d} }\end{overpic}~
-%\begin{overpic}[width =\figwid]{VaryControl.pdf}	\put(10,80){\textbf{e} }\end{overpic}~
-%\begin{overpic}[width =\figwid]{VaryForage.pdf}	\put(10,80){\textbf{f} }\end{overpic}
-\caption{\label{fig:5experiments}
-Screenshots from our online experiments controlling multi-particle systems with limited, global control.
-\textbf{(a)} Varying the number of particles from 1-500
-\textbf{(b)} Comparing 4 levels of visual feedback 
-\textbf{(c)} Varying noise from 0 to 200\% of control authority
-%\textbf{(d)} Controlling the position of 1 to 10 particles
-%\textbf{(e)} Comparing 3 control architectures to assemble
-%\textbf{(f)} Comparing 3 control architectures to forage.
-}
-\end{figure}
-
-
-%\begin{figure}
-%\renewcommand{\figwid}{0.32\columnwidth}
-%\subfloat[][Vary Number]{\label{fig:VaryNum}
-%\begin{overpic}[width =\figwid]{VaryNum.pdf}\end{overpic}}
-%%
-%\subfloat[][Vary Visual Feedback]{\label{fig:VaryVis}
-%%\begin{overpic}[width =\figwid]{VaryVisFS.pdf}\end{overpic}
-%\begin{overpic}[width =\figwid]{VaryVisCH.pdf}\end{overpic}}
-%%
-%\subfloat[][Vary Noise]{\label{fig:VaryNoise}
-%\begin{overpic}[width =\figwid]{VaryNoise.pdf}\end{overpic}}\\
-%%
-%\subfloat[][Control Position]{\label{fig:ControlPos}
-%\begin{overpic}[width =\figwid]{ControlPos.pdf}\end{overpic}}
-%%
-%\subfloat[][Vary Control: Assembly]{\label{fig:VaryControl}
-%\begin{overpic}[width =\figwid]{VaryControl.pdf}\end{overpic}}
-%%
-%\subfloat[][Vary Control: Foraging]{\label{fig:Forage}
-%\begin{overpic}[width =\figwid]{VaryForage.pdf}\end{overpic}}
-%%
-%\caption{\label{fig:5experiments}
-%Screenshots from our online experiments controlling multi-robot systems with limited, global control.
-%\textbf{(a)} Varying the number of robots from 1-500
-%\textbf{(b)} Comparing 4 levels of visual feedback 
-%\textbf{(c)} Varying noise from 0 to 200\% of control authority
-%\textbf{(d)} Controlling the position of 1 to 10 robots
-%\textbf{(e)} Comparing 3 control architectures to assemble
-%\textbf{(f)} Comparing 3 control architectures to forage.
-%\vspace{-2em}
-%}
-%\end{figure}
-
-The goal was to test several scenarios involving large-scale human-swarm interaction (HSI), and to do so with a statistically-significant sample size. Towards this end, we have created \href{http://www.swarmcontrol.net/show_results}{SwarmControl.net}: an open-source, online testing platform suitable for inexpensive deployment and data collection on a scale not yet seen in swarm robotics research. Screenshots from this platform are shown in Fig.~\ref{fig:5experiments}.  \href{https://github.com/crertel/swarmmanipulate.git}{All code} \href{http://www.swarmcontrol.net/show_results}{and experimental results} are online at \cite{Chris-Ertel2016}.
-
-Our online experiments show that numerous particles responding to global control inputs are directly controllable by a human operator without special training, that the visual feedback of the swarm state should be simple to increase task performance, and that humans perform swarm-object manipulation faster using attractive control schemes than repulsive control schemes.
 
 %Inspired by our online experiments, because it is not always possible to gather pose information on each robot for feedback control and
 %It is not always practical to gather pose information on individual robots for feedback control; the robots might be difficult or impossible to sense individually due to their size and location. However, it is often possible to sense global properties of the group, such as mean position and density.
