@@ -1,18 +1,17 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Object manipulation results}\label{sec:exp}
+\section{Particle Swarm Object manipulation}\label{sec:exp}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 This section analyzes an \emph{object manipulation} task attempted by our hybrid, hysteresis-based controllers.%, inspired by the analysis of human users in \S \ref{sec:expResults}.  
- The swarm must deliver the object to the goal region.  To solve this object manipulation task we divide the task into two components: designing a policy for the object, and designing a control law for the swarm to push the object according to the policy.
-
+  The swarm must deliver the object to the goal region.  To solve this object manipulation task we divide the task into three components: 1) designing a policy for the object, 2) pushing the object with a compliant swarm, and 3) managing outliers.
 \subsection{Learning a policy for the object}\label{subsec:objectpolicy}
 
 To design the policy we first discretize the environment. 
-In \cite{ShahrokhiIROS2015}, we used breadth-first search (BFS) on this discretized grid to determine $\mathbf{M}_{BFS}$, the shortest distance from any grid cell to the goal, and generated a gradient map $\nabla \mathbf{M}$  shown in Fig.~\ref{fig:BFSGradient}.  
-The object's center of mass is at $\mathbf{b}$ and has average radius $r_b$, so we define the desired direction for the object as $\mathbf{D}(\mathbf{b}) = \nabla \mathbf{M}(\mathbf{b})$. 
-The robots were directed behind the object at  $\mathbf{b} - 1.5 r_b \mathbf{D}(\mathbf{b})$, then directed to  $\mathbf{b} - 0.1 r_b \mathbf{D}(\mathbf{b})$ to push the object toward the goal location. 
-This approach using workspace BFS fails to account for the hull of the object and will suggest moves that can cause collisions with the workspace. A configuration-space BFS approach avoids that problem but still fails to model uncertain actuation of the object by the swarm.
+In \cite{ShahrokhiIROS2015}, we used breadth-first search (BFS) on this discretized grid,% to determine $\mathbf{M}_{BFS}$, the shortest distance from any grid cell to the goal, and generated a gradient map $\nabla \mathbf{M}$  shown in Fig.~\ref{fig:BFSGradient}.  
+%The object's center of mass is at $\mathbf{b}$ and has average radius $r_b$, so we define the desired direction for the object as $\mathbf{D}(\mathbf{b}) = \nabla \mathbf{M}(\mathbf{b})$. 
+%The robots were directed behind the object at  $\mathbf{b} - 1.5 r_b \mathbf{D}(\mathbf{b})$, then directed to  $\mathbf{b} - 0.1 r_b \mathbf{D}(\mathbf{b})$ to push the object toward the goal location. 
+but using workspace BFS fails to account for the hull of the object and will suggest moves that can cause collisions with the workspace. A configuration-space BFS approach avoids that problem but still fails to model uncertain actuation of the object by the swarm.
 
 To solve both these problems, this paper models object movement as a Markov Decision Process (MDP) with non-deterministic movement.  
   Value iteration,  as described in \cite{Thrun2005}, is used to learn an \emph{optimal policy}.
@@ -65,7 +64,7 @@ In 10 simulations with 100 robots, pushing the object to goal using BFS required
 
 \subsection{Potential fields for swarm management with a compliant manipulator}
 
-Unfortunately, when the swarm is in front of the object, control law \eqref{eq:PDcontrolPosition} pushes the object backwards.  To fix this, we implement a potential field approach inspired by \cite{spong2008robot} that attracts the swarm to the intermediate goal, but repulses the swarm from in front of the object.
+When the swarm is in front of the object, control law \eqref{eq:PDcontrolPosition} pushes the object backwards.  To fix this, we implement a potential field approach inspired by \cite{spong2008robot} that attracts the swarm to the intermediate goal, but repulses the swarm from in front of the object.
 The repulsive potential field is centered at the object's COM and is active for a radius $\rho_0$, but is implemented only when the swarm mean is within $\theta$ of the desired direction of motion $\mathbf{D}(\mathbf{b})$ as shown in Fig.~\ref{fig:potentialField}b.
 \begin{align}
 F_{att} &= -\zeta \Delta \rho / \rho, \\
@@ -127,7 +126,7 @@ In 10 simulations with 100 robots, completion time without outlier rejection req
 }
 \end{figure}
 
-\subsection{Algorithm for object manipulation}\label{sec:AlgObjectManipulation}
+\subsection{Simulation results}\label{sec:AlgObjectManipulation}
  We use the hybrid hysteresis-based controller in Alg.~\ref{alg:MeanVarianceControl}  to track the desired position, while maintaining sufficient robot density to move the object by switching to minimize variance whenever variance exceeds a set limit:  $0.003 W$ and $0.006 W$ were added to the min and max variance limits from \eqref{eq:sigMaxMin}.
  The minimize variance control law \eqref{eq:PDcontrolVariance} is slightly modified to choose the nearest corner further from the goal than $\mathbf{b}$ with an obstacle-free straight-line path to $\mathbf{b}$. 
 The control algorithm  for object manipulation is listed in Alg.~\ref{alg:BlockPushing}. 
@@ -177,7 +176,7 @@ If the swarm mean position does not change for five seconds, the swarm is assume
 \end{algorithm}
 
 
-\subsection{Automated object manipulation (simulation)}
+%\subsection{Automated object manipulation (simulation)}
 Fig.~\ref{fig:story} shows snapshots during an execution of this algorithm in simulation. 
 Experimental results of parameters sweeps are summarized in Fig.~\ref{fig:AutoVeryParam}.  Each trial measured the time to deliver the object to the goal location.  The default parameter settings used 100 robots, a normalized weight of 1, a hexagon shape, and Brownian noise (applied once each simulation step) with $W=5$.  
 
