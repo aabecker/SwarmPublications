@@ -50,13 +50,10 @@ y\\
 \end{equation}
 
 We want to find the number of states that we can control, which is given by the rank of the \emph{controllability matrix}
-\begin{equation}
-\mathcal{C} = [ B, AB, A^2B, ... , A^{n-1}B ].
-\end{equation}
-
-\begin{equation}
+\begin{align}
+\mathcal{C} &= [ B, AB, A^2B, ... , A^{n-1}B ].\\
 \textrm{Here }
-\mathcal{C}=\left[
+\mathcal{C}&=\left[
 \begin{matrix} 
 0 & 0\\
 \frac{1}{m} & 0 \\
@@ -84,9 +81,9 @@ We want to find the number of states that we can control, which is given by the 
 0 & 0\\
 0 & 0
 \end{matrix}
- \right],
- \quad \textrm{rank}(\mathcal{C})=4,
-\end{equation}
+ \right],\\
+ \quad \textrm{rank}(\mathcal{C})&=4,
+\end{align}
 and thus all four states are controllable. This section starts by proving independent position control of many robots is not possible, but the mean position can be controlled. We then provide conditions under which the variance of many robots is also controllable.
 
 \subsection{Independent control of many particles is impossible}
@@ -218,7 +215,8 @@ We again analyze the controllability matrix $\mathcal{C}_{\mu}$:
 Thus the mean position and mean velocity are controllable.
 
 
-Due to symmetry of the control input, only the mean position and mean velocity are controllable. However, there are several techniques for breaking symmetry, for example by using obstacles as in \cite{Becker2013b}, or by allowing independent noise sources as in \cite{beckerIJRR2014}.
+%Due to symmetry of the control input, only the mean position and mean velocity are controllable. However, 
+There are several techniques for breaking the symmetry of the control control input to allow controlling more states, for example by using obstacles as in \cite{Becker2013b}, or by allowing independent noise sources as in \cite{beckerIJRR2014}.
 
 We control mean position with a PD controller that uses the mean position and mean velocity. $[u_x,u_y]^\top$ is the global force applied to each robot:
 \begin{align}
@@ -246,9 +244,9 @@ To model this~\eqref{eq:stdform} must be modified as follows:
 \begin{align}
 \dot{\mathbf{x}}(t)  &=  A \mathbf{x}(t) + B \mathbf{u}(t) + W \bm{\varepsilon}(t),
 \end{align}
-where $W\bm{\varepsilon}(t)$ is a random perturbation produced by Brownian noise with magnitude $W$. Given a large obstacle-free workspace, a \emph{Brownian noise} process increases the variance linearly with time.
+where $W\bm{\varepsilon}(t)$ is a random perturbation produced by Brownian noise with magnitude $W$. Given a large obstacle-free workspace with $\mathbf{u}(t)= 0$, a \emph{Brownian noise} process increases the variance linearly with time.
 \begin{equation}
-\dot{\sigma}_x^2(\mathbf{x}(t), \mathbf{u}(t) \Leftarrow 0)  = W \bm{\varepsilon},
+\dot{\sigma}_x^2(\mathbf{x}(t), \mathbf{u}(t))  = W \bm{\varepsilon},
 \quad \sigma_x^2(t)  = \sigma_x^2(0) + W \bm{\varepsilon} t.
 \end{equation}
  If faster dispersion is needed, the swarm can be pushed through obstacles such as a diffraction grating or Pachinko board as in~\cite{Becker2013b}. 
@@ -290,7 +288,7 @@ $\dot{V}(t,{\bf x})$ is negative definite and the variance is globally asymptoti
 
 
 
-A  controller to regulate the variance to $\sigma^2_{ref}$ is:
+A PID controller to regulate the variance to $\sigma^2_{ref}$ is:
 \begin{align}
 u_x &= K_{p}(x_{goal}(\sigma^2_{ref}) - \bar{x}) - K_{d}\bar{v}_x + K_{i}(\sigma^2_{ref}-\sigma^2_{x}), \nonumber\\
 u_y &= K_{p}(y_{goal}(\sigma^2_{ref})  - \bar{y}) - K_{d}\bar{v}_y + K_{i}(\sigma^2_{ref}-\sigma^2_{y}).  \label{eq:PDcontrolVariance}

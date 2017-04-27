@@ -86,7 +86,7 @@ Similarly, our previous work, \cite{Becker2012,Becker2012k}, focused on exploiti
    %Two reasonable questions are ``What tasks are possible with many robots, all under uniform control inputs?'' and ``What tasks are impossible with many robots, all under uniform control inputs?'' 
   
  \paragraph{Sensing---large populations}
-$n$ differential-drive robots in a 2D workspace require $3n$ state variables. Even holonomic robots require $2n$ state variables. Numerous methods exist for measuring this state in microrobotics.  These solutions use computer vision systems to sense position and heading angle, with corresponding challenges of handling missed detections and image registration between detections and robots.  These challenges are increased at the nanoscale where sensing competes with control for communication bandwidth.   We examine control when the operator has access to partial feedback, including only the first and/or second moments of a population's position, or only the convex-hull containing the robots.
+$n$ differential-drive robots in a 2D workspace require $3n$ state variables. Even holonomic robots require $2n$ state variables. Numerous methods exist for measuring this state in microrobotics \cite{Peyer2013,Chiang2011,martel2014computer}.  These solutions use computer vision systems to sense position and heading angle, with corresponding challenges of handling missed detections and image registration between detections and robots.  These challenges increase at small scales where sensing competes with control for communication bandwidth.   We examine control when the operator has access to partial feedback, including only the first and/or second moments of a population's position, or only the convex-hull containing the robots.
  
 \paragraph{Computation---calculating the control law}
 In our previous work the controllers required at best a summation over all the robot states, see \cite{Becker2012k} and at worst a matrix inversion, see \cite{Becker2012}. 
@@ -109,7 +109,7 @@ Their research investigated robots with 3 levels of autonomy.  We use robots wit
 
 %\cite{Squire:2006:HCM:1121241.1121248} designed experiments showing user-interface design had a high impact on the task effectiveness and the number of robots that could be controlled simultaneously in a multi-robot task.
 
-Several user studies compare methods for controlling large swarms of simulated robots, for example \cite{bashyal2008human,kolling2012towards,de2012controllability}.  These studies provide insights but are limited by cost to small user studies; have a closed-source code base; and focus on controlling intelligent, programmable agents.  
+Several user studies compare methods for controlling large swarms of simulated robots, for example \cite{bashyal2008human,de2012controllability,kolling2012towards}.  These studies provide insights but are limited by cost to small user studies; have a closed-source code base; and focus on controlling intelligent, programmable agents.  
 For instance, the studies \cite{bashyal2008human},  \cite{de2012controllability}, and \cite{kolling2012towards}  were limited to a pool of 5, 18, and 32  participants.
 	Using an online testing environment, we conduct similar studies but with sample sizes three orders of magnitude larger.
 

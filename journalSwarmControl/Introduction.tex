@@ -22,7 +22,7 @@ One contribution of this paper is a tool for investigating HSI methods through s
 \centering
 \begin{overpic}[width=\columnwidth]{MainExpFig.pdf}\end{overpic}
 \caption{\label{fig:bigPictureMeanAndVarianceForSwarm} 
-A swarm of particles, all controlled by a uniform control input, can be effectively controlled by a hybrid controller that knows only the mean and variance of the robot distribution.  
+A swarm of particles, all actuated by a uniform control input where each particle gets the same control input, can be effectively manipulated by a control law that uses only the mean and variance of the robot distribution.  
 Here a swarm of particles (kilobot robots) pushes a green hexagon toward the goal (see video attachment).
 }
 \end{figure}
@@ -39,7 +39,7 @@ These controllers are used as primitives to perform the object manipulation task
 
  %function and implementation function
 
- Our paper is organized as follows.  After a discussion of related work in \S \ref{sec:RelatedWork},  we describe our experimental methods for an online human-user experiment and their results in \S \ref{sec:expMethods}. Inspired by these results, we prove that the mean and variance of a particle swarm are controllable in \S \ref{sec:theory}, and present automatic controllers in \S \ref{sec:simulation}. We use these controllers as primitives and present a framework for manipulating an object through a maze in \S \ref{sec:exp}. 
+ Our paper is organized as follows.  After a discussion of related work in \S \ref{sec:RelatedWork},  we describe our experimental methods for an online human-user experiment and their results in \S \ref{sec:expMethods}. Next we prove that the mean and variance of a particle swarm are controllable in \S \ref{sec:theory}, and present automatic controllers in \S \ref{sec:simulation}. We use these controllers as primitives and present a framework for manipulating an object through a maze in \S \ref{sec:exp}. 
  We conclude with implementations of these controllers in our hardware robots and use them to complete an object manipulation task with 100 kilobots in \S \ref{sec:realExperiment}.
  
 
