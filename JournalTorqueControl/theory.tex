@@ -107,15 +107,16 @@ Thus, torque is:
 \end{align}
 where $\tau_{left}$ and $\tau_{right}$ are defined as:
 \begin{align}
-\tau_{left} &=  {u_1}^2(2u_1 - 3\mu+3\sqrt{6}\sigma)\\ \nonumber
+\tau_{l} &=  {u_1}^2(2u_1 - 3\mu+3\sqrt{6}\sigma)\\ \nonumber
 &-2{l_1}^3+3{l_1}^2(\mu-\sqrt{6}\sigma), & \textrm{for     } u_1 > l_1\\ \nonumber
-\tau_{right} &= 2{l_2}^3-3{l_2}^2(\mu+\sqrt{6}\sigma)\\ \nonumber
+\tau_{r} &= 2{l_2}^3-3{l_2}^2(\mu+\sqrt{6}\sigma)\\ \nonumber
 &-{u_2}^2(2u_2 - 3\mu-3\sqrt{6}\sigma),  & \textrm{for     } u_2 > l_2\\ \nonumber
 \end{align}
 Torque by a uniformly distributed swarm is defined by:
 %defining torque normal distribution
 \begin{align} \label{eq:normalTorque}
-\tau_n &= \frac{\left(e^{\frac{\mu^2}{2\sigma^2}}-e^{\frac{(1-\mu)^2}{2\sigma^2}}\right)\sigma}{\sqrt{2\pi}}+ \frac{\mu}{2}\left(\erf\left(\frac{1-\mu}{\sqrt{2}\sigma}\right)+\erf\left(\frac{\mu}{\sqrt{2}\sigma}\right)\right) 
+\tau_n &= \frac{\left(e^{\frac{\mu^2}{2\sigma^2}}-e^{\frac{(1-\mu)^2}{2\sigma^2}}\right)\sigma}{\sqrt{2\pi}}\\ \nonumber
+&+ \frac{\mu}{2}\left(\erf\left(\frac{1-\mu}{\sqrt{2}\sigma}\right)+\erf\left(\frac{\mu}{\sqrt{2}\sigma}\right)\right) 
 \end{align}
 
 Consider a uniformly distributed swarm. The mean position that maximizes torque is computed.
@@ -193,7 +194,7 @@ The limit as $\sigma\to\infty$ is $\frac{2 - 3 \mu}{\sigma^3 6 \sqrt{2 \pi}}$ wh
 \subsection{Free object torque}
 In this problem, the torque applied to a free rod of length 2 from $[-1,0]$ to $[1,0]$, is:
 \begin{equation}
-\tau_{free} = \int_{-1}^1 x\,p(x)\, dx
+\tau_{f} = \int_{-1}^1 x\,p(x)\, dx
 \end{equation}
 For calculating free object torque for a uniformly distributed swarm, $l_f$ and $u_f$ are defined for simplicity of derivations. 
 %torque uniform free
@@ -216,11 +217,11 @@ Torque is:
 \begin{align}
 \tau_{tf} = \frac{\tau_{fleft}+ \tau_{fright}}{36\sigma^2}
 \end{align}
-where $\tau_{fleft}$ and $\tau_{fright}$ is defined as
+where $\tau_{fl}$ and $\tau_{fr}$ is defined as
 \begin{align}\nonumber
-\tau_{fleft} &=  {u_{f1}}^2(2u_{f1} - 3\mu+3\sqrt{6}\sigma)\\ \nonumber
+\tau_{fl} &=  {u_{f1}}^2(2u_{f1} - 3\mu+3\sqrt{6}\sigma)\\ \nonumber
 &-2{l_{f1}}^3+3{l_{f1}}^2(\mu-\sqrt{6}\sigma) &   \textrm{for     } u_{f1} > l_{f1}\\ \nonumber
-\tau_{fright} &= 2{l_{f2}}^3-3{l_{f2}}^2(\mu+\sqrt{6}\sigma)\\ \nonumber
+\tau_{fr} &= 2{l_{f2}}^3-3{l_{f2}}^2(\mu+\sqrt{6}\sigma)\\ \nonumber
 &+{u_{f2}}^2( 3\mu-2u_{f2}+3\sqrt{6}\sigma) &   \textrm{for     } u_{f2} > l_{f2}\\ \nonumber
 \end{align}
 
