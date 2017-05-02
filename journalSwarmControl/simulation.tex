@@ -8,8 +8,6 @@
 Our simulations use a Javascript port of \href{http://box2d.org/}{Box2D}, a popular 2D physics engine with support for rigid-body dynamics and fixed-time step simulation, presented in \cite{catto2010box2d}.  All experiments in this section ran on a Chrome web browser on a 2.6 GHz Macbook.  \href{https://github.com/aabecker/SwarmControlSandbox/blob/master/exampleControllers/BlockPushingIROS2015.html}{All code is available at}~\cite{Shahrokhi2016blocksimulations}.
 
 \subsection{Controlling the mean position}
-
-We performed a parameter sweep using the PD controller \eqref{eq:PDcontrolPosition} to identify the best control gains.  Representative experiments are shown in Fig.~\ref{fig:gainvalues}. 100 particles were used and the maximum speed was 3 meters per second. As shown in Fig.~\ref{fig:gainvalues}, we can achieve an overshoot of 1\% and a  rise time of 1.52~s with $K_{p}= 4$, and  $K_{d} = 1$. 
 \begin{figure}
 \centering
 \begin{overpic}[width = \columnwidth ]{gains.pdf}
@@ -21,6 +19,8 @@ We performed a parameter sweep using the PD controller \eqref{eq:PDcontrolPositi
 %\vspace{-2em}
 }
 \end{figure}
+We performed a parameter sweep using the PD controller \eqref{eq:PDcontrolPosition} to identify the best control gains.  Representative experiments are shown in Fig.~\ref{fig:gainvalues}. 100 particles were used and the maximum speed was 3 meters per second. As shown in Fig.~\ref{fig:gainvalues}, we can achieve an overshoot of 1\% and a  rise time of 1.52~s with $K_{p}= 4$, and  $K_{d} = 1$. 
+
 
 %\begin{figure}
 %\centering
