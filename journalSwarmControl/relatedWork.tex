@@ -77,6 +77,8 @@ Small robots have been constructed with physical heterogeneity so that they resp
 
 Similarly, our previous work, \cite{Becker2012,Becker2012k}, focused on exploiting inhomogeneity between robots.  These control algorithms theoretically apply to any number of robots---even robotic continuums---but in practice process noise cancels the differentiating effects of inhomogeneity for more than tens of robots.  We desire control algorithms that extend to many thousands of robots.
 
+Limited position control was achieved by \cite{bretl2007control} and our previous work \cite{beckerIJRR2014}, but both used robots commanded in their local coordinate frame. Our new submission focuses on a more common paradigm: particles commanded in a global coordinate frame
+
 %  \subsection{Three challenges for massive manipulation}
  While it is now possible to create many microrobots, there remain challenges in control, sensing, and computation:
   
@@ -108,6 +110,13 @@ Their research investigated robots with 3 levels of autonomy.  We use robots wit
 
 
 %\cite{Squire:2006:HCM:1121241.1121248} designed experiments showing user-interface design had a high impact on the task effectiveness and the number of robots that could be controlled simultaneously in a multi-robot task.
+
+%%%%%%%Where should we add these?
+
+%[1] requires robots that can execute task primitives.  Our particles simply move in the direction of the global control unless they are stopped by an obstacle.
+%[3] uses only Open-Loop control.  Our submission relies on state feedback
+%[4] requires collective intelligence of a group of miniature robots
+%[5] requires robots that can individually decide when to actuate and when to remain anchored, can perform onboard computation (generate a random number, calculate its bin and the next bin).
 
 Several user studies compare methods for controlling large swarms of simulated robots, for example \cite{bashyal2008human,de2012controllability,kolling2012towards}.  These studies provide insights but are limited by cost to small user studies; have a closed-source code base; and focus on controlling intelligent, programmable agents.  
 For instance, the studies \cite{bashyal2008human},  \cite{de2012controllability}, and \cite{kolling2012towards}  were limited to a pool of 5, 18, and 32  participants.
