@@ -1,0 +1,45 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Human-swarm interaction results}\label{sec:expResults}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\paragraph{Varying control--Assembly}
+Ultimately, we want to use swarms of particles to build things. This experiment compared different control architectures modeled after real-world devices.
+
+We compared attractive and repulsive control with the global control used for the other experiments. The attractive and repulsive controllers were loosely modeled after scanning tunneling microscopes (STM), but also apply to magnetic manipulation, e.g.\ \cite{Khalil2013} and biological models, e.g. \cite{goodrich2012types}. STMs can be used to arrange atoms and make small assemblies, as described in \cite{avouris1995manipulation}. An STM tip is charged with electrical potential, and used to repel like-charged or to attract differently-charged molecules. In contrast, the global controller uses a uniform field (perhaps formed by parallel lines of differently-charged conductors) to pull molecules in the same direction.
+The experiment challenged players to assemble a three-block pyramid with a swarm of 16 particles.
+
+%\todo{describe controller model here, use an equation}
+
+The results were conclusive, as shown in Fig.~\ref{fig:ResVaryControl}a: attractive control was the fastest, followed by global control, with repulsive control a distant last.  The median time using repulsive control was four times longer than with attractive control.
+Using ANOVA analysis, we reject the null hypothesis that all controllers are equivalent, with $p$-value $3.37\times10^{-32}$.
+%
+%\begin{figure}
+%\begin{overpic}[width = 0.39\columnwidth]{attractiveForce.pdf}\end{overpic}
+%\begin{overpic}[width = 0.6\columnwidth]{understandingForces.pdf}\end{overpic}
+%\caption{
+%\label{fig:attractiveForce}
+%Attraction and repulsion with a point source distance $h$ above the plane and $r$ from the robot. 
+%}
+%\end{figure}
+
+\begin{figure}[b!]
+\renewcommand{\figwid}{0.9\columnwidth}
+\begin{overpic}[width =\figwid]{ResVaryControl.pdf}\end{overpic}
+\begin{overpic}[width =\figwid]{ResVaryForage.pdf}\end{overpic}
+\vspace{-.5em}
+\caption{\label{fig:ResVaryControl} Completion time depends on both the task and the control type. Left: Attractive control resulted in the shortest completion time and repulsive the longest for building a three-block pyramid. Right: in the foraging test, global control resulted in the shortest completion time and attractive the longest.
+%\vspace{-1em}
+}
+\end{figure}
+
+\paragraph{Varying control--Foraging}
+Collecting and delivering resources is necessary for drug delivery.
+This experiment also compared attractive and repulsive control with the global control used for the other experiments. The experiment challenged players to collect particles using a swarm of 100 particles and return the particles to a home region. The particles encapsulate the particles on contact. 
+
+%\todo{describe controller model here, use an equation}
+
+The results were conclusive, as shown in Fig.~\ref{fig:ResVaryControl}.b: global control was the fastest, followed by repulsive control, with attractive control last.  Using ANOVA analysis, we reject the null hypothesis that all controllers are equivalent, with $p$-value $2.96\times10^{-6}$.
+
+
