@@ -11,72 +11,18 @@ This section describes global control challenges and reviews highlights of human
 
 
 \subsection{Global control of microrobots}
-Small robots have been constructed with physical heterogeneity so that they respond differently to a global broadcast control signal.  Examples include \emph{scratch-drive microrobots}, actuated and controlled by a DC voltage signal from a substrate by \cite{Donald2006,Donald2008};   magnetic structures  with different cross-sections that can be independently steered by \cite{Floyd2011,Diller2013};   \emph{MagMite} microrobots with different resonant frequencies and a global magnetic field by \cite{Frutiger2008}; and  magnetically controlled nanoscale helical screws constructed to stop movement at different cutoff frequencies of a global magnetic field by
+
+This paper investigates global control of particles that have no onboard computation. This prevents us from applying controllers that require computation on the agents, as in \cite{milutinovic2006modeling,prorok2011multi,demir2015probabilistic}.
+%\cite{milutinovic2006modeling} requires robots that can execute task primitives.  Our particles simply move in the direction of the global control unless they are stopped by an obstacle. 
+%\cite{palmer2011hamiltonian} uses only Open-Loop control.  Our submission relies on state feedback 
+%\cite{prorok2011multi} requires collective intelligence of a group of miniature robots
+%\cite{demir2015probabilistic} requires robots that can individually decide when to actuate and when to remain anchored, can perform onboard computation (generate a random number, calculate its bin and the next bin). 
+Another control paradigm is to construct robots with physical heterogeneity so that they respond differently to a global broadcast control signal.  Examples include \emph{scratch-drive microrobots}, actuated and controlled by a DC voltage signal from a substrate by \cite{Donald2006,Donald2008};  magnetic structures  with different cross-sections that can be independently steered by \cite{Floyd2011,Diller2013};  \emph{MagMite} microrobots with different resonant frequencies and a global magnetic field by \cite{Frutiger2008}; and  magnetically controlled nanoscale helical screws constructed to stop movement at different cutoff frequencies of a global magnetic field by
 \cite{Tottori2012} and \cite{Peyer2013}. 
+Similarly, our previous work, \cite{Becker2012,Becker2012k}, focused on exploiting inhomogeneity between robots.  These control algorithms theoretically apply to any number of robots, even robotic continuums.
 
 
-
-%In our previous work with robots that can be modeled as nonholonomic unicycles~\cite{Becker2012k}, we showed that an inhomogeneity in turning speed is enough to make even an infinite number of robots controllable with regard to position. 
-%While these approaches theoretically scale to large populations, they also require both excellent state estimation and heterogeneous robots. 
-
-%For micro- and nanorobotics, the marginal cost of producing one additional robot is astonishingly small.  While some microrobots are individually fabricated \cite{Tottori2012}, others are fabricated using MEMS techniques \cite{Donald2008}, and these dies could be tiled to produce multiple copies.  Nanocars are exemplary of this diminishing marginal cost.  Nanocars are synthetic molecules with integrated axles, rolling wheels, and light-driven motors developed by Tour et al.\cite{Chiang2011}.  These  are routinely produced in quantities that are amazing---a batch  the size of an aspirin tablet  contained$~\approx4\times 10^{19}$ nanocars.  This dwarfs the total number of birds on the planet earth---some $3\times10^{11}$\cite{Gaston1997}. 
- %aspirin in US weighs 325 mg.
-  %or the number of automobiles produced in the history of humankind
-% http://www.virlab.virginia.edu/nanoscience_class/lecture_notes/Lecture_13_Materials/Tour%20on%20nanovehicles.pdf states:
-%	On the other hand, nanocars synthesized in our laboratory
-%	are each calculated to be approximately 3x6x4 nm in size, and
-%	can be produced on the 30 mg scale (3.26x10^18 nanocars)
-%	using small 100 ml laboratory reaction flasks, or more
-%	nanocars than the number of automobiles made in the
-%	history of the world (63 million automobiles were produced
-%	in 2005). It would take 30 nanocars, side by side, to span the
-%	90 nm width of a small line in the most advanced logic
-%	chip being made today
-% The motorized nanocar can be synthesized in 12 steps with an overall yield of 5\%,  An electrically driven one is \cite{Kudernac2011}
-%Biological agents, including the magnetically controlled ciliate protozoa studied by A. Julius~\cite{Ou2012, Ou2012a} and the magnetotactic bacteria studied by Martel~\cite{Felfoul2011}can be grown or purchased in large numbers.
-% According to a scientific study of trace elements in hair, a single strand of hair 4 1/2 inches in length weighs, on average, 0.62 milligram, with weights varying from 0.25 milligram to just under 1 milligram.
-%mosquito weight = and weight up to 2.5 milligrams
-%Read more: How much does one strand of human hair weigh? | Answerbag http://www.answerbag.com/q_view/2159502#ixzz2EUltJTAl
- 
-
-%
-%Consider a collection of $n$ planar robots.  We  describe the configuration of the $i$-th robot by $q_i=[x_i,y_i]^\top$ and its configuration space by $\Cspace = \R^2$.  At the micro/nanoscale viscous effects dominate inertial forces~\cite{Purcell1977}, so our model ignores velocity and assumes in the absence of an external force, the robots stop moving.
-% We describe the configuration of the environment by the magnitude of the force field $f = [f_x,f_y]\in\R^2$, which is assumed constant across the workspace.  The control inputs $u = [u_x,u_y]\in\R^2$ change this force field.
-%\begin{align}
-%\dot{x}_i &= f_x,&
-%\dot{f_x} &= u_x,\nonumber \\
-%\dot{y}_i &= f_y, &
-%\dot{f_y} &= u_y. \label{eq:sysModel}
-%\end{align}
-%
-%\todo{This model is key, because if we use impulsive inputs for $u_x$ and $u_y$, there are a number of tasks we can accomplish with a single input (e.g. 2,3,5,7 in Fig.~\ref{fig:boundaryManipulators}.)}
-
-%In \cite{Becker2012} we proved that systems described by \eqref{eq:ensembleDynamics} can be approximately steered to arbitrary positions in $\R^2$.  In \cite{Becker2012k} we provided closed-loop controllers to drive $n$ robots to $n$ target positions.  For both works, the control laws apply even to an infinite robot continuum.  
-%
-%Unfortunately, in \cite{Becker2012}, we proved that the heading of the ensemble---the $\theta_i$ values---is not controllable.  The final heading of every robot in the ensemble is the scaled integration of all the turning control inputs, i.e.~ $\theta_i(T) = \theta_i(0) + \epsilon_i\int_0^T \omega(t)\,{\rm d}t$.  Instead of a full-state controller, we provided a control law that steered the position of each robot's center of rotation.  Our goal is to provide control algorithms for many robots with uniform inputs, with  application in trajectory following, manipulation, force-closure, and assembly at the micro- and nanoscale.  Regrettably, 
-% being unable to control the heading of the robots makes many tasks difficult or impossible.  For instance, manipulation and assembly work without heading control requires that the robots be able to rotate in place and be circular, since we cannot specify the incident angle of the robots. %In practice, this limits the application of our work to circular or point robots. 
-%As Lynch explained in \cite{Lynch1999}, pushing with a round object is inherently unstable.
-
-
-%  Possible applications include using molecular robots as nanoscale transporters, to break chemical bonds, or to build structures by constructing non-covalent bonds. We derive inspiration from the molecular actuators of Roth et al.~\cite{Minett2002}, the molecular elevators of Badj{\'i}c at al.~\cite{Badjic2004}, and the nanocars of Tour et al.~\cite{Vives2009}. %hydrogen bonds
-
-% From James Tour:
-%My motivation has been clear on this topic, and I have written it many times.  Here is a synopsis:
-%Transport of goods and materials between points is at the
-%heart of all engineering and construction in real-world systems.
-%Just as biological systems survive by nanometer-scale
-%transport using molecular-sized entities, as we delve into the
-%arena of the nanosized world, it beckons that we learn to
-%manipulate and transport nanometer-scale materials in a similar
-%manner. Nanoscale transporters that are truly moleculesized
-%will be required for the enzyme-like fabrication of
-%sophisticated integrated structures.
-%We want to build things from the bottom up, ex vivo, much like enzyme build in vivo???that is and has been my motivation.  I do not think that targeting these for biological applications is wise.  One would use enzyme-like structures for that, not nanocars.  These are for ex vivo. 
-
-
-
-Similarly, our previous work, \cite{Becker2012,Becker2012k}, focused on exploiting inhomogeneity between robots.  These control algorithms theoretically apply to any number of robots---even robotic continuums---but in practice process noise cancels the differentiating effects of inhomogeneity for more than tens of robots.  We desire control algorithms that extend to many thousands of robots.
-
+However, process noise cancels the differentiating effects of inhomogeneity for more than tens of robots.  We desire control algorithms that extend to many thousands of robots.
 Limited position control was achieved by \cite{bretl2007control} and our previous work \cite{beckerIJRR2014}, but both used robots commanded in their local coordinate frame. Our new submission focuses on a more common paradigm: particles commanded in a global coordinate frame
 
 %  \subsection{Three challenges for massive manipulation}
@@ -97,7 +43,7 @@ These operations become intractable for large populations of robots. By focusing
 
  \subsection{Human-swarm interaction}
  
-  Most humans are able to, with practice, steer a swarm of robots controlled by a global input. Prior to our paper, no algorithm existed. Using human input to learn how to control a dynamic system is a line of research with a rich history \cite{argall2009, abbeel2010}. This paper exploits insights gained from ``swarmcontrol.net", particularly the fact that having a swarm's mean and variance is sufficient for object manipulation through an obstacle field.
+  Most humans are able to, with practice, steer a swarm of robots controlled by a global input. Prior to our paper, no algorithm existed. Using human input to learn how to control a dynamic system is a line of research with a rich history \cite{argall2009, abbeel2010}. This paper exploits insights gained from \href{http://www.swarmcontrol.net}{\emph{SwarmControl.net}}, particularly the fact that having a swarm's mean and variance is sufficient for object manipulation through an obstacle field.
   
  A user interface enabling an operator to maneuver a swarm of robots through a cluttered workspace by specifying the bounding prism for the swarm and then translating or scaling this prism is designed in \cite{ayanian2014controlling}. Our paper shares the concept of a global control input, but our robots have no onboard computation and cannot track a virtual boundary.
  
@@ -111,16 +57,13 @@ Their research investigated robots with 3 levels of autonomy.  We use robots wit
 
 %\cite{Squire:2006:HCM:1121241.1121248} designed experiments showing user-interface design had a high impact on the task effectiveness and the number of robots that could be controlled simultaneously in a multi-robot task.
 
-%%%%%%%Where should we add these?
 
-%[1] requires robots that can execute task primitives.  Our particles simply move in the direction of the global control unless they are stopped by an obstacle. \cite{milutinovic2006modeling}
-%[3] uses only Open-Loop control.  Our submission relies on state feedback \cite{palmer2011hamiltonian}
-%[4] requires collective intelligence of a group of miniature robots\cite{prorok2011multi}
-%[5] requires robots that can individually decide when to actuate and when to remain anchored, can perform onboard computation (generate a random number, calculate its bin and the next bin). \cite{demir2015probabilistic}
+
 
 Several user studies compare methods for controlling large swarms of simulated robots, for example \cite{bashyal2008human,de2012controllability,kolling2012towards}.  These studies provide insights but are limited by cost to small user studies; have a closed-source code base; and focus on controlling intelligent, programmable agents.  
 For instance, the studies \cite{bashyal2008human},  \cite{de2012controllability}, and \cite{kolling2012towards}  were limited to a pool of 5, 18, and 32  participants.
 	Using an online testing environment, we conduct similar studies but with sample sizes three orders of magnitude larger.
+%Crowdsourcing human-swarm interaction is gaining considerable attention, see \cite{tavakoli2016crowdsourced} and \cite{hauert2014mechanisms}.
 
 \subsection{Block pushing and compliant manipulation}
 Unlike \emph{caging} manipulation, where robots form a rigid arrangement around an object, as in \cite{Sudsang2002,Fink2008}, our swarm of robots is unable to grasp the blocks they push, and so our manipulation strategies are similar to \emph{nonprehensile manipulation} techniques, e.g.~\cite{Lynch1999}, where forces must be applied along the center of mass of the moveable object. A key difference is that our robots are compliant and tend to flow around the object, making this similar to fluidic trapping as in \cite{Armani2006} and \cite{Becker2009}.  
