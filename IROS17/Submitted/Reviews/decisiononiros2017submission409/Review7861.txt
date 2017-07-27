@@ -1,0 +1,80 @@
+Reviewer 3 of IROS 2017 submission 409
+
+Comments to the author
+======================
+
+This paper considers the problem of controlling a swarm of
+particles (“robots”) through an external field leveraging
+boundary contacts as the way of achieving high-fidelity
+position control in 2 or 3 dimensions. This is an
+interesting idea, i.e., that rather than endowing the
+particles with independent actuation and computing
+capabilities, they are controlled purely by being pushed
+into boundaries in a controlled manner. 
+
+My comments and concert regarding the paper is as follows:
+- There is a bit of confusion in the introduction about
+what exactly the system under consideration really is. It
+is stated that each particle has 2 DoF without making it
+clear that the 2D case is considered. Similarly, it is
+simply stated that it is assumed that particles pushed into
+the boundary have zero velocity, i.e., even if they are
+pushed in at an angle, apparently the friction is always
+high enough to overcome any resulting motion. This may be a
+valid assumption for some classes of systems and
+constraints on the field, but no real discussion of this is
+provided beyond an off-hand reference to low-Reynolds
+number environments. 
+- Even though I really like the idea of using external
+fields + boundary effects to manipulate the swarm, it is
+not at all clear to me why exact positioning is important
+to such a system? Simply stating that “Positioning is a
+foundational capability for a robotic system” is not enough
+of a justification.
+- The paper contains quite a few grammatical “oddities”,
+such as “The following sections examine using boundaries
+that stop the particles if they are pushed into the wall.”
+and it would be significantly strengthened by a careful
+proof-reading.
+- The 2-agent algorithm is quite intriguing. But, it is
+rather complex and the generalization to n agents (it is
+supposed to be a swarm after all) is not at all clear.
+Instead, a few algorithms are presented and combined
+without any type of real discussion about either optimality
+guarantees, computational complexity, nor what the actual
+assumptions are that the system must satisfy for this to be
+useful. (See the next comment.)
+- My biggest concern is that the algorithm seems to rely on
+not only being able to exactly know individual particles
+positions (which does not seem to gel all that well with
+the talk about nano-robots) but also being able to
+distinguish individual particles (which certainly does not
+gel with the nan-robot story). Innocent-looking statements
+like “If r_2.x…” in the algorithm actually involves both
+knowing the position and the identify of robot 2. I truly
+do not understand how this is done. It may be that this is
+in fact doable, but the paper does not discuss this pivotal
+issue at all!
+- Even though the implementation is nice, it certainly does
+not quite connect with the developed theory (1cm
+discretized moves, toothed boundaries, 10 agents executing
+a much simpler motion than what was discussed. As such, it
+is not all that clear just what the experiment actually
+shows beyond the fact that something somewhat related to
+the rest of the paper was implemented in hardware. What was
+actually learned/verified/improved as part of the
+“experiment”?
+
+In summary, this paper starts with a really interesting
+idea (uniform fields and boundary interactions for swarm
+control). But it does not quite deliver in that a large
+number of hidden assumptions are required to make the
+developed theory work (which is why the simulation works
+great but the experiment is somewhat orthogonal to what is
+actually developed in the paper.)
+
+
+Comments on the Video Attachment
+================================
+
+The video is nice.

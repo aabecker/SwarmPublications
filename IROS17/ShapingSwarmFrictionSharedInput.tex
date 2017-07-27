@@ -129,6 +129,12 @@
 \newcommand{\figwid}{0.22\columnwidth}
 \newcommand{\TRUE}{\textbf{true}}
 \newcommand{\FALSE}{\textbf{false}}
+\newcommand{\xupdownarrow}[1]{%
+  {\left\updownarrow\vbox to #1{}\right.\kern-\nulldelimiterspace}
+}
+%\newcommand{\xleftrightarrow}[1]{%
+%  {\left\leftrightarrow\vbox to #1{}\right.\kern-\nulldelimiterspace}
+%}
 \DeclareMathOperator{\atan2}{atan2}
 \allowdisplaybreaks
 
@@ -139,7 +145,7 @@
 
 \pdfinfo{
    /Author (Shiva Shahrokhi, Arun Mahadev, and Aaron T. Becker)
-   /Title  (Algorithms For Shaping a Particle Swarm With a Shared Control Input Using Boundary Interaction)
+   /Title  (Algorithms for Shaping a Particle Swarm with a Shared Input by Exploiting Non-Slip Wall Contacts)
    /CreationDate (D:20160129120000)
    /Subject (Simple Robots)
    /Keywords (Robots;Uniform Control Inputs)
@@ -147,7 +153,7 @@
 
 
 % paper title
-\title{\LARGE \bf Algorithms For Shaping a Particle Swarm With a\\ Shared Control Input Using Boundary Interaction*}
+\title{\LARGE \bf Algorithms for Shaping a Particle Swarm with a \\Shared Input by Exploiting Non-Slip Wall Contacts*}
 
 % You will get a Paper-ID when submitting a pdf file to the conference system
 \author{Shiva Shahrokhi, Arun Mahadev, and Aaron T. Becker% <-this % stops a space
@@ -173,14 +179,14 @@
 \begin{abstract}
 There are driving applications for large populations of tiny robots in robotics, biology, and chemistry.
 These robots often lack onboard computation, actuation, and communication.
-Instead, these ``robots''  are  particles carrying some payload and the particle swarm is controlled by a shared, global control input such as a uniform magnetic gradient or electric field.
+Instead, these ``robots''  are  particles carrying some payload and the particle swarm is controlled by a shared control input such as a uniform magnetic gradient or electric field.
 In previous works, we showed that the 2D position of each particle in such a swarm is controllable if the workspace contains a single obstacle the size of one particle.
 
 Requiring a small, rigid obstacle suspended in the middle of the workspace is a strong constraint, especially in 3D.
 %Often particles are placed into an em
-This paper relaxes that constraint, and provides position control algorithms that only require interactions with the boundaries.
-Both in vivo and artificial environments often have boundaries.
-We assume that particles in contact with the boundaries have zero velocity if the global control input pushes the particle into the wall.
+This paper relaxes that constraint, and provides position control algorithms that only require non-slip wall contact in 2D.
+Both in vivo and artificial environments often have such boundaries.
+We assume that particles in contact with the boundaries have zero velocity if the shared control input pushes the particle into the wall.
 This paper provides a shortest-path algorithm for positioning a two-particle swarm, and a generalization to positioning an $n$-particle swarm.
 Results are validated with simulations and a hardware demonstration.
 
