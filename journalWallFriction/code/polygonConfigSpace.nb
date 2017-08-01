@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     54542,       1438]
-NotebookOptionsPosition[     53094,       1382]
-NotebookOutlinePosition[     53450,       1398]
-CellTagsIndexPosition[     53407,       1395]
+NotebookDataLength[     54668,       1436]
+NotebookOptionsPosition[     53220,       1380]
+NotebookOutlinePosition[     53576,       1396]
+CellTagsIndexPosition[     53533,       1393]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -366,10 +366,10 @@ J. Wesenberg, 2008\>\""}], ";"}], "\n",
         RowBox[{
          RowBox[{"a", "-", "b"}], ",", 
          RowBox[{"c", "-", "d"}]}], "}"}], "]"}]}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\n", 
    RowBox[{"(*", " ", 
-    RowBox[{"a", " ", "colored", " ", "locator", " ", "icon"}], "*)"}], "\n", 
-   
+    RowBox[{"a", " ", "colored", " ", "locator", " ", "icon"}], "*)"}], 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      RowBox[{"loc", "[", "col_", "]"}], ":=", 
@@ -719,20 +719,19 @@ J. Wesenberg, 2008\>\""}], ";"}], "\n",
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`pt$$ = {0.30000000000000004`, 
-    0.875}, $CellContext`sides$$ = 3, Typeset`show$$ = True, 
-    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{
+   DynamicModuleBox[{$CellContext`pt$$ = {-0.562, -0.020000000000000018`}, \
+$CellContext`sides$$ = 3, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
       Hold[$CellContext`sides$$], 3, 10, 1}, {{
        Hold[$CellContext`pt$$], {0, 0}}, Automatic}}, Typeset`size$$ = {
-    360., {205., 209.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, $CellContext`sides$584$$ = 0}, 
+    360., {204., 209.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`sides$1608$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
       "Variables" :> {$CellContext`pt$$ = {0, 0}, $CellContext`sides$$ = 3}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`sides$$, $CellContext`sides$584$$, 0]}, 
+        Hold[$CellContext`sides$$, $CellContext`sides$1608$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -796,7 +795,7 @@ $CellContext`T$ = $CellContext`LineIntersectionPoint[{$CellContext`seg$, #}];
          "Labeled"}, {{$CellContext`pt$$, {0, 0}}, Automatic, ControlType -> 
          Locator, Appearance -> None}}, "Options" :> {}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{411., {252., 257.}},
+     ImageSizeCache->{411., {251., 256.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -808,7 +807,7 @@ $CellContext`T$ = $CellContext`LineIntersectionPoint[{$CellContext`seg$, #}];
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
  CellChangeTimes->{3.7105167897492867`*^9, 3.7105170036081657`*^9, 
-  3.710518735496434*^9}]
+  3.710518735496434*^9, 3.710525396582003*^9}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -970,8 +969,8 @@ J. Wesenberg, 2008\>\""}], ";"}], "\n",
        RowBox[{"Partition", "[", 
         RowBox[{"pts", ",", "2", ",", "1", ",", 
          RowBox[{"{", 
-          RowBox[{"2", ",", "2"}], "}"}]}], "]"}]}], ")"}]}]}], "\n", 
-   "\[IndentingNewLine]", 
+          RowBox[{"2", ",", "2"}], "}"}]}], "]"}]}], ")"}]}]}], 
+   "\[IndentingNewLine]", "\n", 
    RowBox[{"Manipulate", "[", 
     RowBox[{
      RowBox[{"Module", "[", 
@@ -1090,29 +1089,28 @@ J. Wesenberg, 2008\>\""}], ";"}], "\n",
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`pt$$ = {0, 0}, $CellContext`sides$$ = 6, 
+   DynamicModuleBox[{$CellContext`pt$$ = {0, 0}, $CellContext`sides$$ = 3, 
     Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
     Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
     1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
       Hold[$CellContext`sides$$], 3, 10, 1}, {{
        Hold[$CellContext`pt$$], {0, 0}}, Automatic}}, Typeset`size$$ = {
-    313., {214., 218.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, $CellContext`sides$9226$$ = 0}, 
+    360., {204., 209.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`sides$584$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
       "Variables" :> {$CellContext`pt$$ = {0, 0}, $CellContext`sides$$ = 3}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`sides$$, $CellContext`sides$9226$$, 0]}, 
+        Hold[$CellContext`sides$$, $CellContext`sides$584$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
         Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
          Typeset`skipInitDone$$}, "Body" :> 
-      Module[{$CellContext`v$, $CellContext`inPoly$}, $CellContext`v$ = 
-         Table[
-           
-           RandomReal[{-1, 1}, 
-            2], {$CellContext`sides$$}]; $CellContext`inPoly$ = \
+      Module[{$CellContext`v$, $CellContext`inPoly$}, $CellContext`v$ = Table[{
+            Cos[2 (Pi $CellContext`n/$CellContext`sides$$)], 
+            Sin[2 (Pi $CellContext`n/$CellContext`sides$$)]}, {$CellContext`n,
+             1, $CellContext`sides$$}]; $CellContext`inPoly$ = \
 $CellContext`pnPoly[{0, 0}, 
            Map[# + $CellContext`pt$$& , $CellContext`v$]]; Show[{
            ConvexHullMesh[
@@ -1131,7 +1129,7 @@ $CellContext`v$], {$CellContext`n, 1, $CellContext`sides$$}], 1]],
       "Specifications" :> {{$CellContext`sides$$, 3, 10, 1, Appearance -> 
          "Labeled"}, {{$CellContext`pt$$, {0, 0}}, Automatic, ControlType -> 
          Locator}}, "Options" :> {}, "DefaultOptions" :> {}],
-     ImageSizeCache->{364., {261., 266.}},
+     ImageSizeCache->{411., {251., 256.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -1148,7 +1146,7 @@ $CellContext`v$], {$CellContext`n, 1, $CellContext`sides$$}], 1]],
    3.710358092926723*^9, 3.71035810220856*^9}, 3.7104929922861767`*^9, {
    3.710493138955696*^9, 3.710493167703368*^9}, 3.71049345279865*^9, 
    3.71051875146393*^9, {3.71051882427149*^9, 3.7105188561964483`*^9}, 
-   3.710518890988422*^9, 3.710518925252747*^9}]
+   3.710518890988422*^9, 3.710518925252747*^9, 3.710525393878334*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1407,37 +1405,37 @@ Cell[3514, 91, 154, 4, 33, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[3705, 100, 24131, 616, 1536, "Input"],
-Cell[27839, 718, 4610, 92, 526, "Output"]
+Cell[27839, 718, 4629, 91, 558, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[32510, 817, 112, 1, 64, "Section"],
+Cell[32529, 816, 112, 1, 64, "Section"],
 Cell[CellGroupData[{
-Cell[32647, 822, 1378, 39, 98, "Input"],
-Cell[34028, 863, 1352, 36, 63, "Output"]
+Cell[32666, 821, 1378, 39, 98, "Input"],
+Cell[34047, 862, 1352, 36, 63, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[35417, 904, 7405, 183, 521, "Input"],
-Cell[42825, 1089, 2981, 61, 544, "Output"]
+Cell[35436, 903, 7405, 183, 521, "Input"],
+Cell[42844, 1088, 3088, 60, 524, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[45843, 1155, 447, 12, 46, "Input"],
-Cell[46293, 1169, 631, 17, 46, "Output"]
+Cell[45969, 1153, 447, 12, 46, "Input"],
+Cell[46419, 1167, 631, 17, 46, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[46961, 1191, 201, 5, 28, "Input"],
-Cell[47165, 1198, 156, 4, 28, "Output"]
+Cell[47087, 1189, 201, 5, 28, "Input"],
+Cell[47291, 1196, 156, 4, 28, "Output"]
 }, Open  ]],
-Cell[47336, 1205, 91, 1, 28, "Input"],
-Cell[47430, 1208, 1146, 35, 46, "Input"],
+Cell[47462, 1203, 91, 1, 28, "Input"],
+Cell[47556, 1206, 1146, 35, 46, "Input"],
 Cell[CellGroupData[{
-Cell[48601, 1247, 3278, 87, 244, "Input"],
-Cell[51882, 1336, 467, 14, 28, "Output"]
+Cell[48727, 1245, 3278, 87, 244, "Input"],
+Cell[52008, 1334, 467, 14, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[52386, 1355, 346, 10, 67, "Input"],
-Cell[52735, 1367, 331, 11, 54, "Output"]
+Cell[52512, 1353, 346, 10, 67, "Input"],
+Cell[52861, 1365, 331, 11, 54, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
