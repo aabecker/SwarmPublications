@@ -1,0 +1,52 @@
+The contribution of this work can be summarized as introducing a
+general viable method for compliant nonprehensile manipulation
+applicable to small scales where agents all have to share universal
+control signal and are inherently underactuated. To do this, the
+authors present a hybrid mean and variance, hysteresis-based controller
+for particle swarm object manipulation. They are able to steer a swarm
+of particles for object manipulation while avoiding obstacles under
+automated control. The paper flow is excellent and the authors very
+nicely guide the reader though the various steps from theoretical
+formulations to experimental setup and data. The latter adds
+credibility to the study which is important for this type of study. In
+summary, this is a high-quality paper that pays attention to details
+and offers a new approach and technique that contribute to the
+advancement of the field. 
+
+Methodology: The authors systematically instruct the robots by
+regrouping them via mean and variance control primitives. They proved
+that the mean position and mean velocity are controllable, and variance
+is stabilizable. Having modeled the object motion as a Markov Decision
+Process (MDP) with non-deterministic movement allows them to produce
+value function while avoiding obstacles. They use light gradient to
+actuate a swarm of kilobot robots. 
+
+Critiques: This is a very interesting yet important topic in the field
+of emergent small-scale robotics. The authors listed the key citations
+in the area, and clearly mention their contribution in addition to
+their conference papers. The definition sequence, writing style, and
+notation are well-developed although there are a few instances where
+the variables are not introduced in appropriate spot. The relevance of
+this work for T-RO is clear with the presented robotics concepts, such
+as motion planning, feedback, controls, or automated manipulation. The
+article title is appropriate. 
+1.	One major concern is about the Lyapunov derivative in eq. (17)
+which looks wrong. I found \dot{V}=2 \sigma \dot{\sigma}
+(\sigma^2-\sigma_goal^2). This demands to revise your justification as
+your result on variance stability conditions might be totally
+different. Please clarify.
+2.	The global control law is presented for holonomic robots, while
+in small-scales often particles obey nonholonomic motion. Is your
+approach still applicable? 
+3.	In eq. (17) how can be sigmadot^2 be negative? Please clarify. 
+4.	Eq. (20) is a little bit vague. A clearer statement is
+required. Perhaps to say, eq. (20) is an extended version of eq. (11),
+which allows to control variance as well.
+5.	Page 3 section 3 on the lesson list number 2, you have to
+define IID?
+6.	Page 3 in section 3A, please follow paragraph style in the
+middle of the text.
+7.	In section 3C and D, the writing can be improved to make it
+easier for general readership.
+8.	Correct the repetition (control control) on the last line on
+the left in page 5.

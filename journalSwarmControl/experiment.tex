@@ -79,8 +79,8 @@ In 10 simulations with 100 particles, pushing the object to goal using BFS requi
 
 \subsection{Potential fields for swarm management with a compliant manipulator}
 
-When the swarm is in front of the object, control law \eqref{eq:PDcontrolPosition} pushes the object backwards.  To fix this, we implement a potential field approach inspired by \cite{spong2008robot} that attracts the swarm to the intermediate goal, but repulses the swarm from in front of the object.
-The repulsive potential field is centered at the object's COM and is active for a radius $\rho_0$, but is implemented only when the swarm mean is within $\theta$ of the desired direction of motion $\mathbf{D}(\mathbf{b})$ as shown in Fig.~\ref{fig:potentialField}b.
+When the swarm is in front of the object, control law \eqref{eq:PDcontrolPosition} pushes the object backwards.  To fix this, we implement a potential field approach inspired by \cite{spong2008robot} that attracts the swarm to the intermediate goal but repulses the swarm from in front of the object.
+The repulsive potential field is centered at the object's COM and is active when the swarm mean is within $\theta$ of the desired direction of motion $\mathbf{D}(\mathbf{b})$ and $\rho$, the distance between the swarm mean and the object's COM, is less than $\rho_0$ as shown in Fig.~\ref{fig:potentialField}b. These fields operate in place of $\mathbf{D}(\mathbf{b})$ only when the repulsive field is active.
 \begin{align}
 F_{\rm{att}} &= -\zeta \Delta \rho / \rho, \\
 %\mathbf{u} &= [\bar{x},\bar{y}] - \mathbf{b} \nonumber \\
@@ -95,7 +95,7 @@ F_{\rm{att}} &= -\zeta \Delta \rho / \rho, \\
 F_{\rm{pot}} &= F_{\rm{att}} + F_{\rm{rep}} \label{eq:potentialfield}.
 \end{align}
 
-In simulations, $\theta =  \pi/2$,  $\eta  = 75$, $\zeta = 2$ and $\rho_0 = 3$. Because the kilobots have a slower time constant, they use $\theta =  \pi/2$,  $\eta  = 50$, $\zeta = 1$ and $\rho_0 = 7.5$. 
+In simulations, $\theta =  \pi/2$,  $\eta  = 75$, $\zeta = 2$ and $\rho_0 = 3$. Because the kilobots have a slower time constant, they use $\theta =  \pi/2$,  $\eta  = 50$, $\zeta = 1$ and $\rho_0 = 7.5$. In both cases, $\Delta \rho$ is the position of the swarm.
 
 In 10 simulations with 100 particles, pushing the object to goal without a repulsive potential field failed in two of twelve runs. No failures occurred with the repulsive potential field.  Of successful trials, completion time without repulsive potential fields required 245$\pm$135 s while using repulsive potential fields required 90$\pm$35 s (mean$\pm$std).
 %In 10 simulations with 100 robots, completion time without repulsive potential fields required $\mu=245, \sigma=135$s while using repulsive potential fields required $\mu=90, \sigma=35$.

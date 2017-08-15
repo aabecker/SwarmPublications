@@ -1,0 +1,53 @@
+This paper addresses the problem of manipulating an object with a swarm
+of agents subject to global inputs. The main difference between the
+approach in this work and other previously proposed approaches is that
+all the agents are controlled by the same global inputs. Clearly, this
+paper is an extended version of the two conference papers previously
+published by the authors, refs [35] and [36]. In this version the
+authors show new algorithms, results, and experiments.
+
+
+In general, the paper is very interesting, well written and well
+organized. It presents an important research topic which is of great
+interest of most people interested in swarm robotics. The video is also
+very nice and useful to better understand the work.
+
+The work can be divided in two parts: i) in the first part the authors
+discuss the results of tests performed online with humans that had the
+objective of controlling a virtual swarm of particles to manipulate
+objects. Based on the results they learned important lessons which were
+useful to devise controllers to automatically command the swarm in such
+ tasks. ii) in the second part they show controllers and algorithms to
+control the swarm in these manipulation tasks. The main point of these
+controllers is that they aim to control the mean and variance of the
+swarm distribution by applying the same global inputs to all the
+agents. 
+
+The main issue with the paper is the lack of details in some parts and
+the full description of the assumptions:
+
+1) What are the assumptions on the manipulated block properties?
+(Friction? Necessary force to move it? Is one robot enough to move it?)
+
+2) Regading the hybrid controller, what are the necessary assumptions
+to reach convergence? Are there practical assumptions to guarantee the
+claim (18) => (19)? How about the geometry of the environment? What
+happens if the environment is sparse so that corners are too far? Is it
+possible to control variance in this case?
+
+3) In section VI the authors should give more detils regarding the
+Value Iteration approach. How did the authors set the probabilities
+p(x_j | x,u)? It seems it should be j instead of i in the loop "for i =
+..." in (25).
+
+4) It is also necessary to give more details of the potential fields in
+VI-b. The parameters \delta \rho, \rho, b in (26) and (27) were not
+defined.
+
+5) In the outlier rejection, how are the regions computed?
+
+6) In algorithm 2, how is (29) applied? Is it used directly as ux and
+uy? The composition of the potential field and the plan obtained with
+the value iteration algorithm should be better clarified.
+
+7) In the simulations, what is the model for collisions? 

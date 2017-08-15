@@ -216,7 +216,7 @@ Thus the mean position and mean velocity are controllable.
 
 
 %Due to symmetry of the control input, only the mean position and mean velocity are controllable. However, 
-There are several techniques for breaking the symmetry of the control control input to allow controlling more states, for example by using obstacles as in \cite{Becker2013b}, or by allowing independent noise sources as in \cite{beckerIJRR2014}.
+There are several techniques for breaking the symmetry of the control input to allow controlling more states, for example by using obstacles as in \cite{Becker2013b}, or by allowing independent noise sources as in \cite{beckerIJRR2014}.
 
 We control mean position with a PD controller that uses the mean position and mean velocity. $[u_x,u_y]^\top$ is the global force applied to each robot:
 \begin{align}
@@ -288,7 +288,7 @@ $\dot{V}(t,{\bf x})$ is negative definite and the variance is globally asymptoti
 
 
 
-A PID controller to regulate the variance to $\sigma^2_{\rm{ref}}$ is:
+A PID controller based on the original PD controller in Eq.~\eqref{eq:PDcontrolPosition} to regulate the variance to $\sigma^2_{\rm{ref}}$ is:
 \begin{align}
 u_x &= K_{p}(x_{\rm{goal}}(\sigma^2_{\rm{ref}}) - \bar{x}) - K_{d}\bar{v}_x + K_{i}(\sigma^2_{\rm{ref}}-\sigma^2_{x}), \nonumber\\
 u_y &= K_{p}(y_{\rm{goal}}(\sigma^2_{\rm{ref}})  - \bar{y}) - K_{d}\bar{v}_y + K_{i}(\sigma^2_{\rm{ref}}-\sigma^2_{y}).  \label{eq:PDcontrolVariance}

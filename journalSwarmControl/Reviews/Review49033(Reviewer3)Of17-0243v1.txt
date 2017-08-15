@@ -1,0 +1,46 @@
+This is a very well written paper, not even a single typo did not
+caught my eye. The paper proposes a novel way to move an object
+utilizing a swarm of robots (particles) by taking into account the mean
+and variance of swarm. First of all, an impressive number of Human
+Swarm Interaction (HSI) experiments are summarized strongly indicating
+that human operators are performing much better when controlling only
+the mean of the robot team instead of taking into account all the
+robots.
+
+In the paper the terms: micro, nano robots, and particles are used
+interchangeably, that is perfectly fine, however, it would be better in
+the very beginning to make that clear possible with a footnote,
+especially the use of the term particles. 
+
+In page two, column 1 , the authors state that "process noise cancels
+the differentiating effects... tens of robots." The term tens of robots
+is not clear. It would also help a citation if it exists.
+
+Throughout the paper citations [?] are used as nouns, while that is
+quite common practice the paper reads better when the authors are used.
+e.g. "[123] shows that..." instead use: "Joe and Bob [123] show
+that..."  
+
+Some observations/ideas that came through reading the paper:
+When the walls are immovable then the proposed technique to push the
+swarm against a corner works as is demonstrated. In the case of the
+human body where the walls could be more elastic, or even permeable,
+how that  would affect the proposed strategy.
+
+In the same line, if pushing against a "wall" could increase friction
+or even absorption of the transported medicine, have you consider a
+strategy that envelops the object with a small group of particles
+shielding the object from the walls?
+
+The experimental results are quite good. The reviewer will recommend in
+simulation to create bigger more complex environments emulating the
+major veins or the digestive tract of the human body. Definitely
+something with curvy walls. 
+
+For the real experiments, and in simulations, the  presented
+environments consist of a "corridor" that leads from the start to goal.
+The paper, and in general the proposed approach, will gain by
+demonstrating the proposed approach in environments where there are
+junctions where the object has to be pushed in one of two, or more,
+options. Furthermore, it would be interesting to see if the proposed
+method will work in an open environment with multiple obstacles. 
