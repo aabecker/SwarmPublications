@@ -239,7 +239,7 @@ The variance, $\sigma_x^2,\sigma_y^2$, of $n$ robots' position is computed as:
 
 Controlling the variance requires being able to increase and decrease the variance.  We will list a sufficient condition for each. 
 Microscale systems are affected by unmodelled dynamics. 
-These unmodelled dynamics are dominated by Brownian noise, described by~\cite{einstein1956investigations}. 
+These unmodelled dynamics are dominated by Brownian noise, described by Einstein~\cite{einstein1956investigations}. 
 To model this~\eqref{eq:stdform} must be modified as follows:
 \begin{align}
 \dot{\mathbf{x}}(t)  &=  A \mathbf{x}(t) + B \mathbf{u}(t) + W \bm{\varepsilon}(t),
@@ -256,39 +256,41 @@ If robots with radius $r$ are in a bounded environment with sides of length $[\e
 [\sigma_x^2,\sigma_y^2] = \frac{1}{12}[ (\ell_x - 2 r)^2,(\ell_y - 2 r)^2].\label{eq:VarianceUniformDistribution}
 \end{align}
 
- A flat obstacle can be used to decrease variance. Pushing a group of dispersed robots against a flat obstacle will decrease their variance until the minimum-variance (maximum density) packing  is reached. For large $n$, ~\cite{graham1990penny} showed that the minimum-variance packing  for $n$ circles with radius $r$ is 
+ A flat obstacle can be used to decrease variance. Pushing a group of dispersed robots against a flat obstacle will decrease their variance until the minimum-variance (maximum density) packing  is reached. For large $n$, Graham ~\cite{graham1990penny} showed that the minimum-variance packing  for $n$ circles with radius $r$ is 
  \begin{align} \label{eq:optimalvar}
  \sigma^2_{\rm{optimal}}(n,r) \approx   \frac{\sqrt{3}}{\pi} n r^2\approx 0.55 n r^2.
  \end{align} 
 % Sloan minimized second moment U = 1/d^2 \sum_{i=1}^{n} || P_i - P ||^2 = (\sqrt{3} n^2)/(4 \pi), where d = 2r.
 % Therefore the variance is d^2 (\sqrt{3} n^2)/(4 \pi), or 4^r^2 (\sqrt{3} n^2)/(4 \pi) = r^2 (\sqrt{3} n^2)/(\pi)If we only need to reduce variance in a single axis, the variance can be reduced to zero, given sufficient space.
 
-We will prove the goal is globally asymptotically stabilizable by using a control-Lyapunov function, as in \cite{Lyapunov1992}.  A suitable Lyapunov function is the squared variance error:
-\begin{align}
-\label{eq:LyapunovVariance}
-V(t,\bf{x})  &= \frac{1}{2} (\sigma^2(\mathbf{x}) - \sigma^2_{\rm{goal}})^2,\nonumber\\
-\dot{V}(t,\bf{x}) &= (\sigma^2(\mathbf{x})-\sigma^2_{\rm{goal}})\dot{\sigma}^2(\mathbf{x}).
-\end{align}
-We note here that $V(t,\mathbf{x})$ is positive definite and radially unbounded, and $V(t,\mathbf{x}) \equiv 0$ only at $\sigma^2(\mathbf{x}) = \sigma^2_{\rm{goal}}$.
-To make $\dot{V}(t,\mathbf{x})$ negative semi-definite, we choose
+%We will prove the goal is globally asymptotically stabilizable by using a control-Lyapunov function, as in \cite{Lyapunov1992}.  A suitable Lyapunov function is the squared variance error:
+%\begin{align}
+%\label{eq:LyapunovVariance}
+%V(t,\bf{x})  &= \frac{1}{2} (\sigma^2(\mathbf{x}) - \sigma^2_{\rm{goal}})^2,\nonumber\\
+%\dot{V}(t,\bf{x}) &= (\sigma^2(\mathbf{x})-\sigma^2_{\rm{goal}})\dot{\sigma}^2(\mathbf{x}).
+%\end{align}
+%We note here that $V(t,\mathbf{x})$ is positive definite and radially unbounded, and $V(t,\mathbf{x}) \equiv 0$ only at $\sigma^2(\mathbf{x}) = \sigma^2_{\rm{goal}}$.
+%To make $\dot{V}(t,\mathbf{x})$ negative semi-definite, we choose
+Thus, to control this variance, we choose
+
 \begin{align}\label{eq:controlVariance}
 u(t) &=   \begin{cases}
 	 \mbox{move to wall} &\mbox{if } \sigma^2(\mathbf{x})>\sigma^2_{\rm{goal}} \\ 
 	 \mbox{move from wall} & \mbox{if } \sigma^2(\mathbf{x}) \le \sigma^2_{\rm{goal}}.
 \end{cases} 
 \end{align}
- For such a $u(t)$,
- \begin{align}
-\dot{\sigma}^2(\mathbf{x}) &=   \begin{cases}
-	 \mbox{negative} &\mbox{if } \sigma^2(\mathbf{x})> \max(\sigma^2_{\rm{goal}}, \sigma^2_{\rm{optimal}}(n,r))  \\ 
-	 W \epsilon & \mbox{if } \sigma^2(\mathbf{x}) \le \sigma^2_{\rm{goal}},
-\end{cases} 
-\end{align} and thus
-$\dot{V}(t,{\bf x})$ is negative definite and the variance is globally asymptotically stabilizable.% \hfill$\blacksquare$ 
+% For such a $u(t)$,
+% \begin{align}
+%\dot{\sigma}^2(\mathbf{x}) &=   \begin{cases}
+%	 \mbox{negative} &\mbox{if } \sigma^2(\mathbf{x})> \max(\sigma^2_{\rm{goal}}, \sigma^2_{\rm{optimal}}(n,r))  \\ 
+%	 W \epsilon & \mbox{if } \sigma^2(\mathbf{x}) \le \sigma^2_{\rm{goal}},
+%\end{cases} 
+%\end{align} and thus
+%$\dot{V}(t,{\bf x})$ is negative definite and the variance is globally asymptotically stabilizable.% \hfill$\blacksquare$ 
 
 
 
-A PID controller based on the original PD controller in Eq.~\eqref{eq:PDcontrolPosition} to regulate the variance to $\sigma^2_{\rm{ref}}$ is:
+Just as we used a PD controller in Eq.~\eqref{eq:PDcontrolPosition} to control the robots, a PID controller to regulate the variance to $\sigma^2_{\rm{ref}}$ is:
 \begin{align}
 u_x &= K_{p}(x_{\rm{goal}}(\sigma^2_{\rm{ref}}) - \bar{x}) - K_{d}\bar{v}_x + K_{i}(\sigma^2_{\rm{ref}}-\sigma^2_{x}), \nonumber\\
 u_y &= K_{p}(y_{\rm{goal}}(\sigma^2_{\rm{ref}})  - \bar{y}) - K_{d}\bar{v}_y + K_{i}(\sigma^2_{\rm{ref}}-\sigma^2_{y}).  \label{eq:PDcontrolVariance}
@@ -305,7 +307,7 @@ x_{\rm{goal}}(\sigma^2_{\rm{ref}}) = \ell_x/2 = r + \sqrt{3\sigma^2_{\rm{ref}}}.
 
 The mean and variance of the swarm cannot be controlled simultaneously, however if the dispersion due to Brownian motion is less than the maximum controlled speed, we can adopt the hybrid, hysteresis-based controller shown in Alg.~\ref{alg:MeanVarianceControl} to regulate the mean and variance.  Such a controller normally controls the mean position, but switches to minimizing variance if the variance exceeds some $\sigma_{\rm{max}}^2$. 
  Variance is reduced until less than $\sigma_{\rm{min}}^2$, then control again regulates the mean position. 
- This technique satisfies control objectives that evolve at different rates as in~\cite{kloetzer2007temporal}, and the hysteresis avoids rapid switching between control modes. The process is illustrated in Fig.~\ref{fig:hysteresis}. 
+ This technique satisfies control objectives that evolve at different rates as Kloetzer's work ~\cite{kloetzer2007temporal}, and the hysteresis avoids rapid switching between control modes. The process is illustrated in Fig.~\ref{fig:hysteresis}. 
 
 
 \begin{algorithm}

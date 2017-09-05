@@ -6,7 +6,7 @@
 Large populations of micro- and nanorobots are being produced in laboratories around the world, with diverse potential applications in drug delivery and construction, see \cite{Peyer2013,Shirai2005,Chiang2011}. These activities require robots that behave intelligently.
 Limited computation and communication rules out autonomous operation or direct control over individual units; instead we must rely on global control signals broadcast to the entire particle population.    
 This paper examines object manipulation by a swarm of particles, each actuated by the same shared global input, as illustrated in Fig.~{\ref{fig:bigPictureMeanAndVarianceForSwarm}. 
-The transportation methodology is similar to that in \cite{sugawara2014object}, but rather than using onboard computation or sensing, the particles all move in the same direction.
+The transportation methodology is similar to that in Sugawara's work \cite{sugawara2014object}, but rather than using onboard computation or sensing, the particles all move in the same direction.
 
 
 %%%% Move it to the cover letter.
@@ -33,7 +33,7 @@ Here a swarm of particles (kilobot robots) pushes a green hexagon toward the goa
 %Inspired by our online experiments, because it is not always possible to gather pose information on each robot for feedback control and
 %It is not always practical to gather pose information on individual robots for feedback control; the robots might be difficult or impossible to sense individually due to their size and location. However, it is often possible to sense global properties of the group, such as mean position and density.
 Often particles are difficult or impossible to sense individually due to their size and location. 
-For example, microrobots are smaller than the minimum resolution of a clinical MRI-scanner, see \cite{martel2014computer}, however it is often possible to sense global properties of the group such as mean position and variance. 
+For example, microrobots are smaller than the minimum resolution of a clinical MRI-scanner, see Martel \cite{martel2014computer}, however it is often possible to sense global properties of the group such as mean position and variance. 
 To make progress in automatic control with global inputs, this paper presents swarm manipulation controllers inspired by our online experiments that require only mean and variance measurements of the particle's positions. 
  To perform the object manipulation task illustrated in Fig.~\ref{fig:bigPictureMeanAndVarianceForSwarm}, we use these controllers   as primitives, policy iteration for path planning, handle outliers by partitioning the workspace, and minimize pushing the object backwards with potential field navigation.
 
