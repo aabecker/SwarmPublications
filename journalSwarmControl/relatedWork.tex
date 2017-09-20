@@ -20,9 +20,9 @@ This paper investigates global control of particles that have no onboard computa
 Another control paradigm is to construct robots with physical heterogeneity so that they respond differently to a global broadcast control signal.  Examples include \emph{scratch-drive microrobots}, actuated and controlled by a DC voltage signal from a substrate by \cite{Donald2006,Donald2008};  magnetic structures  with different cross-sections that can be independently steered by \cite{Floyd2011,Diller2013};  \emph{MagMite} microrobots with different resonant frequencies and a global magnetic field by \cite{Frutiger2008}; and  magnetically controlled nanoscale helical screws constructed to stop movement at different cutoff frequencies of a global magnetic field by
 \cite{Tottori2012} and \cite{Peyer2013}. 
 Similarly, our previous work, \cite{Becker2012,Becker2012k}, focused on exploiting inhomogeneity between robots.  These control algorithms theoretically apply to any number of robots, even robotic continuums.
-
-
-However, process noise cancels the differentiating effects of inhomogeneity for large numbers of robots.  We desire control algorithms that extend to many thousands of robots.
+However, all these works never controlled more than twelve robots at a time because process noise cancels the differentiating effects of robot inhomogeneity.
+%However, a consequence of the central limit theorem is that independent process noise cancels the differentiating effects of inhomogeneity for large numbers of robots. 
+ We desire control algorithms that extend to many thousands of robots.
 Limited position control was achieved by \cite{bretl2007control} and our previous work \cite{beckerIJRR2014}, but both used robots commanded in their local coordinate frame. Our new submission focuses on a more common paradigm: particles commanded in a global coordinate frame
 
 %  \subsection{Three challenges for massive manipulation}

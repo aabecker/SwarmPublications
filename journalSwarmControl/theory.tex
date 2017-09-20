@@ -290,24 +290,24 @@ u(t) &=   \begin{cases}
 
 
 
-Just as we used a PD controller in Eq.~\eqref{eq:PDcontrolPosition} to control the robots, a PID controller to regulate the variance to $\sigma^2_{\rm{ref}}$ is:
+Similar to the PD controller in Eq.~\eqref{eq:PDcontrolPosition} that controls the mean robot position, a controller to regulate the variance to $\sigma^2_{\rm{ref}}$ is:
 \begin{align}
-u_x &= K_{p}(x_{\rm{goal}}(\sigma^2_{\rm{ref}}) - \bar{x}) - K_{d}\bar{v}_x + K_{i}(\sigma^2_{\rm{ref}}-\sigma^2_{x}), \nonumber\\
-u_y &= K_{p}(y_{\rm{goal}}(\sigma^2_{\rm{ref}})  - \bar{y}) - K_{d}\bar{v}_y + K_{i}(\sigma^2_{\rm{ref}}-\sigma^2_{y}).  \label{eq:PDcontrolVariance}
+u_x &= K_{p}(x_{\rm{goal}}(\sigma^2_{\rm{ref}}) - \bar{x}) - K_{d}\bar{v}_x + K_{i}(\sigma^2_{\rm{ref}}-\sigma^2_{x}),   \label{eq:PDcontrolVariance}\\
+u_y &= K_{p}(y_{\rm{goal}}(\sigma^2_{\rm{ref}})  - \bar{y}) - K_{d}\bar{v}_y + K_{i}(\sigma^2_{\rm{ref}}-\sigma^2_{y}).  \label{eq:PDcontrolVarianceIny}
 \end{align}
-We call the gain scaling the variance error $K_i$ because the variance, if unregulated, integrates over time.
+We call the gain scaling the variance error $K_i$ because the variance, if unregulated, integrates over time. This controller requires a vertical and a horizontal wall.
 Eq.~\eqref{eq:PDcontrolVariance} assumes the nearest wall is to the left of the robot at $x=0$, and chooses a reference goal position that in steady-state would have the correct variance according to \eqref{eq:VarianceUniformDistribution}:
 \begin{align}
 x_{\rm{goal}}(\sigma^2_{\rm{ref}}) = \ell_x/2 = r + \sqrt{3\sigma^2_{\rm{ref}}}.
 \end{align}
- If a wall to the right is closer, the signs of $[K_p,K_i]$ are inverted, and the location $x_{\rm{goal}}$ is translated.  
+ If a wall to the right is closer, the signs of $[K_p,K_i]$ are inverted, and the location $x_{\rm{goal}}$ is translated.  A similar argument applies to~\eqref{eq:PDcontrolVarianceIny}.
 
 
 \subsection{Controlling both mean and variance}
 
 The mean and variance of the swarm cannot be controlled simultaneously, however if the dispersion due to Brownian motion is less than the maximum controlled speed, we can adopt the hybrid, hysteresis-based controller shown in Alg.~\ref{alg:MeanVarianceControl} to regulate the mean and variance.  Such a controller normally controls the mean position, but switches to minimizing variance if the variance exceeds some $\sigma_{\rm{max}}^2$. 
  Variance is reduced until less than $\sigma_{\rm{min}}^2$, then control again regulates the mean position. 
- This technique satisfies control objectives that evolve at different rates as Kloetzer's work ~\cite{kloetzer2007temporal}, and the hysteresis avoids rapid switching between control modes. The process is illustrated in Fig.~\ref{fig:hysteresis}. 
+ This technique satisfies control objectives that evolve at different rates as in Kloetzer's work ~\cite{kloetzer2007temporal}, and the hysteresis avoids rapid switching between control modes. The process is illustrated in Fig.~\ref{fig:hysteresis}. 
 
 
 \begin{algorithm}
