@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    162320,       3519]
-NotebookOptionsPosition[    161192,       3475]
-NotebookOutlinePosition[    161549,       3491]
-CellTagsIndexPosition[    161506,       3488]
+NotebookDataLength[    166659,       3610]
+NotebookOptionsPosition[    165532,       3566]
+NotebookOutlinePosition[    165888,       3582]
+CellTagsIndexPosition[    165845,       3579]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1093,16 +1093,82 @@ collides at green dot\>\"", ",",
                    RowBox[{"ImageSize", "\[Rule]", "300"}], ",", " ", 
                    RowBox[{"Epilog", "\[Rule]", " ", 
                     RowBox[{"{", 
+                    RowBox[{
                     RowBox[{"Circle", "[", 
                     RowBox[{
                     RowBox[{"{", 
                     RowBox[{"0", ",", "0"}], "}"}], ",", 
                     RowBox[{"1", "-", 
-                    RowBox[{"2", "\[Epsilon]"}]}]}], "]"}], "}"}]}]}], 
-                  "]"}]}]}], "]"}], ",", 
+                    RowBox[{"2", "\[Epsilon]"}]}]}], "]"}], ",", 
+                    RowBox[{"(*", 
+                    RowBox[{"goal", " ", "deltas"}], "*)"}], 
+                    "\[IndentingNewLine]", "Red", ",", "\[IndentingNewLine]", 
+                    
+                    RowBox[{"Disk", "[", 
+                    RowBox[{
+                    RowBox[{"pe2", "-", "pe1"}], ",", 
+                    RowBox[{"2", "r"}]}], "]"}], ",", 
+                    RowBox[{"Text", "[", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{
+                    "StringForm", "[", "\"\<\[CapitalDelta]g\>\"", "]"}], ",", 
+                    RowBox[{"FontSize", "\[Rule]", "24"}], ",", "Black", ",", 
+                    
+                    RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Times\>\""}]}],
+                     "]"}], ",", 
+                    RowBox[{"pe2", "-", "pe1", "-", 
+                    RowBox[{"{", 
+                    RowBox[{".1", ",", ".1"}], "}"}]}]}], "]"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"(*", 
+                    RowBox[{"current", " ", "deltas"}], "*)"}], 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"Darker", "[", "Green", "]"}], ",", 
+                    RowBox[{"Rectangle", "[", 
+                    RowBox[{
+                    RowBox[{"ps2", "-", "ps1", "-", 
+                    RowBox[{
+                    RowBox[{"4", "/", "3"}], "r", " ", 
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "1"}], "}"}]}]}], ",", 
+                    RowBox[{"ps2", "-", "ps1", "+", 
+                    RowBox[{
+                    RowBox[{"4", "/", "3"}], "r", 
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "1"}], "}"}]}]}]}], "]"}], ",", 
+                    RowBox[{"Text", "[", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{
+                    "StringForm", "[", "\"\<\[CapitalDelta]r\>\"", "]"}], ",", 
+                    RowBox[{"FontSize", "\[Rule]", "24"}], ",", "Black", ",", 
+                    
+                    RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Times\>\""}]}],
+                     "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    "ps2", "\[LeftDoubleBracket]", "1", 
+                    "\[RightDoubleBracket]"}], "-", 
+                    RowBox[{
+                    "ps1", "\[LeftDoubleBracket]", "1", 
+                    "\[RightDoubleBracket]"}], "+", " ", "0.1"}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    "ps2", "\[LeftDoubleBracket]", "2", 
+                    "\[RightDoubleBracket]"}], "-", 
+                    RowBox[{
+                    "ps1", "\[LeftDoubleBracket]", "2", 
+                    "\[RightDoubleBracket]"}], "+", "0.1"}]}], "}"}]}], 
+                    "]"}]}], "}"}]}]}], "]"}]}]}], "]"}], ",", 
               RowBox[{"{", 
                RowBox[{"1", ",", "0"}], "}"}]}], "]"}], ","}], 
            "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
            RowBox[{"(*", 
             RowBox[{"Inset", "[", 
              RowBox[{
@@ -1530,19 +1596,22 @@ collides at green dot\>\"", ",",
    3.701091573505559*^9}, {3.701091609995368*^9, 3.7010916186861467`*^9}, {
    3.701094293684786*^9, 3.701094348309719*^9}, {3.7010945047768393`*^9, 
    3.701094596905943*^9}, {3.7010946719437017`*^9, 3.70109483433547*^9}, {
-   3.701095049517899*^9, 3.7010950684055*^9}}],
+   3.701095049517899*^9, 3.7010950684055*^9}, {3.714750929548376*^9, 
+   3.7147509357432756`*^9}, {3.7147510069863987`*^9, 3.714751060843659*^9}}],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
    DynamicModuleBox[{$CellContext`col1$$ = {0.22360679774997894`, 
-    0.44721359549995787`}, $CellContext`e1$$ = {0.05, 
-    0.35}, $CellContext`e2$$ = {-0.33, 0.26}, $CellContext`progress$$ = 
-    1, $CellContext`s1$$ = {0., 0.}, $CellContext`s2$$ = {0.2, 
-    0.4}, $CellContext`\[Epsilon]$$ = Rational[1, 1000], Typeset`show$$ = 
-    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{{
+    0.44721359549995787`}, $CellContext`e1$$ = {0.374, 
+    0.20799999999999996`}, $CellContext`e2$$ = {
+    0.274, -0.322}, $CellContext`progress$$ = Rational[
+    13, 35], $CellContext`s1$$ = {
+    0.0615, -0.0040000000000000036`}, $CellContext`s2$$ = \
+{-0.22449999999999998`, 0.08499999999999996}, $CellContext`\[Epsilon]$$ = 
+    Rational[1, 1000], Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
        Hold[$CellContext`progress$$], 1, "progress"}, 0, 1, 
       Rational[1, 420]}, {{
        Hold[$CellContext`\[Epsilon]$$], 
@@ -1570,10 +1639,10 @@ Cell[BoxData[
       Dynamic[{(-1)/2, (-1)/2} + $CellContext`\[Epsilon]$$], 
       Dynamic[{1/2, 1/2} - $CellContext`\[Epsilon]$$]}}, Typeset`size$$ = {
     800., {207., 212.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = False, $CellContext`progress$1761$$ = 
-    0, $CellContext`\[Epsilon]$1762$$ = 0, $CellContext`s1$1763$$ = 
-    0, $CellContext`s2$1764$$ = 0, $CellContext`col1$1765$$ = 
-    0, $CellContext`e1$1766$$ = 0, $CellContext`e2$1767$$ = 0}, 
+    Typeset`skipInitDone$$ = False, $CellContext`progress$6907$$ = 
+    0, $CellContext`\[Epsilon]$6908$$ = 0, $CellContext`s1$6909$$ = 
+    0, $CellContext`s2$6910$$ = 0, $CellContext`col1$6911$$ = 
+    0, $CellContext`e1$6912$$ = 0, $CellContext`e2$6913$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      2, StandardForm, 
       "Variables" :> {$CellContext`col1$$ = {0.2, 0.4}, $CellContext`e1$$ = {
@@ -1582,13 +1651,13 @@ Cell[BoxData[
         1, $CellContext`s1$$ = {0., 0.}, $CellContext`s2$$ = {0.2, 
          0.4}, $CellContext`\[Epsilon]$$ = Rational[1, 1000]}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`progress$$, $CellContext`progress$1761$$, 0], 
-        Hold[$CellContext`\[Epsilon]$$, $CellContext`\[Epsilon]$1762$$, 0], 
-        Hold[$CellContext`s1$$, $CellContext`s1$1763$$, 0], 
-        Hold[$CellContext`s2$$, $CellContext`s2$1764$$, 0], 
-        Hold[$CellContext`col1$$, $CellContext`col1$1765$$, 0], 
-        Hold[$CellContext`e1$$, $CellContext`e1$1766$$, 0], 
-        Hold[$CellContext`e2$$, $CellContext`e2$1767$$, 0]}, 
+        Hold[$CellContext`progress$$, $CellContext`progress$6907$$, 0], 
+        Hold[$CellContext`\[Epsilon]$$, $CellContext`\[Epsilon]$6908$$, 0], 
+        Hold[$CellContext`s1$$, $CellContext`s1$6909$$, 0], 
+        Hold[$CellContext`s2$$, $CellContext`s2$6910$$, 0], 
+        Hold[$CellContext`col1$$, $CellContext`col1$6911$$, 0], 
+        Hold[$CellContext`e1$$, $CellContext`e1$6912$$, 0], 
+        Hold[$CellContext`e2$$, $CellContext`e2$6913$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -1756,9 +1825,30 @@ $CellContext`\[Theta]$ + $CellContext`\[Alpha]$/2 +
                FrameLabel -> {"\[CapitalDelta]x", "\[CapitalDelta] y"}, 
                LabelStyle -> Directive[Black, Bold, Large], ImageSize -> 300, 
                Epilog -> {
-                 Circle[{0, 0}, 1 - 2 $CellContext`\[Epsilon]$$]}]], {1, 0}], 
-           Null}, ImageSize -> 800, 
-          PlotRange -> {{-0.55, 1.55}, {-0.55, 0.55}}]], 
+                 Circle[{0, 0}, 1 - 2 $CellContext`\[Epsilon]$$], Red, 
+                 
+                 Disk[$CellContext`pe2$ - $CellContext`pe1$, 
+                  2 $CellContext`r$], 
+                 Text[
+                  Style[
+                   StringForm["\[CapitalDelta]g"], FontSize -> 24, Black, 
+                   FontFamily -> 
+                   "Times"], $CellContext`pe2$ - $CellContext`pe1$ - {0.1, 
+                  0.1}], 
+                 Darker[Green], 
+                 
+                 Rectangle[$CellContext`ps2$ - $CellContext`ps1$ - (4/
+                   3) $CellContext`r$ {1, 
+                   1}, $CellContext`ps2$ - $CellContext`ps1$ + (4/
+                    3) $CellContext`r$ {1, 1}], 
+                 Text[
+                  Style[
+                   StringForm["\[CapitalDelta]r"], FontSize -> 24, Black, 
+                   FontFamily -> "Times"], {
+                  Part[$CellContext`ps2$, 1] - Part[$CellContext`ps1$, 1] + 
+                   0.1, Part[$CellContext`ps2$, 2] - 
+                   Part[$CellContext`ps1$, 2] + 0.1}]}]], {1, 0}], Null}, 
+          ImageSize -> 800, PlotRange -> {{-0.55, 1.55}, {-0.55, 0.55}}]], 
       "Specifications" :> {{{$CellContext`progress$$, 1, "progress"}, 0, 1, 
          Rational[1, 420], ControlType -> Slider, Appearance -> "Labeled", 
          ControlPlacement -> 1}, {{$CellContext`\[Epsilon]$$, 
@@ -1818,7 +1908,8 @@ $CellContext`\[Theta]$ + $CellContext`\[Alpha]$/2 +
    3.701094310733266*^9, 3.701094360150481*^9}, {3.701094492491598*^9, 
    3.701094510301268*^9}, {3.701094543469952*^9, 3.701094597695752*^9}, {
    3.701094752585071*^9, 3.701094835252027*^9}, 3.701095008410716*^9, 
-   3.7010950691544952`*^9}]
+   3.7010950691544952`*^9, 3.714750937700141*^9, 3.714751021447006*^9, 
+   3.714751062097562*^9}]
 }, Open  ]],
 
 Cell[BoxData["\[IndentingNewLine]"], "Input",
@@ -3473,8 +3564,8 @@ Cell[BoxData["\[IndentingNewLine]"], "Input",
 Cell["What is the locus of all the gray regions?", "Subchapter",
  CellChangeTimes->{{3.698954298495854*^9, 3.698954311889185*^9}}]
 },
-WindowSize->{1202, 711},
-WindowMargins->{{Automatic, 5}, {Automatic, 0}},
+WindowSize->{960, 427},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
 FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
 2014)",
 StyleDefinitions->"Default.nb"
@@ -3500,27 +3591,27 @@ Cell[3105, 86, 17052, 285, 287, "Output"]
 Cell[CellGroupData[{
 Cell[20206, 377, 186, 2, 64, "Section"],
 Cell[CellGroupData[{
-Cell[20417, 383, 52233, 1149, 2562, "Input"],
-Cell[72653, 1534, 15091, 286, 566, "Output"]
+Cell[20417, 383, 55396, 1216, 2957, "Input"],
+Cell[75816, 1601, 16268, 310, 566, "Output"]
 }, Open  ]],
-Cell[87759, 1823, 87, 1, 46, "Input"]
+Cell[92099, 1914, 87, 1, 46, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[87883, 1829, 226, 3, 64, "Section"],
+Cell[92223, 1920, 226, 3, 64, "Section"],
 Cell[CellGroupData[{
-Cell[88134, 1836, 23552, 558, 1202, "Input"],
-Cell[111689, 2396, 9832, 189, 532, "Output"]
+Cell[92474, 1927, 23552, 558, 1202, "Input"],
+Cell[116029, 2487, 9832, 189, 532, "Output"]
 }, {2}]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[121567, 2591, 170, 2, 64, "Section"],
+Cell[125907, 2682, 170, 2, 64, "Section"],
 Cell[CellGroupData[{
-Cell[121762, 2597, 28791, 661, 1667, "Input"],
-Cell[150556, 3260, 10385, 205, 518, "Output"]
+Cell[126102, 2688, 28791, 661, 1667, "Input"],
+Cell[154896, 3351, 10385, 205, 518, "Output"]
 }, Open  ]],
-Cell[160956, 3468, 87, 1, 46, "Input"]
+Cell[165296, 3559, 87, 1, 46, "Input"]
 }, Open  ]],
-Cell[161058, 3472, 130, 1, 62, "Subchapter"]
+Cell[165398, 3563, 130, 1, 62, "Subchapter"]
 }
 ]
 *)
