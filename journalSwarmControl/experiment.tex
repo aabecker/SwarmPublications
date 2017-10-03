@@ -33,7 +33,7 @@ To design the policy we first discretize the environment.
 In \cite{ShahrokhiIROS2015}, we used breadth-first search (BFS) on this discretized grid, but using workspace BFS fails to account for the hull of the object and will suggest moves that can cause collisions with the workspace. A configuration-space BFS approach avoids that problem but still fails to model uncertain actuation of the object by the swarm.
 
 To solve both these problems, this paper models object movement as a Markov Decision Process (MDP) with non-deterministic movement.  
-  Value Iteration is used to learn an \emph{optimal policy}~\cite{Thrun2005}.
+  Value iteration is used to learn an \emph{optimal policy}~\cite{Thrun2005}.
    At each state the object can be commanded to move in one of eight directions with a small probability of moving in a wrong direction. 
  
 % A corresponding reward function gives a high reward to the goal state,  
@@ -63,7 +63,7 @@ In our experiments $\gamma = 0.97$, and \eqref{eq:ValueIteration} was iterated 2
 %Rather than a shortest distance to goal, $\nabla \mathbf{M}_{MDP}$  gives the approximate minimum cost to goal.
 
 $\mathbf{M}_{\rm{BFS}}$ and the value function are shown in Fig.~\ref{fig:BFSGradient}. 
-In 10 simulations with 100 particles, pushing the object to goal using BFS required 183$\pm$179 s while Value Iteration required 90$\pm$35 s (mean$\pm$std).
+In 10 simulations with 100 particles, pushing the object to goal using BFS required 183$\pm$179 s while value iteration required 90$\pm$35 s (mean$\pm$std).
 %\todo{(report results of 10 simulations with BFS and with PI.  Give mean and std)}
 
 \begin{figure}
@@ -214,7 +214,7 @@ Fig.~\ref{fig:story} shows snapshots during an execution of this algorithm in si
 \vspace{.25em}
 \begin{overpic}[width=0.4\columnwidth]{Spiral.pdf}\end{overpic}~\begin{overpic}[width=0.4\columnwidth]{SpiralSuccess.pdf}\end{overpic}
 \end{center}
-\caption{\label{fig:Emaze} We tested three workspaces. The control policies from Value Iteration for an {\sffamily E}-shaped and a spiral workspace are shown in the left column.
+\caption{\label{fig:Emaze} We tested three workspaces. The control policies from value iteration for an {\sffamily E}-shaped and a spiral workspace are shown in the left column.
 }
 \end{figure}
 \begin{figure}
