@@ -5,7 +5,7 @@
     %Micro- and nanorobotics have the potential to revolutionize many applications including targeted material delivery, assembly, and surgery.  
   The small size of micro and nano particles makes individual control and autonomy challenging, so currently these particles are steered by global control inputs such as magnetic fields or chemical gradients. To investigate this control challenge, this paper introduced \href{http://www.swarmcontrol.net}{SwarmControl.net}, an open-source tool for large-scale user experiments where human users steer swarms of robots to accomplish tasks.  Analysis of the game play results revealed benefits of measuring and controlling statistics of the swarm rather than full state feedback, robustness to IID noise, and small effects of varying population size of large swarms.
 
-Inspired by the three lessons from \href{www.swarmcontrol.net}{swarmcontrol.net}, this paper designed controllers and controllability results using only the mean and variance of a particle swarm. 
+Inspired by the three lessons from \href{www.swarmcontrol.net}{SwarmControl.net}, this paper designed controllers and controllability results using only the mean and variance of a particle swarm. 
 We developed a hysteresis based controller to regulate the position and variance of a swarm. We designed a controller for object manipulation using policy iteration for path planning, regions for outlier rejection, and potential fields for minimizing moving the object backwards. 
 All automatic controllers were implemented using 100 kilobots steered by the direction of a global light source.
 These experiments culminated in an object manipulation task in a workspace with obstacles.

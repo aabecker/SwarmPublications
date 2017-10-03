@@ -23,7 +23,7 @@ Similarly, our previous work, \cite{Becker2012,Becker2012k}, focused on exploiti
 However, all these works never controlled more than twelve robots at a time because process noise cancels the differentiating effects of robot inhomogeneity.
 %However, a consequence of the central limit theorem is that independent process noise cancels the differentiating effects of inhomogeneity for large numbers of robots. 
  We desire control algorithms that extend to many thousands of robots.
-Limited position control was achieved by \cite{bretl2007control} and our previous work \cite{beckerIJRR2014}, but both used robots commanded in their local coordinate frame. Our new submission focuses on a more common paradigm: particles commanded in a global coordinate frame
+Limited position control was achieved by \cite{bretl2007control} and our previous work \cite{beckerIJRR2014}, but both used robots commanded in their local coordinate frame. Our new submission focuses on a more common paradigm: particles commanded in a global coordinate frame.
 
 %  \subsection{Three challenges for massive manipulation}
  While it is now possible to create many microrobots, there remain challenges in control, sensing, and computation:
@@ -49,7 +49,7 @@ These operations become intractable for large populations of robots. By focusing
  
 Human \emph{fanout}, the number of robots a single human user could directly control is studied in \cite{Jr2004}.  %Studied as a key aspect of human-robot interaction, 
 They postulated that the optimal number of robots was approximately  the autonomous time  divided by the interaction time required by each robot.  Their sample problem involved a multi-robot search task, where users could assign goals to robots.  Their user interaction studies with simulated planar robots  indicated a \emph{fanout plateau} of about 8 robots, with diminishing returns for more robots.   They hypothesized the location of this plateau is highly dependent on the underlying task.  Indeed, our paper indicates there are tasks without plateaus. % (Lemmings is an example of this as well, for systems with autonomy
-Their research investigated robots with 3 levels of autonomy.  We use robots without autonomy, corresponding with their first-level robots.
+Their research investigated robots with three levels of autonomy.  We use robots without autonomy, corresponding with their first-level robots.
 
 % Removed this -- 
 %Chen, Barnes, and Harper-Sciarini published a review of supervisory control but emphasized high levels of autonomy, using the 10-level taxonomy given by \cite{Parasuraman2000}.  The direct control techniques this paper examines are the lowest level.
@@ -68,7 +68,7 @@ For instance, the studies \cite{bashyal2008human},  \cite{de2012controllability}
 \subsection{Block pushing and compliant manipulation}
 Unlike \emph{caging} manipulation, where robots form a rigid arrangement around an object, as in \cite{Sudsang2002,Fink2008}, our swarm of robots is unable to grasp the blocks they push, and so our manipulation strategies are similar to \emph{nonprehensile manipulation} techniques, e.g.~\cite{Lynch1999}, where forces must be applied along the center of mass of the moveable object. A key difference is that our robots are compliant and tend to flow around the object, making this similar to fluidic trapping as in \cite{Armani2006} and \cite{Becker2009}.  
 
-Our $n$-robot system with 2 control inputs and 4$n$ states is inherently under-actuated, and superficially bears resemblance to compliant, under-actuated manipulators.  Our swarms conform to the object to be manipulated, but lack the restoring force provided by flexures in Odhner's work \cite{odhner2014compliant} or silicone in Deimel's work \cite{deimel2014novel}.  Our swarms tend to disperse and so to regroup them we require artificial forces like the variance control primitives in \S \ref{sec:VarianceControl}.
+Our $n$-robot system with 2 control inputs and 4$n$ states is inherently under-actuated, and superficially bears resemblance to compliant, under-actuated manipulators.  Our swarms conform to the object to be manipulated, but lack the restoring force provided by flexures in~\cite{odhner2014compliant} or silicone in~\cite{deimel2014novel}.  Our swarms tend to disperse and so to regroup them we require artificial forces like the variance control primitives in \S \ref{sec:VarianceControl}.
 
 \subsection{Relationship to authors' prior work}
  This paper combines the content of two preliminary conference papers, extending their substance and providing full details in a single journal paper.  One paper covered the first three months of SwarmControl.net experiments~\cite{swarmcontrol2013}, and the second presented simulations of object manipulation~\cite{ShahrokhiIROS2015}. This paper presents three years of results from SwarmControl.net. For object manipulation, this paper presents robust new algorithms for manipulation, path planning, and obstacle avoidance, and a rich set of parameter sweeps over key variables. All hardware validation experiments are new. 
