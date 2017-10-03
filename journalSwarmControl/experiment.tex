@@ -33,7 +33,7 @@ To design the policy we first discretize the environment.
 In \cite{ShahrokhiIROS2015}, we used breadth-first search (BFS) on this discretized grid, but using workspace BFS fails to account for the hull of the object and will suggest moves that can cause collisions with the workspace. A configuration-space BFS approach avoids that problem but still fails to model uncertain actuation of the object by the swarm.
 
 To solve both these problems, this paper models object movement as a Markov Decision Process (MDP) with non-deterministic movement.  
-  Value iteration,  as described by Thrun et al.~\cite{Thrun2005}, is used to learn an \emph{optimal policy}.
+  Value Iteration is used to learn an \emph{optimal policy}~\cite{Thrun2005}.
    At each state the object can be commanded to move in one of eight directions with a small probability of moving in a wrong direction. 
  
 % A corresponding reward function gives a high reward to the goal state,  
@@ -50,12 +50,12 @@ r(x,\mathbf{u}) &=  \left\{
 \end{align}
  where $x$ is the current state and $\mathbf{u}$ is the action.   %cumulative expected
   Value iteration computes $\hat{V}(x)$, the expected discounted sum reward if the optimal policy is implemented, for the object starting in each state $x$. The optimal policy is %the control action that, in probability, results in the largest value:
-   \begin{align} \mathbf{D}(x) = \arg\max_{\mathbf{u}}   [ r(x,\mathbf{u}) + \sum\limits_{j=1}^N \hat{V}(x_j) p(x_j | x, \mathbf{u})].  \label{eq:OptimalPolicy}
+   \begin{align} \mathbf{D}(x) = \arg\max_{\mathbf{u}}  \left[ r(x,\mathbf{u}) + \sum\limits_{j=1}^N \hat{V}(x_j) p(x_j | x, \mathbf{u}) \right].  \label{eq:OptimalPolicy}
    \end{align}
    The value function $\hat{V}(x_i) $ is calculated by computing the value $\hat{V}$ for all $N$ states and iterating until convergence:
 \begin{align}
 \text{for }&\text{$i=1$ to $N$ do} \nonumber \\
-&\hat{V} (x_i) = \gamma \max_{\mathbf{u}} [r(x_i,\mathbf{u}) + \sum\limits_{j=1}^N \hat{V}(x_j) p(x_j | x_i,\mathbf{u})] \label{eq:ValueIteration} \nonumber\\
+&\hat{V} (x_i) = \gamma \max_{\mathbf{u}} \left[r(x_i,\mathbf{u}) + \sum\limits_{j=1}^N \hat{V}(x_j) p(x_j | x_i,\mathbf{u})\right] \label{eq:ValueIteration} \nonumber\\
 \text{end}&  %page 502
 \end{align}
 Our probabilistic motion model $p(x_j | x, \mathbf{u})$ assumed the object moved in the commanded direction $\mathbf{u}$ half of the time but $+45^\circ$ with probability 0.25 and $-45^\circ$ with probability 0.25. 
@@ -63,7 +63,7 @@ In our experiments $\gamma = 0.97$, and \eqref{eq:ValueIteration} was iterated 2
 %Rather than a shortest distance to goal, $\nabla \mathbf{M}_{MDP}$  gives the approximate minimum cost to goal.
 
 $\mathbf{M}_{\rm{BFS}}$ and the value function are shown in Fig.~\ref{fig:BFSGradient}. 
-In 10 simulations with 100 particles, pushing the object to goal using BFS required 183$\pm$179 s while Policy Iteration required 90$\pm$35 s (mean$\pm$std).
+In 10 simulations with 100 particles, pushing the object to goal using BFS required 183$\pm$179 s while Value Iteration required 90$\pm$35 s (mean$\pm$std).
 %\todo{(report results of 10 simulations with BFS and with PI.  Give mean and std)}
 
 \begin{figure}
@@ -84,7 +84,7 @@ In 10 simulations with 100 particles, pushing the object to goal using BFS requi
 
 \subsection{Potential fields for swarm management with a compliant manipulator}
 
-When the swarm is in front of the object, control law \eqref{eq:PDcontrolPosition} pushes the object backwards.  To fix this, we implement a potential field approach inspired by Spong \cite{spong2008robot} that attracts the swarm to the intermediate goal, but repulses the swarm from in front of the object, as shown in Fig.~\ref{fig:potentialField}.
+When the swarm is in front of the object, control law \eqref{eq:PDcontrolPosition} pushes the object backwards.  To fix this, we implement a potential field approach that attracts the swarm to the intermediate goal, but repulses the swarm from in front of the object, as shown in Fig.~\ref{fig:potentialField}. The approach is similar to \cite{spong2008robot}, chapter 5.
 The repulsive potential field is centered at $\mathbf{b}$, the object's COM, and is active in a circular sector of angular width 2$\theta$ and radius $d_0$ aligned with $\mathbf{D}(\mathbf{b})$. $\mathbf{D}(\mathbf{b})$ is the desired direction of motion from~\eqref{eq:OptimalPolicy}.
 \begin{align}
 \mathbf{d} &=  [\bar{x},\bar{y}] - \mathbf{b}, \qquad   \phi =\cos^{-1}\left( \frac{ \mathbf{D}(\mathbf{b}) \cdot  \mathbf{d}  }{\norm{\mathbf{D}(\mathbf{b})} \cdot \norm{\mathbf{d}} } \right), \nonumber \\ 
@@ -119,7 +119,7 @@ In 10 simulations with 100 particles, pushing the object to goal without a repul
 \subsection{Outlier rejection}\label{subsec:OutlierRejection}
 
 The variance controller in Alg.~\ref{alg:MeanVarianceControl} is a greedy algorithm that is susceptible to outliers. 
-Our controller in \cite{ShahrokhiIROS2015} failed in $14\%$ trials, some particles were unable to reach the object because workspace obstacles were blocking them. This failure rate increases if  object weight increases or ground-particle friction increases. The mean and covariance calculations \eqref{eq:meanVar} included all particles in the workspace. Particles that cannot reach the object due to obstacles skew these calculations. The state machine in Fig. \ref{fig:Region}a solves this problem by creating two states for the maze: either main or transfer. Each state has a set of regions representing a discretized visibility polygon. Whenever the object crosses a region boundary the state toggles. The \emph{main} regions are generated by extending obstacles until they meet another obstacle. The \emph{transfer} regions are perpendicular to obstacle boundaries, and act as a buffer between two main regions.
+Our controller in \cite{ShahrokhiIROS2015} failed in $14\%$ trials, in each failure some particles were unable to reach the object because workspace obstacles were blocking them. This failure rate increases if  object weight increases or ground-particle friction increases. The mean and covariance calculations \eqref{eq:meanVar} included all particles in the workspace. Particles that cannot reach the object due to obstacles skew these calculations. The state machine in Fig. \ref{fig:Region}a solves this problem by creating two states for the maze: either main or transfer. Each state has a set of regions representing a discretized visibility polygon. Whenever the object crosses a region boundary the state toggles. The \emph{main} regions are generated by extending obstacles until they meet another obstacle. The \emph{transfer} regions are perpendicular to obstacle boundaries, and act as a buffer between two main regions.
 
 Fig.\ \ref{fig:Region}b shows the regions for the main state. The object is in region 1. An indicator function is applied to \eqref{eq:meanVar} so only particles inside region 1 are counted.  This filtering increases experimental success because the mean calculation only includes nearby particles that can directly interact with the object. 
 When the object leaves main region 1 the state switches to transfer. The transfer regions are shown in Fig.\ \ref{fig:Region}c.  The object is in transfer region 1, so only particles in transfer region 1 are included in the mean and covariance calculations. 
@@ -146,7 +146,7 @@ In 10 simulations with 100 particles, completion time without outlier rejection 
 \end{figure}
 
 \subsection{Simulation results}\label{sec:AlgObjectManipulation}
- We use the hybrid hysteresis-based controller in Alg.~\ref{alg:MeanVarianceControl}  to track the desired position, while maintaining sufficient particle density to move the object by switching to minimize variance whenever variance exceeds a set limit:  $0.003 W$ and $0.006 W$ were added to the min and max variance limits from \eqref{eq:sigMaxMin}.
+ We use the hybrid hysteresis-based controller in Alg.~\ref{alg:MeanVarianceControl}  to track the desired position, while maintaining sufficient particle density to move the object by switching to minimize variance whenever variance exceeds a set limit:  $0.003 W$ and $0.006 W$ were added to the min and max variance limits from \eqref{eq:sigMaxMin}, where $W$ is the magnitude of the Brownian noise.
  The minimize variance control law \eqref{eq:PDcontrolVariance} is slightly modified to choose the nearest corner further from the goal than the object with an obstacle-free straight-line path to the object. 
 The control algorithm  for object manipulation is listed in Alg.~\ref{alg:BlockPushing}. 
 
@@ -173,7 +173,7 @@ If the swarm mean position does not change for five seconds, the swarm is assume
 \begin{algorithmic}[1]
 \Require Knowledge of moveable object's center of mass $\mathbf{b}$; swarm mean $[\bar{x},\bar{y}]$ and variance $[\sigma_x^2, \sigma_y^2]$, each calculated using the regions function from \S \ref{subsec:OutlierRejection};  map of the environment
 \State Compute optimal policy for object, according to \S \ref{subsec:objectpolicy}
-\While{is not in goal region}
+\While{ $\mathbf{b}$ is not in goal region}
 \State $\sigma^2 \gets \max{(\sigma_x,\sigma_y)}$
 \If {$\sigma^2 > \sigma_{\rm{max}}^2$}
 \While{$\sigma^2 > \sigma_{\rm{min}}^2$}
@@ -214,7 +214,7 @@ Fig.~\ref{fig:story} shows snapshots during an execution of this algorithm in si
 \vspace{.25em}
 \begin{overpic}[width=0.4\columnwidth]{Spiral.pdf}\end{overpic}~\begin{overpic}[width=0.4\columnwidth]{SpiralSuccess.pdf}\end{overpic}
 \end{center}
-\caption{\label{fig:Emaze} We tested three workspaces. The control policies from value iteration for an {\sffamily E}-shaped and a spiral workspace are shown in the left column.
+\caption{\label{fig:Emaze} We tested three workspaces. The control policies from Value Iteration for an {\sffamily E}-shaped and a spiral workspace are shown in the left column.
 }
 \end{figure}
 \begin{figure}
@@ -224,8 +224,8 @@ Fig.~\ref{fig:story} shows snapshots during an execution of this algorithm in si
 \caption{\label{fig:DifferentMazes} Completion times for three workspaces.}
 \end{figure}
 
-The interaction between the particles and object is impulsive so, like the study of impulsive pulling by Christensen  \cite{christensen2016let},  adding additional particles decreases completion time, but with diminishing returns. 
- After 75 particles, additional particles no longer can interact with the object and do not contribute to the task success. 
+The interaction between the particles and object is impulsive so, like the study of impulsive pulling in \cite{christensen2016let},  adding additional particles decreases completion time, but with diminishing returns. 
+ The effect of adding particles diminishes asymptotically because additional particles have difficulty interacting with the object. 
 Brownian noise adds stochasticity.  This randomness can break the object free if it is stuck, but diminishes the effect of the control input.  
  Increasing noise increases completion time. 
  %Large amounts of noise caused failures, defined as trials lasting longer than 1000s.  With $W=50$, XX of 20 trials failed.  With $W=100$, XX of 20 trials failed.

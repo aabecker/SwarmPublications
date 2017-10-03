@@ -5,7 +5,7 @@
 %%  Variance Control      (image and plot(s) )
 %%  Hybrid control   (image and plot(s) )
 
-Our simulations use a Javascript port of \href{http://box2d.org/}{Box2D}, a popular 2D physics engine with support for rigid-body dynamics, including collision, density, and friction, and fixed-time step simulation, presented by Catto \cite{catto2010box2d}.  All experiments in this section ran on a Chrome web browser on a 2.6 GHz Macbook.  \href{https://github.com/aabecker/SwarmControlSandbox/blob/master/exampleControllers/BlockPushingIROS2015.html}{All code is available at}~\cite{Shahrokhi2016blocksimulations}.
+Our simulations use a Javascript port of \href{http://box2d.org/}{Box2D}, a popular 2D physics engine with support for rigid-body dynamics, including collision, density, and friction, and fixed time step simulation~\cite{catto2010box2d}.  All experiments in this section ran on a Chrome web browser on a 2.6 GHz Macbook.  \href{https://github.com/aabecker/SwarmControlSandbox/blob/master/exampleControllers/BlockPushingIROS2015.html}{All code is available at}~\cite{Shahrokhi2016blocksimulations}.
 
 \paragraph{Controlling the mean position}
 \begin{figure}
@@ -16,7 +16,7 @@ Our simulations use a Javascript port of \href{http://box2d.org/}{Box2D}, a popu
 \caption{\label{fig:gainvalues} In simulation, tuning proportional ($K_p$, top) and derivative ($K_d$, bottom)  gain values in \eqref{eq:PDcontrolPosition} improves performance with $n = 100$ particles. 
 }
 \end{figure}
-We performed a parameter sweep using the PD controller \eqref{eq:PDcontrolPosition} to identify the best control gains.  Representative experiments are shown in Fig.~\ref{fig:gainvalues}. 100 particles were used and the maximum speed was 3 meters per second. As shown in Fig.~\ref{fig:gainvalues}, we can achieve an overshoot of 1\% and a  rise time of 1.52~s with $K_{p}= 4$, and  $K_{d} = 1$. 
+We performed a parameter sweep using the PD controller \eqref{eq:PDcontrolPosition} to identify the best control gains.  Representative experiments are shown in Fig.~\ref{fig:gainvalues}. 100 particles were used and the maximum speed was 3 $m/s$. As shown in Fig.~\ref{fig:gainvalues}, we can achieve an overshoot of 1\% and a  rise time of 1.52~s with $K_{p}= 4$, and  $K_{d} = 1$. 
 
 \paragraph{Controlling the variance}
 \begin{figure}

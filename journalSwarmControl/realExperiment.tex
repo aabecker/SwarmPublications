@@ -2,13 +2,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Object manipulation with hardware robots}\label{sec:realExperiment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Our experiments use centimeter-scale hardware systems called \emph{kilobots}.  While those are far larger than the micro scale devices we model, using kilobots allows us to emulate a variety of dynamics, while enabling a high degree of control over robot function, the environment, and data collection. The kilobot, reported by Rubenstein \cite{Rubenstein2012,rubenstein2014programmable}, is a nonholonomic, low-cost robot designed for testing collective algorithms with large numbers of robots. It is available as an open-source platform or commercially from K-team  \cite{K-Team2015}.  Each robot is approximately 3 cm in diameter, 3 cm tall, and uses two vibration motors to move on a flat surface at speeds up to 1 cm/s.  Each robot has one ambient light sensor that is used to implement \emph{phototaxis},  moving towards a light source. 
+Our experiments use centimeter-scale hardware systems called \emph{kilobots}.  While those are far larger than the micro scale devices we model, using kilobots allows us to emulate a variety of dynamics, while enabling a high degree of control over robot function, the environment, and data collection. The kilobot is a nonholonomic, low-cost robot designed for testing collective algorithms with large numbers of robot~\cite{Rubenstein2012,rubenstein2014programmable}. It is available as an open-source platform or commercially~\cite{K-Team2015}.  Each robot is approximately 3 cm in diameter, 3 cm tall, and uses two vibration motors to move on a flat surface at speeds up to 1 cm/s.  Each robot has one ambient light sensor that is used to implement \emph{phototaxis},  moving towards a light source. 
 
   
 \subsection{Environmental setup}  
-In these experiments as shown in Fig.~\ref{fig:setup}, we used $n$=100 kilobots, a 1.5 m$\times$1.2 m whiteboard as the workspace, and lights: four 50W LED floodlights  at the corners and four 30W LED floodlights on the sides of a 6 m square centered on the workspace and 1.5 m above the table. An Arduino Uno connected to an 8-relay shield controlled the lights.  
+In these experiments as shown in Fig.~\ref{fig:setup}, we used $n$=100 kilobots and a 1.5 m$\times$1.2 m whiteboard as the workspace. 
+LED floodlights were placed 1.5 m above the table on the sides and corners of a square with 6 m sides. An Arduino Uno connected to an 8-relay shield controlled the lights.  
 
-Above the table, an overhead machine vision system tracks the swarm. The vision system identifies obstacles by color segmentation, determines the corners  (used to decrease  variance), the object by color segmentation, and identifies robots using color segmentation and circle detection with a circular Hough transform. 
+Above the table, an overhead machine vision system tracks the swarm. The vision system identifies obstacles and the object by color segmentation, determines the corners of the maze, and identifies robots using a circular Hough transform. 
 
 \begin{figure*}
 \renewcommand{\figwid}{5.25cm}
@@ -30,7 +31,8 @@ Shapes included a 325 cm$^2$ equilateral triangle,
  324 cm$^2$ square,
  281 cm$^2$ hexagon,
 254 cm$^2$ circle, 
-and a 486 cm$^2$ (18 cm$\times$27 cm)  rectangle, all shown in Fig.~\ref{fig:setup}. The laser-cut patterns for the neon green fiducial markers on the robots and 3D files for objects are available at our github repository,~\cite{Shahrokhi2016blocksimulations}. 
+and a 486 cm$^2$ %(18 cm$\times$27 cm) 
+ rectangle, all shown in Fig.~\ref{fig:setup}. The laser-cut patterns for the neon green fiducial markers on the robots and 3D files for objects are available at our github repository~\cite{Shahrokhi2016blocksimulations}. 
 
 
 
@@ -60,7 +62,7 @@ Regulating mean $x$ position of 100 kilobots using control law \eqref{eq:PDcontr
 \subsection{Automated object manipulation (hardware~experiment)}
 
 Even though kilobots are nonholonomic, they performed five successful runs manipulating a hexagonal object through an obstacle maze. Videos of these runs are in Extension 2. These hardware experiments represent the results of over 100 hours of trials.
-Each trial used 100 kilobots. Trials two through five were performed in a row with no failures in between.  For each trial, fully charged kilobots were placed in the lower left-hand of the workspace, as shown in Fig.~\ref{fig:expSnapShot}.  The moveable object was placed in the lower center of the workspace.  {\sc Matlab} code for vision processing, the policy iteration of \S \ref{subsec:objectpolicy} and the algorithm of \S \ref{sec:AlgObjectManipulation} is available on {\sc Matlab} Central at \cite{Shahrokhi2015MDP}.
+Each trial used 100 kilobots. Trials two through five were performed in a row with no failures in between.  For each trial, fully charged kilobots were placed in the lower left-hand of the workspace, as shown in Fig.~\ref{fig:expSnapShot}.  The moveable object was placed in the lower center of the workspace.  {\sc Matlab} code for vision processing, the Value Iteration of \S \ref{subsec:objectpolicy} and the algorithm of \S \ref{sec:AlgObjectManipulation} is available on {\sc Matlab} Central at \cite{Shahrokhi2015MDP}.
 Trials were run until the object COM entered the goal region.  The trials ran for \{1465, 3457, 3000, 2162, 2707\} s.  This is $2558\pm771$ s (mean$\pm$std). 
 
 

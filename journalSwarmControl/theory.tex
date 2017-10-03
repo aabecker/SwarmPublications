@@ -15,7 +15,7 @@ Emboldened by the three lessons from our online experiments, this section presen
 
 We represent particles as holonomic robots that move in the 2D plane. We want to control position and velocity of the particles. 
 First, assume a noiseless system containing one particle with mass $m$.
- Our inputs are global forces $[u_x,u_y]$. We define our state vector $\mathbf{x}(t)$ as the $x$ position, $x$ velocity, $y$ position and $y$ velocity.
+ Our inputs are global forces $[u_x,u_y]^\top$. We define our state vector $\mathbf{x}(t)$ as the $x$ position, $x$ velocity, $y$ position and $y$ velocity.
 The state-space representation in standard form is: 
 \begin{align}\label{eq:stdform}
 \dot{\mathbf{x}}(t)  &=  A \mathbf{x}(t) + B \mathbf{u}(t).
@@ -49,7 +49,7 @@ y\\
  u_y\end{bmatrix}.
 \end{equation}
 
-We want to find the number of states that we can control, which is given by the rank of the \emph{controllability matrix}
+We want to find the number of states that we can control, which is given by the rank of the \emph{controllability matrix}:
 \begin{align}
 \mathcal{C} &= [ B, AB, A^2B, A^{3}B ].\\
 \textrm{Here }
@@ -239,7 +239,7 @@ The variance, $\sigma_x^2,\sigma_y^2$, of $n$ particles' position is:
 
 Controlling the variance requires being able to increase and decrease the variance.  We will list a sufficient condition for each. 
 Microscale systems are affected by unmodelled dynamics. 
-These unmodelled dynamics are dominated by Brownian noise, described by Einstein~\cite{einstein1956investigations}. 
+These unmodelled dynamics are dominated by Brownian noise, as described in~\cite{einstein1956investigations}. 
 To model this~\eqref{eq:stdform} must be modified as follows:
 \begin{align}
 \dot{\mathbf{x}}(t)  &=  A \mathbf{x}(t) + B \mathbf{u}(t) + W \bm{\varepsilon}(t),
@@ -256,7 +256,7 @@ If particles with radius $r$ are in a bounded environment with sides of length $
 [\sigma_x^2,\sigma_y^2] = \frac{1}{12}[ (\ell_x - 2 r)^2,(\ell_y - 2 r)^2].\label{eq:VarianceUniformDistribution}
 \end{align}
 
- A flat obstacle can be used to decrease variance. Pushing a group of dispersed particles against a flat obstacle will decrease their variance until the minimum-variance (maximum density) packing  is reached. For large $n$, Graham ~\cite{graham1990penny} showed that the minimum-variance packing  for $n$ circles with radius $r$ is 
+ A flat obstacle can be used to decrease variance. Pushing a group of dispersed particles against a flat obstacle will decrease their variance until the minimum-variance (maximum density) packing  is reached. For large $n$, Graham and Sloane~\cite{graham1990penny} showed that the minimum-variance packing  for $n$ circles with radius $r$ is 
  \begin{align} \label{eq:optimalvar}
  \sigma^2_{\rm{optimal}}(n,r) \approx   \frac{\sqrt{3}}{\pi} n r^2\approx 0.55 n r^2.
  \end{align} 
@@ -296,9 +296,9 @@ u_x &= K_{p}(x_{\rm{goal}}(\sigma^2_{\rm{ref}}) - \bar{x}) - K_{d}\bar{v}_x + K_
 u_y &= K_{p}(y_{\rm{goal}}(\sigma^2_{\rm{ref}})  - \bar{y}) - K_{d}\bar{v}_y + K_{i}(\sigma^2_{\rm{ref}}-\sigma^2_{y}).  \label{eq:PDcontrolVarianceIny}
 \end{align}
 We call the gain scaling the variance error $K_i$ because the variance, if unregulated, integrates over time. This controller requires a vertical and a horizontal wall.
-Eq.~\eqref{eq:PDcontrolVariance} assumes the nearest wall is to the left of the particle at $x=0$, and chooses a reference goal position that in steady-state would have the correct variance according to \eqref{eq:VarianceUniformDistribution}:
+Eq.~\eqref{eq:PDcontrolVariance} assumes the nearest wall is to the left of the particle at $x=0$, and chooses a reference goal position such that the swarm, if uniformly distributed between 0 and $\ell$, would have the correct variance according to \eqref{eq:VarianceUniformDistribution}:
 \begin{align}
-x_{\rm{goal}}(\sigma^2_{\rm{ref}}) = \ell_x/2 = r + \sqrt{3\sigma^2_{\rm{ref}}}.
+x_{\rm{goal}}(\sigma^2_{\rm{ref}}) = \ell/2 = r + \sqrt{3\sigma^2_{\rm{ref}}}.
 \end{align}
  If a wall to the right is closer, the signs of $[K_p,K_i]$ are inverted, and the location $x_{\rm{goal}}$ is translated.  A similar argument applies to~\eqref{eq:PDcontrolVarianceIny}.
 
@@ -309,14 +309,14 @@ The mean and variance of the swarm cannot be controlled simultaneously.
 However, if the variance gained while moving from a corner to the target position is less than some $\sigma_{\rm{max}}^2-\sigma_{\rm{min}}^2$, we can adopt the hybrid, hysteresis-based controller shown in Alg.~\ref{alg:MeanVarianceControl} to regulate the mean and variance.  
  Such a controller normally controls the mean position, but switches to minimizing variance if the variance exceeds $\sigma_{\rm{max}}^2$. 
  Variance is reduced until less than $\sigma_{\rm{min}}^2$, then control again regulates the mean position. 
- This technique satisfies control objectives that evolve at different rates as in Kloetzer's work ~\cite{kloetzer2007temporal}, and the hysteresis avoids rapid switching between control modes. The process is illustrated in Fig.~\ref{fig:hysteresis}. 
+ This technique satisfies control objectives that evolve at different rates as in~\cite{kloetzer2007temporal}, and the hysteresis avoids rapid switching between control modes. The process is illustrated in Fig.~\ref{fig:hysteresis}. 
 
 
 \begin{algorithm}
 \caption{Hybrid mean and variance control}\label{alg:MeanVarianceControl}
 \begin{algorithmic}[1]
 \Require Knowledge of swarm mean $[\bar{x},\bar{y}]$, variance $[\sigma_x^2, \sigma_y^2]$, the locations of the rectangular boundary $\{x_{\rm{min}}, x_{\rm{max}}, y_{\rm{min}}, y_{\rm{max}}\}$, and the target mean position $[x_{\rm{target}},y_{\rm{target}}]$.%TODO: use  \AND, \OR, \XOR, \NOT, \TO, \TRUE, \FALSE \gets
-\State $x_{goal} \gets  x_{\rm{target}}$, $y_{\rm{goal}} \gets y_{\rm{target}}$
+\State $x_{\rm{goal}} \gets  x_{\rm{target}}$, $y_{\rm{goal}} \gets y_{\rm{target}}$
 \Loop
 %\State  Compute $\sigma_x^2, \sigma_y^2$
 
