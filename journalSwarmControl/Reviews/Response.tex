@@ -32,7 +32,7 @@
 		
 	
 		\begin{flushright}
-		Aaron T Becker\\Department of Electrical Engineering\\University of Houston\\Houston, TX 77004, USA\\Email: atbecker@central.uh.edu\\Web: youTube.com/aabecker5\\
+		Aaron T.\ Becker\\Department of Electrical Engineering\\University of Houston\\Houston, TX 77004, USA\\Email: atbecker@central.uh.edu\\Web: youTube.com/aabecker5\\
 		
 		\today \vspace{2cm} \\
 		\end{flushright}
@@ -40,10 +40,14 @@
 		#1\medskip\\ 
 		Dear #2 Editorial Office,\medskip\\
 		Please find attached the revised paper, #1
-		along with the document containing response to the reviewers. We are grateful to the reviewers for helping us in improving our manuscript through their comments and questions. Please let us know if further information is required.\medskip\\
-		Sincerely,
-			\todo[inline]{Insert Signature}
-		Aaron T Becker (on behalf of all the authors) 
+		along with the document containing a response to the reviewers. We are grateful to the reviewers for helping us in improving our manuscript through their comments and questions. Please let us know if further information is required.\medskip\\
+		
+		Sincerely,\\
+		
+	
+			\includegraphics[width=4cm]{SignatureAaronTBeckerWhite.png}
+			\medskip\\
+		Aaron T.\ Becker (on behalf of all the authors) 
 	\end{quote}
 	\vspace*{\fill}
 	\break }
@@ -54,24 +58,28 @@
 }
 
 \begin{document}
-	\letter{Steering a Particle Swarm Using Global Inputs and Swarm Statistics}{IEEE Transactions on Robotics}
+	\letter{\emph{Steering a Particle Swarm Using Global Inputs and Swarm Statistics}}{IEEE Transactions on Robotics}
 	
 	\section*{Response to Reviewers}
-	In the following document, weâ€™ve provided detailed responses to the comments and questions of the reviewers. Comments and questions by reviewers are in \textcolor{blue}{blue}, our responses are in black.
+	In the following document, weâ have provided detailed responses to the comments and questions of the reviewers. Comments and questions by reviewers are in \textcolor{blue}{blue}, our responses are in black.
 	
 	\Reviewer{\#1}\response{the paper is very interesting, well written and well organized. It presents an important research topic which is of great interest of most people interested in swarm robotics. The video is also very nice and useful to better understand the work.}
 	Thank you!
 	
 	\response{What are the assumptions on the manipulated block properties? (Friction? Necessary force to move it? Is one robot enough to move it?)}
-		\todo[inline]{This is a question we were trying to avoid right? Since we can't seem to measure the strength of a single kilobot. Should we give simulation specs? What about the real world experiments?}
-	  
-	\response{Regading the hybrid controller, what are the necessary assumptions to reach convergence? Are there practical assumptions to guarantee the claim (18) =$>$ (19)? How about the geometry of the environment? What happens if the environment is sparse so that corners are too far? Is it possible to control variance in this case?}
-	This is an interesting problem that we can expand on in a later work.
-		
-	\response{In section VI the authors should give more detils regarding the Value Iteration approach. How did the authors set the probabilities p($x_j$ | x,u)? It seems it should be j instead of i in the loop "for i = ..." in (25).}
-	\todo[inline]{Check the equation in the book to clarify if this should be i or j before the equation}
+	This is now addressed in \S VI:
+	``We assume Coulomb and viscous friction parameters such that the object can be moved by particle motion. Increasing the number of pushing particles increases the object speed.''
 	
-	The probabilities for set p($x_j$ | x,u) come from the reward function in equation (23). The loop in equation (25) is looping the probability p($x_i$ | $x_j$,u) such that for a specific $x_j$ it iterates through all $x_i$.
+	  
+	\response{Regarding the hybrid controller, what are the necessary assumptions to reach convergence? Are there practical assumptions to guarantee the claim (18) =$>$ (19)? How about the geometry of the environment? What happens if the environment is sparse so that corners are too far? Is it possible to control variance in this case?}
+	We removed the discussion on Lyapunov stability, but now point out in \S IV-D that
+	``The mean and variance of the swarm cannot be controlled simultaneously.
+However, if the variance gained while moving from a corner to the target position is less than some $\sigma_{\rm{max}}^2-\sigma_{\rm{min}}^2$, we can adopt the hybrid, hysteresis-based controller shown in Alg.~1 to regulate the mean and variance.''
+		
+	\response{In section VI the authors should give more details regarding the Value Iteration approach. How did the authors set the probabilities p($x_j$ | x,u)? It seems it should be j instead of i in the loop "for i = ..." in (25).}
+	Thank you. The probabilities to set $p(x_j | x,u)$ come from the reward function in equation (23). 
+	We are using the same notation as Thrun et al.~[45] for hte $i$ and $j$ on page 502.
+	The loop in equation (25) is looping the probability p($x_i$ | $x_j$,u) such that for a specific $x_j$ it iterates through all $x_i$. 
 		
 	\response{It is also necessary to give more details of the potential fields in VI-b. The parameters $\Delta \rho$, $\rho$, b in (26) and (27) were not defined.}
 	A sentence has been added and a second sentence has been altered for clarification, now reading, "... The repulsive potential field is centered at the object's COM and is active when the swarm mean is within $\theta$ of the desired direction of motion $\mathbf{D}(\mathbf{b})$ and $\rho$, the distance between the swarm mean and the object's COM, is less than $\rho_0$ as shown ..."
@@ -79,7 +87,7 @@
 	\response{In the outlier rejection, how are the regions computed?}
 		\todo[inline]{We already state, "The \emph{main} regions are generated by extending obstacles until they meet another obstacle. The \emph{transfer} regions are perpendicular to obstacle boundaries, and act as a buffer between two main regions." Are they looking for a formula?}
 		
-	\response{In algorithm 2, how is (29) applied? Is it used directly as ux and uy? The composition of the potential field and the plan obtained with the value iteration algorithm should be better clarified.}
+	\response{In algorithm 2, how is (29) applied? Is it used directly as $u_x$ and $u_y$? The composition of the potential field and the plan obtained with the value iteration algorithm should be better clarified.}
 	Yes, We have amended the paragraph prior with "These fields operate in place of $\mathbf{D}(\mathbf{b})$ only when the repulsive field is active."
 		
 	\response{In the simulations, what is the model for collisions? }
