@@ -196,7 +196,7 @@ If the swarm mean position does not change for five seconds, the swarm is assume
 
 %\subsection{Automated object manipulation (simulation)}
 Fig.~\ref{fig:story} shows snapshots during an execution of this algorithm in simulation.
- We also have tested an \emph{E} shape maze without changing the algorithm to illustrate the capability of the algorithm in Fig.~\ref{fig:Emaze}.
+ We also have tested two other mazes with ``E'' shape and a ``Spiral'' without changing the algorithm to illustrate the capability of the algorithm in Fig.~\ref{fig:Emaze}. Fig.~\ref{fig:DifferentMazes} shows the results of all the three different mazes. E-shape maze has the least average time because the path to the goal is shorter. 
  Experimental results of parameters sweeps are summarized in Fig.~\ref{fig:AutoVeryParam}.  Each trial measured the time to deliver the object to the goal location.  The default parameter settings used 100 robots, a normalized weight of 1, a hexagon shape, and Brownian noise (applied once each simulation step) with $W=5$.  
 
 \begin{figure}
@@ -225,6 +225,13 @@ Fig.~\ref{fig:story} shows snapshots during an execution of this algorithm in si
 \begin{overpic}[width=0.4\columnwidth]{Spiral.pdf}\end{overpic}
 \begin{overpic}[width=0.4\columnwidth]{SpiralSuccess.pdf}\end{overpic}
 \caption{\label{fig:Emaze} We have tested multiple mazes to illustrate that the algorithm works for different environments.
+}
+\end{figure}
+\begin{figure}
+\centering
+\begin{overpic}[width=\columnwidth]{DifferentShapes.pdf}\end{overpic}
+\vspace{-2em}
+\caption{\label{fig:DifferentMazes} Different maps and mazes were tested to validate the algorithm. E-shape maze has the least completion time average because it has the shortest path to the goal from the starting position.
 }
 \end{figure}
 
