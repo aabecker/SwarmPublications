@@ -14,7 +14,7 @@
 Emboldened by the three lessons from our online experiments, this section presents automatic controllers for large numbers of particles that only rely on the first two moments of the swarm position distribution.
 
 We represent particles as holonomic robots that move in the 2D plane. We want to control position and velocity of the particles. 
-First, assume a noiseless system containing one robot with mass $m$.
+First, assume a noiseless system containing one particle with mass $m$.
  Our inputs are global forces $[u_x,u_y]$. We define our state vector $\mathbf{x}(t)$ as the $x$ position, $x$ velocity, $y$ position and $y$ velocity.
 The state-space representation in standard form is: 
 \begin{align}\label{eq:stdform}
@@ -51,7 +51,7 @@ y\\
 
 We want to find the number of states that we can control, which is given by the rank of the \emph{controllability matrix}
 \begin{align}
-\mathcal{C} &= [ B, AB, A^2B, ... , A^{n-1}B ].\\
+\mathcal{C} &= [ B, AB, A^2B, A^{3}B ].\\
 \textrm{Here }
 \mathcal{C}&=\left[
 \begin{matrix} 
@@ -84,10 +84,10 @@ We want to find the number of states that we can control, which is given by the 
  \right],\\
  \quad \textrm{rank}(\mathcal{C})&=4,
 \end{align}
-and thus all four states are controllable. This section starts by proving independent position control of many robots is not possible, but the mean position can be controlled. We then provide conditions under which the variance of many robots is also controllable.
+and thus all four states are controllable. This section starts by proving independent position control of many particles is not possible, but the mean position can be controlled. We then provide conditions under which the variance of many particles is also controllable.
 
 \subsection{Independent control of many particles is impossible}
-In this model, a single particle is fully controllable. For holonomic robots, movement in the $x$ and $y$ coordinates are independent, so for notational convenience without loss of generality we will focus only on movement in the $x$ axis. Given $n$ particles to be  controlled in the $x$ axis, there are $2n$ states: $n$ positions and $n$ velocities. Without loss of generality, assume $m=1$.
+In this model, a single particle is fully controllable. For holonomic particles, movement in the $x$ and $y$ coordinates are independent, so for notational convenience without loss of generality we will focus only on movement in the $x$ axis. Given $n$ particles to be  controlled in the $x$ axis, there are $2n$ states: $n$ positions and $n$ velocities. Without loss of generality, assume $m=1$.
 Our state-space representation is:
 \begin{equation}
 \begin{bmatrix}
@@ -153,7 +153,7 @@ x_{n}\\
 \ldots \right], \quad \textrm{rank}(\mathcal{C}_n)=2.
 \end{equation}  
 \subsection{Controlling the mean position}\label{sec:controlMeanPosition}
-This means \emph{any} number of particles controlled by a global command have just two controllable states in each axis. We cannot arbitrarily control the position and velocity of two or more robots, but have options on which states to control.  %One option is to control the position and velocity of the $j^{th}$ robot. To find a potentially more useful option, 
+This means \emph{any} number of particles controlled by a global command have just two controllable states in each axis. We cannot arbitrarily control the position and velocity of two or more particles, but have options on which states to control.  %One option is to control the position and velocity of the $j^{th}$ robot. To find a potentially more useful option, 
 We create the following reduced order system that represents the mean $x$ position and velocity of the $n$ particles:
 \begin{align}
 \begin{bmatrix}\nonumber
@@ -218,7 +218,7 @@ Thus the mean position and mean velocity are controllable.
 %Due to symmetry of the control input, only the mean position and mean velocity are controllable. However, 
 There are several techniques for breaking the symmetry of the control input to allow controlling more states, for example by using obstacles as in \cite{Becker2013b}, or by allowing independent noise sources as in \cite{beckerIJRR2014}.
 
-We control mean position with a PD controller that uses the mean position and mean velocity. $[u_x,u_y]^\top$ is the global force applied to each robot:
+We control mean position with a PD controller that uses the mean position and mean velocity. $[u_x,u_y]^\top$ is the global force applied to each particle:
 \begin{align}
 u_x &= K_{p}(x_{\rm{goal}} - \bar{x}) + K_{d}(0-\dot{\bar{x}}), \nonumber\\
 u_y &= K_{p}(y_{\rm{goal}}  - \bar{y}) + K_{d}(0-\dot{\bar{y}}).  \label{eq:PDcontrolPosition}
@@ -228,7 +228,7 @@ u_y &= K_{p}(y_{\rm{goal}}  - \bar{y}) + K_{d}(0-\dot{\bar{y}}).  \label{eq:PDco
 
 \subsection{Controlling the variance}\label{sec:VarianceControl}
 
-The variance, $\sigma_x^2,\sigma_y^2$, of $n$ robots' position is computed as:
+The variance, $\sigma_x^2,\sigma_y^2$, of $n$ particles' position is:
 \begin{align}\label{eq:meanVar}
  \overline{x}(\mathbf{x}) = \frac{1}{n} \sum_{i=1}^n x_{i}, \qquad  %\nonumber \\ 
 \sigma_x^2(\mathbf{x}) &= \frac{1}{n} \sum_{i=1}^n (x_{i} - \overline{x})^2,  \nonumber \\ 
@@ -251,12 +251,12 @@ where $W\bm{\varepsilon}(t)$ is a random perturbation produced by Brownian noise
 \end{equation}
  If faster dispersion is needed, the swarm can be pushed through obstacles such as a diffraction grating or Pachinko board as in~\cite{Becker2013b}. 
 
-If robots with radius $r$ are in a bounded environment with sides of length $[\ell_x, \ell_y]$, the unforced variance asymptotically grows to the variance of a uniform distribution,
+If particles with radius $r$ are in a bounded environment with sides of length $[\ell_x, \ell_y]$, the unforced variance asymptotically grows to the variance of a uniform distribution,
 \begin{align}
 [\sigma_x^2,\sigma_y^2] = \frac{1}{12}[ (\ell_x - 2 r)^2,(\ell_y - 2 r)^2].\label{eq:VarianceUniformDistribution}
 \end{align}
 
- A flat obstacle can be used to decrease variance. Pushing a group of dispersed robots against a flat obstacle will decrease their variance until the minimum-variance (maximum density) packing  is reached. For large $n$, Graham ~\cite{graham1990penny} showed that the minimum-variance packing  for $n$ circles with radius $r$ is 
+ A flat obstacle can be used to decrease variance. Pushing a group of dispersed particles against a flat obstacle will decrease their variance until the minimum-variance (maximum density) packing  is reached. For large $n$, Graham ~\cite{graham1990penny} showed that the minimum-variance packing  for $n$ circles with radius $r$ is 
  \begin{align} \label{eq:optimalvar}
  \sigma^2_{\rm{optimal}}(n,r) \approx   \frac{\sqrt{3}}{\pi} n r^2\approx 0.55 n r^2.
  \end{align} 
@@ -290,13 +290,13 @@ u(t) &=   \begin{cases}
 
 
 
-Similar to the PD controller in Eq.~\eqref{eq:PDcontrolPosition} that controls the mean robot position, a controller to regulate the variance to $\sigma^2_{\rm{ref}}$ is:
+Similar to the PD controller in Eq.~\eqref{eq:PDcontrolPosition} that controls the mean particle position, a controller to regulate the variance to $\sigma^2_{\rm{ref}}$ is:
 \begin{align}
 u_x &= K_{p}(x_{\rm{goal}}(\sigma^2_{\rm{ref}}) - \bar{x}) - K_{d}\bar{v}_x + K_{i}(\sigma^2_{\rm{ref}}-\sigma^2_{x}),   \label{eq:PDcontrolVariance}\\
 u_y &= K_{p}(y_{\rm{goal}}(\sigma^2_{\rm{ref}})  - \bar{y}) - K_{d}\bar{v}_y + K_{i}(\sigma^2_{\rm{ref}}-\sigma^2_{y}).  \label{eq:PDcontrolVarianceIny}
 \end{align}
 We call the gain scaling the variance error $K_i$ because the variance, if unregulated, integrates over time. This controller requires a vertical and a horizontal wall.
-Eq.~\eqref{eq:PDcontrolVariance} assumes the nearest wall is to the left of the robot at $x=0$, and chooses a reference goal position that in steady-state would have the correct variance according to \eqref{eq:VarianceUniformDistribution}:
+Eq.~\eqref{eq:PDcontrolVariance} assumes the nearest wall is to the left of the particle at $x=0$, and chooses a reference goal position that in steady-state would have the correct variance according to \eqref{eq:VarianceUniformDistribution}:
 \begin{align}
 x_{\rm{goal}}(\sigma^2_{\rm{ref}}) = \ell_x/2 = r + \sqrt{3\sigma^2_{\rm{ref}}}.
 \end{align}
@@ -360,7 +360,7 @@ However, if the variance gained while moving from a corner to the target positio
 
 
 A key challenge is to select proper values for $\sigma_{\rm{min}}^2$ and $\sigma_{\rm{max}}^2$.  The optimal packing variance was given in \eqref{eq:optimalvar}.
-The random packings generated by pushing our robots into corners are suboptimal, so we choose the conservative values: 
+The random packings generated by pushing our particles into corners are suboptimal, so we choose the conservative values: 
 %shown in Fig.~\ref{fig:hysteresis}:
 \begin{align} \label{eq:sigMaxMin}
  \sigma^2_{\rm{min}} &= 2.5r+ \sigma^2_{\rm{optimal}}(n,r), \nonumber\\
