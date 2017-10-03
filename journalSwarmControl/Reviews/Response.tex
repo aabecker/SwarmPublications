@@ -157,9 +157,9 @@ However, if the variance gained while moving from a corner to the target positio
 	\response{When the walls are immovable then the proposed technique to push the swarm against a corner works as is demonstrated. In the case of the human body where the walls could be more elastic, or even permeable, how that would affect the proposed strategy.}
 	How exciting! Elastic walls are a realm of soft robotics that our lab has just started modeling.  Unfortunately space constraints prevent us from addressing this in the current paper.
 		
-	\response{In the same line, if pushing against a "wall" could increase friction or even absorption of the transported medicine, have you consider a strategy that envelops the object with a small group of particles shielding the object from the walls?}
+	\response{In the same line, if pushing against a  ``wall'' could increase friction or even absorption of the transported medicine, have you consider a strategy that envelops the object with a small group of particles shielding the object from the walls?}
 	Another worthy idea worth further investigation. We are unable to implement such an idea in the current iteration of this paper, but please see our recent IROS 2017 paper that investigates shaping swarms using boundary friction:
-		{\bf Shiva Shahrokhi}, {\bf Arun Mahadev}, {\bf Aaron Becker} ``Algorithms for Shaping a Particle Swarm with a Shared Input by Exploiting Non-Slip Wall Contacts",  in IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), Vancouver, Canada, Sept. 28, 2017. 
+		{ Shiva Shahrokhi}, { Arun Mahadev}, { Aaron Becker} ``Algorithms for Shaping a Particle Swarm with a Shared Input by Exploiting Non-Slip Wall Contacts",  in IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), Vancouver, Canada, Sept. 28, 2017. 
 	\href{	https://youtu.be/MxudWbNZdC4}{[video]}
 		
 	\response{The reviewer will recommend in simulation to create bigger more complex environments emulating the major veins or the digestive tract of the human body. Definitely something with curvy walls. }
@@ -167,13 +167,13 @@ However, if the variance gained while moving from a corner to the target positio
 	That is a good idea.  We added two additional maps for the simulation tests to this paper (Figs. 16 and 17). Our lab has several papers in progress using swarms in curved environments.
 		
 	\response{The paper, and in general the proposed approach, will gain by demonstrating the proposed approach in environments where there are junctions where the object has to be pushed in one of two, or more, options. }
-	Also a good idea.  We added an E-shaped maze in (Figs. 16 and 17). Also see preliminary work in this direction in our recent IROS papers 
+	Also a good idea.  We added an E-shaped maze in (Figs. 16 and 17). Also see preliminary work in this direction in our recent IROS papers:
 	
-	{\bf Li Huang}, Louis Rogowski, MinJun Kim, {\bf Aaron Becker}. ``Path Planning and Aggregation for a Microrobot Swarm in Vascular Networks Using a Global Input'',  in IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), Vancouver, Canada, Sept. 28, 2017. 
+	{ Li Huang}, Louis Rogowski, MinJun Kim, { Aaron Becker}. ``Path Planning and Aggregation for a Microrobot Swarm in Vascular Networks Using a Global Input'',  in IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), Vancouver, Canada, Sept. 28, 2017. 
 	
 and
 	
- {\bf Arun Mahadev}, Dominik Michael Krupke, S{\'a}ndor Fekete, {\bf Aaron T. Becker}, ``Mapping and Coverage with a Particle Swarm Controlled by Uniform Inputs",  in IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), Vancouver, Canada, Sept. 28, 2017. 
+ { Arun Mahadev}, Dominik Michael Krupke, S{\'a}ndor Fekete, {Aaron T. Becker}, ``Mapping and Coverage with a Particle Swarm Controlled by Uniform Inputs",  in IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), Vancouver, Canada, Sept. 28, 2017. 
 		\href{https://youtu.be/77AaoEnd5b4}{[video]} 
 	
 	\response{Furthermore, it would be interesting to see if the proposed method will work in an open environment with multiple obstacles.}
@@ -183,7 +183,7 @@ and
 	\Reviewer{\#4}
 	\response{One major concern is about the Lyapunov derivative in eq. (17) which looks wrong. I found $\dot{V}=2 \sigma \dot{\sigma} (\sigma^2-\sigma_{goal}^2)$. This demands to revise your justification as your result on variance stability conditions might be totally different. Please clarify. ... In eq. (17) how can be $\dot{\sigma}^2$ be negative? Please clarify.}
 	
-	Our Lyapunov controller was frivolous as it is obvious that the variance can be controlled. This section detracted from the paper as a whole and as a result was removed entirely.
+	Our Lyapunov controller was frivolous as it is obvious that the variance can be controlled. This section detracted from the paper as a whole and as a result was removed entirely. While the swarm variance $\sigma^2$ is always positive, the derivative of the variance can be positive or negative, depending on if the variance is growing or decreasing.
 		
 	\response{The global control law is presented for holonomic robots, while in small-scales often particles obey nonholonomic motion. Is your approach still applicable? }
 		
@@ -192,7 +192,7 @@ and
 	\response{Eq. (20) is a little bit vague. A clearer statement is required. Perhaps to say, eq. (20) is an extended version of eq. (11), which allows to control variance as well.}
 	This has now been clarified in our paper:
 	
-	``Similar to the PD controller in Eq.~\eqref{eq:PDcontrolPosition} that controls the mean particle position, a controller to regulate the variance to $\sigma^2_{\rm{ref}}$ is:
+	``Similar to the PD controller in Eq. (11) that controls the mean particle position, a controller to regulate the variance to $\sigma^2_{\rm{ref}}$ is:
 \begin{align}
 u_x &= K_{p}(x_{\rm{goal}}(\sigma^2_{\rm{ref}}) - \bar{x}) - K_{d}\bar{v}_x + K_{i}(\sigma^2_{\rm{ref}}-\sigma^2_{x}),   \nonumber \\
 u_y &= K_{p}(y_{\rm{goal}}(\sigma^2_{\rm{ref}})  - \bar{y}) - K_{d}\bar{v}_y + K_{i}(\sigma^2_{\rm{ref}}-\sigma^2_{y}).  \nonumber
@@ -201,7 +201,7 @@ We call the gain scaling the variance error $K_i$ because the variance, if unreg
 	
 			
 	\response{Page 3 section 3 on the lesson list number 2, you have to define IID?}
-	This issue has been remedied by defining IID as "independent and identically distributed".
+	This issue has been remedied by defining IID as ``independent and identically distributed".
 		
 	\response{Page 3 in section 3A, please follow paragraph style in the middle of the text.}
 		We incorporated this sentence into the previous paragraph.
