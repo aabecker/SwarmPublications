@@ -195,8 +195,9 @@ If the swarm mean position does not change for five seconds, the swarm is assume
 
 
 %\subsection{Automated object manipulation (simulation)}
-Fig.~\ref{fig:story} shows snapshots during an execution of this algorithm in simulation. 
-Experimental results of parameters sweeps are summarized in Fig.~\ref{fig:AutoVeryParam}.  Each trial measured the time to deliver the object to the goal location.  The default parameter settings used 100 robots, a normalized weight of 1, a hexagon shape, and Brownian noise (applied once each simulation step) with $W=5$.  
+Fig.~\ref{fig:story} shows snapshots during an execution of this algorithm in simulation.
+ We also have tested an \emph{E} shape maze without changing the algorithm to illustrate the capability of the algorithm in Fig.~\ref{fig:Emaze}.
+ Experimental results of parameters sweeps are summarized in Fig.~\ref{fig:AutoVeryParam}.  Each trial measured the time to deliver the object to the goal location.  The default parameter settings used 100 robots, a normalized weight of 1, a hexagon shape, and Brownian noise (applied once each simulation step) with $W=5$.  
 
 \begin{figure}
 \centering
@@ -213,6 +214,17 @@ Experimental results of parameters sweeps are summarized in Fig.~\ref{fig:AutoVe
 %\end{overpic}}
 \begin{overpic}[width =\columnwidth]{SwarmRun.pdf}\end{overpic}
 \caption{\label{fig:story}Snapshots showing an object manipulation simulation with 100 robots under automatic control (see also Extension 1).
+}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{overpic}[width=0.4\columnwidth]{MDPEmaze.pdf}\end{overpic}
+\begin{overpic}[width=0.4\columnwidth]{EmazeFinal.pdf}\end{overpic}\\
+\vspace{0.5em}
+\begin{overpic}[width=0.4\columnwidth]{Spiral.pdf}\end{overpic}
+\begin{overpic}[width=0.4\columnwidth]{SpiralSuccess.pdf}\end{overpic}
+\caption{\label{fig:Emaze} We have tested multiple mazes to illustrate that the algorithm works for different environments.
 }
 \end{figure}
 
