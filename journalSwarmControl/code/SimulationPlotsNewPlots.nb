@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    193794,       4663]
-NotebookOptionsPosition[    190498,       4582]
-NotebookOutlinePosition[    190852,       4598]
-CellTagsIndexPosition[    190809,       4595]
+NotebookDataLength[    193058,       4644]
+NotebookOptionsPosition[    189939,       4565]
+NotebookOutlinePosition[    190293,       4581]
+CellTagsIndexPosition[    190250,       4578]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1275,7 +1275,7 @@ Cell[BoxData[
      RowBox[{"AspectRatio", "\[Rule]", ".5"}], ",", "\[IndentingNewLine]", 
      RowBox[{"PlotLabel", "\[Rule]", " ", 
       RowBox[{"Style", "[", 
-       RowBox[{"\"\<Different maze shapes\>\"", ",", 
+       RowBox[{"\"\<Maze shapes' completion time (s)\>\"", ",", 
         RowBox[{"FontSize", "\[Rule]", "16"}]}], "]"}]}], ",", 
      "\[IndentingNewLine]", 
      RowBox[{"ChartStyle", "\[Rule]", "1"}], ",", 
@@ -1292,12 +1292,15 @@ Cell[BoxData[
         "}"}]}]}], "*)"}], "]"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"Export", "[", 
-     RowBox[{"\"\<../pictures/pdf/differentMazes.pdf\>\"", ",", "%"}], "]"}], 
-    ";"}], "\[IndentingNewLine]"}]}]], "Input",
+     RowBox[{
+     "\"\<Documents/GitHub/SwarmPublications/journalSwarmControl/pictures/pdf/\
+differentMazes.pdf\>\"", ",", "%"}], "]"}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.716032264562277*^9, 3.7160323559018383`*^9}, {
   3.7160323964744253`*^9, 3.716032778278235*^9}, {3.7160328238946123`*^9, 
-  3.716032840004325*^9}, {3.716032977052803*^9, 
-  3.716032987878352*^9}},ExpressionUUID->"a9c5aeda-ce3b-47ba-87d3-\
+  3.716032840004325*^9}, {3.716032977052803*^9, 3.71603300045522*^9}, {
+  3.716033032069798*^9, 
+  3.716033146889018*^9}},ExpressionUUID->"a9c5aeda-ce3b-47ba-87d3-\
 eadf5d35b95d"],
 
 Cell[BoxData[
@@ -1523,8 +1526,8 @@ Cell[BoxData[
              LineBox[{{{3.124546188059387, 57.033}, {2.875453811940613, 
               57.033}}, {{3.124546188059387, 97.829}, {2.875453811940613, 
               97.829}}}]}, {}}]},
-         ImageSizeCache->{{265.5857864376269, 
-          317.4142135623731}, {-76.9823953805549, 49.41421356237311}}],
+         ImageSizeCache->{{263.7606933090101, 
+          319.2393066909899}, {-78.8074885091717, 51.23930669098992}}],
         StyleBox[
          TagBox[
           GridBox[{{
@@ -1607,7 +1610,7 @@ Cell[BoxData[
           "CacheGraphics" -> False], 
          Spacer[0], Selectable -> False], TraditionalForm], {0.008, 0}}, {
       1., 
-       FormBox["\"Eshape\"", TraditionalForm], 0}, {2., 
+       FormBox["\"E-shape\"", TraditionalForm], 0}, {2., 
        FormBox[
         InterpretationBox[
          StyleBox[
@@ -1615,7 +1618,7 @@ Cell[BoxData[
           "CacheGraphics" -> False], 
          Spacer[0], Selectable -> False], TraditionalForm], {0.008, 0}}, {
       2., 
-       FormBox["\"AShape\"", TraditionalForm], 0}, {3., 
+       FormBox["\"Spiral\"", TraditionalForm], 0}, {3., 
        FormBox[
         InterpretationBox[
          StyleBox[
@@ -1623,7 +1626,7 @@ Cell[BoxData[
           "CacheGraphics" -> False], 
          Spacer[0], Selectable -> False], TraditionalForm], {0.008, 0}}, {
       3., 
-       FormBox["\"SShape\"", TraditionalForm], 0}, {0.7509076238812251, 
+       FormBox["\"S-Shape\"", TraditionalForm], 0}, {0.7509076238812251, 
        FormBox[
         InterpretationBox[
          StyleBox[
@@ -1676,8 +1679,8 @@ Cell[BoxData[
   LabelStyle->16,
   PlotLabel->FormBox[
     StyleBox[
-    "\"Different maze shapes\"", FontSize -> 16, StripOnInput -> False], 
-    TraditionalForm],
+    "\"Maze shapes' completion time (s)\"", FontSize -> 16, StripOnInput -> 
+     False], TraditionalForm],
   PlotRangePadding->{{
      Scaled[0.05], 
      Scaled[0.05]}, {
@@ -1690,21 +1693,21 @@ Cell[BoxData[
          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
          "CacheGraphics" -> False], 
         Spacer[0], Selectable -> False], TraditionalForm], {0.008, 0}}, {1., 
-      FormBox["\"Eshape\"", TraditionalForm], 0}, {2., 
+      FormBox["\"E-shape\"", TraditionalForm], 0}, {2., 
       FormBox[
        InterpretationBox[
         StyleBox[
          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
          "CacheGraphics" -> False], 
         Spacer[0], Selectable -> False], TraditionalForm], {0.008, 0}}, {2., 
-      FormBox["\"AShape\"", TraditionalForm], 0}, {3., 
+      FormBox["\"Spiral\"", TraditionalForm], 0}, {3., 
       FormBox[
        InterpretationBox[
         StyleBox[
          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
          "CacheGraphics" -> False], 
         Spacer[0], Selectable -> False], TraditionalForm], {0.008, 0}}, {3., 
-      FormBox["\"SShape\"", TraditionalForm], 0}, {0.7509076238812251, 
+      FormBox["\"S-Shape\"", TraditionalForm], 0}, {0.7509076238812251, 
       FormBox[
        InterpretationBox[
         StyleBox[
@@ -1720,33 +1723,10 @@ Cell[BoxData[
         Spacer[0], Selectable -> False], TraditionalForm], {0, 0}}}, 
     Automatic}]], "Output",
  CellChangeTimes->{{3.7160327392583103`*^9, 3.716032764261725*^9}, {
-  3.716032829468889*^9, 
-  3.716032840504053*^9}},ExpressionUUID->"c5e6443d-5941-4fc9-94dc-\
-24ac342be514"],
-
-Cell[BoxData[
- TemplateBox[{
-  "Export","nodir",
-   "\"Directory \
-\\!\\(\\*RowBox[{\\\"\\\\\\\"/Users/pictures/pdf/\\\\\\\"\\\"}]\\) does not \
-exist.\"",2,25,11,25246925780106186540,"Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{{3.716032739323853*^9, 3.716032764290677*^9}, {
-  3.716032829496375*^9, 
-  3.716032840529519*^9}},ExpressionUUID->"e48c6c49-6425-444f-b305-\
-20eb4ff8c799"],
-
-Cell[BoxData[
- TemplateBox[{
-  "Export","noopen",
-   "\"Cannot open \
-\\!\\(\\*RowBox[{\\\"\\\\\\\"../pictures/pdf/differentMazes.pdf\\\\\\\"\\\"}]\
-\\).\"",2,25,12,25246925780106186540,"Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{{3.716032739323853*^9, 3.716032764290677*^9}, {
-  3.716032829496375*^9, 
-  3.716032840544147*^9}},ExpressionUUID->"759749a1-5a03-4dfd-90a8-\
-db164810596b"]
+   3.716032829468889*^9, 3.716032840504053*^9}, 3.7160329926355133`*^9, {
+   3.716033084363809*^9, 3.7160330967444487`*^9}, 
+   3.71603315066052*^9},ExpressionUUID->"dd71230d-a7d1-4bb1-a69c-\
+9b75be441fbc"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -3434,6 +3414,8 @@ Cell[BoxData["v"], "Input",
   3.679835085544668*^9},ExpressionUUID->"7207559d-0b41-4e97-b36c-\
 1bf227d81989"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{"Range", "[", 
   RowBox[{"0", ",", 
@@ -3457,7 +3439,8 @@ Cell[BoxData[
    RowBox[{"2", " ", "\[Pi]"}]}], "}"}]], "Output",
  CellChangeTimes->{{3.679835093067067*^9, 
   3.679835112922988*^9}},ExpressionUUID->"f1a830a4-bfea-468f-826c-\
-4e1c9ad049af"],
+4e1c9ad049af"]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -4610,59 +4593,57 @@ Cell[22317, 426, 31875, 793, 223, "Output", "ExpressionUUID" -> \
 "6378e84f-05c4-482b-9319-7a19f8e36945"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[54229, 1224, 3067, 76, 327, "Input", "ExpressionUUID" -> \
+Cell[54229, 1224, 3185, 79, 369, "Input", "ExpressionUUID" -> \
 "a9c5aeda-ce3b-47ba-87d3-eadf5d35b95d"],
-Cell[57299, 1302, 16596, 422, 227, "Output", "ExpressionUUID" -> \
-"c5e6443d-5941-4fc9-94dc-24ac342be514"],
-Cell[73898, 1726, 409, 10, 24, "Message", "ExpressionUUID" -> \
-"e48c6c49-6425-444f-b305-20eb4ff8c799"],
-Cell[74310, 1738, 411, 10, 24, "Message", "ExpressionUUID" -> \
-"759749a1-5a03-4dfd-90a8-db164810596b"]
+Cell[57417, 1305, 16711, 423, 261, "Output", "ExpressionUUID" -> \
+"dd71230d-a7d1-4bb1-a69c-9b75be441fbc"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[74758, 1753, 3082, 55, 432, "Input", "ExpressionUUID" -> \
+Cell[74165, 1733, 3082, 55, 432, "Input", "ExpressionUUID" -> \
 "c024ab3e-a542-4351-9750-5bd40da95f3e"],
-Cell[77843, 1810, 3226, 58, 327, "Output", "ExpressionUUID" -> \
+Cell[77250, 1790, 3226, 58, 327, "Output", "ExpressionUUID" -> \
 "c848265a-40e2-4cd6-889a-f60bf73cc34a"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[81106, 1873, 4385, 102, 390, "Input", "ExpressionUUID" -> \
+Cell[80513, 1853, 4385, 102, 390, "Input", "ExpressionUUID" -> \
 "c37f74dc-8687-406d-aa51-180bea7dc5a1"],
-Cell[85494, 1977, 419, 9, 32, "Output", "ExpressionUUID" -> \
+Cell[84901, 1957, 419, 9, 32, "Output", "ExpressionUUID" -> \
 "b2c89126-96d7-4c9e-ab4e-b680e933de3c"],
-Cell[85916, 1988, 1451, 32, 117, "Output", "ExpressionUUID" -> \
+Cell[85323, 1968, 1451, 32, 117, "Output", "ExpressionUUID" -> \
 "bcdffe18-a511-4f5c-af78-945c48f03e66"],
-Cell[87370, 2022, 25470, 636, 223, "Output", "ExpressionUUID" -> \
+Cell[86777, 2002, 25470, 636, 223, "Output", "ExpressionUUID" -> \
 "5be95901-bf93-4b79-bf4a-ecb3c0745a86"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[112877, 2663, 3600, 85, 301, "Input", "ExpressionUUID" -> \
+Cell[112284, 2643, 3600, 85, 369, "Input", "ExpressionUUID" -> \
 "9b3fb4c1-6c55-49f4-9eb5-7d38b6e9c5a5"],
-Cell[116480, 2750, 429, 9, 28, "Output", "ExpressionUUID" -> \
+Cell[115887, 2730, 429, 9, 28, "Output", "ExpressionUUID" -> \
 "5f67d168-87de-4cae-a97d-56a909d69fcc"],
-Cell[116912, 2761, 1477, 33, 97, "Output", "ExpressionUUID" -> \
+Cell[116319, 2741, 1477, 33, 97, "Output", "ExpressionUUID" -> \
 "2cbe9495-c810-4e9e-9974-ffe2735256fd"],
-Cell[118392, 2796, 25372, 632, 225, "Output", "ExpressionUUID" -> \
+Cell[117799, 2776, 25372, 632, 225, "Output", "ExpressionUUID" -> \
 "3799b1ab-2d5c-4b69-87ce-7e1cdcd9b4a6"]
 }, Open  ]],
-Cell[143779, 3431, 129, 3, 28, "Input", "ExpressionUUID" -> \
+Cell[143186, 3411, 129, 3, 28, "Input", "ExpressionUUID" -> \
 "7207559d-0b41-4e97-b36c-1bf227d81989"],
-Cell[143911, 3436, 288, 8, 28, "Input", "ExpressionUUID" -> \
-"05d8944e-1336-457f-9383-fe7bfd391123"],
-Cell[144202, 3446, 460, 13, 48, "Output", "ExpressionUUID" -> \
-"f1a830a4-bfea-468f-826c-4e1c9ad049af"],
 Cell[CellGroupData[{
-Cell[144687, 3463, 3716, 100, 182, "Input", "ExpressionUUID" -> \
+Cell[143340, 3418, 288, 8, 28, "Input", "ExpressionUUID" -> \
+"05d8944e-1336-457f-9383-fe7bfd391123"],
+Cell[143631, 3428, 460, 13, 48, "Output", "ExpressionUUID" -> \
+"f1a830a4-bfea-468f-826c-4e1c9ad049af"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[144128, 3446, 3716, 100, 182, "Input", "ExpressionUUID" -> \
 "eea52134-61da-4e89-a58e-552ac4b70eb7"],
-Cell[148406, 3565, 2213, 47, 40, "Output", "ExpressionUUID" -> \
+Cell[147847, 3548, 2213, 47, 40, "Output", "ExpressionUUID" -> \
 "396e61e4-77ed-4d64-90ee-80d81b74a19a"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[150656, 3617, 7760, 173, 415, "Input", "ExpressionUUID" -> \
+Cell[150097, 3600, 7760, 173, 415, "Input", "ExpressionUUID" -> \
 "326d9454-b36b-4bf9-8907-89a3a170d5f2"],
-Cell[158419, 3792, 1879, 39, 97, "Output", "ExpressionUUID" -> \
+Cell[157860, 3775, 1879, 39, 97, "Output", "ExpressionUUID" -> \
 "19f0afda-013f-4baa-aca1-50a873c3540f"],
-Cell[160301, 3833, 30181, 746, 227, "Output", "ExpressionUUID" -> \
+Cell[159742, 3816, 30181, 746, 227, "Output", "ExpressionUUID" -> \
 "656f0570-3d00-4674-b1b5-7b17da50d706"]
 }, Open  ]]
 }
