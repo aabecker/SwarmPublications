@@ -1,0 +1,47 @@
+\section{Introduction}\label{sec:Intro}
+%This project studies system models and user interfaces for five multi-robot manipulation tasks with large populations of micro- and nanorobots.  We test several system models with different limitations on controllability and observability of the motion controller, and evaluate several different user interfaces.  We conduct user experiments to understand the impact of these limitations and design choices. 
+
+
+%Micro- and nanorobotics have the potential to revolutionize many applications including targeted material delivery, assembly, and surgery.  The same properties that promise breakthrough solutions---small size and large populations---present unique challenges to generating controlled motion.  
+Large populations of micro- and nanorobots are being produced in laboratories around the world, with diverse potential applications in drug delivery and construction, see \cite{Peyer2013,Shirai2005,Chiang2011}. These activities require robots that behave intelligently.
+Limited computation and communication at small scales makes autonomous operation or direct control over individual robots difficult. 
+Instead, this paper treats the robots as particles that are steered by a global control signal broadcast to the entire population.    
+This paper examines object manipulation by a swarm of particles, as illustrated in Fig.~{\ref{fig:bigPictureMeanAndVarianceForSwarm}. 
+The transportation methodology is similar to that in~\cite{sugawara2014object}, but rather than using onboard computation or sensing, the particles all move in the same direction.
+
+
+%%%% Move it to the cover letter.
+%This paper combines the content of two preliminary conference papers, extending their substance and providing full details in a single journal paper.
+ % \cite{swarmcontrol2013} covered the first three months of SwarmControl.net experiments, and \cite{ShahrokhiIROS2015} presented simulations of object manipulation.  This paper presents three years of results from new games at SwarmControl.net.  For object manipulation, this paper presents robust new algorithms for manipulation, path planning, and obstacle avoidance, and a rich set of parametric studies.  All hardware validation experiments are new.
+
+Many promising applications for particle swarms require direct human control, but user interfaces to thousands---or millions---of particles is a daunting human-swarm interaction (HSI) challenge. Our early work with over a hundred hardware robots and thousands of simulated particles demonstrated that direct human control of large swarms is possible, \cite{Becker2013b}. 
+Unfortunately, the logistical challenges of repeated experiments with over one hundred robots prevented large-scale tests. 
+There is currently no comprehensive understanding of user interfaces for controlling multi-robot systems with massive populations.  
+One contribution of this paper is a tool for investigating HSI methods through statistically significant numbers of experiments.  
+
+
+\begin{figure}
+\centering
+\begin{overpic}[width=\columnwidth]{MainExpFig.pdf}\end{overpic}
+\caption{\label{fig:bigPictureMeanAndVarianceForSwarm} 
+A swarm of particles, all actuated by a uniform control input where each particle gets the same control input, can be effectively manipulated by a control law that uses only the mean and variance of the robot distribution.  
+Here a swarm of particles (kilobot robots) pushes a green hexagon toward the goal (see video attachment).
+}
+\end{figure}
+
+
+
+%Inspired by our online experiments, because it is not always possible to gather pose information on each robot for feedback control and
+%It is not always practical to gather pose information on individual robots for feedback control; the robots might be difficult or impossible to sense individually due to their size and location. However, it is often possible to sense global properties of the group, such as mean position and density.
+Often particles are difficult or impossible to sense individually due to their size and location. 
+For example, microrobots are smaller than the minimum resolution of a clinical MRI-scanner, see \cite{martel2014computer}, however it is often possible to sense global properties of the group such as mean position and variance. 
+To make progress in automatic control with global inputs, this paper presents swarm manipulation controllers inspired by our online experiments that require only mean and variance measurements of the particle's positions. 
+ To perform the object manipulation task illustrated in Fig.~\ref{fig:bigPictureMeanAndVarianceForSwarm}, we use these controllers   as primitives, policy iteration for path planning, handle outliers by partitioning the workspace, and minimize pushing the object backwards with potential field navigation.
+
+
+ %function and implementation function
+
+ Our paper is organized as follows.  After a discussion of related work in \S \ref{sec:RelatedWork},  we describe our experimental methods for an online human-user experiment and their results in \S \ref{sec:expMethods}. Next we prove that the mean and variance of a particle swarm are controllable in \S \ref{sec:theory}, and present automatic controllers in \S \ref{sec:simulation}. We use these controllers as primitives and present a framework for manipulating an object through a maze in \S \ref{sec:exp}. 
+ We implement these controllers in our hardware robots and use them to complete an object manipulation task with 100 kilobots in \S \ref{sec:realExperiment}, and conclude in \S \ref{sec:conclusion}.
+ 
+
