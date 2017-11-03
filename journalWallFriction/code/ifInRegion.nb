@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     17822,        445]
-NotebookOptionsPosition[     17265,        424]
-NotebookOutlinePosition[     17619,        440]
-CellTagsIndexPosition[     17576,        437]
+NotebookDataLength[     17936,        448]
+NotebookOptionsPosition[     17379,        427]
+NotebookOutlinePosition[     17733,        443]
+CellTagsIndexPosition[     17690,        440]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -198,13 +198,15 @@ Cell[BoxData[
         RowBox[{"If", "[", 
          RowBox[{
           RowBox[{
-           RowBox[{"d", "*", "dc"}], " ", ">", "0"}], " ", ",", " ", 
+           RowBox[{"d", "*", "dc"}], " ", "\[GreaterEqual]", " ", "0"}], " ", 
+          ",", " ", 
           RowBox[{"Return", " ", "[", "True", "]"}], ",", " ", 
           RowBox[{"Return", "[", "False", "]"}]}], "]"}]}], "]"}], ";"}]}], 
     "\[IndentingNewLine]", "]"}]}]}]], "Input",
  CellChangeTimes->{{3.718639287756175*^9, 3.718639289345695*^9}, {
   3.7186543095161543`*^9, 3.7186543096602917`*^9}, {3.7186559453899517`*^9, 
-  3.718655995760416*^9}},ExpressionUUID->"757525fb-a1f6-4342-9132-\
+  3.718655995760416*^9}, {3.71865923203242*^9, 
+  3.718659232229478*^9}},ExpressionUUID->"757525fb-a1f6-4342-9132-\
 e6ad13e8aef2"],
 
 Cell[CellGroupData[{
@@ -347,8 +349,9 @@ Cell[BoxData[{
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`p$$ = {0.5, 0.5}, $CellContext`\[Gamma]a$$ =
-     Rational[1, 4] Pi, $CellContext`\[Psi]a$$ = 0, Typeset`show$$ = True, 
+   DynamicModuleBox[{$CellContext`p$$ = {0.255, 
+    0.17799999999999994`}, $CellContext`\[Gamma]a$$ = 
+    Pi, $CellContext`\[Psi]a$$ = 2 Pi, Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{{
@@ -359,14 +362,14 @@ Cell[BoxData[
        Rational[1, 20] Pi}}, Typeset`size$$ = {
     400., {206.134033203125, 211.865966796875}}, Typeset`update$$ = 0, 
     Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`\[Psi]a$114874$$ = 0, $CellContext`\[Gamma]a$114875$$ =
+    True, $CellContext`\[Psi]a$116553$$ = 0, $CellContext`\[Gamma]a$116554$$ =
      0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
       "Variables" :> {$CellContext`p$$ = {0.5, 0.5}, $CellContext`\[Gamma]a$$ = 
         Rational[1, 4] Pi, $CellContext`\[Psi]a$$ = 0}, "ControllerVariables" :> {
-        Hold[$CellContext`\[Psi]a$$, $CellContext`\[Psi]a$114874$$, 0], 
-        Hold[$CellContext`\[Gamma]a$$, $CellContext`\[Gamma]a$114875$$, 0]}, 
+        Hold[$CellContext`\[Psi]a$$, $CellContext`\[Psi]a$116553$$, 0], 
+        Hold[$CellContext`\[Gamma]a$$, $CellContext`\[Gamma]a$116554$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -417,9 +420,9 @@ $CellContext`p$$, $CellContext`\[Gamma]a$$, $CellContext`r]}]}]),
    3.718655357893888*^9, 3.718655374889868*^9}, {3.7186554233365107`*^9, 
    3.718655442865169*^9}, 3.7186554757868834`*^9, {3.718655552135375*^9, 
    3.718655562639977*^9}, {3.718655680700493*^9, 3.718655685416113*^9}, 
-   3.718655717879261*^9, 3.718655908846652*^9, 
-   3.718658542540325*^9},ExpressionUUID->"79cc5ffc-69aa-4158-9a8e-\
-569e2acbbbf9"]
+   3.718655717879261*^9, 3.718655908846652*^9, 3.718658542540325*^9, 
+   3.7186592356275673`*^9},ExpressionUUID->"71c4de70-570e-408a-8287-\
+58c64490126b"]
 }, Open  ]]
 },
 WindowSize->{1680, 925},
@@ -439,13 +442,13 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 7135, 187, 222, "Input", "ExpressionUUID" -> \
+Cell[558, 20, 7213, 189, 222, "Input", "ExpressionUUID" -> \
 "757525fb-a1f6-4342-9132-e6ad13e8aef2"],
 Cell[CellGroupData[{
-Cell[7718, 211, 5331, 133, 243, "Input", "ExpressionUUID" -> \
+Cell[7796, 213, 5331, 133, 243, "Input", "ExpressionUUID" -> \
 "83edd319-433a-46df-afc5-11d3ac2dc129"],
-Cell[13052, 346, 4197, 75, 595, "Output", "ExpressionUUID" -> \
-"79cc5ffc-69aa-4158-9a8e-569e2acbbbf9"]
+Cell[13130, 348, 4233, 76, 595, "Output", "ExpressionUUID" -> \
+"71c4de70-570e-408a-8287-58c64490126b"]
 }, Open  ]]
 }
 ]
