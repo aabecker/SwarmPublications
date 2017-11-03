@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     81719,       1719]
-NotebookOptionsPosition[     81306,       1699]
-NotebookOutlinePosition[     81664,       1715]
-CellTagsIndexPosition[     81621,       1712]
+NotebookDataLength[     82099,       1726]
+NotebookOptionsPosition[     81504,       1703]
+NotebookOutlinePosition[     81858,       1719]
+CellTagsIndexPosition[     81815,       1716]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -22,7 +22,9 @@ Notebook[{
 Cell[CellGroupData[{
 Cell["This code removed extra variables and added some comments", "Subsection",
  CellChangeTimes->{{3.7171751235970287`*^9, 3.71717517056019*^9}, {
-  3.717851598163865*^9, 3.71785161661975*^9}}],
+  3.717851598163865*^9, 
+  3.71785161661975*^9}},ExpressionUUID->"48c4b613-5a48-447a-863f-\
+04deea49dcda"],
 
 Cell[CellGroupData[{
 
@@ -1278,18 +1280,20 @@ Cell[BoxData[
    3.717848037699332*^9}, {3.717848599420374*^9, 3.717848621526389*^9}, 
    3.717848664384881*^9, {3.717849187393043*^9, 3.7178492272181168`*^9}, {
    3.717851512767209*^9, 3.7178515143882217`*^9}, {3.717851619730061*^9, 
-   3.717851624927823*^9}}],
+   3.717851624927823*^9}},ExpressionUUID->"064bdb9c-0f47-452b-8a65-\
+7e635d82f3ae"],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`e1$$ = {0.05, 
-    0.35}, $CellContext`e2$$ = {-0.33, 0.26}, $CellContext`hits$$ = 
-    0, $CellContext`progress$$ = 1, $CellContext`s1$$ = {0., 
-    0.}, $CellContext`s2$$ = {0.2, 0.4}, $CellContext`\[Epsilon]$$ = Rational[
-    1, 1000], Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
-    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
-    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+   DynamicModuleBox[{$CellContext`e1$$ = {-0.22349999999999998`, \
+-0.09499999999999997}, $CellContext`e2$$ = {-0.33, 
+    0.26}, $CellContext`hits$$ = 0, $CellContext`progress$$ = 
+    1, $CellContext`s1$$ = {0., 0.}, $CellContext`s2$$ = {0.2, 
+    0.4}, $CellContext`\[Epsilon]$$ = Rational[1, 1000], Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
        Hold[$CellContext`progress$$], 1, "progress"}, 0, 1, 
       Rational[1, 420]}, {{
        Hold[$CellContext`\[Epsilon]$$], 
@@ -1354,8 +1358,7 @@ $CellContext`clipCircle[$CellContext`e2$$, $CellContext`\[Epsilon]$$]; \
 {$CellContext`s1$$, $CellContext`e1$$, $CellContext`s2$$, $CellContext`e2$$}; \
 $CellContext`d$ = 
          Norm[$CellContext`ps1$ - $CellContext`ps2$]; $CellContext`\[Theta]$ = 
-         ArcTan[
-          Part[$CellContext`ps1$, 1] - Part[$CellContext`ps2$, 1], 
+         ArcTan[Part[$CellContext`ps1$, 1] - Part[$CellContext`ps2$, 1], 
            Part[$CellContext`ps1$, 2] - 
            Part[$CellContext`ps2$, 2]]; $CellContext`\[Alpha]$ = 
          2 ArcSin[$CellContext`d$]; Graphics[{{
@@ -1631,7 +1634,7 @@ $CellContext`\[Alpha]$/2 +
          Dynamic[{1/2, 1/2} - $CellContext`\[Epsilon]$$], ControlType -> 
          Locator, Appearance -> None}}, "Options" :> {}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{851., {341., 346.}},
+     ImageSizeCache->{851., {342., 348.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -1693,14 +1696,15 @@ $CellContext`\[Alpha]$/2 +
    3.717847475505959*^9, {3.717847970864203*^9, 3.717847988285904*^9}, {
    3.717848642932888*^9, 3.717848670285987*^9}, 3.717848728935853*^9, 
    3.71784886918189*^9, 3.717849232154991*^9, 3.717851515132121*^9, 
-   3.717851626298314*^9}]
+   3.717851626298314*^9},ExpressionUUID->"de9a20ae-3d15-4561-afca-\
+17592a411435"]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1165, 751},
-WindowMargins->{{Automatic, 28}, {Automatic, 0}},
-FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
-2014)",
+WindowSize->{1680, 925},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.1 for Mac OS X x86 (32-bit, 64-bit Kernel) (April 27, \
+2017)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -1715,14 +1719,16 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 194, 2, 44, "Subsection"],
+Cell[580, 22, 254, 4, 44, "Subsection", "ExpressionUUID" -> \
+"48c4b613-5a48-447a-863f-04deea49dcda"],
 Cell[CellGroupData[{
-Cell[799, 28, 58931, 1252, 2639, "Input"],
-Cell[59733, 1282, 21545, 413, 704, "Output"]
+Cell[859, 30, 58988, 1253, 2776, "Input", "ExpressionUUID" -> \
+"064bdb9c-0f47-452b-8a65-7e635d82f3ae"],
+Cell[59850, 1285, 21626, 414, 707, "Output", "ExpressionUUID" -> \
+"de9a20ae-3d15-4561-afca-17592a411435"]
 }, Open  ]]
 }, Open  ]]
 }
 ]
 *)
 
-(* End of internal cache information *)
