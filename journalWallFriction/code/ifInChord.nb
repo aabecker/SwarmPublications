@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     23954,        598]
-NotebookOptionsPosition[     23290,        569]
-NotebookOutlinePosition[     23649,        585]
-CellTagsIndexPosition[     23606,        582]
+NotebookDataLength[     24259,        604]
+NotebookOptionsPosition[     23595,        575]
+NotebookOutlinePosition[     23954,        591]
+CellTagsIndexPosition[     23911,        588]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -68,8 +68,14 @@ Cell[BoxData[
       RowBox[{"(*", 
        RowBox[{
         RowBox[{
-        "second", " ", "test", " ", "if", " ", "in", " ", "the", " ", 
-         "half"}], "-", "plane"}], "*)"}], "\[IndentingNewLine]", " ", 
+         RowBox[{
+         "second", " ", "test", " ", "if", " ", "in", " ", "the", " ", 
+          "half"}], "-", 
+         RowBox[{
+         "plane", " ", "defined", " ", "by", " ", "the", " ", "chord", " ", 
+          "from", " ", "\[Psi]a"}], "-", 
+         RowBox[{"\[Gamma]a", " ", "to", " ", "\[Psi]a"}], "+", "\[Gamma]a"}],
+         ",", " ", "inclusive"}], "*)"}], "\[IndentingNewLine]", " ", 
       RowBox[{
        RowBox[{
         RowBox[{
@@ -148,7 +154,7 @@ Cell[BoxData[
    3.718665538047131*^9, 3.7186655408063097`*^9}, {3.718665690890767*^9, 
    3.718665697905726*^9}, {3.718665757403784*^9, 3.71866577577993*^9}, 
    3.718665815731504*^9, {3.718665852414196*^9, 3.7186658896956997`*^9}, 
-   3.718665923025916*^9},
+   3.718665923025916*^9, {3.718666045056682*^9, 3.71866610462313*^9}},
  ExpressionUUID -> "757525fb-a1f6-4342-9132-e6ad13e8aef2"],
 
 Cell[CellGroupData[{
@@ -352,8 +358,8 @@ Cell[BoxData[
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`p$$ = {0.19499999999999995`, 
-    0.03199999999999992}, $CellContext`\[Gamma]a$$ = Rational[2, 5] 
+   DynamicModuleBox[{$CellContext`p$$ = {0.32399999999999995`, 
+    0.08999999999999997}, $CellContext`\[Gamma]a$$ = Rational[2, 5] 
     Pi, $CellContext`\[Psi]a$$ = Rational[9, 10] Pi, Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
@@ -586,18 +592,18 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 215, 4, 89, "Section"],
-Cell[798, 28, 4996, 123, 259, "Input",
+Cell[798, 28, 5301, 129, 259, "Input",
  InitializationCell->True],
 Cell[CellGroupData[{
-Cell[5819, 155, 8340, 194, 267, "Input"],
-Cell[14162, 351, 4924, 89, 560, "Output"]
+Cell[6124, 161, 8340, 194, 267, "Input"],
+Cell[14467, 357, 4924, 89, 560, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[19135, 446, 155, 2, 64, "Section"],
+Cell[19440, 452, 155, 2, 64, "Section"],
 Cell[CellGroupData[{
-Cell[19315, 452, 3329, 94, 148, "Input"],
-Cell[22647, 548, 615, 17, 47, "Output"]
+Cell[19620, 458, 3329, 94, 148, "Input"],
+Cell[22952, 554, 615, 17, 47, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
