@@ -9,7 +9,7 @@ We assume Coulomb and viscous friction parameters such that the object can be mo
 %Although one particle might be able to move the object, it requires a long time for it to complete the task and probability of getting stuck when there is not enough particles is high.
  To solve this object manipulation task we divide the task into three components: 1) designing a policy for the object, 2) pushing the object with a compliant swarm, and 3) managing outliers.
 
-The table below summarizes the simulation results for each 10 successful trials:
+The table below summarizes the simulation results for each 10 successful trials.
 \begin{center}
 \begin{tabular}{ c c }
 \hline
@@ -59,7 +59,7 @@ r(x,\mathbf{u}) &=  \left\{
 \text{end}&  %page 502
 \end{align}
 Our probabilistic motion model $p(x_j | x, \mathbf{u})$ assumed the object moved in the commanded direction $\mathbf{u}$ half of the time but $+45^\circ$ with probability 0.25 and $-45^\circ$ with probability 0.25. 
-In our experiments $\gamma = 0.97$, and \eqref{eq:ValueIteration} was iterated 200 times. A {\sc Matlab} implementation is available at \cite{Becker2015MDP}.
+In our experiments $\gamma = 0.97$, and \eqref{eq:ValueIteration} was iterated 200 times. %A {\sc Matlab} implementation is available at \cite{Becker2015MDP}.
 %Rather than a shortest distance to goal, $\nabla \mathbf{M}_{MDP}$  gives the approximate minimum cost to goal.
 
 $\mathbf{M}_{\rm{BFS}}$ and the value function are shown in Fig.~\ref{fig:BFSGradient}. 
@@ -75,7 +75,7 @@ In 10 simulations with 100 particles, pushing the object to goal using BFS requi
 \end{overpic}
 \begin{overpic}[height=\figwid]{MDPmap.pdf}
 \end{overpic}
-\vspace{-0.5em}
+\vspace{-0.em}
 \caption{\label{fig:BFSGradient} BFS finds the shortest path for the moveable object to compute gradient vectors (left). Modeling as an MDP enables encoding penalties for being near obstacles. (Middle) The control policy from value iteration. (Right) The vision algorithm detects obstacles in the hardware setup. This map is used to produce the value function and control policy shown. 
 %\vspace{-2em}
 }
@@ -113,7 +113,9 @@ In 10 simulations with 100 particles, pushing the object to goal without a repul
 %Please use the same color and line style for the variance min and max as you use in Figure 4.
 %}
 %{blockpushingImageWithMeanAndVarianceOverlay.png}
+\vspace{-1.5em}
 \caption{\label{fig:potentialField} (Left) The attractive field is centered behind the object's COM. (Middle) The repulsive field is centered at the object's COM. (Right) Combining these forces prevents the swarm from pushing the object backwards.}
+
 \end{figure}
 
 \subsection{Outlier rejection}\label{subsec:OutlierRejection}
@@ -137,12 +139,13 @@ In 10 simulations with 100 particles, completion time without outlier rejection 
 	\end{overpic}
 	~~
 	\begin{overpic}[width=0.48\columnwidth]{TransferRegions.pdf}
-	\put(-6,85){\textbf{c}}
+	\put(-6,80){\textbf{c}}
 	\end{overpic}
 \end{center}
-\vspace{-0.5em}
+\vspace{-1.em}
 \caption{\label{fig:Region}  Outlier rejection state machine and regions.
 }
+\vspace{-1.5em}
 \end{figure}
 
 \subsection{Simulation results}\label{sec:AlgObjectManipulation}
@@ -153,16 +156,16 @@ The control algorithm  for object manipulation is listed in Alg.~\ref{alg:BlockP
 In rare cases during simulations the swarm may become trapped in a local minimum of \eqref{eq:potentialfield}.
 If the swarm mean position does not change for five seconds, the swarm is assumed to be in a local minimum and is commanded to move toward the previous corner. As soon as the mean position changes, normal control resumes.
 
-\begin{figure}
-%  \vspace{-20pt}
-  \begin{center}
-\begin{overpic}[width=0.4\columnwidth]{AllShapes.pdf}\end{overpic}
-  \end{center}
-%  \vspace{-1em}
-\caption{\label{fig:Shapes} The six equal-area objects tested in simulation. %Six object shapes were tested.
-\vspace{-1em}
-}
-\end{figure}
+%\begin{figure}
+%%  \vspace{-20pt}
+%  \begin{center}
+%\begin{overpic}[width=0.4\columnwidth]{AllShapes.pdf}\end{overpic}
+%  \end{center}
+%%  \vspace{-1em}
+%\caption{\label{fig:Shapes} The six equal-area objects tested in simulation. %Six object shapes were tested.
+%\vspace{-1em}
+%}
+%\end{figure}
 
 
 
@@ -196,32 +199,36 @@ If the swarm mean position does not change for five seconds, the swarm is assume
 
 
 %\subsection{Automated object manipulation (simulation)}
-Fig.~\ref{fig:Shapes} shows the six equal-area object shapes tested in simulations. Fig.~\ref{fig:story} shows snapshots during an execution of this algorithm in simulation.
+ Fig.~\ref{fig:story} shows snapshots during an execution of this algorithm in simulation. Fig.~\ref{fig:DifferentMazes}a shows the six equal-area object shapes tested in simulations.
  To illustrate the flexibility of the algorithm we tested two additional workspaces, \emph{{\sffamily E}-shaped} and  \emph{Spiral}, without changing the algorithm. These are shown in Fig.~\ref{fig:Emaze}. 
- More complicated workspaces could be generated by composing these workspaces.
- Fig.~\ref{fig:DifferentMazes} shows the results of all  three mazes. The {\sffamily E}-shaped maze required the least average time because the path to the goal is shorter. 
+ More complicated workspaces could be generated by composing these workspaces. 
+ Fig.~\ref{fig:DifferentMazes}b shows the results of all  three mazes. The {\sffamily E}-shaped maze required the least average time because the path to the goal is shorter. 
    Experimental results of parameters sweeps are summarized in Fig.~\ref{fig:AutoVeryParam}.  Each trial measured the time to deliver the object to the goal location.  The default parameter settings used 100 particles, a normalized weight of 1, a hexagon shape, and Brownian noise (applied once each simulation step) with $W=5$.  
 
 \begin{figure}
 \centering
 
 \begin{overpic}[width =\columnwidth]{SwarmRun.pdf}\end{overpic}
+\vspace{-2em}
 \caption{\label{fig:story}Snapshots showing an object manipulation simulation with 100 particles under automatic control (see also Extension 1).
+\vspace{-2em}
 }
 \end{figure}
 
-\begin{figure}\begin{center}\begin{overpic}[width=0.4\columnwidth]{MDPEmaze.pdf}\end{overpic}~\begin{overpic}[width=0.4\columnwidth]{EmazeFinal.pdf}\end{overpic}\\
+\begin{figure}\begin{center}\begin{overpic}[width=0.3\columnwidth]{MDPEmaze.pdf}\end{overpic}~\begin{overpic}[width=0.3\columnwidth]{EmazeFinal.pdf}\end{overpic}\\
 \vspace{.25em}
-\begin{overpic}[width=0.4\columnwidth]{Spiral.pdf}\end{overpic}~\begin{overpic}[width=0.4\columnwidth]{SpiralSuccess.pdf}\end{overpic}
+\begin{overpic}[width=0.3\columnwidth]{Spiral.pdf}\end{overpic}~\begin{overpic}[width=0.3\columnwidth]{SpiralSuccess.pdf}\end{overpic}
 \end{center}
+\vspace{-1.em}
 \caption{\label{fig:Emaze} We tested three workspaces. The control policies from value iteration for an {\sffamily E}-shaped and a spiral workspace are shown in the left column.
 }
 \end{figure}
 \begin{figure}
 \centering
-\begin{overpic}[width=.5\columnwidth]{DifferentShapes.pdf}\end{overpic}
-\vspace{-1em}
-\caption{\label{fig:DifferentMazes} Completion times for three workspaces.}
+\begin{overpic}[width=0.4\columnwidth]{AllShapes.pdf}\put(-6,85){\textbf{a}}\end{overpic}
+\begin{overpic}[width=.5\columnwidth]{DifferentShapes.pdf}\put(0,68){\textbf{b}}\end{overpic}
+\vspace{-0.5em}
+\caption{\label{fig:DifferentMazes} a. The six equal-area objects tested in simulation. b. Completion times for three workspaces.}
 \end{figure}
 
 The interaction between the particles and object is impulsive so, like the study of impulsive pulling in \cite{christensen2016let},  adding additional particles decreases completion time, but with diminishing returns. 
@@ -249,7 +256,7 @@ Each shape was designed to have the same mass and area.
 \end{overpic}
 \begin{overpic}[width =\figwid]{SimVeryShape.pdf}\put(1,55){d)}
 \end{overpic}
-\vspace{-0.5em}
+\vspace{-2em}
 \caption{\label{fig:AutoVeryParam}Parameter sweep simulation studies for a) number of particles, b) different noise values, c) object weight, and d) object shape.  Each bar is labelled with the number of trials. Completion time is in seconds.
 %\vspace{-2em}
 }

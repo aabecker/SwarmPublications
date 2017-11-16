@@ -4,14 +4,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 We designed six experiments to investigate human control of large swarms for manipulation tasks.  Screenshots of representative experiments are shown in Fig.~\ref{fig:5experiments}.  Each experiment examined the effects of varying a single parameter: population of particles for manipulation, four levels of visual feedback, different levels of Brownian noise.  %, position control with 1 to 10 particles, and three control architectures for both assembly and foraging tasks. 
- The users could choose which experiment to try, and our architecture randomly assigned a parameter value for each trial.  We recorded the completion time and the participant ID for each successful trial.  
+  Users could choose which experiment to try, and our architecture randomly assigned a parameter value for each trial.  We recorded the completion time and the participant ID for each successful trial.  
 %As Fig.~\ref{fig:Learning} shows, one-third of all participants played only a single game.  Still, many played multiple games, and their decreasing completion times demonstrates their skills improved.
 
 
 \subsection{Varying number}
 \begin{figure}
-\begin{overpic}[width = 0.9\columnwidth]{ResVaryNum.pdf}\end{overpic}
+\centering
+\begin{overpic}[width = 0.6\columnwidth]{ResVaryNum.pdf}\end{overpic}
 %\begin{overpic}[width = 0.48\columnwidth]{measureLearning.pdf}\end{overpic}
+\vspace{-1em}
 \caption{
 \label{fig:ResVaryNu}Data from \emph{Varying Number} using particles to push an object through a maze to a goal location. 
 % Best-fit linear and quadratic lines are overlaid for comparison. 
@@ -64,8 +66,8 @@ Anecdotal evidence from beta-testers who played the game suggests that tracking 
 
 \begin{figure}[b!]
 \renewcommand{\figwid}{0.49\columnwidth}
-\begin{overpic}[width =\figwid]{ResVaryNoise.pdf}\put(0,60){\textbf{a)}}\end{overpic}
-\begin{overpic}[width =\figwid]{ResPositioning.pdf}\put(0,60){\textbf{b)}}\end{overpic}
+\begin{overpic}[width =\figwid]{ResVaryNoise.pdf}\put(0,60){\textbf{a}}\end{overpic}
+\begin{overpic}[width =\figwid]{ResPositioning.pdf}\put(0,60){\textbf{b}}\end{overpic}
 %\vspace{-1em}
 \caption{\label{fig:ResVaryNoisePosition} Left: Varying the noise from 0 to 200\% of the maximum control input resulted in only a small increase in completion time. Right: For position control, increasing the number of particles resulted in longer completion times.  For more than 4 particles the goal pattern contained a void, which may have caused the jump in completion times.
 %\vspace{-1em}
