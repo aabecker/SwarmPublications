@@ -9,11 +9,14 @@ We assume Coulomb and viscous friction parameters such that the object can be mo
 %Although one particle might be able to move the object, it requires a long time for it to complete the task and probability of getting stuck when there is not enough particles is high.
  To solve this object manipulation task we divide the task into three components: 1) designing a policy for the object, 2) pushing the object with a compliant swarm, and 3) managing outliers.
 
-The table below summarizes the simulation results for each 10 successful trials.
-\begin{center}
+Table \ref{tbl:resultsSum} summarizes results for successful simulation trials.
+\begin{table}[h!]
+  \begin{center}
+  \vspace{-1em}
+    \caption{\label{tbl:resultsSum}Summary, Object Manipulation Results}
 \begin{tabular}{ c c }
 \hline
-Method & Result, mean$\pm$std (s)\\ [0.5ex] 
+Method & Result (10 trials), mean$\pm$std (s)\\ [0.5ex] 
 \hline \hline
 Value Iteration (VI) & 367 $\pm$ 253 \\ 
 \hline
@@ -27,6 +30,9 @@ VI + PF + OR & 90 $\pm$ 35 \\[0.5ex]
 \hline
 \end{tabular}
 \end{center}
+\vspace{-1em}
+\end{table}
+
 \subsection{Learning a policy for the object}\label{subsec:objectpolicy}
 
 To design the policy we first discretize the environment. 
