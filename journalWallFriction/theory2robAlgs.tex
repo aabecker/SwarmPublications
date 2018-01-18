@@ -233,10 +233,19 @@ The second move cannot be shortened, so optimization depends on choosing the loc
 
 
 
-\subsection{3D model}
+\subsection{3D workspaces: Cylinders and Prisms}
 
-Extending to 3D is straight forward, but possible only if the two particles do not have the same $x$ and $y$ positions. Fig.~\ref{fig:zaxis} shows a cylinder. The blue particle is in the blue plate and the red robot is in the red plate. There are two possible optimal paths shown with parallel arrows. 
-Each arrow will cause one of the particles to touch the wall, enabling the other robot to move freely in $z$ axis to make the required relative position.
+Extending path planning to 3D is possible only if the two particles do not initially have the same $x$ and $y$ positions.
+For ease of analysis, we assume the workspace boundaries extend in the $\pm z$ direction to form either right cylinders or right prisms.
+If the 3D projection is at a different angle, redefine the 2D workspace as a region perpendicular to the projection.
+ First, we move the closest particle to the boundary, which prevents its $z$ coordinate from changing.  
+ We next apply actuation in either the $\pm z$ direction to achieve the desired $\Delta z$.
+ Then the particles are actuated away from the boundary and to the appropriate $z$ positions.
+ Path planning continues using Alg. XX to position the particles to the desired $x$ and $y$ positions. 
+ As an example, consider Fig.~\ref{fig:zaxis} which shows a cylinder.
+ The blue particle starts in the blue disk and the red particle starts in the red disk. There are two possible optimal paths shown with parallel arrows. 
+Each arrow will cause one of the particles to touch the wall, enabling the other robot to move freely in the  $z$ axis to achieve the required relative position.
+This can be extended to other 3D workspaces if the workspace can be locally approximated as a 3D prism or cylinder. Other workspaces may be better handled by other path planners, such as \cite{MassiveUnifromManipulation}.
 
 \begin{figure}
 \centering
