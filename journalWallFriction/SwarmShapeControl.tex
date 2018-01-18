@@ -1,0 +1,257 @@
+%  compress using: gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH      -sOutputFile=foo-ShapingSwarmCompressed.pdf ShapingSwarmFrictionSharedInput.pdf
+
+%\documentclass[conference]{IEEEtran}
+\documentclass[letterpaper, 10 pt, conference]{ieeeconf}
+\IEEEoverridecommandlockouts% This command is only needed if 
+                                                          % you want to use the \thanks command
+%\overrideIEEEmargins                                      % Needed to meet printer requirements.
+\usepackage{times}
+
+
+\makeatletter 
+\let\NAT@parse\undefined
+\makeatother
+
+% numbers option provides compact numerical references in the text. 
+%\usepackage[numbers]{natbib}
+\usepackage{multicol}
+\usepackage[bookmarks=true]{hyperref}
+
+\usepackage{bbm}
+\usepackage{calc}
+\usepackage{url}
+\usepackage{transparent}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks =false,
+  urlcolor = black,
+  linkcolor = black
+}
+\usepackage{graphicx}
+\usepackage[cmex10]{amsmath}
+\usepackage{bm}
+\usepackage{amssymb}
+\usepackage{rotating}
+
+\usepackage{chngcntr}
+\counterwithin{paragraph}{subsection} % makes paragraph depend on subsection
+
+
+%\usepackage{xfrac}
+\usepackage{nicefrac}
+\usepackage{cite}
+\usepackage[caption=false,font=footnotesize]{subfig}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{colortbl}
+%\usepackage{caption}
+
+%\usepackage{wrapfig}
+\usepackage{overpic}
+%\usepackage{subfigure}
+%\usepackage{textcomp}
+\graphicspath{{./pictures/pdf/},{./pictures/ps/},{./pictures/png/},{./pictures/jpg/}}
+\usepackage{breqn} %for breaking equations automatically
+\usepackage[ruled]{algorithm}
+\usepackage{algpseudocode}
+%\usepackage{algorithmic}
+\usepackage{multirow}
+\usepackage{todonotes}
+\usepackage{authblk}
+
+%\newcommand{\todo}[1]{\vspace{5 mm}\par \noindent \framebox{\begin{minipage}[c]{0.98 \columnwidth} \ttfamily\flushleft \textcolor{red}{#1}\end{minipage}}\vspace{5 mm}\par}
+% uncomment this to hide all red todos
+%\renewcommand{\todo}{}
+
+%% ABBREVIATIONS
+\newcommand{\qstart}{q_{\text{start}}}
+
+
+
+%% MACROS
+
+
+\providecommand{\abs}[1]{\left\lvert#1\right\rvert}
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+\providecommand{\normn}[2]{\left\lVert#1\right\rVert_#2}
+\providecommand{\dualnorm}[1]{\norm{#1}_\ast}
+\providecommand{\dualnormn}[2]{\norm{#1}_{#2\ast}}
+\providecommand{\set}[1]{\lbrace\,#1\,\rbrace}
+\providecommand{\cset}[2]{\lbrace\,{#1}\nobreak\mid\nobreak{#2}\,\rbrace}
+\providecommand{\lscal}{<}
+\providecommand{\gscal}{>}
+\providecommand{\lvect}{\prec}
+\providecommand{\gvect}{\succ}
+\providecommand{\leqscal}{\leq}
+\providecommand{\geqscal}{\geq}
+\providecommand{\leqvect}{\preceq}
+\providecommand{\geqvect}{\succeq}
+\providecommand{\onevect}{\mathbf{1}}
+\providecommand{\zerovect}{\mathbf{0}}
+\providecommand{\field}[1]{\mathbb{#1}}
+\providecommand{\C}{\field{C}}
+\providecommand{\R}{\field{R}}
+\newcommand{\Cspace}{\mathcal{Q}}
+\newcommand{\Uspace}{\mathcal{U}}
+\providecommand{\Fspace}{\Cspace_\text{free}}
+\providecommand{\Hcal}{$\mathcal{H}$}
+\providecommand{\Vcal}{$\mathcal{V}$}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\cone}{cone}
+\DeclareMathOperator{\homog}{homog}
+\DeclareMathOperator{\domain}{dom}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\sign}{sgn}
+\providecommand{\polar}{\triangle}
+\providecommand{\ainner}{\underline{a}}
+\providecommand{\aouter}{\overline{a}}
+\providecommand{\binner}{\underline{b}}
+\providecommand{\bouter}{\overline{b}}
+\newcommand{\D}{\nobreakdash-\textsc{d}}
+%\newcommand{\Fspace}{\mathcal{F}}
+\providecommand{\Fspace}{\Cspace_\text{free}}
+\providecommand{\free}{\text{\{}\mathsf{free}\text{\}}}
+\providecommand{\iff}{\Leftrightarrow}
+\providecommand{\subinner}[1]{#1_{\text{inner}}}
+\providecommand{\subouter}[1]{#1_{\text{outer}}}
+\providecommand{\Ppoly}{\mathcal{X}}
+\providecommand{\Pproj}{\mathcal{Y}}
+\providecommand{\Pinner}{\subinner{\Pproj}}
+\providecommand{\Pouter}{\subouter{\Pproj}}
+\DeclareMathOperator{\argmax}{arg\,max}
+\providecommand{\Aineq}{B}
+\providecommand{\Aeq}{A}
+\providecommand{\bineq}{u}
+\providecommand{\beq}{t}
+\DeclareMathOperator{\area}{area}
+\newcommand{\contact}[1]{\Cspace_{#1}}
+\newcommand{\feasible}[1]{\Fspace_{#1}}
+\newcommand{\dd}{\; \mathrm{d}}
+\newcommand{\figwid}{0.22\columnwidth}
+\newcommand{\TRUE}{\textbf{true}}
+\newcommand{\FALSE}{\textbf{false}}
+\newcommand{\xupdownarrow}[1]{%
+  {\left\updownarrow\vbox to #1{}\right.\kern-\nulldelimiterspace}
+}
+%\newcommand{\xleftrightarrow}[1]{%
+%  {\left\leftrightarrow\vbox to #1{}\right.\kern-\nulldelimiterspace}
+%}
+\DeclareMathOperator{\atan2}{atan2}
+\allowdisplaybreaks
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+
+
+\pdfinfo{
+   /Author (Shiva Shahrokhi and Aaron T. Becker)
+   /Title  (Algorithms for Shaping a Particle Swarm with a Shared Input by Exploiting Non-Slip Wall Contacts)
+   /CreationDate (D:20160129120000)
+   /Subject (Simple Robots)
+   /Keywords (Robots;Uniform Control Inputs)
+}
+
+
+% paper title
+\title{\LARGE \bf Exploiting Non-Slip Wall Contacts \\  to Position Two Particles Using a Shared Input}
+
+% You will get a Paper-ID when submitting a pdf file to the conference system
+\author{Shiva Shahrokhi, Jingang Shi, and Aaron T. Becker% <-this % stops a space
+\thanks{*This work was supported by the National Science Foundation under Grant No.\ \href{http://nsf.gov/awardsearch/showAward?AWD_ID=1553063}{ [IIS-1553063]} and \href{http://nsf.gov/awardsearch/showAward?AWD_ID=1619278}{[IIS-1619278]}.}% <-this % stops a space
+\thanks{Authors are with the Department of Electrical and Computer Engineering,  University of Houston, Houston, TX 77204 USA        {\tt\small  \{sshahrokhi2,atbecker\}@uh.edu}}%
+}
+%\affil{Department of Electrical and Computer Engineering, \\
+% University of Houston, Houston, TX 77204-4005 USA\\
+% {\tt\small  \{sshahrokhi2, aviswanathanmahadev, atbecker\}@uh.edu}}
+%\thanks{S. Shahrokhi, A. Mahadev and  A. Becker are with the Department of Electrical and Computer Engineering,  University of Houston, Houston, TX 77204-4005 USA {\tt\small  \{sshahrokhi2, aviswanathanmahadev, atbecker\}@uh.edu}
+%}
+%} %\end thanks
+
+\begin{document}
+
+
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+
+\begin{abstract}
+There are driving applications for large populations of tiny robots in robotics, biology, and chemistry.
+These robots often lack onboard computation, actuation, and communication.
+Instead, these ``robots''  are  particles carrying some payload and the particle swarm is controlled by a shared control input such as a uniform magnetic gradient or electric field.
+%In previous works, we showed that the 2D position of each particle in such a swarm is controllable if the workspace contains a single obstacle the size of one particle.
+In previous works, we showed that the individual 2D position of two particles in such a swarm is controllable in a rectangular workspace requiring non-slip wall contact. However, both in vivo and artificial environments are usually not rectangular. 
+%This work extends that work to any polygonal workspace, and focus on extending the algorithm for circular workspaces. Then it extends the algorithm to 3D. Results are validated with simulations and with a magnetic setup using two steel half a millimeter balls.
+This work extends the analysis to convex workspaces and 3D positioning. This paper also implements the algorithms using a hardware setup inspired by intestine anatomy.
+%Requiring a small, rigid obstacle suspended in the middle of the workspace is a strong constraint, especially in 3D.
+%Often particles are placed into an em
+%This paper relaxes that constraint, and provides position control algorithms that only require non-slip wall contact in 2D.
+%Both in vivo and artificial environments often have such boundaries.
+%We assume that particles in contact with the boundaries have zero velocity if the shared control input pushes the particle into the wall.
+%This paper provides a shortest-path algorithm for positioning a two-particle swarm, and a generalization to positioning an $n$-particle swarm.
+%Results are validated with simulations and a hardware demonstration.
+
+
+
+
+
+
+
+%Consider a swarm of particles controlled by global inputs. 
+%This paper presents algorithms for shaping such swarms in 2D using boundary walls.
+%The range of configurations created by conforming a swarm to a boundary wall is limited. 
+%We describe the set of stable configurations of a particle swarm in two canonical workspaces, a circle and a square. 
+%To increase the diversity of configurations, we add boundary interaction to our model.  
+%We provide algorithms using friction with walls to place two robots at arbitrary locations in a rectangular workspace.
+%Next, we extend this algorithm to place $n$ agents at desired locations. 
+%We conclude with efficient techniques to generate correlations of a particle swarm not possible without wall-friction. 
+%Simulations %and hardware implementations with 100 robots 
+%validate these results.
+
+%These methods may have particular relevance for micro- and nano-robots controlled by global inputs.
+%, whose small size limits onboard computation and power. For this reason they are usually powered and controlled by global inputs, such as a uniform external electric or magnetic field, and every robot receives the same control inputs.
+%Due to their small size, large numbers of micro-robots are required to deliver sufficient payloads.
+% Nevertheless, these applications require precision control of the shape and position of the robot swarm. Precision control requires breaking the symmetry caused by the global input.  
+
+ 
+
+
+
+% KEYWORDS:   uniform control, under-actuation, particle swarm
+\end{abstract}
+
+\IEEEpeerreviewmaketitle
+
+%%%%%%%%%%%%%%%
+\input{intro}
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+\input{relatedWork}
+%%%%%%%%%%%%%%%
+\input{theory}
+\input{theory2robAlgs}
+%\input{theorynrobAlgs}
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+\input{simulation}
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+\input{experiment}
+%%%%%%%%%%%%%%%
+\input{conclusion}
+%%%%%%%%%%%%%%%
+%\section*{Acknowledgments}
+%%%%%%%%%%%%%%%
+%% Use plainnat to work nicely with natbib. 
+{%\footnotesize
+%\bibliographystyle{plainnat}
+%\bibliographystyle{SageH}
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,SwarmShapeControl}
+}
+
+% Uncomment to add appendix:
+%\input{appendix}
+
+\end{document}
