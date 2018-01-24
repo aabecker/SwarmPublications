@@ -52,25 +52,36 @@ As soon as the goal is reached, the algorithm returns this path.
 There are infinite reachable sets, parameterized by first contact location $\psi$, as shown in Fig.~\ref{fig:regionMove}.
 %We make the reachable sets by knowing the angle of the chord, $\psi$, shown in Fig.~\ref{fig:psigamma}. Minimum and maximum values of $\psi$ can be calculated in the following equation.
 \begin{align}
- \psi \in [\theta +\frac{\sin^{-1}{d}}{2r} - \frac{\pi}{2}, \theta +\frac{\sin^{-1}{d}}{2r} - \frac{\pi}{2}]
+ \psi \in \Big(\theta +\frac{\sin^{-1}{d}}{2r} - \frac{\pi}{2}, \theta -\frac{\sin^{-1}{d}}{2r} + \frac{\pi}{2}\Big)
 % \psi_{\max} &= \theta -\frac{\alpha}{2} + \frac{\pi}{2}
 \end{align}
 $\gamma$ is half the angle of the arc that the reachable set's chord has shown in Fig.~\ref{fig:deltaSpace} and is calculated by:
 \begin{align}
 p_\psi &= r[\cos(\psi ), \sin(\psi )]\\
 d_\perp&= 2 \abs{(s_1.p_\psi - s_2.p_\psi)}\\
-\gamma &= \cos^{-1} (1-\frac{d_\perp}{r} )
+\gamma &= \cos^{-1} \Big(1-\frac{d_\perp}{r} \Big)
 \end{align}
 Reachable sets with $\pi$ difference in $\psi$ value are equivalent in the  $\Delta$ configuration space, so we can plan in this space and choose to immobilize the particle closest to a wall. 
 
 The equation for the four lines outlining the reachable set can be found as follows:
-\todo{Insert the equations}
-%\begin{align}
-%l_1 = r{\cos{\psi_{\min}, 
-%   Sin[\[Theta] + \[Alpha]/2 + \[Pi]/2 ]} - 
-% 1/2 {Cos[a2 + \[Theta] + \[Alpha]/2 + \[Pi]/2], 
-%   Sin[a2 + \[Theta] + \[Alpha]/2 + \[Pi]/2]}
-%\end{align}
+
+\begin{align}\nonumber
+l_1 &=  r \Big((\cos\psi_{\min}, \sin\psi_{\min})\\ \nonumber
+& - (\cos(\gamma_c + \psi_{\min}), \sin(\gamma_c + \psi_{\min}))\Big) &  0<\gamma_c< \gamma_{\psi_{\min}},\\ \nonumber
+l_2 &=  r \Big((\cos\psi_{\max}, \sin\psi_{\max})\\ \nonumber
+& - (\cos(\gamma_c + \psi_{\max}), \sin(\gamma_c + \psi_{\max}))\Big) &  \gamma_{\psi_{\max}}<\gamma_c< 0,\\  \nonumber
+l_3 &=  r \Big((\cos\psi, \sin\psi)\\ \nonumber
+& - (\cos( \psi+\gamma_c ), \sin( \psi+ \gamma_c))\Big) &  \psi_{\min}<\psi< \psi_{\max},\\ \nonumber
+l_4 &=  r \Big((\cos\psi, \sin\psi)\\ \nonumber
+& - (\cos( \psi-\gamma_c ), \sin( \psi- \gamma_c))\Big) &  \psi_{\min}<\psi< \psi_{\max}.\\ \nonumber
+\end{align}
+We combine these boundaries to make the reachable set. 
+The algorithm first makes the reachable set, and then checks if the goal relative position is in the reachable set. If the goal is inside the reachable set, we need to find a $\psi$ that would let us do the move. To do so, we first check if $\Delta g$ is in the correspondent ???? 
+
+\begin{align}
+&(p.x - c.x)^2 + (p.y - c.y)^2  > r^2\\
+ &(p_x - c_x) \cos\psi + (p.y- c.y) \sin\psi <= -r \cos\gamma
+\end{align}
 % When a particle contacts a wall, the other particle can move to any position in the reachable set while the first robot is immobile. 
 %Two reachable sets are possible, horizontal and vertical. 
 %Each non-slip move changes the $\Delta$ configuration space, as shown in  Fig.~\ref{fig:regionMove}.
