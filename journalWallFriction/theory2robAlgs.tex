@@ -13,7 +13,7 @@ The algorithm assigns a uniform control input at every instance.
 The goal is to move the particles to the goal positions using a shared control input. We do this by first moving them to the correct relative position and then translating the particles to the goal. The first step minimizes  
  $||\Delta g - \Delta p || = ||(g_2-g_1)- (p_2-p_1)||$. 
  
- We define a $\Delta$ configuration space as a circular shape that considers all possible $\Delta p$s. We also show the starting and ending relative distance as $\Delta s$ and $\Delta e$ in $\Delta$ configuration space in Fig.~\ref{fig:deltaSpace}. Reachable set is the part of $\Delta$ configuration space where if one robot touches a wall in a specific location, the other robot can make the required relative distance without causing touching robot to move. To compute reachable set for circular workspace, first we considered all passible hitting point locations in the workspace. 
+ We define a $\Delta$ configuration space as a circular shape that considers all possible $\Delta p$s. We also show the starting and ending relative distance as $\Delta s$ and $\Delta e$ in $\Delta$ configuration space in Fig.~\ref{fig:regionMove}. Reachable set is the part of $\Delta$ configuration space where if one robot touches a wall in a specific location, the other robot can make the required relative distance without causing touching robot to move. To compute reachable set for circular workspace, first we considered all passible hitting point locations in the workspace. 
  The set of boundary points that a robot can touch before the  other robot  touches is an arc of angle $2(\pi - \frac{\arcsin{d}}{r})$, where $d= |s_1 - s_2|$ and $r$ is the radius of the circle.
  %Here $\alpha$ is the arc of the circle that it is not possible to keep the current relative distance while one robot is touching the wall in that point and is defined by $\alpha = 2 \sin ^{-1}(d)$. 
  We define the angle between two particles as $\theta = \arctan(\frac{p_1.x-p_2.x}{p_1.y - p_2.y})$. 
@@ -22,7 +22,7 @@ The goal is to move the particles to the goal positions using a shared control i
 \begin{figure}
 \centering
 \begin{overpic}[width=\columnwidth]{reachableSetCircle.pdf}\end{overpic}
-\caption{\label{fig:deltaSpace}Left:  the set of points where the red robot is the first to contact the boundary are drawn with a red arc. The  set of points where the blue robot is the first to contact the boundary are drawn with a blue arc. 
+\caption{\label{fig:regionMove}Left:  the set of points where the red robot is the first to contact the boundary are drawn with a red arc. The  set of points where the blue robot is the first to contact the boundary are drawn with a blue arc. 
 The possible points for the blue and pink particles to touch the boundary is shown in blue and pink arcs. Right: When the blue particle is touching a wall (blue square) the other particle (pink square) can go anywhere in the reachable set (blue region).}
 \end{figure}
 
@@ -55,7 +55,7 @@ There are infinite reachable sets, parameterized by first contact location $\psi
  \psi \in \Big(\theta +\frac{\sin^{-1}{d}}{2r} - \frac{\pi}{2}, \theta -\frac{\sin^{-1}{d}}{2r} + \frac{\pi}{2}\Big)
 % \psi_{\max} &= \theta -\frac{\alpha}{2} + \frac{\pi}{2}
 \end{align}
-$\gamma$ is half the angle of the arc that the reachable set's chord has shown in Fig.~\ref{fig:deltaSpace} and is calculated by:
+$\gamma$ is half the angle of the arc that the reachable set's chord has shown in Fig.~\ref{fig:regionMove} and is calculated by:
 \begin{align}
 p_\psi &= r[\cos(\psi ), \sin(\psi )]\\
 d_\perp&= 2 \abs{(s_1.p_\psi - s_2.p_\psi)}\\
@@ -64,7 +64,7 @@ d_\perp&= 2 \abs{(s_1.p_\psi - s_2.p_\psi)}\\
 Reachable sets with $\pi$ difference in $\psi$ value are equivalent in the  $\Delta$ configuration space, so we can plan in this space and choose to immobilize the particle closest to a wall. 
 
 The equation for the four lines outlining the reachable set can be found as follows:
-
+\todo{place x terms and y terms together (reduce the parenthesis)}
 \begin{align}\label{eq:circlereachable}
 l_1 &=  r \Big((\cos\psi_{\min}, \sin\psi_{\min})\\ \nonumber
 & - (\cos(\gamma_c + \psi_{\min}), \sin(\gamma_c + \psi_{\min}))\Big) &  0<\gamma_c< \gamma_{\psi_{\min}},\\ \nonumber
@@ -85,6 +85,9 @@ The algorithm first makes the reachable set, and then checks if the goal relativ
 
 Here $c$ is coordinate of the circle and $r$ is the radius of the workspace.
  If $\Delta g$ is not in the region made by $\psi_{\min}$ or $\psi_{\max}$, we draw a line from $\Delta g$ and the current relative position, $\Delta s$. This line is a chord of the circle and we find the $\psi$ that makes this region. Now that $\psi$ is found, we move the particles to make the current goal. If current goal is our final goal, we go to the final goal position. If it is not our final goal, we continue to set the closest point on the reachable set to our current goal until we reach the goal. 
+ 
+ \todo{  how do we find the collision point }
+ 
 % When a particle contacts a wall, the other particle can move to any position in the reachable set while the first robot is immobile. 
 %Two reachable sets are possible, horizontal and vertical. 
 %Each non-slip move changes the $\Delta$ configuration space, as shown in  Fig.~\ref{fig:regionMove}.
@@ -139,19 +142,22 @@ We  exploit symmetry in the solution by labeling the leftmost (or, if they have 
 \caption{ { \sc 2-ParticlePathPlanning}($s_1,s_2,g_1,g_2,P$)}\label{alg:optimalAlg}
 \begin{algorithmic}[1]
 %\scriptsize
-\Require knowledge of starting $(s_1,s_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
+\Require knowledge of starting $(s_1,s_2)$ and goal $(g_1,g_2)$ positions of  two particles. 
 %$(0,0)$ is bottom corner,
  $P$ is a list of the vertices of a convex polygon. 
 % \emph{PathList} contains all the paths sorted by their path length plus an admissible heuristic. 
 % \State  \emph{PathList} $\gets \{\}$
  \State $(p_1,p_2) \gets (s_1,s_2) $
- \State $R \gets   \{ p_1,p_2,g_1,g_2  ,moves\} $ \Comment $R$ contains the current robot positions, the goal positions, and the move sequence
- \State $\Delta p \gets p_2-p1$
+\State  moves $\gets \{\}$
+ \State $R \gets   \{ p_1,p_2,g_1,g_2  ,\textrm{moves}\} $ \Comment $R$ contains the current robot positions, the goal positions, and the move sequence
+ \State $\Delta p \gets p_2-p_1$
  \State $\Delta g \gets g_2-g_1$
 \While {$|\Delta g| < |\Delta p|+ \epsilon$}  %R.p_1 \ne g_1$ \textbf{and} $R.p_2 \ne g_2$}
-\State Calculate the reachable set using \eqref{eq:circlereachable} or Fig.~\ref{fig:polygonAlg}
-\State $ \Delta cg\gets $nearest point on the reachable set to $\Delta g$
-\State Add the required moves to $moves$ for the particles to achieve $\Delta cg$ 
+\State $R_s$ = Compute reachable set  \Comment use \eqref{eq:circlereachable} or Fig.~\ref{fig:polygonAlg}
+\State $ \Delta g_c\gets $nearest point in $R_s$ to $\Delta g$
+\State  add move to hit the wall
+\State  add move to reach  $ \Delta g_c$
+\State Add the required moves to $moves$ for the particles to achieve $\Delta g_c$ 
 %\For{ $\theta \in \{0^\circ, 90^\circ, 180^\circ, 270^\circ \}$ }
 %\State $(r_1,r_2,g_1,g_2) \gets$ {\sc Rotate}($R.r_1,R.r_2,g_1,g_2,\theta$)
 %\State $\{d, $ \parbox[t]{.3\linewidth}{%
@@ -163,7 +169,7 @@ We  exploit symmetry in the solution by labeling the leftmost (or, if they have 
 %\State {\sc Sort}(\emph{PathList}) \Comment sort by admissible heuristic
 %\State $R \gets $ {\sc Pop} first element of \emph{PathList}
 \EndWhile
-\State $moves \gets moves+ {g_2 - p2}$
+\State $moves \gets moves+ {g_2 - p_2}$  \Comment translate to goal
 \State \Return \emph{moves}
 \end{algorithmic}
 \end{algorithm}
@@ -310,10 +316,11 @@ If the 3D projection is at a different angle, redefine the 2D workspace as a reg
  We next apply actuation in either the $\pm z$ direction to achieve the desired $\Delta z$.
  Then the particles are actuated away from the boundary and to the appropriate $z$ positions.
  Path planning continues using Alg. XX to position the particles to the desired $x$ and $y$ positions. 
- As an example, consider Fig.~\ref{fig:zaxis} which shows a cylinder.
- The blue particle starts in the blue disk and the red particle starts in the red disk. There are two possible optimal paths shown with parallel arrows. 
+ As an example, consider Fig.~\ref{fig:zaxis} which shows a cylindrical workspace.
+ The blue particle starts in the blue disk and the red particle starts in the red disk. 
+ The two candidate shortest-length paths that touch the wall are shown with parallel arrows. 
 Each arrow will cause one of the particles to touch the wall, enabling the other robot to move freely in the  $z$ axis to achieve the required relative position.
-This can be extended to other 3D workspaces if the workspace can be locally approximated as a 3D prism or cylinder. Other workspaces may be better handled by other path planners, such as \cite{MassiveUnifromManipulation}.
+This can be extended to other 3D workspaces if the workspace can be locally approximated as a 3D prism or cylinder. Other workspaces may be better handled by other path planners, such as \cite{AaronManipulation2013}, which used  collisions with  protrusions of the workspace to rearrange particles.
 
 \begin{figure}
 \centering
