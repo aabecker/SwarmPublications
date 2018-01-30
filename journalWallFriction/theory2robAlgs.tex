@@ -3,7 +3,7 @@
 \section{Position Control of Two Robots Using Boundary Interaction}\label{sec:PostionControl2Robots}
 
 
-Alg.~\ref{alg:optimalAlg} uses non-slip contacts with walls to arbitrarily position two robots in a circular workspace. In our previous work we used a rectangular workspace. We use the same idea and algorithm here but we have to modify the algorithm to adjust it for a circular workspace.
+Alg.~\ref{alg:optimalAlg} uses non-slip contacts with walls to arbitrarily position two robots in a circular workspace. In our previous work we used a rectangular workspace. We use the same idea here but we modify the algorithm to handle a circular workspace.
 % Fig.~\ref{fig:shapeControlMathematica1} shows a Mathematica implementation of the algorithm, and is useful as a visual reference for the following description.
 
 Assume two robots are initialized at $s_1$ and $s_2$ with corresponding goal destinations $g_1$ and $g_2$. 
@@ -65,7 +65,7 @@ Reachable sets with $\pi$ difference in $\psi$ value are equivalent in the  $\De
 
 The equation for the four lines outlining the reachable set can be found as follows:
 
-\begin{align}\nonumber
+\begin{align}\label{eq:circlereachable}
 l_1 &=  r \Big((\cos\psi_{\min}, \sin\psi_{\min})\\ \nonumber
 & - (\cos(\gamma_c + \psi_{\min}), \sin(\gamma_c + \psi_{\min}))\Big) &  0<\gamma_c< \gamma_{\psi_{\min}},\\ \nonumber
 l_2 &=  r \Big((\cos\psi_{\max}, \sin\psi_{\max})\\ \nonumber
@@ -76,12 +76,15 @@ l_4 &=  r \Big((\cos\psi, \sin\psi)\\ \nonumber
 & - (\cos( \psi-\gamma_c ), \sin( \psi- \gamma_c))\Big) &  \psi_{\min}<\psi< \psi_{\max}.\\ \nonumber
 \end{align}
 We combine these boundaries to make the reachable set. 
-The algorithm first makes the reachable set, and then checks if the goal relative position is in the reachable set. If the goal is inside the reachable set, we need to find a $\psi$ that would let us do the move. To do so, we first check if $\Delta g$ is in the correspondent ???? 
+The algorithm first makes the reachable set, and then checks if the goal relative position is in the reachable set. If it is not in the reachable set, the closest point on the reachable set from $\Delta g$ would be our current goal. We need to find a $\psi$ that would enable us to reach to the required relative goal distance. To do so, we first check $\psi_{min}$ and $\psi_{max}$. \eqref{eq:ifinchord} shows if any point $p$, is in the region made by the robots if the touching robot has the angle $\psi$.
 
-\begin{align}
-&(p.x - c.x)^2 + (p.y - c.y)^2  > r^2\\
- &(p_x - c_x) \cos\psi + (p.y- c.y) \sin\psi <= -r \cos\gamma
+\begin{align}\label{eq:ifinchord}
+&(p.x - c.x)^2 + (p.y - c.y)^2  > r^2\\ \nonumber
+ &(p_x - c_x) \cos\psi + (p.y- c.y) \sin\psi <= -r. \cos\gamma
 \end{align}
+
+Here $c$ is coordinate of the circle and $r$ is the radius of the workspace.
+ If $\Delta g$ is not in the region made by $\psi_{\min}$ or $\psi_{\max}$, we draw a line from $\Delta g$ and the current relative position, $\Delta s$. This line is a chord of the circle and we find the $\psi$ that makes this region. Now that $\psi$ is found, we move the particles to make the current goal. If current goal is our final goal, we go to the final goal position. If it is not our final goal, we continue to set the closest point on the reachable set to our current goal until we reach the goal. 
 % When a particle contacts a wall, the other particle can move to any position in the reachable set while the first robot is immobile. 
 %Two reachable sets are possible, horizontal and vertical. 
 %Each non-slip move changes the $\Delta$ configuration space, as shown in  Fig.~\ref{fig:regionMove}.
@@ -129,31 +132,85 @@ We  exploit symmetry in the solution by labeling the leftmost (or, if they have 
    If a different wall is selected, we rotate the coordinate frame by 90$^{\circ}$, 180$^{\circ}$, or 270$^{\circ}$ counterclockwise and then push the robot to hit the top wall.  After the path is found, we undo the rotation. 
    This symmetry allows us to use a single function, Alg. \ref{alg:Wallup},  for collisions with all four walls. 
 
+
+
+
 \begin{algorithm}[htb]
-\caption{ { \sc 2-ParticlePathFinder}($r_1,r_2,g_1,g_2,L$)}\label{alg:optimalAlg}
+\caption{ { \sc 2-ParticlePathPlanning}($s_1,s_2,g_1,g_2,P$)}\label{alg:optimalAlg}
 \begin{algorithmic}[1]
 %\scriptsize
-\Require knowledge of current $(r_1,r_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
-$(0,0)$ is bottom corner,
- $L$ is length of the walls. 
- \emph{PathList} contains all the paths sorted by their path length plus an admissible heuristic. 
- \State  \emph{PathList} $\gets \{\}$
- \State $P \gets   \{ h(\{\},r_1,r_2,g_1,g_2  ) ,\{\},r_1,r_2\} $ \Comment $P$ contains $h$, the admissible heuristic \eqref{eq:admissibleHeuristic}, the move sequence, and the current robot positions
-\While {$P.r_1 \ne g_1$ \textbf{and} $P.r_2 \ne g_2$}
-\For{ $\theta \in \{0^\circ, 90^\circ, 180^\circ, 270^\circ \}$ }
-\State $(r_1,r_2,g_1,g_2) \gets$ {\sc Rotate}($P.r_1,P.r_2,g_1,g_2,\theta$)
-\State $\{d, $ \parbox[t]{.3\linewidth}{%
- \emph{moves,}$ r_1,r_2\} \gets$\\
- {\sc  PlanMoveUp}($r_1,r_2,g_1,g_2,L, P.\text{\emph{moves}}$)}
-\State $(\text{\emph{moves}}, r_1,r_2) \gets$ {\sc Rotate}(\emph{moves}$, r_1,r_2,-\theta$)
-\State   {\sc Push} $\{d, \text{\emph{moves}}, r_1,r_2\} $ onto \emph{PathList}
-\EndFor
-\State {\sc Sort}(\emph{PathList}) \Comment sort by admissible heuristic
-\State $P \gets $ {\sc Pop} first element of \emph{PathList}
+\Require knowledge of starting $(s_1,s_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
+%$(0,0)$ is bottom corner,
+ $P$ is a list of the vertices of a convex polygon. 
+% \emph{PathList} contains all the paths sorted by their path length plus an admissible heuristic. 
+% \State  \emph{PathList} $\gets \{\}$
+ \State $(p_1,p_2) \gets (s_1,s_2) $
+ \State $R \gets   \{ p_1,p_2,g_1,g_2  ,moves\} $ \Comment $R$ contains the current robot positions, the goal positions, and the move sequence
+ \State $\Delta p \gets p_2-p1$
+ \State $\Delta g \gets g_2-g_1$
+\While {$|\Delta g| < |\Delta p|+ \epsilon$}  %R.p_1 \ne g_1$ \textbf{and} $R.p_2 \ne g_2$}
+\State Calculate the reachable set using \eqref{eq:circlereachable} or Fig.~\ref{fig:polygonAlg}
+\State $ \Delta cg\gets $nearest point on the reachable set to $\Delta g$
+\State Add the required moves to $moves$ for the particles to achieve $\Delta cg$ 
+%\For{ $\theta \in \{0^\circ, 90^\circ, 180^\circ, 270^\circ \}$ }
+%\State $(r_1,r_2,g_1,g_2) \gets$ {\sc Rotate}($R.r_1,R.r_2,g_1,g_2,\theta$)
+%\State $\{d, $ \parbox[t]{.3\linewidth}{%
+% \emph{moves,}$ r_1,r_2\} \gets$\\
+ %{\sc  PlanMoveUp}($r_1,r_2,g_1,g_2,L, P.\text{\emph{moves}}$)}
+%\State $(\text{\emph{moves}}, r_1,r_2) \gets$ {\sc Rotate}(\emph{moves}$, r_1,r_2,-\theta$)
+%\State   {\sc Push} $\{d, \text{\emph{moves}}, r_1,r_2\} $ onto \emph{PathList}
+%\EndFor
+%\State {\sc Sort}(\emph{PathList}) \Comment sort by admissible heuristic
+%\State $R \gets $ {\sc Pop} first element of \emph{PathList}
 \EndWhile
+\State $moves \gets moves+ {g_2 - p2}$
 \State \Return \emph{moves}
 \end{algorithmic}
 \end{algorithm}
+
+\begin{algorithm}[htb]
+\caption{ { \sc CircularWorkspace}($s_1,s_2,g_1,g_2$)}\label{alg:circularReachbale}
+\begin{algorithmic}[1]
+%\scriptsize
+\Require knowledge of starting $(s_1,s_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[htb]
+\caption{ { \sc PolygonalWorkspace}($s_1,s_2,g_1,g_2, P$)}\label{alg:polygonReachbale}
+\begin{algorithmic}[1]
+%\scriptsize
+\Require knowledge of starting $(s_1,s_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
+$P$ is a list of the vertices of a convex polygon. 
+
+\end{algorithmic}
+\end{algorithm}
+
+%\begin{algorithm}[htb]
+%\caption{ { \sc 2-ParticleConvexPoly}($r_1,r_2,g_1,g_2,P$)}\label{alg:optimalAlg}
+%\begin{algorithmic}[1]
+%%\scriptsize
+%\Require knowledge of current $(r_1,r_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
+%$(0,0)$ is bottom corner,
+% $P$ is is a convex polygon. 
+% \emph{PathList} contains all the paths sorted by their path length plus an admissible heuristic. 
+% \State  \emph{PathList} $\gets \{\}$
+% \State $R \gets   \{ h(\{\},r_1,r_2,g_1,g_2  ) ,\{\},r_1,r_2\} $ \Comment $R$ contains $h$, the admissible heuristic \eqref{eq:admissibleHeuristic}, the move sequence, and the current robot positions
+%\While {$R.r_1 \ne g_1$ \textbf{and} $R.r_2 \ne g_2$}
+%\For{ $\theta \in \{0^\circ, 90^\circ, 180^\circ, 270^\circ \}$ }
+%\State $(r_1,r_2,g_1,g_2) \gets$ {\sc Rotate}($R.r_1,R.r_2,g_1,g_2,\theta$)
+%\State $\{d, $ \parbox[t]{.3\linewidth}{%
+% \emph{moves,}$ r_1,r_2\} \gets$\\
+% {\sc  PlanMoveUp}($r_1,r_2,g_1,g_2,L, P.\text{\emph{moves}}$)}
+%\State $(\text{\emph{moves}}, r_1,r_2) \gets$ {\sc Rotate}(\emph{moves}$, r_1,r_2,-\theta$)
+%\State   {\sc Push} $\{d, \text{\emph{moves}}, r_1,r_2\} $ onto \emph{PathList}
+%\EndFor
+%\State {\sc Sort}(\emph{PathList}) \Comment sort by admissible heuristic
+%\State $R \gets $ {\sc Pop} first element of \emph{PathList}
+%\EndWhile
+%\State \Return \emph{moves}
+%\end{algorithmic}
+%\end{algorithm}
 
 
 \begin{algorithm}
