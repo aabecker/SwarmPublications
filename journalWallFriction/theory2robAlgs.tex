@@ -52,7 +52,7 @@ As soon as the goal is reached, the algorithm returns this path.
 There are infinite reachable sets, parameterized by first contact location $\psi$, as shown in Fig.~\ref{fig:regionMove}.
 %We make the reachable sets by knowing the angle of the chord, $\psi$, shown in Fig.~\ref{fig:psigamma}. Minimum and maximum values of $\psi$ can be calculated in the following equation.
 \begin{align}
- \psi \in \Big(\theta +\frac{\sin^{-1}{d}}{2r} - \frac{\pi}{2}, \theta -\frac{\sin^{-1}{d}}{2r} + \frac{\pi}{2}\Big)
+ \psi \in \Big[\theta +\frac{\sin^{-1}{d}}{2r} - \frac{\pi}{2}, \theta -\frac{\sin^{-1}{d}}{2r} + \frac{\pi}{2}\Big]
 % \psi_{\max} &= \theta -\frac{\alpha}{2} + \frac{\pi}{2}
 \end{align}
 $\gamma$ is half the angle of the arc that the reachable set's chord has shown in Fig.~\ref{fig:regionMove} and is calculated by:
@@ -64,16 +64,15 @@ d_\perp&= 2 \abs{(s_1.p_\psi - s_2.p_\psi)}\\
 Reachable sets with $\pi$ difference in $\psi$ value are equivalent in the  $\Delta$ configuration space, so we can plan in this space and choose to immobilize the particle closest to a wall. 
 
 The equation for the four lines outlining the reachable set can be found as follows:
-\todo{place x terms and y terms together (reduce the parenthesis)}
 \begin{align}\label{eq:circlereachable}
-l_1 &=  r \Big((\cos\psi_{\min}, \sin\psi_{\min})\\ \nonumber
-& - (\cos(\gamma_c + \psi_{\min}), \sin(\gamma_c + \psi_{\min}))\Big) &  0<\gamma_c< \gamma_{\psi_{\min}},\\ \nonumber
-l_2 &=  r \Big((\cos\psi_{\max}, \sin\psi_{\max})\\ \nonumber
-& - (\cos(\gamma_c + \psi_{\max}), \sin(\gamma_c + \psi_{\max}))\Big) &  \gamma_{\psi_{\max}}<\gamma_c< 0,\\  \nonumber
-l_3 &=  r \Big((\cos\psi, \sin\psi)\\ \nonumber
-& - (\cos( \psi+\gamma_c ), \sin( \psi+ \gamma_c))\Big) &  \psi_{\min}<\psi< \psi_{\max},\\ \nonumber
-l_4 &=  r \Big((\cos\psi, \sin\psi)\\ \nonumber
-& - (\cos( \psi-\gamma_c ), \sin( \psi- \gamma_c))\Big) &  \psi_{\min}<\psi< \psi_{\max}.\\ \nonumber
+l_1 &=  r \Big((\cos\psi_{\min}- \cos(\gamma_c + \psi_{\min}) )\\ \nonumber
+& + (\sin\psi_{\min}- \sin(\gamma_c + \psi_{\min}))\Big) &  0<\gamma_c< \gamma_{\psi_{\min}},\\ \nonumber
+l_2 &=  r \Big((\cos\psi_{\max}- \cos(\gamma_c + \psi_{\max}))\\ \nonumber
+& + (\sin\psi_{\max}- \sin(\gamma_c + \psi_{\max}))\Big) &  \gamma_{\psi_{\max}}<\gamma_c< 0,\\  \nonumber
+l_3 &=  r \Big((\cos\psi- \cos( \psi+\gamma_c ) )\\ \nonumber
+& ( \sin\psi-\sin( \psi+ \gamma_c))\Big) &  \psi_{\min}<\psi< \psi_{\max},\\ \nonumber
+l_4 &=  r \Big((\cos\psi- \cos( \psi-\gamma_c ))\\ \nonumber
+&  ( \sin\psi- \sin( \psi- \gamma_c))\Big) &  \psi_{\min}<\psi< \psi_{\max}.\\ \nonumber
 \end{align}
 We combine these boundaries to make the reachable set. 
 The algorithm first makes the reachable set, and then checks if the goal relative position is in the reachable set. If it is not in the reachable set, the closest point on the reachable set from $\Delta g$ would be our current goal. We need to find a $\psi$ that would enable us to reach to the required relative goal distance. To do so, we first check $\psi_{min}$ and $\psi_{max}$. \eqref{eq:ifinchord} shows if any point $p$, is in the region made by the robots if the touching robot has the angle $\psi$.
@@ -84,10 +83,17 @@ The algorithm first makes the reachable set, and then checks if the goal relativ
 \end{align}
 
 Here $c$ is coordinate of the circle and $r$ is the radius of the workspace.
- If $\Delta g$ is not in the region made by $\psi_{\min}$ or $\psi_{\max}$, we draw a line from $\Delta g$ and the current relative position, $\Delta s$. This line is a chord of the circle and we find the $\psi$ that makes this region. Now that $\psi$ is found, we move the particles to make the current goal. If current goal is our final goal, we go to the final goal position. If it is not our final goal, we continue to set the closest point on the reachable set to our current goal until we reach the goal. 
+ If $\Delta g$ is not in the region made by $\psi_{\min}$ or $\psi_{\max}$, we draw a line from $\Delta g$ and the current relative position, $\Delta s$. This line is a chord of the circle and we find the $\psi$ that makes this region. This equation finds this $\psi$:
+  \begin{equation}
+ \psi = \tan^{-1}(\Delta p - \Delta g ).
+ \end{equation}
+ Now that $\psi$ is found, we move the particles to make the current goal. If current goal is our final goal, we go to the final goal position. If it is not our final goal, we continue to set the closest point on the reachable set to our current goal until we reach the goal. 
  
- \todo{  how do we find the collision point }
+% \begin{equation}
+% 
+% \end{equation}
  
+
 % When a particle contacts a wall, the other particle can move to any position in the reachable set while the first robot is immobile. 
 %Two reachable sets are possible, horizontal and vertical. 
 %Each non-slip move changes the $\Delta$ configuration space, as shown in  Fig.~\ref{fig:regionMove}.
@@ -169,8 +175,8 @@ We  exploit symmetry in the solution by labeling the leftmost (or, if they have 
 %\State {\sc Sort}(\emph{PathList}) \Comment sort by admissible heuristic
 %\State $R \gets $ {\sc Pop} first element of \emph{PathList}
 \EndWhile
-\State $moves \gets moves+ {g_2 - p_2}$  \Comment translate to goal
-\State \Return \emph{moves}
+\State $\textrm{moves} \gets \textrm{moves}+ {g_2 - p_2}$  \Comment translate to goal
+\State \Return moves
 \end{algorithmic}
 \end{algorithm}
 
@@ -179,8 +185,10 @@ We  exploit symmetry in the solution by labeling the leftmost (or, if they have 
 \begin{algorithmic}[1]
 %\scriptsize
 \Require knowledge of starting $(s_1,s_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
+\State 
 \end{algorithmic}
 \end{algorithm}
+
 
 \begin{algorithm}[htb]
 \caption{ { \sc PolygonalWorkspace}($s_1,s_2,g_1,g_2, P$)}\label{alg:polygonReachbale}
