@@ -2,8 +2,43 @@
 
 \section{Position Control of Two Robots Using Boundary Interaction}\label{sec:PostionControl2Robots}
 
+Alg.~\ref{alg:optimalAlg} uses non-slip contacts with walls to arbitrarily position two robots in a convex workspace. In our previous work we used a rectangular workspace. We use the same idea here but we modify the algorithm to handle any convex workspace, then we expand how the algorithm works in circular workspace.
 
-Alg.~\ref{alg:optimalAlg} uses non-slip contacts with walls to arbitrarily position two robots in a circular workspace. In our previous work we used a rectangular workspace. We use the same idea here but we modify the algorithm to handle a circular workspace.
+\subsection{Convex Polygonal Workspaces}
+ 
+ Fig. \ref{fig:polygon} shows different workspaces and their representative $\Delta$ configuration spaces. Alg.~\ref{alg:polygonReachbale} shows how to compute reachable set for any convex polygonal workspace. Consider one robot touching each vertex of the workspace as shown in Fig.\ref{fig:polygonAlg}. For each pair of vertices, compute where the other robot will be if the first robot goes to that vertex. If the final position of the second robot is still inside the workspace, then its position is one of the vertices of the reachable set. If the point is not inside the polygon, then the intersection of the line that point and the second robot's position with the polygon is one vertex of the reachable set. Compute the distance to all the vertices of the workspace from this point. By subtracting the relative distance of the robots, then all the vertices of one reachable set are found. Doing this for all the vertices of the workspace will give us all the reachable sets.
+ \begin{figure}
+\centering
+\renewcommand{\figwid}{0.8\columnwidth}
+{\begin{overpic}[width =\figwid]{differentNumSides.pdf}\put(5,100){Workspace}\put(20,100){$\Delta$ configuration space}
+\end{overpic}
+}
+\caption{\label{fig:polygon}{Workspace and $\Delta$ configuration spaces for different polygonal workspaces and their representative $\Delta$ configuration spaces and reachable sets. As the number of sides in the polygon increases, the total area of the $\Delta$ configuration space is four times of the workspace.
+}
+\vspace{-1em}
+}
+\end{figure}
+
+%\todo{latex line over the top of two vertices}
+
+\begin{figure*}
+\centering
+\renewcommand{\figwid}{0.66\columnwidth}
+\begin{overpic}[width =\figwid]{anypolygon1.pdf}
+\end{overpic}
+\begin{overpic}[width =\figwid]{anypolygon2.pdf}
+\end{overpic}
+\begin{overpic}[width =\figwid]{anypolygon3.pdf}
+\end{overpic}
+\caption{\label{fig:polygonAlg}{ Steps to generate  the reachable set when  one particle collides with edge $i,i+1$ of a convex polygonal workspace.}
+\vspace{-1em}
+}
+\end{figure*}
+
+ 
+\subsection{Circular Workspaces}
+
+
 % Fig.~\ref{fig:shapeControlMathematica1} shows a Mathematica implementation of the algorithm, and is useful as a visual reference for the following description.
 
 Assume two robots are initialized at $s_1$ and $s_2$ with corresponding goal destinations $g_1$ and $g_2$. 
@@ -28,12 +63,16 @@ The possible points for the blue and pink particles to touch the boundary is sho
 
 \begin{figure*}
 \centering
-%\begin{overpic}[width=0.5\columnwidth]{startPath.pdf}\end{overpic}
+\begin{overpic}[width=0.67\columnwidth]{regionMove1.pdf}\end{overpic}
+\begin{overpic}[width=0.67\columnwidth]{regionMove2.pdf}\end{overpic}
+\begin{overpic}[width=0.67\columnwidth]{regionMove3.pdf}\end{overpic}\\
+\vspace{1em}
+\centering
 \begin{overpic}[width=0.67\columnwidth]{Move1.pdf}\end{overpic}
 \begin{overpic}[width=0.67\columnwidth]{Move2.pdf}\end{overpic}
 \begin{overpic}[width=0.67\columnwidth]{finalPath.pdf}\end{overpic}
 \caption{\label{fig:reachableSet}
-Left circle shows the workspace. %, and the corresponding reachable set when blue robot is touching the wall is shown as a blue region. 
+Top row shows a polygonal workspace with its reachable sets. Bottom row, left circle shows the workspace. %, and the corresponding reachable set when blue robot is touching the wall is shown as a blue region. 
 Right shows the $\Delta$ configuration space and the reachable set that is shown in red is representative of the point we need to go to get to the goal relative distance in one move.%representative of the blue and pink reachable sets shown in the workspace.
 }
 \end{figure*}
@@ -56,11 +95,11 @@ There are infinite reachable sets, parameterized by first contact location $\psi
 % \psi_{\max} &= \theta -\frac{\alpha}{2} + \frac{\pi}{2}
 \end{align}
 $\gamma$ is half the angle of the arc that the reachable set's chord has shown in Fig.~\ref{fig:regionMove} and is calculated by:
-\begin{align}
-p_\psi &= r[\cos(\psi ), \sin(\psi )]\\
-d_\perp&= 2 \abs{(s_1.p_\psi - s_2.p_\psi)}\\
-\gamma &= \cos^{-1} \Big(1-\frac{d_\perp}{r} \Big)
-\end{align}
+\begin{align}\label{eq:ppsi}
+p_\psi &= r[\cos(\psi ), \sin(\psi )]\\ \label{eq:dprep}
+d_\perp&= 2 \abs{(s_1.p_\psi - s_2.p_\psi)}\\ \label{eq:gamma}
+\gamma &= \cos^{-1} \Big(1-\frac{d_\perp}{r} \Big) 
+\end{align} 
 Reachable sets with $\pi$ difference in $\psi$ value are equivalent in the  $\Delta$ configuration space, so we can plan in this space and choose to immobilize the particle closest to a wall. 
 
 The equation for the four lines outlining the reachable set can be found as follows:
@@ -79,7 +118,7 @@ The algorithm first makes the reachable set, and then checks if the goal relativ
 
 \begin{align}\label{eq:ifinchord}
 &(p.x - c.x)^2 + (p.y - c.y)^2  > r^2\\ \nonumber
- &(p_x - c_x) \cos\psi + (p.y- c.y) \sin\psi <= -r. \cos\gamma
+ &(p_x - c_x) \cos\psi + (p.y- c.y) \sin\psi \leq -r. \cos\gamma
 \end{align}
 
 Here $c$ is coordinate of the circle and $r$ is the radius of the workspace.
@@ -99,49 +138,49 @@ Here $c$ is coordinate of the circle and $r$ is the radius of the workspace.
 %Each non-slip move changes the $\Delta$ configuration space, as shown in  Fig.~\ref{fig:regionMove}.
    
 
- %This algorithm exploits the position-dependent friction model \eqref{eq:frictionmodel}.
- %employing the assumption we have made earlier about the walls' friction. 
- \subsection{Square workspace}
-Our algorithm uses an A*-like method to find the shortest path in each move. 
-If $(\Delta g.x, \Delta g.y)$ is in the reachable set, one robot touches a wall and the other robot zeros the error in one move. This is shown as $m_2$ in Fig. \ref{fig:reflection}. To find the best place to minimize $m_1$ and $m_3$, the touching robot's goal is reflected on that wall. 
-The minimum distance to get to the goal in two moves when the robot should touch the wall, is the straight line between the robot and the reflection of the goal position on that wall. 
-If the goal configuration can be reached in three moves, then $m_1$  makes one particle hit a wall, $m_2$ adjusts the relative spacing error $\Delta e$ to zero, and  $m_3$ takes the particles to their final positions, as shown in Fig. \ref{fig:shapeControlMathematica1}b. 
-$m_2$ cannot be shortened, so optimization depends on choosing the location where the robot hits the wall. 
- Since the shortest distance between two points is a straight line, reflecting the goal position across the boundary wall and plotting a straight line gives the optimal hit location, as shown in Fig. \ref{fig:reflection}.
-That point is selected when possible, but if this point would cause $m_2$ to push the moving robot out of the workspace, the hit point is translated until the moving robot will not leave the workspace. If $m_2$ causes the two particles to overlap, we add or subtract $\epsilon$ to $m_2.x$ to avoid collisions. This is shown in Fig. ~\ref{fig:epsilon} with three different $\epsilon$ values.
-
-
-\begin{figure}
-\centering
-\begin{overpic}[width=0.47\columnwidth]{twoRobotRegionH.pdf}\end{overpic}
-\begin{overpic}[width=0.47\columnwidth]{twoRobotRegionV.pdf}\end{overpic}
-\caption{\label{fig:TwoRegions}
-Boundary interaction is used to change the relative positions of the robots. Each robot gets the same control input. 
-(left) If robot 2 hits the bottom wall before robot 1 reaches a wall, robot 2 can reach anywhere along the green line, and  robot 1 can move to anywhere in the shaded area. 
-(right) Similarly, if robot 2 hits the right wall before robot 1 reaches a wall, robot 2 can reach anywhere along the green line, and  robot 1 can move to anywhere in the shaded area. 
-}
-\end{figure}
-If  $\Delta g$ is not in the reachable set, we choose the nearest reachable $\Delta x$ and $\Delta y$ to $\Delta g$. 
-%For simplicity in this step, we choose the straight line from the touching robot to the wall for the first move. This may cause the algorithm not to return the shortest path, but the difference is not significant. 
-
-
-Alg.~\ref{alg:optimalAlg} uses an admissible heuristic that adds the current path length to the greatest distance from each robot to their goal. This heuristic directs exploration by expanding favorable routes first.
-\begin{align}\label{eq:admissibleHeuristic}
-h(\text{\emph{moves}}, r_1,r_2,g_1,g_2) =& \sum_{i=1}^{|\text{\emph{moves}}|} \norm{\text{\emph{moves}}_i}  \\
-&+  \max( \norm{g_1-r_1}, \norm{g_2-r_2} ) \nonumber
-\end{align}
-
-
-We  exploit symmetry in the solution by labeling the leftmost (or, if they have the same $x$ coordinate, the topmost) robot $r_1$. 
- If $r_1$ is not also the topmost robot, we mirror the coordinate frame about the right boundary. 
- As an example, consider the two starting positions, $r_1 =  (0.2, 0.2) $ and $r_2 = (0.8, 0.8)$. 
-  Because the leftmost robot is not the topmost robot, we mirror the coordinate frame about the right boundary giving $r_1 = (0.2, 0.8)$ and $r_2 = (0.8,0.2)$. 
- After the path is found, we undo the mirroring to the output path. 
-  Similarly, we exploit rotational symmetry and assume the command pushes a robot to hit the top wall.
-   If a different wall is selected, we rotate the coordinate frame by 90$^{\circ}$, 180$^{\circ}$, or 270$^{\circ}$ counterclockwise and then push the robot to hit the top wall.  After the path is found, we undo the rotation. 
-   This symmetry allows us to use a single function, Alg. \ref{alg:Wallup},  for collisions with all four walls. 
-
-
+% %This algorithm exploits the position-dependent friction model \eqref{eq:frictionmodel}.
+% %employing the assumption we have made earlier about the walls' friction. 
+% \subsection{Square workspace}
+%Our algorithm uses an A*-like method to find the shortest path in each move. 
+%If $(\Delta g.x, \Delta g.y)$ is in the reachable set, one robot touches a wall and the other robot zeros the error in one move. This is shown as $m_2$ in Fig. \ref{fig:reflection}. To find the best place to minimize $m_1$ and $m_3$, the touching robot's goal is reflected on that wall. 
+%The minimum distance to get to the goal in two moves when the robot should touch the wall, is the straight line between the robot and the reflection of the goal position on that wall. 
+%If the goal configuration can be reached in three moves, then $m_1$  makes one particle hit a wall, $m_2$ adjusts the relative spacing error $\Delta e$ to zero, and  $m_3$ takes the particles to their final positions, as shown in Fig. \ref{fig:shapeControlMathematica1}b. 
+%$m_2$ cannot be shortened, so optimization depends on choosing the location where the robot hits the wall. 
+% Since the shortest distance between two points is a straight line, reflecting the goal position across the boundary wall and plotting a straight line gives the optimal hit location, as shown in Fig. \ref{fig:reflection}.
+%That point is selected when possible, but if this point would cause $m_2$ to push the moving robot out of the workspace, the hit point is translated until the moving robot will not leave the workspace. If $m_2$ causes the two particles to overlap, we add or subtract $\epsilon$ to $m_2.x$ to avoid collisions. This is shown in Fig. ~\ref{fig:epsilon} with three different $\epsilon$ values.
+%
+%
+%\begin{figure}
+%\centering
+%\begin{overpic}[width=0.47\columnwidth]{twoRobotRegionH.pdf}\end{overpic}
+%\begin{overpic}[width=0.47\columnwidth]{twoRobotRegionV.pdf}\end{overpic}
+%\caption{\label{fig:TwoRegions}
+%Boundary interaction is used to change the relative positions of the robots. Each robot gets the same control input. 
+%(left) If robot 2 hits the bottom wall before robot 1 reaches a wall, robot 2 can reach anywhere along the green line, and  robot 1 can move to anywhere in the shaded area. 
+%(right) Similarly, if robot 2 hits the right wall before robot 1 reaches a wall, robot 2 can reach anywhere along the green line, and  robot 1 can move to anywhere in the shaded area. 
+%}
+%\end{figure}
+%If  $\Delta g$ is not in the reachable set, we choose the nearest reachable $\Delta x$ and $\Delta y$ to $\Delta g$. 
+%%For simplicity in this step, we choose the straight line from the touching robot to the wall for the first move. This may cause the algorithm not to return the shortest path, but the difference is not significant. 
+%
+%
+%Alg.~\ref{alg:optimalAlg} uses an admissible heuristic that adds the current path length to the greatest distance from each robot to their goal. This heuristic directs exploration by expanding favorable routes first.
+%\begin{align}\label{eq:admissibleHeuristic}
+%h(\text{\emph{moves}}, r_1,r_2,g_1,g_2) =& \sum_{i=1}^{|\text{\emph{moves}}|} \norm{\text{\emph{moves}}_i}  \\
+%&+  \max( \norm{g_1-r_1}, \norm{g_2-r_2} ) \nonumber
+%\end{align}
+%
+%
+%We  exploit symmetry in the solution by labeling the leftmost (or, if they have the same $x$ coordinate, the topmost) robot $r_1$. 
+% If $r_1$ is not also the topmost robot, we mirror the coordinate frame about the right boundary. 
+% As an example, consider the two starting positions, $r_1 =  (0.2, 0.2) $ and $r_2 = (0.8, 0.8)$. 
+%  Because the leftmost robot is not the topmost robot, we mirror the coordinate frame about the right boundary giving $r_1 = (0.2, 0.8)$ and $r_2 = (0.8,0.2)$. 
+% After the path is found, we undo the mirroring to the output path. 
+%  Similarly, we exploit rotational symmetry and assume the command pushes a robot to hit the top wall.
+%   If a different wall is selected, we rotate the coordinate frame by 90$^{\circ}$, 180$^{\circ}$, or 270$^{\circ}$ counterclockwise and then push the robot to hit the top wall.  After the path is found, we undo the rotation. 
+%   This symmetry allows us to use a single function, Alg. \ref{alg:Wallup},  for collisions with all four walls. 
+%
+%
 
 
 \begin{algorithm}[htb]
@@ -159,11 +198,11 @@ We  exploit symmetry in the solution by labeling the leftmost (or, if they have 
  \State $\Delta p \gets p_2-p_1$
  \State $\Delta g \gets g_2-g_1$
 \While {$|\Delta g| < |\Delta p|+ \epsilon$}  %R.p_1 \ne g_1$ \textbf{and} $R.p_2 \ne g_2$}
-\State $R_s$ = Compute reachable set  \Comment use \eqref{eq:circlereachable} or Fig.~\ref{fig:polygonAlg}
+\State $R_s$ = Compute reachable set  \Comment use Alg.~\ref{alg:polygonReachbale} or Alg.~\ref{alg:circularReachbale}
 \State $ \Delta g_c\gets $nearest point in $R_s$ to $\Delta g$
 \State  add move to hit the wall
 \State  add move to reach  $ \Delta g_c$
-\State Add the required moves to $moves$ for the particles to achieve $\Delta g_c$ 
+\State Add the required moves to moves for the particles to achieve $\Delta g_c$ 
 %\For{ $\theta \in \{0^\circ, 90^\circ, 180^\circ, 270^\circ \}$ }
 %\State $(r_1,r_2,g_1,g_2) \gets$ {\sc Rotate}($R.r_1,R.r_2,g_1,g_2,\theta$)
 %\State $\{d, $ \parbox[t]{.3\linewidth}{%
@@ -180,25 +219,45 @@ We  exploit symmetry in the solution by labeling the leftmost (or, if they have 
 \end{algorithmic}
 \end{algorithm}
 
-\begin{algorithm}[htb]
-\caption{ { \sc CircularWorkspace}($s_1,s_2,g_1,g_2$)}\label{alg:circularReachbale}
-\begin{algorithmic}[1]
-%\scriptsize
-\Require knowledge of starting $(s_1,s_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
-\State 
-\end{algorithmic}
-\end{algorithm}
-
 
 \begin{algorithm}[htb]
 \caption{ { \sc PolygonalWorkspace}($s_1,s_2,g_1,g_2, P$)}\label{alg:polygonReachbale}
 \begin{algorithmic}[1]
 %\scriptsize
 \Require knowledge of starting $(s_1,s_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
-$P$ is a list of the vertices of a convex polygon. 
-
+$P$ is a list of the vertices of a convex polygon. RSet contains all the reachable polygons.
+\For {$i$ in $P$}
+\State $p_{i} \gets s_1 + s_2 - i$
+\State $p_{i+1} \gets s_1 + s_2 - (i+1)$
+\State $L \gets$ line with $(p_{11}, p_{12})$
+\State $l_i, l_{i+1} \gets $ intersections of $L$ and polygon
+\If {$p_{i}\notin$ polygon}
+\State $p_{i} \gets l_i$
+\EndIf
+\State $v_i \gets$ All vertices $\in [ l_i , l_{i+1} ] $
+\State $d_i \gets$ All vectors from $p_i$ to $[ l_i , i]\cup  p_{i+1}$ to $ [i+1 , l_{i+1} ] $
+\State RSet $\gets$ RSet  + polygon ($s_2 - (s_1 +d_i)$)
+\EndFor
+\State Return RSet
 \end{algorithmic}
 \end{algorithm}
+
+\begin{algorithm}[htb]
+\caption{ { \sc CircularWorkspace}($s_1,s_2,g_1,g_2$)}\label{alg:circularReachbale}
+\begin{algorithmic}[1]
+%\scriptsize
+\Require knowledge of starting $(s_1,s_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
+\State $\theta = \arctan(\frac{p_1.x-p_2.x}{p_1.y - p_2.y})$
+\State Calculate $p_{\psi}$ \Comment use \eqref{eq:ppsi}
+\State Calculate $\gamma$ \Comment use \eqref{eq:gamma}
+\State Calculate $l_1, l_2, l_3, l_4$ \Comment use \eqref{eq:circlereachable} 
+\State polygon $\gets$ Join($l_1, l_2, l_3, l_4$)
+\State return polygon
+\end{algorithmic}
+\end{algorithm}
+
+
+
 
 %\begin{algorithm}[htb]
 %\caption{ { \sc 2-ParticleConvexPoly}($r_1,r_2,g_1,g_2,P$)}\label{alg:optimalAlg}
@@ -227,52 +286,52 @@ $P$ is a list of the vertices of a convex polygon.
 %\end{algorithm}
 
 
-\begin{algorithm}
-\caption{{\sc PlanMoveUp}($r_1,r_2,g_1,g_2,L, $\emph{moves})}\label{alg:Wallup}
-\begin{algorithmic}[1]
-%\scriptsize
-\Require knowledge of current $(r_1,r_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
-$(0,0)$ is bottom corner,
- $L$ is length of the walls. 
- The array \emph{moves} is the current sequence of moves up to the current position.
- Assume $r_1.x < r_2.x$ and $r_1.y \geq r_2.y$. If not, mirror the coordinate frame and swap the robots, then undo the mirroring before returning.
- $\epsilon $ is a small, nonzero, user-specified value.
- 
-\Ensure $(g_1, g_2) , (r_1, r_2)$ all at least $\epsilon$ distance from walls the goals and starting points have at least $\epsilon$ distance from each other.  
-$m_1$ is the first move toward the wall or goal.
- $m_2$ is the second move adjusting $\Delta e$.
-\State $\Delta e \gets (g_2 - g_1)- (r_2- r_1)$
-\If {$\Delta e = (0,0)$} \Comment{base case}
-\State $m_1  \gets g_2 -  r_2$
-\State \emph{moves}$ \gets \{ \text{\emph{moves}},   m_1 \}$
-\State $(r_1,r_2) \gets ${\sc ApplyMove}$(m_1,r_1,r_2)$
-\State \Return $\{h(\text{\emph{moves}}, r_1,r_2,g_1,g_2), \text{\emph{moves}},r_1,r_2\}$
-\EndIf
-\If {$r_2.x - r_1.x - 1 + 2 \epsilon \leq  \Delta g.x \leq  1 ~\textbf{and}~r_2.y - r_1.y \leq \Delta g.y \leq  0$} \Comment{$\Delta g \in $ reachable region}
-\State $m_1 \gets \left(\frac{1-r_1.y}{2-g_1.y-r_1.y} (g_1.x -r_1.x), 1-r_1.y \right)$
-\If {$r_2.x + m_1.x >L$}
-\State $m_1.x \gets 1- r_2.x$
+%\begin{algorithm}
+%\caption{{\sc PlanMoveUp}($r_1,r_2,g_1,g_2,L, $\emph{moves})}\label{alg:Wallup}
+%\begin{algorithmic}[1]
+%%\scriptsize
+%\Require knowledge of current $(r_1,r_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
+%$(0,0)$ is bottom corner,
+% $L$ is length of the walls. 
+% The array \emph{moves} is the current sequence of moves up to the current position.
+% Assume $r_1.x < r_2.x$ and $r_1.y \geq r_2.y$. If not, mirror the coordinate frame and swap the robots, then undo the mirroring before returning.
+% $\epsilon $ is a small, nonzero, user-specified value.
+% 
+%\Ensure $(g_1, g_2) , (r_1, r_2)$ all at least $\epsilon$ distance from walls the goals and starting points have at least $\epsilon$ distance from each other.  
+%$m_1$ is the first move toward the wall or goal.
+% $m_2$ is the second move adjusting $\Delta e$.
+%\State $\Delta e \gets (g_2 - g_1)- (r_2- r_1)$
+%\If {$\Delta e = (0,0)$} \Comment{base case}
+%\State $m_1  \gets g_2 -  r_2$
+%\State \emph{moves}$ \gets \{ \text{\emph{moves}},   m_1 \}$
+%\State $(r_1,r_2) \gets ${\sc ApplyMove}$(m_1,r_1,r_2)$
+%\State \Return $\{h(\text{\emph{moves}}, r_1,r_2,g_1,g_2), \text{\emph{moves}},r_1,r_2\}$
 %\EndIf
-\Else \textbf{ if} {$r_2.x + m_1.x < 0$}  \textbf{then}
-\State $m_1.x \gets -r_2.x$
-\EndIf
-\Else 
-\State $m_1 = (0, 1-r_1.y)$
-\State $\Delta g \gets $ closest reachable $(\Delta x,\Delta y)$.
-%Adjust $\Delta g_x$ and $\Delta g_y$ %\Comment{To go to the nearest $\Delta g_x$ and $\Delta g_y$}
-%\State $\Delta g_x = r_2.x - r_1.x - 1 + 2 \epsilon
-\EndIf
-\State \emph{moves}$ \gets \{ \text{\emph{moves}},   m_1\}$
-\State $(r_1,r_2) \gets ${\sc ApplyMove}$(m_1,r_1,r_2)$
-\State $m_2 \gets \Delta g -  (r_2- r_1)$
-\If {robots on each other \textbf{or} on the wall}
-\State Add $\pm \epsilon$ to $m_2.x$ to avoid collision
-\EndIf
-\State \emph{moves} $ \gets \{ \text{\emph{moves}},   m_2\}$
-\State $(r_1,r_2) \gets ${\sc ApplyMove}$(m_2,r_1,r_2)$
-\State \Return $\{h(\text{\emph{moves}}, r_1,r_2,g_1,g_2), \text{\emph{moves}},r_1,r_2\}$
-\end{algorithmic}
-\end{algorithm}
+%\If {$r_2.x - r_1.x - 1 + 2 \epsilon \leq  \Delta g.x \leq  1 ~\textbf{and}~r_2.y - r_1.y \leq \Delta g.y \leq  0$} \Comment{$\Delta g \in $ reachable region}
+%\State $m_1 \gets \left(\frac{1-r_1.y}{2-g_1.y-r_1.y} (g_1.x -r_1.x), 1-r_1.y \right)$
+%\If {$r_2.x + m_1.x >L$}
+%\State $m_1.x \gets 1- r_2.x$
+%%\EndIf
+%\Else \textbf{ if} {$r_2.x + m_1.x < 0$}  \textbf{then}
+%\State $m_1.x \gets -r_2.x$
+%\EndIf
+%\Else 
+%\State $m_1 = (0, 1-r_1.y)$
+%\State $\Delta g \gets $ closest reachable $(\Delta x,\Delta y)$.
+%%Adjust $\Delta g_x$ and $\Delta g_y$ %\Comment{To go to the nearest $\Delta g_x$ and $\Delta g_y$}
+%%\State $\Delta g_x = r_2.x - r_1.x - 1 + 2 \epsilon
+%\EndIf
+%\State \emph{moves}$ \gets \{ \text{\emph{moves}},   m_1\}$
+%\State $(r_1,r_2) \gets ${\sc ApplyMove}$(m_1,r_1,r_2)$
+%\State $m_2 \gets \Delta g -  (r_2- r_1)$
+%\If {robots on each other \textbf{or} on the wall}
+%\State Add $\pm \epsilon$ to $m_2.x$ to avoid collision
+%\EndIf
+%\State \emph{moves} $ \gets \{ \text{\emph{moves}},   m_2\}$
+%\State $(r_1,r_2) \gets ${\sc ApplyMove}$(m_2,r_1,r_2)$
+%\State \Return $\{h(\text{\emph{moves}}, r_1,r_2,g_1,g_2), \text{\emph{moves}},r_1,r_2\}$
+%\end{algorithmic}
+%\end{algorithm}
 
 
 
@@ -280,16 +339,16 @@ $m_1$ is the first move toward the wall or goal.
 
 
 
-
-\begin{figure}
-\centering
-\begin{overpic}[width=0.5\columnwidth]{Reflection.pdf}\end{overpic}
-\caption{\label{fig:reflection}
-If the goal configuration can be reached in three moves, the first move makes one particle hit a wall, the second move adjusts the relative spacing error $\Delta e$ to zero, and the third move takes the particles to their final positions. 
-The second move cannot be shortened, so optimization depends on choosing the location where the robot hits the wall. 
- Since the shortest distance between two points is a straight line, reflecting the goal position across the boundary wall and plotting a straight line gives the optimal hit location.
-} \vspace{-1em}
-\end{figure}
+%
+%\begin{figure}
+%\centering
+%\begin{overpic}[width=0.5\columnwidth]{Reflection.pdf}\end{overpic}
+%\caption{\label{fig:reflection}
+%If the goal configuration can be reached in three moves, the first move makes one particle hit a wall, the second move adjusts the relative spacing error $\Delta e$ to zero, and the third move takes the particles to their final positions. 
+%The second move cannot be shortened, so optimization depends on choosing the location where the robot hits the wall. 
+% Since the shortest distance between two points is a straight line, reflecting the goal position across the boundary wall and plotting a straight line gives the optimal hit location.
+%} \vspace{-1em}
+%\end{figure}
 
 %\begin{figure*}
 %\centering
@@ -323,7 +382,7 @@ If the 3D projection is at a different angle, redefine the 2D workspace as a reg
  First, we move the closest particle to the boundary, which prevents its $z$ coordinate from changing.  
  We next apply actuation in either the $\pm z$ direction to achieve the desired $\Delta z$.
  Then the particles are actuated away from the boundary and to the appropriate $z$ positions.
- Path planning continues using Alg. XX to position the particles to the desired $x$ and $y$ positions. 
+ Path planning continues using Alg.~\ref{alg:optimalAlg} to position the particles to the desired $x$ and $y$ positions. 
  As an example, consider Fig.~\ref{fig:zaxis} which shows a cylindrical workspace.
  The blue particle starts in the blue disk and the red particle starts in the red disk. 
  The two candidate shortest-length paths that touch the wall are shown with parallel arrows. 
@@ -335,7 +394,7 @@ This can be extended to other 3D workspaces if the workspace can be locally appr
 \begin{overpic}[width=0.5\columnwidth]{zaxis.pdf}\end{overpic}
 \caption{\label{fig:zaxis}
 Extending the algorithm to position the particles in 3D.
-} \vspace{-1em}
+} %\vspace{-1em}
 \end{figure}
 
 

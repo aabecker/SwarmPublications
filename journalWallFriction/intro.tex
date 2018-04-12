@@ -8,11 +8,13 @@ Particle swarms propelled by a uniform field, where each particle  receives the 
 % In this regime, the input force command $\mathbf{u}(t)$ controls the velocity of the robots.  
 %  The same model can be generalized to particles moved by fluid flow where the vector direction of fluid flow $\mathbf{u}(t)$ controls the velocity of particles, or for a swarm of robots that move at a constant speed in a direction specified by a global input $\mathbf{u}(t)$~\citep{Rubenstein2012}.
 % Our control problem is to design the control inputs $\mathbf{u}(t)$ to make all $n$ particles achieve a task.
-As a current example, micro- and nano-robots can be manufactured in large numbers, see~\cite{Chowdhury2015,martel2014computer,kim2015imparting,Donald2013,Ghosh2009,Ou2013,qiu2015magnetic}.
-Someday large swarms of robots will be remotely guided
-to assemble structures in parallel and 
- through the human body to cure disease, heal tissue, and prevent infection. %Both tasks are high   as described in \citep{munoz2014review} \citep{sitti2015biomedical} . 
- For each task, large numbers of micro robots are required to deliver sufficient payloads, but the small size of these robots makes it difficult to perform onboard computation.  Instead, these robots are often controlled by a broadcast signal. 
+%As a current example, micro- and nano-robots can be manufactured in large numbers, see~\cite{Chowdhury2015,martel2014computer,kim2015imparting,Donald2013,Ghosh2009,Ou2013,qiu2015magnetic}.
+%Someday large swarms of robots will be remotely guided
+%to assemble structures in parallel and 
+% through the human body to cure disease, heal tissue, and prevent infection. %Both tasks are high   as described in \citep{munoz2014review} \citep{sitti2015biomedical} . 
+% For each task, large numbers of micro robots are required to deliver sufficient payloads, but 
+
+The small size of these robots makes it difficult to perform onboard computation.  Instead, these robots are often controlled by a broadcast signal. 
  The tiny robots themselves are often just rigid bodies, and it may be more accurate to define the \emph{system}, consisting of particles, a uniform control field, and sensing, as the robot.
 Such systems are severely underactuated, having 2 degrees of freedom in the shared control input, but $2n$ degrees of freedom for the particle swarm.
  Techniques are needed that can handle this underactuation. 
@@ -29,8 +31,8 @@ We assume that particles in contact with the boundaries have zero velocity if th
 \centering
 \vspace{1.5em}
 %\begin{overpic}[width=\columnwidth]{firstImage.jpg}\end{overpic}
-\begin{overpic}[width=0.5\columnwidth]{magneticsetup.jpg}\end{overpic}
-\begin{overpic}[width=0.4\columnwidth]{story4.png}\end{overpic}
+\begin{overpic}[width=0.5\columnwidth]{magneticsetup.pdf}\end{overpic}
+\begin{overpic}[width=0.4\columnwidth]{firstpicLeft.pdf}\end{overpic}
 \caption{\label{fig:IntroPic}
 Positioning particles that receive the same control inputs, but cannot move while a control input pushes them into a boundary.
 } \vspace{-1em}

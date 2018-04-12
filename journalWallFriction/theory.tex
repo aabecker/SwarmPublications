@@ -34,7 +34,7 @@ These system dynamics represent particle swarms in low-Reynolds number environme
  
  
  \subsection{Shortest Path}
- The shortest path between two points in the unit disk that reflects off the circumference is composed of two straight line segments shown in Fig.~\ref{fig:shortestpath}. The problem can be simplified by choosing the coordinate system carefully. We define the x axis along the position of the starting point: $S=(s,0)$, and define the point of intersection by the angle $\theta$ from the $x$ axis $P=(\cos \theta,\sin \theta)$, and the final point by a radius e and angle $\beta$, $E=e(\cos \beta,\sin \beta)$. Then define a symmetry point about S of line OP named T. Then the length of the two line segments is 
+ The shortest path between two points in the unit disk that reflects off the circumference is composed of two straight line segments shown in Fig.~\ref{fig:shortestpath}. The problem can be simplified by choosing the coordinate system carefully. We define the $x$ axis along the position of the starting point: $S=(s,0)$, and define the point of intersection by the angle $\theta$ from the $x$ axis $P=(\cos \theta,\sin \theta)$, and the final point by a radius e and angle $\beta$, $E=e(\cos \beta,\sin \beta)$. Then define a symmetry point about S of line OP named T. Then the length of the two line segments is 
  \begin{equation}
 \scriptsize{ \sqrt{(s-\cos \theta)^2+(-\sin \theta)^2}+\sqrt{(e \sin \beta-\cos \theta)^2+(e \sin \beta-\sin \theta)^2}}
  \end{equation}
@@ -62,37 +62,5 @@ These system dynamics represent particle swarms in low-Reynolds number environme
  
  Simplifying this system of equations results in: $s=e \csc \theta (s \sin(2 \theta-\beta)+\sin(\beta-\theta))$. Solving this last equation results in a quartic solution that has a closed-form solution with four roots, each of which can be either a clockwise or a counterclockwise rotation $\theta$, depending on the sign of $\beta$, with $-\pi<=\beta<=\pi$. We evaluate each and select the solution that results in the shortest length path. Note that the optimal path satisfies the law of reflection off the unit circle, with angle of incidence equal to angle of reflection.
  
- \subsection{Different Polygonal Workspaces}
- 
- Fig. \ref{fig:polygon} shows different workspaces and their representative $\Delta$ configuration spaces. Consider one robot touching each vertex of the workspace. For each pair of vertices, compute where the other robot will be if the first robot goes to that vertex. If the final position of the second robot is still inside the workspace, then its position is one of the vertices of the reachable set. If the point is not inside the polygon, then the intersection of the line that point and the second robot's position with the polygon is one vertex of the reachable set. Compute the distance to all the vertices of the workspace from this point. By subtracting the relative distance of the robots, then all the vertices of one reachable set are found. Doing this for all the vertices of the workspace will give us all the reachable sets.
- \begin{figure}
-\centering
-\renewcommand{\figwid}{0.8\columnwidth}
-{\begin{overpic}[width =\figwid]{differentNumSides.pdf}\put(5,100){Workspace}\put(20,100){$\Delta$ configuration space}
-\end{overpic}
-}
-\caption{\label{fig:polygon}{Workspace and $\Delta$ configuration spaces for different polygonal workspaces and their representative $\Delta$ configuration spaces and reachable sets. As the number of sides in the polygon increases, the total area of the $\Delta$ configuration space is four times of the workspace.
-}
-\vspace{-1em}
-}
-\end{figure}
-
-\todo{latex line over the top of two vertices}
-
-\begin{figure*}
-\centering
-\renewcommand{\figwid}{0.66\columnwidth}
-\begin{overpic}[width =\figwid]{anypolygon1.pdf}
-\end{overpic}
-\begin{overpic}[width =\figwid]{anypolygon2.pdf}
-\end{overpic}
-\begin{overpic}[width =\figwid]{anypolygon3.pdf}
-\end{overpic}
-\caption{\label{fig:polygonAlg}{ Steps to generate  the reachable set when  one particle collides with edge $i,i+1$ of a convex polygonal workspace.}
-\vspace{-1em}
-}
-\end{figure*}
-
- 
- 
+  
  
