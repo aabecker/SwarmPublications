@@ -2,11 +2,57 @@
 
 \section{Position Control of Two Robots Using Boundary Interaction}\label{sec:PostionControl2Robots}
 
-Alg.~\ref{alg:optimalAlg} uses non-slip contacts with walls to arbitrarily position two robots in a convex workspace. In our previous work we used a rectangular workspace. We use the same idea here but we modify the algorithm to handle any convex workspace, then we expand how the algorithm works in circular workspace.
+This section presents algorithms that use non-slip contacts with walls to arbitrarily position two robots in a convex workspace. Our previous work used a square workspace. We modify the algorithm to handle any convex workspace, and address the special case of circular workspaces. In the last subsection we present techniques to extend the workspace to 3D.
 
-\subsection{Convex Polygonal Workspaces}
+Workspaces are 2D convex polygons with no internal obstacles. The configuration space for two particles is a four dimensional manifold. Translating both particles the same amount is a trivial operation, but changing the relative positions requires boundary interaction. For this reason, our algorithms use the two dimensional $\Delta$ configuration space, defined as the difference in position of the first particle and the second particle.
+
+\subsection{Two Particle Path Planning}
+
+Assume two particles are initialized at $s_1$ and $s_2$ with corresponding goal destinations $g_1$ and $g_2$. 
+Denote the current positions of the particles  $p_1$ and $p_2$ and the current distance between the particles is $d$.
+Values $.x$ and $.y$ denote the $x$ and $y$ coordinates, i.e., $p_1.x$ and $p_1.y$ denote the $x$ and $y$ locations of $p_1$. 
+The algorithm assigns a uniform control input at every instance.
+The goal is to move the particles to the goal positions using a shared control input. We do this by first moving them to the correct relative position and then translating the particles to the goal. The correct relative position is when   
+ $||\Delta g - \Delta p || = ||(g_2-g_1)- (p_2-p_1)||$. 
  
- Fig. \ref{fig:polygon} shows different workspaces and their representative $\Delta$ configuration spaces. Alg.~\ref{alg:polygonReachbale} shows how to compute reachable set for any convex polygonal workspace. Consider one robot touching each vertex of the workspace as shown in Fig.\ref{fig:polygonAlg}. For each pair of vertices, compute where the other robot will be if the first robot goes to that vertex. If the final position of the second robot is still inside the workspace, then its position is one of the vertices of the reachable set. If the point is not inside the polygon, then the intersection of the line that point and the second robot's position with the polygon is one vertex of the reachable set. Compute the distance to all the vertices of the workspace from this point. By subtracting the relative distance of the robots, then all the vertices of one reachable set are found. Doing this for all the vertices of the workspace will give us all the reachable sets.
+ We define a $\Delta$ configuration space as a circular shape that considers all possible $\Delta p$ values. We also show the starting and ending relative distance as $\Delta s$ and $\Delta e$ in $\Delta$ configuration space in Fig.~\ref{fig:regionMove}. The reachable set is the part of $\Delta$ configuration space where if one particle touches a wall in a specific location, the other particle can make the required relative distance without causing the touching particle to move. We will discuss how to make reachable sets in the next subsections. 
+ The algorithm first makes the reachable set, and then checks if the goal relative position is in the reachable set. If it is not in the reachable set, the closest point on the reachable set from $\Delta g$ would be our current goal. We move the particles to make the current goal. If current goal is our final goal, we go to the final goal position. If it is not our final goal, we continue to set the closest point on the reachable set to our current goal until we reach the goal. 
+\begin{algorithm}[htb]
+\caption{ { \sc 2-ParticlePathPlanning}($s_1,s_2,g_1,g_2,P$)}\label{alg:optimalAlg}
+\begin{algorithmic}[1]
+%\scriptsize
+\Require knowledge of starting $(s_1,s_2)$ and goal $(g_1,g_2)$ positions of  two particles. 
+%$(0,0)$ is bottom corner,
+ $P$ is a description of the workspace.
+% \emph{PathList} contains all the paths sorted by their path length plus an admissible heuristic. 
+% \State  \emph{PathList} $\gets \{\}$
+ \State $(p_1,p_2) \gets (s_1,s_2) $ \Comment $p_1 , p_2$ are current positions
+\State  moves $\gets \{\}$
+% \State $R \gets   \{ p_1,p_2,g_1,g_2  ,\textrm{moves}\} $ \Comment $R$ contains the current particle positions, the goal positions, and the move sequence
+ \State $\Delta p \gets p_2-p_1$
+ \State $\Delta g \gets g_2-g_1$
+\While {$||\Delta p - \Delta g|| > \epsilon$}  %R.p_1 \ne g_1$ \textbf{and} $R.p_2 \ne g_2$}
+\State $R_{\textrm{SET}}$ = Compute reachable set  \Comment use Alg.~\ref{alg:polygonReachbale} or Alg.~\ref{alg:circularReachbale}
+\State $ \Delta g_c\gets $nearest point in $R_{\textrm{SET}}$ to $\Delta g$
+\State $m \gets $move-to-wall
+\State Append($m$, moves)
+\State $p_1$ = ApplyMove($p_1,m$)
+\State $p_2$ = ApplyMove($p_2,m$)
+ \State $\Delta p \gets p_2-p_1$
+\EndWhile
+\State Append($g2-p2$, moves)  \Comment translate to goal
+\State \Return moves
+\end{algorithmic}
+\end{algorithm}
+
+
+\subsection{Convex Polygonal Workspaces: Reachable Set}
+ 
+ Fig. \ref{fig:polygon} shows different workspaces and their representative $\Delta$ configuration spaces. 
+
+
+% Consider one particle touching each vertex of the workspace as shown in Fig.~\ref{fig:polygonAlg}.
+%  For each pair of vertices, compute where the other robot will be if the first robot goes to that vertex. If the final position of the second robot is still inside the workspace, then its position is one of the vertices of the reachable set. If the point is not inside the polygon, then the intersection of the line that point and the second robot's position with the polygon is one vertex of the reachable set. Compute the distance to all the vertices of the workspace from this point. By subtracting the relative distance of the robots, then all the vertices of one reachable set are found. Doing this for all the vertices of the workspace will give us all the reachable sets.
  \begin{figure}
 \centering
 \renewcommand{\figwid}{0.8\columnwidth}
@@ -19,16 +65,49 @@ Alg.~\ref{alg:optimalAlg} uses non-slip contacts with walls to arbitrarily posit
 }
 \end{figure}
 
+
+\begin{figure}
+\centering
+\begin{overpic}[width=0.47\columnwidth]{twoRobotRegionH.pdf}\end{overpic}
+\begin{overpic}[width=0.47\columnwidth]{twoRobotRegionV.pdf}\end{overpic}
+\caption{\label{fig:TwoRegions}
+Boundary interaction is used to change the relative positions of the particles. Each particle gets the same control input. 
+(left) If particle 2 hits the bottom wall before particle 1 reaches a wall, particle 2 can reach anywhere along the green line, and  particle 1 can move to anywhere in the shaded area. 
+(right) Similarly, if particle 2 hits the right wall before particle 1 reaches a wall, particle 2 can reach anywhere along the green line, and  particle 1 can move to anywhere in the shaded area. 
+}
+\end{figure}
+If a particle is touching a wall, the other particle can move freely in the reachable set as shown in Fig.~\ref{fig:TwoRegions}. We extend a square workspace to any convex workspace by computing the reachable set for all the sides of the polygon. Fig.~\ref{fig:polygonAlg} shows different cases with the particles and an arbitrary side. If particle 2 is touching the $i^{th}$ side, we compute if particle 1 will stay in the polygon or not. Then we generate the reachable set using all the vertices of the polygon and potential place of particle 1. We unify all the reachable sets corresponding to all the sides. Alg.~\ref{alg:polygonReachbale} computes reachable set for any convex polygonal workspace. 
+ \begin{algorithm}[htb]
+\caption{ { \sc ReachableSetPolygon}($s_1,s_2,g_1,g_2, P$)}\label{alg:polygonReachbale}
+\begin{algorithmic}[1]
+%\scriptsize
+\Require knowledge of starting $(s_1,s_2)$ and goal $(g_1,g_2)$ positions of  two particles. 
+$P$ is a list of the vertices of a convex polygon. %RSet contains all the reachable polygons.
+\For {$i$ in $P$}
+\State $p_{i} \gets s_1 + s_2 - i$
+\State $p_{i+1} \gets s_1 + s_2 - (i+1)$
+\State $L \gets$ line with $(p_{11}, p_{12})$
+\State $l_i, l_{i+1} \gets $ intersections of $L$ and polygon $P$
+\If {$p_{i}\notin$ polygon}
+\State $p_{i} \gets l_i$
+\EndIf
+\State $v_i \gets$ All vertices $\in [ l_i , l_{i+1} ] $
+\State $d_i \gets$ All vectors from $p_i$ to $[ l_i , i]\cup  p_{i+1}$ to $ [i+1 , l_{i+1} ] $
+\State Append (polygon ($s_2 - (s_1 +d_i)$),$R_{\textrm{SET}}$ )
+\EndFor
+\State Return $R_{\textrm{SET}}$
+\end{algorithmic}
+\end{algorithm}
 %\todo{latex line over the top of two vertices}
 
 \begin{figure*}
 \centering
 \renewcommand{\figwid}{0.66\columnwidth}
-\begin{overpic}[width =\figwid]{anypolygon1.pdf}
+\begin{overpic}[width =\figwid]{anypolygon1.pdf}\put(15,0){Case 1:$s_1$ does not hit boundary}\put(28,39){$s_2$}\put(63,50){$s_1$}
 \end{overpic}
-\begin{overpic}[width =\figwid]{anypolygon2.pdf}
+\begin{overpic}[width =\figwid]{anypolygon2.pdf}\put(25,0){Case 2:$s_1$ hits boundary}\put(20,40){$s_2$}\put(55,58){$s_1$}
 \end{overpic}
-\begin{overpic}[width =\figwid]{anypolygon3.pdf}
+\begin{overpic}[width =\figwid]{anypolygon3.pdf}\put(25,0){Generates polygon}
 \end{overpic}
 \caption{\label{fig:polygonAlg}{ Steps to generate  the reachable set when  one particle collides with edge $i,i+1$ of a convex polygonal workspace.}
 \vspace{-1em}
@@ -36,20 +115,13 @@ Alg.~\ref{alg:optimalAlg} uses non-slip contacts with walls to arbitrarily posit
 \end{figure*}
 
  
-\subsection{Circular Workspaces}
+\subsection{Circular Workspaces: Reachable Set}
 
 
 % Fig.~\ref{fig:shapeControlMathematica1} shows a Mathematica implementation of the algorithm, and is useful as a visual reference for the following description.
 
-Assume two robots are initialized at $s_1$ and $s_2$ with corresponding goal destinations $g_1$ and $g_2$. 
-Denote the current positions of the robots  $p_1$ and $p_2$ and the current distance between the robots is $d$.
-Values $.x$ and $.y$ denote the $x$ and $y$ coordinates, i.e., $p_1.x$ and $p_1.y$ denote the $x$ and $y$ locations of $p_1$. 
-The algorithm assigns a uniform control input at every instance.
-The goal is to move the particles to the goal positions using a shared control input. We do this by first moving them to the correct relative position and then translating the particles to the goal. The first step minimizes  
- $||\Delta g - \Delta p || = ||(g_2-g_1)- (p_2-p_1)||$. 
- 
- We define a $\Delta$ configuration space as a circular shape that considers all possible $\Delta p$s. We also show the starting and ending relative distance as $\Delta s$ and $\Delta e$ in $\Delta$ configuration space in Fig.~\ref{fig:regionMove}. Reachable set is the part of $\Delta$ configuration space where if one robot touches a wall in a specific location, the other robot can make the required relative distance without causing touching robot to move. To compute reachable set for circular workspace, first we considered all passible hitting point locations in the workspace. 
- The set of boundary points that a robot can touch before the  other robot  touches is an arc of angle $2(\pi - \frac{\arcsin{d}}{r})$, where $d= |s_1 - s_2|$ and $r$ is the radius of the circle.
+To compute reachable set for a circular workspace, first we consider all passible hitting point locations in the workspace.
+ The set of boundary points that a particle can touch before the  other particle  touches is an arc of angle $2(\pi - \frac{\arcsin{d}}{r})$, where $d= |s_1 - s_2|$ and $r$ is the radius of the circle.
  %Here $\alpha$ is the arc of the circle that it is not possible to keep the current relative distance while one robot is touching the wall in that point and is defined by $\alpha = 2 \sin ^{-1}(d)$. 
  We define the angle between two particles as $\theta = \arctan(\frac{p_1.x-p_2.x}{p_1.y - p_2.y})$. 
  
@@ -57,8 +129,9 @@ The goal is to move the particles to the goal positions using a shared control i
 \begin{figure}
 \centering
 \begin{overpic}[width=\columnwidth]{reachableSetCircle.pdf}\end{overpic}
-\caption{\label{fig:regionMove}Left:  the set of points where the red robot is the first to contact the boundary are drawn with a red arc. The  set of points where the blue robot is the first to contact the boundary are drawn with a blue arc. 
-The possible points for the blue and pink particles to touch the boundary is shown in blue and pink arcs. Right: When the blue particle is touching a wall (blue square) the other particle (pink square) can go anywhere in the reachable set (blue region).}
+\caption{\label{fig:regionMove}
+% the set of points where the red particle is the first to contact the boundary are drawn with a red arc. The  set of points where the blue particle is the first to contact the boundary are drawn with a blue arc. 
+Left top: The possible points for the blue and red particles to touch the boundary is shown in blue and red arcs. Left bottom: When the blue particle is touching a wall (blue square) the other particle (red square) can go anywhere in the reachable set (blue region). Right: The $\Delta$ configuration space for the corresponded starting positions of the particles is shown.}
 \end{figure}
 
 \begin{figure*}
@@ -88,13 +161,13 @@ Right shows the $\Delta$ configuration space and the reachable set that is shown
 Expanding a path means either moving directly to the goal, or pushing one robot to a wall and adjusting the relative position of the other robot.
 As soon as the goal is reached, the algorithm returns this path.
 
-There are infinite reachable sets, parameterized by first contact location $\psi$, as shown in Fig.~\ref{fig:regionMove}.
+A circle has infinite number of sides, thus infinite reachable sets. However, parameterized by the first contact location $\psi$, as shown in Fig.~\ref{fig:regionMove} where 
 %We make the reachable sets by knowing the angle of the chord, $\psi$, shown in Fig.~\ref{fig:psigamma}. Minimum and maximum values of $\psi$ can be calculated in the following equation.
 \begin{align}
- \psi \in \Big[\theta +\frac{\sin^{-1}{d}}{2r} - \frac{\pi}{2}, \theta -\frac{\sin^{-1}{d}}{2r} + \frac{\pi}{2}\Big]
+ \psi \in \Big[\theta +\frac{\sin^{-1}{d}}{2r} - \frac{\pi}{2}, \theta -\frac{\sin^{-1}{d}}{2r} + \frac{\pi}{2}\Big].
 % \psi_{\max} &= \theta -\frac{\alpha}{2} + \frac{\pi}{2}
 \end{align}
-$\gamma$ is half the angle of the arc that the reachable set's chord has shown in Fig.~\ref{fig:regionMove} and is calculated by:
+The possible first contact locations line on an arc with interior angle $\gamma$ is calculated by:
 \begin{align}\label{eq:ppsi}
 p_\psi &= r[\cos(\psi ), \sin(\psi )]\\ \label{eq:dprep}
 d_\perp&= 2 \abs{(s_1.p_\psi - s_2.p_\psi)}\\ \label{eq:gamma}
@@ -102,31 +175,45 @@ d_\perp&= 2 \abs{(s_1.p_\psi - s_2.p_\psi)}\\ \label{eq:gamma}
 \end{align} 
 Reachable sets with $\pi$ difference in $\psi$ value are equivalent in the  $\Delta$ configuration space, so we can plan in this space and choose to immobilize the particle closest to a wall. 
 
-The equation for the four lines outlining the reachable set can be found as follows:
+The equations for the four lines outlining the reachable set are as follows:
 \begin{align}\label{eq:circlereachable}
 l_1 &=  r \Big((\cos\psi_{\min}- \cos(\gamma_c + \psi_{\min}) )\\ \nonumber
 & + (\sin\psi_{\min}- \sin(\gamma_c + \psi_{\min}))\Big) &  0<\gamma_c< \gamma_{\psi_{\min}},\\ \nonumber
 l_2 &=  r \Big((\cos\psi_{\max}- \cos(\gamma_c + \psi_{\max}))\\ \nonumber
 & + (\sin\psi_{\max}- \sin(\gamma_c + \psi_{\max}))\Big) &  \gamma_{\psi_{\max}}<\gamma_c< 0,\\  \nonumber
 l_3 &=  r \Big((\cos\psi- \cos( \psi+\gamma_c ) )\\ \nonumber
-& ( \sin\psi-\sin( \psi+ \gamma_c))\Big) &  \psi_{\min}<\psi< \psi_{\max},\\ \nonumber
+&+ ( \sin\psi-\sin( \psi+ \gamma_c))\Big) &  \psi_{\min}<\psi< \psi_{\max},\\ \nonumber
 l_4 &=  r \Big((\cos\psi- \cos( \psi-\gamma_c ))\\ \nonumber
-&  ( \sin\psi- \sin( \psi- \gamma_c))\Big) &  \psi_{\min}<\psi< \psi_{\max}.\\ \nonumber
+&+  ( \sin\psi- \sin( \psi- \gamma_c))\Big) &  \psi_{\min}<\psi< \psi_{\max}.\\ \nonumber
 \end{align}
 We combine these boundaries to make the reachable set. 
-The algorithm first makes the reachable set, and then checks if the goal relative position is in the reachable set. If it is not in the reachable set, the closest point on the reachable set from $\Delta g$ would be our current goal. We need to find a $\psi$ that would enable us to reach to the required relative goal distance. To do so, we first check $\psi_{min}$ and $\psi_{max}$. \eqref{eq:ifinchord} shows if any point $p$, is in the region made by the robots if the touching robot has the angle $\psi$.
+We need to find a $\psi$ that would enable us to reach to the required relative goal distance. To do so, we first check $\psi_{min}$ and $\psi_{max}$. \eqref{eq:ifinchord} shows if any point $p$, is in the region made by the robots if the touching robot has the angle $\psi$.
 
 \begin{align}\label{eq:ifinchord}
 &(p.x - c.x)^2 + (p.y - c.y)^2  > r^2\\ \nonumber
- &(p_x - c_x) \cos\psi + (p.y- c.y) \sin\psi \leq -r. \cos\gamma
+ &(p_x - c_x) \cos\psi + (p.y- c.y) \sin\psi \leq -r\cdot \cos\gamma
 \end{align}
 
-Here $c$ is coordinate of the circle and $r$ is the radius of the workspace.
+Here $c$ is the coordinate of the workspace center and $r$ is the radius of the workspace.
  If $\Delta g$ is not in the region made by $\psi_{\min}$ or $\psi_{\max}$, we draw a line from $\Delta g$ and the current relative position, $\Delta s$. This line is a chord of the circle and we find the $\psi$ that makes this region. This equation finds this $\psi$:
   \begin{equation}
  \psi = \tan^{-1}(\Delta p - \Delta g ).
  \end{equation}
- Now that $\psi$ is found, we move the particles to make the current goal. If current goal is our final goal, we go to the final goal position. If it is not our final goal, we continue to set the closest point on the reachable set to our current goal until we reach the goal. 
+ 
+ 
+\begin{algorithm}[htb]
+\caption{ { \sc ReachableSetCircle}($s_1,s_2,g_1,g_2$)}\label{alg:circularReachbale}
+\begin{algorithmic}[1]
+%\scriptsize
+\Require knowledge of starting $(s_1,s_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
+\State $\theta = \arctan(\frac{p_1.x-p_2.x}{p_1.y - p_2.y})$
+\State Calculate $p_{\psi}$ \Comment use \eqref{eq:ppsi}
+\State Calculate $\gamma$ \Comment use \eqref{eq:gamma}
+\State Calculate $l_1, l_2, l_3, l_4$ \Comment use \eqref{eq:circlereachable} 
+\State Return Join($l_1, l_2, l_3, l_4$)
+\end{algorithmic}
+\end{algorithm}
+ %Now that $\psi$ is found, we move the particles to make the current goal. If current goal is our final goal, we go to the final goal position. If it is not our final goal, we continue to set the closest point on the reachable set to our current goal until we reach the goal. 
  
 % \begin{equation}
 % 
@@ -183,78 +270,10 @@ Here $c$ is coordinate of the circle and $r$ is the radius of the workspace.
 %
 
 
-\begin{algorithm}[htb]
-\caption{ { \sc 2-ParticlePathPlanning}($s_1,s_2,g_1,g_2,P$)}\label{alg:optimalAlg}
-\begin{algorithmic}[1]
-%\scriptsize
-\Require knowledge of starting $(s_1,s_2)$ and goal $(g_1,g_2)$ positions of  two particles. 
-%$(0,0)$ is bottom corner,
- $P$ is a list of the vertices of a convex polygon. 
-% \emph{PathList} contains all the paths sorted by their path length plus an admissible heuristic. 
-% \State  \emph{PathList} $\gets \{\}$
- \State $(p_1,p_2) \gets (s_1,s_2) $
-\State  moves $\gets \{\}$
- \State $R \gets   \{ p_1,p_2,g_1,g_2  ,\textrm{moves}\} $ \Comment $R$ contains the current robot positions, the goal positions, and the move sequence
- \State $\Delta p \gets p_2-p_1$
- \State $\Delta g \gets g_2-g_1$
-\While {$|\Delta g| < |\Delta p|+ \epsilon$}  %R.p_1 \ne g_1$ \textbf{and} $R.p_2 \ne g_2$}
-\State $R_s$ = Compute reachable set  \Comment use Alg.~\ref{alg:polygonReachbale} or Alg.~\ref{alg:circularReachbale}
-\State $ \Delta g_c\gets $nearest point in $R_s$ to $\Delta g$
-\State  add move to hit the wall
-\State  add move to reach  $ \Delta g_c$
-\State Add the required moves to moves for the particles to achieve $\Delta g_c$ 
-%\For{ $\theta \in \{0^\circ, 90^\circ, 180^\circ, 270^\circ \}$ }
-%\State $(r_1,r_2,g_1,g_2) \gets$ {\sc Rotate}($R.r_1,R.r_2,g_1,g_2,\theta$)
-%\State $\{d, $ \parbox[t]{.3\linewidth}{%
-% \emph{moves,}$ r_1,r_2\} \gets$\\
- %{\sc  PlanMoveUp}($r_1,r_2,g_1,g_2,L, P.\text{\emph{moves}}$)}
-%\State $(\text{\emph{moves}}, r_1,r_2) \gets$ {\sc Rotate}(\emph{moves}$, r_1,r_2,-\theta$)
-%\State   {\sc Push} $\{d, \text{\emph{moves}}, r_1,r_2\} $ onto \emph{PathList}
-%\EndFor
-%\State {\sc Sort}(\emph{PathList}) \Comment sort by admissible heuristic
-%\State $R \gets $ {\sc Pop} first element of \emph{PathList}
-\EndWhile
-\State $\textrm{moves} \gets \textrm{moves}+ {g_2 - p_2}$  \Comment translate to goal
-\State \Return moves
-\end{algorithmic}
-\end{algorithm}
 
 
-\begin{algorithm}[htb]
-\caption{ { \sc PolygonalWorkspace}($s_1,s_2,g_1,g_2, P$)}\label{alg:polygonReachbale}
-\begin{algorithmic}[1]
-%\scriptsize
-\Require knowledge of starting $(s_1,s_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
-$P$ is a list of the vertices of a convex polygon. RSet contains all the reachable polygons.
-\For {$i$ in $P$}
-\State $p_{i} \gets s_1 + s_2 - i$
-\State $p_{i+1} \gets s_1 + s_2 - (i+1)$
-\State $L \gets$ line with $(p_{11}, p_{12})$
-\State $l_i, l_{i+1} \gets $ intersections of $L$ and polygon
-\If {$p_{i}\notin$ polygon}
-\State $p_{i} \gets l_i$
-\EndIf
-\State $v_i \gets$ All vertices $\in [ l_i , l_{i+1} ] $
-\State $d_i \gets$ All vectors from $p_i$ to $[ l_i , i]\cup  p_{i+1}$ to $ [i+1 , l_{i+1} ] $
-\State RSet $\gets$ RSet  + polygon ($s_2 - (s_1 +d_i)$)
-\EndFor
-\State Return RSet
-\end{algorithmic}
-\end{algorithm}
 
-\begin{algorithm}[htb]
-\caption{ { \sc CircularWorkspace}($s_1,s_2,g_1,g_2$)}\label{alg:circularReachbale}
-\begin{algorithmic}[1]
-%\scriptsize
-\Require knowledge of starting $(s_1,s_2)$ and goal $(g_1,g_2)$ positions of  two robots. 
-\State $\theta = \arctan(\frac{p_1.x-p_2.x}{p_1.y - p_2.y})$
-\State Calculate $p_{\psi}$ \Comment use \eqref{eq:ppsi}
-\State Calculate $\gamma$ \Comment use \eqref{eq:gamma}
-\State Calculate $l_1, l_2, l_3, l_4$ \Comment use \eqref{eq:circlereachable} 
-\State polygon $\gets$ Join($l_1, l_2, l_3, l_4$)
-\State return polygon
-\end{algorithmic}
-\end{algorithm}
+
 
 
 

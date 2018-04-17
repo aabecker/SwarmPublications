@@ -153,7 +153,7 @@
 
 
 % paper title
-\title{\LARGE \bf Exploiting Non-Slip Wall Contacts \\  to Position Two Particles Using a Shared Input}
+\title{\LARGE \bf Exploiting Non-Slip Wall Contacts \\  to Position Two Particles Using The Same Control Input}
 
 % You will get a Paper-ID when submitting a pdf file to the conference system
 \author{Shiva Shahrokhi, Jingang Shi,  Benedict Isichei, and Aaron T. Becker% <-this % stops a space
@@ -181,13 +181,13 @@
 
 Steered particles offer a method for targeted therapy, interventions, and drug delivery in regions inaccessible by large robots.
 Magnetic actuation has the benefits of requiring no tethers, being able to operate from a distance, and in some cases allows imaging for feedback (e.g. MRI).
+ This paper investigates control with uniform magnetic gradients (the same force is applied everywhere in the workspace).
 Given three orthogonal magnetic fields, steering one particle in 3D is trivial. 
 Adding additional particles to steer makes the system underactuated because there are more states than control inputs. 
-The walls of in vivo and artificial environments often have surface roughness such that the particles do not move unless actuation pulls them away from the wall.
+However, the walls of in vivo and artificial environments often have surface roughness such that the particles do not move unless actuation pulls them away from the wall.
 In previous works, we showed that the individual 2D position of two particles is controllable in a square workspace with non-slip wall contact. 
-However, in vivo environments are usually not square. 
-This work extends the previous work to convex workspaces and 3D positioning. 
-This paper also implements the algorithms using a hardware setup inspired by intestine anatomy.
+Because in vivo environments are usually not square, this work extends the previous work to convex workspaces including circles and 3D positioning. 
+This paper also implements the algorithms using a hardware setup inspired by gastrointestinal tract.
 
 
 
