@@ -6,7 +6,7 @@
 
 %\subsection{Position Control of Two Robots}
 
-Algorithm \ref{alg:optimalAlg}  was implemented in Mathematica using point robots (radius = $0$). 
+Algorithm \ref{alg:optimalAlg}  was implemented in Mathematica using particles with zero radius. 
 %An online interactive demonstration and source code of the algorithm are available at \cite{Shahrokhi2015mathematicaParticle}.
 %  Fig.~\ref{fig:shapeControlMathematica1}  shows  an implementation of this algorithm with robot initial positions represented by hollow squares and final positions by circles. 
  %Dashed lines show the shortest route if robots could be controlled independently, while solid lines show the optimal shortest  path using uniform inputs.
@@ -32,7 +32,7 @@ Plots showing the algorithm with one goal on the boundary.
 \begin{overpic}[width=0.49\columnwidth]{deltanum.pdf}\end{overpic}
 \begin{overpic}[width=0.49\columnwidth]{deltadist.pdf}\end{overpic}
 \caption{\label{fig:deltanumdist}
-Plots showing decreasing error when the number of moves grows.
+Plots showing decreasing error as the number of moves grows.
 } 
 \vspace{-1em}
 \end{figure}
@@ -56,7 +56,7 @@ Plots showing decreasing error when the number of moves grows.
 %\put(97.5,7.5){1}
 %\put(97.5,5){0}
 \end{overpic}
-}\caption{\label{fig:contourPlots}{Starting positions of robots $1$ and $2$ and goal position of robot $2$ are fixed, and $\epsilon=0.001$.
+}\caption{\label{fig:contourPlots}{Starting positions of particles $1$ and $2$ and goal position of particle $2$ are fixed, and $\epsilon=0.001$.
  The top row of contour plots show the distance if robot $1$'s goal position is varied in $x$ and $y$. The bottom row shows the number of moves required for the same configurations.}
 \vspace{-1em}
 }
