@@ -1,0 +1,425 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     15120,        417]
+NotebookOptionsPosition[     14052,        387]
+NotebookOutlinePosition[     14411,        403]
+CellTagsIndexPosition[     14368,        400]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+A vehicle that whose velocity is slower while turning
+SImilar to a Dubbin\[CloseCurlyQuote]s car.  Dubbin\[CloseCurlyQuote]s paths \
+are the shortest path, but might no longer be time optimal.
+Aaron T. Becker, March 8, 2018\
+\>", "Section",
+ CellChangeTimes->{{3.729514587218392*^9, 
+  3.7295146925374317`*^9}},ExpressionUUID->"98dc8de7-a209-4e2a-80b8-\
+6c963fd62674"],
+
+Cell[CellGroupData[{
+
+Cell["Model:  car velocity v = (\[Omega]max-\[Omega])vmax.  ", "Subsection",
+ CellChangeTimes->{{3.729515199712994*^9, 
+  3.729515248363409*^9}},ExpressionUUID->"871fefab-1945-46f7-afd5-\
+f37296f93d67"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{"\[Piecewise]", GridBox[{
+     {
+      RowBox[{
+       FractionBox["v", "\[Omega]"], 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Sin", "[", 
+          RowBox[{"t", "  ", "\[Omega]"}], "]"}], ",", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"t", "  ", "\[Omega]"}], "]"}]}], ")"}]}], "}"}]}], 
+      RowBox[{"t", "<", "\[Tau]"}]},
+     {
+      RowBox[{
+       RowBox[{
+        FractionBox["v", "\[Omega]"], 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Sin", "[", 
+           RowBox[{"\[Tau]", " ", "\[Omega]"}], "]"}], ",", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "1"}], "+", 
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Tau]", "  ", "\[Omega]"}], "]"}]}], ")"}]}], "}"}]}], 
+       "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"t", "-", "\[Tau]"}], ")"}], "v", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Omega]", " ", "\[Tau]"}], "]"}], ",", 
+          RowBox[{"-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"\[Omega]", " ", "\[Tau]"}], "]"}]}]}], "}"}]}]}], 
+      TagBox["True",
+       "PiecewiseDefault",
+       AutoDelete->False,
+       DeletionWarning->True]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxItemSize->{
+     "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.84]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.729515047458392*^9, 
+  3.7295150503550253`*^9}},ExpressionUUID->"b6107d41-dc9e-4877-8a94-\
+dd013f299187"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\[Piecewise]", GridBox[{
+       {
+        RowBox[{"{", 
+         RowBox[{
+          FractionBox[
+           RowBox[{"v", " ", 
+            RowBox[{"Sin", "[", 
+             RowBox[{"t", " ", "\[Omega]"}], "]"}]}], "\[Omega]"], ",", 
+          FractionBox[
+           RowBox[{"v", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", "1"}], "+", 
+              RowBox[{"Cos", "[", 
+               RowBox[{"t", " ", "\[Omega]"}], "]"}]}], ")"}]}], 
+           "\[Omega]"]}], "}"}], 
+        RowBox[{"t", "<", "\[Tau]"}]},
+       {
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"v", " ", 
+            RowBox[{"(", 
+             RowBox[{"t", "-", "\[Tau]"}], ")"}], " ", 
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Tau]", " ", "\[Omega]"}], "]"}]}], "+", 
+           FractionBox[
+            RowBox[{"v", " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{"\[Tau]", " ", "\[Omega]"}], "]"}]}], "\[Omega]"]}], 
+          ",", 
+          FractionBox[
+           RowBox[{"v", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", "1"}], "+", 
+              RowBox[{"Cos", "[", 
+               RowBox[{"\[Tau]", " ", "\[Omega]"}], "]"}], "+", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", "t"}], "+", "\[Tau]"}], ")"}], " ", "\[Omega]", 
+               " ", 
+               RowBox[{"Sin", "[", 
+                RowBox[{"\[Tau]", " ", "\[Omega]"}], "]"}]}]}], ")"}]}], 
+           "\[Omega]"]}], "}"}], 
+        TagBox["True",
+         "PiecewiseDefault",
+         AutoDelete->True]}
+      },
+      AllowedDimensions->{2, Automatic},
+      Editable->True,
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxItemSize->{
+       "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.84]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}},
+      Selectable->True]}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxItemSize->{
+    "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[0.35]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  "Piecewise",
+  DeleteWithContents->True,
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{
+  3.729515051721985*^9},ExpressionUUID->"957cab82-ffb9-443f-abbf-\
+1d1f9e0e21e4"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"rs", "[", 
+   RowBox[{
+   "v_", ",", "\[Omega]_", ",", "t_", ",", "\[Tau]_", ",", "\[Omega]max_"}], 
+   "]"}], ":=", 
+  RowBox[{"\[Piecewise]", GridBox[{
+     {
+      RowBox[{
+       FractionBox[
+        RowBox[{"(", 
+         RowBox[{"\[Omega]max", "-", "\[Omega]"}], ")"}], "\[Omega]"], 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Sin", "[", 
+          RowBox[{"t", "  ", "\[Omega]"}], "]"}], ",", 
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           RowBox[{"t", "  ", "\[Omega]"}], "]"}], "-", "1"}]}], "}"}]}], 
+      RowBox[{"t", "<", "\[Tau]"}]},
+     {
+      RowBox[{
+       RowBox[{
+        FractionBox[
+         RowBox[{"(", 
+          RowBox[{"\[Omega]max", "-", "\[Omega]"}], ")"}], "\[Omega]"], 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Sin", "[", 
+           RowBox[{"\[Tau]", " ", "\[Omega]"}], "]"}], ",", 
+          RowBox[{
+           RowBox[{"Cos", "[", 
+            RowBox[{"\[Tau]", "  ", "\[Omega]"}], "]"}], "-", "1"}]}], 
+         "}"}]}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"t", "-", "\[Tau]"}], ")"}], "v", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Omega]", " ", "\[Tau]"}], "]"}], ",", 
+          RowBox[{"-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"\[Omega]", " ", "\[Tau]"}], "]"}]}]}], "}"}]}]}], 
+      TagBox["True",
+       "PiecewiseDefault",
+       AutoDelete->False,
+       DeletionWarning->True]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxItemSize->{
+     "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.84]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}]}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.729511924695744*^9, {3.72951206313171*^9, 3.7295121326153183`*^9}, {
+   3.729514282946563*^9, 3.729514477635758*^9}, {3.729514553096586*^9, 
+   3.729514557292019*^9}, 3.7295147950247803`*^9, {3.7295149157803993`*^9, 
+   3.729514936042184*^9}, {3.7295150722098722`*^9, 3.72951508154694*^9}, {
+   3.7295153028382883`*^9, 3.729515327529729*^9}},
+ CellID->1284171378,ExpressionUUID->"75beb129-bf74-4735-97c2-d919cbfb4040"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"vmax", " ", "=", " ", "1"}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{"TODO", ":", " ", 
+    RowBox[{
+    "add", " ", "orientation", " ", "line", " ", "for", " ", "the", " ", 
+     "dot"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"\[Omega]max", " ", "=", " ", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"rs", "[", 
+        RowBox[{"vmax", ",", 
+         RowBox[{"1", "*", "\[Omega]max"}], ",", "tmax", ",", "s", ",", 
+         "\[Omega]max"}], " ", "]"}], ",", 
+       RowBox[{"rs", "[", 
+        RowBox[{"vmax", ",", 
+         RowBox[{
+          RowBox[{"1", "/", "2"}], "*", "\[Omega]max"}], ",", "tmax", ",", 
+         "s", ",", "\[Omega]max"}], " ", "]"}], ",", 
+       RowBox[{"rs", "[", 
+        RowBox[{"vmax", ",", 
+         RowBox[{
+          RowBox[{"1", "/", "4"}], "*", "\[Omega]max"}], ",", "tmax", ",", 
+         "s", ",", "\[Omega]max"}], " ", "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"s", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", 
+      RowBox[{"{", "440", "}"}]}], ",", 
+     RowBox[{"AxesOrigin", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+     RowBox[{"Epilog", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"PointSize", "[", "Large", "]"}], ",", "Red", ",", 
+        RowBox[{"Point", "[", 
+         RowBox[{"rs", "[", 
+          RowBox[{"vmax", ",", "\[Omega]max", ",", "tmax", ",", 
+           RowBox[{"\[Tau]", " ", "*", "tmax"}], ",", "\[Omega]max"}], "]"}], 
+         "]"}]}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Tau]", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"tmax", ",", "1", ",", "5"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7295147314480047`*^9, 3.729514782828642*^9}, {
+  3.7295148166911907`*^9, 3.729514890628902*^9}, {3.729514969071512*^9, 
+  3.729515020768293*^9}, {3.729515341821354*^9, 3.729515395682384*^9}, {
+  3.729525144125346*^9, 
+  3.729525152951374*^9}},ExpressionUUID->"51f4841f-e268-4fcf-9c16-\
+feb5bedcd67a"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`tmax$$ = 2.51, $CellContext`\[Tau]$$ = 0., 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`\[Tau]$$], 0, 1}, {
+      Hold[$CellContext`tmax$$], 1, 5}}, Typeset`size$$ = {
+    440., {101., 105.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`\[Tau]$39836$$ = 
+    0, $CellContext`tmax$39837$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`tmax$$ = 1, $CellContext`\[Tau]$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`\[Tau]$$, $CellContext`\[Tau]$39836$$, 0], 
+        Hold[$CellContext`tmax$$, $CellContext`tmax$39837$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> ParametricPlot[{
+         $CellContext`rs[$CellContext`vmax, 
+          1 $CellContext`\[Omega]max, $CellContext`tmax$$, $CellContext`s, \
+$CellContext`\[Omega]max], 
+         $CellContext`rs[$CellContext`vmax, (1/
+           2) $CellContext`\[Omega]max, $CellContext`tmax$$, $CellContext`s, \
+$CellContext`\[Omega]max], 
+         $CellContext`rs[$CellContext`vmax, (1/
+           4) $CellContext`\[Omega]max, $CellContext`tmax$$, $CellContext`s, \
+$CellContext`\[Omega]max]}, {$CellContext`s, 0, $CellContext`tmax$$}, 
+        AspectRatio -> Automatic, ImageSize -> {440}, AxesOrigin -> {0, 0}, 
+        Epilog -> {
+          PointSize[Large], Red, 
+          Point[
+           $CellContext`rs[$CellContext`vmax, $CellContext`\[Omega]max, \
+$CellContext`tmax$$, $CellContext`\[Tau]$$ $CellContext`tmax$$, $CellContext`\
+\[Omega]max]]}], 
+      "Specifications" :> {{$CellContext`\[Tau]$$, 0, 
+         1}, {$CellContext`tmax$$, 1, 5}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{485., {160., 166.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.729514785649537*^9, 3.729514817553442*^9}, 
+   3.729514891743999*^9, 3.729515023210576*^9, 3.729515150135428*^9, {
+   3.729515347263362*^9, 3.729515363380455*^9}, 
+   3.729515396129637*^9},ExpressionUUID->"eed975f9-98b0-47f2-b0c2-\
+8623f9fd134c"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 905},
+WindowMargins->{{Automatic, 187}, {Automatic, 0}},
+FrontEndVersion->"11.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 378, 8, 181, "Section",ExpressionUUID->"98dc8de7-a209-4e2a-80b8-6c963fd62674"],
+Cell[CellGroupData[{
+Cell[983, 34, 202, 3, 54, "Subsection",ExpressionUUID->"871fefab-1945-46f7-afd5-f37296f93d67"],
+Cell[CellGroupData[{
+Cell[1210, 41, 2035, 60, 61, "Input",ExpressionUUID->"b6107d41-dc9e-4877-8a94-dd013f299187"],
+Cell[3248, 103, 3076, 89, 69, "Output",ExpressionUUID->"957cab82-ffb9-443f-abbf-1d1f9e0e21e4"]
+}, Open  ]],
+Cell[6339, 195, 2514, 69, 102, "Input",ExpressionUUID->"75beb129-bf74-4735-97c2-d919cbfb4040",
+ InitializationCell->True,
+ CellID->1284171378],
+Cell[CellGroupData[{
+Cell[8878, 268, 2262, 55, 178, "Input",ExpressionUUID->"51f4841f-e268-4fcf-9c16-feb5bedcd67a"],
+Cell[11143, 325, 2869, 57, 345, "Output",ExpressionUUID->"eed975f9-98b0-47f2-b0c2-8623f9fd134c"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

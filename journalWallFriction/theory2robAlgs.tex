@@ -231,7 +231,7 @@ Next, find a $\psi$ that would enable us to reach to the required relative goal 
 \State Calculate $p_{\psi}$ \Comment use \eqref{eq:ppsi}
 \State Calculate $\gamma$ \Comment use \eqref{eq:gamma}
 \State Calculate $l_1, l_2, l_3, l_4$ \Comment use \eqref{eq:circlereachable} 
-\State Return $\cup$($l_1, l_2, l_3, l_4$)
+\State Return the union of ($l_1, l_2, l_3, l_4$)
 \end{algorithmic}
 \end{algorithm}
  %Now that $\psi$ is found, we move the particles to make the current goal. If current goal is our final goal, we go to the final goal position. If it is not our final goal, we continue to set the closest point on the reachable set to our current goal until we reach the goal. 
