@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    124235,       2657]
-NotebookOptionsPosition[    123222,       2623]
-NotebookOutlinePosition[    123606,       2640]
-CellTagsIndexPosition[    123563,       2637]
+NotebookDataLength[    124437,       2661]
+NotebookOptionsPosition[    123424,       2627]
+NotebookOutlinePosition[    123808,       2644]
+CellTagsIndexPosition[    123765,       2641]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -91,7 +91,7 @@ Cell[BoxData[{
 will be inside exactly one member of a polygonal partitioning.\n  C-code by \
 W. Randolph Franklin \
 (http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html).\n  \
-J. Wesenberg, 2008\>\""}], " ", ";"}], "\n"}], "\[IndentingNewLine]", 
+J. Wesenberg, 2008\>\""}], " ", ";"}], "\[IndentingNewLine]"}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"pnPoly", "[", 
@@ -547,7 +547,8 @@ J. Wesenberg, 2008\>\""}], " ", ";"}], "\n"}], "\[IndentingNewLine]",
         RowBox[{"(", 
          RowBox[{"ax", "-", "bx"}], ")"}], " ", 
         RowBox[{"(", 
-         RowBox[{"cy", "-", "dy"}], ")"}]}]}]]}], "}"}]}], "\n", 
+         RowBox[{"cy", "-", "dy"}], ")"}]}]}]]}], "}"}]}], 
+  "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{"Use", " ", 
     FormBox[
@@ -567,7 +568,7 @@ J. Wesenberg, 2008\>\""}], " ", ";"}], "\n"}], "\[IndentingNewLine]",
      RowBox[{"0", "\[LessEqual]", "\[Lambda]", "\[LessEqual]", "1"}],
      TraditionalForm], " ", "to", " ", "determine", " ", "whether", " ", 
     "two", " ", "segments", " ", 
-    RowBox[{"intersect", ":"}]}], "*)"}]}], "\[IndentingNewLine]", 
+    RowBox[{"intersect", ":"}]}], "*)"}]}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"SegmentIntersectionQ", "[", 
@@ -1667,6 +1668,7 @@ Space\), \(Workspace\)]\) = ``\>\"", ",",
                  RowBox[{
                   RowBox[{
                   "StringForm", "[", "\"\<\[CapitalDelta]s\>\"", "]"}], ",", 
+                  "Italic", ",", " ", 
                   RowBox[{"FontSize", "\[Rule]", "38"}], ",", "Black", ",", 
                   RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Times\>\""}]}], 
                  "]"}], ",", 
@@ -1699,7 +1701,8 @@ Space\), \(Workspace\)]\) = ``\>\"", ",",
                 RowBox[{"Style", "[", 
                  RowBox[{
                   RowBox[{
-                  "StringForm", "[", "\"\<\[CapitalDelta]e\>\"", "]"}], ",", 
+                  "StringForm", "[", "\"\<\[CapitalDelta]g\>\"", "]"}], ",", 
+                  "Italic", ",", " ", 
                   RowBox[{"FontSize", "\[Rule]", "38"}], ",", "Black", ",", 
                   RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Times\>\""}]}], 
                  "]"}], ",", 
@@ -1739,7 +1742,7 @@ Space\), \(Workspace\)]\) = ``\>\"", ",",
     RowBox[{
      RowBox[{"{", 
       RowBox[{"sides", ",", "5", ",", "\"\<sides\>\""}], "}"}], ",", "3", ",",
-      "6", ",", "1", ",", "Slider", ",", 
+      "20", ",", "1", ",", "Slider", ",", 
      RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
      RowBox[{"ImageSize", "\[Rule]", "350"}]}], "}"}], ",", 
    "\[IndentingNewLine]", 
@@ -2245,41 +2248,41 @@ Space\), \(Workspace\)]\) = ``\>\"", ",",
    3.723994617303164*^9}, {3.723994666144281*^9, 3.723994763782754*^9}, {
    3.723995430329033*^9, 3.723995454172471*^9}, {3.726589016202052*^9, 
    3.7265890285714283`*^9}, {3.7265896724819727`*^9, 3.726589673101763*^9}, {
-   3.7265897052810373`*^9, 
-   3.726589726026267*^9}},ExpressionUUID->"1a474781-034d-4755-a0d5-\
+   3.7265897052810373`*^9, 3.726589726026267*^9}, {3.733568993420714*^9, 
+   3.7335690095909758`*^9}},ExpressionUUID->"1a474781-034d-4755-a0d5-\
 65ca10bcf4c2"],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`e1$$ = {-0.31100000000000005`, 
-    0.3779999999999999}, $CellContext`e2$$ = {0.22799999999999998`, 
-    0.29800000000000004`}, $CellContext`s1$$ = {0.6239999999999999, 
-    0.030000000000000027`}, $CellContext`s2$$ = {-0.397, \
--0.2360000000000001}, $CellContext`sides$$ = 6, Typeset`show$$ = False, 
-    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{{
-       Hold[$CellContext`sides$$], 5, "sides"}, 3, 6, 1}, {{
+   DynamicModuleBox[{$CellContext`e1$$ = {-0.2310000000000001, 
+    0.42599999999999993`}, $CellContext`e2$$ = {0.252, 
+    0.3619999999999999}, $CellContext`s1$$ = {
+    0.5959999999999999, -0.038000000000000034`}, $CellContext`s2$$ = \
+{-0.30100000000000005`, -0.13200000000000012`}, $CellContext`sides$$ = 20, 
+    Typeset`show$$ = False, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`sides$$], 5, "sides"}, 3, 20, 1}, {{
        Hold[$CellContext`s1$$], {0.1, 0.3}}, {-1.1, -1.1}, {1.1, 1.1}}, {{
        Hold[$CellContext`s2$$], {0.8, 0.1}}, {-1.1, -1.1}, {1.1, 1.1}}, {{
        Hold[$CellContext`e1$$], {0.05, 0.5}}, {-1.1, -1.1}, {1.1, 1.1}}, {{
        Hold[$CellContext`e2$$], {0.33, 0.6}}, {-1.1, -1.1}, {1.1, 1.1}}}, 
     Typeset`size$$ = {720., {241., 246.}}, Typeset`update$$ = 0, 
     Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`sides$15223$$ = 0, $CellContext`s1$15224$$ = {0, 
-    0}, $CellContext`s2$15225$$ = {0, 0}, $CellContext`e1$15226$$ = {0, 
-    0}, $CellContext`e2$15227$$ = {0, 0}}, 
+    True, $CellContext`sides$28942$$ = 0, $CellContext`s1$28943$$ = {0, 
+    0}, $CellContext`s2$28944$$ = {0, 0}, $CellContext`e1$28945$$ = {0, 
+    0}, $CellContext`e2$28946$$ = {0, 0}}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
       "Variables" :> {$CellContext`e1$$ = {0.05, 0.5}, $CellContext`e2$$ = {
          0.33, 0.6}, $CellContext`s1$$ = {0.1, 0.3}, $CellContext`s2$$ = {0.8,
           0.1}, $CellContext`sides$$ = 5}, "ControllerVariables" :> {
-        Hold[$CellContext`sides$$, $CellContext`sides$15223$$, 0], 
-        Hold[$CellContext`s1$$, $CellContext`s1$15224$$, {0, 0}], 
-        Hold[$CellContext`s2$$, $CellContext`s2$15225$$, {0, 0}], 
-        Hold[$CellContext`e1$$, $CellContext`e1$15226$$, {0, 0}], 
-        Hold[$CellContext`e2$$, $CellContext`e2$15227$$, {0, 0}]}, 
+        Hold[$CellContext`sides$$, $CellContext`sides$28942$$, 0], 
+        Hold[$CellContext`s1$$, $CellContext`s1$28943$$, {0, 0}], 
+        Hold[$CellContext`s2$$, $CellContext`s2$28944$$, {0, 0}], 
+        Hold[$CellContext`e1$$, $CellContext`e1$28945$$, {0, 0}], 
+        Hold[$CellContext`e2$$, $CellContext`e2$28946$$, {0, 0}]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -2376,7 +2379,7 @@ $CellContext`vcopy$, $CellContext`ps2$, $CellContext`ps1$];
                 6) $CellContext`r$ {1, 1}], 
              Text[
               Style[
-               StringForm["\[CapitalDelta]s"], FontSize -> 38, Black, 
+               StringForm["\[CapitalDelta]s"], Italic, FontSize -> 38, Black, 
                FontFamily -> "Times"], {
               Part[$CellContext`ps2$, 1] - Part[$CellContext`ps1$, 1] - 0.2, 
                Part[$CellContext`ps2$, 2] - Part[$CellContext`ps1$, 2] - 
@@ -2384,13 +2387,13 @@ $CellContext`vcopy$, $CellContext`ps2$, $CellContext`ps1$];
              Disk[$CellContext`pe2$ - $CellContext`pe1$, $CellContext`r$], 
              Text[
               Style[
-               StringForm["\[CapitalDelta]e"], FontSize -> 38, Black, 
+               StringForm["\[CapitalDelta]g"], Italic, FontSize -> 38, Black, 
                FontFamily -> "Times"], {
               Part[$CellContext`pe2$, 1] - Part[$CellContext`pe1$, 1] + 0.2, 
                Part[$CellContext`pe2$, 2] - Part[$CellContext`pe1$, 2] + 
                0.1}], Null}, {3.5, 0}]}, PlotRange -> {{-1, 5.5}, {-2, 2.4}}, 
           ImageSize -> 800]], 
-      "Specifications" :> {{{$CellContext`sides$$, 5, "sides"}, 3, 6, 1, 
+      "Specifications" :> {{{$CellContext`sides$$, 5, "sides"}, 3, 20, 1, 
          ControlType -> Slider, Appearance -> "Labeled", ImageSize -> 
          350}, {{$CellContext`s1$$, {0.1, 0.3}}, {-1.1, -1.1}, {1.1, 1.1}, 
          ControlType -> Locator, Appearance -> 
@@ -2421,8 +2424,9 @@ $CellContext`vcopy$, $CellContext`ps2$, $CellContext`ps1$];
    3.7239946131137943`*^9}, {3.723994672131835*^9, 3.723994699806754*^9}, 
    3.723994730717004*^9, 3.723994764473724*^9, 3.723995580457973*^9, {
    3.726589009342808*^9, 3.726589029591667*^9}, 3.726589673604059*^9, 
-   3.726589729685823*^9},ExpressionUUID->"58c63640-5414-41cb-99a7-\
-0719aeece278"]
+   3.726589729685823*^9, {3.733568988569105*^9, 
+   3.7335690106569853`*^9}},ExpressionUUID->"e7c79bc7-f4fe-41a6-a642-\
+f6ffac68e996"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -2646,15 +2650,15 @@ Cell[CellGroupData[{
 Cell[1095, 37, 2577, 42, 736, "Subsection", "ExpressionUUID" -> \
 "64930fe3-f317-4ab7-9ad1-e3288df68057"],
 Cell[CellGroupData[{
-Cell[3697, 83, 102604, 2166, 3734, "Input", "ExpressionUUID" -> \
+Cell[3697, 83, 102734, 2169, 3734, "Input", "ExpressionUUID" -> \
 "1a474781-034d-4755-a0d5-65ca10bcf4c2"],
-Cell[106304, 2251, 8915, 173, 541, "Output", "ExpressionUUID" -> \
-"58c63640-5414-41cb-99a7-0719aeece278"]
+Cell[106434, 2254, 8987, 174, 575, "Output", "ExpressionUUID" -> \
+"e7c79bc7-f4fe-41a6-a642-f6ffac68e996"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[115256, 2429, 2370, 66, 123, "Input", "ExpressionUUID" -> \
+Cell[115458, 2433, 2370, 66, 123, "Input", "ExpressionUUID" -> \
 "d84ac94b-b440-4e15-b1c5-d30f2ec3e447"],
-Cell[117629, 2497, 5553, 121, 238, "Output", "ExpressionUUID" -> \
+Cell[117831, 2501, 5553, 121, 238, "Output", "ExpressionUUID" -> \
 "36149ccc-116e-4aed-9503-d7804a04ebfe"]
 }, Open  ]]
 }, Open  ]]
