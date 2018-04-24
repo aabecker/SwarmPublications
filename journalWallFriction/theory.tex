@@ -66,7 +66,7 @@ The shortest path between two points in a square. Reflecting the goal position a
 {\begin{overpic}[width =\figwid]{shortestpath.pdf}
 \end{overpic}
 }
-\caption{\label{fig:shortestpath}{The shortest path between two points (blue square) to (blue ellipse) in the unit disk that intersects the circumference. The path length as a function of intersection point, $(\cos\theta,\sin\theta)$ is shown at right. See \cite{shortestPathMathematica}.}
+\caption{\label{fig:shortestpath}{The shortest path between two points (blue square) to (blue ellipse) in the unit disk that intersects the circumference. The path length as a function of intersection point, $(\cos\theta,\sin\theta)$ is shown at right. See \cite{BeckerShortestPath}.}
 %\vspace{-1em}
 }
 \end{figure}
@@ -76,7 +76,7 @@ The shortest path between two points in a square. Reflecting the goal position a
   Since the distance from the origin to $P$ is always 1, we can set up three equalities using the law of sines:
  From triangle $OSP$: $\frac{\sin \alpha}{s}=\frac{\sin(\alpha + \theta)}{1}=\frac{\sin \theta}{||SP||}$, and from triangle $OEP$: $\frac{\sin \alpha}{e}=\frac{\sin(\beta - \theta)}{||EP||}$. If we mirror the point $S$ about the $\theta$ axis and label this point $C$, from triangle $CEO$: $\frac{\sin(\alpha + \theta)}{e}=\frac{\sin(2 \theta - \beta)}{||CE||}$.
  
- Simplifying this system of equations results in $s=e \csc \theta (s \sin(2 \theta-\beta)+\sin(\beta-\theta))$. Solving this last equation results in a quartic solution that has a closed-form solution with four roots, each of which can be either a clockwise or a counterclockwise rotation $\theta$, depending on the sign of $\beta$, with $-\pi\leq\beta\leq\pi$. We evaluate each and select the solution that results in the shortest length path. This optimal path satisfies the law of reflection off the unit circle, with angle of incidence equal to angle of reflection. For an interactive Mathematica demonstration of this shortest path, see \cite{shortestPathMathematica}.
+ Simplifying this system of equations results in $s=e \csc \theta (s \sin(2 \theta-\beta)+\sin(\beta-\theta))$. Solving this last equation results in a quartic solution that has a closed-form solution with four roots, each of which can be either a clockwise or a counterclockwise rotation $\theta$, depending on the sign of $\beta$, with $-\pi\leq\beta\leq\pi$. We evaluate each and select the solution that results in the shortest length path. This optimal path satisfies the law of reflection off the unit circle, with angle of incidence equal to angle of reflection. For an interactive Mathematica demonstration of this shortest path, see \cite{BeckerShortestPath}.
  
   
  
