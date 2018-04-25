@@ -2,14 +2,11 @@
 \section{Conclusion and Future Work}\label{sec:conclusion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This paper presented techniques for controlling the position of a swarm of particles using uniform inputs and interaction with boundary friction forces.  
-The paper provided algorithms for precise position control, as well as robust and efficient covariance control. 
-Extending algorithms \ref{alg:optimalAlg}  to 3D is straightforward but increases the complexity.
+This paper presented techniques for controlling the positions of two particles using uniform inputs and boundary friction forces.  
+The paper provided algorithms for precise position control. The algorithms relied on calculating reachable sets in a 2D delta configuration space.
+Extending algorithms \ref{alg:optimalAlg}  to 3D is straightforward, but increases the complexity.
  Additionally, this paper assumed friction was sufficient to completely stop particles in contact with the boundary. 
-  The algorithms require retooling to handle small friction coefficients. 
- The algorithms assumed a rectangular workspace.  This is a reasonable assumption for artificial environments, but in vivo environments are curved.  
- A best-first-search program could still work, but it cannot take advantage of the 4-fold rotational symmetry as in a rectangular environment.
-Future efforts should be directed toward improving the technology and tailoring it to specific particle applications.
+  The algorithms would require retooling to handle small friction coefficients. Hardware experiments illustrated the algorithms in ex vivo and in artificial workspaces that mimic the geometry of biological tissue
 
 
 

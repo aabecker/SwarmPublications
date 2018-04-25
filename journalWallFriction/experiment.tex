@@ -1,19 +1,19 @@
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Experimental Results}\label{sec:expResults}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 To demonstrate Alg.~\ref{alg:optimalAlg} experimentally, we performed several tests.
-Each used the same magnetic setup.
- Two different intestine models were employed, the first a 3D-printed cross-section representation of a small intestine, and the second bovine small intestine.
+Each used the same magnetic setup shown in Fig.~\ref{fig:}.
+% The figure might need to be referenced 
+ Two different intestine models were employed, the first a 3D-printed cross-section representation of a small intestine, and the second a cross-section of a bovine stomach.
  
  \subsection{Magnetic Manipulation Setup}
  
- The magnetic manipulation system consists of two pairs of electromagnetic coils that consist of iron cores at their centers, and arranged orthogonal to each other. The iron core at the center of each coil served to concentrate the magnetic field towards the workspace. To set up the magnetic manipulation system for this project, an Arduino and four SyRen regenerative motor drivers were used for control inputs to the coils. Finally, a Basler ace black and white camera was attached to the top of the system focusing on the back-lit workspace. 
+ The magnetic manipulation system has two pairs of electromagnetic coils each with iron cores at their centers, and arranged orthogonal to each other. The iron core at the center of each coil concentrates the magnetic field towards the workspace. An Arduino and four SyRen regenerative motor drivers were used for control inputs to the coils. Finally, a FOculus F0134SB 659 x 494 pixel camera was attached to the top of the system focusing on the workspace which was back-lit by a 15w LED light strip. 
  
-To obtain experimental data, the test samples which comprised of the Phantom intestine model and the bovine cross section, were placed in laser cut acrylic discs and then immersed in fluid. Over the course of experimentation, corn syrup was used to have the best viscosity for the experiments. The velocities of particles immersed in it were dampened enough to control their movements with ease. Spherical $0.5 mm$ magnets were used as our particles.
+To obtain experimental data, the test samples which comprised of the phantom intestine model and the bovine cross section, were placed in laser cut acrylic discs and then immersed in corn syrup. Corn syrup was used to have the best viscosity(12000 cP) for the experiments. The velocities of particles immersed in it were dampened enough to control their movements with ease. Spherical $0.5 mm$ magnets(supermagnetman #SP0100-50) were used as our particles.
  
- %explain the magnetic field strength used, the camera system (briefly)
+%explain the magnetic field strength used, the camera system (briefly)
 
 todo: image of the magnetic setup with scale bar
 %explain the particles used
@@ -22,7 +22,7 @@ todo: image of the magnetic setup with scale bar
 
 \subsection{Intestine Phantom Model}
 
-The Intestine Phantom Model was used as the first test field of the project and was made to mimic an intestine and its villi. The model consists of a circular ring with an outer diameter of $\SI{50}{\milli\metre}$, an inner diameter of $\SI{46}{\milli\metre}$, and a thickness of 2mm created using a 3D printer and Fused filament fabrication. The model had some $2 mm$ long protrusions on its inner surface to mimic the effects of intestinal villi on the target particles. Fig.~\ref{fig:3dPrinted} shows an experiment with starting and ending positions drawn with marker on the workspace. 
+The intestine phantom model was used as the first test field of the project and was made to mimic the geometry of an intestine and its villi. The model consists of a circular ring with an outer diameter of $\SI{50}{\milli\metre}$, an inner diameter of $\SI{46}{\milli\metre}$, and 60 $2 mm$ long protrusions on its inner surface cut out of $6 mm$ thick acrylic to model the geometry of intestinal villi. Fig.~\ref{fig:3dPrinted} shows an experiment with starting and ending positions drawn with marker on the workspace. 
 
 %methodology: we used xx material, built a model xx big
 
@@ -30,11 +30,11 @@ The Intestine Phantom Model was used as the first test field of the project and 
 %todo: snapshots of the the beads in the model, moving toward goal.  We can add lots of annotations.  %Fake this series so we have an image for now.
 
 
-\subsection{Bovine Intestine Cross-section}
+\subsection{Bovine Stomach Cross-section}
 %todo: procedure for fixating the Bovine tissue sample,
 %discussion of the challenges 
 
-This phase of the project involved the use of beef intestines. Strips of intestine about 5mm thick were cut and placed in Neutrally buffered formalin for 24 hours for fixation. After fixation, each sample was transferred to 70\% ethanol for storage. For the experiments, a slice of fixed intestine was attached to the acrylic disc with cyanoacrylate (superglue) and then submerged in corn syrup. A drawback of fixing the tissue samples before experimentation is that they tended to shrivel and dry up a few minutes after being removed from the 70\% ethanol. 
+Strips of cow tripe approximately 5mm thick were cut and placed in Neutrally buffered formalin for 24 hours for fixation. After fixation, each sample was transferred to 70\% ethanol for storage. For the experiments, a slice of fixed intestine was attached to the acrylic disc with cyanoacrylate (superglue) and then submerged in corn syrup. A drawback of fixing the tissue samples before experimentation is that they tended to shrivel and dry up a few minutes after being removed from the 70\% ethanol. 
 %In using the small intestines, which were about 25mm in diameter, the resulting workspace was less than half of that of our simulated intestines. This meant more care had to be taken in navigating the magnets to their goal locations to avoid getting them too close to each other. 
 
 %todo: snapshots of the the beads in the model, moving toward goal.  We can add lots of annotations.  Fake this series so we have an image for now.
@@ -44,8 +44,10 @@ This phase of the project involved the use of beef intestines. Strips of intesti
 \vspace{1.5em}
 %\begin{overpic}[width=\columnwidth]{firstImage.jpg}\end{overpic}
 \begin{overpic}[width=2\columnwidth]{3dexperiment.pdf}\end{overpic}
+\\
+\vspace{1em}
+\begin{overpic}[width=2\columnwidth]{realTripe.pdf}\end{overpic}
 \caption{\label{fig:story}
 Positioning particles that receive the same control inputs, but cannot move while a control input pushes them into a boundary.
 } \vspace{-1em}
 \end{figure*}
-
