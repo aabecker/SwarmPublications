@@ -2,12 +2,12 @@
 \section{Theory}
 \label{sec:theory}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-If a control input causes the particles to collide with obstacles at different times, inverting the control input does not undo the action. Due to this lack of time-reversibility, techniques that require a bidirectional graph, e.g. PRM and RRT* are not suited \cite{lavalle2006planning,kavraki1996probabilistic}. Instead, this paper employs a graph search. This section starts with a boundary interaction model in subsection \ref{subsec:WallFriction}.
+If a control input causes the particles to collide with obstacles at different times, inverting the control input does not undo the action. Due to this lack of time-reversibility, techniques that require a bidirectional graph, e.g. PRM and RRT* are not suitable \cite{lavalle2006planning,kavraki1996probabilistic}. Instead, this paper employs a graph search. This section starts with a boundary interaction model in subsection \ref{subsec:WallFriction}.
 
 Our algorithms rely on holding one particle stationary by pushing it into the boundary while moving the other particle. In subsections \ref{subsec:square} and \ref{subsec:circular} we provide shortest-path results for two representative workspaces, squares and circles.
 \subsection{Boundary Interaction Model}\label{subsec:WallFriction}
 
-In the absence of obstacles uniform inputs move a swarm identically.  
+In the absence of obstacles, uniform inputs move a swarm identically.  
 Independent control requires breaking this symmetry. 
 The following sections examine using non-slip boundary contacts to break the symmetry caused by uniform inputs.  
  
@@ -31,7 +31,7 @@ The following sections examine using non-slip boundary contacts to break the sym
 These system dynamics represent particle swarms in low-Reynolds number environments, where viscosity dominates inertial forces and so velocity is proportional to input force~\cite{Purcell1977}. 
  In this regime, the input force command $\mathbf{u}(t)$ controls the velocity of the particles.  
   The same model can be generalized to particles moved by fluid flow where the vector direction of fluid flow $\mathbf{u}(t)$ controls the velocity of particles, or for a swarm of particles that move at a constant speed in a direction specified by a uniform input $\mathbf{u}(t)$~\cite{Rubenstein2012}.
-  As in our model, fluid flowing in a pipe has zero velocity along the boundary. Similar mechanical systems exist at larger scales, e.g. all tumblers of a combination look move uniformly unless obstructed by an obstacle.
+  As in our model, fluid flowing in a pipe has zero velocity along the boundary. Similar mechanical systems exist at larger scales, e.g. all tumblers of a combination lock move uniformly unless obstructed by an obstacle.
  Our control problem is to design the control inputs $\mathbf{u}(t)$ to make all $n$ particles achieve a task.
  
  \subsection{Example: Shortest Path in a Square Workspace}\label{subsec:square}
@@ -50,7 +50,7 @@ The shortest path between two points in a square. Reflecting the goal position a
 
  
  \subsection{Shortest Path in Unit Disk that Intersects Circumference}\label{subsec:circular}
- The shortest path between two points in the unit disk that reflects off the circumference is composed of two straight line segments, as shown in Fig.~\ref{fig:shortestpath}. The problem can be simplified by choosing the coordinate system carefully. We define the $x$ axis along the position of the starting point: $S=(s,0)$, and define the point of intersection by the angle $\theta$ from the $x$ axis: $P=(\cos \theta,\sin \theta)$. Define the final point $E$ by a radius $e$ and angle $\beta$: $E=e(\cos \beta,\sin \beta)$. Then the length of the two line segments is 
+ The shortest path between two points in the unit disk that intersects the circumference is composed of two straight line segments, as shown in Fig.~\ref{fig:shortestpath}. The problem can be simplified by choosing the coordinate system carefully. We define the $x$ axis along the position of the starting point: $S=(s,0)$, and define the point of intersection by the angle $\theta$ from the $x$ axis: $P=(\cos \theta,\sin \theta)$. Define the final point $E$ by a radius $e$ and angle $\beta$: $E=e(\cos \beta,\sin \beta)$. Then the length of the two line segments is 
  \begin{equation}
 \scriptsize{ \sqrt{(s-\cos \theta)^2+\sin^2 \theta}+\sqrt{(e \sin \beta-\cos \theta)^2+(e \sin \beta-\sin \theta)^2}},
  \end{equation}

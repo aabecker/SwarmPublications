@@ -16,9 +16,9 @@ Particle swarms propelled by a uniform field, where each particle  receives the 
 
 The small size of these robots makes it difficult to perform onboard computation.  Instead, these robots are often controlled by a broadcast signal. 
  The tiny robots themselves are often just rigid bodies, and it may be more accurate to define the \emph{system}, consisting of particles, a uniform control field, and sensing, as the robot.
-Such systems are severely underactuated, having 2 degrees of freedom in the shared control input, but $2n$ degrees of freedom for the particle swarm.
+Such systems are severely underactuated, having 2 degrees of freedom in the shared control input, but $2n$ degrees of freedom for the $n$-particle swarm.
  Techniques are needed that can handle this underactuation. 
- In previous work, we showed that the 2D position of each particle in such a swarm is controllable if the workspace contains a single obstacle the size of one particle.
+ In previous work, we showed that the 2D position of each particle in such a swarm is controllable if the workspace contains a single obstacle the size of one particle \cite{AaronManipulation2013}.
 
 
 Positioning is a foundational capability for a robotic system, e.g. placement of brachytherapy seeds. However, requiring a single, small, rigid obstacle suspended in the middle of the workspace is often an unreasonable constraint, especially in 3D.
