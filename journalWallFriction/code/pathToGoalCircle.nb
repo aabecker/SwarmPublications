@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    217766,       4593]
-NotebookOptionsPosition[    215529,       4532]
-NotebookOutlinePosition[    215883,       4548]
-CellTagsIndexPosition[    215840,       4545]
+NotebookDataLength[    217916,       4596]
+NotebookOptionsPosition[    215679,       4535]
+NotebookOutlinePosition[    216033,       4551]
+CellTagsIndexPosition[    215990,       4548]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -2808,7 +2808,9 @@ Cell[BoxData[
    3.726599970310659*^9, 3.726600021923543*^9}, {3.726600067841831*^9, 
    3.726600077830648*^9}, {3.72660029957968*^9, 3.726600300337678*^9}, {
    3.7335702071152773`*^9, 3.7335702504022493`*^9}, {3.734193467025998*^9, 
-   3.734193477554647*^9}},ExpressionUUID->"23e33bca-9fb5-45a3-9b79-\
+   3.734193477554647*^9}, {3.734194187747426*^9, 3.734194203072462*^9}, {
+   3.734194723352304*^9, 
+   3.734194724718295*^9}},ExpressionUUID->"23e33bca-9fb5-45a3-9b79-\
 e10dcfa556d1"],
 
 Cell[BoxData[
@@ -2818,7 +2820,7 @@ Cell[BoxData[
     0.35}, $CellContext`e2$$ = {-0.33, 0.26}, $CellContext`progress$$ = 
     1, $CellContext`s1$$ = {0., 0.}, $CellContext`s2$$ = {0.2, 
     0.4}, $CellContext`\[Epsilon]$$ = Rational[1, 1000], Typeset`show$$ = 
-    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    False, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{{
        Hold[$CellContext`progress$$], 1, "progress"}, 0, 1, 
@@ -2845,10 +2847,10 @@ Cell[BoxData[
       Dynamic[{(-1)/2, (-1)/2} + $CellContext`\[Epsilon]$$], 
       Dynamic[{1/2, 1/2} - $CellContext`\[Epsilon]$$]}}, Typeset`size$$ = {
     810., {283., 287.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = False, $CellContext`progress$7010648$$ = 
-    0, $CellContext`\[Epsilon]$7010649$$ = 0, $CellContext`s1$7010650$$ = 
-    0, $CellContext`s2$7010651$$ = 0, $CellContext`e1$7010652$$ = 
-    0, $CellContext`e2$7010653$$ = 0}, 
+    Typeset`skipInitDone$$ = False, $CellContext`progress$7199317$$ = 
+    0, $CellContext`\[Epsilon]$7199318$$ = 0, $CellContext`s1$7199319$$ = 
+    0, $CellContext`s2$7199320$$ = 0, $CellContext`e1$7199321$$ = 
+    0, $CellContext`e2$7199322$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      2, StandardForm, 
       "Variables" :> {$CellContext`e1$$ = {0.05, 
@@ -2856,12 +2858,12 @@ Cell[BoxData[
         1, $CellContext`s1$$ = {0., 0.}, $CellContext`s2$$ = {0.2, 
          0.4}, $CellContext`\[Epsilon]$$ = Rational[1, 1000]}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`progress$$, $CellContext`progress$7010648$$, 0], 
-        Hold[$CellContext`\[Epsilon]$$, $CellContext`\[Epsilon]$7010649$$, 0], 
-        Hold[$CellContext`s1$$, $CellContext`s1$7010650$$, 0], 
-        Hold[$CellContext`s2$$, $CellContext`s2$7010651$$, 0], 
-        Hold[$CellContext`e1$$, $CellContext`e1$7010652$$, 0], 
-        Hold[$CellContext`e2$$, $CellContext`e2$7010653$$, 0]}, 
+        Hold[$CellContext`progress$$, $CellContext`progress$7199317$$, 0], 
+        Hold[$CellContext`\[Epsilon]$$, $CellContext`\[Epsilon]$7199318$$, 0], 
+        Hold[$CellContext`s1$$, $CellContext`s1$7199319$$, 0], 
+        Hold[$CellContext`s2$$, $CellContext`s2$7199320$$, 0], 
+        Hold[$CellContext`e1$$, $CellContext`e1$7199321$$, 0], 
+        Hold[$CellContext`e2$$, $CellContext`e2$7199322$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -3130,11 +3132,12 @@ $CellContext`pm1$]; {Blue,
          Dynamic[{1/2, 1/2} - $CellContext`\[Epsilon]$$], ControlType -> 
          Locator, Appearance -> None}}, "Options" :> {}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{861., {331., 337.}},
+     ImageSizeCache->{855., {303., 309.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
-    Initialization:>({$CellContext`r = 1/40, $CellContext`clipCircle[
+    Initialization:>({$CellContext`r = 1/40, $CellContext`dist = 
+       1.744144380101167, $CellContext`clipCircle[
          Pattern[$CellContext`p, 
           Blank[]], 
          Pattern[$CellContext`\[Epsilon], 
@@ -3636,8 +3639,8 @@ $CellContext`\[Gamma]a/$CellContext`accuracy}]];
   Manipulate`InterpretManipulate[1]]], "Output",
  CellChangeTimes->{{3.733570239001265*^9, 3.733570251152486*^9}, 
    3.734193443854995*^9, 
-   3.734193482052116*^9},ExpressionUUID->"6c423e94-6416-4498-9521-\
-37d86437f927"]
+   3.7341942036153917`*^9},ExpressionUUID->"45c29dda-2de7-427d-b8e7-\
+402e27c6d99d"]
 }, Open  ]],
 
 Cell[BoxData[" "], "Input",
@@ -4556,41 +4559,41 @@ Cell[873, 32, 245, 4, 44, "Subsection", "ExpressionUUID" -> \
 Cell[1121, 38, 48995, 1052, 2538, "Input", "ExpressionUUID" -> \
 "1d65b189-0cc0-4a49-a5e6-7c338fc1589d"],
 Cell[CellGroupData[{
-Cell[50141, 1094, 83092, 1717, 3292, "Input", "ExpressionUUID" -> \
+Cell[50141, 1094, 83192, 1719, 3292, "Input", "ExpressionUUID" -> \
 "23e33bca-9fb5-45a3-9b79-e10dcfa556d1"],
-Cell[133236, 2813, 41032, 826, 719, "Output", "ExpressionUUID" -> \
-"6c423e94-6416-4498-9521-37d86437f927"]
+Cell[133336, 2815, 41082, 827, 663, "Output", "ExpressionUUID" -> \
+"45c29dda-2de7-427d-b8e7-402e27c6d99d"]
 }, Open  ]],
-Cell[174283, 3642, 126, 2, 32, "Input", "ExpressionUUID" -> \
+Cell[174433, 3645, 126, 2, 32, "Input", "ExpressionUUID" -> \
 "f16ead4d-3c7c-46bf-b1c2-832a3809bf9a"],
 Cell[CellGroupData[{
-Cell[174434, 3648, 355, 7, 54, "Input", "ExpressionUUID" -> \
+Cell[174584, 3651, 355, 7, 54, "Input", "ExpressionUUID" -> \
 "618b30f3-1b98-41b8-b7bf-2542a4c0394a"],
-Cell[174792, 3657, 11268, 161, 222, "Output", "ExpressionUUID" -> \
+Cell[174942, 3660, 11268, 161, 222, "Output", "ExpressionUUID" -> \
 "f37443fb-40f7-4a5e-9814-23f8f6911720"]
 }, Open  ]],
-Cell[186075, 3821, 176, 4, 32, "Input", "ExpressionUUID" -> \
+Cell[186225, 3824, 176, 4, 32, "Input", "ExpressionUUID" -> \
 "11770518-5de0-4781-87c2-9a600f0e439a"],
 Cell[CellGroupData[{
-Cell[186276, 3829, 7788, 211, 369, "Input", "ExpressionUUID" -> \
+Cell[186426, 3832, 7788, 211, 369, "Input", "ExpressionUUID" -> \
 "5cea5a88-0829-43bb-b843-b76a52fee512"],
-Cell[194067, 4042, 8090, 145, 331, "Output", "ExpressionUUID" -> \
+Cell[194217, 4045, 8090, 145, 331, "Output", "ExpressionUUID" -> \
 "9eaecf4c-d4e9-49eb-bc3f-fcb104686255"]
 }, Open  ]],
-Cell[202172, 4190, 145, 3, 32, "Input", "ExpressionUUID" -> \
+Cell[202322, 4193, 145, 3, 32, "Input", "ExpressionUUID" -> \
 "cdd67484-e313-42e9-9c55-c49fd3c09149"],
-Cell[202320, 4195, 144, 2, 54, "Input", "ExpressionUUID" -> \
+Cell[202470, 4198, 144, 2, 54, "Input", "ExpressionUUID" -> \
 "968db41a-5bde-4536-940c-5b3809be8619"],
 Cell[CellGroupData[{
-Cell[202489, 4201, 336, 9, 32, "Input", "ExpressionUUID" -> \
+Cell[202639, 4204, 336, 9, 32, "Input", "ExpressionUUID" -> \
 "528518e8-a235-41ef-85cb-77e916f5eb2f"],
-Cell[202828, 4212, 5956, 169, 138, "Output", "ExpressionUUID" -> \
+Cell[202978, 4215, 5956, 169, 138, "Output", "ExpressionUUID" -> \
 "90390992-5ba4-4395-a7ab-c61577914c68"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[208821, 4386, 2380, 64, 201, "Input", "ExpressionUUID" -> \
+Cell[208971, 4389, 2380, 64, 201, "Input", "ExpressionUUID" -> \
 "fb88486d-c7a7-488b-a2ab-7a158b18fa15"],
-Cell[211204, 4452, 4285, 75, 331, "Output", "ExpressionUUID" -> \
+Cell[211354, 4455, 4285, 75, 331, "Output", "ExpressionUUID" -> \
 "f4e6ee88-232e-4994-a942-3dfb2b277107"]
 }, Open  ]]
 }, Open  ]]
