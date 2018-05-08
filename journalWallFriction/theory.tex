@@ -36,15 +36,15 @@ These system dynamics represent particle swarms in low-Reynolds number environme
  
  \subsection{Example: Shortest Path in a Square Workspace}\label{subsec:square}
  
- If the goal configuration can be reached in three moves, the shortest path has a simple solution. The first move makes one particle hit a wall, the second move adjusts the relative spacing error  to zero, and  the third move takes the particles to their final positions. 
-The second move cannot be shortened, so optimization depends on choosing the location where the particle hits the wall. 
+ If the goal configuration cannot be reached in one move but can be reached in three moves, the shortest path has a simple solution. The first move, $m_1$, makes one particle hit a wall, $m_2$ adjusts the relative spacing error  to zero, and $m_3$ takes the particles to their final positions. 
+$m_2$ cannot be shortened, so optimization depends on choosing the location where the particle hits the wall. 
  Since the shortest distance between two points is a straight line, reflecting the goal position across the boundary wall and plotting a straight line gives the optimal hit location, as shown in Fig. \ref{fig:reflection}. There are four walls, and four candidate solutions.
  
 \begin{figure}
 \centering
 \begin{overpic}[width=0.5\columnwidth]{Reflection.pdf}\end{overpic}
 \caption{\label{fig:reflection}
-The shortest path between two points in a square. Reflecting the goal position across the boundary wall and plotting a straight line gives the shortest path.
+The shortest ?three-move path that reconfigures two particles has the property that the incident angle equals the reflected angle.
 } \vspace{-1em}
 \end{figure}
 
