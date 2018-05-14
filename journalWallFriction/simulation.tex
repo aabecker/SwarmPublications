@@ -11,10 +11,13 @@ Algorithm \ref{alg:optimalAlg}  was implemented in Mathematica using particles w
 %  Fig.~\ref{fig:shapeControlMathematica1}  shows  an implementation of this algorithm with robot initial positions represented by hollow squares and final positions by circles. 
  %Dashed lines show the shortest route if robots could be controlled independently, while solid lines show the optimal shortest  path using uniform inputs.
  
- The contour plots in Fig.~\ref{fig:contour} left shows the length of the path for given $s_1,s_2,g_1$ with $g_2$ ranging over all the workspace. Fig.~\ref{fig:contour} right shows the total distance of the path. This plot clearly shows the nonlinear nature of the path planning. The hardest point to achieve is the when the goals have $\pi$ difference and are very close to the boundary. Fig.~\ref{fig:contourPlots} shows the same concepts in a square workspace. Fig.~\ref{fig:contourPlots} top row considers the particles are interchangeable for three arbitrary starting and goal positions for the particles. Using interchangeable particles makes the path length significantly smaller. The middle and bottom row shows the same configurations with unique particles.
+ The contour plots in Fig.~\ref{fig:contour} left show the length of the path for two different settings. Top row considers \{$s_1,s_2,g_1$\} = \{$(0.2,0.2),(-0.1,-0.1),(-0.5,0)$\} and middle and bottom row considers  \{$s_1,s_2,g_1$\} = \{$(0.2,0.2),(-0.1,-0.1),(-0.5,0)$\} in a workspace with $r= 0.5$, and $g_2$ ranging over all the workspace. Fig.~\ref{fig:contour} right shows the total distance of the path. This plot shows the nonlinear nature of the path planning. The path length grows when the goals have $\pi$ difference and are very close to the boundary. 
+ The worst case occurs when the ending points are at antipodes along the boundary ($\pi$ angular distance). This can never be achieved but can be asymptotically approached as shown in Fig.~\ref{fig:deltanumdist}. 
+ Fig.~\ref{fig:contourPlots} shows the same concepts in a square workspace. Fig.~\ref{fig:contourPlots} top and middle row considers the particles for three arbitrary starting and goal positions for the particles. All of the discussed plots have considered the particles to be unique. If particles are interchangeable and it does not matter to put the specific particle to its goal location, the path length will be significantly smaller. The bottom row of Fig.~\ref{fig:contour} and Fig.~\ref{fig:contourPlots} considers interchangeable particles with the same configuration as the middle row with unique particles.
+ 
  %If the length of each side of the square workspace is $L$, the worst case path length is $(\sqrt{2}+2)L$.
  
- The plots in Fig.~\ref{fig:deltanumdist} show the exponentially increasing number of moves and distance when the accuracy of reaching to the goal ($\delta$) is getting to zero when the goal positions have $\pi$ difference with each on the boundaries.
+% The plots in Fig.~\ref{fig:deltanumdist} show the exponentially increasing number of moves and distance when the accuracy of reaching to the goal ($\delta$) is getting to zero when the goal positions have $\pi$ difference with each on the boundaries.
 
 
 
@@ -30,10 +33,11 @@ Plots show performance with one goal on the boundary.
 
 \begin{figure}
 \centering
-\begin{overpic}[width=0.49\columnwidth]{deltanum.pdf}\end{overpic}
-\begin{overpic}[width=0.49\columnwidth]{deltadist.pdf}\end{overpic}
+\begin{overpic}[width=\columnwidth]{deltanum.pdf}\end{overpic}\\
+\vspace{1em}
+\begin{overpic}[width=\columnwidth]{deltadist.pdf}\end{overpic}
 \caption{\label{fig:deltanumdist}
-Particle swap poles as their goal is the worst case. It can never be achieved but can be asymptotically reached. Plots show decreasing error as the number of moves grows.
+The worst case occurs when particles must swap antipodes. This can never be achieved but can be asymptotically approached. Plots show decreasing error as the number of moves grows.
 } 
 \vspace{-1em}
 \end{figure}

@@ -16,7 +16,7 @@ Particle swarms propelled by a uniform field, where each particle  receives the 
 
 The small size of these robots makes it difficult to perform onboard computation.  Instead, these robots are often controlled by a broadcast signal. 
  The tiny robots themselves are often just rigid bodies, and it may be more accurate to define the \emph{system}, consisting of particles, a uniform control field, and sensing, as the robot.
-Such systems are severely underactuated, having 2 degrees of freedom in the shared control input, but $2n$ degrees of freedom for the $n$-particle swarm.
+Such systems are severely underactuated, having 2 degrees of freedom in the shared planar control input, but $2n$ degrees of freedom for the $n$-particle swarm.
  Techniques are needed that can handle this underactuation. 
  In previous work, we showed that the 2D position of each particle in such a swarm is controllable if the workspace contains a single obstacle the size of one particle \cite{AaronManipulation2013}.
 
@@ -46,7 +46,7 @@ After a review of recent related work in Sec.  \ref{sec:RelatedWork},
  %Sec. \ref{subsec:FluidInTank} provides analytical position control results of stable configurations in two canonical workspaces with frictionless walls.  These results are limited in the set of shapes that can be generated.  To extend the range of possible shapes,
   Sec.  \ref{subsec:WallFriction} introduces a  model for boundary interaction.  
 We provide a shortest-path algorithm to arbitrarily position two particles in Sec.  \ref{sec:PostionControl2Robots}.
-Sec.  \ref{sec:simulation} describes implementations of the algorithms in simulation and  Sec.  \ref{sec:expResults} describes hardware experiments, as shown in Fig.~\ref{fig:IntroPic}. 
+Section  \ref{sec:simulation} describes implementations of the algorithms in simulation and  Sec.  \ref{sec:expResults} describes hardware experiments, as shown in Fig.~\ref{fig:IntroPic}. 
  We end with directions for future research in Sec.  \ref{sec:conclusion}.
 
 This paper is elaboration of preliminary work in a conference paper \cite{shahrokhi2017algorithms} which considered only square workspaces. This work extends the analysis to convex workspaces and 3D positioning. This paper also implements the algorithms using a hardware setup inspired by the anatomy of the gastrointestinal tract.
