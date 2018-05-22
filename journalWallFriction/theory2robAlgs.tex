@@ -2,27 +2,179 @@
 
 \section{Position Control of Two Particles Using Boundary Interaction}\label{sec:PostionControl2Robots}
 
-This section presents algorithms that use non-slip contacts with walls to arbitrarily position two particles in a convex workspace. Our previous work used a square workspace \cite{shahrokhi2017algorithms}. Alg.~\ref{alg:optimalAlg} can now handle any convex workspace, including the special limit case of a circular workspace. In the last subsection we present techniques to control 3D positioning of two particles.
+This section presents algorithms that use non-slip contacts with walls to arbitrarily position two particles in a convex workspace. Our previous work used a square workspace \cite{shahrokhi2017algorithms}. Fig.~\ref{fig:shapeControlMathematica1} shows a Mathematica implementation of a square workspace for different cases. Alg.~\ref{alg:optimalAlg} can now handle any convex workspace, including the special limit case of a circular workspace. In the last subsection we present techniques to control 3D positioning of two particles.
 
 Workspaces are 2D convex polygons with no internal obstacles. 
  Assume two particles are initialized at $s_1$ and $s_2$ with corresponding goal destinations $g_1$ and $g_2$. 
 Denote the current positions of the particles  $p_1$ and $p_2$ 
 
+\begin{figure*}
+\renewcommand{\figwid}{0.4\columnwidth}
+
+{\begin{overpic}[width =\figwid]{story1mov0.pdf}\put(10,10){Start}
+\put(10,85){a)}
+\put(30,70){$s_1$}
+\put(48,88){$g_1$}
+\put(65,17){$s_2$}
+\put(87,52){$g_2$}
+\put(60, 3.9){{\tiny$\updownarrow$}~$\epsilon$}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story1move.pdf}\put(10,10){Move 1}
+\put(110,50){If $(\Delta g- \Delta s) = (0,0)$, only one move is needed}
+\put(65, 47){{$\xupdownarrow{1.8cm}$}$L$}
+%\put(47, 65){$\xleftrightarrow{1.8cm}$}
+\end{overpic}
+}\\
+
+\vspace{-0.75em}
+{\begin{overpic}[width =\figwid]{story3Moves1.pdf}\put(10,10){Start}
+\put(10,85){b)}
+\put(28,70){$s_1$}
+\put(50,80){$g_1$}
+\put(62,15){$s_2$}
+\put(30,22){$g_2$}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story3Moves2.pdf}\put(10,10){Move 1}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story3Moves3.pdf}\put(10,10){Move 2}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story3Moves4.pdf}\put(10,10){Move 3}
+\put(110,50){Three move sequence}
+\put(12,38){$m_3$}
+\put(48,52){$m_2$}
+\put(65,30){$m_1$}
+\end{overpic}
+%\begin{overpic}[width =\figwid]{s5}\put(50,80){Move 4}
+%\end{overpic}
+%\begin{overpic}[width =\figwid]{S6.pdf}\put(50,80){Move 5}
+%\end{overpic}
+}\\
+
+\vspace{-0.75em}
+{
+\begin{overpic}[width =\figwid]{story5move1.pdf}\put(10,10){Move 1}
+\put(10,85){c)}
+\put(28,70){$s_1$}
+\put(62,28){$g_1$}
+\put(87,50){$s_2$}
+\put(30,22){$g_2$}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story5move2.pdf}\put(10,10){Move 2}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story5move3.pdf}\put(10,10){Move 3}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story5move4.pdf}\put(10,10){Move 4}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story5move5.pdf}\put(10,10){Move 5}
+\end{overpic}
+}\\
+
+\vspace{-0.75em}
+%\vspace{1em}
+{
+\begin{overpic}[width =\figwid]{story7move1.pdf}\put(50,80){Move 1}
+\put(10,85){d)}
+\put(25,30){$s_1$}
+\put(89,70){$g_1$}
+\put(67,20){$s_2$}
+\put(28,75){$g_2$}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story7move2.pdf}\put(50,80){Move 2}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story7move5.pdf}\put(50,80){Move 3}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story7move6.pdf}\put(50,80){Move 4}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story7move7.pdf}\put(50,80){Move 5}
+\end{overpic}
+}\\
+
+\vspace{-0.75em}
+{
+\begin{overpic}[width =\figwid]{storySame1.pdf}\put(50,80){Move 1}
+\put(10,85){e)}
+\put(15,35){$s_1,g_2$}
+\put(65,35){$s_2,g_1$}
+\end{overpic}
+\begin{overpic}[width =\figwid]{storySame2.pdf}\put(50,80){Move 2}
+\end{overpic}
+\begin{overpic}[width =\figwid]{storySame3.pdf}\put(50,80){Move 3}
+\end{overpic}
+\begin{overpic}[width =\figwid]{storySame4.pdf}\put(50,80){Move 4}
+\end{overpic}
+\begin{overpic}[width =\figwid]{storySame5.pdf}\put(50,80){Move 5}
+\end{overpic}
+}\\
+
+\vspace{-0.75em}
+{
+\begin{overpic}[width =\figwid]{storyWorst1.pdf}\put(60,10){Move 1}
+\put(10,85){f)}
+\put(15,10){$s_1,g_2$}
+\put(65,88){$s_2,g_1$}
+\end{overpic}
+\begin{overpic}[width =\figwid]{storyWorst2.pdf}\put(60,10){Move 2}
+\end{overpic}
+\begin{overpic}[width =\figwid]{storyWorst4.pdf}\put(60,10){Move 3}
+\end{overpic}
+\begin{overpic}[width =\figwid]{storyWorst6.pdf}\put(60,10){Move 4}
+\end{overpic}
+\begin{overpic}[width =\figwid]{storyWorst7.pdf}\put(60,10){Move 5}
+\put(15, 85){worst case}\put(15,75){path length}\put(15, 62){$(\sqrt{2}+2)L$}
+\end{overpic}
+}\\
+
+%\vspace{-0.75em}
+%{
+%\begin{overpic}[width =\figwid]{storyCorner1.pdf}\put(50,80){Move 1}
+%\end{overpic}
+%\begin{overpic}[width =\figwid]{storyCorner2.pdf}\put(50,80){Move 2}
+%\end{overpic}
+%%\begin{overpic}[width =\figwid]{storyCorner3.pdf}\put(50,80){Move 3}
+%%\end{overpic}
+%\begin{overpic}[width =\figwid]{storyCorner4.pdf}\put(50,80){Move 4}
+%\end{overpic}
+%\begin{overpic}[width =\figwid]{storyCorner5.pdf}\put(50,80){Move 5}
+%\end{overpic}
+%}\\
+
+\vspace{-1em}
+\caption{\label{fig:shapeControlMathematica1}{Frames from an implementation of Alg.\ \ref{alg:optimalAlg}: two partivle positioning using walls with non-slip contacts. 
+Particle start positions are shown by a square, and goal positions by a circle.  Dashed lines show the shortest route if partivles could be controlled independently.  Solid arrows show path given by  Alg.\ \ref{alg:optimalAlg}.
+Online demonstration and source code at \cite{Shahrokhi2015mathematicaParticle}.
+%The bottom row shows an extreme case where the robots must switch position.
+}
+\vspace{-1em}
+}
+\end{figure*}
 
 
 \subsection{Two Particle Path Planning}
 
 
 The configuration space for two particles is a four dimensional manifold. Translating both particles the same amount is a trivial operation, but changing the relative positions requires boundary interaction. For this reason, our algorithms use the two dimensional $\Delta$ configuration space, defined as the difference in position of the first particle from the second particle: $\Delta p = p_2 - p_1$.
- Values $.x$ and $.y$ denote the $x$ and $y$ coordinates, i.e., $p_1.x$ and $p_1.y$ denote the $x$ and $y$ locations of $p_1$. 
-Alg.~\ref{alg:optimalAlg} assigns a uniform control input at every instance.
-The goal is to move the particles within $\epsilon$ of the goal positions using a shared control input where $\epsilon$ is an arbitrary small number. We do this by first moving them within $\epsilon$ of the correct relative position and then translating the particles to the goal. The relative position is $||\Delta g - \Delta p || = ||(g_2-g_1)- (p_2-p_1)||$.  
+% Each side of the $\Delta$ configuration space has the same length of each side of the workspace if the workspace has odd number of sides therefore, the $\Delta$ configuration space has two times the number of sides. $\Delta$ configuration space has the same number of sides for the polygons that have even number of sides, and each side of the $\Delta$ configuration space is twice as big as the workspace sides.
  
 The $\Delta$ configuration space is a set of all possible $\Delta p$ values.
  $\Delta$ configuration spaces for a representative set of workspaces are shown in Fig.~\ref{fig:polygon}. The \emph{reachable set} is the locus of points in the $\Delta$ configuration space corresponding to any two-move sequence where the first move brings one particle into contact with the boundary, and the second move translates the second particle without moving the first.
- Fig.~\ref{fig:regionMove} shows the starting and ending relative positions as $\Delta s$ and $\Delta g$ in the $\Delta$ configuration space. % in Fig.~\ref{fig:regionMove}.% The reachable set is the part of $\Delta$ configuration space where if one particle touches a wall in a specific location, the other particle can make the required relative distance without causing the touching particle to move. We will discuss how to make reachable sets in the next subsections. 
- The next subsections give procedures to compute the reachable set.
+ Fig.~\ref{fig:regionMove} shows the starting and ending relative positions as $\Delta s$ and $\Delta g$ in the $\Delta$ configuration space.  The next subsections give procedures to compute the reachable set.% in Fig.~\ref{fig:regionMove}.% The reachable set is the part of $\Delta$ configuration space where if one particle touches a wall in a specific location, the other particle can make the required relative distance without causing the touching particle to move. We will discuss how to make reachable sets in the next subsections. 
  
+  Values $.x$ and $.y$ denote the $x$ and $y$ coordinates, i.e., $p_1.x$ and $p_1.y$ denote the $x$ and $y$ locations of $p_1$. 
+Alg.~\ref{alg:optimalAlg} assigns a uniform control input at every instance.
+The goal is to move the particles within $\epsilon$ of the goal positions using a shared control input where $\epsilon$ is an arbitrary small number. We do this by first moving them within $\epsilon$ of the correct relative position and then translating the particles to the goal. The relative position is $||\Delta g - \Delta p || = ||(g_2-g_1)- (p_2-p_1)||$.  
+
+  \begin{figure}
+\centering
+\renewcommand{\figwid}{0.8\columnwidth}
+{\begin{overpic}[width =\figwid]{differentNumSides.pdf}\put(5,100){Workspace}\put(20,100){$\Delta$ configuration space}
+\end{overpic}
+}
+\caption{\label{fig:polygon}{The $\Delta$ configuration space is all possible configurations of $p_2-p_1$. The sets reachable in two moves, called \emph{reachable sets} are drawn with transparent blue polygons. A polygon with $n$ sides has $n$ reachable sets, but if $n$ is even and the polygon is regular, half the reachable sets overlap. If $\Delta g$ is in the reachable sets, we can achieve the required relative position in two moves. If $\Delta g$ is not in the reachable set, we define a temporary goal, $\Delta g_c$, which is the closest point on the reachable set to $\Delta g$ and apply two moves that make the relative position closer to $\Delta g$. We do it until we reach the relative goal position.
+%Workspace and $\Delta$ configuration spaces for different polygonal workspaces and their representative $\Delta$ configuration spaces and reachable sets. As the number of sides in the polygon increases, the total area of the $\Delta$ configuration space is four times of the workspace.
+}
+\vspace{-1em}
+}
+\end{figure}
  Algorithm ~\ref{alg:optimalAlg} first computes the reachable set. If the goal relative position is in the reachable set, we move particles to achieve that relative position. If it is not in the reachable set, we move particles to achieve the closest point on the reachable set from $\Delta g$. 
  \emph{Achieving} a $\Delta$ configuration requires two-moves, the first to move until one particle touches a wall, and the second to adjust the relative spacing.
  Once the correct \emph{relative} position has been achieved, a final translation delivers both particles to their goal destinations. %we go to the final goal position. If it is not our final goal, 
@@ -63,39 +215,30 @@ The $\Delta$ configuration space is a set of all possible $\Delta p$ values.
 
 % Consider one particle touching each vertex of the workspace as shown in Fig.~\ref{fig:polygonAlg}.
 %  For each pair of vertices, compute where the other robot will be if the first robot goes to that vertex. If the final position of the second robot is still inside the workspace, then its position is one of the vertices of the reachable set. If the point is not inside the polygon, then the intersection of the line that point and the second robot's position with the polygon is one vertex of the reachable set. Compute the distance to all the vertices of the workspace from this point. By subtracting the relative distance of the robots, then all the vertices of one reachable set are found. Doing this for all the vertices of the workspace will give us all the reachable sets.
- \begin{figure}
-\centering
-\renewcommand{\figwid}{0.8\columnwidth}
-{\begin{overpic}[width =\figwid]{differentNumSides.pdf}\put(5,100){Workspace}\put(20,100){$\Delta$ configuration space}
-\end{overpic}
-}
-\caption{\label{fig:polygon}{Reachable sets are drawn with transparent blue polygons. A polygon with $n$ sides has $n$ reachable sets, but if $n$ is even and the polygon is regular, half the reachable sets overlap.
-%Workspace and $\Delta$ configuration spaces for different polygonal workspaces and their representative $\Delta$ configuration spaces and reachable sets. As the number of sides in the polygon increases, the total area of the $\Delta$ configuration space is four times of the workspace.
-}
-\vspace{-1em}
-}
-\end{figure}
+
 
 
 \begin{figure}
 \centering
-\begin{overpic}[width=0.47\columnwidth]{twoRobotRegionH.pdf}\end{overpic}
-\begin{overpic}[width=0.47\columnwidth]{twoRobotRegionV.pdf}\end{overpic}
+\begin{overpic}[width=0.32\columnwidth]{twoRobotRegionH.pdf}\end{overpic}
+\begin{overpic}[width=0.32\columnwidth]{twoRobotRegionV.pdf}\end{overpic}
+\begin{overpic}[width=0.32\columnwidth]{DeltaConfigSquare.pdf}\end{overpic}
 \caption{\label{fig:TwoRegions}
 Boundary interaction is used to change the relative positions of the particles. Each particle gets the same control input. 
 (left) If particle 2 hits the bottom wall before particle 1 reaches a wall, particle 2 can reach anywhere along the green line, and  particle 1 can move to anywhere in the shaded area. 
-(right) Similarly, if particle 2 hits the right wall before particle 1 reaches a wall, particle 2 can reach anywhere along the green line, and then particle 1 can move to anywhere in the shaded area. 
+(middle) Similarly, if particle 2 hits the right wall before particle 1 reaches a wall, particle 2 can reach anywhere along the green line, and then particle 1 can move to anywhere in the shaded area. 
+(right) The reachable sets in the $\Delta$ configuration space is shown.
 }
 \end{figure}
 
 \begin{figure*}
 \centering
 \renewcommand{\figwid}{0.66\columnwidth}
-\begin{overpic}[width =\figwid]{anypolygon1.pdf}\put(15,0){\tiny{Case 1: $s_1$ does not hit boundary}}\put(28,39){$s_2$}\put(63,50){$s_1$}
+\begin{overpic}[width =\figwid]{anypolygon1.pdf}\put(17,-3){\small{Case 1: $s_1$ does not hit boundary}}\put(28,39){$s_2$}\put(63,50){$s_1$}
 \end{overpic}
-\begin{overpic}[width =\figwid]{anypolygon2.pdf}\put(25,0){\tiny{Case 2: $s_1$ hits boundary}}\put(20,40){$s_2$}\put(55,58){$s_1$}
+\begin{overpic}[width =\figwid]{anypolygon2.pdf}\put(25,-3){\small{Case 2: $s_1$ hits boundary}}\put(20,40){$s_2$}\put(55,58){$s_1$}
 \end{overpic}
-\begin{overpic}[width =\figwid]{anypolygon3.pdf}\put(25,0){\tiny{Generates polygon defined by $\overline{ p_i p_{i+1}}$ }}
+\begin{overpic}[width =\figwid]{anypolygon3.pdf}\put(17,-3){\small{Generates polygon defined by $\overline{ p_i p_{i+1}}$ }}
 \end{overpic}
 \caption{\label{fig:polygonAlg}{ Steps to generate  the reachable set when  one particle collides with edge $i,i+1$ of a convex polygonal workspace.}
 \vspace{-1em}
@@ -153,13 +296,21 @@ Left top: The possible first contact points for the blue and red particles are s
 \end{figure}
 
 \begin{figure*}
-\begin{overpic}[width=0.67\columnwidth]{regionMove1.pdf}\put(7,15){\small{workspace}}\end{overpic}
-\begin{overpic}[width=0.67\columnwidth]{regionMove2.pdf}\put(7,15){\small{workspace}}\end{overpic}
-\begin{overpic}[width=0.67\columnwidth]{regionMove3.pdf}\put(7,15){\small{workspace}}\end{overpic}\\
+\begin{overpic}[width=0.67\columnwidth]{regionMove1.pdf}\end{overpic}
+\begin{overpic}[width=0.67\columnwidth]{regionMove2.pdf}\end{overpic}
+\begin{overpic}[width=0.67\columnwidth]{regionMove3.pdf}\end{overpic}\\
+
+\begin{overpic}[width=0.67\columnwidth]{regionMove4.pdf}\end{overpic}
+\begin{overpic}[width=0.67\columnwidth]{regionMove5.pdf}\end{overpic}
+\begin{overpic}[width=0.67\columnwidth]{regionMove6.pdf}\end{overpic}\\
 
 \begin{overpic}[width=0.67\columnwidth]{Move1.pdf}\end{overpic}
 \begin{overpic}[width=0.67\columnwidth]{Move2.pdf}\end{overpic}
-\begin{overpic}[width=0.67\columnwidth]{finalPath.pdf}\end{overpic}
+\begin{overpic}[width=0.67\columnwidth]{Move3.pdf}\end{overpic}\\
+
+\begin{overpic}[width=0.67\columnwidth]{Move4.pdf}\end{overpic}
+\begin{overpic}[width=0.67\columnwidth]{Move5.pdf}\end{overpic}
+\begin{overpic}[width=0.67\columnwidth]{finalMove.pdf}\end{overpic}
 \caption{\label{fig:reachableSet}
 Top row shows a polygonal workspace with its reachable sets. Bottom row, left circle shows the workspace. %, and the corresponding reachable set when blue robot is touching the wall is shown as a blue region. 
 Right shows the $\Delta$ configuration space and the reachable set that is shown in red is representative of the point we need to go to get to the goal relative distance in one move.%representative of the blue and pink reachable sets shown in the workspace.
