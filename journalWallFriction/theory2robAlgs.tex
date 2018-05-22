@@ -156,7 +156,7 @@ The configuration space for two particles is a four dimensional manifold. Transl
 % Each side of the $\Delta$ configuration space has the same length of each side of the workspace if the workspace has odd number of sides therefore, the $\Delta$ configuration space has two times the number of sides. $\Delta$ configuration space has the same number of sides for the polygons that have even number of sides, and each side of the $\Delta$ configuration space is twice as big as the workspace sides.
  
 The $\Delta$ configuration space is a set of all possible $\Delta p$ values.
- $\Delta$ configuration spaces for a representative set of workspaces are shown in Fig.~\ref{fig:polygon}. The \emph{reachable set} is the locus of points in the $\Delta$ configuration space corresponding to any two-move sequence where the first move brings one particle into contact with the boundary, and the second move translates the second particle without moving the first.
+ $\Delta$ configuration spaces for a representative set of workspaces are shown in Fig.~\ref{fig:polygon}. The \emph{2-move reachable set} is the locus of points in the $\Delta$ configuration space corresponding to any two-move sequence where the first move brings one particle into contact with the boundary, and the second move translates the second particle without moving the first.
  Fig.~\ref{fig:regionMove} shows the starting and ending relative positions as $\Delta s$ and $\Delta g$ in the $\Delta$ configuration space.  The next subsections give procedures to compute the reachable set.% in Fig.~\ref{fig:regionMove}.% The reachable set is the part of $\Delta$ configuration space where if one particle touches a wall in a specific location, the other particle can make the required relative distance without causing the touching particle to move. We will discuss how to make reachable sets in the next subsections. 
  
   Values $.x$ and $.y$ denote the $x$ and $y$ coordinates, i.e., $p_1.x$ and $p_1.y$ denote the $x$ and $y$ locations of $p_1$. 
@@ -208,7 +208,22 @@ The goal is to move the particles within $\epsilon$ of the goal positions using 
 \end{algorithm}
 
 
-\subsection{Convex Polygonal Workspaces: Reachable Set}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%\
+\subsection{$\Delta$ Configuration Space}
+ 
+ Given an $n$-sided convex polygon $P$, the $\Delta$ configuration space is an $2n$-sided convex polygon.
+ A special case is for even-sided regular polygons, in which half the sides align and the $\Delta$ configuration space  is $n$-sided.
+ 
+ \textcolor{red}{[INSERT PROCEDURE]}\\
+ 
+ \textcolor{red}{    Describe how to generate a $\Delta$ Configuration Space for polygon $P$.}
+
+
+ \textcolor{red}{[INSERT ONE IMAGE OF A 4-sided irregular convex polygon]}\\
+
+
+
+\subsection{Convex Polygonal Workspaces: 2-Move Reachable Set}
  
  Fig. \ref{fig:polygon} shows different workspaces and their representative $\Delta$ configuration spaces. 
 
@@ -283,7 +298,7 @@ $[p_{i+1} , p_{i+2}, ... , v_{\textrm{max}}, l_{i+1}] - p_{i+1}')$
 
 
  
-\subsection{Circular Workspaces: Reachable Set}
+\subsection{Circular Workspaces: 2-Move Reachable Set}
 
 
 % Fig.~\ref{fig:shapeControlMathematica1} shows a Mathematica implementation of the algorithm, and is useful as a visual reference for the following description.
