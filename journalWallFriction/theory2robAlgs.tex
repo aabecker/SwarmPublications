@@ -139,9 +139,10 @@ Denote the current positions of the particles  $p_1$ and $p_2$.
 %}\\
 
 \vspace{-1em}
-\caption{\label{fig:shapeControlMathematica1}{Frames from an implementation of Alg.\ \ref{alg:optimalAlg}: two partivle positioning using walls with non-slip contacts. 
-Particle start positions are shown by a square, and goal positions by a circle.  Dashed lines show the shortest route if partivles could be controlled independently.  Solid arrows show path given by  Alg.\ \ref{alg:optimalAlg}.
-%Online demonstration and source code at \cite{Shahrokhi2015mathematicaParticle}.
+
+\caption{\label{fig:shapeControlMathematica1}{Frames from an implementation of Alg.\ \ref{alg:optimalAlg}: two particle positioning using walls with non-slip contacts. 
+Particle start positions are shown by squares, and goal positions by circles.  Dashed lines show the shortest route if particles could be controlled independently.  Solid arrows show path given by  Alg.\ \ref{alg:optimalAlg}.
+%Online dmonstration and source code at \cite{Shahrokhi2015mathematicaParticle}.
 %The bottom row shows an extreme case where the robots must switch position.
 }
 \vspace{-1em}
@@ -165,6 +166,21 @@ The goal is to move the particles within $\epsilon$ of the goal positions using 
 
 
  Algorithm ~\ref{alg:optimalAlg} first computes the 2-move reachable set. If the goal relative position is in the 2-move reachable set, we move particles to achieve that relative position. If it is not in the 2-move reachable set, we move particles to achieve the closest point on this reachable set from $\Delta g$. 
+
+  \begin{figure}
+\centering
+\renewcommand{\figwid}{0.8\columnwidth}
+{\begin{overpic}[width =\figwid]{differentNumSides.pdf}\put(5,100){Workspace}\put(20,100){$\Delta$ configuration space}
+\end{overpic}
+}
+\caption{\label{fig:polygon}{The $\Delta$ configuration space is all possible configurations of $p_2-p_1$. The sets reachable in two moves, called \emph{reachable sets} are drawn with transparent blue polygons. A polygon with $n$ sides has $n$ reachable sets, but if $n$ is even and the polygon is regular, half the reachable sets overlap. If $\Delta g$ is in the reachable sets, we can achieve the required relative position in two moves. If $\Delta g$ is not in the reachable set, we define a temporary goal, $\Delta g_c$, which is the closest point on the reachable set to $\Delta g$ and apply two moves that make the relative position closer to $\Delta g$. We do it until we reach the relative goal position.
+%Workspace and $\Delta$ configuration spaces for different polygonal workspaces and their representative $\Delta$ configuration spaces and reachable sets. As the number of sides in the polygon increases, the total area of the $\Delta$ configuration space is four times of the workspace.
+}
+\vspace{-1em}
+}
+\end{figure}
+ Algorithm ~\ref{alg:optimalAlg} first computes the 2-move reachable set. If the goal relative position is in the reachable set, we move particles to achieve that relative position. If it is not in the reachable set, we move particles to achieve the closest point on the reachable set from $\Delta g$. 
+>>>>>>> Stashed changes
  \emph{Achieving} a $\Delta$ configuration requires two-moves, the first to move until one particle touches a wall, and the second to adjust the relative spacing.
  Once the correct \emph{relative} position has been achieved, a final translation delivers both particles to their goal destinations. %we go to the final goal position. If it is not our final goal, 
  Otherwise, we iterate until we reach the goal. 
@@ -200,9 +216,18 @@ The goal is to move the particles within $\epsilon$ of the goal positions using 
  %%%%%%%%%%%%%%%%%%%%%%%%%%%\
 \subsection{$\Delta$ Configuration Space}
  
- $\Delta$ configuration space is a space containing all the possible relative distances for $p_1$ and $p_2$. Given an $n$-sided convex polygon $P$, the $\Delta$ configuration space is a $2n$-sided convex polygon.
+The $\Delta$ configuration space is a space containing all the possible relative configurations for $p_1$ and $p_2$. Given an $n$-sided convex polygon $P$, the $\Delta$ configuration space is a $2n$-sided convex polygon.
  A special case is for even-sided regular polygons, in which half the sides align and the $\Delta$ configuration space  is $n$-sided. 
- To give an intuition what $\Delta$ configuration space is, consider the first particle on a vertex of the workspace. Now if the other particle moves on the boundary of the workspace, the relative distance between the two particles is maximized. Consider the first particle is fixed at (0,0). To generate the $\Delta$ configuration space we iterate through all the vertices, $i$ and consider that first particle is positioned at $i^{\textrm{th}}$ vertex. To find all possible $\Delta p$ values, compute $v_i - v_j$ where $j$ goes from 1 to $n$. For each vertex, $i$, we have made one $n$-sided polygon defined by its vertices. The outer boundary of all these polygons shows the boundary of the $\Delta$ configuration space. Fig.~\ref{fig:irregular} shows an arbitrary 4-sided workspace on the left. All the polygons made by $p_1$ and $p_2$ are shown in the middle. $\Delta$ configuration space is shown on the right with 2-move reachable sets drawn in transparent blue. We discuss how to generate 2-step reachable sets in the following subsection.
+ To give intuition about the $\Delta$ configuration space, consider placing the first particle on a vertex of the workspace. 
+ If the other particle moves on the boundary of the workspace, the relative distance between the two particles is maximized. 
+ Consider the first particle is fixed at (0,0). To generate the $\Delta$ configuration space we iterate through all the vertices, $i$ and consider that first particle is positioned at $i^{\textrm{th}}$ vertex. 
+ To find all possible $\Delta p$ values, compute $v_i - v_j$ where $j$ goes from 1 to $n$. 
+  For each vertex, $i$, we have made one $n$-sided polygon defined by its vertices. 
+   The outer boundary of all these polygons shows the boundary of the $\Delta$ configuration space.
+    Fig.~\ref{fig:irregular} shows an arbitrary 4-sided workspace on the left. 
+    All the polygons made by $p_1$ and $p_2$ are shown in the middle.
+     $\Delta$ configuration space is shown on the right with 2-move reachable sets drawn in transparent blue. 
+     We discuss how to generate 2-step reachable sets in the following subsection.
  
  %\textcolor{red}{[INSERT PROCEDURE]}\\
  
@@ -215,6 +240,7 @@ The goal is to move the particles within $\epsilon$ of the goal positions using 
 \centering
 \begin{overpic}[width=\columnwidth]{irregular.pdf}\end{overpic}
 \caption{\label{fig:irregular}
+\textcolor{red}{Shiva, this image is nice.  A few suggestions: ?TODO: Label the middle image 'Translate workspace around (0,0)', and draw the workspace outlines with different colors and thicknesses}
 Workspace and $\Delta$ configuration space is shown for an arbitrary convex polygon with $n=4$ sides. The 2-move reachable sets are drawn in transparent blue.
 }
 \end{figure}
@@ -316,6 +342,7 @@ $[p_{i+1} , p_{i+2}, ... , v_{\textrm{max}}, l_{i+1}] - p_{i+1}')$
 \caption{\label{fig:regionMove}
 % the set of points where the red particle is the first to contact the boundary are drawn with a red arc. The  set of points where the blue particle is the first to contact the boundary are drawn with a blue arc. 
 Left top: The possible first contact points for the blue and red particles are shown with blue and red arcs. Left bottom: Once the blue particle touches the wall (blue square) the other particle (red square) can go anywhere in the reachable set (red region). Right: The $\Delta$ configuration space for the corresponded starting positions of the particles is shown. The possible 2-move reachable sets before contact are shown in the $\Delta$ configuration as a blue region. Once the blue particle contacts the boundary as shown, the reachable $\Delta$ configuration is the red set.}
+
 \end{figure}
 
 \begin{figure*}
