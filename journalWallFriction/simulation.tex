@@ -23,7 +23,7 @@ Plots show performance with one goal on the boundary.
 \begin{overpic}[width=\columnwidth]{deltadist.pdf}\end{overpic}
 \vspace{-1em}
 \caption{\label{fig:deltanumdist}
-The worst case path length occurs when particles must swap antipodes. This can never be achieved but can be asymptotically approached. Plot shows decreasing error as the number of moves grows.
+The worst-case path length occurs when particles must swap antipodes. This can never be achieved but can be asymptotically approached. Plot shows decreasing error as the number of moves grows.
 } 
 \end{figure}
 
@@ -56,10 +56,11 @@ Algorithm \ref{alg:optimalAlg}  was implemented in Mathematica using particles w
  
  The contour plots in Fig.~\ref{fig:contour} left show the length of the path for two different settings. Top row considers \{$s_1,s_2,g_1$\} = \{$(0.2,0.2),(-0.1,-0.1),(0,0)$\} and bottom row considers  \{$s_1,s_2,g_1$\} = \{$(0.2,0.2),(-0.1,-0.1),(-0.2,0)$\} in a workspace with $r= 0.5$, and $g_2$ ranging over all the workspace. Fig.~\ref{fig:contour} right shows the number of moves and left shows the total distance of the path. This plot shows the nonlinear nature of the path planning. When the goal is in the middle of the workspace, a symmetry in the path length is expected as the top row shows. The bottom row shows a shift in the goal position which will break the symmetry of the path length in the workspace.
  
-The path length grows when the goals have $\pi$ difference and are very close to the boundary.  The worst case occurs when the ending points are at antipodes along the boundary ($\pi$ angular distance). This can never be achieved but can be asymptotically approached as shown in Fig.~\ref{fig:deltanumdist}. 
- Fig.~\ref{fig:contourPlots} shows the same concepts in a square workspace. Fig.~\ref{fig:contourPlots} top and middle row considers the particles for three arbitrary starting and goal positions for the particles. All of the discussed plots have considered the particles to be unique. If particles are interchangeable and it does not matter to put the specific particle to its goal location, the path length will be significantly smaller. The bottom row of  Fig.~\ref{fig:contourPlots} considers interchangeable particles with the same configuration as the middle row with unique particles.
+The path length grows when the goals have $\pi$ difference and are very close to the boundary.  The worst-case occurs when the ending points are at antipodes along the boundary ($\pi$ angular distance). This can never be achieved but can be asymptotically approached as shown in Fig.~\ref{fig:deltanumdist}. 
+ Fig.~\ref{fig:contourPlots} shows the same concepts in a square workspace. Fig.~\ref{fig:contourPlots} top and middle row considers the particles for three arbitrary starting and goal positions for the particles. 
+ Thus far, this paper has considered the particles to be unique. If particles are interchangeable, the path lengths often decrease. The bottom row of  Fig.~\ref{fig:contourPlots} considers interchangeable particles with the same configuration as the middle row with unique particles. The worst-case path lengths decrease by ??\%, ??\%, and ??\% for the three test cases shown. %TODO: shiva, insert numbers.
  
- %If the length of each side of the square workspace is $L$, the worst case path length is $(\sqrt{2}+2)L$.
+ %If the length of each side of the square workspace is $L$, the worst-case path length is $(\sqrt{2}+2)L$.
  
 % The plots in Fig.~\ref{fig:deltanumdist} show the exponentially increasing number of moves and distance when the accuracy of reaching to the goal ($\delta$) is getting to zero when the goal positions have $\pi$ difference with each on the boundaries.
 
