@@ -3,6 +3,61 @@
 
 
 %Two simulations were implemented using non-slip contact walls for position control.  The first controls the position of two robots, the second controls the position of $n$ robots.  
+\begin{figure*}
+\begin{overpic}[width=0.67\columnwidth]{regionMove1.pdf}\put(55.5,26){\begin{turn}{94} 
+{\begin{tikzpicture}[thick]
+\draw [red,  - , dotted      ] (1,14.0) -- (0,14.0);
+\end{tikzpicture}}\end{turn}}\end{overpic}
+\begin{overpic}[width=0.67\columnwidth]{regionMove2.pdf}\put(55.5,26){\begin{turn}{94} 
+{\begin{tikzpicture}[thick]
+\draw [red,   -  , dotted     ] (1,14.0) -- (0,14.0);
+\end{tikzpicture}}\end{turn}}\end{overpic}
+\begin{overpic}[width=0.67\columnwidth]{regionMove3.pdf}\put(55.5,26){\begin{turn}{94} 
+{\begin{tikzpicture}[thick]
+\draw [red,   -   , dotted     ] (1,14.0) -- (0,14.0);
+\end{tikzpicture}}\end{turn}}\end{overpic}\\
+
+\begin{overpic}[width=0.67\columnwidth]{regionMove4.pdf}\put(55.5,26){\begin{turn}{94} 
+{\begin{tikzpicture}[thick]
+\draw [red,   -  , dotted      ] (1,14.0) -- (0,14.0);
+\end{tikzpicture}}\end{turn}}\end{overpic}
+\begin{overpic}[width=0.67\columnwidth]{regionMove5.pdf}\put(55.5,26){\begin{turn}{94} 
+{\begin{tikzpicture}[thick]
+\draw [red,   -   , dotted     ] (1,14.0) -- (0,14.0);
+\end{tikzpicture}}\end{turn}}\end{overpic}
+\begin{overpic}[width=0.67\columnwidth]{regionMove6.pdf}\end{overpic}\\
+
+\begin{overpic}[width=0.67\columnwidth]{Move1.pdf}\put(55.5,32.5){\begin{turn}{50.5} 
+{\begin{tikzpicture}[thick]
+\draw [red,   -   , dotted    ] (1,14.0) -- (0,14.0);
+\end{tikzpicture}}\end{turn}}\end{overpic}
+\begin{overpic}[width=0.67\columnwidth]{Move2.pdf}\put(55.5,32.5){\begin{turn}{50.5} 
+{\begin{tikzpicture}[thick]
+\draw [red,   -   , dotted     ] (1,14.0) -- (0,14.0);
+\end{tikzpicture}}\end{turn}}\end{overpic}
+\begin{overpic}[width=0.67\columnwidth]{Move3.pdf}\put(55.5,32.5){\begin{turn}{50.5} 
+{\begin{tikzpicture}[thick]
+\draw [red,   -   , dotted    ] (1,14.0) -- (0,14.0);
+\end{tikzpicture}}\end{turn}}\end{overpic}\\
+
+\begin{overpic}[width=0.67\columnwidth]{Move4.pdf}\put(55.5,32.5){\begin{turn}{50.5} 
+{\begin{tikzpicture}[thick]
+\draw [red,   -  , dotted      ] (1,14.0) -- (0,14.0);
+\end{tikzpicture}}\end{turn}}\end{overpic}
+\begin{overpic}[width=0.67\columnwidth]{Move5.pdf}\put(55.5,32.5){\begin{turn}{50.5} 
+{\begin{tikzpicture}[thick]
+\draw [red,   -   , dotted     ] (1,14.0) -- (0,14.0);
+\end{tikzpicture}}\end{turn}}\end{overpic}
+\begin{overpic}[width=0.67\columnwidth]{finalMove.pdf}\end{overpic}
+\caption{\label{fig:reachableSet}
+Frames from reconfiguring two particles. 
+Top six images show a polygonal workspace and the corresponding $\Delta$ configuration space with its 2-move reachable sets. 
+Bottom six images show a disk-shaped workspace and the corresponding $\Delta$ configuration space with its 2-move reachable sets. 
+For each the move 1 and 3 are simple translations of both particles and so the reachable sets do not change.
+The reachable set morphs during move 2 because one particle is held stationary by the boundary. 
+See multimedia attachment for animations of each.
+}
+\end{figure*}
 
 %\subsection{Position Control of Two Robots}
 \begin{figure}
@@ -49,7 +104,7 @@ The worst-case path length occurs when particles must swap antipodes. This can n
 \vspace{-1em}
 }
 \end{figure}
-Algorithm \ref{alg:optimalAlg}  was implemented in Mathematica using particles with zero radius. 
+Algorithm \ref{alg:optimalAlg}  was implemented in Mathematica using particles with zero radius. Figure \ref{fig:reachableSet} shows frames of the algorithm in two representative workspaces, square and disk, with two arbitrary starting and goal configurations.
 %An online interactive demonstration and source code of the algorithm are available at \cite{Shahrokhi2015mathematicaParticle}.
 %  Fig.~\ref{fig:shapeControlMathematica1}  shows  an implementation of this algorithm with robot initial positions represented by hollow squares and final positions by circles. 
  %Dashed lines show the shortest route if robots could be controlled independently, while solid lines show the optimal shortest  path using uniform inputs.

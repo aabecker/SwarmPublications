@@ -1,5 +1,5 @@
 \section{Introduction}\label{sec:Intro}
-Particle swarms propelled by a uniform field, where each particle  receives the same control input, are common in applied mathematics, biology, and computer graphics. 
+Particle swarms propelled by a uniform field, where each particle  receives the same control input, are common in applied mathematics, biology, and computer graphics \cite{Peyer2013,Shirai2005,Chiang2011}.
 %If the $i$th particle has position $[x_i,y_i]$ and velocity $[\dot{x}_i, \dot{y}_i]$, then
 %\begin{align}
 %[\dot{x}_i, \dot{y}_i]^\top = \mathbf{u}(t), \qquad i \in [1,n]. \label{eq:swarmDynamics} %[u_x, u_y]^\top
@@ -18,10 +18,10 @@ The small size of these robots makes it difficult to perform onboard computation
  The tiny robots themselves are often just rigid bodies, and it may be more accurate to define the robot as the \emph{system} that consists of particles, a uniform control field, and sensing.
 Such systems are severely underactuated, having 2 degrees of freedom in the shared planar control input, but $2n$ degrees of freedom for the $n$-particle swarm.
  Techniques are needed that can handle this underactuation. 
+
+ Positioning is a foundational capability for a robotic system, e.g. placement of brachytherapy seeds. 
  In previous work, we showed that the 2D position of each particle in such a swarm is controllable if the workspace contains a single obstacle the size of one particle \cite{AaronManipulation2013}.
-
-
-Positioning is a foundational capability for a robotic system, e.g. placement of brachytherapy seeds. However, requiring a single, small, rigid obstacle suspended in the middle of the workspace is often an unreasonable constraint, especially in 3D.
+ However, requiring a single, small, rigid obstacle suspended in the middle of the workspace is often an unreasonable constraint, especially in 3D.
 This paper relaxes that constraint, and provides position control algorithms that only require non-slip wall contacts.
 We assume that particles in contact with the boundaries have zero velocity if the uniform control input pushes the particle into the wall.
 
@@ -45,7 +45,7 @@ The paper is arranged as follows.
 After a review of recent related work in Sec.  \ref{sec:RelatedWork},
  %Sec. \ref{subsec:FluidInTank} provides analytical position control results of stable configurations in two canonical workspaces with frictionless walls.  These results are limited in the set of shapes that can be generated.  To extend the range of possible shapes,
   Sec.  \ref{sec:theory} introduces a  model for boundary interaction and two shortest path results for representative workspaces.   
-We provide a shortest-path algorithm to arbitrarily position two particles in Sec.  \ref{sec:PostionControl2Robots}.
+We provide an algorithm to arbitrarily position two particles in Sec.  \ref{sec:PostionControl2Robots}.
 Section  \ref{sec:simulation} describes implementations of the algorithms in simulation and  Sec.  \ref{sec:expResults} describes hardware experiments, as shown in Fig.~\ref{fig:IntroPic}. 
  We end with directions for future research in Sec.  \ref{sec:conclusion}.
 

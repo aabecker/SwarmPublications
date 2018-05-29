@@ -8,9 +8,7 @@ The following sections examine using non-slip boundary contacts to break the sym
  Our algorithms rely on holding one particle stationary by pushing it into the boundary while moving the other particle. 
  We start with a boundary interaction model in subsection \ref{subsec:WallFriction}.
  
-If a control input causes the particles to collide with obstacles at different times, inverting the control input does not undo the action. 
- Due to this lack of time-reversibility, techniques that require a bidirectional graph, e.g. PRM \cite{kavraki1996probabilistic} and RRT* \cite{lavalle2006planning} are not suitable.
-  Instead, this paper employs a greedy search strategy. 
+
 For some configurations, we can obtain the optimal solution. 
 Subsections \ref{subsec:square} and \ref{subsec:circular} provide shortest-path results for two representative workspaces, squares and disks.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -40,7 +38,7 @@ Subsections \ref{subsec:square} and \ref{subsec:circular} provide shortest-path 
  Our control problem is to design the control inputs $\mathbf{u}(t)$ to deliver two particles to goal positions.
  
  \subsection{Example: Shortest Path in a Square Workspace}\label{subsec:square}
- 
+ Changing the relative positions of particles in any workspace requires making one particle contact the boundary.
  If the goal configuration cannot be reached in one move but can be reached in three moves, the shortest path has a simple solution. The first move, $m_1$, makes one particle hit a wall, $m_2$ adjusts the relative spacing error  to zero, and $m_3$ takes the particles to their final positions. 
 $m_2$ cannot be shortened, so optimization depends on choosing the location where the particle hits the wall. 
  Since the shortest distance between two points is a straight line, reflecting the goal position across the boundary wall and plotting a straight line gives the optimal hit location, as shown in Fig. \ref{fig:reflection}. 
@@ -57,7 +55,7 @@ The shortest three-move path that reconfigures two particles has the property th
 
  
  \subsection{Shortest Path in Unit Disk that Intersects Circumference}\label{subsec:circular}
-Changing the relative positions of particles in any workspace requires making one particle contact the boundary.
+
  The shortest path between two points in the unit disk that intersects the circumference is composed of two straight line segments and has an optimal contact point, as shown in Fig.~\ref{fig:shortestpath}. 
  The problem can be simplified by choosing the coordinate system carefully. We define the $x$-axis along the line from the circle center to the starting point: $S=(s,0)$, and define the point of intersection by the angle $\theta$ from the $x$-axis: $P=(\cos \theta,\sin \theta)$. Define the final point $E$ by a radius $e$ and angle $\beta$: $E=e(\cos \beta,\sin \beta)$. Then the length of the two line segments is 
  \begin{align}\scalebox{.8}{$
