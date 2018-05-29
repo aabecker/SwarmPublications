@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    145257,       3001]
-NotebookOptionsPosition[    144490,       2973]
-NotebookOutlinePosition[    144874,       2990]
-CellTagsIndexPosition[    144831,       2987]
+NotebookDataLength[    145132,       2999]
+NotebookOptionsPosition[    144365,       2971]
+NotebookOutlinePosition[    144749,       2988]
+CellTagsIndexPosition[    144706,       2985]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -84,7 +84,7 @@ Cell[BoxData[{
 will be inside exactly one member of a polygonal partitioning.\n  C-code by \
 W. Randolph Franklin \
 (http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html).\n  \
-J. Wesenberg, 2008\>\""}], " ", ";"}], "\n"}], "\[IndentingNewLine]", 
+J. Wesenberg, 2008\>\""}], " ", ";"}], "\[IndentingNewLine]"}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"pnPoly", "[", 
@@ -564,7 +564,8 @@ J. Wesenberg, 2008\>\""}], " ", ";"}], "\n"}], "\[IndentingNewLine]",
         RowBox[{"(", 
          RowBox[{"ax", "-", "bx"}], ")"}], " ", 
         RowBox[{"(", 
-         RowBox[{"cy", "-", "dy"}], ")"}]}]}]]}], "}"}]}], "\n", 
+         RowBox[{"cy", "-", "dy"}], ")"}]}]}]]}], "}"}]}], 
+  "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{"Use", " ", 
     FormBox[
@@ -584,7 +585,7 @@ J. Wesenberg, 2008\>\""}], " ", ";"}], "\n"}], "\[IndentingNewLine]",
      RowBox[{"0", "\[LessEqual]", "\[Lambda]", "\[LessEqual]", "1"}],
      TraditionalForm], " ", "to", " ", "determine", " ", "whether", " ", 
     "two", " ", "segments", " ", 
-    RowBox[{"intersect", ":"}]}], "*)"}]}], "\[IndentingNewLine]", 
+    RowBox[{"intersect", ":"}]}], "*)"}]}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"SegmentIntersectionQ", "[", 
@@ -2639,15 +2640,12 @@ Cell[BoxData[
  TagBox[
   StyleBox[
    DynamicModuleBox[{$CellContext`e1$$ = {0.05, 0.5}, $CellContext`e2$$ = {
-    0.5245, 0.8700000000000001}, $CellContext`polygon$$ = 
-    "irregular", $CellContext`s1$$ = {0.1, 0.3}, $CellContext`s2$$ = {
-    0.6265000000000001, 0.32600000000000007`}, $CellContext`sides$$ = 
-    4, $CellContext`tr1$$ = {1., 0.496}, $CellContext`tr2$$ = {
-    0.04499999999999993, -0.03400000000000003}, $CellContext`tr3$$ = \
-{-0.09350000000000003, 0.8900000000000001}, $CellContext`tr4$$ = {
-    0.7670000000000001, 0.944}, $CellContext`tr5$$ = {
-    0.4, -0.5}, $CellContext`tr6$$ = {0.38949999999999996`, 
-    1.}, $CellContext`tr7$$ = {-0.3, 0.1}, $CellContext`tr8$$ = {-0.3, 0.5}, 
+    0.33, 0.6}, $CellContext`polygon$$ = "irregular", $CellContext`s1$$ = {
+    0.1, 0.3}, $CellContext`s2$$ = {0.8, 0.1}, $CellContext`sides$$ = 
+    4, $CellContext`tr1$$ = {0.3, 0.9}, $CellContext`tr2$$ = {
+    0.1, -0.5}, $CellContext`tr3$$ = {-0.33, 0.8}, $CellContext`tr4$$ = {0.3, 
+    0.5}, $CellContext`tr5$$ = {0.4, -0.5}, $CellContext`tr6$$ = {0.3, 
+    0.8}, $CellContext`tr7$$ = {-0.3, 0.1}, $CellContext`tr8$$ = {-0.3, 0.5}, 
     Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
     Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
     1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
@@ -2671,9 +2669,9 @@ Cell[BoxData[
        Hold[$CellContext`tr8$$], {-0.3, 0.5}}, {-1, -1}, {1, 1}}}, 
     Typeset`size$$ = {1350., {274., 278.}}, Typeset`update$$ = 0, 
     Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`polygon$160883$$ = False, $CellContext`s1$160884$$ = {
-    0, 0}, $CellContext`s2$160885$$ = {0, 0}, $CellContext`e1$160886$$ = {0, 
-    0}, $CellContext`e2$160887$$ = {0, 0}, $CellContext`tr1$160888$$ = {0, 
+    True, $CellContext`polygon$120101$$ = False, $CellContext`s1$120102$$ = {
+    0, 0}, $CellContext`s2$120103$$ = {0, 0}, $CellContext`e1$120104$$ = {0, 
+    0}, $CellContext`e2$120105$$ = {0, 0}, $CellContext`tr1$120106$$ = {0, 
     0}}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      2, StandardForm, 
@@ -2686,12 +2684,12 @@ Cell[BoxData[
          0.3, 0.5}, $CellContext`tr5$$ = {0.4, -0.5}, $CellContext`tr6$$ = {
          0.3, 0.8}, $CellContext`tr7$$ = {-0.3, 
          0.1}, $CellContext`tr8$$ = {-0.3, 0.5}}, "ControllerVariables" :> {
-        Hold[$CellContext`polygon$$, $CellContext`polygon$160883$$, False], 
-        Hold[$CellContext`s1$$, $CellContext`s1$160884$$, {0, 0}], 
-        Hold[$CellContext`s2$$, $CellContext`s2$160885$$, {0, 0}], 
-        Hold[$CellContext`e1$$, $CellContext`e1$160886$$, {0, 0}], 
-        Hold[$CellContext`e2$$, $CellContext`e2$160887$$, {0, 0}], 
-        Hold[$CellContext`tr1$$, $CellContext`tr1$160888$$, {0, 0}]}, 
+        Hold[$CellContext`polygon$$, $CellContext`polygon$120101$$, False], 
+        Hold[$CellContext`s1$$, $CellContext`s1$120102$$, {0, 0}], 
+        Hold[$CellContext`s2$$, $CellContext`s2$120103$$, {0, 0}], 
+        Hold[$CellContext`e1$$, $CellContext`e1$120104$$, {0, 0}], 
+        Hold[$CellContext`e2$$, $CellContext`e2$120105$$, {0, 0}], 
+        Hold[$CellContext`tr1$$, $CellContext`tr1$120106$$, {0, 0}]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -2777,7 +2775,6 @@ $CellContext`vcopy$, $CellContext`sides$$,
                    QuotientRemainder[$CellContext`i$ + $CellContext`j$, 
                     Length[$CellContext`v$]], 2]] - 
                 Part[$CellContext`v$, $CellContext`i$]]]; Null]; 
-          
           Increment[$CellContext`i$]]; $CellContext`TotalReaSet$ = \
 $CellContext`boundaryPt[$CellContext`sides$$, $CellContext`vcopy$, \
 $CellContext`ps2$, $CellContext`ps1$]; Show[{
@@ -2822,6 +2819,7 @@ $CellContext`ps2$, $CellContext`ps1$]; Show[{
                 EdgeForm[Black], 
                 Polygon[$CellContext`TotalReaSet$]}, 
                Darker[Green], 
+               
                Rectangle[$CellContext`ps2$ - $CellContext`ps1$ - (4/
                  3) $CellContext`r$ {1, 
                  1}, $CellContext`ps2$ - $CellContext`ps1$ + (4/
@@ -2964,9 +2962,9 @@ $CellContext`ps2$, $CellContext`ps1$]; Show[{
    3.7361711796698017`*^9, 3.736171243651773*^9}, 3.736171328420033*^9, 
    3.736174694790616*^9, {3.736174748322176*^9, 3.736174794165412*^9}, 
    3.7361748663879223`*^9, {3.736174937329664*^9, 3.736175018442361*^9}, 
-   3.7361751623940477`*^9, {3.736176063428372*^9, 
-   3.736176086383184*^9}},ExpressionUUID->"538ccf82-e509-47ed-ae4a-\
-65ffe351defc"]
+   3.7361751623940477`*^9, {3.736176063428372*^9, 3.736176086383184*^9}, 
+   3.7365780344174128`*^9},ExpressionUUID->"42063127-bef3-432e-835d-\
+626345695bc5"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -2991,15 +2989,15 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 490, 11, 114, "Section", "ExpressionUUID" -> \
-"d502336c-f36f-4e5a-a5aa-9b4b4d69d133"],
+"fce250bb-ad3d-4f12-ad1c-c012eba278da"],
 Cell[CellGroupData[{
 Cell[1095, 37, 2296, 35, 599, "Subsection", "ExpressionUUID" -> \
 "44d2937b-ea6b-46eb-94ae-423bf81f27f9"],
 Cell[CellGroupData[{
-Cell[3416, 76, 122506, 2559, 4598, "Input", "ExpressionUUID" -> \
+Cell[3416, 76, 122509, 2560, 4598, "Input", "ExpressionUUID" -> \
 "36e06ad4-5d90-42ab-a1db-41123bad96a7"],
-Cell[125925, 2637, 18525, 331, 716, "Output", "ExpressionUUID" -> \
-"538ccf82-e509-47ed-ae4a-65ffe351defc"]
+Cell[125928, 2638, 18397, 328, 716, "Output", "ExpressionUUID" -> \
+"42063127-bef3-432e-835d-626345695bc5"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
