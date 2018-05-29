@@ -2,7 +2,7 @@
 
 \section{Position Control of Two Particles Using Boundary Interaction}\label{sec:PostionControl2Robots}
 
-This section presents algorithms that use non-slip contacts with walls to arbitrarily position two particles in a convex workspace. Our previous work used a square workspace \cite{shahrokhi2017algorithms}. Fig.~\ref{fig:shapeControlMathematica1} shows a Mathematica implementation of a square workspace for different cases. Alg.~\ref{alg:optimalAlg} can now handle any convex workspace, including the special limit case of a circular workspace. In the last subsection we present techniques to control 3D positioning of two particles.
+This section presents algorithms that use non-slip contacts with walls to arbitrarily position two particles in a convex workspace. Our previous work used a square workspace \cite{shahrokhi2017algorithms}. Fig.~\ref{fig:shapeControlMathematica1} shows solutions from a Mathematica implementation in a square workspace for six representative configurations. Alg.~\ref{alg:optimalAlg} can now handle any convex workspace, including the special limit case of a circular workspace. In the last subsection we present techniques to control 3D positioning of two particles.
 
 Workspaces are 2D convex polygons with no internal obstacles. 
  Assume two particles are initialized at $s_1$ and $s_2$ with corresponding goal destinations $g_1$ and $g_2$. 
@@ -150,15 +150,30 @@ Particle start positions are shown by squares, and goal positions by circles.  D
 \end{figure*}
 
 
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%\
+\subsection{$\Delta$ Configuration Space}
+The configuration space for two particles is a four dimensional manifold. Translating both particles the same amount is a trivial operation, but changing the relative positions requires boundary interaction. For this reason, our algorithms use the two dimensional $\Delta$ configuration space.
+The $\Delta$ configuration space is a set of all possible $\Delta p$ values, defined as the difference in position of the first particle from the second particle: $\Delta p = p_2 - p_1$.
+
+The  $\Delta$ configuration space for an $n$-sided convex polygon $P$ can be constructed by translating $n$ copies of $P$  so that each copy moves a different vertex of $P$ to $(0,0)$.
+Because $P$ is convex, the convex-hull of all these translated vertices is the boundary of the  $\Delta$ configuration space.
+ For an $n$-sided convex polygon, the $\Delta$ configuration space is a $2n$-sided convex polygon.
+  Even-sided regular polygons are a special case in which half the sides align and the $\Delta$ configuration space is $n$-sided. 
+An example $\Delta$ configuration space construction is shown in Fig.~\ref{fig:irregular}: 
+a four-sided workspace is on the left, 
+the four translated copies with dashed lines outlining the convex hull is in the middle,
+ and the resulting $\Delta$ configuration space is on the right.  
+% The 2-move reachable sets for the given $\Delta$s starting configuration are drawn in transparent blue.
+%The following subsection describes how 2-move reachable sets are constructed.
+
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%\
 \subsection{Two Particle Path Planning}
 
 
-The configuration space for two particles is a four dimensional manifold. Translating both particles the same amount is a trivial operation, but changing the relative positions requires boundary interaction. For this reason, our algorithms use the two dimensional $\Delta$ configuration space, defined as the difference in position of the first particle from the second particle: $\Delta p = p_2 - p_1$.
-% Each side of the $\Delta$ configuration space has the same length of each side of the workspace if the workspace has odd number of sides therefore, the $\Delta$ configuration space has two times the number of sides. $\Delta$ configuration space has the same number of sides for the polygons that have even number of sides, and each side of the $\Delta$ configuration space is twice as big as the workspace sides.
- 
-The $\Delta$ configuration space is a set of all possible $\Delta p$ values.
- $\Delta$ configuration spaces for a representative set of workspaces are shown in Fig.~\ref{fig:polygon}. 
   The \emph{2-move reachable set} is the locus of points in the $\Delta$ configuration space corresponding to any two-move sequence where the first move brings one particle into contact with the boundary, and the second move translates the second particle without moving the first.
+  The rightmost image of Fig.~\ref{fig:irregular} draws the 2-move reachable sets for the given $\Delta$s starting configuration in transparent blue.
  Fig.~\ref{fig:polygon} shows the starting and ending relative positions as $\Delta s$ and $\Delta g$ in the $\Delta$ configuration space.  The next subsections give procedures to compute the 2-move reachable set.% in Fig.~\ref{fig:regionMove}.% The reachable set is the part of $\Delta$ configuration space where if one particle touches a wall in a specific location, the other particle can make the required relative distance without causing the touching particle to move. We will discuss how to make reachable sets in the next subsections. 
  
   Values $.x$ and $.y$ denote the $x$ and $y$ coordinates, i.e., $p_1.x$ and $p_1.y$ denote the $x$ and $y$ locations of $p_1$. 
@@ -168,7 +183,6 @@ The goal is to move the particles within $\epsilon$ of the goal positions using 
 
  Algorithm ~\ref{alg:optimalAlg} first computes the 2-move reachable set. If the goal relative position is in the 2-move reachable set, we move particles to achieve that relative position. If it is not in the 2-move reachable set, we move particles to achieve the closest point on this reachable set from $\Delta g$. 
 
- Algorithm ~\ref{alg:optimalAlg} first computes the 2-move reachable set. If the goal relative position is in the reachable set, we move particles to achieve that relative position. If it is not in the reachable set, we move particles to achieve the closest point on the reachable set from $\Delta g$. 
  \emph{Achieving} a $\Delta$ configuration requires two-moves, the first to move until one particle touches a wall, and the second to adjust the relative spacing.
  Once the correct \emph{relative} position has been achieved, a final translation delivers both particles to their goal destinations. %we go to the final goal position. If it is not our final goal, 
  Otherwise, we iterate until we reach the goal. 
@@ -201,36 +215,9 @@ The goal is to move the particles within $\epsilon$ of the goal positions using 
 \end{algorithm}
 
 
- %%%%%%%%%%%%%%%%%%%%%%%%%%%\
-\subsection{$\Delta$ Configuration Space}
-% ANOTHER TRY
-The $\Delta$ configuration space is all possible configurations of $p_2-p_1$. 
-The  $\Delta$ configuration space for an $n$-sided convex polygon $P$ can be constructed by translating $n$ copies of $P$  so that each copy moves a different vertex of $P$ to $(0,0)$.
-Because $P$ is convex, the convex-hull of all these translated vertices is the boundary of the  $\Delta$ configuration space.
- For an $n$-sided convex polygon, the $\Delta$ configuration space is a $2n$-sided convex polygon.
-  Even-sided regular polygons are a special case in which half the sides align and the $\Delta$ configuration space is $n$-sided. 
-An example $\Delta$ configuration space construction is shown in Fig.~\ref{fig:irregular}: 
-a four-sided workspace is on the left, 
-the four translated copies with dashed lines outlining the convex hull is in the middle,
- and the resulting $\Delta$ configuration space is on the right.  
- The 2-move reachable sets for the given $\Delta$s starting configuration are drawn in transparent blue.
-The following subsection describes how 2-move reachable sets are constructed.
- 
-% ORIGINAL
-%Given an $n$-sided convex polygon $P$, the $\Delta$ configuration space is a $2n$-sided convex polygon.
-% A special case is for even-sided regular polygons, in which half the sides align and the $\Delta$ configuration space  is $n$-sided. 
-% To give an intuition, suppose that the first particle is positioned on a vertex of the workspace. The $\Delta$ configuration space is mainly determined by moving the second particle along the edges of the workspace and considering its relative distance to the first particle.
-%In particular, to generate the $\Delta$ configuration space we iterate through all vertices $v_i$.  %In each iteration, we put the first particle at the $i^{\textrm{th}}$ vertex. 
-%At each iteration, we compute $v_i - v_j$  ($1 \leq j \leq n$) and then make an $n$-sided polygon according to these values. Since our current workspaces are convex, the convex hull of these  $n$-sided polygons determines the boundary of the $\Delta$ configuration space. To give a concrete example, Fig.~\ref{fig:irregular} shows an arbitrary 4-sided workspace on the left. All the 4-sided polygons made by the computation of $(v_i-v_j)$s are shown in the middle and accordingly, $\Delta$ configuration space is shown on the right with 2-move reachable sets drawn in transparent blue. We will discuss how to generate 2-step reachable sets in the following subsection.
 
  
- %\textcolor{red}{[INSERT PROCEDURE]}\\
- 
- 
- %\textcolor{red}{    Describe how to generate a $\Delta$ Configuration Space for polygon $P$.}
 
-
-% \textcolor{red}{[INSERT ONE IMAGE OF A 4-sided irregular convex polygon]}\\
 \begin{figure}
 \centering
 \begin{overpic}[width=\columnwidth]{irregular.pdf}\end{overpic}
@@ -395,9 +382,12 @@ See multimedia attachment for animations of each.
 }
 \end{figure*}
 To compute the 2-move reachable set for a circular workspace, first consider all possible first contact locations.
- The set of boundary points that a particle can touch before the  other particle  touches is an arc of angle $2(\pi - \frac{\arcsin{d_{12}}}{r})$, where $d_{12}= ||s_1 - s_2||$ and $r$ is the radius of the workspace.
- %Here $\alpha$ is the arc of the circle that it is not possible to keep the current relative distance while one robot is touching the wall in that point and is defined by $\alpha = 2 \sin ^{-1}(d)$. 
- We define the angle between two particles as $\theta = \arctan(\frac{p_1.x-p_2.x}{p_1.y - p_2.y})$. 
+ The set of boundary points that a particle can touch before the  other particle  touches are two arcs from $\psi_{\min}$ to $\psi_{\max}$  and from $\pi+ \psi_{\min}$ to $\pi+ \psi_{\max}$:
+ \begin{align}
+ \psi \in [\psi_{\min}, \psi_{\max}]= \theta + \Big[\frac{\sin^{-1}{d_{12}}}{2r} - \frac{\pi}{2},  \frac{\pi}{2} -\frac{\sin^{-1}{d_{12}}}{2r} \Big],
+\end{align}
+where $d_{12}= ||s_1 - s_2||$, $r$ is the radius of the workspace,
+and the angle between two particles is $\theta = \arctan(\frac{p_1.x-p_2.x}{p_1.y - p_2.y})$. 
  
  
 
@@ -413,22 +403,19 @@ To compute the 2-move reachable set for a circular workspace, first consider all
 %Expanding a path means either moving directly to the goal, or pushing one particle to a wall and adjusting the relative position of the other particle.
 %As soon as the goal is reached, the algorithm returns this path.
 
-A circle has an infinite number of sides, thus infinite reachable sets. However, the 2-move reachable set can be parameterized by the angle of first contact location $\psi$, as shown in Fig.~\ref{fig:regionMove} where 
-%We make the reachable sets by knowing the angle of the chord, $\psi$, shown in Fig.~\ref{fig:psigamma}. Minimum and maximum values of $\psi$ can be calculated in the following equation.
-\begin{align}
- \psi \in [\psi_{\min}, \psi_{\max}]= \theta + \Big[\frac{\sin^{-1}{d}}{2r} - \frac{\pi}{2},  \frac{\pi}{2} -\frac{\sin^{-1}{d}}{2r} \Big].
-% \psi_{\max} &= \theta -\frac{\alpha}{2} + \frac{\pi}{2}
-\end{align}
-The possible first contact locations are on an arc with interior angle $\gamma$ parameterized by $\psi$:
+A circle has an infinite number of sides, thus infinite reachable sets. However, the 2-move reachable set can be parameterized by the angle of first contact location $\psi$, as shown in Fig.~\ref{fig:regionMove}.
+
+Each $\phi$ value generates a 2-move reachable set that is a chord of the disk, with interior angle $\gamma$ parameterized by $\psi$:
 \begin{align}\label{eq:gamma}
 \gamma(\psi) &= \cos^{-1} \Big(1-\frac{d_\perp(\psi)}{r} \Big), \textrm{ where:}\\ \label{eq:dprep}
 d_\perp(\psi)&= 2 ||s_1.p_\psi(\psi) - s_2.p_\psi(\psi)||,\\ \label{eq:ppsi}
 p_\psi(\psi) &= r[\cos(\psi ), \sin(\psi )].
 \end{align} 
-2-move eachable sets with $\pi$ difference in $\psi$ value are equivalent in the  $\Delta$ configuration space, so we can plan in this space and choose between the two options to immobilize the particle closest to a wall. 
+The 2-move reachable sets with $\pi$ difference in $\psi$ value are equivalent in the  $\Delta$ configuration space, so we can plan in this space and choose between the two options to minimize the total distance.
+%immobilize the particle closest to a wall. 
 The reachable $\Delta$ configuration set for any first contact point defined by $\psi$ is the area under a chord from angle $\psi- \frac{\gamma(\psi)}{2}$ to $\psi+ \frac{\gamma(\psi)}{2}$, for a circle of radius $r$ centered at $c = r(\cos(\psi-\pi), \sin(\psi-\pi))$. One such chord is drawn in red in Fig.~\ref{fig:regionMove}.
 
-The equations for the four lines outlining the union of reachable $\Delta$ configuration sets are as follows:
+The equations for the four lines outlining the union of  two-move reachable sets are as follows:
 \begin{align}\label{eq:circlereachable}
 l_1 =  r \Big(&(\cos\psi_{\min}- \cos(\gamma + \psi_{\min}) )\\ \nonumber
  + &(\sin\psi_{\min}- \sin(\gamma + \psi_{\min}))\Big) &  0<\gamma< \gamma(\psi_{\min}),\\ \nonumber
@@ -440,8 +427,8 @@ l_4 =  r \Big(&(\cos\psi- \cos( \psi-\gamma(\psi) ))\\ \nonumber
 + & ( \sin\psi- \sin( \psi- \gamma(\psi)))\Big) &  \psi_{\min}<\psi< \psi_{\max}.\\ \nonumber
 \end{align}
 We combine these boundaries to compute the 2-move reachable set summarized in Alg.~\ref{alg:circularReachbale}.
-Next, find a $\psi$ that would enable us to reach $\Delta g_c$, the nearest point in the 2-move reachable set to $\Delta g$. %Eq.~\eqref{eq:ifinchord} checks if an arbitrary point $p$, is in the reachable set corresponding to $\psi$.
-We first check if $\Delta g_c$ is in the $\Delta$ configuration space chords defined by either $\psi_{\min}$ or $\psi_{\max}$ using: 
+The  motion-planner finds a $\psi$ that would enable us to reach $\Delta g_c$, the nearest point in the 2-move reachable set to $\Delta g$. %Eq.~\eqref{eq:ifinchord} checks if an arbitrary point $p$, is in the reachable set corresponding to $\psi$.
+We first check if $\Delta g_c$ is in the $\Delta$ configuration space chords defined by either $\psi_{\min}$ or $\psi_{\max}$ using the following two tests: 
 
 \begin{align}\label{eq:ifinchord}
 &(\Delta g_c.x - c.x)^2 + (\Delta g_c.y - c.y)^2  > r^2 \textrm{     \textbf{and}}\\ \nonumber
