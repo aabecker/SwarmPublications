@@ -3,7 +3,7 @@
 \section{Position Control of Two Particles Using Boundary Interaction}\label{sec:PostionControl2Robots}
 
 This section presents algorithms that use non-slip contacts with walls to arbitrarily position two particles in a convex workspace. Our previous work used a square workspace \cite{shahrokhi2017algorithms}.
- Fig.~\ref{fig:shapeControlMathematica1} shows solutions from a Mathematica implementation in a square workspace for six representative configurations.
+ Fig.~\ref{fig:shapeControlMathematica1} shows solutions from a \emph{Mathematica} implementation in a square workspace for six representative configurations.
  Workspaces are 2D convex polygons with no internal obstacles. 
  Assume two particles are initialized at $s_1$ and $s_2$ with corresponding goal destinations $g_1$ and $g_2$. 
  Denote the current positions of the particles  $p_1$ and $p_2$. Values $.x$ and $.y$ denote the $x$ and $y$ coordinates, i.e., $p_1.x$ and $p_1.y$ denote the $x$ and $y$ locations of $p_1$. 
@@ -223,7 +223,7 @@ The goal is to move the particles within $\delta$ of the goal positions using a 
 \begin{overpic}[width=\columnwidth]{irregular.pdf}\end{overpic}
 \caption{\label{fig:irregular}
 %\textcolor{red}{Shiva, this image is nice.  A few suggestions: ?TODO: Label the middle image 'Translate workspace around (0,0)', and draw the workspace outlines with different colors and thicknesses}
-Workspace and $\Delta$ configuration space is shown for an arbitrary convex polygon with $n=4$ sides. The 2-move reachable sets are drawn in transparent blue.
+Workspace and $\Delta$ configuration space is shown for an arbitrary convex polygon with $n=4$ sides. The 2-move reachable sets for this initial configuration (shown by square markers) are drawn in transparent blue.
 }
 \end{figure}
 
@@ -334,7 +334,9 @@ The possible 2-move reachable sets before contact are shown in the $\Delta$ conf
 To compute the 2-move reachable set for a circular workspace, first consider all possible first contact locations.
  The set of boundary points that a particle can touch before the  other particle  touches are two arcs from $\psi_{\min}$ to $\psi_{\max}$  and from $\pi+ \psi_{\min}$ to $\pi+ \psi_{\max}$:
  \begin{align}\label{eq:psiMinMax}
- \psi \in [\psi_{\min}, \psi_{\max}]= \theta + \Big[\frac{\sin^{-1}{d_{12}}}{2r} - \frac{\pi}{2},  \frac{\pi}{2} -\frac{\sin^{-1}{d_{12}}}{2r} \Big],
+  \psi \in [\psi_{\min}, \psi_{\max}]= \theta + \Big[\sin^{-1}\frac{d_{12}}{2r} - \frac{\pi}{2},  \frac{\pi}{2} -\sin^{-1}\frac{d_{12}}{2r} \Big],
+  %  \psi \in [\psi_{\min}, \psi_{\max}]= \theta + \Big[\sin^{-1}\left(\frac{d_{12}}{2r} \right)- \frac{\pi}{2},  \frac{\pi}{2} -\sin^{-1}\left(\frac{d_{12}}{2r}\right) \Big],
+% \psi \in [\psi_{\min}, \psi_{\max}]= \theta + \Big[\frac{\sin^{-1}{d_{12}}}{2r} - \frac{\pi}{2},  \frac{\pi}{2} -\frac{\sin^{-1}{d_{12}}}{2r} \Big],
 \end{align}
 where $d_{12}= ||s_1 - s_2||$, $r$ is the radius of the workspace,
 and the angle between two particles is $\theta = \arctan(\frac{p_1.x-p_2.x}{p_1.y - p_2.y})$. 
