@@ -320,10 +320,15 @@ Figure \ref{fig:TwoRegions} shows reachable sets for a square workspace. There a
 \begin{figure}
 \centering
 \begin{overpic}[width=\columnwidth]{reachableSetCircle.pdf}\end{overpic}
+\vspace{-1em}
 \caption{\label{fig:regionMove}
 % the set of points where the red particle is the first to contact the boundary are drawn with a red arc. The  set of points where the blue particle is the first to contact the boundary are drawn with a blue arc. 
-Left top: The possible first contact points for the blue and red particles are shown with blue and red arcs. Left bottom: Once the blue particle touches the wall (blue square) the other particle (red square) can go anywhere in the reachable set (red region). Right: The $\Delta$ configuration space for the corresponded starting positions of the particles is shown. The possible 2-move reachable sets before contact are shown in the $\Delta$ configuration as a blue region. Once the blue particle contacts the boundary as shown, the reachable $\Delta$ configuration is the red set.}
-
+Left top: The possible first contact points for the blue and red particles are shown with blue and red arcs. 
+Left bottom: if the blue particle touches the wall at $\psi_{\min}$ (blue square) the other particle (red square) can move anywhere in the red region. 
+Right bottom: if the blue particle touches the wall at $\psi = \frac{17 \pi}{10}$ (blue square) the other particle (red square) can move anywhere in the green region. 
+Right: The $\Delta$ configuration space for the corresponding starting positions of the particles is shown. 
+The possible 2-move reachable sets before contact are shown in the $\Delta$ configuration as a blue region.
+ If the blue particle contacts the boundary at $\psi_{\min}$, the reachable $\Delta$ configuration is the red set, or the green set if $\psi = \frac{17 \pi}{10}$.}
 \end{figure}
 
 To compute the 2-move reachable set for a circular workspace, first consider all possible first contact locations.
