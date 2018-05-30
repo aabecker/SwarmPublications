@@ -2,153 +2,13 @@
 
 \section{Position Control of Two Particles Using Boundary Interaction}\label{sec:PostionControl2Robots}
 
-This section presents algorithms that use non-slip contacts with walls to arbitrarily position two particles in a convex workspace. Our previous work used a square workspace \cite{shahrokhi2017algorithms}.
- Fig.~\ref{fig:shapeControlMathematica1} shows solutions from a \emph{Mathematica} implementation in a square workspace for six representative configurations.
+This section presents algorithms that use non-slip contacts with walls to arbitrarily position two particles in a convex workspace. 
  Workspaces are 2D convex polygons with no internal obstacles. 
  Assume two particles are initialized at $s_1$ and $s_2$ with corresponding goal destinations $g_1$ and $g_2$. 
  Denote the current positions of the particles  $p_1$ and $p_2$. Values $.x$ and $.y$ denote the $x$ and $y$ coordinates, i.e., $p_1.x$ and $p_1.y$ denote the $x$ and $y$ locations of $p_1$. 
  Algorithm \ref{alg:optimalAlg} can now handle any convex workspace, including the special limit case of a circular workspace. In the last subsection we present techniques to control 3D positioning of two particles.
 
-\begin{figure*}
-\renewcommand{\figwid}{0.4\columnwidth}
 
-{\begin{overpic}[width =\figwid]{story1mov0.pdf}\put(10,10){Start}
-\put(10,85){a)}
-\put(30,70){$s_1$}
-\put(48,88){$g_1$}
-\put(65,17){$s_2$}
-\put(87,52){$g_2$}
-\put(60, 3.9){{\tiny$\updownarrow$}~$\epsilon$}
-\end{overpic}
-\begin{overpic}[width =\figwid]{story1move.pdf}\put(10,10){Move 1}
-\put(110,50){If $(\Delta g- \Delta s) = (0,0)$, only one move is needed}
-\put(65, 47){{$\xupdownarrow{1.8cm}$}$L$}
-%\put(47, 65){$\xleftrightarrow{1.8cm}$}
-\end{overpic}
-}\\
-
-\vspace{-0.75em}
-{\begin{overpic}[width =\figwid]{story3Moves1.pdf}\put(10,10){Start}
-\put(10,85){b)}
-\put(28,70){$s_1$}
-\put(50,80){$g_1$}
-\put(62,15){$s_2$}
-\put(30,22){$g_2$}
-\end{overpic}
-\begin{overpic}[width =\figwid]{story3Moves2.pdf}\put(10,10){Move 1}
-\end{overpic}
-\begin{overpic}[width =\figwid]{story3Moves3.pdf}\put(10,10){Move 2}
-\end{overpic}
-\begin{overpic}[width =\figwid]{story3Moves4.pdf}\put(10,10){Move 3}
-\put(110,50){Three-move sequence}
-\put(12,38){$m_3$}
-\put(48,52){$m_2$}
-\put(65,30){$m_1$}
-\end{overpic}
-%\begin{overpic}[width =\figwid]{s5}\put(50,80){Move 4}
-%\end{overpic}
-%\begin{overpic}[width =\figwid]{S6.pdf}\put(50,80){Move 5}
-%\end{overpic}
-}\\
-
-\vspace{-0.75em}
-{
-\begin{overpic}[width =\figwid]{story5move1.pdf}\put(10,10){Move 1}
-\put(10,85){c)}
-\put(28,70){$s_1$}
-\put(62,28){$g_1$}
-\put(87,50){$s_2$}
-\put(30,22){$g_2$}
-\end{overpic}
-\begin{overpic}[width =\figwid]{story5move2.pdf}\put(10,10){Move 2}
-\end{overpic}
-\begin{overpic}[width =\figwid]{story5move3.pdf}\put(10,10){Move 3}
-\end{overpic}
-\begin{overpic}[width =\figwid]{story5move4.pdf}\put(10,10){Move 4}
-\end{overpic}
-\begin{overpic}[width =\figwid]{story5move5.pdf}\put(10,10){Move 5}
-\end{overpic}
-}\\
-
-\vspace{-0.75em}
-%\vspace{1em}
-{
-\begin{overpic}[width =\figwid]{story7move1.pdf}\put(50,80){Move 1}
-\put(10,85){d)}
-\put(25,30){$s_1$}
-\put(89,70){$g_1$}
-\put(67,20){$s_2$}
-\put(28,75){$g_2$}
-\end{overpic}
-\begin{overpic}[width =\figwid]{story7move2.pdf}\put(50,80){Move 2}
-\end{overpic}
-\begin{overpic}[width =\figwid]{story7move5.pdf}\put(50,80){Move 3}
-\end{overpic}
-\begin{overpic}[width =\figwid]{story7move6.pdf}\put(50,80){Move 4}
-\end{overpic}
-\begin{overpic}[width =\figwid]{story7move7.pdf}\put(50,80){Move 5}
-\end{overpic}
-}\\
-
-\vspace{-0.75em}
-{
-\begin{overpic}[width =\figwid]{storySame1.pdf}\put(50,80){Move 1}
-\put(10,85){e)}
-\put(15,35){$s_1,g_2$}
-\put(65,35){$s_2,g_1$}
-\end{overpic}
-\begin{overpic}[width =\figwid]{storySame2.pdf}\put(50,80){Move 2}
-\end{overpic}
-\begin{overpic}[width =\figwid]{storySame3.pdf}\put(50,80){Move 3}
-\end{overpic}
-\begin{overpic}[width =\figwid]{storySame4.pdf}\put(50,80){Move 4}
-\end{overpic}
-\begin{overpic}[width =\figwid]{storySame5.pdf}\put(50,80){Move 5}
-\end{overpic}
-}\\
-
-\vspace{-0.75em}
-{
-\begin{overpic}[width =\figwid]{storyWorst1.pdf}\put(60,10){Move 1}
-\put(10,85){f)}
-\put(15,10){$s_1,g_2$}
-\put(65,88){$s_2,g_1$}
-\end{overpic}
-\begin{overpic}[width =\figwid]{storyWorst2.pdf}\put(60,10){Move 2}
-\end{overpic}
-\begin{overpic}[width =\figwid]{storyWorst4.pdf}\put(60,10){Move 3}
-\end{overpic}
-\begin{overpic}[width =\figwid]{storyWorst6.pdf}\put(60,10){Move 4}
-\end{overpic}
-\begin{overpic}[width =\figwid]{storyWorst7.pdf}\put(60,10){Move 5}
-\put(15, 85){worst-case}\put(15,75){path length}\put(15, 62){$(\sqrt{2}+2)L$}
-\end{overpic}
-}\\
-
-%\vspace{-0.75em}
-%{
-%\begin{overpic}[width =\figwid]{storyCorner1.pdf}\put(50,80){Move 1}
-%\end{overpic}
-%\begin{overpic}[width =\figwid]{storyCorner2.pdf}\put(50,80){Move 2}
-%\end{overpic}
-%%\begin{overpic}[width =\figwid]{storyCorner3.pdf}\put(50,80){Move 3}
-%%\end{overpic}
-%\begin{overpic}[width =\figwid]{storyCorner4.pdf}\put(50,80){Move 4}
-%\end{overpic}
-%\begin{overpic}[width =\figwid]{storyCorner5.pdf}\put(50,80){Move 5}
-%\end{overpic}
-%}\\
-
-\vspace{-1em}
-
-\caption{\label{fig:shapeControlMathematica1}{Frames from an implementation of Alg.\ \ref{alg:optimalAlg}: two particle positioning using walls with non-slip contacts. 
-Particle start positions are shown by squares, and goal positions by circles.  Dashed lines show the shortest route if particles could be controlled independently.  Solid arrows show path given by  Alg.\ \ref{alg:optimalAlg}.
-%Online dmonstration and source code at \cite{Shahrokhi2015mathematicaParticle}.
-%The bottom row shows an extreme case where the robots must switch position.
-}
-\vspace{-1em}
-}
-\end{figure*}
 
 
 
@@ -156,8 +16,10 @@ Particle start positions are shown by squares, and goal positions by circles.  D
 \subsection{$\Delta$ Configuration Space}
 The configuration space for two particles is a four dimensional manifold. Translating both particles the same amount is a trivial operation, but changing the relative positions requires boundary interaction. For this reason, our algorithms use the two dimensional $\Delta$ configuration space.
 The $\Delta$ configuration space is a set of all possible $\Delta p$ values, defined as the difference in position of the first particle from the second particle: $\Delta p = p_2 - p_1$.
+We use the $\Delta$ configuration space to plan move sequences that achieve the desired relative spacing.  Once the particles have the correct relative spacing, they can be delivered to the goal configuration in one move.
 
-The  $\Delta$ configuration space for an $n$-sided convex polygon $P$ can be constructed by translating $n$ copies of $P$  so that each copy moves a different vertex of $P$ to $(0,0)$.
+The  $\Delta$ configuration space for an $n$-sided convex polygon $P$ can be constructed in a method analogous to computing configuration space obstacles for polygons~\cite{lozano1983spatial}. 
+ Translate $n$ copies of $P$  so that each copy moves a different vertex of $P$ to $(0,0)$.
 Because $P$ is convex, the convex-hull of all these translated vertices is the boundary of the  $\Delta$ configuration space.
  For an $n$-sided convex polygon, the $\Delta$ configuration space is a $2n$-sided convex polygon.
   Even-sided regular polygons are a special case in which half the sides align and the $\Delta$ configuration space is $n$-sided. 
@@ -183,7 +45,7 @@ The goal is to move the particles within $\delta$ of the goal positions using a 
 % Algorithm ~\ref{alg:optimalAlg} 
  It first computes the 2-move reachable set. If the goal relative position is in the 2-move reachable set, we move particles to achieve that relative position. If it is not in the 2-move reachable set, we move particles to achieve the closest point on this reachable set from $\Delta g$, which is $\Delta g_c$. 
 
- \emph{Achieving} a $\Delta$ configuration requires two-moves, the first to move until one particle touches a wall, and the second to adjust the relative spacing.
+ \emph{Achieving} a $\Delta g_c$ configuration requires two-moves, the first to move until one particle touches a wall, and the second to adjust the relative spacing.
  Once the correct \emph{relative} position has been achieved, a final translation delivers both particles to their goal destinations. %we go to the final goal position. If it is not our final goal, 
  Otherwise, we iterate until we reach the goal. 
 \begin{algorithm}[htb]
@@ -334,8 +196,8 @@ The possible 2-move reachable sets before contact are shown in the $\Delta$ conf
 To compute the 2-move reachable set for a circular workspace, first consider all possible first contact locations.
  The set of boundary points that a particle can touch before the  other particle  touches are two arcs from $\psi_{\min}$ to $\psi_{\max}$  and from $\pi+ \psi_{\min}$ to $\pi+ \psi_{\max}$:
  \begin{align}\label{eq:psiMinMax}
-  \psi \in [\psi_{\min}, \psi_{\max}]= \theta + \Big[\sin^{-1}\frac{d_{12}}{2r} - \frac{\pi}{2},  \frac{\pi}{2} -\sin^{-1}\frac{d_{12}}{2r} \Big],
-  %  \psi \in [\psi_{\min}, \psi_{\max}]= \theta + \Big[\sin^{-1}\left(\frac{d_{12}}{2r} \right)- \frac{\pi}{2},  \frac{\pi}{2} -\sin^{-1}\left(\frac{d_{12}}{2r}\right) \Big],
+%  \psi \in [\psi_{\min}, \psi_{\max}]= \theta + \Big[\sin^{-1}\frac{d_{12}}{2r} - \frac{\pi}{2},  \frac{\pi}{2} -\sin^{-1}\frac{d_{12}}{2r} \Big],\\
+\scalebox{.9}{$   \psi \in [\psi_{\min}, \psi_{\max}]= \theta \!+  \left[ \sin^{-1} \left(\frac{d_{12}}{2r}  \right)- \frac{\pi}{2},  \frac{\pi}{2} -\sin^{-1} \left(\frac{d_{12}}{2r} \right) \right]\!\!,$}
 % \psi \in [\psi_{\min}, \psi_{\max}]= \theta + \Big[\frac{\sin^{-1}{d_{12}}}{2r} - \frac{\pi}{2},  \frac{\pi}{2} -\frac{\sin^{-1}{d_{12}}}{2r} \Big],
 \end{align}
 where $d_{12}= ||s_1 - s_2||$, $r$ is the radius of the workspace,
@@ -376,7 +238,7 @@ l_2 =  r \Big(&\cos\psi_{\max}- \cos(\gamma + \psi_{\max})\\ \nonumber
 l_3 =  r \Big(&\cos\psi- \cos( \psi+\gamma(\psi) )\\ \nonumber
 + & \sin\psi-\sin( \psi+ \gamma(\psi))\Big) &  \psi_{\min}<\psi< \psi_{\max},\\ \nonumber
 l_4 =  r \Big(&\cos\psi- \cos( \psi-\gamma(\psi) )\\ \nonumber
-+ &  \sin\psi- \sin( \psi- \gamma(\psi))\Big) &  \psi_{\min}<\psi< \psi_{\max}.\\ \nonumber
++ &  \sin\psi- \sin( \psi- \gamma(\psi))\Big) &  \psi_{\min}<\psi< \psi_{\max}. \nonumber
 \end{align}
 We combine these boundaries to compute the 2-move reachable set summarized in Alg.~\ref{alg:circularReachbale}.
 The  motion-planner finds a $\psi$ that would enable us to reach $\Delta g_c$, the nearest point in the 2-move reachable set to $\Delta g$. %Eq.~\eqref{eq:ifinchord} checks if an arbitrary point $p$, is in the reachable set corresponding to $\psi$.

@@ -24,13 +24,13 @@ Subsections \ref{subsec:square} and \ref{subsec:circular} provide shortest-path 
  +F \left( \mathbf{x}_i(t), \mathbf{u}(t) \right), ~i \in [1,n].\\
  F(\mathbf{x}_i(t), \mathbf{u}(t)) &= \begin{cases}
   - \mathbf{u}(t) &\begin{matrix} \mathbf{x}_i(t) \in  \textrm{boundary \textbf{and}}\\
-\mathbf{N}(\textrm{boundary$(\mathbf{x}_i(t))$})\cdot   \mathbf{u}(t) \le 0 \end{matrix}
+\mathbf{N}(\textrm{boundary$_{\mathbf{x}_i(t)}$})\cdot   \mathbf{u}(t) \le 0 \end{matrix}
 \textrm{    ,} \\
  0 & \textrm{else}.
  \end{cases}\nonumber
  \end{align}
  Here  $F(\mathbf{x}_i(t), \mathbf{u}(t)) $ is the frictional force provided by the boundary, and
- $\mathbf{N}(\textrm{boundary$(\mathbf{x}_i(t))$})$ is the normal to the boundary at position $\mathbf{x}_i(t)$.
+ $\mathbf{N}(\textrm{boundary$_{\mathbf{x}_i(t)}$})$ is the normal to the boundary at position $\mathbf{x}_i(t)$.
  
  
   The same model can be generalized to particles moved by fluid flow where the vector direction of fluid flow $\mathbf{u}(t)$ controls the velocity of particles, or for a swarm of particles that move at a constant speed in a direction specified by a uniform input $\mathbf{u}(t)$~\cite{Rubenstein2012}.
@@ -43,7 +43,7 @@ Subsections \ref{subsec:square} and \ref{subsec:circular} provide shortest-path 
 $m_2$ cannot be shortened, so optimization depends on choosing the location where the particle hits the wall. 
  Since the shortest distance between two points is a straight line, reflecting the goal position across the boundary wall and plotting a straight line gives the optimal hit location, as shown in Fig. \ref{fig:reflection}. 
   There are four walls, and four candidate solutions, but some candidate solutions may be invalid because a different boundary is hit before the desired first contact position in move $m_1$ (light grey regions) or  invalid because $m_2$ cannot generate the goal relative spacing (dark grey regions).
- 
+ %
 \begin{figure}
 \centering
 \begin{overpic}[width=\columnwidth]{Reflection.pdf}\end{overpic}
@@ -52,6 +52,150 @@ $m_2$ cannot be shortened, so optimization depends on choosing the location wher
 The shortest three-move path that reconfigures two particles has the property that the incident angle equals the reflected angle.
 } \vspace{-1em}
 \end{figure}
+%
+
+This optimization result was implemented in our previous work using a square workspace \cite{shahrokhi2017algorithms}.
+ Fig.~\ref{fig:shapeControlMathematica1} shows solutions from a \emph{Mathematica} implementation in a square workspace for six representative configurations.
+\begin{figure*}
+\renewcommand{\figwid}{0.4\columnwidth}
+
+{\begin{overpic}[width =\figwid]{story1mov0.pdf}\put(10,10){Start}
+\put(10,85){a)}
+\put(30,70){$s_1$}
+\put(48,88){$g_1$}
+\put(65,17){$s_2$}
+\put(87,52){$g_2$}
+\put(60, 3.9){{\tiny$\updownarrow$}~$\epsilon$}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story1move.pdf}\put(10,10){Move 1}
+\put(110,50){If $(\Delta g- \Delta s) = (0,0)$, only one move is needed}
+\put(65, 47){{$\xupdownarrow{1.8cm}$}$L$}
+%\put(47, 65){$\xleftrightarrow{1.8cm}$}
+\end{overpic}
+}\\
+
+\vspace{-0.75em}
+{\begin{overpic}[width =\figwid]{story3Moves1.pdf}\put(10,10){Start}
+\put(10,85){b)}
+\put(28,70){$s_1$}
+\put(50,80){$g_1$}
+\put(62,15){$s_2$}
+\put(30,22){$g_2$}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story3Moves2.pdf}\put(10,10){Move 1}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story3Moves3.pdf}\put(10,10){Move 2}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story3Moves4.pdf}\put(10,10){Move 3}
+\put(110,50){Three-move sequence}
+\put(12,38){$m_3$}
+\put(48,52){$m_2$}
+\put(65,30){$m_1$}
+\end{overpic}
+%\begin{overpic}[width =\figwid]{s5}\put(50,80){Move 4}
+%\end{overpic}
+%\begin{overpic}[width =\figwid]{S6.pdf}\put(50,80){Move 5}
+%\end{overpic}
+}\\
+
+\vspace{-0.75em}
+{
+\begin{overpic}[width =\figwid]{story5move1.pdf}\put(10,10){Move 1}
+\put(10,85){c)}
+\put(28,70){$s_1$}
+\put(62,28){$g_1$}
+\put(87,50){$s_2$}
+\put(30,22){$g_2$}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story5move2.pdf}\put(10,10){Move 2}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story5move3.pdf}\put(10,10){Move 3}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story5move4.pdf}\put(10,10){Move 4}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story5move5.pdf}\put(10,10){Move 5}
+\end{overpic}
+}\\
+
+\vspace{-0.75em}
+%\vspace{1em}
+{
+\begin{overpic}[width =\figwid]{story7move1.pdf}\put(50,80){Move 1}
+\put(10,85){d)}
+\put(25,30){$s_1$}
+\put(89,70){$g_1$}
+\put(67,20){$s_2$}
+\put(28,75){$g_2$}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story7move2.pdf}\put(50,80){Move 2}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story7move5.pdf}\put(50,80){Move 3}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story7move6.pdf}\put(50,80){Move 4}
+\end{overpic}
+\begin{overpic}[width =\figwid]{story7move7.pdf}\put(50,80){Move 5}
+\end{overpic}
+}\\
+
+\vspace{-0.75em}
+{
+\begin{overpic}[width =\figwid]{storySame1.pdf}\put(50,80){Move 1}
+\put(10,85){e)}
+\put(15,35){$s_1,g_2$}
+\put(65,35){$s_2,g_1$}
+\end{overpic}
+\begin{overpic}[width =\figwid]{storySame2.pdf}\put(50,80){Move 2}
+\end{overpic}
+\begin{overpic}[width =\figwid]{storySame3.pdf}\put(50,80){Move 3}
+\end{overpic}
+\begin{overpic}[width =\figwid]{storySame4.pdf}\put(50,80){Move 4}
+\end{overpic}
+\begin{overpic}[width =\figwid]{storySame5.pdf}\put(50,80){Move 5}
+\end{overpic}
+}\\
+
+\vspace{-0.75em}
+{
+\begin{overpic}[width =\figwid]{storyWorst1.pdf}\put(60,10){Move 1}
+\put(10,85){f)}
+\put(15,10){$s_1,g_2$}
+\put(65,88){$s_2,g_1$}
+\end{overpic}
+\begin{overpic}[width =\figwid]{storyWorst2.pdf}\put(60,10){Move 2}
+\end{overpic}
+\begin{overpic}[width =\figwid]{storyWorst4.pdf}\put(60,10){Move 3}
+\end{overpic}
+\begin{overpic}[width =\figwid]{storyWorst6.pdf}\put(60,10){Move 4}
+\end{overpic}
+\begin{overpic}[width =\figwid]{storyWorst7.pdf}\put(60,10){Move 5}
+\put(15, 85){worst-case}\put(15,75){path length}\put(15, 62){$(\sqrt{2}+2)L$}
+\end{overpic}
+}\\
+
+%\vspace{-0.75em}
+%{
+%\begin{overpic}[width =\figwid]{storyCorner1.pdf}\put(50,80){Move 1}
+%\end{overpic}
+%\begin{overpic}[width =\figwid]{storyCorner2.pdf}\put(50,80){Move 2}
+%\end{overpic}
+%%\begin{overpic}[width =\figwid]{storyCorner3.pdf}\put(50,80){Move 3}
+%%\end{overpic}
+%\begin{overpic}[width =\figwid]{storyCorner4.pdf}\put(50,80){Move 4}
+%\end{overpic}
+%\begin{overpic}[width =\figwid]{storyCorner5.pdf}\put(50,80){Move 5}
+%\end{overpic}
+%}\\
+
+\vspace{-1em}
+
+\caption{\label{fig:shapeControlMathematica1}{Frames from an implementation of Alg.\ \ref{alg:optimalAlg}: two particle positioning using walls with non-slip contacts. 
+Particle start positions are shown by squares, and goal positions by circles.  Dashed lines show the shortest route if particles could be controlled independently.  Solid arrows show path given by  Alg.\ \ref{alg:optimalAlg}.
+%Online dmonstration and source code at \cite{Shahrokhi2015mathematicaParticle}.
+%The bottom row shows an extreme case where the robots must switch position.
+}
+\vspace{-1em}
+}
+\end{figure*}
 
  
  \subsection{Shortest Path in Unit Disk that Intersects Circumference}\label{subsec:circular}
