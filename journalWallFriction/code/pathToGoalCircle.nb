@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    212239,       4492]
-NotebookOptionsPosition[    210002,       4431]
-NotebookOutlinePosition[    210356,       4447]
-CellTagsIndexPosition[    210313,       4444]
+NotebookDataLength[    212521,       4495]
+NotebookOptionsPosition[    210284,       4434]
+NotebookOutlinePosition[    210638,       4450]
+CellTagsIndexPosition[    210595,       4447]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -2816,14 +2816,14 @@ e10dcfa556d1"],
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`e1$$ = {-0.1915, -0.248}, $CellContext`e2$$ \
-= {0.09899999999999998, -0.24}, $CellContext`progress$$ = 
-    0, $CellContext`s1$$ = {-0.256, 
-    0.014000000000000012`}, $CellContext`s2$$ = {
-    0.12250000000000005`, -0.405}, $CellContext`\[Epsilon]$$ = Rational[
-    1, 1000], Typeset`show$$ = False, Typeset`bookmarkList$$ = {}, 
-    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
-    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+   DynamicModuleBox[{$CellContext`e1$$ = {
+    0.4974044787113172, -0.039872102501909173`}, $CellContext`e2$$ = {-0.491, 
+    0.009000000000000008}, $CellContext`progress$$ = Rational[
+    11, 140], $CellContext`s1$$ = {0., 0.}, $CellContext`s2$$ = {0.2, 
+    0.4}, $CellContext`\[Epsilon]$$ = Rational[1, 1000], Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
        Hold[$CellContext`progress$$], 1, "progress"}, 0, 1, 
       Rational[1, 420]}, {{
        Hold[$CellContext`\[Epsilon]$$], 
@@ -2848,10 +2848,10 @@ Cell[BoxData[
       Dynamic[{(-1)/2, (-1)/2} + $CellContext`\[Epsilon]$$], 
       Dynamic[{1/2, 1/2} - $CellContext`\[Epsilon]$$]}}, Typeset`size$$ = {
     810., {283., 287.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = False, $CellContext`progress$92536$$ = 
-    0, $CellContext`\[Epsilon]$92537$$ = 0, $CellContext`s1$92538$$ = 
-    0, $CellContext`s2$92539$$ = 0, $CellContext`e1$92540$$ = 
-    0, $CellContext`e2$92541$$ = 0}, 
+    Typeset`skipInitDone$$ = False, $CellContext`progress$486315$$ = 
+    0, $CellContext`\[Epsilon]$486316$$ = 0, $CellContext`s1$486317$$ = 
+    0, $CellContext`s2$486318$$ = 0, $CellContext`e1$486319$$ = 
+    0, $CellContext`e2$486320$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      2, StandardForm, 
       "Variables" :> {$CellContext`e1$$ = {0.05, 
@@ -2859,12 +2859,13 @@ Cell[BoxData[
         1, $CellContext`s1$$ = {0., 0.}, $CellContext`s2$$ = {0.2, 
          0.4}, $CellContext`\[Epsilon]$$ = Rational[1, 1000]}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`progress$$, $CellContext`progress$92536$$, 0], 
-        Hold[$CellContext`\[Epsilon]$$, $CellContext`\[Epsilon]$92537$$, 0], 
-        Hold[$CellContext`s1$$, $CellContext`s1$92538$$, 0], 
-        Hold[$CellContext`s2$$, $CellContext`s2$92539$$, 0], 
-        Hold[$CellContext`e1$$, $CellContext`e1$92540$$, 0], 
-        Hold[$CellContext`e2$$, $CellContext`e2$92541$$, 0]}, 
+        Hold[$CellContext`progress$$, $CellContext`progress$486315$$, 0], 
+        Hold[$CellContext`\[Epsilon]$$, $CellContext`\[Epsilon]$486316$$, 0], 
+        
+        Hold[$CellContext`s1$$, $CellContext`s1$486317$$, 0], 
+        Hold[$CellContext`s2$$, $CellContext`s2$486318$$, 0], 
+        Hold[$CellContext`e1$$, $CellContext`e1$486319$$, 0], 
+        Hold[$CellContext`e2$$, $CellContext`e2$486320$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -3133,7 +3134,7 @@ $CellContext`pm1$]; {Blue,
          Dynamic[{1/2, 1/2} - $CellContext`\[Epsilon]$$], ControlType -> 
          Locator, Appearance -> None}}, "Options" :> {}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{855., {303., 309.}},
+     ImageSizeCache->{861., {331., 337.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -3272,33 +3273,34 @@ $CellContext`r1 = $CellContext`r1 + $CellContext`\[CapitalDelta]r;
          AppendTo[$CellContext`path2, $CellContext`r2]; 
          Return[{$CellContext`path, $CellContext`path1, $CellContext`path2, \
 $CellContext`r1, $CellContext`r2}]], $CellContext`reg = 
-       Polygon[{{1971/2000, 3143/20000}, {83711/100000, 41421/100000}, {
-          11383/20000, 27093/50000}, {5521/20000, 6189/12500}, {
-          1527/25000, 14523/50000}, {0, 0}, {7841/100000, (-28627)/100000}, {
-          954/3125, (-11941)/25000}, {60067/100000, (-5067)/10000}, {
-          2689/3125, (-18159)/50000}, {24829/25000, (-1221)/12500}, {
-          3107/3125, (-1103)/12500}, {99519/100000, (-987)/12500}, {
-          49801/50000, (-699)/10000}, {49837/50000, (-6107)/100000}, {
-          49867/50000, (-1313)/25000}, {99783/100000, (-1107)/25000}, {
-          49911/50000, (-91)/2500}, {99851/100000, (-2891)/100000}, {
-          99873/100000, (-437)/20000}, {49943/50000, (-1523)/100000}, {
-          24973/25000, (-453)/50000}, {99893/100000, (-333)/100000}, {
-          6243/6250, 197/100000}, {99879/100000, 43/6250}, {
-          19973/20000, 571/50000}, {12481/12500, 391/25000}, {
-          24957/25000, 1957/100000}, {19961/20000, 93/4000}, {
-          99779/100000, 2671/100000}, {399/400, 1499/50000}, {
-          99759/100000, 3327/100000}, {24941/25000, 1837/50000}, {
-          19953/20000, 2021/50000}, {49881/50000, 1109/25000}, {
-          49877/50000, 2429/50000}, {4987/5000, 166/3125}, {
-          2493/2500, 2901/50000}, {24923/25000, 1583/25000}, {
-          49829/50000, 863/12500}, {49807/50000, 7519/100000}, {
-          99561/100000, 8179/100000}, {49749/50000, 8883/100000}, {
-          99423/100000, 9629/100000}, {99337/100000, 10413/100000}, {
-          49619/50000, 351/3125}, {99127/100000, 6041/50000}, {
-          99003/100000, 12959/100000}, {19773/20000, 13859/100000}, {
-          49357/50000, 14779/100000}}], $CellContext`nearest = {{
-        0.9974995104126445, 
-        0.029981947716542362`}}, $CellContext`makeReachableSet[
+       Polygon[{{(-49127)/50000, (-2099)/12500}, {(-82963)/100000, (-41871)/
+           100000}, {(-56227)/100000, (-13509)/25000}, {(-27273)/
+           100000, (-49087)/100000}, {(-1219)/20000, (-14367)/50000}, {0, 
+          0}, {(-661)/10000, 1431/5000}, {(-563)/2000, 4859/10000}, {(-14297)/
+           25000, 53017/100000}, {(-41851)/50000, 20187/50000}, {(-4927)/5000,
+            601/4000}, {(-49371)/50000, 6927/50000}, {(-3957)/4000, 12703/
+           100000}, {(-99087)/100000, 1447/12500}, {(-9923)/10000, 5239/
+           50000}, {(-49677)/50000, 9413/100000}, {(-99461)/100000, 8387/
+           100000}, {(-1991)/2000, 1851/25000}, {(-99623)/100000, 647/
+           10000}, {(-99681)/100000, 1397/25000}, {(-49863)/50000, 4761/
+           100000}, {(-49879)/50000, 399/10000}, {(-99779)/100000, 1637/
+           50000}, {(-99791)/100000, 2611/100000}, {(-49897)/50000, 1997/
+           100000}, {(-99789)/100000, 1429/100000}, {(-49889)/50000, 901/
+           100000}, {(-1247)/1250, 409/100000}, {(-99737)/100000, (-13)/
+           25000}, {(-24927)/25000, (-97)/20000}, {(-3987)/4000, (-179)/
+           20000}, {(-99701)/100000, (-261)/20000}, {(-49861)/50000, (-1739)/
+           100000}, {(-99737)/100000, (-11)/500}, {(-19949)/20000, (-673)/
+           25000}, {(-99747)/100000, (-161)/5000}, {(-49871)/50000, (-3789)/
+           100000}, {(-6233)/6250, (-2201)/50000}, {(-12463)/12500, (-1013)/
+           20000}, {(-9967)/10000, (-5781)/100000}, {(-12453)/12500, (-6551)/
+           100000}, {(-19913)/20000, (-7377)/100000}, {(-99491)/
+           100000, (-4129)/50000}, {(-99401)/100000, (-9191)/
+           100000}, {(-49647)/50000, (-2543)/25000}, {(-99169)/
+           100000, (-2799)/25000}, {(-49513)/50000, (-6129)/50000}, {(-98863)/
+           100000, (-13353)/100000}, {(-2467)/2500, (-14477)/
+           100000}, {(-49239)/50000, (-5)/
+           32}}], $CellContext`nearest = {{-0.996757495446066, \
+-0.009068197418733905}}, $CellContext`makeReachableSet[
          Pattern[$CellContext`ps1, 
           Blank[]], 
          Pattern[$CellContext`ps2, 
@@ -3534,9 +3536,10 @@ $CellContext`\[Gamma]a/20}]]; Return[$CellContext`regionlist]],
  CellChangeTimes->{{3.733570239001265*^9, 3.733570251152486*^9}, 
    3.734193443854995*^9, 3.7341942036153917`*^9, 3.734259609101551*^9, 
    3.734711161388607*^9, 3.735314008186964*^9, 3.735581530968845*^9, 
-   3.735992580532446*^9, 3.73617744882275*^9, 
-   3.736577259694927*^9},ExpressionUUID->"d2cc4dcb-dbda-4ac5-bc89-\
-424966921154"]
+   3.735992580532446*^9, 3.73617744882275*^9, 3.736577259694927*^9, 
+   3.736699476589394*^9, 
+   3.7366996181252127`*^9},ExpressionUUID->"093384fb-e783-4296-9eee-\
+813487f4fb5b"]
 }, Open  ]],
 
 Cell[BoxData[" "], "Input",
@@ -4457,39 +4460,39 @@ Cell[1121, 38, 48995, 1052, 2538, "Input", "ExpressionUUID" -> \
 Cell[CellGroupData[{
 Cell[50141, 1094, 83192, 1719, 3292, "Input", "ExpressionUUID" -> \
 "23e33bca-9fb5-45a3-9b79-e10dcfa556d1"],
-Cell[133336, 2815, 35405, 723, 663, "Output", "ExpressionUUID" -> \
-"d2cc4dcb-dbda-4ac5-bc89-424966921154"]
+Cell[133336, 2815, 35687, 726, 719, "Output", "ExpressionUUID" -> \
+"093384fb-e783-4296-9eee-813487f4fb5b"]
 }, Open  ]],
-Cell[168756, 3541, 126, 2, 32, "Input", "ExpressionUUID" -> \
+Cell[169038, 3544, 126, 2, 32, "Input", "ExpressionUUID" -> \
 "f16ead4d-3c7c-46bf-b1c2-832a3809bf9a"],
 Cell[CellGroupData[{
-Cell[168907, 3547, 355, 7, 54, "Input", "ExpressionUUID" -> \
+Cell[169189, 3550, 355, 7, 54, "Input", "ExpressionUUID" -> \
 "618b30f3-1b98-41b8-b7bf-2542a4c0394a"],
-Cell[169265, 3556, 11268, 161, 222, "Output", "ExpressionUUID" -> \
+Cell[169547, 3559, 11268, 161, 222, "Output", "ExpressionUUID" -> \
 "f37443fb-40f7-4a5e-9814-23f8f6911720"]
 }, Open  ]],
-Cell[180548, 3720, 176, 4, 32, "Input", "ExpressionUUID" -> \
+Cell[180830, 3723, 176, 4, 32, "Input", "ExpressionUUID" -> \
 "11770518-5de0-4781-87c2-9a600f0e439a"],
 Cell[CellGroupData[{
-Cell[180749, 3728, 7788, 211, 369, "Input", "ExpressionUUID" -> \
+Cell[181031, 3731, 7788, 211, 369, "Input", "ExpressionUUID" -> \
 "5cea5a88-0829-43bb-b843-b76a52fee512"],
-Cell[188540, 3941, 8090, 145, 331, "Output", "ExpressionUUID" -> \
+Cell[188822, 3944, 8090, 145, 331, "Output", "ExpressionUUID" -> \
 "9eaecf4c-d4e9-49eb-bc3f-fcb104686255"]
 }, Open  ]],
-Cell[196645, 4089, 145, 3, 32, "Input", "ExpressionUUID" -> \
+Cell[196927, 4092, 145, 3, 32, "Input", "ExpressionUUID" -> \
 "cdd67484-e313-42e9-9c55-c49fd3c09149"],
-Cell[196793, 4094, 144, 2, 54, "Input", "ExpressionUUID" -> \
+Cell[197075, 4097, 144, 2, 54, "Input", "ExpressionUUID" -> \
 "968db41a-5bde-4536-940c-5b3809be8619"],
 Cell[CellGroupData[{
-Cell[196962, 4100, 336, 9, 32, "Input", "ExpressionUUID" -> \
+Cell[197244, 4103, 336, 9, 32, "Input", "ExpressionUUID" -> \
 "528518e8-a235-41ef-85cb-77e916f5eb2f"],
-Cell[197301, 4111, 5956, 169, 138, "Output", "ExpressionUUID" -> \
+Cell[197583, 4114, 5956, 169, 138, "Output", "ExpressionUUID" -> \
 "90390992-5ba4-4395-a7ab-c61577914c68"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[203294, 4285, 2380, 64, 201, "Input", "ExpressionUUID" -> \
+Cell[203576, 4288, 2380, 64, 201, "Input", "ExpressionUUID" -> \
 "fb88486d-c7a7-488b-a2ab-7a158b18fa15"],
-Cell[205677, 4351, 4285, 75, 331, "Output", "ExpressionUUID" -> \
+Cell[205959, 4354, 4285, 75, 331, "Output", "ExpressionUUID" -> \
 "f4e6ee88-232e-4994-a942-3dfb2b277107"]
 }, Open  ]]
 }, Open  ]]

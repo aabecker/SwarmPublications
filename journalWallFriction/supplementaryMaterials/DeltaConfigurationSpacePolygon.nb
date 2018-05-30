@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    145132,       2999]
-NotebookOptionsPosition[    144365,       2971]
-NotebookOutlinePosition[    144749,       2988]
-CellTagsIndexPosition[    144706,       2985]
+NotebookDataLength[    144102,       2973]
+NotebookOptionsPosition[    143335,       2945]
+NotebookOutlinePosition[    143719,       2962]
+CellTagsIndexPosition[    143676,       2959]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -84,7 +84,7 @@ Cell[BoxData[{
 will be inside exactly one member of a polygonal partitioning.\n  C-code by \
 W. Randolph Franklin \
 (http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html).\n  \
-J. Wesenberg, 2008\>\""}], " ", ";"}], "\[IndentingNewLine]"}], "\n", 
+J. Wesenberg, 2008\>\""}], " ", ";"}], "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"pnPoly", "[", 
@@ -564,8 +564,7 @@ J. Wesenberg, 2008\>\""}], " ", ";"}], "\[IndentingNewLine]"}], "\n",
         RowBox[{"(", 
          RowBox[{"ax", "-", "bx"}], ")"}], " ", 
         RowBox[{"(", 
-         RowBox[{"cy", "-", "dy"}], ")"}]}]}]]}], "}"}]}], 
-  "\[IndentingNewLine]", 
+         RowBox[{"cy", "-", "dy"}], ")"}]}]}]]}], "}"}]}], "\n", 
   RowBox[{"(*", 
    RowBox[{"Use", " ", 
     FormBox[
@@ -585,7 +584,7 @@ J. Wesenberg, 2008\>\""}], " ", ";"}], "\[IndentingNewLine]"}], "\n",
      RowBox[{"0", "\[LessEqual]", "\[Lambda]", "\[LessEqual]", "1"}],
      TraditionalForm], " ", "to", " ", "determine", " ", "whether", " ", 
     "two", " ", "segments", " ", 
-    RowBox[{"intersect", ":"}]}], "*)"}]}], "\n", 
+    RowBox[{"intersect", ":"}]}], "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"SegmentIntersectionQ", "[", 
@@ -1663,7 +1662,7 @@ J. Wesenberg, 2008\>\""}], " ", ";"}], "\[IndentingNewLine]"}], "\n",
               RowBox[{
                RowBox[{"Style", "[", 
                 RowBox[{
-                 RowBox[{"StringForm", "[", "\"\<workspace\>\"", "]"}], ",", 
+                 RowBox[{"StringForm", "[", "\"\<Workspace\>\"", "]"}], ",", 
                  " ", 
                  RowBox[{"FontSize", "\[Rule]", "24"}], ",", "Black", ",", 
                  RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Times\>\""}]}], 
@@ -1790,41 +1789,43 @@ J. Wesenberg, 2008\>\""}], " ", ";"}], "\[IndentingNewLine]"}], "\n",
                     RowBox[{"0", ",", "2.2"}], "}"}]}], "]"}]}], 
                 "\[IndentingNewLine]", "}"}], ",", 
                RowBox[{"{", 
-                RowBox[{"8", ",", "0"}], "}"}]}], "]"}], 
-             "\[IndentingNewLine]", ",", 
-             RowBox[{"Translate", "[", 
-              RowBox[{
-               RowBox[{"{", "\[IndentingNewLine]", 
-                RowBox[{
-                 RowBox[{"Circle", "[", 
-                  RowBox[{
-                   RowBox[{"{", 
+                RowBox[{"3.5", ",", "0"}], "}"}]}], "]"}]}], 
+            "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{",", 
+              RowBox[{"Translate", "[", 
+               RowBox[{
+                RowBox[{"{", "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{"Circle", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
                     RowBox[{"0", ",", "0"}], "}"}], ",", "0.05"}], "]"}], ",",
-                  "\[IndentingNewLine]", 
-                 RowBox[{"{", 
-                  RowBox[{
-                   RowBox[{"Opacity", "[", "0.5", "]"}], ",", 
-                   RowBox[{"RGBColor", "[", 
+                   "\[IndentingNewLine]", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"Opacity", "[", "0.5", "]"}], ",", 
+                    RowBox[{"RGBColor", "[", 
                     RowBox[{"0", ",", 
                     RowBox[{"1", "/", 
                     RowBox[{"Length", "[", "vCF", "]"}]}], ",", "0"}], "]"}], 
-                   ",", 
-                   RowBox[{"EdgeForm", "[", 
+                    ",", 
+                    RowBox[{"EdgeForm", "[", 
                     RowBox[{"{", 
                     RowBox[{
                     RowBox[{"Darker", "[", "Green", "]"}], ",", " ", 
                     RowBox[{"Thickness", "[", 
                     RowBox[{"i", "/", "10000"}], "]"}]}], "}"}], "]"}], ",", 
-                   " ", 
-                   RowBox[{"Polygon", "[", 
+                    " ", 
+                    RowBox[{"Polygon", "[", 
                     RowBox[{"Part", "[", 
                     RowBox[{"vCF", ",", 
                     RowBox[{"1", ";;", 
                     RowBox[{"Length", "[", "v", "]"}]}]}], "]"}], "]"}]}], 
-                  "}"}], ",", "\[IndentingNewLine]", 
-                 RowBox[{"Table", "[", 
-                  RowBox[{
-                   RowBox[{"{", 
+                   "}"}], ",", "\[IndentingNewLine]", 
+                  RowBox[{"Table", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
                     RowBox[{
                     RowBox[{"Opacity", "[", "0.5", "]"}], ",", 
                     RowBox[{"RGBColor", "[", " ", 
@@ -1846,16 +1847,16 @@ J. Wesenberg, 2008\>\""}], " ", ";"}], "\[IndentingNewLine]"}], "\n",
                     RowBox[{"i", "+", 
                     RowBox[{"Length", "[", "v", "]"}]}]}]}], "]"}], "]"}]}], 
                     "}"}], ",", 
-                   RowBox[{"{", 
+                    RowBox[{"{", 
                     RowBox[{"i", ",", 
                     RowBox[{"Length", "[", "v", "]"}], ",", 
                     RowBox[{
                     RowBox[{"Length", "[", "vCF", "]"}], "-", "1"}], ",", 
                     RowBox[{"Length", "[", "v", "]"}]}], "}"}]}], "]"}], ",", 
-                 "\[IndentingNewLine]", "Black", ",", " ", 
-                 RowBox[{"Text", "[", 
-                  RowBox[{
-                   RowBox[{"Style", "[", 
+                  "\[IndentingNewLine]", "Black", ",", " ", 
+                  RowBox[{"Text", "[", 
+                   RowBox[{
+                    RowBox[{"Style", "[", 
                     RowBox[{
                     RowBox[{
                     "StringForm", "[", 
@@ -1865,25 +1866,25 @@ J. Wesenberg, 2008\>\""}], " ", ";"}], "\[IndentingNewLine]"}], "\n",
                     
                     RowBox[{"FontFamily", "\[Rule]", " ", "\"\<Times\>\""}]}],
                      "]"}], ",", 
-                   RowBox[{"{", 
+                    RowBox[{"{", 
                     RowBox[{
                     RowBox[{"-", "0.2"}], ",", "2.2"}], "}"}]}], "]"}]}], 
-                "\[IndentingNewLine]", "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"3.5", ",", "0"}], "}"}]}], "]"}]}], 
+                 "\[IndentingNewLine]", "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"3.5", ",", "0"}], "}"}]}], "]"}]}], "*)"}], 
             "\[IndentingNewLine]", "\[IndentingNewLine]", "}"}], ",", 
            RowBox[{"PlotRange", "\[Rule]", 
             RowBox[{"{", 
              RowBox[{
               RowBox[{"{", 
                RowBox[{
-                RowBox[{"-", "1"}], ",", "10"}], "}"}], ",", 
+                RowBox[{"-", "1"}], ",", "5.5"}], "}"}], ",", 
               RowBox[{"{", 
                RowBox[{
                 RowBox[{"-", "2"}], ",", "2.5"}], "}"}]}], "}"}]}], ",", 
            RowBox[{"ImageSize", "\[Rule]", "800"}]}], "]"}], "}"}], ",", 
         "\[IndentingNewLine]", 
-        RowBox[{"ImageSize", "\[Rule]", "1500"}]}], "]"}]}]}], 
+        RowBox[{"ImageSize", "\[Rule]", "800"}]}], "]"}]}]}], 
     "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
    RowBox[{"Row", "[", 
     RowBox[{"{", 
@@ -2633,16 +2634,17 @@ J. Wesenberg, 2008\>\""}], " ", ";"}], "\[IndentingNewLine]"}], "\n",
    3.736174686011077*^9, 3.736174793602948*^9}, {3.736174859711154*^9, 
    3.736174865697899*^9}, {3.736174909975039*^9, 3.736175059032667*^9}, {
    3.736175160361718*^9, 3.7361751618846817`*^9}, {3.736176062287736*^9, 
-   3.736176085903841*^9}},ExpressionUUID->"36e06ad4-5d90-42ab-a1db-\
+   3.736176085903841*^9}, {3.7366919347167473`*^9, 
+   3.736692006540989*^9}},ExpressionUUID->"36e06ad4-5d90-42ab-a1db-\
 41123bad96a7"],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
    DynamicModuleBox[{$CellContext`e1$$ = {0.05, 0.5}, $CellContext`e2$$ = {
-    0.33, 0.6}, $CellContext`polygon$$ = "irregular", $CellContext`s1$$ = {
-    0.1, 0.3}, $CellContext`s2$$ = {0.8, 0.1}, $CellContext`sides$$ = 
-    4, $CellContext`tr1$$ = {0.3, 0.9}, $CellContext`tr2$$ = {
+    0.33, 0.6}, $CellContext`polygon$$ = "regular", $CellContext`s1$$ = {0.1, 
+    0.3}, $CellContext`s2$$ = {0.8, 0.1}, $CellContext`sides$$ = 
+    3, $CellContext`tr1$$ = {0.3, 0.9}, $CellContext`tr2$$ = {
     0.1, -0.5}, $CellContext`tr3$$ = {-0.33, 0.8}, $CellContext`tr4$$ = {0.3, 
     0.5}, $CellContext`tr5$$ = {0.4, -0.5}, $CellContext`tr6$$ = {0.3, 
     0.8}, $CellContext`tr7$$ = {-0.3, 0.1}, $CellContext`tr8$$ = {-0.3, 0.5}, 
@@ -2667,12 +2669,11 @@ Cell[BoxData[
        Hold[$CellContext`tr6$$], {0.3, 0.8}}, {-1, -1}, {1, 1}}, {{
        Hold[$CellContext`tr7$$], {-0.3, 0.1}}, {-1, -1}, {1, 1}}, {{
        Hold[$CellContext`tr8$$], {-0.3, 0.5}}, {-1, -1}, {1, 1}}}, 
-    Typeset`size$$ = {1350., {274., 278.}}, Typeset`update$$ = 0, 
+    Typeset`size$$ = {720., {247., 251.}}, Typeset`update$$ = 0, 
     Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`polygon$120101$$ = False, $CellContext`s1$120102$$ = {
-    0, 0}, $CellContext`s2$120103$$ = {0, 0}, $CellContext`e1$120104$$ = {0, 
-    0}, $CellContext`e2$120105$$ = {0, 0}, $CellContext`tr1$120106$$ = {0, 
-    0}}, 
+    True, $CellContext`polygon$5756$$ = False, $CellContext`s1$5757$$ = {0, 
+    0}, $CellContext`s2$5758$$ = {0, 0}, $CellContext`e1$5759$$ = {0, 
+    0}, $CellContext`e2$5760$$ = {0, 0}, $CellContext`tr1$5761$$ = {0, 0}}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      2, StandardForm, 
       "Variables" :> {$CellContext`e1$$ = {0.05, 0.5}, $CellContext`e2$$ = {
@@ -2684,12 +2685,12 @@ Cell[BoxData[
          0.3, 0.5}, $CellContext`tr5$$ = {0.4, -0.5}, $CellContext`tr6$$ = {
          0.3, 0.8}, $CellContext`tr7$$ = {-0.3, 
          0.1}, $CellContext`tr8$$ = {-0.3, 0.5}}, "ControllerVariables" :> {
-        Hold[$CellContext`polygon$$, $CellContext`polygon$120101$$, False], 
-        Hold[$CellContext`s1$$, $CellContext`s1$120102$$, {0, 0}], 
-        Hold[$CellContext`s2$$, $CellContext`s2$120103$$, {0, 0}], 
-        Hold[$CellContext`e1$$, $CellContext`e1$120104$$, {0, 0}], 
-        Hold[$CellContext`e2$$, $CellContext`e2$120105$$, {0, 0}], 
-        Hold[$CellContext`tr1$$, $CellContext`tr1$120106$$, {0, 0}]}, 
+        Hold[$CellContext`polygon$$, $CellContext`polygon$5756$$, False], 
+        Hold[$CellContext`s1$$, $CellContext`s1$5757$$, {0, 0}], 
+        Hold[$CellContext`s2$$, $CellContext`s2$5758$$, {0, 0}], 
+        Hold[$CellContext`e1$$, $CellContext`e1$5759$$, {0, 0}], 
+        Hold[$CellContext`e2$$, $CellContext`e2$5760$$, {0, 0}], 
+        Hold[$CellContext`tr1$$, $CellContext`tr1$5761$$, {0, 0}]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -2807,7 +2808,7 @@ $CellContext`ps2$, $CellContext`ps1$]; Show[{
               Circle[$CellContext`pe2$, $CellContext`r$]}, Black, 
              Text[
               Style[
-               StringForm["workspace"], FontSize -> 24, Black, FontFamily -> 
+               StringForm["Workspace"], FontSize -> 24, Black, FontFamily -> 
                "Times"], {0.1, 2.2}], 
              Translate[{{
                 EdgeForm[Black], 
@@ -2842,37 +2843,9 @@ $CellContext`ps2$, $CellContext`ps1$]; Show[{
                Text[
                 Style[
                  StringForm["\[CapitalDelta] configuration space"], FontSize -> 
-                 24, Black, FontFamily -> "Times"], {0, 2.2}]}, {8, 0}], 
-             Translate[{
-               Circle[{0, 0}, 0.05], {
-                Opacity[0.5], 
-                RGBColor[0, 1/Length[$CellContext`vCF$], 0], 
-                EdgeForm[{
-                  Darker[Green], 
-                  Thickness[$CellContext`i$/10000]}], 
-                Polygon[
-                 Part[$CellContext`vCF$, 
-                  Span[1, 
-                   Length[$CellContext`v$]]]]}, 
-               Table[{
-                 Opacity[0.5], 
-                 RGBColor[0, $CellContext`i$/Length[$CellContext`vCF$], 0], 
-                 EdgeForm[{
-                   Thickness[$CellContext`i$/10000], 
-                   Darker[Green]}], 
-                 Polygon[
-                  Part[$CellContext`vCF$, 
-                   
-                   Span[$CellContext`i$, $CellContext`i$ + 
-                    Length[$CellContext`v$]]]]}, {$CellContext`i$, 
-                 Length[$CellContext`v$], Length[$CellContext`vCF$] - 1, 
-                 Length[$CellContext`v$]}], Black, 
-               Text[
-                Style[
-                 StringForm["Translate workspace around (0,0)"], FontSize -> 
-                 24, Black, FontFamily -> "Times"], {-0.2, 2.2}]}, {3.5, 0}]},
-             PlotRange -> {{-1, 10}, {-2, 2.5}}, ImageSize -> 800]}, 
-          ImageSize -> 1500]], 
+                 24, Black, FontFamily -> "Times"], {0, 2.2}]}, {3.5, 0}]}, 
+            PlotRange -> {{-1, 5.5}, {-2, 2.5}}, ImageSize -> 800]}, 
+          ImageSize -> 800]], 
       "Specifications" :> {{{$CellContext`polygon$$, "irregular", 
           "type of polygon"}, {"regular", "irregular"}, ControlPlacement -> 
          1}, 
@@ -2904,7 +2877,7 @@ $CellContext`ps2$, $CellContext`ps1$]; Show[{
          None}, {{$CellContext`tr8$$, {-0.3, 0.5}}, {-1, -1}, {1, 1}, 
          ControlType -> Locator, Appearance -> None}}, "Options" :> {}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{1397., {330., 336.}},
+     ImageSizeCache->{767., {303., 309.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -2963,8 +2936,9 @@ $CellContext`ps2$, $CellContext`ps1$]; Show[{
    3.736174694790616*^9, {3.736174748322176*^9, 3.736174794165412*^9}, 
    3.7361748663879223`*^9, {3.736174937329664*^9, 3.736175018442361*^9}, 
    3.7361751623940477`*^9, {3.736176063428372*^9, 3.736176086383184*^9}, 
-   3.7365780344174128`*^9},ExpressionUUID->"42063127-bef3-432e-835d-\
-626345695bc5"]
+   3.7365780344174128`*^9, 3.736691926675173*^9, {3.7366919597984667`*^9, 
+   3.736692006942458*^9}},ExpressionUUID->"bd279382-15e7-4334-9082-\
+3ea2d82395e6"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -2994,10 +2968,10 @@ Cell[CellGroupData[{
 Cell[1095, 37, 2296, 35, 599, "Subsection", "ExpressionUUID" -> \
 "44d2937b-ea6b-46eb-94ae-423bf81f27f9"],
 Cell[CellGroupData[{
-Cell[3416, 76, 122509, 2560, 4598, "Input", "ExpressionUUID" -> \
+Cell[3416, 76, 122647, 2562, 4598, "Input", "ExpressionUUID" -> \
 "36e06ad4-5d90-42ab-a1db-41123bad96a7"],
-Cell[125928, 2638, 18397, 328, 716, "Output", "ExpressionUUID" -> \
-"42063127-bef3-432e-835d-626345695bc5"]
+Cell[126066, 2640, 17229, 300, 662, "Output", "ExpressionUUID" -> \
+"bd279382-15e7-4334-9082-3ea2d82395e6"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
