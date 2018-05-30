@@ -135,7 +135,8 @@ Boundary interaction is used to change the relative positions of the particles. 
 \vspace{-1em}
 }
 \end{figure*}
- Fig. \ref{fig:polygon} shows six workspaces, their $\Delta$ configuration spaces, and the 2-move reachable sets that correspond to representative initial conditions.
+ Figure \ref{fig:polygon} shows six workspaces, their $\Delta$ configuration spaces, and the 2-move reachable sets that correspond to representative initial conditions.
+ Figure \ref{fig:TwoRegions} shows reachable sets for a square workspace. There are four reachable sets, the horizontal (and vertical) reachable sets are equivalent in the  $\Delta$ configuration space so we can plan in this space and choose between the two options to minimize the total distance.
  % The \emph{2-move reachable set} is the locus of points in the $\Delta$ configuration space corresponding to any two-move sequence where the first move brings one particle into contact with the boundary, and the second move translates the second particle without moving the first. 
 Algorithm \ref{alg:polygonReachbale} computes the 2-move reachable set for any convex workspace.
 The set is constructed by considering each edge of the workspace. We name each vertex as $p_i$ where $1\leq i \leq n$.
@@ -172,7 +173,7 @@ $[p_{i+1} , p_{i+2}, ... , v_{\textrm{max}}, l_{i+1}] - p_{i+1}')$
 \end{algorithm}
 %\todo{latex line over the top of two vertices}
 
-Figure \ref{fig:TwoRegions} shows reachable sets for a square workspace. There are four reachable sets, the horizontal (and vertical) reachable sets are equivalent in the  $\Delta$ configuration space so we can plan in this space and choose between the two options to minimize the total distance.
+
 
  
 \subsection{Circular Workspaces: 2-Move Reachable Set}
