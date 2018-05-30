@@ -136,7 +136,7 @@ Boundary interaction is used to change the relative positions of the particles. 
 }
 \end{figure*}
  Figure \ref{fig:polygon} shows six workspaces, their $\Delta$ configuration spaces, and the 2-move reachable sets that correspond to representative initial conditions.
- Figure \ref{fig:TwoRegions} shows reachable sets for a square workspace. There are four reachable sets, the horizontal (and vertical) reachable sets are equivalent in the  $\Delta$ configuration space so we can plan in this space and choose between the two options to minimize the total distance.
+ Figure \ref{fig:TwoRegions} highlights the construction of the 2-move reachable sets for a square workspace. There are four 2-move reachable sets, but the horizontal (and vertical) reachable sets are equivalent in the $\Delta$ configuration space so we can plan in this space and choose between the two options to minimize the total distance.
  % The \emph{2-move reachable set} is the locus of points in the $\Delta$ configuration space corresponding to any two-move sequence where the first move brings one particle into contact with the boundary, and the second move translates the second particle without moving the first. 
 Algorithm \ref{alg:polygonReachbale} computes the 2-move reachable set for any convex workspace.
 The set is constructed by considering each edge of the workspace. We name each vertex as $p_i$ where $1\leq i \leq n$.
@@ -457,7 +457,7 @@ The particles achieve $\Delta g_c$ in two moves. The first move causes one parti
 \centering
 \begin{overpic}[width=0.95\columnwidth]{zaxis.pdf}\end{overpic}
 \caption{\label{fig:zaxis}
-Illustration on how boundary contacts enable 3D positioning. Once one particle contacts a boundary, the other particle's 2-move reachable set is a prism formed by extending the 2D 2-move reachable set in the $\pm z$-direction.
+Illustration on how boundary contacts enable 3D positioning. Once one particle contacts a boundary, the other particle's 2-move reachable set is a prism formed by extending the 2D 2-move reachable set in the $\pm z$ direction.
 } %\vspace{-1em}
 \end{figure}
 
