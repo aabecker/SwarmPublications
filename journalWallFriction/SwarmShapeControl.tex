@@ -143,11 +143,11 @@
 
 
 \pdfinfo{
-   /Author (Shiva Shahrokhi and Aaron T. Becker)
-   /Title  (Algorithms for Shaping a Particle Swarm with a Shared Input by Exploiting Non-Slip Wall Contacts)
+   /Author (Shiva Shahrokhi, Jingang Shi,  Benedict Isichei, and Aaron T. Becker)
+   /Title  (Exploiting Non-Slip Wall Contacts  to Position Two Particles Using The Same Control Input)
    /CreationDate (D:20160129120000)
    /Subject (Simple Robots)
-   /Keywords (Robots;Uniform Control Inputs)
+   /Keywords (Robots;Uniform Control Inputs, Underactuated Robots,Motion Control,Path Planning for Multiple Mobile Robot Systems)
 }
 
 
@@ -177,7 +177,6 @@
 
 \begin{abstract}
 
-
 Steered particles offer a method for targeted therapy, interventions, and drug delivery in regions inaccessible by large robots.
 Magnetic actuation has the benefits of requiring no tethers, being able to operate from a distance, and in some cases allows imaging for feedback (e.g. MRI).
  This paper investigates particle control with uniform magnetic gradients (the same force is applied everywhere in the workspace).
@@ -188,51 +187,13 @@ In previous work, we showed that the individual 2D position of two particles is 
 Because in vivo environments are usually not square, this paper extends the previous work to all convex workspaces and to 3D positioning. 
 This paper also implements the algorithms using a hardware setup inspired by the gastrointestinal tract.
 
-
-
-
-%There are driving applications for large populations of tiny robots in robotics, biology, and chemistry.
-%These robots often lack onboard computation, actuation, and communication.
-%Instead, these ``robots''  are  particles carrying some payload and the particle swarm is controlled by a shared control input such as a uniform magnetic gradient or electric field.
-%In previous works, we showed that the 2D position of each particle in such a swarm is controllable if the workspace contains a single obstacle the size of one particle.
-%In previous works, we showed that the individual 2D position of two particles in such a swarm is controllable in a rectangular workspace requiring non-slip wall contact. However, both in vivo and artificial environments are usually not rectangular. 
-%This work extends that work to any polygonal workspace, and focus on extending the algorithm for circular workspaces. Then it extends the algorithm to 3D. Results are validated with simulations and with a magnetic setup using two steel half a millimeter balls.
-%This work extends the analysis to convex workspaces and 3D positioning. This paper also implements the algorithms using a hardware setup inspired by intestine anatomy.
-%Requiring a small, rigid obstacle suspended in the middle of the workspace is a strong constraint, especially in 3D.
-%Often particles are placed into an em
-%This paper relaxes that constraint, and provides position control algorithms that only require non-slip wall contact in 2D.
-%Both in vivo and artificial environments often have such boundaries.
-%We assume that particles in contact with the boundaries have zero velocity if the shared control input pushes the particle into the wall.
-%This paper provides a shortest-path algorithm for positioning a two-particle swarm, and a generalization to positioning an $n$-particle swarm.
-%Results are validated with simulations and a hardware demonstration.
-
-
-
-
-
-
-
-%Consider a swarm of particles controlled by global inputs. 
-%This paper presents algorithms for shaping such swarms in 2D using boundary walls.
-%The range of configurations created by conforming a swarm to a boundary wall is limited. 
-%We describe the set of stable configurations of a particle swarm in two canonical workspaces, a circle and a square. 
-%To increase the diversity of configurations, we add boundary interaction to our model.  
-%We provide algorithms using friction with walls to place two robots at arbitrary locations in a rectangular workspace.
-%Next, we extend this algorithm to place $n$ agents at desired locations. 
-%We conclude with efficient techniques to generate correlations of a particle swarm not possible without wall-friction. 
-%Simulations %and hardware implementations with 100 robots 
-%validate these results.
-
-%These methods may have particular relevance for micro- and nano-robots controlled by global inputs.
-%, whose small size limits onboard computation and power. For this reason they are usually powered and controlled by global inputs, such as a uniform external electric or magnetic field, and every robot receives the same control inputs.
-%Due to their small size, large numbers of micro-robots are required to deliver sufficient payloads.
-% Nevertheless, these applications require precision control of the shape and position of the robot swarm. Precision control requires breaking the symmetry caused by the global input.  
-
- 
-
-
-
-% KEYWORDS:   uniform control, under-actuation, particle swarm
+% KEYWORDS:   
+%Underactuated Robots
+%Motion Control
+%Path Planning for Multiple Mobile Robot Systems
+%	
+%This is an extension of work presented in a preliminary conference paper:
+%S. Shahrokhi, A. Mahadev, and A. T. Becker, ÒAlgorithms for shaping a particle swarm with a shared input by exploiting non-slip wall contacts,Ó in Intelligent Robots and Systems (IROS), 2017 IEEE/RSJ International Conference on, 2017.
 \end{abstract}
 
 \IEEEpeerreviewmaketitle
