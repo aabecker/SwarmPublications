@@ -1,0 +1,21 @@
+
+% abstract for thesis
+
+%This is the abstract.  It has a limit of 150 words for a masters thesis and 350 words for a PhD dissertation.
+
+Microrobotics has the potential to revolutionize many applications including targeted material delivery, assembly, and surgery.  The same properties that promise breakthrough solutions---small size and large populations---present unique challenges for controlling motion. 
+Robotic manipulation usually assumes intelligent agents, not particle systems manipulated by a global signal.
+ Adding additional particles to steer makes the system underactuated because there are more states than control inputs. 
+ Rather than focusing on a specific microrobotic system, this dissertation designs control laws and algorithms for steering many particles controlled by global fields.
+ 
+ First, we identify key parameters for particle manipulation by using a collection of online games where players steer swarms of up to 500 particles to complete manipulation challenges. Inspired by techniques where human operators performed well, we investigate controllers that only use the mean and variance of the swarm. We next derive automatic controllers for these and a hysteresis-based switching control to regulate the first two moments of the particle distribution. Torque control is also necessary for manipulating objects as well as for aligning sensors, emitters, or redirecting an incoming signal. 
+ 
+ Second, this dissertation proves that swarm torque control is possible, then presents algorithms to automate the task. 
+ Magnetic actuation has the benefits of requiring no tethers, being able to operate from a distance, and in some cases allows imaging for feedback (e.g. MRI).
+ 
+ Finally, this dissertation investigates particle control with uniform magnetic gradients (the same force is applied everywhere in the workspace).
+ We provide position control algorithms that only require non-slip wall contact in 2D.
+ The walls of in vivo and artificial environments often have surface roughness such that the particles do not move unless actuation pulls them away from the wall.
+We assume that particles in contact with the boundaries have zero velocity if the shared control input pushes the particle into the wall. 
+All the results are validated with simulations and hardware implementations.
+

@@ -1,0 +1,97 @@
+% Thesis Introduction
+
+\chapter[Introduction]{Introduction}
+\label{chap-intro}
+
+%Here begins the body of the thesis.
+\section{Controlling a swarm of particles with global inputs}
+
+\begin{figure}
+\centering
+\renewcommand{\figwid}{\columnwidth}
+\begin{overpic}[width =0.2\figwid]{first.png}\put(3,97){a)}
+\end{overpic}
+\begin{overpic}[width =0.2\figwid]{second.png}\put(3,95){b)}
+\end{overpic}
+\begin{overpic}[width =0.25\figwid]{third.png}\put(3,85){c)}
+\end{overpic}
+\begin{overpic}[width =0.25\figwid]{fourth.png}\put(3,85){d)}
+\end{overpic}
+\caption{\label{fig:model} %Controlling a swarm of robots with global inputs. 
+a) The robots are actually simple particles that can be controlled by a global force. b) All the particles get the same control input. c,d) Breaking the symmetry is only possible with external boundary or obstacle.
+}
+\end{figure}
+\begin{figure}
+\centering
+\renewcommand{\figwid}{\columnwidth}
+\begin{overpic}[width =\figwid]{MicroRobotics.png}
+\end{overpic}
+\caption{\label{fig:microrobotics} %Controlling a swarm of robots with global inputs. 
+Microrobots has the potential to revolutionize medical applications. Figure courtesy:  \cite{nelson2010microrobots}.
+}
+\end{figure}
+
+Large populations of micro- and nanorobots are being produced in laboratories around the world, with diverse potential applications in drug delivery and construction, see \cite{Peyer2013,Shirai2005,Chiang2011}. These activities require robots that behave intelligently.
+Our vision is for large swarms of robots to be remotely guided 1) through the human body, to cure disease, heal tissue, and prevent infection and 2) ex vivo to assemble structures in parallel \cite{nelson2010microrobots}. 
+ For each application, large numbers of micro robots are required  to deliver sufficient payloads.
+ Often particles are difficult or impossible to sense individually due to their size and location. 
+For example, microrobots are smaller than the minimum resolution of a clinical MRI-scanner, see \cite{martel2014computer}, however it is often possible to sense global properties of the group such as mean position and variance. 
+ Limited computation and communication at small scales also makes autonomous operation or direct control over individual robots difficult. 
+  Instead, this dissertation treats the robots that are steered by a global control signal broadcast to the entire population. 
+  The tiny robots themselves are often just rigid bodies, and it may be more accurate to define the robot as the \emph{system} that consists of particles, a uniform control field, and sensing.
+ Particle swarms propelled by a uniform field, where each particle  receives the same control input, are common in applied mathematics, biology, and computer graphics \cite{Peyer2013,Shirai2005,Chiang2011}. 
+% The transportation methodology is similar to that in~\cite{sugawara2014object}, but rather than using onboard computation or sensing, the particles all move in the same direction.
+Such systems are severely underactuated, having 2 degrees of freedom in the shared planar control input, but $2n$ degrees of freedom for the $n$-particle swarm. Figure \ref{fig:model} shows an example of simple particles when they all get the same control input.
+ Techniques are needed that can handle this underactuation.  
+ 
+ To make progress in automatic control with global inputs, this dissertation presents swarm manipulation controllers inspired by our online experiments that require only mean and variance measurements of the particles' positions. 
+We prove that the mean position of a swarm is controllable and that, with an obstacle, the swarm's position variance orthogonal to rectangular boundary walls  is also controllable
+(these are $\sigma_x^2$ and $\sigma_y^2$ for a workspace with axis-aligned walls). 
+The usefulness of these techniques is demonstrated by several automatic controllers. One controller steers a swarm of robots to push a larger block through a 2D maze~\cite{ShahrokhiIROS2015}. 
+
+ Meanwhile, object manipulation often also requires controlling torque on an object for a variety of alignment tasks including retroreflectors, and targeted radiation therapy.
+ Accurate torque control is difficult.
+ The swarm, when steered toward an object, begins interacting with the object at different times. 
+The number of robots touching this object as a function of time is difficult to predict and often impossible to directly measure.
+Stochastic effects make long-term prediction challenging.  
+Even when it is possible to predict which agents will hit the object first, as agents interact with the object, the swarm's configuration changes.
+The challenge is not only limited to swarm-object interaction, but also to swarm-swarm interactions when the swarm self-collides  or is split into multiple components.
+ As a result, the force the swarm will exert on the object is hard to predict.
+ This dissertation studies the torque applied by a swarm of particles on a long aspect-ratio rod. We calculate the force and torque generated by a swarm that has assumed a characteristic shape as a function of the direction the swarm moves.
+We generalize these results for three canonical position distributions of a swarm: uniform, triangular, and normal. The model shows that for a pivoted rod the uniform distribution produces the maximum torque for small swarm standard deviations, but the normal distribution maximizes torque for large standard deviations.
+
+
+ Positioning is a foundational capability for a robotic system, e.g. placement of brachytherapy seeds. 
+ 2D position of each particle in such a swarm is controllable if the workspace contains a single obstacle the size of one particle \cite{AaronManipulation2013}.
+ However, requiring a single, small, rigid obstacle suspended in the middle of the workspace is often an unreasonable constraint, especially in 3D.
+ This dissertation relaxes that constraint, and provides position control algorithms for two particles that only require non-slip wall contacts.
+ We assume that particles in contact with the boundaries have zero velocity if the uniform control input pushes the particle into the wall.
+ 
+\section{Dissertation organization}
+
+The dissertation is arranged as follows: Chapter 2 discusses steering a swarm of particles using global inputs and swarm statistics. Chapter 3 goes deep into the torque control of the swarm and orientation control of the object. Chapter 4 demonstrates algorithms to control position of two robots in any convex workspace when the walls have non-slip contact. We conclude in Chapter 5. Figure \ref{fig:chapters} shows a demonstration of each chapter.
+
+
+\begin{figure}
+\centering
+\begin{overpic}[width=0.5\columnwidth]{MainExpFig.pdf}\end{overpic}
+\begin{overpic}[width=0.465\columnwidth]{CoverPhoto.pdf}
+\end{overpic}\\
+
+\begin{overpic}[width=0.45\columnwidth]{firstpicLeft.pdf}\put(28,-10){workspace}\end{overpic}
+\begin{overpic}[width=0.45\columnwidth]{magneticsetup.pdf}\put(22,-8){magnetic setup}\end{overpic}
+\vspace{3em}
+\caption{\label{fig:chapters} 
+Top left: Chapter 2 discusses steering a swarm of particles using global inputs and swarm statistics. Top right: Chapter 3 goes deep into the torque control of the swarm and orientation control of the object. Bottom Chapter 4 demonstrates algorithms to control position of two robots in any convex workspace when the walls have non-slip contact. %Bottom right: the magnetic setup that is used to manipulate magnetic particles when they both get the same control input.
+}
+\end{figure}
+
+
+
+
+
+
+
+
+
+

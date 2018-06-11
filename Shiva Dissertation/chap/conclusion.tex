@@ -1,0 +1,29 @@
+% Thesis 
+
+\chapter[Conclusion]{Conclusion}
+\label{chap-conc}
+
+%This is where you draw your conclusions.
+
+  The small size of micro and nano particles makes individual control and autonomy challenging, so currently these particles are steered by global control inputs such as magnetic fields or chemical gradients.
+
+Inspired by the human players in \href{www.swarmcontrol.net}{SwarmControl.net}, this dissertation designed controllers and controllability results using only the mean and variance of a particle swarm. 
+We developed a hysteresis-based controller to regulate the position and variance of a swarm. We designed a controller for object manipulation using value iteration for path planning, regions for outlier rejection, and potential fields for minimizing moving the object backwards. 
+All automatic controllers were implemented using 100 kilobots steered by the direction of a global light source.
+These experiments culminated in an object manipulation task in a workspace with obstacles.
+This dissertation also presented techniques for controlling the orientation of an object by manipulating it using a swarm of simple robots with global inputs.
+It provided algorithms for precise orientation control, as well as demonstrations of orientation control. 
+ This dissertation finally presented techniques for controlling the positions of two particles using uniform inputs and non-slip boundary contacts.  
+ It provided algorithms for precise position control. The algorithms relied on calculating reachable sets in a 2D $\Delta$ configuration space.
+ Extending Alg.~\ref{alg:optimalAlg}  to 3D was straightforward, but increased the complexity.
+ Hardware experiments illustrated the algorithms in ex vivo and in artificial workspaces that mimic the geometry of biological tissue.
+ 
+ \section{Future Work}
+ This dissertation provides foundational algorithms and techniques for steering swarms, object manipulation, and addressing obstacle fields, but there are many opportunities to extend the work.
+ Our future goal is to perform assembly using particle swarms to manipulate and attach components. Future efforts should be directed toward examining the effects of Brownian noise, pose control for multiple-part assembly, trajectory prediction, and manipulation in crowded workspaces.
+ We assumed friction was sufficient to completely stop particles in contact with the boundary. 
+  The algorithms would require retooling to handle small friction coefficients.
+ 
+  Topics of interest include control with nonuniform flow such as fluid in an artery, gradient control fields like that of an MRI, competitive playing, multi-modal control, flexible workspaces, optimal-control, and targeted drug delivery in a vascular network. 
+  In out experiments, size of particles were always in millimeter scale or bigger. Future work should consider smaller particles and apply the proposed methods inside a fluid in an MRI machine. That would open up possibilities for non-invasive surgeries and drug delivery.
+ 
