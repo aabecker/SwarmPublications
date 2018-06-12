@@ -18,6 +18,19 @@ Microrobots has the potential to revolutionize medical applications. Used with p
 \end{figure}
 \begin{figure}
 \centering
+\renewcommand{\figwid}{0.49\columnwidth}
+\begin{overpic}[width =\figwid]{physicalPuzzle.pdf}
+\end{overpic}
+\begin{overpic}[width =\figwid]{physicalDelivery.pdf}
+\end{overpic}
+\caption{\label{fig:assembly} %Controlling a swarm of robots with global inputs. 
+Assembling and delivering different parts of an object using a swarm of simple robots.
+}
+\end{figure}
+
+
+\begin{figure}
+\centering
 \renewcommand{\figwid}{\columnwidth}
 \begin{overpic}[width =0.2\figwid]{first.png}\put(3,97){a)}
 \end{overpic}
@@ -32,7 +45,7 @@ a) The robots are actually simple particles that can be controlled by a global f
 }
 \end{figure}
 Large populations of micro- and nanorobots are being produced in laboratories around the world, with diverse potential applications in drug delivery and construction, see \cite{Peyer2013,Shirai2005,Chiang2011}. These activities require robots that behave intelligently.
-Our vision is for large swarms of robots to be remotely guided 1) through the human body, to cure disease, heal tissue, and prevent infection shown in Fig. \ref{fig:microrobotics} \cite{nelson2010microrobots} and 2) ex vivo to assemble structures in parallel. 
+Our vision is for large swarms of robots to be remotely guided 1) through the human body, to cure disease, heal tissue, and prevent infection shown in Fig. \ref{fig:microrobotics} \cite{nelson2010microrobots} and 2) ex vivo to assemble structures in parallel shown in Fig. \ref{fig:assembly}. 
  For each application, large numbers of micro robots are required  to deliver sufficient payloads.
  Often particles are difficult or impossible to sense individually due to their size and location. 
 For example, microrobots are smaller than the minimum resolution of a clinical MRI-scanner, see \cite{martel2014computer}, however it is often possible to sense global properties of the group such as mean position and variance. 

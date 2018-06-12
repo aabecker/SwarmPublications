@@ -273,12 +273,13 @@ The central limit theorem explains why systems where all the particles have inde
 \begin{figure*}
 \centering
 %\renewcommand{\figwid}{0.66\columnwidth}
+%\hbox{\hspace{-0.5em} \includegraphics[scale=0.6]{bar}}
 \begin{overpic}[width=0.4\columnwidth]{PivotDrawing.pdf}
 \end{overpic}\\
 \begin{overpic}[width =0.75\columnwidth]{BestLocationPivot.pdf}%\put(1,55){a)}
 \end{overpic} 
-~~\begin{overpic}[width =0.68\columnwidth]{MaxTorquePivot.pdf}%\put(1,55){a)}
-\end{overpic}
+\hbox{\hspace{1.5em} \begin{overpic}[width =0.68\columnwidth]{MaxTorquePivot.pdf}%\put(1,55){a)}
+\end{overpic}}
 %\vspace{-0.5em}
 \caption{\label{fig:bestLoc} Best location to push and maximum torque plots for a pivoted object of length 1, pivoted at 0. Generating code is in the attachment.
 %\vspace{-2em}
@@ -330,18 +331,20 @@ The torque applied by a normally distributed swarm is:
 
 %free torque comparison
 \begin{figure*}
-\centering
+\begin{center}
 %\renewcommand{\figwid}{0.49\columnwidth}
 \begin{overpic}[width =0.4\columnwidth]{FreeDrawing.pdf}
 \end{overpic}\\
 \begin{overpic}[width =0.75\columnwidth]{TorqueFreeBestPush.pdf}
 \end{overpic}
-\begin{overpic}[width =0.61\columnwidth]{TorqueFreeComparison.pdf}
-\end{overpic}
+\hbox{\hspace{1.75em}\begin{overpic}[width =0.68\columnwidth]{TorqueFreeComparison.pdf}
+\end{overpic}}
+
 %\vspace{-0.5em}
 \caption{\label{fig:maxTorque} Best location to push and maximum torque plots for a free object of length 2, located from $x=-1$ to $1$.
 %\vspace{-2em}
 }
+\end{center}
 \end{figure*}
 
 \emph{b) Maximum torque for distributions}
@@ -394,6 +397,22 @@ Again, for a normally distributed swarm, we have numerically found the maximum t
 
 
 
+Consider a swarm of granular particles applying force to a rod. 
+If the rod moves slower than the particles, these particles will build up behind the rod in a characteristic triangular shape defined by an apex angle. This piling up is common to all granular media, and the angle formed is a function of the \emph{angle of repose}. Three different values of angle of repose is shown in Fig.~\ref{fig:angle}. The center of mass of the rod is in the middle of the rod, but center of mass of the granular particles changes for different values of angle of repose. % for the media, see \cite{angleofRepose}.
+\begin{figure}
+\centering
+\renewcommand{\figwid}{\columnwidth}
+\begin{overpic}[width =\figwid]{Angle.pdf}%\put(1,55){a)}
+\end{overpic}
+\caption{\label{fig:Angle} Different values of angle of repose is shown when granular particles move faster than the rod.
+}
+\end{figure}
+
+
+
+By measuring the angle of repose for the particles shown in the top plot of Fig.~\ref{fig:AngleOfReposeForce}, we can estimate the force and torque that the swarm is applying to the rod as a function of the rod's length, the angle of repose, and orientation of the rod.
+ We define the angle of repose as $\alpha$, the rod's orientation relative to 90$^\circ$ from the particle movement vector as $\theta$, and the rod's length as $\ell$. 
+By integrating over the triangular shape, the force applied to the rod (when a unit area of particles produces 1 N of force) is:
 \begin{figure}
 \centering
 \renewcommand{\figwid}{\columnwidth}
@@ -417,13 +436,6 @@ Again, for a normally distributed swarm, we have numerically found the maximum t
 %\vspace{-2em}
 }
 \end{figure}
-
-Consider a swarm of granular particles applying force to a rod. 
-If the rod moves slower than the particles, these particles will build up behind the rod in a characteristic triangular shape defined by an apex angle. This piling up is common to all granular media, and the angle formed is a function of the \emph{angle of repose}.% for the media, see \cite{angleofRepose}.
-By measuring the angle of repose for the particles shown in the top plot of Fig.~\ref{fig:AngleOfReposeForce}, we can estimate the force and torque that the swarm is applying to the rod as a function of the rod's length, the angle of repose, and orientation of the rod.
- We define the angle of repose as $\alpha$, the rod's orientation relative to 90$^\circ$ from the particle movement vector as $\theta$, and the rod's length as $\ell$. 
-By integrating over the triangular shape, the force applied to the rod (when a unit area of particles produces 1 N of force) is:
-
 
 \begin{align}
 F(\theta,\alpha,\ell) =\left\{
