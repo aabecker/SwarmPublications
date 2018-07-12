@@ -188,11 +188,12 @@ $[p_{i+1} , p_{i+2}, ... , v_{\textrm{max}}, l_{i+1}] - p_{i+1}')$
 \caption{\label{fig:regionMove}
 % the set of points where the red particle is the first to contact the boundary are drawn with a red arc. The  set of points where the blue particle is the first to contact the boundary are drawn with a blue arc. 
 Left top: The possible first contact points for the blue and red particles are shown with blue and red arcs. 
-Left bottom: if the blue particle touches the wall at $\psi_{\min}$ (blue square) the other particle (red square) can move anywhere in the red region. 
-Right bottom: if the blue particle touches the wall at $\psi = \frac{17 \pi}{10}$ (blue square) the other particle (red square) can move anywhere in the green region. 
-Right: The $\Delta$ configuration space for the corresponding starting positions of the particles is shown. 
+Bottom: Two representative 2-move reachable sets are shown. % if the blue particle touches the wall at $\psi_{\min}$ or $\psi = \frac{17 \pi}{10}$ (blue square) the other particle (red square) can move anywhere in the red or green region. 
+%Right bottom: if the blue particle touches the wall at $\psi = \frac{17 \pi}{10}$ (blue square) the other particle (red square) can move anywhere in the green region. 
+ Right: %The $\Delta$ configuration space for the corresponding starting positions of the particles is shown. 
 The possible 2-move reachable sets before contact are shown in the $\Delta$ configuration as a blue region.
- If the blue particle contacts the boundary at $\psi_{\min}$, the reachable $\Delta$ configuration is the red set, or the green set if $\psi = \frac{17 \pi}{10}$.}
+% If the blue particle contacts the boundary at $\psi_{\min}$, the reachable $\Delta$ configuration is the red set, or the green set if $\psi = \frac{17 \pi}{10}$.
+}
 \end{figure}
 
 To compute the 2-move reachable set for a circular workspace, first consider all possible first contact locations.
@@ -219,12 +220,12 @@ and the angle between two particles is $\theta = \arctan(\frac{p_1.x-p_2.x}{p_1.
 %Expanding a path means either moving directly to the goal, or pushing one particle to a wall and adjusting the relative position of the other particle.
 %As soon as the goal is reached, the algorithm returns this path.
 
-A circle has an infinite number of sides, thus infinite reachable sets. However, the 2-move reachable set can be parameterized by the angle of first contact location $\psi$, as shown in Fig.~\ref{fig:regionMove}.
+A circle has an infinite number of sides, thus infinite reachable sets. However, the 2-move reachable set can be parameterized by the angle of first contact location $\psi$, as shown in Fig.~\ref{fig:regionMove}. 
 
 Each $\psi$ value generates a 2-move reachable set that is a chord of the disk, with interior angle $\gamma$ parameterized by $\psi$:
 \begin{align}\label{eq:gamma}
 \gamma(\psi) &= \cos^{-1} \Big(1-\frac{d_\perp(\psi)}{r} \Big), \textrm{ where:}\\ \label{eq:dprep}
-d_\perp(\psi)&= 2 ||s_1.p_\psi(\psi) - s_2.p_\psi(\psi)||,\\ \label{eq:ppsi}
+d_\perp(\psi)&= 2 ||s_1.p_\psi(\psi) - s_2.p_\psi(\psi)|| \textrm{    and}\\ \label{eq:ppsi}
 p_\psi(\psi) &= r[\cos(\psi ), \sin(\psi )].
 \end{align} 
 The 2-move reachable sets with $\pi$ difference in $\psi$ value are equivalent in the  $\Delta$ configuration space. 

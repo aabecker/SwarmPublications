@@ -51,8 +51,8 @@ The reward function $r(x,\mathbf{u})$ is defined as
 \begin{align}
 r(x,\mathbf{u}) &=  \left\{
 \begin{array}{ll}
-     +100, &  \textrm{if } \mathbf{u} \textrm{ leads to goal state}\\
-      -100, & \textrm{if } \mathbf{u} \textrm{ leads to an obstacle state} \\
+     +100, &  \textrm{if } \mathbf{u} \textrm{ leads to goal state,}\\
+      -100, & \textrm{if } \mathbf{u} \textrm{ leads to an obstacle state,} \\
       -1, & \textrm{otherwise}\\
 \end{array} 
 \right.
@@ -65,7 +65,7 @@ r(x,\mathbf{u}) &=  \left\{
 \begin{align}
 \text{for }&\text{$i=1$ to $N$ do} \nonumber \\
 &\hat{V} (x_i) = \gamma \max_{\mathbf{u}} \left[r(x_i,\mathbf{u}) + \sum\limits_{j=1}^N \hat{V}(x_j) p(x_j | x_i,\mathbf{u})\right] \label{eq:ValueIteration} \nonumber\\
-\text{end}&  %page 502
+\text{end}& \textrm{.}  %page 502
 \end{align}
 Our probabilistic motion model $p(x_j | x, \mathbf{u})$ assumed the object moved in the commanded direction $\mathbf{u}$ half of the time but $+45^\circ$ with probability 0.25 and $-45^\circ$ with probability 0.25. 
 In our experiments $\gamma = 0.97$, and \eqref{eq:ValueIteration} was iterated 200 times. A {\sc Matlab} implementation is available at \cite{Becker2015MDP}.
@@ -94,7 +94,7 @@ In 10 simulations with 100 particles, pushing the object to goal using BFS requi
 \subsection{Potential fields for swarm management with a compliant manipulator}
 
 When the swarm is in front of the object, control law \eqref{eq:PDcontrolPosition} pushes the object backwards.  To fix this, we implement a potential field approach that attracts the swarm to the intermediate goal, but repulses the swarm from in front of the object, as shown in Fig.~\ref{fig:potentialField}. The approach is similar to \cite{spong2008robot}, chapter 5.
-The repulsive potential field is centered at $\mathbf{b}$, the object's COM, and is active in a circular sector of angular width 2$\theta$ and radius $d_0$ aligned with $\mathbf{D}(\mathbf{b})$. $\mathbf{D}(\mathbf{b})$ is the desired direction of motion from~\eqref{eq:OptimalPolicy}.
+The repulsive potential field is centered at $\mathbf{b}$, the object's COM, and is active in a circular sector of angular width 2$\theta$ and radius $d_0$ aligned with $\mathbf{D}(\mathbf{b})$. $\mathbf{D}(\mathbf{b})$ is the desired direction of motion from~\eqref{eq:OptimalPolicy}. Therefore, we compute the goal locations with the following equations:
 \begin{align}
 \mathbf{d} &=  [\bar{x},\bar{y}] - \mathbf{b}, \qquad   \phi =\cos^{-1}\left( \frac{ \mathbf{D}(\mathbf{b}) \cdot  \mathbf{d}  }{\norm{\mathbf{D}(\mathbf{b})} \cdot \norm{\mathbf{d}} } \right), \nonumber \\ 
 F_{\rm{att}} &= -\zeta \frac{\mathbf{d}  }{ \norm{\mathbf{d}}}, \nonumber\\

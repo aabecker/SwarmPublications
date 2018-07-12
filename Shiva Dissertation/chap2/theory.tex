@@ -19,7 +19,7 @@ First, assume a noiseless system containing one particle with mass $m$.
  Our inputs are global forces $[u_x,u_y]^\top$. We define our state vector $\mathbf{x}(t)$ as the $x$ position, $x$ velocity, $y$ position and $y$ velocity.
 The state-space representation in standard form is: 
 \begin{align}\label{eq:stdform}
-\dot{\mathbf{x}}(t)  &=  A \mathbf{x}(t) + B \mathbf{u}(t).
+\dot{\mathbf{x}}(t)  &=  A \mathbf{x}(t) + B \mathbf{u}(t),
 \end{align}
 
 and our state space representation is:
@@ -245,7 +245,7 @@ To model this~\eqref{eq:stdform} must be modified as follows:
 \begin{align}
 \dot{\mathbf{x}}(t)  &=  A \mathbf{x}(t) + B \mathbf{u}(t) + W \bm{\varepsilon}(t),
 \end{align}
-where $W\bm{\varepsilon}(t)$ is a random perturbation produced by Brownian noise with magnitude $W$. Given a large obstacle-free workspace with $\mathbf{u}(t)= 0$, a \emph{Brownian noise} process increases the variance linearly with time.
+where $W\bm{\varepsilon}(t)$ is a random perturbation produced by Brownian noise with magnitude $W$. Given a large obstacle-free workspace with $\mathbf{u}(t)= 0$, a \emph{Brownian noise} process increases the variance linearly with time and can be calculated by
 \begin{equation}
 \dot{\sigma}_x^2(\mathbf{x}(t), \mathbf{u}(t))  = W \bm{\varepsilon},
 \quad \sigma_x^2(t)  = \sigma_x^2(0) + W \bm{\varepsilon} t.
@@ -293,7 +293,7 @@ u(t) &=   \begin{cases}
 
 Similar to the PD controller in Eq.~\eqref{eq:PDcontrolPosition} that controls the mean particle position, a controller to regulate the variance to $\sigma^2_{\rm{ref}}$ is:
 \begin{align}
-u_x &= K_{p}(x_{\rm{goal}}(\sigma^2_{\rm{ref}}) - \bar{x}) - K_{d}\bar{v}_x + K_{i}(\sigma^2_{\rm{ref}}-\sigma^2_{x}),   \label{eq:PDcontrolVariance}\\
+u_x &= K_{p}(x_{\rm{goal}}(\sigma^2_{\rm{ref}}) - \bar{x}) - K_{d}\bar{v}_x + K_{i}(\sigma^2_{\rm{ref}}-\sigma^2_{x}) \textrm{       and}  \label{eq:PDcontrolVariance}\\
 u_y &= K_{p}(y_{\rm{goal}}(\sigma^2_{\rm{ref}})  - \bar{y}) - K_{d}\bar{v}_y + K_{i}(\sigma^2_{\rm{ref}}-\sigma^2_{y}).  \label{eq:PDcontrolVarianceIny}
 \end{align}
 We call the gain scaling the variance error $K_i$ because the variance, if unregulated, integrates over time. This controller requires a vertical and a horizontal wall.

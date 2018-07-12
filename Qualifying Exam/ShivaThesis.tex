@@ -1,0 +1,301 @@
+\documentclass[12pt]{report}
+\usepackage{ECE_Dissertation_Style}
+\usepackage{amsmath,amssymb,latexsym,float,epsfig,subfigure,overpic}
+%these margins allow you to use the default "shrink oversize pages" option when printing
+\usepackage[lmargin=1.40 in, rmargin=0.86 in,tmargin=1.0 in,bmargin=1.0 in]{geometry}
+\usepackage{indentfirst}
+\usepackage{afterpage}
+\usepackage{sectsty}
+%\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{etoolbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% numbers option provides compact numerical references in the text. 
+%\usepackage[numbers]{natbib}
+\usepackage{multicol}
+%\usepackage[bookmarks=true]{hyperref}
+
+\usepackage{bbm}
+\usepackage{calc}
+\usepackage{url}
+\usepackage{transparent}
+\usepackage[bookmarks=true,hidelinks]{hyperref}
+
+\usepackage{graphicx}
+%\usepackage[cmex10]{amsmath}
+\usepackage{bm}
+\usepackage{amssymb}
+\usepackage{rotating}
+
+\usepackage{chngcntr}
+\counterwithin{paragraph}{subsection} % makes paragraph depend on subsection
+
+
+%\usepackage{xfrac}
+\usepackage{nicefrac}
+\usepackage{cite}
+\usepackage[caption=false,font=footnotesize]{subfig}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{colortbl}
+%\usepackage{caption}
+
+%\usepackage{wrapfig}
+\usepackage{overpic}
+%\usepackage{subfigure}
+%\usepackage{textcomp}
+\graphicspath{{./pictures/pdf/},{./pictures/ps/},{./pictures/png/},{./pictures/jpg/}}
+\usepackage{breqn} %for breaking equations automatically
+\usepackage[ruled]{algorithm}
+\usepackage{algpseudocode}
+%\usepackage{algorithmic}
+\usepackage{multirow}
+\usepackage{todonotes}
+\usepackage{authblk}
+\usepackage[per-mode=symbol, detect-weight=true, binary-units=true]{siunitx}
+\usepackage{rotating}
+\usepackage{tikz}
+\usepgflibrary{arrows}% for more options on arrows
+%\newcommand{\todo}[1]{\vspace{5 mm}\par \noindent \framebox{\begin{minipage}[c]{0.98 \columnwidth} \ttfamily\flushleft \textcolor{red}{#1}\end{minipage}}\vspace{5 mm}\par}
+% uncomment this to hide all red todos
+%\renewcommand{\todo}{}
+
+%% ABBREVIATIONS
+\newcommand{\qstart}{q_{\text{start}}}
+
+
+
+%% MACROS
+
+
+\providecommand{\abs}[1]{\left\lvert#1\right\rvert}
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+\providecommand{\normn}[2]{\left\lVert#1\right\rVert_#2}
+\providecommand{\dualnorm}[1]{\norm{#1}_\ast}
+\providecommand{\dualnormn}[2]{\norm{#1}_{#2\ast}}
+\providecommand{\set}[1]{\lbrace\,#1\,\rbrace}
+\providecommand{\cset}[2]{\lbrace\,{#1}\nobreak\mid\nobreak{#2}\,\rbrace}
+\providecommand{\lscal}{<}
+\providecommand{\gscal}{>}
+\providecommand{\lvect}{\prec}
+\providecommand{\gvect}{\succ}
+\providecommand{\leqscal}{\leq}
+\providecommand{\geqscal}{\geq}
+\providecommand{\leqvect}{\preceq}
+\providecommand{\geqvect}{\succeq}
+\providecommand{\onevect}{\mathbf{1}}
+\providecommand{\zerovect}{\mathbf{0}}
+\providecommand{\field}[1]{\mathbb{#1}}
+\providecommand{\C}{\field{C}}
+\providecommand{\R}{\field{R}}
+\newcommand{\Cspace}{\mathcal{Q}}
+\newcommand{\Uspace}{\mathcal{U}}
+\providecommand{\Fspace}{\Cspace_\text{free}}
+\providecommand{\Hcal}{$\mathcal{H}$}
+\providecommand{\Vcal}{$\mathcal{V}$}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\cone}{cone}
+\DeclareMathOperator{\homog}{homog}
+\DeclareMathOperator{\domain}{dom}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\sign}{sgn}
+\providecommand{\polar}{\triangle}
+\providecommand{\ainner}{\underline{a}}
+\providecommand{\aouter}{\overline{a}}
+\providecommand{\binner}{\underline{b}}
+\providecommand{\bouter}{\overline{b}}
+\newcommand{\D}{\nobreakdash-\textsc{d}}
+%\newcommand{\Fspace}{\mathcal{F}}
+\providecommand{\Fspace}{\Cspace_\text{free}}
+\providecommand{\free}{\text{\{}\mathsf{free}\text{\}}}
+\providecommand{\iff}{\Leftrightarrow}
+\providecommand{\subinner}[1]{#1_{\text{inner}}}
+\providecommand{\subouter}[1]{#1_{\text{outer}}}
+\providecommand{\Ppoly}{\mathcal{X}}
+\providecommand{\Pproj}{\mathcal{Y}}
+\providecommand{\Pinner}{\subinner{\Pproj}}
+\providecommand{\Pouter}{\subouter{\Pproj}}
+\DeclareMathOperator{\argmax}{arg\,max}
+\providecommand{\Aineq}{B}
+\providecommand{\Aeq}{A}
+\providecommand{\bineq}{u}
+\providecommand{\beq}{t}
+\DeclareMathOperator{\area}{area}
+\newcommand{\contact}[1]{\Cspace_{#1}}
+\newcommand{\feasible}[1]{\Fspace_{#1}}
+\newcommand{\dd}{\; \mathrm{d}}
+\newcommand{\figwid}{0.22\columnwidth}
+\newcommand{\TRUE}{\textbf{true}}
+\newcommand{\FALSE}{\textbf{false}}
+\newcommand{\xupdownarrow}[1]{%
+  {\left\updownarrow\vbox to #1{}\right.\kern-\nulldelimiterspace}
+}
+%\newcommand{\xleftrightarrow}[1]{%
+%  {\left\leftrightarrow\vbox to #1{}\right.\kern-\nulldelimiterspace}
+%}
+\DeclareMathOperator{\atan2}{atan2}
+\allowdisplaybreaks
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%% bookmarks - color them black
+\hypersetup{
+	colorlinks=true,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+%Set graphics path
+\graphicspath{{./pictures/pdf/},{./pictures/ps/},{./pictures/png/},{./chap/pictures/pdf/},{./chap2/pictures/pdf/},{./chap3/pictures/pdf/},{./chap4/pictures/pdf/}}
+\captionsetup{format=hang}
+%Fill pages with text and floats
+
+
+\providecommand{\abs}[1]{\left\lvert#1\right\rvert}
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+\providecommand{\normn}[2]{\left\lVert#1\right\rVert_#2}
+\providecommand{\dualnorm}[1]{\norm{#1}_\ast}
+\providecommand{\dualnormn}[2]{\norm{#1}_{#2\ast}}
+\providecommand{\set}[1]{\lbrace\,#1\,\rbrace}
+\providecommand{\cset}[2]{\lbrace\,{#1}\nobreak\mid\nobreak{#2}\,\rbrace}
+\providecommand{\lscal}{<}
+\providecommand{\gscal}{>}
+\providecommand{\lvect}{\prec}
+\providecommand{\gvect}{\succ}
+\providecommand{\leqscal}{\leq}
+\providecommand{\geqscal}{\geq}
+\providecommand{\leqvect}{\preceq}
+\providecommand{\geqvect}{\succeq}
+\providecommand{\onevect}{\mathbf{1}}
+\providecommand{\zerovect}{\mathbf{0}}
+\providecommand{\field}[1]{\mathbb{#1}}
+\providecommand{\C}{\field{C}}
+\providecommand{\R}{\field{R}}
+\DeclareMathOperator\erf{erf}
+
+
+\allowdisplaybreaks
+
+
+
+
+
+\renewcommand\textfraction{.1}
+\renewcommand\topfraction{.9}
+\renewcommand\bottomfraction{.7}
+\renewcommand\floatpagefraction{.7}
+%Remove white space above chapter headings
+\makeatletter
+\patchcmd{\@makechapterhead}{\vspace*{50\p@}}{}{}{}% Removes space above \chapter head
+\patchcmd{\@makeschapterhead}{\vspace*{50\p@}}{}{}{}% Removes space above \chapter* head
+\makeatother
+
+
+\begin{document}
+
+%Set limits on font sizes for headings
+\chapternumberfont{\fontsize{16}{20}\selectfont}
+\chaptertitlefont{\centering\fontsize{16}{20}\selectfont}
+\sectionfont{\fontsize{14}{16}\selectfont}
+\subsectionfont{\fontsize{12}{14}\selectfont}
+
+%%
+%%
+\title{Shaping a Swarm Using a Shared Control Input} %% If you want to specify a linebreak
+                               %% in the thesis title, you MUST use
+                               %% \protect\\ instead of \\, as \\ is a
+                               %% fragile command that \MakeUpperCase
+                               %% will break!
+\author{Shiva Shahrokhi}
+\department{Department of Electrical and Computer Engineering}
+
+%% Can have up to four readers in addition to the advisor.
+%% All have the form
+%%
+%%  \reader{Name}[Department][Institution]
+%%
+%% The second and third arguments are optional, but if you wish to
+%% supply the third, you must supply the second. Department defaults
+%% to the department defined above and Institution defaults to a blank.
+
+\advisor{Aaron T. Becker, Assistant Professor}
+\firstreader{David Mayerich, Assistant Professor}
+\secondreader{Rose Faghih, Assistant Professor}
+%\thirdreader{David Mayerich, Assistant Professor}
+%\fourthreader{Rose Faghih, Assistant Professor}
+%\setcounter{secnumdepth}{2}
+\degree{Master of Science}
+\major{Electrical Engineering} 
+
+\copyrighttrue
+\copyrightyear{2018}
+\submitdate{August 2018} % Must be the month and year of graduation,
+                         % not thesis approval! As of 2010, this means
+                         % this text must be May, August, or December
+                         % followed by the year.
+
+%defaults to thesis option
+\dissertationfalse
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COVER PAGES:  Flyleaf, copyright page, title page, signature page
+%
+\makecoverpages
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ACKNOWLEDGMENTS
+%
+% Put acknowledgments in a file called "ack.tex" and it'll be inputted here.
+%\begin{acknowledgements}
+\input{chap/ack}
+%\end{acknowledgements}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ABSTRACT
+%
+% Put acknowledgments in a file called "abs.tex" and it'll be inputted here.
+\abstitlep
+\abstractsection
+\input{chap/abs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TABLE OF CONTENTS
+%
+% print table of contents, figures and tables here.
+\makecontentspages
+%%
+
+\prefacesection
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INSERT REAL CONTENT HERE
+%
+\include{chap/intro}
+\include{QualifyingExam}
+%\include{chap2/swarmControlJournal}
+%\include{chap3/TorqueControl}
+%\include{chap4/SwarmShapeControl}
+
+%\include{chap/results}
+\include{chap/conclusion}
+
+
+\bibliographystyle{IEEEtran}
+\addcontentsline{toc}{chapter}{References}
+%thesisrefs,
+\bibliography{IEEEabrv,QualifyingExam}
+
+%any appendices go here
+
+\afterpage{\blankpage}
+\end{document}

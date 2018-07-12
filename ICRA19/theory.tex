@@ -1,0 +1,107 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Torque control}
+%\label{sec:theory}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Controlling Torque}
+
+%We derive inspiration from recent work on pulling with a swarm \cite{pulltogether}. The contribution of this work is to map swarm distributions to torque production.
+%The orientation of an object's major axis is important when a swarm is manipulating a non-symmetric object through narrow corridors. 
+%Orientation is controllable by applying torque to the object. 
+%To change the output torque $\tau$ in~\eqref{eq:torque}, we can choose the direction and magnitude of the force applied $F$, and the moment arm from the object's center of mass (COM) $O$ to the point of contact $P$.
+%We define a coordinate frame rooted at the COM, with the $x$-axis parallel to the object's longest axis. The resulting torque is:
+%
+%\begin{equation}
+%\tau = F \times (P - O ).\label{eq:torque}
+%\end{equation}
+%
+%We assume that the forces produced by individual particles add linearly. 
+% As \cite{pulltogether} indicates, this is often a simplification of the true dynamics. 
+% The swarm version of \eqref{eq:torque} is the summation of the forces contributed by $n$ individual particles:
+%\begin{align}
+%\tau_{\text{total}} &= \sum\limits_{i=1}^n \rho_i F_i \times (P_i - O ) \textrm{      and}   \label{eq:swarmtorque}\\
+%F_{\text{total}} &= \sum\limits_{i=1}^n \rho_i F_i.  \label{eq:swarmforce}
+%\end{align}
+%Here $F_i$ is the force that the $i^{\textrm{th}}$ particle applies. 
+%Not all particles are in contact with the object.  
+%$\rho_i$ is an indicator variable: $\rho_i=1$ if the particle is in direct contact with the object or touching a chain of particle where at least one particle is in contact with the object. 
+% Otherwise $\rho_i = 0$.
+%The moment arm is the particle's position $P_i$ to the object's COM $O=[O_x,O_y]^{\top}$. 
+% If all particles are identical and the control input is uniform, the force is equivalent for every particle and so $F_i $ equals some constant.
+%
+
+\section{Angle of repose}\label{sec:angle}
+
+
+
+
+Consider a swarm of granular particles applying force to a rod. 
+If the rod moves slower than the particles, these particles will build up behind the rod in a characteristic triangular shape defined by an apex angle. This piling up is common to all granular media, and the angle formed is a function of the \emph{angle of repose}. Three different values of angle of repose is shown in Fig.~\ref{fig:angle}. The center of mass of the rod is in the middle of the rod, but center of mass of the granular particles changes for different values of angle of repose. % for the media, see \cite{angleofRepose}. 
+ By measuring the angle of repose for the particles shown in the top plot of Fig.~\ref{fig:AngleOfReposeForce}, we can estimate the force and torque that the swarm is applying to the rod as a function of the rod's length, the angle of repose, and orientation of the rod.
+ We define the angle of repose as $\alpha$, the rod's orientation relative to 90$^\circ$ from the particle movement vector as $\theta$, and the rod's length as $\ell$. 
+ \begin{figure}
+\centering
+\renewcommand{\figwid}{\columnwidth}
+\begin{overpic}[width =\figwid]{Angle.pdf}%\put(1,55){a)}
+\end{overpic}
+\caption{\label{fig:angle} Different values of angle of repose is shown when granular particles move faster than the rod.
+}
+\end{figure}
+By integrating over the triangular shape, the force applied to the rod (when a unit area of particles produces 1 N of force) is:
+\begin{figure}
+\centering
+\renewcommand{\figwid}{\columnwidth}
+\begin{overpic}[width =0.6\figwid]{AngleOfRepose.pdf}%\put(1,55){a)}
+\end{overpic}\\
+\vspace{0.5em}
+\begin{overpic}[width =0.6\figwid]{AngleOfReposeForce.pdf}%\put(1,55){a)}
+\end{overpic}\\
+\vspace{0.5em}
+\begin{overpic}[width =0.6\figwid]{AngleOfReposeTorque.pdf}%\put(1,55){a)}
+\end{overpic}
+\vspace{-0.5em}
+\caption{\label{fig:AngleOfReposeForce} Top plot shows colored particulate heaped up on pink-colored long rods. 
+%Particulate is moving in the $-y$ direction, and the rods are tilted at $\theta=\{-45,-22.5,0,22.5,45\}^\circ$ with respect to the $x$ axis. 
+% A thin gray line extends upwards from the rod COM, showing how more particulate is heaped on the right side of the rod for positive $\theta$ and more on the left side for negative $\theta$. 
+%  This uneven particulate generates a restoring torque. 
+ Middle plot shows the force applied to the rod and bottom the torque as a function of $\theta$ for four angle of repose values.
+ %The rod length $\ell=1$. 
+   The maximum torque values are shown with black dots.
+% Generating code is in the attachment. 
+%\vspace{-2em}
+}
+\end{figure}
+
+\begin{align}
+F(\theta,\alpha,\ell) =\left\{
+\begin{array}{ll}
+\frac{-\ell^2\Big(\cos(2\theta)-\cos(2\alpha)\Big)}{8\cos\alpha\sin{\theta}} &   -\alpha<\theta<\alpha\\
+0 &    \textrm{otherwise .}\\
+\end{array} 
+\right .\\
+\end{align}
+
+
+%\begin{align}
+%F(\theta,\alpha,l)  = \frac{l^2}{8\cos\alpha\sin{\theta}} \Big(\cos(2\theta)-\cos(2\alpha)\Big).
+%\end{align}
+
+The force for different angle of repose values are shown in the middle plot of Fig.~\ref{fig:AngleOfReposeForce}. 
+Torque will also be similarly defined as
+\begin{align}
+\tau(\theta, \alpha, \ell) =\left\{
+\begin{array}{ll}
+\frac{\ell^3\Big(\cos(2\alpha)-\cos(2\theta)\Big)\sin{\theta} }{48\sin^2\alpha}&   -\alpha<\theta<\alpha\\
+0 &    \textrm{otherwise .}\\
+\end{array} 
+\right.
+\end{align}
+Torque is shown in the bottom plot of Fig.~\ref{fig:AngleOfReposeForce}.
+ Given sufficient particles to pile up to the angle of repose, this torque tends to stabilize the object to be perpendicular to the pushing direction.
+Force is maximized with $\theta=0$, but the $\theta$ value that maximizes torque is a function of $\alpha$:
+\begin{align}
+\theta_{t_{\max}} = \frac{\sin(\alpha)}{\sqrt{3}}.
+\end{align}
+To maximize the torque a particulate swarm applies on a thin rod, the swarm should move in the direction $-\theta_{t_{\max}} - 90^\circ$ with respect to the long axis of the rod.
+
+
+

@@ -6,7 +6,7 @@ Our experiments use centimeter-scale hardware systems called \emph{kilobots}.  W
 
   
 \subsection{Environmental setup}  
-In these experiments as shown in Fig.~\ref{fig:setup}, we used $n$=100 kilobots and a 1.5 m$\times$1.2 m whiteboard as the workspace. 
+In these experiments as shown in Fig.~\ref{fig:setup2}, we used $n$=100 kilobots and a 1.5 m$\times$1.2 m whiteboard as the workspace. 
 LED floodlights were placed 1.5 m above the table on the sides and corners of a square with 6 m sides. An Arduino Uno connected to an 8-relay shield controlled the lights.  
 
 Above the table, an overhead machine vision system tracks the swarm. The vision system identifies obstacles and the object by color segmentation, determines the corners of the maze, and identifies robots using a circular Hough transform. 
@@ -23,7 +23,7 @@ Above the table, an overhead machine vision system tracks the swarm. The vision 
 	\begin{overpic}[width=0.6\columnwidth]{PotentialExp.pdf}%\put(-0,85){C}
 	\end{overpic}
 \end{center}
-\caption{\label{fig:setup}
+\caption{\label{fig:setup2}
 Hardware platform. At right are the shapes used for hardware experiments and a visualization of the potential field. }
 \end{figure*}
 
@@ -40,11 +40,11 @@ and a 486 cm$^2$ %(18 cm$\times$27 cm)
 
 
 
-\paragraph{Swarm mean control (hardware experiment)}
+\subsection{Swarm mean control (hardware experiment)}
 
-Unlike the PD controller \eqref{eq:PDcontrolPosition}, we cannot command a force input to the kilobots.  Instead, control is given by turning on one of eight lights.  The kilobots run a phototaxis routine where they search for an orientation that aligns them with the light source, and then move with an approximately constant velocity toward this light.   The kilobots oscillate along this orientation because they only have one light detector.  
-
-We use the sign of \eqref{eq:PDcontrolPosition}, and choose the closest orientation to $\mathbf{D}(\mathbf{b})$ among the eight light sources.
+Unlike the PD controller \eqref{eq:PDcontrolPosition}, we cannot command a force input to the kilobots.  Instead, control is given by turning on one of eight lights.  The kilobots run a phototaxis routine where they search for an orientation that aligns them with the light source, and then move with an approximately constant velocity toward this light. % The kilobots oscillate along this orientation because they only have one light detector.  
+ 
+ We use the sign of \eqref{eq:PDcontrolPosition}, and choose the closest orientation to $\mathbf{D}(\mathbf{b})$ among the eight light sources.
 Fig.~\ref{fig:realMean} shows that this limited, discretized control still enables regulating the mean position of a swarm of 100 robots.
 
 

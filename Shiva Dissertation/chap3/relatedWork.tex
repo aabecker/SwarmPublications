@@ -3,16 +3,16 @@
 \section{Related work}\label{sec:RelatedWork}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Unlike \emph{caging} manipulation, where robots form a rigid arrangement around an object~\cite{Sudsang2002,Fink2007}, our swarm of particles is unable to grasp the blocks they push, and so manipulation requires \emph{nonprehensile manipulation} techniques, e.g.~\cite{Lynch1999}.
+Unlike \emph{caging} manipulation, where robots form a rigid arrangement around an object~\cite{Sudsang2002,Fink2007}, our swarm of particles is unable to grasp the blocks they push, and so manipulation requires \emph{nonprehensile manipulation} techniques, e.g.,~\cite{Lynch1999}.
 
 Robotic manipulation by pushing has a long and successful history\cite{Lynch1999,Lynch1996,Akella2000,Bernheisel2006}.  Key developments introduced the notion of stable pushes and a friction cone.  A \emph{stable push} is a pushing operation by a robot with a flat-plate pushing element in which the object does not change orientation relative to the pushing robot\cite{Lynch1999}.  The \emph{friction cone} is the set of vector directions a robot in contact with an object can push that object with a stable push.
 Stable pushes can be used as primitives in a rapidly-expanding random tree to form motion plans.
 A key difference is that our robots are compliant and tend to flow around the object, with similarities to fluidic trapping~\cite{Armani2006,Becker2009}.  
 %\subsection{Block-pushing and Compliant Manipulation}
 
-Though some particles self aggregate, e.g. ferrous particles tend to clump in a magnetic field, many do not. The magnetotactic bacteria of~\cite{martel2015magnetotactic,ou2012motion} are directed by the orientation of the magnetic field and do not suffer from magnetic aggregation.
+Though some particles self aggregate, e.g., ferrous particles tend to clump in a magnetic field, many do not. The magnetotactic bacteria of~\cite{martel2015magnetotactic,ou2012motion} are directed by the orientation of the magnetic field and do not suffer from magnetic aggregation.
 
-Controlling the \emph{shape}, or relative positions, of a swarm of robots is a key ability for a myriad of applications.  Correspondingly, it has been studied from a control-theoretic perspective in  both centralized, e.g. virtual leaders in \cite{egerstedt2001formation}, and decentralized approaches, e.g. decentralized control-Lyapunov function controllers in~\cite{hsieh2008decentralized}. Most approaches assume a level of intelligence and autonomy in the individual robots that exceeds the capabilities of current micro- and nano-robots~\cite{martel2015magnetotactic,Xiaohui2015magnetiteMicroswimmers}.
+Controlling the \emph{shape}, or relative positions, of a swarm of robots is a key ability for a myriad of applications.  Correspondingly, it has been studied from a control-theoretic perspective in  both centralized, e.g., virtual leaders in \cite{egerstedt2001formation}, and decentralized approaches, e.g. decentralized control-Lyapunov function controllers in~\cite{hsieh2008decentralized}. Most approaches assume a level of intelligence and autonomy in the individual robots that exceeds the capabilities of current micro- and nano-robots~\cite{martel2015magnetotactic,Xiaohui2015magnetiteMicroswimmers}.
 Instead, this paper focuses on a centralized technique that applies the same control input to each member of the swarm, as in~\cite{Becker2013b}.
 
 %The analysis in this paper is motivated by practical challenges when designing control techniques to orient objects with large aspect ratios in our preliminary conference paper~\cite{shahrokhi2016object}.

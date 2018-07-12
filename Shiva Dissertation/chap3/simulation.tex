@@ -55,7 +55,7 @@ Using the pure torque control discussed in the previous paragraph, the orientati
 The rectangular object is not pivoted, so it moves in addition to rotating. 
  The swarm still may split into multiple components.
   We use the hysteresis variance control from \cite{ShahrokhiIROS2015}  to gather the swarm when its variance grows too large. 
-  The following control law chooses a goal position to regulate the orientation of the object.  
+  The control law that chooses a goal position to regulate the orientation of the object is
   
  \begin{align}\nonumber
 goal_x = O_x +  K_{\textrm{orient}}  (O_{\theta} - goal_\theta ) \cos(O_{\theta}) \\
@@ -78,7 +78,7 @@ Here $K_{orient}$ is a positive gain on the control input.
 %\vspace{-1em}
 %\end{figure}
 
-Fig. \ref{fig:OrientCont} illustrates this controller with different starting positions. When the plot traces are constant the swarm is no longer pushing the object and instead is being regathered in a corner of the workspace. Code is available at \cite{Shahrokhi16Orient}.
+Fig. \ref{fig:OrientCont} illustrates this controller with different starting positions. When the plot traces are constant the swarm is no longer pushing the object and instead is being regathered in a corner of the workspace.% Code is available at \cite{Shahrokhi16Orient}.
 
 
 
