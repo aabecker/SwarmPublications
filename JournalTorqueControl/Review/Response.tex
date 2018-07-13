@@ -72,7 +72,7 @@
 	\response{The paper is interesting and technically sound; however, a thorough revision is required before being considered for publication.
 The main concern to be addressed is the quality of the writing. Reviewers have provided detailed comments on how to improve the quality of this manuscript. Authors are urged to thoroughly revise the paper according to reviewers' comments and suggestions.}
 
-
+	Sure.
 	
 	
 	
@@ -83,17 +83,21 @@ The main concern to be addressed is the quality of the writing. Reviewers have p
 	Roughly the applied force for the particles are the same, the applied torque would be different for the farther robots. 
 	
 	\response{Saturation is not considered. An efficient approach would be the same as using a bigger robot but a particle instead. Obviously, this approach cannot be done because of the small maximum force that each particle can generate, but it is not mentioned in the paper.}
+	??? I don't understand this sentence completely.
 	
 	\response{The authors claim that one of the main differences is that their robots are compliant and tend to flow over the object. However, some of the experiments present an adaptation on the object to avoid the robots flow over the object.}
+	The shape of the particles distribution swarm is not rigid. This is good when we need to move the swarm in narrow passageways and crowded environment. However, for applying force on the object, we need enough particles to make the required force. This is why we try to keep the particles together when we are applying force and torque. It is good to mention that we are only controlling the mean position of swarm.
 	
 	
 	\response{This "flow over the object" is not mentioned at all in the methodology (even for the triangular distribution). The authors propose static distributions, but the the distributions variate on time due to the flow.}
+	This is a nice future work, but we have discussed in the experiment section that the stochasticity of the system is high and calculating the dynamic distributions is hard. Therefore, we approximate the final distribution with normal distribution.
 	
 	
 	\response{Based on the point above, the most efficient way (and obvious) to generate the torque is just sending all robots as far as possible from the center of mass.}
 	Please pay attention that all the robots are getting the same control input and we are only controlling the mean position.
 	
 	\response{In contrast to the title, none of the probability distributions maximizes the torque. At least, the maximization problem is not stated in the manuscript.}
+	We have changed the title so it better matches the paper. However, all the torques calculated in the theory section, are the maximized torque.
 	
 	\response{The authors do not mention how to control the robots. It is one of the main points that call the attention in this type of works.} 
 	The particles are getting the same control input.
@@ -105,16 +109,20 @@ In general, this figure is not helping to picture what the authors want.}
 
 	\response{The derivation of (4) and (5) is no shown or extending the description is required.}
 	
-	\response{I like the idea of representing the swarm as a probability distribution. It is easier for the observer and the global controller to drive the swarm as a whole. Again in equations (7)-(9), the coordinate frames are not defined and not consistent. The COM $[O_x, O_y]$ is defined in the inertia frame, but the distribution of the robots is defined on the object frame (where the x-axis is parallel to the long side of the rectangle). Although these equations are intuitive, the way the authors obtained the constants (e.g. the sqrt(3) in Eq. (7), only in the next section is assumed that the length is 1) is not obvious.}
+	\response{I like the idea of representing the swarm as a probability distribution. It is easier for the observer and the global controller to drive the swarm as a whole. Again in equations (7)-(9), the coordinate frames are not defined and not consistent. The COM $[O_x, O_y]$ is defined in the inertia frame, but the distribution of the robots is defined on the object frame (where the x-axis is parallel to the long side of the rectangle). Although these equations are intuitive, the way the authors obtained the constants (e.g. the sqrt(3) in Eq. (7), only in the next section is assumed that the length is 1) is not obvious.} 
 	
-	\response{In (16), the function erf is not defined. It is only defined at the end of the section.}
+	\response{In (16), the function erf is not defined. It is only defined at the end of the section.} 
+	It is defined now.
 	
 	\response{Based on the granular effect, there is a maximum number of robots that can apply forces without flowing. What is this number? or how can you describe this final configuration?}
+	We have moved granular effect from this paper.
 	
 	\response{The experiments section need to be extended, there granular effect need to be extensively studied.
 Again, it is necessary to describe how the robots are driven to maintain the distribution and to generate the torque.}
+	We have moved granular effect from this paper.
 	
 	\response{According to the format guidelines, the equations are part of the text and should be punctuated. Most of them are not.}
+	We corrected them.
 	
 	\response{Caption in Fig 2. says "Particulate" instead of "Particle"}
 
