@@ -43,7 +43,11 @@
 		\medskip\\
 		Dear #2 Editorial Office,\medskip\\
 		Please find attached the revised paper, #1,
-		along with the document containing a response to the reviewers. We are grateful to the reviewers for helping us improve our manuscript through their comments and questions. Please let us know if further information is required.\medskip\\
+		along with the document containing a response to the reviewers. We are grateful to the reviewers for helping us improve our manuscript through their comments and questions. Please let us know if further information is required.\medskip
+		
+		
+		There seemed to be confusion from the reviewers about the {\bf note to Practitioners} section.  We included this section, as per the instructions at \href{http://www.ieee-ras.org/publications/t-ase/information-for-authors/50-publications/t-ase/236-t-ase-note-to-practitioners}{http://www.ieee-ras.org/publications/t-ase/information-for-authors/50-publications/t-ase/236-t-ase-note-to-practitioners}, but are happy to remove it if the standards have changed.
+		\\
 		
 		Sincerely,\\
 		
@@ -72,23 +76,29 @@
 	\response{The paper is interesting and technically sound; however, a thorough revision is required before being considered for publication.
 The main concern to be addressed is the quality of the writing. Reviewers have provided detailed comments on how to improve the quality of this manuscript. Authors are urged to thoroughly revise the paper according to reviewers' comments and suggestions.}
 
-	Sure.
+	We have thoroughly revised this paper and included new experimental data. Please see the detailed responses below.
 	
 	
 	
 	\Reviewer{\#1}\response{This paper studies the pushing effect of a robot swarm over a rectangular object. In order to study the generated torque, the authors represent the swarm as a probability distribution. Three different probability distributions are presented. The ideas in the paper are very interesting and relevant for the community. However it requires a major revision. The comments are the following.}
-	Thank you!
+	Thank you! We have completed a major revision, as explained below.
 	
 	\response{At the end of Section III, What is the motivation to consider that all robots apply the same force? An intuitive efficient approach would make the farther robots apply a larger force.}
-	Roughly the applied force for the particles are the same, the applied torque would be different for the farther robots. 
+	
+	The reviewer is right that the further particles apply more {\bf torque}, as explained by the new equations 2 and 3. The longer the moment arm, the greater the torque.
+	As explained in section II, ``all particles are identical and the control input is uniform, the force is equivalent for every particle and so $F_i $ is a constant for all $i$.''
+
 	
 	\response{Saturation is not considered. An efficient approach would be the same as using a bigger robot but a particle instead. Obviously, this approach cannot be done because of the small maximum force that each particle can generate, but it is not mentioned in the paper.}
-	??? I don't understand this sentence completely.
+	
+	The note to practitioner compares using one particle to using many ``Torque control with only one steered particle is easy: maximize torque by pushing on the object at a location as far from the pivot point as possible. However, a swarm of particles contributes force at different places on the object."  Due to space limitations, this paper does not explore saturation effects.
 	
 	\response{The authors claim that one of the main differences is that their robots are compliant and tend to flow over the object. However, some of the experiments present an adaptation on the object to avoid the robots flow over the object.}
-	The shape of the particles distribution swarm is not rigid. This is good when we need to move the swarm in narrow passageways and crowded environment. However, for applying force on the object, we need enough particles to make the required force. This is why we try to keep the particles together when we are applying force and torque. It is good to mention that we are only controlling the mean position of swarm.
 	
-	
+	We added several experiments to better explore torque control with uniform inputs.  Figs 11 and 12 both feature a free-moving swarm, which as predicted by the central limit theorem, converges to a normal distribution.
+	  To explore other distributions we used an adaptor to constrain the particles.  Fig 9 shows the setup for a swarm forced to assume a uniform distribution.
+	  
+	  	
 	\response{This "flow over the object" is not mentioned at all in the methodology (even for the triangular distribution). The authors propose static distributions, but the the distributions variate on time due to the flow.}
 	This is a nice future work, but we have discussed in the experiment section that the stochasticity of the system is high and calculating the dynamic distributions is hard. Therefore, we approximate the final distribution with normal distribution.
 	
@@ -97,34 +107,44 @@ The main concern to be addressed is the quality of the writing. Reviewers have p
 	Please pay attention that all the robots are getting the same control input and we are only controlling the mean position.
 	
 	\response{In contrast to the title, none of the probability distributions maximizes the torque. At least, the maximization problem is not stated in the manuscript.}
-	We have changed the title so it better matches the paper. However, all the torques calculated in the theory section, are the maximized torque.
+	
+	Please refer to Fig 4c and Fig. 5c, which show the maximum torques as a function of standard deviation. 
+	The third column of Table I lists the maximum torques for the three canonical distributions examined.
+	
+	We have changed the title so it better matches the paper. 
 	
 	\response{The authors do not mention how to control the robots. It is one of the main points that call the attention in this type of works.} 
-	The particles are getting the same control input.
+	The particles are getting the same control input, as shown in Eq. 28.
 	
 	\response{In equations (2) and (3), there is a variable n that is not defined. I suppose it is the number of the robots, but it is not explicitly denoted. In these equations, it is not clear that only the surface robots can apply force to the bar. Does $F_i$ takes into account the force that all the robots behind $F_i$ are applying? In this way, (2) and (10) are not consistent.  Assuming that the individual forces are linear is a very strong assumption, in contrast to \[15\], the particles move in a very unorganized way (even more when the particles flow over the object).}
+	We have added definition of n and explained more about our mathematics. (2) considers the basic torque when all the particles are touching the object, in (10) we are giving a probability to each particle regarding the swarm distribution. 
 
 	\response{I recommend to separate Fig. 2 in sub-panels to organize the caption. In the top figure, the particle is not easy to observe and it is not in all the examples. The caption says "Particulate is moving in the -y direction", but a coordinate frame is not defined (same for the x-axis). Is the particle moving with respect to the inertia frame or to the bar frame? Additionally, there is not such a gray line. Are the authors referring to the thin black line? 
 In general, this figure is not helping to picture what the authors want.}
 
+We removed this section to better focus the paper.
+
 	\response{The derivation of (4) and (5) is no shown or extending the description is required.}
+	We removed this section to better focus the paper.
 	
 	\response{I like the idea of representing the swarm as a probability distribution. It is easier for the observer and the global controller to drive the swarm as a whole. Again in equations (7)-(9), the coordinate frames are not defined and not consistent. The COM $[O_x, O_y]$ is defined in the inertia frame, but the distribution of the robots is defined on the object frame (where the x-axis is parallel to the long side of the rectangle). Although these equations are intuitive, the way the authors obtained the constants (e.g. the sqrt(3) in Eq. (7), only in the next section is assumed that the length is 1) is not obvious.} 
+	We defined coordinate frames in each section to better represent the equations.
 	
 	\response{In (16), the function erf is not defined. It is only defined at the end of the section.} 
-	It is defined now.
+	We defined erf function.
 	
 	\response{Based on the granular effect, there is a maximum number of robots that can apply forces without flowing. What is this number? or how can you describe this final configuration?}
-	We have moved granular effect from this paper.
+	We have moved granular effect from this paper to better focus the paper.
 	
 	\response{The experiments section need to be extended, there granular effect need to be extensively studied.
 Again, it is necessary to describe how the robots are driven to maintain the distribution and to generate the torque.}
-	We have moved granular effect from this paper.
+	We have moved granular effect from this paper to better focus the paper.
 	
 	\response{According to the format guidelines, the equations are part of the text and should be punctuated. Most of them are not.}
-	We corrected them.
+	We have rewritten the parts that were not punctuated correctly and they are now part of the sentences.
 	
 	\response{Caption in Fig 2. says "Particulate" instead of "Particle"}
+	We have removed Fig. 2 to better focus the paper.
 
 	
 	
@@ -132,14 +152,19 @@ Again, it is necessary to describe how the robots are driven to maintain the dis
 	\response{This paper studies the torque applied by a swarm of particles on a long aspect-ratio rod. Generally, the topic of this paper is interesting. Experiments are well designed to illustrate the theory in practice. Here are some suggestions to be considered for the possible revision. }
 	
 	\response{Please add x-y-z axes in all the experimental figures such as Figs.1 and 8.}
+	We have added coordinate frames to the experimental figures.
 	
 	\response{What does cyan/white star points mean in Fig.1?}
+	We have changed Fig. 1 and added text on the figure to define cyan star points.
 	
 	\response{In this paper, two different cases are considered. One is a pivoted object, the other is a free object. Differences between two experimental results are encouraged to be highlighted. }
+	We have rewritten the paper and added simulation results to better highlight the experimental results.
 	
 	\response{Please highlight the material and the size of the rod used in the experiments. Contacts between robots or between robot and rod should be detailed, and their effects should be further discussed if it is possible.}
+	We have discussed the material and size of the rod. Although in the theory of this paper we have not considered the robots' contacts with each other to simplify the equations, the experimental results of the last section validated the result of the simplified equations. 
 	
 	\response{The definition of 'kilobots' should be given when it is used for the first time. }
+	We have given the description of the kilobots earlier.
 
 	\Reviewer{\#3}	
 	\response{The articles discusses a variant of swarm manipulation where a large number of particle like robots are steered using a common force input.  The article primarily analyses the force and torque they exert on movable objects they come in contact with; as well as the shape the particles make as they accumulate around these objects (shown to be a triangle whole apex angle is called the angle of repose.
@@ -151,39 +176,55 @@ The weaknesses are:
 The analysis can be difficult to follow because in some cases the variables are not well defined.
 There are many, many grammatical and punctuation errors. (see below)
 The abstract is poorly written.}
+Thank you. We have rewritten the paper to make it better organized.
 
-	\response{Question:  It would seem that the angle of repose might depend on the particle size or the coefficient of friction between particles or the object-particle.   Can you explain why it doesn?t?   I understand this isn?t the primary contribution of the article but it seems those parameters would play a role.}
+	\response{Question:  It would seem that the angle of repose might depend on the particle size or the coefficient of friction between particles or the object-particle.   Can you explain why it doesn't?   I understand this isn?t the primary contribution of the article but it seems those parameters would play a role.}
+	We removed this section to better focus the paper.
 	
-	\response{The abstract is repetitive and has a non-standard format (note to practitioners?) and should be restructured.   It doesn?t make it clear that all the particles are steered with a common force (different from other swarm scenarios).   It uses the term angle of repose without defining.   The last paragraph about a single robot does not belong in the abstract at all.}
+	\response{The abstract is repetitive and has a non-standard format (note to practitioners?) and should be restructured.   It doesn't make it clear that all the particles are steered with a common force (different from other swarm scenarios).   It uses the term angle of repose without defining.   The last paragraph about a single robot does not belong in the abstract at all.}
+	We used authors' guidelines to write note to practitioners. If the standards of this journal has changed, we will happily remove that part.
 	
-	\response{Introduction - paragraph 1: Last sentence doesn?t flow. }
+	\response{Introduction - paragraph 1: Last sentence doesn't flow. }
+	We rewrote the introduction to make it flow better.
 	
 	\response{The term angle of repose should be defined earlier than the end of page 2, because it is used many times before that and while it is defined in [2] it is not a standard term in the robotics community.}
+	We removed this section to better focus the paper.
 	
 	\response{ Many of the equations are not properly punctuated.  For example, eq 4 and 5 need periods as they end a sentence.  Same with 7,8,9, 12,13, 18, 19, 20 }
+	We have rewrote all the equations to make them part of the sentences.
 	
-	\response{The last sentence of Setcion 4 doesn?t make sense.  Should the ? -? be an ?=? symbol?}
+	\response{The last sentence of Setcion 4 doesn't make sense.  Should the ? -? be an ?=? symbol?}
+	We removed this section to better focus the paper.
 	
 	\response{This sentence could be worded better: (page 3, col. 1) ?Given sufficient particles to pile up to the angle of repose??   also it raises an interesting point that these calculations assume a sufficient number of particles.   Is there an expression that would estimate the number of particles, given the particle size?}
+	We removed this section to better focus the paper.
 	
 	\response{Page 3, col 2, top:
-It?s not clear what $l_p$ and $u_p$ are. (lower and upper bounds?).   Earlier l is used to mean the length of the rod.
+It's not clear what $l_p$ and $u_p$ are. (lower and upper bounds?).   Earlier l is used to mean the length of the rod.
 In the first sentence you mention a variable $up_p$, perhaps you mean $u_p$?}
+	The reviewer is right. There was a typo and we have made it clear now.
 	
 	\response{On page 6 you use an inconsistent style when referring to equations.   At one point you use ?Eq. 16?  and later on the page you use the style ?(18)?}
+	We have now used only eqref style and we don't mention Eq. anymore.
 	
 	\response{Caption of figure 3 needs an extra comma depending on the meaning you are trying to convey.
 ?For all distributions *,*  pushing at $\mu = 1$ ...?}
+	We added comma in that place.
 
-	\response{I don?t think the subsection headings should end in ?:?}
+	\response{I don't think the subsection headings should end in ``:"}
+	We have removed ``:" from subsections.
 	
 	\response{The annotations in Figures 4-5 are small and hard to see.}
+	We have made these figures bigger.
 	
 	\response{Section 6 paragraph 1:  The word Sections should be capitalized when referring to previous sections by number. }
-	
+	We corrected this word to be capitalized.
+		
 	\response{Should Kilobots be capitalized? (proper noun)}
+	We have capitalized Kilobots.
 	
 	\response{Reference section:   the way you cite ICRA is inconsistent.}
+	We have fixed the citation for ICRA.
 	
 	
 	
