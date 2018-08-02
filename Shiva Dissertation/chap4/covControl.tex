@@ -147,8 +147,8 @@ Assume an obstacle-free, bounded, unit-size, square workspace.
    The swarm is contained in a region $R$ composed of no more than three stacked components: at bottom a parallelogram inclined to the right top, at middle a rectangle, and at top a parallelogram inclined to the left top. These regions can be defined by the rectangle's left side, bottom, and top:
 \begin{align}
 r_{\text{left}} &= \min (L,1-w),\nonumber \\
-r_{\text{bottom}} &=\min \left(\frac{A}{w}, h\frac{r_{left}}{L}  \right) \text{and}\nonumber \\
-r_{\text{top}}  &= \min \left(\frac{A}{w}, 1-h\frac{r_{left}}{L}  \right).
+r_{\text{bottom}} &=\min \left(\frac{A}{w}, h\frac{r_{\text{left}}}{L}  \right) \text{and}\nonumber \\
+r_{\text{top}}  &= \min \left(\frac{A}{w}, 1-h\frac{r_{\text{left}}}{L}  \right).
 \end{align}
 If $\frac{A}{w} \le r_{\text{top}}$ the top parallelogram has no area. 
  Similarly, if $r_{\text{top}} \le r_{\text{bottom}}$ the rectangle has no area. 
