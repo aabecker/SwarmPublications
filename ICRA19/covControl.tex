@@ -29,12 +29,12 @@ Covariance control as well as mean position and variance control is needed when 
 One method to control a swarm's shape in a bounded workspace is to simply push in a given direction until the swarm conforms to the boundary. Like fluid settling in a tank, the stable final configuration minimizes potential energy.
 \paragraph{Square workspace}
 %The formulas for means $(\bar{x},\bar{y})$, covariance $(\sigma^2_x,\sigma^2_y,\sigma_{xy})$, and correlation $\rho_{xy}$ are as follows: 
-We first examine the mean $(\bar{x},\bar{y})$, covariance $(\sigma^2_x,\sigma^2_y,\sigma_{xy})$, and correlation $\rho_{xy}$ of a large swarm of robots as they move inside a square workspace under the influence of a force pulling in the direction $\beta$. The swarm is large, but the robots are small in comparison, and together occupy a constant area $A$, $A\in [0,1]$. Under a global input, the swarm moves to a side of the workspace and forms a polygonal shape that minimizes potential energy, as shown in Fig.~\ref{fig:SquareFill},  see also \cite{Zhao2016mathematicaSquare}.
+We first examine the mean $(\bar{x},\bar{y})$, covariance $(\sigma^2_x,\sigma^2_y,\sigma_{xy})$, and correlation $\rho_{xy}$ of a large swarm of robots as they move inside a square workspace under the influence of a force pulling in the direction $\beta$. The swarm is large, but the robots are small in comparison, and together occupy a constant area $A$, $A\in [0,1]$. Under a global input, the swarm moves to a side of the workspace and forms a polygonal shape that minimizes potential energy, as shown in Fig.~\ref{fig:SquareFill}. % see also \cite{Zhao2016mathematicaSquare}.
 
 The range for the global input angle $\beta $ is [0,2$\pi $). In this range, the swarm assumes eight different polygonal shapes. 
 These shapes alternate between triangles and trapezoids when the area $A$$<$1/2, and between squares with one corner removed and trapezoids when $A$$>$1/2.
 
-Computing means, variances, covariance, and correlation requires integrating over $R$, the region containing the swarm:  %This is simplified using an indicator function $\bm{1}_A(x,y)$ that returns 1 if inside the region containing the swarm, and 0 else. 
+Computing means, variances, covariance, and correlation requires integrating over $R$, the region containing the swarm and are calculated as%This is simplified using an indicator function $\bm{1}_A(x,y)$ that returns 1 if inside the region containing the swarm, and 0 else. 
 %The formulas for means $(\bar{x},\bar{y})$, covariance $(\sigma^2_x,\sigma^2_y,\sigma_{xy})$, and correlation $\rho_{xy}$ are as follows: %, integrated over the unit square with $x$ and $y$ from 0 to 1:
 
 \begin{align}
@@ -53,11 +53,11 @@ Computing means, variances, covariance, and correlation requires integrating ove
 The region of integration $R$ is the polygon containing the swarm. For example, if $A<1/2$ and the force angle is $\beta$, the mean when $R$ is a triangular region in the lower-left corner is:
 \begin{align}\label{eq:meanInSquareWorkspaceLL}
 \bar{x}(A,\beta) &= \frac{\int_0^{\sqrt{2 A \tan (\beta)}} \left(\int_0^{\cot (\beta) \left(\sqrt{2 A \tan (\beta)}-x\right)} \, dy\right) x \, dx}{A} \nonumber \\
-	&=\frac{ \sqrt{2}}{3} \sqrt{A \tan (\beta )}\\
+	&=\frac{ \sqrt{2}}{3} \sqrt{A \tan (\beta )},\\
 \bar{y}(A,\beta) &= \frac{\int_0^{\sqrt{2 A \tan (\beta)}} \left(\int_0^{\cot (\beta) \left(\sqrt{2 A \tan (\beta)}-x\right)} y \, dy\right) \, dx}{A} \nonumber\\
 	&=\frac{\sqrt{2}}{3}  \sqrt{A \cot (\beta )}.
 \end{align}
-The full equations are included in the appendix~\cite{2016arXiv160901830S}, and are summarized in Fig.~\ref{fig:SquareFill}. A few highlights are that the correlation is maximized $\pm$1/2 when the swarm is in a triangular shape. The covariance of a triangle is always $\pm(A/18)$. Variance is minimized in the direction of $\beta$ and maximized orthogonal to $\beta$ when the swarm is in a rectangular shape. The range of mean positions are maximized when $A$ is small.
+The full equations are summarized in Fig.~\ref{fig:SquareFill}. A few highlights are that the correlation is maximized $\pm$1/2 when the swarm is in a triangular shape. The covariance of a triangle is always $\pm(A/18)$. Variance is minimized in the direction of $\beta$ and maximized orthogonal to $\beta$ when the swarm is in a rectangular shape. The range of mean positions are maximized when $A$ is small.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Circular workspace}
@@ -68,11 +68,11 @@ Under a global input, the robot swarm fills the region under a chord with area
 \begin{align}
 A(h) = \arccos(1-h)-(1-h) \sqrt{(2-h) h}.
 \end{align}
-For a circular workspace, the locus of mean positions are aligned with $\beta$ and the mean position is at radius $r(h)$ from the center:
+For a circular workspace, the locus of mean positions are aligned with $\beta$ and the mean position is at radius $r(h)$ from the center which is
 \begin{align}
 r(h) = \frac{2 (-(h-2) h)^{3/2}}{3 \left(\sqrt{-(h-2) h} (h-1)+\arccos(1-h)\right)}.
 \end{align}
-Variance $\sigma^2_x(\beta,h)$ is maximized at $\beta = \pi/2+n \pi$ and $h\approx1.43$, while covariance is maximized at $\beta = \pi3/4+n \pi$ and $h\approx0.92.$ For small $h$ values, correlation approaches $\pm1$. Results are displayed in Fig.~\ref{fig:CircleFill}, see also \cite{Zhao2016mathematica}.
+Variance $\sigma^2_x(\beta,h)$ is maximized at $\beta = \pi/2+n \pi$ and $h\approx1.43$, while covariance is maximized at $\beta = \pi3/4+n \pi$ and $h\approx0.92.$ For small $h$ values, correlation approaches $\pm1$. Results are displayed in Fig.~\ref{fig:CircleFill}.%, see also \cite{Zhao2016mathematica}.
 
 %Smashing the swarm to the corner walls will cause some correlation between \emph{x} and \emph{y} axes. Eq. ~\ref{eq:Wall} shows the relation between number of robots and area provided and the correlation we can reach with it.
 %%TODO: ADD the equation for showing the correlation Vs area, vs number of robots
@@ -95,7 +95,7 @@ This causes robots along the boundary to move more slowly than robots in free-sp
   
 Let the control input be a vector force $\vec{F}$ with magnitude $F$ and orientation $\theta$ with respect to a line perpendicular to and into the nearest boundary. $N$ is the normal or perpendicular force between the robot and the boundary. The force of friction $F_f$ is nonzero if the robot is in contact with the boundary and  $\sin(\theta) < 0$. The resulting net force on the robot, $F_{\text{\emph{forward}}}$, is aligned with the wall and given by
 \begin{align}
-F_{\text{\emph{forward}}} &=  F \sin(\theta) - F_f  \nonumber \\
+F_{\text{\emph{forward}}} &=  F \sin(\theta) - F_f , \nonumber \\
 \text{where }  F_f &= \begin{cases}  \mu_f N, &  \mu_f N < F \sin(\theta)  \label{eq:frictionmodel}  \\
 F \sin(\theta), & \text{else} \end{cases} \\ %\sign(F \sin(\theta) ) \cdot  \max(0, | F sin\theta |- |F_f|)
 \text{and } N &= F \cos(\theta) .\nonumber
@@ -126,11 +126,11 @@ The next section shows how a system in a rectangularly bounded workspace with fr
 
 
 \subsection{Maximizing correlation using wall friction}\label{subsec:ClosedLoopCovarianceControl}
-Using the environment to individually move $n$ particles to goal positions in Alg. \ref{alg:PosControlNRobots} requires $O(n^2)$ time, while  Alg. \ref{alg:optimalAlg} can only control two particles. The controllers in Section \ref{sec:theory} are efficient because they require only a single move but the range of possible configurations are limited. This section presents an efficient technique to generate desired correlations.
+%Using the environment to individually move $n$ particles to goal positions in Alg. \ref{alg:PosControlNRobots} requires $O(n^2)$ time, while  Alg. \ref{alg:optimalAlg} can only control two particles. The controllers in Section \ref{sec:theory} are efficient because they require only a single move but the range of possible configurations are limited. This section presents an efficient technique to generate desired correlations.
 
 Assume an obstacle-free, bounded, unit-size, square workspace. 
  As shown in Fig.~\ref{fig:SquareFill}, the maximum correlation occurs when the swarm is pushed in the direction $\beta = 3\pi/4$. 
- This correlation as a function of swarm area $A$ is never larger than 1/2, and the maximum correlation decays to 0 as $A$ grows to 1. By  \eqref{eq:covAndcorrInSquareWorkspace}, this maximum correlation is:
+ This correlation as a function of swarm area $A$ is never larger than 1/2, and the maximum correlation decays to 0 as $A$ grows to 1. By  \eqref{eq:covAndcorrInSquareWorkspace}, this maximum correlation is
 \begin{align} \label{eq:GravityCorrelation}
 \rho_{xy} =  \begin{cases}  \frac{1}{2}  , &  0\le A\le \frac{1}{2}  \\
 % \frac{3 A (2 (A-2) A+1)}{4 A \left(A^2+3 \sqrt{2-2 A}-6\right)-12 \sqrt{2-2 A}+17}-1
@@ -166,7 +166,8 @@ The mean, variance, and correlation are calculated  using \eqref{eq:meanInSquare
 This section examines maximum correlation values as a function of  $w,L$ using \eqref{eq:correlationFriction}
 from Section  \ref{subsec:ClosedLoopCovarianceControl}. 
 The maximum correlation using boundary layer friction $\displaystyle  \max_{w,L} \left( \rho(A,h,w,L) \right)$ can be found by gradient descent, as shown in Fig.~\ref{fig:ControlledCorrelation}. 
-For swarms with small area, this method enables generating the full range of correlations $\pm 1$, while the stable configuration method from Section \ref{sec:theory} could only generate correlations $\pm 1/2$.  As  the swarm area $A$ increases above $\approx 0.43$, the stable configuration method is more effective.
+For swarms with small area, this method enables generating the full range of correlations $\pm 1$.%, while the stable configuration method from Section \ref{sec:theory} could only generate correlations $\pm 1/2$.  
+ As  the swarm area $A$ increases above $\approx 0.43$, the stable configuration method is more effective.
 Larger boundary layers $h$ enable more control of correlation.
 The multimedia attachment shows efficient control of correlation with simulations using the 2D physics engine Box2D~\cite{catto2010box2d} and 144 disc-shaped robots with boundary layer model \eqref{eq:boundarylayerflow}.
 

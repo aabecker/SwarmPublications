@@ -152,7 +152,7 @@
 
 
 % paper title
-\title{\LARGE \bf Reshaping Particles by Pushing Against Rigid Objects}
+\title{\LARGE \bf Reshaping Particles by Collisions with Rigid Objects}
 
 % You will get a Paper-ID when submitting a pdf file to the conference system
 \author{Shiva Shahrokhi and Aaron T. Becker% <-this % stops a space
@@ -175,11 +175,14 @@
 \pagestyle{empty}
 
 %
-%\begin{abstract}
+\begin{abstract}
+
+
 %
-%Steered particles offer a method for targeted therapy, interventions, and drug delivery in regions inaccessible by large robots.
-%Magnetic actuation has the benefits of requiring no tethers, being able to operate from a distance, and in some cases allows imaging for feedback (e.g. MRI).
-% This paper investigates particle control with uniform magnetic gradients (the same force is applied everywhere in the workspace).
+Steered particles offer a method for targeted therapy, interventions, and drug delivery in regions inaccessible by large robots.
+Magnetic actuation has the benefits of requiring no tethers, being able to operate from a distance, and in some cases allows imaging for feedback (e.g. MRI). Reshaping the swarm is necessary if we want to navigate the swarm through the narrow passageways. 
+ This paper investigates particle shape control with uniform input.% gradients (the same force is applied everywhere in the workspace).
+  First we show how angle of repose of the swarm can be used to reshape the particles. Then we make use of the rigid objects in the environment to control covariance of the swarm. We conclude by simulations and hardware experiments validating our claims. 
 %Given three orthogonal magnetic fields, steering one particle in 3D is trivial. 
 %Adding additional particles to steer makes the system underactuated because there are more states than control inputs. 
 %However, the walls of in vivo and artificial environments often have surface roughness such that the particles do not move unless actuation pulls them away from the wall.
@@ -194,15 +197,15 @@
 %%	
 %%This is an extension of work presented in a preliminary conference paper:
 %%S. Shahrokhi, A. Mahadev, and A. T. Becker, ÒAlgorithms for shaping a particle swarm with a shared input by exploiting non-slip wall contacts,Ó in Intelligent Robots and Systems (IROS), 2017 IEEE/RSJ International Conference on, 2017.
-%\end{abstract}
+\end{abstract}
 
 \IEEEpeerreviewmaketitle
 
 %%%%%%%%%%%%%%%
-%\input{intro}
+\input{intro}
 %%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%
-%\input{relatedWork}
+\input{relatedWork}
 %%%%%%%%%%%%%%%
 \input{theory}
 \input{covControl}
@@ -214,7 +217,7 @@
 %%%%%%%%%%%%%%%
 %\input{experiment}
 %%%%%%%%%%%%%%%
-%\input{conclusion}
+\input{conclusion}
 %%%%%%%%%%%%%%%
 %\section*{Acknowledgments}
 %%%%%%%%%%%%%%%
@@ -223,7 +226,7 @@
 %\bibliographystyle{plainnat}
 %\bibliographystyle{SageH}
 \bibliographystyle{IEEEtran}
-\bibliography{IEEEabrv,SwarmShapeControl}
+\bibliography{IEEEabrv,Covariance}
 }
 
 % Uncomment to add appendix:
