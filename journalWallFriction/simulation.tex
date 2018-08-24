@@ -1,4 +1,72 @@
 
+
+
+\section{Two Optimal Results}\label{sec:optimalResults}
+  Algorithm ??? provided a technique to bring two particles to goal positions using global inputs, but did not optimize path length.  
+  In this section we present two results that can be incorporated into Algorithms ??? and ??? to generate shorter motion paths.
+
+
+
+ \subsection{Example: Shortest Path in a Square Workspace}\label{subsec:square}
+ Changing the relative positions of particles in any workspace requires making one particle contact the boundary.
+ If the goal configuration cannot be reached in one move but can be reached in three moves, the shortest path has a simple solution. The first move, $m_1$, makes one particle contact a wall, $m_2$ adjusts the relative spacing error  to zero, and $m_3$ takes the particles to their final positions. 
+$m_2$ cannot be shortened, so optimization depends on choosing the location where the particle contacts the wall. 
+ Since the shortest distance between two points is a straight line, reflecting the goal position across the boundary wall and plotting a straight line gives the optimal contact location, as shown in Fig. \ref{fig:reflection}. 
+  There are four walls, and four candidate solutions, but some candidate solutions may be invalid because a different boundary is hit before the desired first contact position in move $m_1$ (light grey regions) or  invalid because $m_2$ cannot generate the goal relative spacing (dark grey regions).
+ %
+\begin{figure}
+\centering
+\begin{overpic}[width=\columnwidth]{Reflection.pdf}\end{overpic}
+\vspace{-2em}
+\caption{\label{fig:reflection}
+\textcolor{red}{add 0.2 increments to both, add green dot on left image, draw incident and reflected angle}
+The shortest three-move path that reconfigures two particles has the property that the incident angle equals the reflected angle, as shown at left. (right) The first contact is colored red if the red particle is the first to touch a boundary, and colored blue if the blue particle is the first to touch.
+} \vspace{-1em}
+\end{figure}
+%
+
+ 
+ \subsection{Shortest Path in Unit Disk that Intersects Circumference}\label{subsec:circular}
+
+ The shortest path between two points in the unit disk that intersects the circumference is composed of two straight line segments and has an optimal contact point, as shown in Fig.~\ref{fig:shortestpath}. 
+ The problem can be simplified by choosing the coordinate system carefully. We define the $x$-axis along the line from the circle center to the starting point: $S=(s,0)$, and define the point of intersection by the angle $\theta$ from the $x$-axis: $P=(\cos \theta,\sin \theta)$. Define the final point $E$ by a radius $e$ and angle $\beta$: $E=e(\cos \beta,\sin \beta)$. Then the length of the two line segments is 
+ \begin{align}\scalebox{.8}{$
+ \sqrt{{ (s-\cos \theta)^2+\sin^2 \theta}} +  \sqrt{(e \cos \beta-\cos \theta)^2+(e \sin \beta-\sin \theta)^2},$}
+ \end{align}
+ which is minimized by choosing an appropriate $\theta$ value.
+ 
+%  This equation can be simplified to 
+% 
+% \begin{equation}
+%\sqrt{1+s^2-2 s \cos \theta}+  \sqrt{1+e^2-2 e \cos(\beta-\theta)}. 
+% \end{equation}
+% 
+\begin{figure}
+\centering
+\renewcommand{\figwid}{\columnwidth}
+{\begin{overpic}[width =\figwid]{shortestpath.pdf}
+\end{overpic}
+}
+\caption{\label{fig:shortestpath}{The shortest path between two points $S$ to $E$ in the unit disk that intersects the circumference. The path length as a function of intersection point, $P= (\cos\theta,\sin\theta)$ is shown at right. See \cite{BeckerShortestPath}.}
+%\vspace{-1em}
+}
+\end{figure}
+
+ 
+ The length of the two line segments as a function of $\theta$ is drawn in the right plot of Fig.~\ref{fig:shortestpath}. There are several simple solutions. If $s$ is 1 or $e$ is 0 or $\beta$ is 0, the optimal angle $\theta^*$ is 0. If $e$ is 1 or $s$ is 0, the optimal angle is $\beta$. Label the origin $O$. 
+ The optimal path satisfies the law of reflection off the unit circle, with angle of incidence equal to angle of reflection.
+ The angle $\angle{OPS}$ (from the origin to $P$ to $S$) is the same as the angle $\angle{OPE}$ (from the origin to $P$ to $E$). 
+ We name these angles $\alpha$. This can be proved by drawing an ellipse whose foci are $S$ and $E$. When the ellipse is tangent to the circle, the point of tangency is $P$. 
+  Since the distance from the origin to $P$ is always 1, we can set up three equalities using the law of sines:
+ From triangle $OSP$: $\frac{\sin \alpha}{s}=\frac{\sin(\alpha + \theta)}{1}=\frac{\sin \theta}{||SP||}$, and from triangle $OEP$: $\frac{\sin \alpha}{e}=\frac{\sin(\beta - \theta)}{||EP||}$. If we mirror the point $S$ about line $\overline{OP}$ and label this point $C$, from triangle $CEO$: $\frac{\sin(\alpha + \theta)}{e}=\frac{\sin(2 \theta - \beta)}{||CE||}$.
+ 
+ Simplifying this system of equations results in $s=e \csc \theta (s \sin(2 \theta-\beta)+\sin(\beta-\theta))$. Solving this last equation results in a quartic solution that has a closed-form solution with four roots, each of which can be either a clockwise or a counterclockwise rotation $\theta$, depending on the sign of $\beta$, with $-\pi\leq\beta\leq\pi$. We evaluate each and select the solution that results in the shortest length path. %This optimal path satisfies the law of reflection off the unit circle, with angle of incidence equal to angle of reflection. 
+ For an interactive Mathematica demonstration of this shortest path, see \cite{BeckerShortestPath}. Because the closed form solution is long, it is included in the paper attachments.
+ 
+ 
+
+
+
 \section{Simulation}\label{sec:simulation}
 
 
