@@ -2,14 +2,14 @@
 
 
 \section{Two Optimal Results}\label{sec:optimalResults}
-  Algorithm ??? provided a technique to bring two particles to goal positions using global inputs, but did not optimize path length.  
-  In this section we present two results that can be incorporated into Algorithms ??? and ??? to generate shorter motion paths.
+  Algorithm \ref{alg:optimalAlg} provided a technique to bring two particles to goal positions using global inputs, but did not optimize path length.  
+  In this section we present two results that can be incorporated into Algorithms \ref{alg:polygonReachbale} and \ref{alg:circularReachbale} to generate shorter motion paths.
 
 
 
  \subsection{Example: Shortest Path in a Square Workspace}\label{subsec:square}
  Changing the relative positions of particles in any workspace requires making one particle contact the boundary.
- If the goal configuration cannot be reached in one move but can be reached in three moves, the shortest path has a simple solution. The first move, $m_1$, makes one particle contact a wall, $m_2$ adjusts the relative spacing error  to zero, and $m_3$ takes the particles to their final positions. 
+ If the goal configuration cannot be reached in one move but can be reached in three moves, the shortest path has a simple solution. The first move, $m_1$, makes one particle contact a wall, $m_2$ adjusts the relative spacing error  to zero, and $m_3$ takes the particles to their final ositions. 
 $m_2$ cannot be shortened, so optimization depends on choosing the location where the particle contacts the wall. 
  Since the shortest distance between two points is a straight line, reflecting the goal position across the boundary wall and plotting a straight line gives the optimal contact location, as shown in Fig. \ref{fig:reflection}. 
   There are four walls, and four candidate solutions, but some candidate solutions may be invalid because a different boundary is hit before the desired first contact position in move $m_1$ (light grey regions) or  invalid because $m_2$ cannot generate the goal relative spacing (dark grey regions).

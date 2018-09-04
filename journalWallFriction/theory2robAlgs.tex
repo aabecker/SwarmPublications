@@ -448,15 +448,41 @@ The particles achieve $\Delta g_c$ in two moves. The first move causes one parti
 
 \subsection{Accessible Workspace}
 
-The $\Delta$ configuration makes it easy to compute the accessible workspace.  Due to symmetry of the workspace, the fraction of the $\Delta$ configuration space reachabable in $2 k$ moves is a function of only the initial separation distance $d_{12}$.
+The $\Delta$ configuration makes it easy to compute the accessible workspace.  
+ Due to symmetry of the workspace, the fraction of the $\Delta$ configuration space reachable in $2 k$ moves is a function of only the initial separation distance $d_{12}$.
+ The angle $\theta$ between the initial particle positions simply rotates the reachable $\Delta$ configuration space.
 
 ??? INSERT NEW PLOT SHOWING FRACTION OF WORKSPACE REACHABLE IN 2 moves as a function of $d_{12}$  \\
+
+\begin{figure}
+\centering
+\begin{overpic}[width=\columnwidth]{reachableSetsFuncDistance}\end{overpic}
+\caption{\label{fig:reachableSetsFuncDistance}
+  Reachable fraction of  $\Delta$ configuration space  as a function of initial distance $d_{12}$.  
+  As long as the initial configurations are distinct, the reachable set grows quickly. 
+   Only epipolar locations are unreachable, but can be asymptotically reached.
+}
+\end{figure}
+
+
 
 Text \\
 
 ??? INSERT NEW IMAGE SHOWING FRACTION OF WORKSPACE REACHABLE IN 2 moves and 4 moves for a specific initial Delta config \\
 
 MORE TEXT \\
+
+
+
+\begin{figure}
+\centering
+\begin{overpic}[width=.8\columnwidth]{ReachableSets0p1}\end{overpic}
+\begin{overpic}[width=.8\columnwidth]{ReachableSets0p3}\end{overpic}
+\caption{\label{fig:reachableSets}
+  Plots showing the 2, 4, 6, 8, 10, 12, and 14-move reachable sets in the  $\Delta$ configuration space for  $d_{12} = 0.1$ and $0.3$.  
+  Shown are reachable sets with initial particle-to-particle angle $\theta=0$, all other sets for other angle values can be formed by rotating by $\theta$.
+}
+\end{figure}
 
 
 \subsection{3D workspaces: Cylinders and Prisms}
