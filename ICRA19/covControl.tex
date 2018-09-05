@@ -107,7 +107,7 @@ This means that if one robot is touching the wall and another robot is free, the
 There are many alternate models of friction that also break control symmetry. Fig.~\ref{fig:friction}c shows fluid flow along a boundary.  Fluid in the free-flow region moves uniformly, but flow decreases to zero in the boundary layer \cite{fluidMechanics}.  Force in such a system can be calculated as
 \begin{align}
 %u(y) = u_0 \left(1- \frac{(y-h)^2}{h^2}\right) = u_0 \frac{y}{h} \left(2- \frac{y}{h}\right) \label{eq:boundarylayerflow} THiS EQUATION IS TERRIBLE! PLOT IT.
-F_{forward}(y) &= F - F_f\begin{cases}  \frac{h-y}{h}   , &  y<h \label{eq:boundarylayerflow} \\
+F_{\text{\emph{forward}}}(y) &= F - F_f\begin{cases}  \frac{h-y}{h}   , &  y<h \label{eq:boundarylayerflow} \\
 0, & \text{else} \end{cases}.
 \end{align}
 
@@ -147,8 +147,8 @@ Assume an obstacle-free, bounded, unit-size, square workspace.
    The swarm is contained in a region $R$ composed of no more than three stacked components: at bottom a parallelogram inclined to the right top, at middle a rectangle, and at top a parallelogram inclined to the left top. These regions can be defined by the rectangle's left side, bottom, and top:
 \begin{align}
 r_{\text{left}} &= \min (L,1-w),\nonumber \\
-r_{\text{bottom}} &=\min \left(\frac{A}{w}, h\frac{r_{left}}{L}  \right) \text{and}\nonumber \\
-r_{\text{top}}  &= \min \left(\frac{A}{w}, 1-h\frac{r_{left}}{L}  \right).
+r_{\text{bottom}} &=\min \left(\frac{A}{w}, h\frac{r_{\textrm{left}}}{L}  \right) \text{and}\nonumber \\
+r_{\text{top}}  &= \min \left(\frac{A}{w}, 1-h\frac{r_{\text{left}}}{L}  \right).
 \end{align}
 If $\frac{A}{w} \le r_{\text{top}}$ the top parallelogram has no area. 
  Similarly, if $r_{\text{top}} \le r_{\text{bottom}}$ the rectangle has no area. 
@@ -166,8 +166,8 @@ The mean, variance, and correlation are calculated  using \eqref{eq:meanInSquare
 This section examines maximum correlation values as a function of  $w,L$ using \eqref{eq:correlationFriction}
 from Section  \ref{subsec:ClosedLoopCovarianceControl}. 
 The maximum correlation using boundary layer friction $\displaystyle  \max_{w,L} \left( \rho(A,h,w,L) \right)$ can be found by gradient descent, as shown in Fig.~\ref{fig:ControlledCorrelation}. 
-For swarms with small area, this method enables generating the full range of correlations $\pm 1$.%, while the stable configuration method from Section \ref{sec:theory} could only generate correlations $\pm 1/2$.  
- As  the swarm area $A$ increases above $\approx 0.43$, the stable configuration method is more effective.
+For swarms with small area, this method enables generating the full range of correlations $\pm 1$. %, while the stable configuration method from Section \ref{sec:theory} could only generate correlations $\pm 1/2$.  
+  As  the swarm area $A$ increases above $\approx 0.43$, the stable configuration method is more effective.
 Larger boundary layers $h$ enable more control of correlation.
 The multimedia attachment shows efficient control of correlation with simulations using the 2D physics engine Box2D~\cite{catto2010box2d} and 144 disc-shaped robots with boundary layer model \eqref{eq:boundarylayerflow}.
 
@@ -182,6 +182,36 @@ The multimedia attachment shows efficient control of correlation with simulation
 Analytical results comparing maximum correlation $\rho_{xy}$ under the boundary layer friction model of \eqref{eq:correlationFriction} with four boundary layer thicknesses $h$ and the stable triangular configuration \eqref{eq:GravityCorrelation}.
 }\vspace{-1em}
 \end{figure}
+
+
+\section{Experiments}
+
+\subsection{Hardware experiment: angle of repose}
+In this section we vary the force and approach angle to shape a swarm with a characteristic angle of repose.  
+
+
+
+\begin{figure}
+\begin{center}
+	\includegraphics[width=\columnwidth]{angleOfReposeExp.pdf}
+\end{center}
+\caption{\label{fig:angleOfReposeExp}
+Experimental data
+}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+	\includegraphics[width=\columnwidth]{ironAndSaltCloseup.pdf}
+\end{center}
+\caption{\label{fig:ironAndSaltCloseup}
+Magnified image of salt and iron at angle of repose.
+}
+\end{figure}
+
+
+\textcolor{red}{Explain hardware experiment}
+
 \subsection{Hardware experiment: control of covariance}
 To demonstrate covariance control, up to 100 kilobots were placed on the workspace and manually steered with lights, using friction with the boundary walls to vary the covariance from  -4000 to 3000 cm$^2$.  The resulting covariance is plotted in Fig.~\ref{fig:covExperiment}, along with snapshots of the swarm.
 
