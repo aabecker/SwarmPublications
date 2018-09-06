@@ -176,13 +176,22 @@
 
 %
 \begin{abstract}
-
-
 %
-Steered particles offer a method for targeted therapy, interventions, and drug delivery in regions inaccessible by large robots.
-Magnetic actuation has the benefits of requiring no tethers, being able to operate from a distance, and in some cases allows imaging for feedback (e.g. MRI). Reshaping the swarm is necessary if we want to navigate the swarm through the narrow passageways. 
- This paper investigates particle shape control with uniform input.% gradients (the same force is applied everywhere in the workspace).
-  First we show how angle of repose of the swarm can be used to reshape the particles. Then we make use of the rigid objects in the environment to control covariance of the swarm. We conclude by simulations and hardware experiments validating our claims. 
+% Steered particles offer a method for targeted therapy, interventions, and drug delivery in regions inaccessible by large robots.
+% Magnetic actuation has the benefits of requiring no tethers, being able to operate from a distance, and in some cases allows imaging for feedback (e.g. MRI). 
+  Consider many particles actuated by a global external field (e.g. gravitational or magnetic fields).
+  In the absence of workspace obstacles, it is not possible to change the relative position of particles.
+  Shape control of many particles is necessary for conveying information, construction, and for navigation.
+  This paper presents analytical results using workspace obstacles and global inputs to reshape a group of particles.
+    First we show how the particles' characteristic angle of repose can be used to reshape the particles by controlling angle of attack and the magnitude of the driving force. These can then be used control the force and torque applied to a rectangular rigid body. 
+    Next, we examine the full set of stable achievable first and second moments for the shape of a particle group in two canonical environments: a square and a circular workspace.
+    Then we show how workspaces with linear boundary layers can be used to achieve a more rich set of first and second moments.
+   We conclude with hardware experiments investigating shape control using angle of repose and hardware boundaries. 
+ %the shape of the particles is uncontrollable.
+ 
+% Reshaping the swarm is necessary if we want to navigate the swarm through narrow passageways. 
+ % This paper investigates particle shape control with uniform input. % gradients (the same force is applied everywhere in the workspace).
+ 
 %Given three orthogonal magnetic fields, steering one particle in 3D is trivial. 
 %Adding additional particles to steer makes the system underactuated because there are more states than control inputs. 
 %However, the walls of in vivo and artificial environments often have surface roughness such that the particles do not move unless actuation pulls them away from the wall.
