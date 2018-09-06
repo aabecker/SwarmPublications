@@ -1,0 +1,165 @@
+Associate Editor's Report:
+
+The Associate Editor (AE) was able to obtain two high-quality reviews
+from researchers working directly in this field. After considering
+their reviews, it is the opinion of the AE that this paper is not
+currently suitable for publication in T-RO. However, the authors are
+encouraged to prepare a revised draft, addressing the concerns of the
+reviewers.
+
+Please also address how the technique could be practically applied to
+navigate inside an actual 3D intestine as opposed to a cross section in
+which the particles move on a planar surface. Would magnetic forces be
+sufficient to overcome gravity? Would the particles need to be made
+neutrally buoyant? 
+
+## add wording about  neutrally buoyant
+
+
+REVIEWER 1
+This paper explains an underactuated control strategy for small teams
+of magnetic microparticles which move under the influence of a single
+broadcast signal. This underactuated control problem is relevant to
+microrobotic swarms moving under magnetic field input. In previous
+work, the authors have explored interesting control methods relying on
+obstacles in the environment, but the case studied here is more
+application-realistic. The control method here is clever and
+successful. The work is interesting to read and I think that anyone
+with a basic background in controls will find this work interesting.  
+
+The main concept used here to achieve multi-particle control is that
+the particles experience a no-slip condition when pushed against the
+environment wall. The particles can be removed from the wall by pulling
+them. 
+
+The paper is an extension of an IROS2017 paper which introduced the
+idea for square workspace only. This TRO submission generalizes to a
+non-square workspace, which is a notable improvement. This version of
+the work will thus be a helpful addition to the literature. 
+
+The paper gives a very nice review of previous work in using broadcast
+signals for multi-particle control. 
+
+Questions to consider:
+Is it expected that the no-slip condition will be a strongly satisfied
+assumption for in-vivo biomedical applications? In cases where there
+were some slip, how could that be handled?
+
+##  To maintain clarity, this paper focused on systems with no-slip boundaries.  While several environments with no slip boundaries exist (e.g. tripe, and intestines with villi), extending to lower friction values is a intriguing avenue that unfortunately does not fit within the 12 page limit for this journal, but is something we are investigating.
+
+This control method requires advance knowledge of the workspace
+boundary geometry, in addition to micro-particle state feedback. It
+would be interesting to hear about how accurate the boundary geometry
+must be known for this control to work well, and perhaps compare this
+will medical imaging techniques such as CT or MRI which could
+potentially be used to generate such maps. For motion through 3D
+lumens, the cross-sectional geometry will change throughout the lumen.
+
+##  add text about systems with large numbers of protrusions or concave workspaces are best handled by motion planners such as RRT.
+
+Abstract: It is stated that “given 3 orthogonal magnetic fields …”.
+This statement should be made more precise, because the magnetic
+pulling here uses field gradients, not fields. In addition, these
+gradients are not orthogonal. An accurate statement would need to be
+more complex. 
+
+# made fix
+
+
+Fig 2: “first contact point” is not clear. There is no way given to
+tell where these line up with actual positions on the workspace. 
+
+# FIg 2 is now fig 11.  We updated this figure to clarify (tell what we changed) we rearranged the order because this optimization results....
+
+Fig 3: the meaning of grey areas should be mentioned in the fig or
+caption.
+
+# now Figure 2, Gray areas denote regions unaccessible by our motion planner. The particle start positions must be distinct $(\norm{s_2-s_1} \geq \epsilon)$, and the goal positions must be farther than  $\epsilon$  from the boundary, where $\epsilon$ is a small but nonzero user-specified constant.
+
+Figures are hard to read because there is a lot going on, the font is
+often too small and text sometimes is obscured.
+
+# We fixed figures ?????
+
+III.C. It’s not clear why this section is relevant. Why is the shortest
+path which intersects the wall needed? Some writing structure could
+help the reader understand what the goal is here. 
+
+# To better present the motion planner, we moved this section, which covers an optimization result, to the end, and altered the framing text
+# TODO: alter the framing text
+
+
+REVIEWER 6  (1 and 6 )
+
+In this manuscript algorithms to position two particles in arbitrary
+locations under uniform actuation are proposed.  The algorithms rely on
+differentiating between particles by contacting them with walls or
+boundaries of the domain, at which they are assumed to not move unless
+actuated in a direction away from the wall.  The paper presents some
+results on shortest paths that contact surfaces (but see below on some
+presentation issues), then describes the algorithm, which basically
+entails moving both particles so that one particle contacts a boundary,
+adjusting the relative displacement between particles while the one
+particle remains at the boundary, then translating both particles to
+the desired location.
+Simulations of the algorithm are presented in square and circular
+domains, and experiments are described in circular cross sections
+inspired by intestinal and stomach scenarios.
+
+Although similar ideas were presented earlier by the authors using
+either an obstacle in the workspace or square workspaces, this paper
+extends that work to circular and convex polygonal workspaces.	The
+overall idea is a novel contribution as other swarm control techniques
+focus on either heterogeneity of microrobots or of actuation (such as
+fields) rather than distinguishing particles by their proximity to
+boundaries.  However, in my opinion the manuscript requires major
+revisions before being suitable for publication, mainly to address the
+theoretical effectiveness of the algorithm (as detailed below), and
+less so to address clarity of presentation.
+
+1.  The main weakness of the paper in my opinion is that the authors
+never really prove that their algorithm works, or alternatively how
+general their algorithm is, i.e. what are its limits of applicability. 
+To be more specific, in their Algorithm 1, if the desired configuration
+is not within the 2-move reachable set, then the algorithm targets
+instead the closest point in the 2-move reachable set, and then
+"iterates until we reach the goal."  When does such iteration actually
+achieve the goal?  What are the attainable final goals that can be
+reached after iteration?  Does the space of attainable goals depend on
+the initial positions of the particles?  While there are simulations,
+the ones presented do not explore the entire possible space (which is
+understandable since they it is quite large).  I think an analysis of
+the attainable space of their algorithm is needed.
+
+# An excellent suggestion!  We rearranged the paper and added section ## which analyzes the reachable set.  We added figures # and # which...
+
+2.  There are issues with the presentation that can be easily improved.
+ At the beginning of the paper many terms are not defined which makes
+figures and discussion hard to follow. Definitions do come later, but
+they should be moved up.  For example, in Fig 2 which symbols are
+targets and which are initial conditions are not defined.  In Fig 3
+epsilon is shown but not defined nor is its significance explained.  s
+and g and \Delta s and \Delta g are not defined. In Fig 12, where is
+the goal on the boundary? Can that be indicated on the figures?
+
+## Fig 2 is now 12, and we added
+## Figure 3 is now 2, we did ...
+## Figure 12 is now
+Add captions for start and end (colored squares and circles) to each drawing  (including fig 12)
+
+3.  (more presentation) At the beginning of section IV it wasn't clear
+to me whether Algorithm 1 had been described yet when it was first
+mentioned, and whether that sentence was a description of what was to
+come, or was as assertion that logically followed from the previous
+parts of the paper.  
+
+4. A minor comment, sections IIIB and C are a little confusing since it
+is not motivated why shortest path is being considered in the overall
+argument of the paper.	Furthermore, it seems that shortest path in
+IIIB is used for the situation moving two particles, while in IIIC it
+is used for the situation of moving only one particle.	Consistency in
+the presentation would help.
+
+# we moved these optimization results to ## to better focus on the
+
+

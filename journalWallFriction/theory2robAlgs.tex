@@ -451,28 +451,23 @@ The particles achieve $\Delta g_c$ in two moves. The first move causes one parti
 The $\Delta$ configuration makes it easy to compute the accessible workspace.  
  Due to symmetry of the workspace, the fraction of the $\Delta$ configuration space reachable in $2 k$ moves is a function of only the initial separation distance $d_{12}$.
  The angle $\theta$ between the initial particle positions simply rotates the reachable $\Delta$ configuration space.
-
-??? INSERT NEW PLOT SHOWING FRACTION OF WORKSPACE REACHABLE IN 2 moves as a function of $d_{12}$  \\
+  As long as the initial configurations are distinct $(s_1 \neq s_2)$, the reachable set grows quickly. 
+  This relationship is shown in Fig.~\ref{fig:reachableSetsFuncDistance}.
+   Only antipodal locations are unreachable $(\norm{g_2-g_1} = 1)$, but can be asymptotically approached.
+   Indeed even with a tiny initial separation of $d_{12} = 0.001$, after 14 moves 90\% of the $\Delta$ configuration space is reachable.
+   
 
 \begin{figure}
 \centering
 \begin{overpic}[width=\columnwidth]{reachableSetsFuncDistance}\end{overpic}
 \caption{\label{fig:reachableSetsFuncDistance}
   Reachable fraction of  $\Delta$ configuration space  as a function of initial distance $d_{12}$.  
-  As long as the initial configurations are distinct, the reachable set grows quickly. 
-   Only epipolar locations are unreachable, but can be asymptotically reached.
 }
 \end{figure}
 
-
-
-Text \\
-
-??? INSERT NEW IMAGE SHOWING FRACTION OF WORKSPACE REACHABLE IN 2 moves and 4 moves for a specific initial Delta config \\
-
-MORE TEXT \\
-
-
+Two example sets of the reachable $\Delta$ configuration space for  $d_{12} = 0.1$ and $d_{12} = 0.3$ are shown in Fig.~\ref{fig:reachableSets}.  After two moves, $d_{12} = 0.1$ reaches only 6.3\% of the $\Delta$ configuration space, but 30\% in four moves, 55\% in six moves, 75\% in eight, 86\% in ten, 93\% in twelve, and 96\% in fourteen moves.
+%{0.1`, 0.06275233581754532`, 0.2996219528008345`, 0.5531978612123086`, 0.7453936085358723`, 0.8631378723622217`, 0.9280921766555345`, 0.9614346262938109`}
+ Though these images show reachable sets with initial particle-to-particle angle $\theta=0$, all other sets for other $\theta$ values can be formed by rotating by $\theta$.
 
 \begin{figure}
 \centering
@@ -480,7 +475,6 @@ MORE TEXT \\
 \begin{overpic}[width=.8\columnwidth]{ReachableSets0p3}\end{overpic}
 \caption{\label{fig:reachableSets}
   Plots showing the 2, 4, 6, 8, 10, 12, and 14-move reachable sets in the  $\Delta$ configuration space for  $d_{12} = 0.1$ and $0.3$.  
-  Shown are reachable sets with initial particle-to-particle angle $\theta=0$, all other sets for other angle values can be formed by rotating by $\theta$.
 }
 \end{figure}
 
@@ -496,7 +490,7 @@ Illustration on how boundary contacts enable 3D positioning. Once one particle c
 \end{figure}
 
 Extending path planning to 3D is possible only if the two particles do not initially have the same $x$ and $y$ positions.
-For ease of analysis, we assume the workspace boundaries extend in the $\pm z$ direction to form either right cylinders or right prisms.
+For ease of analysis, we assume neutrally buoyant particles with workspace boundaries that extend in the $\pm z$ direction to form either right cylinders or right prisms.
 If the 3D projection is at a different angle, redefine the 2D workspace as a region perpendicular to the projection.
  First, we move the closest particle to the boundary, which prevents its $z$-coordinate from changing.  
  We next apply actuation in either the $\pm z$ direction to achieve the desired $\Delta z$.
@@ -506,7 +500,7 @@ If the 3D projection is at a different angle, redefine the 2D workspace as a reg
  The blue particle starts in the blue disk and the red particle starts in the red disk. 
  The two candidate shortest-length paths that touch the wall are shown with parallel arrows. 
 Each arrow will cause one of the particles to touch the wall, enabling the other particle to move freely in the  $z$-axis to achieve the required relative position.
-This can be extended to other 3D workspaces if the workspace can be locally approximated as a 3D prism or cylinder. Other workspaces may be better handled by other path planners, such as \cite{AaronManipulation2013}, which used  collisions with  protrusions of the workspace to rearrange particles.
+This can be extended to other 3D workspaces if the workspace can be locally approximated as a 3D prism or cylinder. Other workspaces may be better handled by other path planners, such as RRT \cite{LavalleTODO-Shiva}, or \cite{AaronManipulation2013}, which used  collisions with  protrusions of the workspace to rearrange particles.
 
 
 
