@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Covariance control}
+\section{Shape  Control using Rigid Boundaries}
 \label{sec:covControl}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure*}[!htb]
@@ -23,7 +23,8 @@
 \end{center}
 \vspace{-1em}
 \end{figure*} 
-Covariance control as well as mean position and variance control is needed when the swarm is moving through narrow passageways. This section discusses ideas to control covariance of the swarm using boundaries.
+Shape control using angle of repose only considers the particles that pile up on the object, but most of the particles pass by.
+ This section instead focuses on shape control of the entire group when all the particles are pushed against rigid boundaries, starting by examining analytically all possible configurations in two canonical configuration spaces, and then examining the effect of boundary layer friction.
 
 \subsection{Using boundaries: stable configurations of a swarm}\label{subsec:FluidInTank}
 One method to control a swarm's shape in a bounded workspace is to simply push in a given direction until the swarm conforms to the boundary. Like fluid settling in a tank, the stable final configuration minimizes potential energy.
