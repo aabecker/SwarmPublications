@@ -47,6 +47,10 @@ If the rod moves slower than the particles, some particles will slide past the r
  defined by a steepest angle of descent perpendicular to the direction of particle motion. 
 This piling up is common to all granular media, and the angle formed is a function of the \emph{angle of repose}. Three different values of angle of repose is shown in Fig.~\ref{fig:angle}. The center of mass of the rod is in the middle of the rod, but center of mass of the granular particles changes for different values of angle of repose. % for the media, see \cite{angleofRepose}. 
  By measuring the angle of repose for the particles shown in the top plot of Fig.~\ref{fig:AngleOfReposeForce}, we can estimate the force and torque that the swarm is applying to the rod as a function of the rod's length, the angle of repose, and orientation of the rod.
+ In this plot, particulate is moving in the $-y$ direction, and the rods are tilted at $\theta=\{-45,-22.5,0,22.5,45\}^\circ$ with respect to the $x$ axis. 
+  A thin black line extends upwards from the rod COM, and the COM of the particulate is shown by a white and black disk.   
+  More particulate is heaped on the right side of the rod for positive $\theta$ and more on the left side for negative $\theta$. 
+  This uneven particulate generates a restoring torque. 
  We define the angle of repose as $\alpha$, the rod's orientation relative to 90$^\circ$ from the particle movement vector as $\theta$, and the rod's length as $\ell$. 
 
 By integrating over the triangular shape, the force applied to the rod (when a unit area of particles produces 1 N of force) is
@@ -63,13 +67,8 @@ By integrating over the triangular shape, the force applied to the rod (when a u
 \end{overpic}
 \vspace{-0.5em}
 \caption{\label{fig:AngleOfReposeForce} Top plot shows colored particulate heaped up on pink-colored long rods. 
-%Particulate is moving in the $-y$ direction, and the rods are tilted at $\theta=\{-45,-22.5,0,22.5,45\}^\circ$ with respect to the $x$ axis. 
-% A thin gray line extends upwards from the rod COM, showing how more particulate is heaped on the right side of the rod for positive $\theta$ and more on the left side for negative $\theta$. 
-%  This uneven particulate generates a restoring torque. 
  Middle plot shows the force applied to the rod and bottom the torque as a function of $\theta$ for four angle of repose values.
- %The rod length $\ell=1$. 
    The maximum torque values from \eqref{eq:maxTorqueAngleGivenAOR} are shown with black dots, producing a line that is approximately $-\ell^3/36 \theta_{t_{\max}}$.
-  % \textcolor{red}{Dr B: I don't believe that this fit line is really linear.  Someone must look at the mathematica and figure out the fit.  The fit is linear, but it is }
 % Generating code is in the attachment. 
 \vspace{-2em}
 }
@@ -89,7 +88,7 @@ F(\theta,\alpha,\ell) =\left\{
 %F(\theta,\alpha,l)  = \frac{l^2}{8\cos\alpha\sin{\theta}} \Big(\cos(2\theta)-\cos(2\alpha)\Big).
 %\end{align}
 
-The force for different angle of repose values are shown in the middle plot of Fig.~\ref{fig:AngleOfReposeForce}. 
+The force for different angle of repose values are shown in the middle plot of Fig.~\ref{fig:AngleOfReposeForce}, with the rod length $\ell=1$. 
 Torque will also be similarly defined as
 \begin{align}
 \tau(\theta, \alpha, \ell) =\left\{
@@ -99,7 +98,7 @@ Torque will also be similarly defined as
 \end{array} 
 \right.
 \end{align}
-Torque is shown in the bottom plot of Fig.~\ref{fig:AngleOfReposeForce}.
+Torque is shown in the bottom plot of Fig.~\ref{fig:AngleOfReposeForce} with the rod length $\ell=1$. 
  Given sufficient particles to pile up to the angle of repose, this torque tends to stabilize the object to be perpendicular to the pushing direction.
 Force is maximized with $\theta=0$, but the $\theta$ value that maximizes torque is a function of $\alpha$ and is defined as
 \begin{align}\label{eq:maxTorqueAngleGivenAOR}
