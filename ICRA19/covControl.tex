@@ -124,14 +124,14 @@ Assume an obstacle-free, bounded, unit-size, square workspace.
 \end{cases}.
 \end{align}
  If friction obeys the linear boundary layer model of \eqref{eq:boundarylayerflow} with boundary layer thickness $h$ and maximum friction $F_f$ equal to the maximum applied force $F$, we can generate  larger correlations.
- If the swarm size is smaller than $\approx 0.43$ and the boundary layer is sufficiently thick we can generate correlations larger than 1/2  using boundary friction.
+ If the swarm size is smaller than $A \approx 0.43$ and the boundary layer is sufficiently thick we can generate correlations larger than 1/2  using boundary friction.
 
  Assume that the swarm is initialized in the lower-left corner, in a rectangle of width $w$ and height $A/w$. 
  Such a rectangular configuration can be accomplished using the variance controllers from \cite{ShahrokhiIROS2015}. 
   If the swarm is then commanded to move a distance $L$ to the right, components of the swarm outside the boundary friction layer of height $h$ move further than components near the boundary. 
    The swarm is contained in a region $R$ composed of no more than three stacked components: at bottom a parallelogram inclined to the right top, at middle a rectangle, and at top a parallelogram inclined to the left top. These regions can be defined by the rectangle's left side, bottom, and top:
 \begin{align}
-r_{\text{left}} &= \min (L,1-w),\nonumber \\
+r_{\text{left}} &= \min \left(L,1-w \right),\nonumber \\
 r_{\text{bottom}} &=\min \left(\frac{A}{w}, h\frac{r_{\textrm{left}}}{L}  \right) \text{and}\nonumber \\
 r_{\text{top}}  &= \min \left(\frac{A}{w}, 1-h\frac{r_{\text{left}}}{L}  \right).
 \end{align}
@@ -164,12 +164,11 @@ Larger boundary layers $h$ enable more control of correlation.
 \end{center}
 \vspace{-1em}
 \caption{\label{fig:ControlledCorrelation}
-Analytical results comparing maximum correlation $\rho_{xy}$ under the boundary layer friction model of \eqref{eq:correlationFriction} with four boundary layer thicknesses $h$ and the stable triangular configuration \eqref{eq:GravityCorrelation}.
-}\vspace{-1em}
-\end{figure}
+Analytical results comparing maximum correlation $\rho_{xy}$. Lines labeled \textsf{F} use the boundary layer friction model of \eqref{eq:correlationFriction} with four boundary layer thicknesses $h$ and the stable triangular configuration \eqref{eq:GravityCorrelation}.
+}\end{figure}
 
 
-\section{Experiments}
+\section{Experiments}\label{sec:Experiments}
 
 \subsection{Hardware experiment: particle angle of repose}
 In this section we vary the force and approach angle to shape a swarm with a characteristic angle of repose.  
@@ -198,7 +197,8 @@ Magnified image of salt and iron at angle of repose.
 
 \subsection{Hardware experiment: kilobot angle of repose}
 
-In this section we vary the force and approach angle to shape a swarm of Kilobots \cite{rubenstein2014programmable} with a characteristic angle of repose. Kilobot is a three centimeter low cost robot that has light sensor. In our experiments, these robots were programmed to go toward the brightest light in the room. The experimental setup is shown in Fig. \ref{fig:SetUp}. Figure \ref{fig:kilobotAngle} shows angle of repose of the Kilobots with three different angles of the pink rod when the rod has 0$^\circ$, 22.5$^\circ$ and 45$^\circ$. The green lines show the triangle that the robots pile up. The cyan star is the center of mass of the rod, and mean position and variance of the robots are shown with a red star and red ellipse.
+In this section we vary the force and approach angle to shape a swarm of Kilobots \cite{rubenstein2014programmable} with a characteristic angle of repose. 
+ A Kilobot is a three-centimeter diameter,  low-cost robot with a light sensor. In our experiments, these robots were programmed to go toward the brightest light in the room. The experimental setup is shown in Fig. \ref{fig:SetUp}. Figure \ref{fig:kilobotAngle} shows angle of repose of the Kilobots with three different angles of the pink rod when the rod has 0$^\circ$, 22.5$^\circ$ and 45$^\circ$. The green lines show the triangle that the robots pile up. The cyan star is the center of mass of the rod, and mean position and variance of the robots are shown with a red star and red ellipse.
 \begin{figure}
 \begin{center}
 	\includegraphics[width=\columnwidth]{SetUp.pdf}

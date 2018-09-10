@@ -18,8 +18,11 @@
 % For each task, large numbers of micro robots are required to deliver sufficient payloads, but 
 
 Shape control of many particles is essential for navigation, construction, and conveying information. 
- The small size of the particles makes it hard or even impossible to control each particle position individually. Instead, these particles are controlled with a single global control input.
- In previous work, we illustrated algorithms that could adjust the position of two particles in an environment with walls that have non-slip contacts \cite{shahrokhi2017}. We assumed that if a particle is touching a wall, it will stay still until the uniform input pull it from the wall. This work analyses interactions between the boundary and the particle swarm to shape shape of the swarm. In \cite{shahrokhi2018TRO} we showed how to control swarm statistics including mean position and variance. This work extends that work to shape control.
+ The small size of the particles makes it hard or even impossible to control each particle's position individually. Instead, these particles are often controlled with a single global control input.
+ In previous work, we gave algorithms that could adjust the position of two particles in an environment with walls that have non-slip contacts~\cite{shahrokhi2017}. We assumed that if a particle is pushed into a wall, it will not move until a uniform input pulls it from the wall.
+   This work analyses interactions between the rigid obstacles and the particles to control the configuration of the particles.
+    % In \cite{shahrokhi2018TRO} we showed how to control swarm statistics including the mean position and variance. 
+    % This work extends that work to shape control.
 
 
 
@@ -57,11 +60,12 @@ Shape control of many particles is essential for navigation, construction, and c
 
 
 The paper is arranged as follows. 
-After a review of recent related work in Sec.  \ref{sec:RelatedWork},
- %Sec. \ref{subsec:FluidInTank} provides analytical position control results of stable configurations in two canonical workspaces with frictionless walls.  These results are limited in the set of shapes that can be generated.  To extend the range of possible shapes,
-  Sec.  \ref{sec:angle} introduces angle of repose, a parameter of the particle swarm that can be used for shape control. 
-Section  \ref{sec:covControl} describes implementations of the algorithms of covariance control in simulation and hardware experiments. 
+After a review of recent related work in Sec.~\ref{sec:RelatedWork},
+  Sec.~\ref{sec:angle} introduces angle of repose, a parameter of the particle swarm that can be used for shape control. 
+Section \ref{sec:covControl} provides analytical position control results of stable configurations in two canonical workspaces with frictionless walls.  These results are limited in the set of shapes that can be generated.  To extend the range of possible shapes, the section explores using linear boundary friction.
+%describes implementations of the algorithms of covariance control in simulation and hardware experiments. 
  % Sec.  \ref{sec:expResults} 
+ Hardware experiments and results are presented in Sec.~\ref{sec:Experiments}.
  We end with directions for future research in Sec.  \ref{sec:conclusion}.
 
 
