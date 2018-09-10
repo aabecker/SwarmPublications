@@ -82,7 +82,7 @@ F(\theta,\alpha,\ell) =\left\{
 \frac{\ell^2\Big(\cos(2\theta)-\cos(2\alpha)\Big)}{8\cos(\alpha)\sin(\theta)} &   -\alpha<\theta<\alpha\\
 0 &    \textrm{otherwise .}\\
 \end{array} 
-\right .\\
+\right . \label{eq:ForceAOR}
 \end{align}
 
 
@@ -110,7 +110,7 @@ To maximize the torque a particulate swarm applies on a thin rod, the swarm shou
 
 \subsection{Shape Control}
 
-Often the angle of the rigid  is given, but we can choose the desired approach direction $\beta$. 
+Often the angle of the rigid rod is given, but we can choose the desired approach direction $\beta$. 
  This section examines the possible shapes that can be generated given a rigid rod of length $\ell$, an angle of repose $\alpha$, and an approach angle where the swarm moves at angle relative to the long axis of the rod $\beta$.
 
 Computing means, variances, covariance, and correlation requires integrating over $R$, the region containing the swarm and are calculated as%This is simplified using an indicator function $\bm{1}_A(x,y)$ that returns 1 if inside the region containing the swarm, and 0 else. 
@@ -123,12 +123,40 @@ A &=\iint_R \,dx\,dy \text{, }
 %\end{align}
 %\begin{align}
 \sigma^2_x &=\frac{\iint_R \left(x-\bar{x}\right)^2  \,dx \,dy}{A}  \label{eq:varInSquareWorkspace}
-\text{, } \sigma^2_y =\frac{\iint_R  \left(y-\bar{y}\right)^2 \,dx \,dy}{A}\text{, and}\\
+\text{, } \sigma^2_y =\frac{\iint_R  \left(y-\bar{y}\right)^2 \,dx \,dy}{A}  \text{, }\\
 %\end{align}
 %\begin{align}
 \sigma_{xy} &= \frac{\iint_R  \left(x-\bar{x}\right) \left(y-\bar{y}\right) \, dx \,dy}{A} \label{eq:covAndcorrInSquareWorkspace}
-\text{, }\rho_{xy} = \frac{\sigma^2_x}{\sigma_x\sigma_y}.
+\text{, }\rho_{xy} = \frac{\sigma_{xy}}{\sqrt{\sigma^2_x\sigma^2_y}}.
 \end{align}
 
+Using these equations, we can calculate the representative shape statistics as a function of approach angle $\beta$, a one degree-of-freedom set. 
+For instance, the area $A$ of the particles is \eqref{eq:ForceAOR} with $\theta = \beta + \pi/2$, and the $y$-variance is
+\begin{align}
+\sigma_y^2(\alpha, \beta,\ell) &= \frac{1}{72}   \left( \cot(2\alpha) + \frac{\cos(2\beta)}{ \cos(2\alpha)} \right)^2.
+\end{align}
+Representative results are shown in Fig.~\ref{fig:AngleOfReposeStatistics}.
 
+
+
+\begin{figure}
+\centering
+\renewcommand{\figwid}{\columnwidth}
+\begin{overpic}[width =\figwid]{aorYmean}%\put(1,55){a)}
+\end{overpic}\\
+\vspace{0.5em}
+\begin{overpic}[width =\figwid]{aorVarX}%\put(1,55){a)}
+\end{overpic}\\
+\vspace{0.5em}
+\begin{overpic}[width =\figwid]{aorCovariance}%\put(1,55){a)}
+\end{overpic}
+\vspace{-0.5em}
+\caption{\label{fig:AngleOfReposeStatistics} 
+Each plot shows a statistic of the swarm shape for several angle of repose $\alpha$ values as a function of the approach angle $\beta$ with $\ell = 1$.
+Top plot shows the mean y coordinate $\bar{y}$,
+ middle plot shows $x$-variance $\sigma^2_x$, and
+ bottom plot shows the covariance $\sigma_{xy}$.
+\vspace{-2em}
+}
+\end{figure}
 

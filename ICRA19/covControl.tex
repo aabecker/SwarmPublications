@@ -27,7 +27,7 @@ Shape control using angle of repose only considers the particles that pile up on
  This section instead focuses on shape control of the entire group when all the particles are pushed against rigid boundaries, starting by examining analytically all possible configurations in two canonical configuration spaces, and then examining the effect of boundary layer friction.
 
 \subsection{Using boundaries: stable configurations of a swarm}\label{subsec:FluidInTank}
-One method to control a swarm's shape in a bounded workspace is to simply push in a given direction until the swarm conforms to the boundary. Like fluid settling in a tank, the stable final configuration minimizes potential energy.
+One method to control a swarm's shape in a bounded workspace is to simply push in a given direction until the swarm conforms to the boundary. Like fluid settling in a tank, the stable final configuration minimizes potential energy. The set of final configurations are parametrized by a single degree of freedom, the global input angle $\beta$.
 \paragraph{Square workspace}
 %The formulas for means $(\bar{x},\bar{y})$, covariance $(\sigma^2_x,\sigma^2_y,\sigma_{xy})$, and correlation $\rho_{xy}$ are as follows: 
 We first examine the mean $(\bar{x},\bar{y})$, covariance $(\sigma^2_x,\sigma^2_y,\sigma_{xy})$, and correlation $\rho_{xy}$ of a large swarm of robots as they move inside a square workspace under the influence of a force pulling in the direction $\beta$. The swarm is large, but the robots are small in comparison, and together occupy a constant area $A$, $A\in [0,1]$. Under a global input, the swarm moves to a side of the workspace and forms a polygonal shape that minimizes potential energy, as shown in Fig.~\ref{fig:SquareFill}. % see also \cite{Zhao2016mathematicaSquare}.
@@ -43,7 +43,7 @@ The region of integration $R$ is the polygon containing the swarm. For example, 
 \bar{y}(A,\beta) &= \frac{\int_0^{\sqrt{2 A \tan (\beta)}} \left(\int_0^{\cot (\beta) \left(\sqrt{2 A \tan (\beta)}-x\right)} y \, dy\right) \, dx}{A} \nonumber\\
 	&=\frac{\sqrt{2}}{3}  \sqrt{A \cot (\beta )}.
 \end{align}
-The full equations are summarized in Fig.~\ref{fig:SquareFill}. A few highlights are that the correlation is maximized $\pm$1/2 when the swarm is in a triangular shape. The covariance of a triangle is always $\pm(A/18)$. Variance is minimized in the direction of $\beta$ and maximized orthogonal to $\beta$ when the swarm is in a rectangular shape. The range of mean positions are maximized when $A$ is small.
+The full equations are summarized in Fig.~\ref{fig:SquareFill}. For the full equations and demonstration code, see~\cite{Haoran2016SwarminSquare}. A few highlights are that the correlation is maximized $\pm$1/2 when the swarm is in a triangular shape. The covariance of a triangle is always $\pm(A/18)$. Variance is minimized in the direction of $\beta$ and maximized orthogonal to $\beta$ when the swarm is in a rectangular shape. The range of mean positions are maximized when $A$ is small.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Circular workspace}
@@ -58,7 +58,7 @@ For a circular workspace, the locus of mean positions are aligned with $\beta$ a
 \begin{align}
 r(h) = \frac{2 (-(h-2) h)^{3/2}}{3 \left(\sqrt{-(h-2) h} (h-1)+\arccos(1-h)\right)}.
 \end{align}
-Variance $\sigma^2_x(\beta,h)$ is maximized at $\beta = \pi/2+n \pi$ and $h\approx1.43$, while covariance is maximized at $\beta = \pi3/4+n \pi$ and $h\approx0.92.$ For small $h$ values, correlation approaches $\pm1$. Results are displayed in Fig.~\ref{fig:CircleFill}.%, see also \cite{Zhao2016mathematica}.
+Variance $\sigma^2_x(\beta,h)$ is maximized at $\beta = \pi/2+n \pi$ and $h\approx1.43$, while covariance is maximized at $\beta = \pi3/4+n \pi$ and $h\approx0.92.$ For small $h$ values, correlation approaches $\pm1$. Results are displayed in Fig.~\ref{fig:CircleFill}.  For the full equations and demonstration code, see~\cite{Haoran2016SwarminCircle}.%, see also \cite{Zhao2016mathematica}.
 
 %Smashing the swarm to the corner walls will cause some correlation between \emph{x} and \emph{y} axes. Eq. ~\ref{eq:Wall} shows the relation between number of robots and area provided and the correlation we can reach with it.
 %%TODO: ADD the equation for showing the correlation Vs area, vs number of robots
