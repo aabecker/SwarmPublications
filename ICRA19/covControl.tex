@@ -7,7 +7,7 @@
 \includegraphics[width=\linewidth]{SquareFill.pdf} 
 \vspace{-1em}
 \caption{Pushing the swarm against a square boundary wall allows limited control of the shape of the swarm, as a function of swarm area $A$ and the commanded movement direction $\beta$. Left plot shows locus of possible mean positions for five values of $A$.  %The locus morphs from a square to a circle as $A$ increases.  The covariance ellipse for each $A$ is shown with a dashed line.
- Center shows two corresponding arrangements of kilobots. % At right is $\bar{x}(A), \sigma_{xy}(A), \sigma_x^2(A),$ and $\rho(A)$ for a range of $\beta$ values. See online interactive demonstration at \cite{Zhao2016mathematicaSquare}.
+ Center shows two corresponding arrangements of kilobots.  At right is $\bar{x}(A), \sigma_{xy}(A), \sigma_x^2(A),$ and $\rho(A)$ for a range of $\beta$ values. See online interactive demonstration at \cite{Haoran2016SwarminSquare}.
  }
 \label{fig:SquareFill}
 \end{center}
@@ -17,7 +17,7 @@
 \vspace{-1em}
 \includegraphics[width=\linewidth]{CircleFill.pdf} 
 \vspace{-1em}
-\caption{Pushing the swarm against a circular boundary wall allows limited control of the shape of the swarm, as a function of the fill level $h$ and the commanded movement direction $\beta$. Left plot shows locus of possible mean positions for four values of $h$. %The locus of possible mean positions are concentric circles. %See online interactive demonstration at \cite{Zhao2016mathematica}.
+\caption{Pushing the swarm against a circular boundary wall allows limited control of the shape of the swarm, as a function of the fill level $h$ and the commanded movement direction $\beta$. Left plot shows locus of possible mean positions for four values of $h$. The locus of possible mean positions are concentric circles. See online interactive demonstration at \cite{Haoran2016SwarminCircle}.
 }  
 \label{fig:CircleFill}
 \end{center}
@@ -30,7 +30,7 @@ Shape control using angle of repose only considers the particles that pile up on
 One method to control a swarm's shape in a bounded workspace is to simply push in a given direction until the swarm conforms to the boundary. Like fluid settling in a tank, the stable final configuration minimizes potential energy. The set of final configurations are parametrized by a single degree of freedom, the global input angle $\beta$.
 \paragraph{Square workspace}
 %The formulas for means $(\bar{x},\bar{y})$, covariance $(\sigma^2_x,\sigma^2_y,\sigma_{xy})$, and correlation $\rho_{xy}$ are as follows: 
-We first examine the mean $(\bar{x},\bar{y})$, covariance $(\sigma^2_x,\sigma^2_y,\sigma_{xy})$, and correlation $\rho_{xy}$ of a large swarm of robots as they move inside a square workspace under the influence of a force pulling in the direction $\beta$. The swarm is large, but the robots are small in comparison, and together occupy a constant area $A$, $A\in [0,1]$. Under a global input, the swarm moves to a side of the workspace and forms a polygonal shape that minimizes potential energy, as shown in Fig.~\ref{fig:SquareFill}. % see also \cite{Zhao2016mathematicaSquare}.
+We first examine the mean $(\bar{x},\bar{y})$, covariance $(\sigma^2_x,\sigma^2_y,\sigma_{xy})$, and correlation $\rho_{xy}$ of a large swarm of particles as they move inside a square workspace under the influence of a force pulling in the direction $\beta$. The swarm is large, but the particles are small in comparison, and together occupy a constant area $A$, $A\in [0,1]$. Under a global input, the swarm moves to a side of the workspace and forms a polygonal shape that minimizes potential energy, as shown in Fig.~\ref{fig:SquareFill}. % see also \cite{Zhao2016mathematicaSquare}.
 
 The range for the global input angle $\beta $ is [0,2$\pi $). In this range, the swarm assumes eight different polygonal shapes. 
 These shapes alternate between triangles and trapezoids when the area $A$$<$1/2, and between squares with one corner removed and trapezoids when $A$$>$1/2.
@@ -43,14 +43,14 @@ The region of integration $R$ is the polygon containing the swarm. For example, 
 \bar{y}(A,\beta) &= \frac{\int_0^{\sqrt{2 A \tan (\beta)}} \left(\int_0^{\cot (\beta) \left(\sqrt{2 A \tan (\beta)}-x\right)} y \, dy\right) \, dx}{A} \nonumber\\
 	&=\frac{\sqrt{2}}{3}  \sqrt{A \cot (\beta )}.
 \end{align}
-The full equations are summarized in Fig.~\ref{fig:SquareFill}. For the full equations and demonstration code, see~\cite{Haoran2016SwarminSquare}. A few highlights are that the correlation is maximized $\pm$1/2 when the swarm is in a triangular shape. The covariance of a triangle is always $\pm(A/18)$. Variance is minimized in the direction of $\beta$ and maximized orthogonal to $\beta$ when the swarm is in a rectangular shape. The range of mean positions are maximized when $A$ is small.
+The set of configurations are summarized in Fig.~\ref{fig:SquareFill}. For the full equations and demonstration code, see~\cite{Haoran2016SwarminSquare}. A few highlights are that the correlation is maximized $\pm$1/2 when the swarm is in a triangular shape. The covariance of a triangle is always $\pm(A/18)$. Variance is minimized in the direction of $\beta$ and maximized orthogonal to $\beta$ when the swarm is in a rectangular shape. The range of mean positions are maximized when $A$ is small.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Circular workspace}
 Though rectangular boundaries are common in artificial workspaces, biological workspaces are usually rounded.
 Similar calculations can be made for a circular workspace.  The workspace is a circle centered at (0,0) with radius 1 and thus area $\pi$.
 For notational simplicity, the swarm is parameterized by the global control input signal $\beta$ and the fill-level $h$.  
-Under a global input, the robot swarm fills the region under a chord with area
+Under a global input, the particle swarm fills the region under a chord with area
 \begin{align}
 A(h) = \arccos(1-h)-(1-h) \sqrt{(2-h) h}.
 \end{align}
@@ -60,8 +60,8 @@ r(h) = \frac{2 (-(h-2) h)^{3/2}}{3 \left(\sqrt{-(h-2) h} (h-1)+\arccos(1-h)\righ
 \end{align}
 Variance $\sigma^2_x(\beta,h)$ is maximized at $\beta = \pi/2+n \pi$ and $h\approx1.43$, while covariance is maximized at $\beta = \pi3/4+n \pi$ and $h\approx0.92.$ For small $h$ values, correlation approaches $\pm1$. Results are displayed in Fig.~\ref{fig:CircleFill}.  For the full equations and demonstration code, see~\cite{Haoran2016SwarminCircle}.%, see also \cite{Zhao2016mathematica}.
 
-%Smashing the swarm to the corner walls will cause some correlation between \emph{x} and \emph{y} axes. Eq. ~\ref{eq:Wall} shows the relation between number of robots and area provided and the correlation we can reach with it.
-%%TODO: ADD the equation for showing the correlation Vs area, vs number of robots
+%Smashing the swarm to the corner walls will cause some correlation between \emph{x} and \emph{y} axes. Eq. ~\ref{eq:Wall} shows the relation between number of particles and area provided and the correlation we can reach with it.
+%%TODO: ADD the equation for showing the correlation Vs area, vs number of particles
 % This equation shows that we are not able to reach high correlations bigger than $|0.5|$. Fig. ~\ref{fig:wallCorrelation} shows the different mean positions and correlations we are able to reach. There are ways and corridors that the swarm needs to pass and also to keep the majority of it. If we use the wall corners technique and the way needs a very high correlation to pass, a remarkable number of the swarm members will be lost, and we may lose track of them due to their small size. Meanwhile, the variance of the swarm would get bigger and bigger that it would not anymore be able to deliver sufficient payloads. For this reason we have thought another idea which uses \emph{friction} to make correlations.
 %
 
@@ -74,22 +74,22 @@ If the swarm can flow around each other, pushing the swarm into a boundary produ
 %Controlling covariance by pushing the swarm into a boundary requires changes to the boundary.  
 %An obstacle in the lower-right corner is enough to generate positive covariance, but generating both positive and negative covariance requires additional obstacles.  
 %Requiring a special obstacle configuration also makes shape control dependent on the local environment. 
-Instead of pushing our robots directly into a wall, the following sections examine an oblique approach  using boundaries that generate friction with the robots. 
+Instead of pushing our particles directly into a wall, the following sections examine an oblique approach  using boundaries that generate friction with the particles. 
  These frictional forces are  sufficient to break the symmetry caused by uniform inputs.  
-Robots touching a wall have a friction force that opposes movement along the boundary.  
-This causes robots along the boundary to move more slowly than robots in free-space. 
+ Particles touching a wall have a friction force that opposes movement along the boundary.  
+This causes particles along the boundary to move more slowly than particles in free-space. 
   
-Let the control input be a vector force $\vec{F}$ with magnitude $F$ and orientation $\theta$ with respect to a line perpendicular to and into the nearest boundary. $N$ is the normal or perpendicular force between the robot and the boundary. The force of friction $F_f$ is nonzero if the robot is in contact with the boundary and  $\sin(\theta) < 0$. The resulting net force on the robot, $F_{\text{\emph{forward}}}$, is aligned with the wall and given by
+Let the control input be a vector force $\vec{F}$ with magnitude $F$ and orientation $\theta$ with respect to a line perpendicular to and into the nearest boundary. $N$ is the normal or perpendicular force between the particle and the boundary. The force of friction $F_f$ is nonzero if the particle is in contact with the boundary and  $\sin(\theta) < 0$. The resulting net force on the particle, $F_{\text{\emph{forward}}}$, is aligned with the wall and given by
 \begin{align}
 F_{\text{\emph{forward}}} &=  F \sin(\theta) - F_f , \nonumber \\
 \text{where }  F_f &= \begin{cases}  \mu_f N, &  \mu_f N < F \sin(\theta)  \label{eq:frictionmodel}  \\
 F \sin(\theta), & \text{else} \end{cases} \\ %\sign(F \sin(\theta) ) \cdot  \max(0, | F sin\theta |- |F_f|)
 \text{and } N &= F \cos(\theta) .\nonumber
 \end{align}
- Fig.~\ref{fig:friction} shows the resultant forces on two robots when one is touching a wall. 
+ Fig.~\ref{fig:friction} shows the resultant forces on two particles when one is touching a wall. 
 Though each receives the same inputs,  they experience different net forces.
-  For ease of analysis, the following algorithms assume $\mu_f$ is infinite and robots touching the wall are prevented from sliding along the wall.
-This means that if one robot is touching the wall and another robot is free, the touching robot will not move when the control input is parallel or into the wall. 
+  For ease of analysis, the following algorithms assume $\mu_f$ is infinite and particles touching the wall are prevented from sliding along the wall.
+This means that if one particle is touching the wall and another particle is free, the touching particle will not move when the control input is parallel or into the wall. 
 There are many alternate models of friction that also break control symmetry. Fig.~\ref{fig:friction}c shows fluid flow along a boundary.  Fluid in the free-flow region moves uniformly, but flow decreases to zero in the boundary layer \cite{fluidMechanics}.  Force in such a system can be calculated as
 \begin{align}
 %u(y) = u_0 \left(1- \frac{(y-h)^2}{h^2}\right) = u_0 \frac{y}{h} \left(2- \frac{y}{h}\right) \label{eq:boundarylayerflow} THiS EQUATION IS TERRIBLE! PLOT IT.
@@ -97,12 +97,11 @@ F_{\text{\emph{forward}}}(y) &= F - F_f\begin{cases}  \frac{h-y}{h}   , &  y<h \
 0, & \text{else} \end{cases}.
 \end{align}
 
-The next section shows how a system in a rectangularly bounded workspace with friction model \eqref{eq:frictionmodel} can arbitrarily position two robots. 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.8\columnwidth]{friction.pdf} 
 \vspace{-1em}
-\caption{(a,b) Wall friction reduces the force for going forward $F_{\text{\emph{forward}}}$ on a robot near a wall, but not for a free robot. (c) velocity of a fluid reduces to zero at the boundary.
+\caption{(a,b) Wall friction reduces the force for going forward $F_{\text{\emph{forward}}}$ on a particle near a wall, but not for a free particle. (c) velocity of a fluid reduces to zero at the boundary.
 \label{fig:friction}
 }\vspace{-1em}
 \end{center}
@@ -155,7 +154,7 @@ The maximum correlation using boundary layer friction $\displaystyle  \max_{w,L}
 For swarms with small area, this method enables generating the full range of correlations $\pm 1$. %, while the stable configuration method from Section \ref{sec:theory} could only generate correlations $\pm 1/2$.  
   As  the swarm area $A$ increases above $\approx 0.43$, the stable configuration method is more effective.
 Larger boundary layers $h$ enable more control of correlation.
-The multimedia attachment shows efficient control of correlation with simulations using the 2D physics engine Box2D~\cite{catto2010box2d} and 144 disc-shaped robots with boundary layer model \eqref{eq:boundarylayerflow}.
+%  The video attachment shows efficient control of correlation with simulations using the 2D physics engine Box2D~\cite{catto2010box2d} and 144 disc-shaped robots with boundary layer model \eqref{eq:boundarylayerflow}.
 
 
 
