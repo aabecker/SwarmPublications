@@ -90,11 +90,12 @@ F \sin(\theta), & \text{else} \end{cases} \\ %\sign(F \sin(\theta) ) \cdot  \max
 \end{align}
  Fig.~\ref{fig:friction} shows the resultant forces on two particles when one is touching a wall. 
 Though each receives the same inputs,  they experience different net forces.
-%  For ease of analysis, the following algorithms assume $\mu_f$ is infinite and particles touching the wall are prevented from sliding along the wall. This means that if one particle is touching the wall and another particle is free, the touching particle will not move when the control input is parallel or into the wall. 
-There are many alternate models of friction that also break control symmetry. Fig.~\ref{fig:friction}c shows fluid flow along a boundary.  Fluid in the free-flow region moves uniformly, but flow decreases to zero in the boundary layer of thickness $\ell$ \cite{fluidMechanics}.  Force in such a system can be calculated as
+  For ease of analysis, the following algorithms assume $\mu_f$ is infinite and particles touching the wall are prevented from sliding along the wall.
+This means that if one particle is touching the wall and another particle is free, the touching particle will not move when the control input is parallel or into the wall. 
+There are many alternate models of friction that also break control symmetry. Fig.~\ref{fig:friction}c shows fluid flow along a boundary.  Fluid in the free-flow region moves uniformly, but flow decreases to zero in the boundary layer \cite{fluidMechanics}.  Force in such a system can be calculated as
 \begin{align}
 %u(y) = u_0 \left(1- \frac{(y-h)^2}{h^2}\right) = u_0 \frac{y}{h} \left(2- \frac{y}{h}\right) \label{eq:boundarylayerflow} THiS EQUATION IS TERRIBLE! PLOT IT.
-F_{\text{\emph{forward}}}(y) &= F - F_f\begin{cases}  \frac{\ell -y}{\ell}   , &  y<\ell \label{eq:boundarylayerflow} \\
+F_{\text{\emph{forward}}}(y) &= F - F_f\begin{cases}  \frac{h-y}{h}   , &  y<h \label{eq:boundarylayerflow} \\
 0, & \text{else} \end{cases}.
 \end{align}
 
@@ -124,28 +125,27 @@ Assume an obstacle-free, bounded, unit-size, square workspace.
  , & \frac{1}{2} \le A\le 1
 \end{cases}.
 \end{align}
- If friction obeys the linear boundary layer model of \eqref{eq:boundarylayerflow} with boundary layer thickness $\ell$ and maximum friction $F_f$ equal to the maximum applied force $F$, we can generate  larger correlations.
+ If friction obeys the linear boundary layer model of \eqref{eq:boundarylayerflow} with boundary layer thickness $h$ and maximum friction $F_f$ equal to the maximum applied force $F$, we can generate  larger correlations.
  If the swarm size is smaller than $A \approx 0.43$ and the boundary layer is sufficiently thick we can generate correlations larger than 1/2  using boundary friction.
 
  Assume that the swarm is initialized in the lower-left corner, in a rectangle of width $w$ and height $A/w$. 
  Such a rectangular configuration can be accomplished using the variance controllers from \cite{ShahrokhiIROS2015}. 
-  If the swarm is then commanded to move a distance $L$ to the right, components of the swarm outside the boundary friction thickness $\ell$ move further than components near the boundary. 
+  If the swarm is then commanded to move a distance $L$ to the right, components of the swarm outside the boundary friction layer of height $h$ move further than components near the boundary. 
    The swarm is contained in a region $R$ composed of no more than three stacked components: at bottom a parallelogram inclined to the right top, at middle a rectangle, and at top a parallelogram inclined to the left top. These regions can be defined by the rectangle's left side, bottom, and top:
 \begin{align}
 r_{\text{left}} &= \min \left(L,1-w \right),\nonumber \\
-r_{\text{bottom}} &=\min \left(\frac{A}{w}, \ell \frac{r_{\textrm{left}}}{L}  \right) \text{and}\nonumber \\
-r_{\text{top}}  &= \min \left(\frac{A}{w}, 1-\ell \frac{r_{\text{left}}}{L}  \right).
+r_{\text{bottom}} &=\min \left(\frac{A}{w}, h\frac{r_{\textrm{left}}}{L}  \right) \text{and}\nonumber \\
+r_{\text{top}}  &= \min \left(\frac{A}{w}, 1-h\frac{r_{\text{left}}}{L}  \right).
 \end{align}
 If $\frac{A}{w} \le r_{\text{top}}$ the top parallelogram has no area. 
  Similarly, if $r_{\text{top}} \le r_{\text{bottom}}$ the rectangle has no area. 
 The mean, variance, and correlation are calculated  using \eqref{eq:meanInSquareWorkspace}, \eqref{eq:varInSquareWorkspace}, and \eqref{eq:covAndcorrInSquareWorkspace} over the region $R$:
-%
-\begin{align} \iint_R f(x,y) \, dx \,dy &=  \int_0^{r_{\text{bottom}}}  \int_{\frac{L}{\ell}y}^{\frac{L}{\ell}y+w}  f(x,y)  dx \, dy \label{eq:correlationFriction} \\
+\begin{align} \iint_R f(x,y) \, dx \,dy &=  \int_0^{r_{\text{bottom}}}  \int_{\frac{L}{h}y}^{\frac{L}{h}y+w}  f(x,y)  dx \, dy \label{eq:correlationFriction} \\
 &+\int_{r_{\text{bottom}}}^{r_{\text{top}}} \int_{r_{\text{left}}}^{r_{\text{left}} +w} f(x,y)    dx \, dy \nonumber\\
-&+\int_{r_{\text{top}}}^{\frac{A}{w}} \int_{-\frac{L (y-r_{\text{top}})}{\ell}+r_{\text{left}}}^{r_{\text{left}}+w-\frac{L (y-r_{\text{top}})}{\ell}} f(x,y)   dx \, dy .\nonumber
+&+\int_{r_{\text{top}}}^{\frac{A}{w}} \int_{-\frac{L (y-r_{\text{top}})}{h}+r_{\text{left}}}^{r_{\text{left}}+w-\frac{L (y-r_{\text{top}})}{h}} f(x,y)   dx \, dy .\nonumber
 \end{align}
  
- Given an environment parameterized by $A$ and $\ell$, efficient correlation control consists of choosing the $w,L$ pair  that generates the desired positive correlation.
+ Given an environment parameterized by $A$ and $h$, efficient correlation control consists of choosing the $w,L$ pair  that generates the desired positive correlation.
   Negative correlations can be generated by initializing the swarm in the upper left, or lower right.
 
 \subsection{Efficient control of correlation}
@@ -155,7 +155,7 @@ The mean, variance, and correlation are calculated  using \eqref{eq:meanInSquare
 \end{center}
 \vspace{-1em}
 \caption{\label{fig:ControlledCorrelation}
-Analytical results comparing maximum correlation $\rho_{xy}$. Lines labeled \textsf{F} use the boundary layer friction model of \eqref{eq:correlationFriction} with four boundary layer thicknesses $\ell$ and the stable triangular configuration \eqref{eq:GravityCorrelation}.
+Analytical results comparing maximum correlation $\rho_{xy}$. Lines labeled \textsf{F} use the boundary layer friction model of \eqref{eq:correlationFriction} with four boundary layer thicknesses $h$ and the stable triangular configuration \eqref{eq:GravityCorrelation}.
 \textcolor{red}{??label rbottom, tleft, rtop}
 }\end{figure}
 
@@ -209,7 +209,7 @@ In this section we vary the force and approach angle to shape a swarm of Kilobot
 	\includegraphics[width=\columnwidth]{SetUp.pdf}
 \end{center}
 \caption{\label{fig:SetUp}
-The platform where we control Kilobots with lights.
+Hardware platform for steering Kilobots with lights.
 }
 \end{figure}
 
