@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    348286,       6907]
-NotebookOptionsPosition[    346540,       6844]
-NotebookOutlinePosition[    346897,       6860]
-CellTagsIndexPosition[    346854,       6857]
+NotebookDataLength[    357620,       7125]
+NotebookOptionsPosition[    352698,       7034]
+NotebookOutlinePosition[    353056,       7050]
+CellTagsIndexPosition[    353013,       7047]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -41,7 +41,9 @@ of repose can range from 0\[Degree] to 90\[Degree]. ", "Text"]
 }], "Subchapter",
  CellChangeTimes->{{3.683824312938307*^9, 3.6838243915394907`*^9}, {
   3.683824998055793*^9, 3.683825027831605*^9}, {3.683903155498979*^9, 
-  3.6839031755126743`*^9}, {3.6876009940574493`*^9, 3.68760102409772*^9}}],
+  3.6839031755126743`*^9}, {3.6876009940574493`*^9, 
+  3.68760102409772*^9}},ExpressionUUID->"433bc077-b73e-4f31-8784-\
+dbc14250b581"],
 
 Cell[CellGroupData[{
 
@@ -396,7 +398,8 @@ nNsNoo8Z7loGohdO7F4FosX2n10NojV2yW0F0T2NtQdB9LZKlmMgumi5zgkQ
 d4MhiLaW1DUD0ULni61B9L3yCAcQHfS22xlEzzh02gNEvz0xORhEh+jtjwXR
 iz6w5oPokn0JxSA6YX5uCYj+5PewEkQrde/rA9ENYfOyTgBpg7D0fBB9k3NF
 MYhOSm5qBNHHqlb8OA2yR/LNbxB9gamRrazyteP3U+vANAC58Mz/
-  "]],
+  
+  "],ExpressionUUID->"061deb1c-0e2b-4528-a6e0-cd15fa11bd88"],
 
 Cell[BoxData[
  TagBox[
@@ -412,7 +415,7 @@ Cell[BoxData[
        Hold[$CellContext`\[Theta]$$], 0}, Rational[-5, 12] Pi, 
       Rational[5, 12] Pi, Rational[1, 36] Pi}, {
       Hold[$CellContext`material$$], {"sand", "salt", "corn", "wheat"}}}, 
-    Typeset`size$$ = {360., {116., 121.}}, Typeset`update$$ = 0, 
+    Typeset`size$$ = {360., {50., 54.}}, Typeset`update$$ = 0, 
     Typeset`initDone$$, Typeset`skipInitDone$$ = 
     True, $CellContext`\[Alpha]$218913$$ = 0, $CellContext`\[Theta]$218914$$ =
      0, $CellContext`material$218915$$ = 0}, 
@@ -475,8 +478,8 @@ $CellContext`d$}}],
           
           If[$CellContext`\[Alpha]$$ > 
            Abs[$CellContext`\[Theta]$$], {$CellContext`lside$ = \
-$CellContext`l Sin[$CellContext`\[Theta]$$ + $CellContext`\[Alpha]$$]/Sin[
-              Pi - 2 $CellContext`\[Alpha]$$]; 
+$CellContext`l (Sin[$CellContext`\[Theta]$$ + $CellContext`\[Alpha]$$]/Sin[
+               Pi - 2 $CellContext`\[Alpha]$$]); 
             Polygon[{$CellContext`a$, $CellContext`lside$ {
                   Cos[$CellContext`\[Alpha]$$], 
                   
@@ -497,7 +500,7 @@ $CellContext`l Sin[$CellContext`\[Theta]$$ + $CellContext`\[Alpha]$$]/Sin[
           
           Circle[$CellContext`a$, $CellContext`l/6, {
            Pi, Pi - $CellContext`\[Alpha]$$}], 
-          Area$ = (1/2) $CellContext`lside$ $CellContext`l 
+          Area$ = (((1/2) $CellContext`lside$) $CellContext`l) 
             Sin[$CellContext`\[Alpha]$$ - $CellContext`\[Theta]$$]; Black, 
           Text[
            StringForm["Area = ``", 
@@ -512,7 +515,7 @@ $CellContext`l Sin[$CellContext`\[Theta]$$ + $CellContext`\[Alpha]$$]/Sin[
          Appearance -> "Labeled"}, {$CellContext`material$$, {
          "sand", "salt", "corn", "wheat"}}}, "Options" :> {}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{405., {188., 193.}},
+     ImageSizeCache->{405., {122., 128.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -525,13 +528,31 @@ $CellContext`l Sin[$CellContext`\[Theta]$$ + $CellContext`\[Alpha]$$]/Sin[
   Manipulate`InterpretManipulate[1]]], "Output",
  CellChangeTimes->{{3.684058102301015*^9, 3.684058124582138*^9}, {
    3.6840652353852167`*^9, 3.684065247781168*^9}, 3.687559180417255*^9, 
-   3.6875604448645477`*^9, 3.687561358371175*^9}]
-}, {2}]],
+   3.6875604448645477`*^9, 
+   3.687561358371175*^9},ExpressionUUID->"5225c9d4-d490-479f-81b4-\
+b225f79d3421"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Global`Area","shdw",
+   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"Area\\\\\\\"\\\"}]\\) appears in \
+multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\\\\\\\"Global`\\\\\
+\\\"\\\", \\\",\\\", \\\"\\\\\\\"System`\\\\\\\"\\\"}], \\\"}\\\"}]\\); \
+definitions in context \\!\\(\\*RowBox[{\\\"\\\\\\\"Global`\\\\\\\"\\\"}]\\) \
+may shadow or be shadowed by other definitions.\"",2,133,18,
+   32851579753396092473,"Local","Global`Area"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7458278063787203`*^9},ExpressionUUID->"2613e204-80fe-411c-ade1-\
+d5ad2ac9ed9a"]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell["Compute the Torque about the center of the object", "Subsection",
- CellChangeTimes->{{3.684065388893179*^9, 3.684065402042365*^9}}],
+ CellChangeTimes->{{3.684065388893179*^9, 
+  3.684065402042365*^9}},ExpressionUUID->"d385832b-734b-47b0-8185-\
+0925bbd627d7"],
 
 Cell[BoxData[{
  RowBox[{
@@ -624,7 +645,8 @@ Cell[BoxData[{
    3.6875594434384336`*^9}, {3.687559586292943*^9, 3.68755966057832*^9}, {
    3.6875597703378077`*^9, 3.687559826999588*^9}, {3.6875598794995193`*^9, 
    3.6875599100477257`*^9}, {3.6875603585421143`*^9, 3.687560365901042*^9}, 
-   3.6875609980810966`*^9}],
+   3.6875609980810966`*^9},ExpressionUUID->"21a7f995-2b45-4023-8da5-\
+e452c4ab023f"],
 
 Cell["\<\
 Angle of repose for  a list of materials :
@@ -633,7 +655,9 @@ Asphalt 30
 Bark\
 \>", "Text",
  CellChangeTimes->{{3.684017584732729*^9, 3.684017597044734*^9}, {
-  3.687608590598846*^9, 3.687608601081749*^9}}],
+  3.687608590598846*^9, 
+  3.687608601081749*^9}},ExpressionUUID->"21d30f74-dd22-4c8d-a65c-\
+7a64c0053347"],
 
 Cell[CellGroupData[{
 
@@ -647,7 +671,9 @@ Cell[BoxData[
      RowBox[{"heightBottom", "[", 
       RowBox[{"x", ",", "\[Theta]"}], "]"}]}], ")"}]}], "]"}]], "Input",
  CellChangeTimes->{{3.6875599259413557`*^9, 3.687559930477131*^9}, {
-  3.687560343306526*^9, 3.687560345970402*^9}}],
+  3.687560343306526*^9, 
+  3.687560345970402*^9}},ExpressionUUID->"c88978e2-0907-45f2-9719-\
+b8e76a2f925d"],
 
 Cell[BoxData[
  RowBox[{"x", " ", 
@@ -679,7 +705,9 @@ Cell[BoxData[
           RowBox[{"Tan", "[", "\[Alpha]", "]"}]}]}], ")"}]}]}], "]"}], "-", 
     RowBox[{"x", " ", 
      RowBox[{"Tan", "[", "\[Theta]", "]"}]}]}], ")"}]}]], "Output",
- CellChangeTimes->{3.687560346742908*^9}]
+ CellChangeTimes->{
+  3.687560346742908*^9},ExpressionUUID->"f244dcd8-66bf-4a90-834b-\
+0c2dcbb7fb40"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -711,7 +739,9 @@ Cell[BoxData[
         RowBox[{"Tan", "[", "\[Alpha]", "]"}]}]}], ")"}]}], "]"}]}], "-", 
   RowBox[{"x", " ", 
    RowBox[{"Tan", "[", "\[Theta]", "]"}]}]}]], "Input",
- CellChangeTimes->{{3.687560328780727*^9, 3.6875603356318283`*^9}}],
+ CellChangeTimes->{{3.687560328780727*^9, 
+  3.6875603356318283`*^9}},ExpressionUUID->"4a703599-2fa2-442d-b226-\
+b7eadfe8a30d"],
 
 Cell[BoxData[
  RowBox[{
@@ -739,7 +769,9 @@ Cell[BoxData[
        RowBox[{"Tan", "[", "\[Alpha]", "]"}]}]}]}], "]"}]}], "-", 
   RowBox[{"x", " ", 
    RowBox[{"Tan", "[", "\[Theta]", "]"}]}]}]], "Output",
- CellChangeTimes->{3.6875603362239857`*^9}]
+ CellChangeTimes->{
+  3.6875603362239857`*^9},ExpressionUUID->"0e1a4a00-851b-4985-a556-\
+e3d5f8f3aa0b"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -782,7 +814,9 @@ Cell[BoxData[
      RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}]}], 
   "]"}]], "Input",
  CellChangeTimes->{{3.687560148760344*^9, 3.6875602444980593`*^9}, {
-  3.6875602812708406`*^9, 3.687560283638091*^9}}],
+  3.6875602812708406`*^9, 
+  3.687560283638091*^9}},ExpressionUUID->"8d52c195-c023-4fcf-a3b1-\
+a84475430d9a"],
 
 Cell[BoxData[
  TagBox[
@@ -820,7 +854,7 @@ Cell[BoxData[
          Appearance -> "Labeled"}, {{$CellContext`\[Theta]$$, 0}, 
          Rational[-5, 12] Pi, Rational[5, 12] Pi, Rational[1, 36] Pi, 
          Appearance -> "Labeled"}}, "Options" :> {}, "DefaultOptions" :> {}],
-     ImageSizeCache->{405., {167., 172.}},
+     ImageSizeCache->{405., {168., 174.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -832,7 +866,8 @@ Cell[BoxData[
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
  CellChangeTimes->{{3.6875602256496468`*^9, 3.687560245260846*^9}, 
-   3.687560294704483*^9}]
+   3.687560294704483*^9},ExpressionUUID->"b55b1670-e79b-43bc-ad5b-\
+4662c385d94d"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -909,7 +944,9 @@ Cell[BoxData[{
       RowBox[{"Sin", "[", "\[Theta]", "]"}]}], "2"]}], "*)"}]}]}], "Input",
  CellChangeTimes->{{3.687560628340609*^9, 3.687560642952182*^9}, {
   3.68756071298022*^9, 3.687560733959805*^9}, {3.687560773164631*^9, 
-  3.687560782352359*^9}, {3.687561274145791*^9, 3.6875613291123867`*^9}}],
+  3.687560782352359*^9}, {3.687561274145791*^9, 
+  3.6875613291123867`*^9}},ExpressionUUID->"433ef33c-48fc-4154-93c1-\
+0f332985b52a"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -922,7 +959,9 @@ Cell[BoxData[
     FractionBox["1", "2"], " ", "l", " ", 
     RowBox[{"Cos", "[", "\[Theta]", "]"}], " ", 
     RowBox[{"Tan", "[", "\[Alpha]", "]"}]}]}], "}"}]], "Output",
- CellChangeTimes->{{3.687561309593069*^9, 3.6875613299733152`*^9}}]
+ CellChangeTimes->{{3.687561309593069*^9, 
+  3.6875613299733152`*^9}},ExpressionUUID->"2be333be-4797-4e01-9b54-\
+75622e770816"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -957,7 +996,8 @@ Cell[BoxData[
            RowBox[{"Cos", "[", "\[Theta]", "]"}], 
            RowBox[{"Tan", "[", "\[Alpha]", "]"}]}], "+", 
           RowBox[{"Sin", "[", "\[Theta]", "]"}]}], ")"}]}]}]}], "]"}]}], 
-   ";"}], " "}]], "Input"]
+   ";"}], " "}]], "Input",ExpressionUUID->"63b2b599-a03d-45af-bf92-\
+3859b0873d25"]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -1034,8 +1074,8 @@ Cell[TextData[{
          PolygonBox[
           
           NCache[{{10, 
-            15}, {-10 + 5 (-1 + 3^Rational[1, 2]) (1 + 3^Rational[1, 2]), 15 + 
-             5 (-1 + 3^Rational[1, 2])^2}, {-10, 15}}, {{10, 
+            15}, {-10 + (5 (-1 + 3^Rational[1, 2])) (1 + 3^Rational[1, 2]), 
+             15 + 5 (-1 + 3^Rational[1, 2])^2}, {-10, 15}}, {{10, 
             15}, {-1.7763568394002505`*^-15, 17.679491924311225`}, {-10, 
             15}}]]}}, {
         RGBColor[1, 0.5, 0.5], 
@@ -1119,8 +1159,8 @@ Cell[TextData[{
           
           NCache[{{-25 + 10 Cos[Rational[5, 36] Pi], 30 - 10 
              Sin[Rational[5, 36] Pi]}, {-25 - 10 Cos[Rational[5, 36] Pi] + 
-             20 Sin[Rational[1, 36] Pi], 30 + 
-             20 3^Rational[-1, 2] Sin[Rational[1, 36] Pi] + 
+             20 Sin[Rational[1, 36] Pi], 
+             30 + (20 3^Rational[-1, 2]) Sin[Rational[1, 36] Pi] + 
              10 Sin[Rational[5, 36] Pi]}, {-25 - 10 Cos[Rational[5, 36] Pi], 
              30 + 10 Sin[Rational[5, 36] Pi]}}, {{-15.936922129633501`, 
            25.773817382593005`}, {-32.319963015413336`, 
@@ -1156,8 +1196,8 @@ Cell[TextData[{
           NCache[{{
             25 + 10 Cos[Rational[5, 36] Pi], 30 + 
              10 Sin[Rational[5, 36] Pi]}, {
-            25 - 10 Cos[Rational[5, 36] Pi] + 20 Cos[Rational[7, 36] Pi], 30 + 
-             20 3^Rational[-1, 2] Cos[Rational[7, 36] Pi] - 10 
+            25 - 10 Cos[Rational[5, 36] Pi] + 20 Cos[Rational[7, 36] Pi], 
+             30 + (20 3^Rational[-1, 2]) Cos[Rational[7, 36] Pi] - 10 
              Sin[Rational[5, 36] Pi]}, {
             25 - 10 Cos[Rational[5, 36] Pi], 30 - 10 
              Sin[Rational[5, 36] Pi]}}, {{34.0630778703665, 
@@ -1218,9 +1258,10 @@ Cell[TextData[{
          PolygonBox[
           
           NCache[{{-25 + 10 Cos[Rational[5, 36] Pi], 45 - 10 
-             Sin[Rational[5, 36] Pi]}, {-25 - 10 Cos[Rational[5, 36] Pi] + 
-             10 2^Rational[1, 2] Sin[Rational[1, 9] Pi], 45 + 
-             10 2^Rational[1, 2] Sin[Rational[1, 9] Pi] + 
+             Sin[Rational[5, 36] Pi]}, {-25 - 10 
+             Cos[Rational[5, 36] Pi] + (10 2^Rational[1, 2]) 
+              Sin[Rational[1, 9] Pi], 
+             45 + (10 2^Rational[1, 2]) Sin[Rational[1, 9] Pi] + 
              10 Sin[Rational[5, 36] Pi]}, {-25 - 10 Cos[Rational[5, 36] Pi], 
              45 + 10 Sin[Rational[5, 36] Pi]}}, {{-15.936922129633501`, 
            40.77381738259301}, {-29.226182617406995`, 
@@ -1253,9 +1294,9 @@ Cell[TextData[{
           NCache[{{
             25 + 10 Cos[Rational[5, 36] Pi], 45 + 
              10 Sin[Rational[5, 36] Pi]}, {
-            25 + 10 2^Rational[1, 2] Cos[Rational[1, 9] Pi] - 10 
-             Cos[Rational[5, 36] Pi], 45 + 
-             10 2^Rational[1, 2] Cos[Rational[1, 9] Pi] - 10 
+            25 + (10 2^Rational[1, 2]) Cos[Rational[1, 9] Pi] - 10 
+             Cos[Rational[5, 36] Pi], 
+             45 + (10 2^Rational[1, 2]) Cos[Rational[1, 9] Pi] - 10 
              Sin[Rational[5, 36] Pi]}, {
             25 - 10 Cos[Rational[5, 36] Pi], 45 - 10 
              Sin[Rational[5, 36] Pi]}}, {{34.0630778703665, 
@@ -1294,11 +1335,10 @@ Cell[TextData[{
          PolygonBox[
           
           NCache[{{-45 + 5 2^Rational[1, 2], 60 - 5 2^Rational[1, 2]}, {-45 - 
-             5 2^Rational[1, 2] + 
-             5 Rational[2, 3]^Rational[1, 2] (-1 + 3^Rational[1, 2]), 60 + 
-             5 2^Rational[1, 2] + 
-             5 2^Rational[1, 2] (-1 + 3^Rational[1, 2])}, {-45 - 5 
-             2^Rational[1, 2], 60 + 
+             5 2^Rational[1, 2] + (5 Rational[2, 3]^Rational[1, 2]) (-1 + 
+               3^Rational[1, 2]), 60 + 
+             5 2^Rational[1, 2] + (5 2^Rational[1, 2]) (-1 + 
+               3^Rational[1, 2])}, {-45 - 5 2^Rational[1, 2], 60 + 
              5 2^Rational[1, 2]}}, {{-37.928932188134524`, 
            52.928932188134524`}, {-49.08248290463863, 
            72.24744871391589}, {-52.071067811865476`, 
@@ -1321,11 +1361,11 @@ Cell[TextData[{
          PolygonBox[
           
           NCache[{{-25 + 10 Cos[Rational[5, 36] Pi], 60 - 10 
-             Sin[Rational[5, 36] Pi]}, {-25 - 10 Cos[Rational[5, 36] Pi] + 
-             20 3^Rational[-1, 2] Sin[Rational[7, 36] Pi], 60 + 
-             10 Sin[Rational[5, 36] Pi] + 20 Sin[Rational[7, 36] Pi]}, {-25 - 
-             10 Cos[Rational[5, 36] Pi], 60 + 
-             10 Sin[Rational[5, 36] Pi]}}, {{-15.936922129633501`, 
+             Sin[Rational[5, 36] Pi]}, {-25 - 10 
+             Cos[Rational[5, 36] Pi] + (20 3^Rational[-1, 2]) 
+              Sin[Rational[7, 36] Pi], 60 + 10 Sin[Rational[5, 36] Pi] + 
+             20 Sin[Rational[7, 36] Pi]}, {-25 - 10 Cos[Rational[5, 36] Pi], 
+             60 + 10 Sin[Rational[5, 36] Pi]}}, {{-15.936922129633501`, 
            55.77381738259301}, {-27.439987671804445`, 
            75.69771134442792}, {-34.0630778703665, 64.22618261740699}}]]}}, {
         RGBColor[1, 0.5, 0.5], 
@@ -1359,7 +1399,7 @@ Cell[TextData[{
           NCache[{{
             25 + 10 Cos[Rational[5, 36] Pi], 60 + 
              10 Sin[Rational[5, 36] Pi]}, {
-            25 + 20 3^Rational[-1, 2] Cos[Rational[1, 36] Pi] - 10 
+            25 + (20 3^Rational[-1, 2]) Cos[Rational[1, 36] Pi] - 10 
              Cos[Rational[5, 36] Pi], 60 + 20 Cos[Rational[1, 36] Pi] - 10 
              Sin[Rational[5, 36] Pi]}, {
             25 - 10 Cos[Rational[5, 36] Pi], 60 - 10 
@@ -1381,9 +1421,11 @@ Cell[TextData[{
          PolygonBox[
           
           NCache[{{45 + 5 2^Rational[1, 2], 60 + 5 2^Rational[1, 2]}, {
-            45 - 5 2^Rational[1, 2] + 
-             5 Rational[2, 3]^Rational[1, 2] (1 + 3^Rational[1, 2]), 60 - 5 
-             2^Rational[1, 2] + 5 2^Rational[1, 2] (1 + 3^Rational[1, 2])}, {
+            45 - 5 2^
+              Rational[1, 2] + (5 Rational[2, 3]^Rational[1, 2]) (1 + 
+               3^Rational[1, 2]), 60 - 5 
+             2^Rational[1, 2] + (5 2^Rational[1, 2]) (1 + 
+               3^Rational[1, 2])}, {
             45 - 5 2^Rational[1, 2], 60 - 5 2^Rational[1, 2]}}, {{
            52.071067811865476`, 67.07106781186548}, {49.08248290463863, 
            72.24744871391589}, {37.928932188134524`, 
@@ -1414,7 +1456,8 @@ Cell[TextData[{
     3.6876068982662697`*^9, 3.687607046845057*^9}, {3.687607083947885*^9, 
     3.687607142974106*^9}, 3.687607186849019*^9, 3.687607288796714*^9, {
     3.687607349424101*^9, 3.687607372887609*^9}, 3.687608314659729*^9, 
-    3.6876085441057253`*^9}],
+    3.6876085441057253`*^9},ExpressionUUID->
+  "3c4a252b-6271-4619-a995-6794ce93361c"],
  Cell[BoxData[
   GraphicsBox[{{{}, {}, 
      {RGBColor[0.368417, 0.506779, 0.709798], AbsoluteThickness[1.6], Opacity[
@@ -2107,9 +2150,9 @@ pqj7z1s3zG3/2qB5b2s/mvRP2Lz3wLgKkch5//f74F//H4vIvz0=
                     0.4731986666666667], FrameTicks -> None, PlotRangePadding -> 
                     None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                    "\[InvisibleSpace]"}], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], "\[InvisibleSpace]"}], 
                     "RGBColor[0.368417, 0.506779, 0.709798]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -2153,9 +2196,9 @@ pqj7z1s3zG3/2qB5b2s/mvRP2Lz3wLgKkch5//f74F//H4vIvz0=
                     0.587148, 0.40736066666666665`, 0.09470066666666668], 
                     FrameTicks -> None, PlotRangePadding -> None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                    "\[InvisibleSpace]"}], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], "\[InvisibleSpace]"}], 
                     "RGBColor[0.880722, 0.611041, 0.142051]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -2199,9 +2242,9 @@ pqj7z1s3zG3/2qB5b2s/mvRP2Lz3wLgKkch5//f74F//H4vIvz0=
                     0.37345400000000006`, 0.461046, 0.12992333333333334`], 
                     FrameTicks -> None, PlotRangePadding -> None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                    "\[InvisibleSpace]"}], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], "\[InvisibleSpace]"}], 
                     "RGBColor[0.560181, 0.691569, 0.194885]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -2246,9 +2289,9 @@ pqj7z1s3zG3/2qB5b2s/mvRP2Lz3wLgKkch5//f74F//H4vIvz0=
                     0.13945266666666667`], FrameTicks -> None, 
                     PlotRangePadding -> None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                    "\[InvisibleSpace]"}], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], "\[InvisibleSpace]"}], 
                     "RGBColor[0.922526, 0.385626, 0.209179]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -2316,7 +2359,8 @@ pqj7z1s3zG3/2qB5b2s/mvRP2Lz3wLgKkch5//f74F//H4vIvz0=
   CellChangeTimes->{3.687560985963759*^9, 3.687561221247024*^9, 
    3.687561419496804*^9, 3.6875614635471497`*^9, 3.6875615270031853`*^9, 
    3.687562758051346*^9, 3.687605259958919*^9, 3.687606340424638*^9, 
-   3.6876077475308104`*^9, 3.6876078671966133`*^9}],
+   3.6876077475308104`*^9, 3.6876078671966133`*^9},ExpressionUUID->
+  "f68019fd-ca6c-48ad-986d-8bc61fbf5dc9"],
  Cell[BoxData[
   GraphicsBox[{{{}, {}, 
      {RGBColor[0.368417, 0.506779, 0.709798], AbsoluteThickness[1.6], Opacity[
@@ -2879,9 +2923,9 @@ aR2DbWd0ul4wmu3/fj9c9n8ALd978w==
                     0.4731986666666667], FrameTicks -> None, PlotRangePadding -> 
                     None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                    "\[InvisibleSpace]"}], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], "\[InvisibleSpace]"}], 
                     "RGBColor[0.368417, 0.506779, 0.709798]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -2925,9 +2969,9 @@ aR2DbWd0ul4wmu3/fj9c9n8ALd978w==
                     0.587148, 0.40736066666666665`, 0.09470066666666668], 
                     FrameTicks -> None, PlotRangePadding -> None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                    "\[InvisibleSpace]"}], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], "\[InvisibleSpace]"}], 
                     "RGBColor[0.880722, 0.611041, 0.142051]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -2971,9 +3015,9 @@ aR2DbWd0ul4wmu3/fj9c9n8ALd978w==
                     0.37345400000000006`, 0.461046, 0.12992333333333334`], 
                     FrameTicks -> None, PlotRangePadding -> None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                    "\[InvisibleSpace]"}], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], "\[InvisibleSpace]"}], 
                     "RGBColor[0.560181, 0.691569, 0.194885]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -3018,9 +3062,9 @@ aR2DbWd0ul4wmu3/fj9c9n8ALd978w==
                     0.13945266666666667`], FrameTicks -> None, 
                     PlotRangePadding -> None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                    "\[InvisibleSpace]"}], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], "\[InvisibleSpace]"}], 
                     "RGBColor[0.922526, 0.385626, 0.209179]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -3088,11 +3132,13 @@ aR2DbWd0ul4wmu3/fj9c9n8ALd978w==
   CellChangeTimes->{
    3.6875617889436398`*^9, 3.687562308067196*^9, 3.687562733128643*^9, 
     3.687605236712493*^9, 3.687606104201973*^9, 3.68760630516457*^9, {
-    3.687607653339971*^9, 3.687607701464322*^9}}]
+    3.687607653339971*^9, 3.687607701464322*^9}},ExpressionUUID->
+  "70935146-4686-4bc4-97e8-bf371be9784b"]
 }], "Subsection",
  CellChangeTimes->{{3.684065388893179*^9, 3.684065402042365*^9}, {
   3.68760862327945*^9, 3.6876086509850883`*^9}, {3.687608681853881*^9, 
-  3.687608690355647*^9}}],
+  3.687608690355647*^9}},ExpressionUUID->"a406ea3b-4307-4476-b3f8-\
+7c0fe382505a"],
 
 Cell[BoxData[{
  RowBox[{
@@ -3126,7 +3172,7 @@ Cell[BoxData[{
             RowBox[{
              RowBox[{"Cos", "[", "\[Theta]", "]"}], 
              RowBox[{"Tan", "[", "\[Alpha]", "]"}]}], "-", 
-            RowBox[{"Sin", "[", "\[Theta]", "]"}]}], ")"}], "  "}], "-", 
+            RowBox[{"Sin", "[", "\[Theta]", "]"}]}], ")"}]}], "  ", "-", 
          RowBox[{
           RowBox[{"Tan", "[", "\[Theta]", "]"}], "x"}]}], ")"}], 
        RowBox[{"\[DifferentialD]", "x"}]}]}], "+", "\[IndentingNewLine]", " ", 
@@ -3223,7 +3269,9 @@ Cell[BoxData[{
    3.687560898291823*^9}, {3.687561215135357*^9, 3.687561217417838*^9}, {
    3.687561303196602*^9, 3.687561304110153*^9}, {3.6875613972576847`*^9, 
    3.687561454760153*^9}, {3.687561503273973*^9, 3.687561519176944*^9}, {
-   3.687561640600293*^9, 3.687561649905732*^9}, 3.687608620067401*^9}],
+   3.687561640600293*^9, 3.687561649905732*^9}, 
+   3.687608620067401*^9},ExpressionUUID->"a78908e9-eaed-40a2-942f-\
+50a402d58463"],
 
 Cell[CellGroupData[{
 
@@ -3299,7 +3347,9 @@ Cell[BoxData[{
    3.6875616201068373`*^9}, {3.687562738376577*^9, 3.687562745841164*^9}, {
    3.687605244470797*^9, 3.687605248857699*^9}, {3.687606313778514*^9, 
    3.687606327910445*^9}, {3.687607726330922*^9, 3.687607732088462*^9}, {
-   3.687607850913663*^9, 3.687607851661406*^9}}],
+   3.687607850913663*^9, 
+   3.687607851661406*^9}},ExpressionUUID->"4c4b5795-a411-4acf-89d4-\
+7f83c45a7dce"],
 
 Cell[BoxData[
  TagBox[
@@ -3994,9 +4044,9 @@ pqj7z1s3zG3/2qB5b2s/mvRP2Lz3wLgKkch5//f74F//H4vIvz0=
                     0.4731986666666667], FrameTicks -> None, PlotRangePadding -> 
                     None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                    "\[InvisibleSpace]"}], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], "\[InvisibleSpace]"}], 
                     "RGBColor[0.368417, 0.506779, 0.709798]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -4040,9 +4090,9 @@ pqj7z1s3zG3/2qB5b2s/mvRP2Lz3wLgKkch5//f74F//H4vIvz0=
                     0.587148, 0.40736066666666665`, 0.09470066666666668], 
                     FrameTicks -> None, PlotRangePadding -> None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                    "\[InvisibleSpace]"}], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], "\[InvisibleSpace]"}], 
                     "RGBColor[0.880722, 0.611041, 0.142051]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -4086,9 +4136,9 @@ pqj7z1s3zG3/2qB5b2s/mvRP2Lz3wLgKkch5//f74F//H4vIvz0=
                     0.37345400000000006`, 0.461046, 0.12992333333333334`], 
                     FrameTicks -> None, PlotRangePadding -> None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                    "\[InvisibleSpace]"}], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], "\[InvisibleSpace]"}], 
                     "RGBColor[0.560181, 0.691569, 0.194885]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -4133,9 +4183,9 @@ pqj7z1s3zG3/2qB5b2s/mvRP2Lz3wLgKkch5//f74F//H4vIvz0=
                     0.13945266666666667`], FrameTicks -> None, 
                     PlotRangePadding -> None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                    "\[InvisibleSpace]"}], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], "\[InvisibleSpace]"}], 
                     "RGBColor[0.922526, 0.385626, 0.209179]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -4789,7 +4839,9 @@ pqj7z1s3zG3/2qB5b2s/mvRP2Lz3wLgKkch5//f74F//H4vIvz0=
  CellChangeTimes->{3.687560985963759*^9, 3.687561221247024*^9, 
   3.687561419496804*^9, 3.6875614635471497`*^9, 3.6875615270031853`*^9, 
   3.687562758051346*^9, 3.687605259958919*^9, 3.687606340424638*^9, 
-  3.6876077475308104`*^9, 3.6876078671966133`*^9}]
+  3.6876077475308104`*^9, 
+  3.6876078671966133`*^9},ExpressionUUID->"7530c041-efb3-44ca-9f81-\
+1d3221997973"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4861,7 +4913,9 @@ Cell[BoxData[{
    3.6875621531371107`*^9, 3.687562295568671*^9}, {3.6875627138293867`*^9, 
    3.6875627231159782`*^9}, {3.6876052206664753`*^9, 3.687605228277721*^9}, {
    3.687606066194991*^9, 3.687606096090818*^9}, {3.6876062853064613`*^9, 
-   3.687606303493332*^9}, {3.687607641992549*^9, 3.687607690022036*^9}}],
+   3.687606303493332*^9}, {3.687607641992549*^9, 
+   3.687607690022036*^9}},ExpressionUUID->"5055f6be-a553-4c69-bc82-\
+86b9f063f09e"],
 
 Cell[BoxData[
  TagBox[
@@ -5426,9 +5480,9 @@ aR2DbWd0ul4wmu3/fj9c9n8ALd978w==
                     0.4731986666666667], FrameTicks -> None, PlotRangePadding -> 
                     None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                    "\[InvisibleSpace]"}], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], "\[InvisibleSpace]"}], 
                     "RGBColor[0.368417, 0.506779, 0.709798]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -5472,9 +5526,9 @@ aR2DbWd0ul4wmu3/fj9c9n8ALd978w==
                     0.587148, 0.40736066666666665`, 0.09470066666666668], 
                     FrameTicks -> None, PlotRangePadding -> None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                    "\[InvisibleSpace]"}], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], "\[InvisibleSpace]"}], 
                     "RGBColor[0.880722, 0.611041, 0.142051]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -5518,9 +5572,9 @@ aR2DbWd0ul4wmu3/fj9c9n8ALd978w==
                     0.37345400000000006`, 0.461046, 0.12992333333333334`], 
                     FrameTicks -> None, PlotRangePadding -> None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                    "\[InvisibleSpace]"}], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], "\[InvisibleSpace]"}], 
                     "RGBColor[0.560181, 0.691569, 0.194885]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -5565,9 +5619,9 @@ aR2DbWd0ul4wmu3/fj9c9n8ALd978w==
                     0.13945266666666667`], FrameTicks -> None, 
                     PlotRangePadding -> None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                    "\[InvisibleSpace]"}], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], "\[InvisibleSpace]"}], 
                     "RGBColor[0.922526, 0.385626, 0.209179]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -6091,7 +6145,9 @@ aR2DbWd0ul4wmu3/fj9c9n8ALd978w==
  CellChangeTimes->{
   3.6875617889436398`*^9, 3.687562308067196*^9, 3.687562733128643*^9, 
    3.687605236712493*^9, 3.687606104201973*^9, 3.68760630516457*^9, {
-   3.687607653339971*^9, 3.687607701464322*^9}}]
+   3.687607653339971*^9, 
+   3.687607701464322*^9}},ExpressionUUID->"bd1bc6aa-eac7-4a04-a0f9-\
+1853be0655a4"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -6156,7 +6212,9 @@ Cell[BoxData[
          RowBox[{
           RowBox[{"Tan", "[", "\[Theta]", "]"}], "x"}]}], ")"}], 
        RowBox[{"\[DifferentialD]", "x"}]}]}]}]}], "]"}], "]"}]], "Input",
- CellChangeTimes->{{3.687562310834149*^9, 3.6875623140180798`*^9}}],
+ CellChangeTimes->{{3.687562310834149*^9, 
+  3.6875623140180798`*^9}},ExpressionUUID->"69bfb366-6872-403a-90b0-\
+6d4e58f02795"],
 
 Cell[BoxData[
  RowBox[{"If", "[", 
@@ -6218,7 +6276,9 @@ Cell[BoxData[
         RowBox[{
          RowBox[{"Tan", "[", "\[Theta]", "]"}], " ", "x"}]}], ")"}], 
       RowBox[{"\[DifferentialD]", "x"}]}]}]}]}], "]"}]], "Output",
- CellChangeTimes->{3.687562314694036*^9}]
+ CellChangeTimes->{
+  3.687562314694036*^9},ExpressionUUID->"5ea917a8-cfbc-4c16-a378-\
+b996d47b2a22"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -6400,7 +6460,8 @@ Cell[BoxData[
    3.6876071666731567`*^9, 3.687607186291253*^9}, {3.687607285983603*^9, 
    3.6876072881055098`*^9}, {3.687607335330193*^9, 3.687607348370677*^9}, {
    3.687608309107409*^9, 3.687608314048029*^9}, {3.687608527919517*^9, 
-   3.6876085391967773`*^9}}],
+   3.6876085391967773`*^9}},ExpressionUUID->"b71e91f6-f3db-4d26-8ccb-\
+1550482dbb5f"],
 
 Cell[BoxData[
  GraphicsBox[{},
@@ -6471,7 +6532,7 @@ Cell[BoxData[
        RGBColor[0.368417, 0.506779, 0.709798], {
         PolygonBox[
          NCache[{{10, 
-           15}, {-10 + 5 (-1 + 3^Rational[1, 2]) (1 + 3^Rational[1, 2]), 15 + 
+           15}, {-10 + (5 (-1 + 3^Rational[1, 2])) (1 + 3^Rational[1, 2]), 15 + 
             5 (-1 + 3^Rational[1, 2])^2}, {-10, 15}}, {{10, 
            15}, {-1.7763568394002505`*^-15, 17.679491924311225`}, {-10, 
            15}}]]}}, {
@@ -6552,8 +6613,8 @@ Cell[BoxData[
         PolygonBox[
          NCache[{{-25 + 10 Cos[Rational[5, 36] Pi], 30 - 10 
             Sin[Rational[5, 36] Pi]}, {-25 - 10 Cos[Rational[5, 36] Pi] + 
-            20 Sin[Rational[1, 36] Pi], 30 + 
-            20 3^Rational[-1, 2] Sin[Rational[1, 36] Pi] + 
+            20 Sin[Rational[1, 36] Pi], 
+            30 + (20 3^Rational[-1, 2]) Sin[Rational[1, 36] Pi] + 
             10 Sin[Rational[5, 36] Pi]}, {-25 - 10 Cos[Rational[5, 36] Pi], 
             30 + 10 Sin[Rational[5, 36] Pi]}}, {{-15.936922129633501`, 
           25.773817382593005`}, {-32.319963015413336`, 
@@ -6586,8 +6647,8 @@ Cell[BoxData[
          NCache[{{
            25 + 10 Cos[Rational[5, 36] Pi], 30 + 
             10 Sin[Rational[5, 36] Pi]}, {
-           25 - 10 Cos[Rational[5, 36] Pi] + 20 Cos[Rational[7, 36] Pi], 30 + 
-            20 3^Rational[-1, 2] Cos[Rational[7, 36] Pi] - 10 
+           25 - 10 Cos[Rational[5, 36] Pi] + 20 Cos[Rational[7, 36] Pi], 
+            30 + (20 3^Rational[-1, 2]) Cos[Rational[7, 36] Pi] - 10 
             Sin[Rational[5, 36] Pi]}, {
            25 - 10 Cos[Rational[5, 36] Pi], 30 - 10 
             Sin[Rational[5, 36] Pi]}}, {{34.0630778703665, 
@@ -6646,9 +6707,10 @@ Cell[BoxData[
        RGBColor[0.560181, 0.691569, 0.194885], {
         PolygonBox[
          NCache[{{-25 + 10 Cos[Rational[5, 36] Pi], 45 - 10 
-            Sin[Rational[5, 36] Pi]}, {-25 - 10 Cos[Rational[5, 36] Pi] + 
-            10 2^Rational[1, 2] Sin[Rational[1, 9] Pi], 45 + 
-            10 2^Rational[1, 2] Sin[Rational[1, 9] Pi] + 
+            Sin[Rational[5, 36] Pi]}, {-25 - 10 
+            Cos[Rational[5, 36] Pi] + (10 2^Rational[1, 2]) 
+             Sin[Rational[1, 9] Pi], 
+            45 + (10 2^Rational[1, 2]) Sin[Rational[1, 9] Pi] + 
             10 Sin[Rational[5, 36] Pi]}, {-25 - 10 Cos[Rational[5, 36] Pi], 
             45 + 10 Sin[Rational[5, 36] Pi]}}, {{-15.936922129633501`, 
           40.77381738259301}, {-29.226182617406995`, 
@@ -6679,9 +6741,9 @@ Cell[BoxData[
          NCache[{{
            25 + 10 Cos[Rational[5, 36] Pi], 45 + 
             10 Sin[Rational[5, 36] Pi]}, {
-           25 + 10 2^Rational[1, 2] Cos[Rational[1, 9] Pi] - 10 
-            Cos[Rational[5, 36] Pi], 45 + 
-            10 2^Rational[1, 2] Cos[Rational[1, 9] Pi] - 10 
+           25 + (10 2^Rational[1, 2]) Cos[Rational[1, 9] Pi] - 10 
+            Cos[Rational[5, 36] Pi], 
+            45 + (10 2^Rational[1, 2]) Cos[Rational[1, 9] Pi] - 10 
             Sin[Rational[5, 36] Pi]}, {
            25 - 10 Cos[Rational[5, 36] Pi], 45 - 10 
             Sin[Rational[5, 36] Pi]}}, {{34.0630778703665, 
@@ -6719,11 +6781,10 @@ Cell[BoxData[
        RGBColor[0.922526, 0.385626, 0.209179], {
         PolygonBox[
          NCache[{{-45 + 5 2^Rational[1, 2], 60 - 5 2^Rational[1, 2]}, {-45 - 
-            5 2^Rational[1, 2] + 
-            5 Rational[2, 3]^Rational[1, 2] (-1 + 3^Rational[1, 2]), 60 + 
-            5 2^Rational[1, 2] + 
-            5 2^Rational[1, 2] (-1 + 3^Rational[1, 2])}, {-45 - 5 
-            2^Rational[1, 2], 60 + 
+            5 2^Rational[1, 2] + (5 Rational[2, 3]^Rational[1, 2]) (-1 + 
+              3^Rational[1, 2]), 60 + 
+            5 2^Rational[1, 2] + (5 2^Rational[1, 2]) (-1 + 
+              3^Rational[1, 2])}, {-45 - 5 2^Rational[1, 2], 60 + 
             5 2^Rational[1, 2]}}, {{-37.928932188134524`, 
           52.928932188134524`}, {-49.08248290463863, 
           72.24744871391589}, {-52.071067811865476`, 67.07106781186548}}]]}}, {
@@ -6744,11 +6805,11 @@ Cell[BoxData[
        RGBColor[0.922526, 0.385626, 0.209179], {
         PolygonBox[
          NCache[{{-25 + 10 Cos[Rational[5, 36] Pi], 60 - 10 
-            Sin[Rational[5, 36] Pi]}, {-25 - 10 Cos[Rational[5, 36] Pi] + 
-            20 3^Rational[-1, 2] Sin[Rational[7, 36] Pi], 60 + 
-            10 Sin[Rational[5, 36] Pi] + 20 Sin[Rational[7, 36] Pi]}, {-25 - 
-            10 Cos[Rational[5, 36] Pi], 60 + 
-            10 Sin[Rational[5, 36] Pi]}}, {{-15.936922129633501`, 
+            Sin[Rational[5, 36] Pi]}, {-25 - 10 
+            Cos[Rational[5, 36] Pi] + (20 3^Rational[-1, 2]) 
+             Sin[Rational[7, 36] Pi], 60 + 10 Sin[Rational[5, 36] Pi] + 
+            20 Sin[Rational[7, 36] Pi]}, {-25 - 10 Cos[Rational[5, 36] Pi], 
+            60 + 10 Sin[Rational[5, 36] Pi]}}, {{-15.936922129633501`, 
           55.77381738259301}, {-27.439987671804445`, 
           75.69771134442792}, {-34.0630778703665, 64.22618261740699}}]]}}, {
        RGBColor[1, 0.5, 0.5], 
@@ -6779,7 +6840,7 @@ Cell[BoxData[
          NCache[{{
            25 + 10 Cos[Rational[5, 36] Pi], 60 + 
             10 Sin[Rational[5, 36] Pi]}, {
-           25 + 20 3^Rational[-1, 2] Cos[Rational[1, 36] Pi] - 10 
+           25 + (20 3^Rational[-1, 2]) Cos[Rational[1, 36] Pi] - 10 
             Cos[Rational[5, 36] Pi], 60 + 20 Cos[Rational[1, 36] Pi] - 10 
             Sin[Rational[5, 36] Pi]}, {
            25 - 10 Cos[Rational[5, 36] Pi], 60 - 10 
@@ -6800,9 +6861,10 @@ Cell[BoxData[
        RGBColor[0.922526, 0.385626, 0.209179], {
         PolygonBox[
          NCache[{{45 + 5 2^Rational[1, 2], 60 + 5 2^Rational[1, 2]}, {
-           45 - 5 2^Rational[1, 2] + 
-            5 Rational[2, 3]^Rational[1, 2] (1 + 3^Rational[1, 2]), 60 - 5 
-            2^Rational[1, 2] + 5 2^Rational[1, 2] (1 + 3^Rational[1, 2])}, {
+           45 - 5 2^
+             Rational[1, 2] + (5 Rational[2, 3]^Rational[1, 2]) (1 + 
+              3^Rational[1, 2]), 60 - 5 
+            2^Rational[1, 2] + (5 2^Rational[1, 2]) (1 + 3^Rational[1, 2])}, {
            45 - 5 2^Rational[1, 2], 60 - 5 2^Rational[1, 2]}}, {{
           52.071067811865476`, 67.07106781186548}, {49.08248290463863, 
           72.24744871391589}, {37.928932188134524`, 
@@ -6833,19 +6895,147 @@ Cell[BoxData[
    3.6876068982662697`*^9, 3.687607046845057*^9}, {3.687607083947885*^9, 
    3.687607142974106*^9}, 3.687607186849019*^9, 3.687607288796714*^9, {
    3.687607349424101*^9, 3.687607372887609*^9}, 3.687608314659729*^9, 
-   3.6876085441057253`*^9}]
+   3.6876085441057253`*^9},ExpressionUUID->"8f697587-3f7f-462e-b8da-\
+a9a111b64c0e"]
 }, Open  ]],
 
 Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.687606453992988*^9, 3.687606459246826*^9}, {
-  3.687606503222312*^9, 3.687606518905656*^9}}]
-}, Closed]]
+  3.687606503222312*^9, 
+  3.687606518905656*^9}},ExpressionUUID->"8a1c8144-87bd-4187-86a0-\
+68246b4a39b3"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Hardware Experiments", "Subchapter",
+ CellChangeTimes->{{3.745827811206811*^9, 
+  3.745827818367958*^9}},ExpressionUUID->"b7aa85de-ebce-4833-b8e4-\
+f788a66fcf48"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"N", "[", 
+  RowBox[{"Sin", "[", 
+   RowBox[{"90", " ", "Degree"}], "]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"N", "[", 
+  RowBox[{"Sin", "[", 
+   RowBox[{"60", " ", "Degree"}], "]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"N", "[", 
+  RowBox[{"Sin", "[", 
+   RowBox[{"45", " ", "Degree"}], "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.745827831939785*^9, 
+  3.7458278704136257`*^9}},ExpressionUUID->"27986751-a1d3-40d4-9e55-\
+fea59be8a958"],
+
+Cell[BoxData["1.`"], "Output",
+ CellChangeTimes->{{3.745827845332293*^9, 
+  3.745827870934827*^9}},ExpressionUUID->"143b66e2-07b3-49a9-9188-\
+96d12f1b23c3"],
+
+Cell[BoxData["0.8660254037844386`"], "Output",
+ CellChangeTimes->{{3.745827845332293*^9, 
+  3.745827870940654*^9}},ExpressionUUID->"9f53bc90-9f27-4926-b296-\
+646a3915368a"],
+
+Cell[BoxData["0.7071067811865475`"], "Output",
+ CellChangeTimes->{{3.745827845332293*^9, 
+  3.745827870943659*^9}},ExpressionUUID->"96192582-5186-4751-b30b-\
+366b3bccfb06"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Mean", "[", 
+  RowBox[{"{", 
+   RowBox[{"43.49", ",", " ", 
+    RowBox[{"29.02", "+", "13.24"}], ",", 
+    RowBox[{"11.45", "+", "28.98"}]}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.745827887052884*^9, 
+  3.7458279215643253`*^9}},ExpressionUUID->"3606f5b1-85b0-4fcd-a44f-\
+8c2c5117ea35"],
+
+Cell[BoxData["42.06`"], "Output",
+ CellChangeTimes->{{3.745827911045171*^9, 
+  3.745827922070024*^9}},ExpressionUUID->"a7f055e5-a3ae-4c34-8221-\
+cd3ff40ef2f9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Mean", "[", 
+  RowBox[{"{", 
+   RowBox[{"48.81", ",", 
+    RowBox[{"31.62", "+", "18.29"}], ",", 
+    RowBox[{"19.09", "+", "31.66"}]}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.74582793134554*^9, 
+  3.745827961137294*^9}},ExpressionUUID->"712e735a-2dd8-4251-a3b6-\
+3d8eedeb43d4"],
+
+Cell[BoxData["49.82333333333333`"], "Output",
+ CellChangeTimes->{
+  3.745827962676783*^9},ExpressionUUID->"c8f352a7-63c8-4bc4-99cf-\
+894361fd4eea"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"vals45", "=", 
+  RowBox[{"{", 
+   RowBox[{"67.34", ",", 
+    RowBox[{"47.28", "+", "15.42"}], ",", 
+    RowBox[{"32.05", "+", "29.65"}], ",", 
+    RowBox[{"17.44", "+", "43.35"}]}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Mean", "[", "vals45", "]"}]}], "Input",
+ CellChangeTimes->{{3.7458279780182667`*^9, 
+  3.74582803603388*^9}},ExpressionUUID->"aa4a5a9c-c3fc-42a8-92f8-\
+d4ce65cfcdd0"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "67.34`", ",", "62.7`", ",", "61.699999999999996`", ",", 
+   "60.790000000000006`"}], "}"}]], "Output",
+ CellChangeTimes->{{3.745828005142026*^9, 
+  3.7458280365541563`*^9}},ExpressionUUID->"1a9bfc4e-e6f7-46d0-9de9-\
+eed1e8b047e5"],
+
+Cell[BoxData["63.13250000000001`"], "Output",
+ CellChangeTimes->{{3.745828005142026*^9, 
+  3.745828036561499*^9}},ExpressionUUID->"8814d1a0-4c6a-4171-a856-\
+ab5c00e6e303"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"90", "-", "22.5"}]], "Input",
+ CellChangeTimes->{{3.745829164808435*^9, 
+  3.745829167309091*^9}},ExpressionUUID->"375f9a33-7310-4375-9a3e-\
+4f0d3b1822e6"],
+
+Cell[BoxData["67.5`"], "Output",
+ CellChangeTimes->{
+  3.745829168322096*^9},ExpressionUUID->"cbdc7565-0cc4-4b59-9aba-\
+5de2668378d0"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"90", "-"}]], "Input",
+ CellChangeTimes->{{3.745829171129169*^9, 
+  3.745829171803206*^9}},ExpressionUUID->"d2229eb9-9e55-4d02-9ab5-\
+0e698b3b1f62"]
 }, Open  ]]
 },
 WindowSize->{976, 714},
-WindowMargins->{{Automatic, -5}, {Automatic, 0}},
-FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
-2014)",
+WindowMargins->{{36, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+10, 2017)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -6860,57 +7050,84 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 1233, 21, 252, "Subchapter"],
+Cell[580, 22, 1293, 23, 288, "Subchapter",ExpressionUUID->"433bc077-b73e-4f31-8784-dbc14250b581"],
 Cell[CellGroupData[{
-Cell[1838, 47, 14083, 351, 872, "Input"],
-Cell[15924, 400, 6318, 127, 398, "Output"]
-}, {2}]],
-Cell[CellGroupData[{
-Cell[22276, 532, 137, 1, 44, "Subsection"],
-Cell[22416, 535, 3112, 91, 128, "Input"],
-Cell[25531, 628, 208, 7, 87, "Text"],
-Cell[CellGroupData[{
-Cell[25764, 639, 425, 10, 28, "Input"],
-Cell[26192, 651, 1015, 30, 48, "Output"]
+Cell[1898, 49, 14141, 352, 1032, "Input",ExpressionUUID->"061deb1c-0e2b-4528-a6e0-cd15fa11bd88"],
+Cell[16042, 403, 6384, 129, 269, "Output",ExpressionUUID->"5225c9d4-d490-479f-81b4-b225f79d3421"],
+Cell[22429, 534, 616, 12, 24, "Message",ExpressionUUID->"2613e204-80fe-411c-ade1-d5ad2ac9ed9a"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[27244, 686, 919, 27, 48, InheritFromParent],
-Cell[28166, 715, 856, 26, 47, "Output"]
+Cell[23082, 551, 197, 3, 54, "Subsection",ExpressionUUID->"d385832b-734b-47b0-8185-0925bbd627d7"],
+Cell[23282, 556, 3169, 92, 128, "Input",ExpressionUUID->"21a7f995-2b45-4023-8da5-e452c4ab023f"],
+Cell[26454, 650, 268, 9, 87, "Text",ExpressionUUID->"21d30f74-dd22-4c8d-a65c-7a64c0053347"],
+Cell[CellGroupData[{
+Cell[26747, 663, 485, 12, 28, "Input",ExpressionUUID->"c88978e2-0907-45f2-9719-b8e76a2f925d"],
+Cell[27235, 677, 1075, 32, 48, "Output",ExpressionUUID->"f244dcd8-66bf-4a90-834b-0c2dcbb7fb40"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[29059, 746, 1346, 38, 63, "Input"],
-Cell[30408, 786, 2531, 48, 356, "Output"]
+Cell[28347, 714, 979, 29, 48, "Input",ExpressionUUID->"4a703599-2fa2-442d-b226-b7eadfe8a30d"],
+Cell[29329, 745, 916, 28, 47, "Output",ExpressionUUID->"0e1a4a00-851b-4985-a556-e3d5f8f3aa0b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[32976, 839, 2420, 72, 155, "Input"],
-Cell[35399, 913, 431, 11, 47, "Output"]
+Cell[30282, 778, 1406, 40, 63, "Input",ExpressionUUID->"8d52c195-c023-4fcf-a3b1-a84475430d9a"],
+Cell[31691, 820, 2588, 49, 356, "Output",ExpressionUUID->"b55b1670-e79b-43bc-ad5b-4662c385d94d"]
 }, Open  ]],
-Cell[35845, 927, 1036, 32, 46, "Input"]
+Cell[CellGroupData[{
+Cell[34316, 874, 2480, 74, 155, "Input",ExpressionUUID->"433ef33c-48fc-4154-93c1-0f332985b52a"],
+Cell[36799, 950, 491, 13, 47, "Output",ExpressionUUID->"2be333be-4797-4e01-9b54-75622e770816"]
+}, Open  ]],
+Cell[37305, 966, 1093, 33, 46, "Input",ExpressionUUID->"63b2b599-a03d-45af-bf92-3859b0873d25"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[36918, 964, 114518, 2130, 497, "Subsection"],
-Cell[151439, 3096, 4784, 129, 215, "Input"],
+Cell[38435, 1004, 114830, 2136, 499, "Subsection",ExpressionUUID->"a406ea3b-4307-4476-b3f8-7c0fe382505a"],
+Cell[153268, 3142, 4845, 131, 195, "Input",ExpressionUUID->"a78908e9-eaed-40a2-942f-50a402d58463"],
 Cell[CellGroupData[{
-Cell[156248, 3229, 2740, 72, 199, "Input"],
-Cell[158991, 3303, 83578, 1488, 251, "Output"]
+Cell[158138, 3277, 2801, 74, 216, "Input",ExpressionUUID->"4c4b5795-a411-4acf-89d4-7f83c45a7dce"],
+Cell[160942, 3353, 83646, 1490, 253, "Output",ExpressionUUID->"7530c041-efb3-44ca-9f81-1d3221997973"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[242606, 4796, 2450, 67, 182, "Input"],
-Cell[245059, 4865, 67645, 1228, 240, "Output"]
+Cell[244625, 4848, 2511, 69, 195, "Input",ExpressionUUID->"5055f6be-a553-4c69-bc82-86b9f063f09e"],
+Cell[247139, 4919, 67714, 1230, 240, "Output",ExpressionUUID->"bd1bc6aa-eac7-4a04-a0f9-1853be0655a4"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[312741, 6098, 2161, 60, 101, "Input"],
-Cell[314905, 6160, 2127, 60, 110, "Output"]
+Cell[314890, 6154, 2221, 62, 101, "Input",ExpressionUUID->"69bfb366-6872-403a-90b0-6d4e58f02795"],
+Cell[317114, 6218, 2187, 62, 112, "Output",ExpressionUUID->"5ea917a8-cfbc-4c16-a378-b996d47b2a22"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[317069, 6225, 7136, 177, 557, "Input"],
-Cell[324208, 6404, 22148, 431, 243, "Output"]
+Cell[319338, 6285, 7193, 178, 593, "Input",ExpressionUUID->"b71e91f6-f3db-4d26-8ccb-1550482dbb5f"],
+Cell[326534, 6465, 22253, 433, 245, "Output",ExpressionUUID->"8f697587-3f7f-462e-b8da-a9a111b64c0e"]
 }, Open  ]],
-Cell[346371, 6838, 141, 2, 28, "Input"]
-}, Closed]]
+Cell[348802, 6901, 201, 4, 30, "Input",ExpressionUUID->"8a1c8144-87bd-4187-86a0-68246b4a39b3"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[349052, 6911, 168, 3, 65, "Subchapter",ExpressionUUID->"b7aa85de-ebce-4833-b8e4-f788a66fcf48"],
+Cell[CellGroupData[{
+Cell[349245, 6918, 474, 12, 73, "Input",ExpressionUUID->"27986751-a1d3-40d4-9e55-fea59be8a958"],
+Cell[349722, 6932, 156, 3, 34, "Output",ExpressionUUID->"143b66e2-07b3-49a9-9188-96d12f1b23c3"],
+Cell[349881, 6937, 172, 3, 34, "Output",ExpressionUUID->"9f53bc90-9f27-4926-b296-646a3915368a"],
+Cell[350056, 6942, 172, 3, 34, "Output",ExpressionUUID->"96192582-5186-4751-b30b-366b3bccfb06"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[350265, 6950, 317, 8, 30, "Input",ExpressionUUID->"3606f5b1-85b0-4fcd-a44f-8c2c5117ea35"],
+Cell[350585, 6960, 159, 3, 34, "Output",ExpressionUUID->"a7f055e5-a3ae-4c34-8221-cd3ff40ef2f9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[350781, 6968, 309, 8, 30, "Input",ExpressionUUID->"712e735a-2dd8-4251-a3b6-3d8eedeb43d4"],
+Cell[351093, 6978, 147, 3, 34, "Output",ExpressionUUID->"c8f352a7-63c8-4bc4-99cf-894361fd4eea"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[351277, 6986, 416, 10, 52, "Input",ExpressionUUID->"aa4a5a9c-c3fc-42a8-92f8-d4ce65cfcdd0"],
+Cell[351696, 6998, 273, 7, 34, "Output",ExpressionUUID->"1a9bfc4e-e6f7-46d0-9de9-eed1e8b047e5"],
+Cell[351972, 7007, 171, 3, 34, "Output",ExpressionUUID->"8814d1a0-4c6a-4171-a856-ab5c00e6e303"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[352180, 7015, 179, 4, 30, "Input",ExpressionUUID->"375f9a33-7310-4375-9a3e-4f0d3b1822e6"],
+Cell[352362, 7021, 134, 3, 34, "Output",ExpressionUUID->"cbdc7565-0cc4-4b59-9aba-5de2668378d0"]
+}, Open  ]],
+Cell[352511, 7027, 171, 4, 30, "Input",ExpressionUUID->"d2229eb9-9e55-4d02-9ab5-0e698b3b1f62"]
 }, Open  ]]
 }
 ]
 *)
 
-(* End of internal cache information *)
