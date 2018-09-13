@@ -3,10 +3,14 @@
 \section{Related Work}\label{sec:RelatedWork}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Controlling the relative position of many particles is necessary for a range of applications. Therefore, it has been a topic of research from a control perspective in both centralized and distributed approaches. 
+Controlling the relative position of many particles is necessary for a range of applications. Therefore, it has been a topic of research from a control perspective in both centralized and decentralized approaches. 
+
  This paper focuses on centralized approach that apply the uniform control input to all the particles. To change the relative position of the particles, we need to break the symmetry caused by the uniform input.
 Symmetry can be broken using particles that respond differently to the uniform control signal, either through agent-agent reactions \cite{bertozzi2015ring}, or engineered inhomogeneity  \cite{Donald2013,bretl2007,beckerIJRR2014}. 
- The magnetic gradients of MRI scanners are \emph{uniform}, meaning the same force is applied everywhere in the workspace\cite{nosrati2018development}.
+Some examples of global inputs include magnetic fields and acoustic radiation forces. The magnetic gradients of MRI scanners are \emph{uniform}, meaning the same force is applied everywhere in the workspace \cite{nosrati2018development}. The periodicity of the acoustic vibration can be exploited for simultaneous positioning \cite{oberti2007manipulation,zhou2016controlling,lipkens2017acoustic}. 
+
+ 
+
 %Controlling the \emph{shape}, or relative positions, of many particles is a key ability for a range of applications.  Correspondingly, it has been studied from a control-theoretic perspective in  both centralized and decentralized approaches.
 % For examples of each, see the centralized virtual leaders in \cite{egerstedt2001formation}, and the  gradient-based decentralized controllers  using control-Lyapunov functions in~\cite{hsieh2008decentralized}. 
 %However, these approaches assume a level of intelligence and autonomy in individual robots that exceeds the capabilities of many systems, including current micro- and nano-robots.  Current micro- and nano-robots, such as those in~\cite{Chowdhury2015,martel2015magnetotactic,Xiaohui2015magnetiteMicroswimmers} lack onboard computation.
@@ -16,9 +20,9 @@ Symmetry can be broken using particles that respond differently to the uniform c
 % The magnetic gradients of MRI scanners are \emph{uniform}, meaning the same force is applied everywhere in the workspace\cite{nosrati2018development}.
  This work assumes a uniform control with homogenous particles, as in~\cite{AaronManipulation2013}, and breaks the control symmetry using obstacles in the workspace. 
   While in \cite{shahrokhi2018TRO} we showed how to control the mean position and variance through repeated collisions with the workspace, this paper focuses on stable configurations. 
-   In \cite{?UniformManip??} we showed that single obstacle can be used to rearrange $n$ particles using an $O(n^2)$-time algorithm.
+   In \cite{AaronManipulation2013} we showed that single obstacle can be used to rearrange $n$ particles using an $O(n^2)$-time algorithm.
    In other previous work, we gave algorithms that could adjust the position of $n$ particles in an environment with walls that have non-slip contacts~\cite{shahrokhi2017} in $O(n^2)$-time. We assumed that if a particle is pushed into a wall, it will not move until a uniform input pulls it from the wall.
-
+ 
 
 %The techniques in this paper are inspired by artificial force-fields. 
 
@@ -35,8 +39,12 @@ Symmetry can be broken using particles that respond differently to the uniform c
 
 
 Alternative techniques rely on non-uniform inputs, such as artificial force-fields. 
-Much recent work in magnet control has focused on exploiting inhomogeneities in the magnetic field to control multiple micro particles using gradient-based pulling~\cite{Salmanipour2018EightDOF,Denasi2018independent}.  
+ Much recent work in magnet control has focused on exploiting inhomogeneities in the magnetic field to control multiple micro particles using gradient-based pulling~\cite{Salmanipour2018EightDOF,Denasi2018independent}.  
 Using large-scale external magnetic fields makes it challenging to independently control more than one microrobot unless the distance between the electromagnetic coils is at the same length scales as the robot workspace~\cite{diller2016six, Denasi2018independent, Salmanipour2018EightDOF }.
+ 
+ Decentralized and distributed approaches are also studied. An example of distributed approach to shape control a large number of agents has probabilistic swarm guidance using inhomogeneous Markov chains\cite{bandyopadhyay2017probabilistic}. Another work considers agents are not communicating and give probabilistic results by only measuring a scalar distance between the agents \cite{li2017decentralized}. 
+  Same agents in a group that might behave differently due to their place in the environment inspired by birds or ants \cite{fine2013eliciting}. This paper also make use of the workspace to shape the particles.
+However, using autonomous approaches for positioning a large group of particles is not practical in our approach because the particles do not have that level of intelligence. 
 %Applications have included techniques to design shear forces for sensorless manipulation of a single object by~\cite{lamiraux+2001:ra}.  
 %\cite{vose2012sliding} demonstrated a collection of 2D force fields generated by six degree-of-freedom vibration inputs to a rigid plate.  These force fields, including shear forces, could be used as a set of primitives for motion control to steer the formation of multiple objects. %However unlike the uniform control model in this paper, their control was multi-modal and position-dependent.
 %\todo{talk about obstacles, think about adding goldberg}
