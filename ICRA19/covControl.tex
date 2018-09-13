@@ -131,7 +131,7 @@ Assume an obstacle-free, bounded, unit-size, square workspace.
  Assume that the swarm is initialized in the lower-left corner, in a rectangle of width $w$ and height $A/w$. 
  Such a rectangular configuration can be accomplished using the variance controllers from \cite{ShahrokhiIROS2015}. 
   If the swarm is then commanded to move a distance $L$ to the right, components of the swarm outside the boundary friction layer of height $h$ move further than components near the boundary. 
-   The swarm is contained in a region $R$ composed of no more than three stacked components: at bottom a parallelogram inclined to the right top, at middle a rectangle, and at top a parallelogram inclined to the left top. These regions can be defined by the rectangle's left side, bottom, and top:
+   The swarm is contained in a region $R$ composed of no more than three stacked components: at bottom a parallelogram inclined to the right top, at middle a rectangle, and at top a parallelogram inclined to the left top. These regions can be defined by the rectangle's left side, bottom, and top (see Fig.~\ref{fig:ControlledCorrelation}):
 \begin{align}
 r_{\text{left}} &= \min \left(L,1-w \right),\nonumber \\
 r_{\text{bottom}} &=\min \left(\frac{A}{w}, h\frac{r_{\textrm{left}}}{L}  \right) \text{and}\nonumber \\
@@ -156,7 +156,6 @@ The mean, variance, and correlation are calculated  using \eqref{eq:meanInSquare
 \vspace{-1em}
 \caption{\label{fig:ControlledCorrelation}
 Analytical results comparing maximum correlation $\rho_{xy}$. Lines labeled \textsf{F} use the boundary layer friction model of \eqref{eq:correlationFriction} with four boundary layer thicknesses $h$ and the stable triangular configuration \eqref{eq:GravityCorrelation}.
-\textcolor{red}{??label rbottom, tleft, rtop}
 }\end{figure}
 
 %A set of simulations were conducted to demonstrate the importance of boundary friction.  
@@ -173,21 +172,20 @@ Larger boundary layers $h$ enable more control of correlation.
 
 
 \section{Experiments}\label{sec:Experiments}
-
+This section reviews three demonstrations of efficient shape control of many particles.
 \subsection{Hardware experiment: particle angle of repose}
-In this section we vary the force and approach angle to shape a swarm with a characteristic angle of repose.  
-
-
-
+In this section we varied the approach angle to shape a swarm with a characteristic angle of repose.  
+We then showed how the angle of repose can be increased by decreasing the magnitude of the force that moves the particles.
+%
 \begin{figure}
 \begin{center}
 	\includegraphics[width=\columnwidth]{aorPlot.pdf}
 \end{center}
 \caption{\label{fig:angleOfReposeExp}
-Experimental data using iron particles and garvity.
+Experimental data using iron particles, varying angle of attack, and three tilt angles to vary the force applied by gravity.
 }
 \end{figure}
-
+%
 %\begin{figure}
 %\begin{center}
 %	\includegraphics[width=\columnwidth]{ironAndSaltCloseup.pdf}
@@ -196,9 +194,14 @@ Experimental data using iron particles and garvity.
 %Magnified image of salt and iron at angle of repose.
 %}
 %\end{figure}
-
-\textcolor{red}{TODO: Haoran will Explain hardware experiment
-These experiements show how the pile of particles can be used to convey two scalar values: the force applied and the attack angle.  We can also apply varying levels of force and torque, as shown in  \eqref{?}. }
+%
+The particles used are iron filings (?Company name and particle size?), and the motive force is gravity. 
+The particles were poured into a frame composed of two sheets of acrylic with ?? mm spacing between. Five 40 mm rods were epoxied between the sheets at angles 
+ $\{0^\circ,15^\circ, 30^\circ, 45^\circ, 60^\circ \}$, generating angle of attacks $\beta = \{90^\circ,75^\circ, 60^\circ, 45^\circ, 30^\circ \}$.
+ The frame was tested at three tilt angles with respect to horizontal: $\beta = \{90^\circ,60^\circ, 45^\circ \}$, resulting in $\{100,87, 71\}\%$ of the gravitational force.
+ For each test the bottom of the frame was removed to allow unsupported particles to escape and the shape of the remaining particles was measured from photographs taken by a tripod-mounted camera inclined at the same tilt angle as the frame.
+  The decreasing tilt angles resulting in increasing angle of repose values: $\alpha = \{42^\circ,50^\circ, 63^\circ \}$
+These experiments show how the pile of particles can be used to convey two scalar values: the force applied and the attack angle.  We can also apply varying levels of force and torque to the rod according to \eqref{eq:ForceAOR} and \eqref{eq:TorqueAOR}.
 
 \subsection{Hardware experiment: kilobot angle of repose}
 We varied the approach angle to shape a swarm of Kilobots \cite{rubenstein2014programmable} with a characteristic angle of repose. 
@@ -208,7 +211,7 @@ We varied the approach angle to shape a swarm of Kilobots \cite{rubenstein2014pr
 	\includegraphics[width=\columnwidth]{SetUp.pdf}
 \end{center}
 \caption{\label{fig:SetUp}
-Hardware platform for steering Kilobots with lights and characteristic shape formed by kilobot angle of repose for three angle of attacks.
+Steering Kilobots with lights and characteristic shape formed by Kilobot angle of repose for three angle of attacks.
 }
 \end{figure}
 

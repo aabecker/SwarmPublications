@@ -56,7 +56,6 @@ This piling up is common to all granular media, and the angle formed perpendicul
 \subsection{Force and Torque}
 
 By integrating over the triangular shape, the force applied to the rod (when a unit area of particles produces 1 N of force) is
-\textcolor{red}{?? TODO: Aaron INsert the integral}
 \begin{figure}
 \centering
 \renewcommand{\figwid}{\columnwidth}
@@ -76,12 +75,13 @@ By integrating over the triangular shape, the force applied to the rod (when a u
 \vspace{-2em}
 }
 \end{figure}
-
+%
 \begin{align}
-F(\theta,\alpha,\ell) =\left\{
+F(\theta,\alpha,\ell) &=   \nonumber \\
+F(\theta,\alpha,\ell) &=\left\{
 \begin{array}{ll}
 \frac{\ell^2\Big(\cos(2\theta)-\cos(2\alpha)\Big)}{8\cos(\alpha)\sin(\theta)} &   -\alpha<\theta<\alpha\\
-0 &    \textrm{otherwise .}\\
+0 &    \textrm{otherwise .}
 \end{array} 
 \right . \label{eq:ForceAOR}
 \end{align}
@@ -97,9 +97,9 @@ Torque will also be similarly defined as
 \tau(\theta, \alpha, \ell) =\left\{
 \begin{array}{ll}
 \frac{\ell^3\Big(\cos(2\alpha)-\cos(2\theta)\Big)\sin(\theta) }{48\sin^2(\alpha)}&   -\alpha<\theta<\alpha\\
-0 &    \textrm{otherwise .}\\
+0 &    \textrm{otherwise .} 
 \end{array} 
-\right.
+\right.  \label{eq:TorqueAOR}
 \end{align}
 Torque is shown in the bottom plot of Fig.~\ref{fig:AngleOfReposeForce} with the rod length $\ell=1$. 
  Given sufficient particles to pile up to the angle of repose, this torque tends to stabilize the object to be perpendicular to the pushing direction.
