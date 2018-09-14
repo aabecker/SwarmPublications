@@ -36,16 +36,19 @@
 \renewcommand{\figwid}{\columnwidth}
 \begin{overpic}[width =\figwid]{Angle.pdf}%\put(1,55){a)}
 \end{overpic}
+\vspace{-2em}
 \caption{\label{fig:angle}  If particles move faster than the (pink) rod, some particles slide past the rod, but the ones that remain pile up in a shape characterized by the angle of repose $\alpha$, which is particular to the particle type.
 %Different values of angle of repose is shown when granular particles move faster than the rod.
-}
+}\vspace{-1em}
 \end{figure}
 
 
 Consider a swarm of granular particles applying force to a rod. 
 If the rod moves slower than the particles, some particles will slide past the rod, but other particles will build up behind the rod in a characteristic triangular shape %defined by an apex angle. 
  defined by a steepest angle of descent perpendicular to the direction of particle motion. 
-This piling up is common to all granular media, and the angle formed perpendicular to the angle of attack  is the \emph{angle of repose}. Three different values of angle of repose is shown in Fig.~\ref{fig:angle}. The center of mass of the rod is in the middle of the rod, but center of mass of the granular particles changes for different values of angle of repose. % for the media, see \cite{angleofRepose}. 
+This piling up is common to all granular media, and the angle formed perpendicular to the angle of attack  is the \emph{angle of repose}\footnote{this paper only considers the 2D projection of the piled particles.}. 
+%\footnote{angle of repose is a 3D phenomenon, but this paper only considers the 2D projection of the piled particles.}. 
+ Three different values of angle of repose is shown in Fig.~\ref{fig:angle}. The center of mass of the rod is in the middle of the rod, but center of mass of the granular particles changes for different values of angle of repose. % for the media, see \cite{angleofRepose}. 
  By measuring the angle of repose for the particles shown in the top plot of Fig.~\ref{fig:AngleOfReposeForce}, we can estimate the force and torque that the swarm is applying to the rod as a function of the rod's length, the angle of repose, and orientation of the rod.
  In this plot, particulate is moving in the $-y$ direction, and the rods are tilted at $\theta=\{-45,-22.5,0,22.5,45\}^\circ$ with respect to the $x$ axis. 
   A thin black line extends upwards from the rod COM, and the COM of the particulate is shown by a white and black disk.   
@@ -54,11 +57,11 @@ This piling up is common to all granular media, and the angle formed perpendicul
  We define the angle of repose as $\alpha$, the rod's orientation relative to 90$^\circ$ from the particle movement vector as $\theta$, and the rod's length as $\ell$. 
 
 \subsection{Force and Torque}
-
+%
 By integrating over the triangular shape, the force applied to the rod (when a unit area of particles produces 1 N of force) is
 \begin{figure}
 \centering
-\renewcommand{\figwid}{\columnwidth}
+\renewcommand{\figwid}{0.8\columnwidth}
 \begin{overpic}[width =\figwid]{AngleOfRepose.pdf}%\put(1,55){a)}
 \end{overpic}\\
 \vspace{0.5em}
@@ -77,7 +80,14 @@ By integrating over the triangular shape, the force applied to the rod (when a u
 \end{figure}
 %
 \begin{align}
-F(\theta,\alpha,\ell) &=   \nonumber \\
+F(\theta,\alpha,\ell) &=  \!\!\!\!\!\!\!\! \int\limits_{-\cos{\theta}\ell/2}\limits^{\cos{\theta}\ell/2} \!\!\!\!\!\!\!\! x\left(
+ \min\!\! \left(\!\! 
+    \frac{ \ell\sin{\alpha \pm\theta }}{\cos{\alpha}}  \mp x \tan{\alpha} \!
+    %, \frac{ \ell\sin{\alpha-\theta }}{\cos{\alpha}}  + x \tan{\alpha}
+ \right)
+ \!-\! x \tan{\theta}\!
+ \right)  dx
+ \nonumber \\
 F(\theta,\alpha,\ell) &=\left\{
 \begin{array}{ll}
 \frac{\ell^2\Big(\cos(2\theta)-\cos(2\alpha)\Big)}{8\cos(\alpha)\sin(\theta)} &   -\alpha<\theta<\alpha\\
@@ -96,7 +106,7 @@ Torque will also be similarly defined as
 \begin{align}
 \tau(\theta, \alpha, \ell) =\left\{
 \begin{array}{ll}
-\frac{\ell^3\Big(\cos(2\alpha)-\cos(2\theta)\Big)\sin(\theta) }{48\sin^2(\alpha)}&   -\alpha<\theta<\alpha\\
+\frac{\ell^3\Big(\cos{2\alpha}-\cos{2\theta}\Big)\sin{\theta} }{48\sin^2(\alpha)}&   -\alpha<\theta<\alpha\\
 0 &    \textrm{otherwise .} 
 \end{array} 
 \right.  \label{eq:TorqueAOR}
@@ -118,13 +128,13 @@ Computing means, variances, covariance, and correlation requires integrating ove
 %The formulas for means $(\bar{x},\bar{y})$, covariance $(\sigma^2_x,\sigma^2_y,\sigma_{xy})$, and correlation $\rho_{xy}$ are as follows: %, integrated over the unit square with $x$ and $y$ from 0 to 1:
 %
 \begin{align}
-A &=\iint_R \,dx\,dy \text{, }
-\bar{x} =\frac{\iint_R x \,dx\,dy}{A} \label{eq:meanInSquareWorkspace}
-\text{, } \bar{y}=\frac{\iint_R y \,dx\,dy}{A} \text{, }\\
+A &=\iint_R \!dx\,dy \text{, }
+\bar{x} =\frac{\iint\limits_R x \,dx\,dy}{A} \label{eq:meanInSquareWorkspace}
+\text{, } \bar{y}=\frac{\iint\limits_R y \,dx\,dy}{A} \text{, }\\
 %\end{align}
 %\begin{align}
-\sigma^2_x &=\frac{\iint_R \left(x-\bar{x}\right)^2  \,dx \,dy}{A}  \label{eq:varInSquareWorkspace}
-\text{, } \sigma^2_y =\frac{\iint_R  \left(y-\bar{y}\right)^2 \,dx \,dy}{A}  \text{, }\\
+\sigma^2_x &=\frac{\iint\limits_R \left(x-\bar{x}\right)^2  \,dx \,dy}{A}  \label{eq:varInSquareWorkspace}
+\text{, } \sigma^2_y =\frac{\iint\limits_R  \left(y-\bar{y}\right)^2 \,dx \,dy}{A}  \text{, }\\
 %\end{align}
 %\begin{align}
 \sigma_{xy} &= \frac{\iint_R  \left(x-\bar{x}\right) \left(y-\bar{y}\right) \, dx \,dy}{A} \label{eq:covAndcorrInSquareWorkspace}
@@ -142,15 +152,16 @@ Representative results are shown in Fig.~\ref{fig:AngleOfReposeStatistics}.
 
 \begin{figure}
 \centering
-\renewcommand{\figwid}{\columnwidth}
-\begin{overpic}[width =\figwid]{aorYmean}%\put(1,55){a)}
-\end{overpic}\\
-\vspace{0.5em}
-\begin{overpic}[width =\figwid]{aorVarX}%\put(1,55){a)}
-\end{overpic}\\
-\vspace{0.5em}
-\begin{overpic}[width =\figwid]{aorCovariance}%\put(1,55){a)}
-\end{overpic}
+%\renewcommand{\figwid}{\columnwidth}
+%\begin{overpic}[width =\figwid]{aorYmean}%\put(1,55){a)}
+%\end{overpic}\\
+%\vspace{0.5em}
+%\begin{overpic}[width =\figwid]{aorVarX}%\put(1,55){a)}
+%\end{overpic}\\
+%\vspace{0.5em}
+%\begin{overpic}[width =\figwid]{aorCovariance}%\put(1,55){a)}
+%\end{overpic}
+\begin{overpic}[width =.8\columnwidth]{aorPlots}\end{overpic}
 \vspace{-0.5em}
 \caption{\label{fig:AngleOfReposeStatistics} 
 Each plot shows a statistic of the swarm shape for several angle of repose $\alpha$ values as a function of the approach angle $\beta$ with $\ell = 1$.
