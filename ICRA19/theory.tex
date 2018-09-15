@@ -46,8 +46,7 @@
 Consider a swarm of granular particles applying force to a rod. 
 If the rod moves slower than the particles, some particles will slide past the rod, but other particles will build up behind the rod in a characteristic triangular shape %defined by an apex angle. 
  defined by a steepest angle of descent perpendicular to the direction of particle motion. 
-This piling up is common to all granular media, and the angle formed perpendicular to the angle of attack  is the \emph{angle of repose}\footnote{this paper only considers the 2D projection of the piled particles.}. 
-%\footnote{angle of repose is a 3D phenomenon, but this paper only considers the 2D projection of the piled particles.}. 
+This piling up is common to all granular media, and the angle formed perpendicular to the angle of attack $\alpha$ is the \emph{angle of repose}\footnote{angle of repose is a 3D phenomenon, but this paper only considers the 2D projection of the piled particles.}. 
  Three different values of angle of repose is shown in Fig.~\ref{fig:angle}. The center of mass of the rod is in the middle of the rod, but center of mass of the granular particles changes for different values of angle of repose. % for the media, see \cite{angleofRepose}. 
  By measuring the angle of repose for the particles shown in the top plot of Fig.~\ref{fig:AngleOfReposeForce}, we can estimate the force and torque that the swarm is applying to the rod as a function of the rod's length, the angle of repose, and orientation of the rod.
  In this plot, particulate is moving in the $-y$ direction, and the rods are tilted at $\theta=\{-45,-22.5,0,22.5,45\}^\circ$ with respect to the $x$ axis. 
@@ -62,7 +61,9 @@ By integrating over the triangular shape, the force applied to the rod (when a u
 \begin{figure}
 \centering
 \renewcommand{\figwid}{0.8\columnwidth}
-\begin{overpic}[width =\figwid]{AngleOfRepose.pdf}%\put(1,55){a)}
+\begin{overpic}[width =\figwid]{AngleOfRepose.pdf}
+\put(39.1,12){\scriptsize $\leftarrow \, \ell \, \, \rightarrow$}
+\rotatebox{22.5}{\put(55,-12){\scriptsize $\leftarrow \, \ell \, \, \rightarrow$}}
 \end{overpic}\\
 \vspace{0.5em}
 \begin{overpic}[width =\figwid]{AngleOfReposeForce.pdf}%\put(1,55){a)}

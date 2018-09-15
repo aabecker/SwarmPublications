@@ -90,12 +90,12 @@ F \sin(\theta), & \text{else} \end{cases} \\ %\sign(F \sin(\theta) ) \cdot  \max
 \end{align}
  Fig.~\ref{fig:friction} shows the resultant forces on two particles when one is touching a wall. 
 Though each receives the same inputs,  they experience different net forces.
-  For ease of analysis, the following algorithms assume $\mu_f$ is infinite and particles touching the wall are prevented from sliding along the wall.
-This means that if one particle is touching the wall and another particle is free, the touching particle will not move when the control input is parallel or into the wall. 
-There are many alternate models of friction that also break control symmetry. Fig.~\ref{fig:friction}c shows fluid flow along a boundary.  Fluid in the free-flow region moves uniformly, but flow decreases to zero in the boundary layer \cite{fluidMechanics}.  Force in such a system can be calculated as
+%  For ease of analysis, the following algorithms assume $\mu_f$ is infinite and particles touching the wall are prevented from sliding along the wall.
+% This means that if one particle is touching the wall and another particle is free, the touching particle will not move when the control input is parallel or into the wall. 
+There are many alternate models of friction that also break control symmetry. Fig.~\ref{fig:friction}c shows fluid flow along a boundary.  Fluid in the free-flow region moves uniformly, but flow decreases to zero in the boundary layer of thickness $\ell$ \cite{fluidMechanics}.  Force in such a system can be calculated as
 \begin{align}
 %u(y) = u_0 \left(1- \frac{(y-h)^2}{h^2}\right) = u_0 \frac{y}{h} \left(2- \frac{y}{h}\right) \label{eq:boundarylayerflow} THiS EQUATION IS TERRIBLE! PLOT IT.
-F_{\text{\emph{forward}}}(y) &= F - F_f\begin{cases}  \frac{h-y}{h}   , &  y<h \label{eq:boundarylayerflow} \\
+F_{\text{\emph{forward}}}(y) &= F - F_f\begin{cases}  \frac{\ell-y}{\ell}   , &  y<\ell \label{eq:boundarylayerflow} \\
 0, & \text{else} \end{cases}.
 \end{align}
 
@@ -103,7 +103,7 @@ F_{\text{\emph{forward}}}(y) &= F - F_f\begin{cases}  \frac{h-y}{h}   , &  y<h \
 \begin{center}
 \includegraphics[width=0.8\columnwidth]{friction.pdf} 
 \vspace{-1em}
-\caption{(a,b) Wall friction reduces the force for going forward $F_{\text{\emph{forward}}}$ on a particle near a wall, but not for a free particle. (c) velocity of a fluid reduces to zero at the boundary.
+\caption{(a,b) Wall friction reduces the force for going forward $F_{\text{\emph{forward}}}$ on a particle near a wall, but not for a free particle. (c) Velocity of a fluid reduces to zero at the boundary.
 \label{fig:friction}
 }\vspace{-2em}
 \end{center}
@@ -125,27 +125,29 @@ Assume an obstacle-free, bounded, unit-size, square workspace.
  , & \frac{1}{2} \le A\le 1
 \end{cases}.
 \end{align}
- If friction obeys the linear boundary layer model of \eqref{eq:boundarylayerflow} with boundary layer thickness $h$ and maximum friction $F_f$ equal to the maximum applied force $F$, we can generate  larger correlations.
+ If friction obeys the linear boundary layer model of \eqref{eq:boundarylayerflow} with boundary layer thickness $\ell$ and maximum friction $F_f$ equal to the maximum applied force $F$, we can generate  larger correlations.
  If the swarm size is smaller than $A \approx 0.43$ and the boundary layer is sufficiently thick we can generate correlations larger than 1/2  using boundary friction.
 
  Assume that the swarm is initialized in the lower-left corner, in a rectangle of width $w$ and height $A/w$. 
  Such a rectangular configuration can be accomplished using the variance controllers from \cite{ShahrokhiIROS2015}. 
-  If the swarm is then commanded to move a distance $L$ to the right, components of the swarm outside the boundary friction layer of height $h$ move further than components near the boundary. 
+  If the swarm is then commanded to move a distance $L$ to the right, components of the swarm outside the boundary friction layer thickness $\ell$ move further than components near the boundary. 
    The swarm is contained in a region $R$ composed of no more than three stacked components: at bottom a parallelogram inclined to the right top, at middle a rectangle, and at top a parallelogram inclined to the left top. These regions can be defined by the rectangle's left side, bottom, and top (see Fig.~\ref{fig:ControlledCorrelation}):
 \begin{align}
 r_{\text{left}} &= \min \left(L,1-w \right),\nonumber \\
-r_{\text{bottom}} &=\min \left(\frac{A}{w}, h\frac{r_{\textrm{left}}}{L}  \right) \text{and}\nonumber \\
-r_{\text{top}}  &= \min \left(\frac{A}{w}, 1-h\frac{r_{\text{left}}}{L}  \right).
+r_{\text{bottom}} &=\min \left(\frac{A}{w}, \ell\frac{r_{\textrm{left}}}{L}  \right) \text{and}\nonumber \\
+r_{\text{top}}  &= \min \left(\frac{A}{w}, 1-\ell\frac{r_{\text{left}}}{L}  \right).
 \end{align}
 If $\frac{A}{w} \le r_{\text{top}}$ the top parallelogram has no area. 
  Similarly, if $r_{\text{top}} \le r_{\text{bottom}}$ the rectangle has no area. 
 The mean, variance, and correlation are calculated  using \eqref{eq:meanInSquareWorkspace}, \eqref{eq:varInSquareWorkspace}, and \eqref{eq:covAndcorrInSquareWorkspace} over the region $R$:
-\begin{align} \iint_R f(x,y) \, dx \,dy &=  \int_0^{r_{\text{bottom}}}  \int_{\frac{L}{h}y}^{\frac{L}{h}y+w}  f(x,y)  dx \, dy \label{eq:correlationFriction} \\
-&+\int_{r_{\text{bottom}}}^{r_{\text{top}}} \int_{r_{\text{left}}}^{r_{\text{left}} +w} f(x,y)    dx \, dy \nonumber\\
-&+\int_{r_{\text{top}}}^{\frac{A}{w}} \int_{-\frac{L (y-r_{\text{top}})}{h}+r_{\text{left}}}^{r_{\text{left}}+w-\frac{L (y-r_{\text{top}})}{h}} f(x,y)   dx \, dy .\nonumber
+\begin{align}
+ \iint_R f(x,y) \, dx \,dy 
+ &=  \int_0^{r_{\text{bottom}}}  \int_{\frac{L}{\ell}y}^{\frac{L}{\ell}y+w}  f(x,y)  \, dx \, dy \label{eq:correlationFriction} \\
+&+\int_{r_{\text{bottom}}}^{r_{\text{top}}} \int_{r_{\text{left}}}^{r_{\text{left}} +w} f(x,y)   \,  dx \, dy \nonumber\\
+&+\int_{r_{\text{top}}}^{\frac{A}{w}} \int_{-\frac{L (y-r_{\text{top}})}{\ell}+r_{\text{left}}}^{r_{\text{left}}+w-\frac{L (y-r_{\text{top}})}{\ell}} f(x,y)  \,  dx \, dy .\nonumber
 \end{align}
  
- Given an environment parameterized by $A$ and $h$, efficient correlation control consists of choosing the $w,L$ pair  that generates the desired positive correlation.
+ Given an environment parameterized by $A$ and $\ell$, efficient correlation control consists of choosing the $w,L$ pair  that generates the desired positive correlation.
   Negative correlations can be generated by initializing the swarm in the upper left, or lower right.
 
 \subsection{Efficient control of correlation}
@@ -155,16 +157,16 @@ The mean, variance, and correlation are calculated  using \eqref{eq:meanInSquare
 \end{center}
 \vspace{-1em}
 \caption{\label{fig:ControlledCorrelation}
-Analytical results comparing maximum correlation $\rho_{xy}$. Lines labeled \textsf{F} use the boundary layer friction model of \eqref{eq:correlationFriction} with four boundary layer thicknesses $h$ and the stable triangular configuration \eqref{eq:GravityCorrelation}.
+Analytical results comparing maximum correlation $\rho_{xy}$. Lines labeled \textsf{F} use the boundary layer friction model of \eqref{eq:correlationFriction} with four boundary layer thicknesses $\ell$ and the stable triangular configuration \eqref{eq:GravityCorrelation}.
 }\end{figure}
 
 %A set of simulations were conducted to demonstrate the importance of boundary friction.  
 This section examines maximum correlation values as a function of  $w,L$ using \eqref{eq:correlationFriction}
 from Section  \ref{subsec:ClosedLoopCovarianceControl}. 
-The maximum correlation using boundary layer friction $\displaystyle  \max_{w,L} \left( \rho(A,h,w,L) \right)$ can be found by gradient descent, as shown in Fig.~\ref{fig:ControlledCorrelation}. 
+The maximum correlation using boundary layer friction $\displaystyle  \max_{w,L} \left( \rho_{xy}(A,\ell,w,L) \right)$ can be found by gradient descent, as shown in Fig.~\ref{fig:ControlledCorrelation}. 
 For swarms with small area, this method enables generating the full range of correlations $\pm 1$. %, while the stable configuration method from Section \ref{sec:theory} could only generate correlations $\pm 1/2$.  
   As  the swarm area $A$ increases above $\approx 0.43$, the stable configuration method is more effective.
-Larger boundary layers $h$ enable more control of correlation.
+Thicker boundary layers $\ell$ enable more control of correlation.
 %  The video attachment shows efficient control of correlation with simulations using the 2D physics engine Box2D~\cite{catto2010box2d} and 144 disc-shaped robots with boundary layer model \eqref{eq:boundarylayerflow}.
 
 
@@ -204,7 +206,7 @@ The particles were poured into a frame composed of two sheets of acrylic with 4.
   The decreasing tilt angles resulting in increasing angle of repose values: $\alpha = \{42^\circ,50^\circ, 63^\circ \}$
 These experiments show how the pile of particles can be used to convey two scalar values: the force applied and the attack angle.  These result in varying levels of force and torque on the rod according to \eqref{eq:ForceAOR} and \eqref{eq:TorqueAOR}.
 
-\subsection{Hardware experiment: kilobot angle of repose}
+\subsection{Hardware experiment: Kilobot angle of repose}
 We varied the approach angle to shape a swarm of Kilobots \cite{rubenstein2014programmable} with a characteristic angle of repose. 
  A Kilobot is a three-centimeter diameter,  low-cost robot. In our experiments, these robots were programmed to go toward the brightest light in the room. The experimental setup is shown in Fig. \ref{fig:SetUp}, also showing angle of repose of the Kilobots with  the pink rod at three angles of attack: 90$^\circ$, 67.5$^\circ$ and 45$^\circ$. The green lines show the triangle shape the robots pile up into. The cyan star is the center of mass of the rod, and the mean position and variance of the robots are shown with  red stars and red ellipses.
 \begin{figure}
@@ -224,18 +226,19 @@ Steering Kilobots with lights and characteristic shape formed by Kilobot angle o
 
 
 \subsection{Hardware experiment: control of covariance}
-To demonstrate covariance control, up to 100 kilobots were placed on the workspace and manually steered with lights, using friction with the boundary walls to vary the covariance from  -4000 to 3000 cm$^2$.  The resulting covariance is plotted in Fig.~\ref{fig:covExperiment}, along with snapshots of the swarm.
+To demonstrate covariance control, up to 100 Kilobots were placed on the workspace and manually steered with lights, using friction with the boundary walls to vary the covariance from  -4000 to 3000 cm$^2$.  The resulting covariance is plotted in Fig.~\ref{fig:covExperiment}, along with snapshots of the swarm.
 
 
 
 
 \begin{figure}[!htb]
 \begin{center}
+\vspace{-1em}
 	\includegraphics[width=\columnwidth]{newExperiment.pdf}
 \end{center}
 \vspace{-2em}
 \caption{\label{fig:covExperiment}
-Hardware demonstration steering $\approx 50$ kilobot robots to desired covariance. The goal covariance is negative in first 100 seconds and is positive in the next 100 seconds. The actual covariance is shown in different trials. Frames above the plot show output from machine vision system and an overlaid covariance ellipse.
+Hardware demonstration steering $\approx 50$ Kilobot robots to desired covariance. The goal covariance is negative in first 100 seconds and is positive in the next 100 seconds. The actual covariance is shown in different trials. Frames above the plot show output from machine vision system and an overlaid covariance ellipse.
 %\vspace{-2.5 em}
 }
 \end{figure}
