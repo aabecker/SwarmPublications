@@ -1,0 +1,246 @@
+%  compress using: gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH      -sOutputFile=foo-ShapingSwarmCompressed.pdf ShapingSwarmFrictionSharedInput.pdf
+% to submit: https://ras.papercept.net/conferences/scripts/start.pl
+%\documentclass[conference]{IEEEtran}
+\documentclass[letterpaper, 10 pt, conference]{ieeeconf}
+\IEEEoverridecommandlockouts% This command is only needed if 
+                                                          % you want to use the \thanks command
+%\overrideIEEEmargins                                      % Needed to meet printer requirements.
+\usepackage{times}
+
+
+\makeatletter 
+\let\NAT@parse\undefined
+\makeatother
+
+% numbers option provides compact numerical references in the text. 
+%\usepackage[numbers]{natbib}
+\usepackage{multicol}
+%\usepackage[bookmarks=true]{hyperref}
+
+\usepackage{bbm}
+\usepackage{calc}
+\usepackage{url}
+\usepackage{transparent}
+\usepackage[bookmarks=true,hidelinks]{hyperref}
+
+\usepackage{graphicx}
+\usepackage[cmex10]{amsmath}
+\usepackage{bm}
+\usepackage{amssymb}
+\usepackage{rotating}
+
+\usepackage{chngcntr}
+\counterwithin{paragraph}{subsection} % makes paragraph depend on subsection
+
+
+%\usepackage{xfrac}
+\usepackage{nicefrac}
+\usepackage{cite}
+\usepackage[caption=false,font=footnotesize]{subfig}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{colortbl}
+%\usepackage{caption}
+
+%\usepackage{wrapfig}
+\usepackage{overpic}
+%\usepackage{subfigure}
+%\usepackage{textcomp}
+\graphicspath{{./pictures/pdf/},{./pictures/ps/},{./pictures/png/},{./pictures/jpg/}}
+\usepackage{breqn} %for breaking equations automatically
+\usepackage[ruled]{algorithm}
+\usepackage{algpseudocode}
+%\usepackage{algorithmic}
+\usepackage{multirow}
+\usepackage{todonotes}
+\usepackage{authblk}
+\usepackage[per-mode=symbol, detect-weight=true, binary-units=true]{siunitx}
+\usepackage{rotating}
+\usepackage{tikz}
+\usepgflibrary{arrows}% for more options on arrows
+%\newcommand{\todo}[1]{\vspace{5 mm}\par \noindent \framebox{\begin{minipage}[c]{0.98 \columnwidth} \ttfamily\flushleft \textcolor{red}{#1}\end{minipage}}\vspace{5 mm}\par}
+% uncomment this to hide all red todos
+%\renewcommand{\todo}{}
+
+%% ABBREVIATIONS
+\newcommand{\qstart}{q_{\text{start}}}
+
+
+
+%% MACROS
+
+
+\providecommand{\abs}[1]{\left\lvert#1\right\rvert}
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+\providecommand{\normn}[2]{\left\lVert#1\right\rVert_#2}
+\providecommand{\dualnorm}[1]{\norm{#1}_\ast}
+\providecommand{\dualnormn}[2]{\norm{#1}_{#2\ast}}
+\providecommand{\set}[1]{\lbrace\,#1\,\rbrace}
+\providecommand{\cset}[2]{\lbrace\,{#1}\nobreak\mid\nobreak{#2}\,\rbrace}
+\providecommand{\lscal}{<}
+\providecommand{\gscal}{>}
+\providecommand{\lvect}{\prec}
+\providecommand{\gvect}{\succ}
+\providecommand{\leqscal}{\leq}
+\providecommand{\geqscal}{\geq}
+\providecommand{\leqvect}{\preceq}
+\providecommand{\geqvect}{\succeq}
+\providecommand{\onevect}{\mathbf{1}}
+\providecommand{\zerovect}{\mathbf{0}}
+\providecommand{\field}[1]{\mathbb{#1}}
+\providecommand{\C}{\field{C}}
+\providecommand{\R}{\field{R}}
+\newcommand{\Cspace}{\mathcal{Q}}
+\newcommand{\Uspace}{\mathcal{U}}
+\providecommand{\Fspace}{\Cspace_\text{free}}
+\providecommand{\Hcal}{$\mathcal{H}$}
+\providecommand{\Vcal}{$\mathcal{V}$}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\cone}{cone}
+\DeclareMathOperator{\homog}{homog}
+\DeclareMathOperator{\domain}{dom}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\sign}{sgn}
+\providecommand{\polar}{\triangle}
+\providecommand{\ainner}{\underline{a}}
+\providecommand{\aouter}{\overline{a}}
+\providecommand{\binner}{\underline{b}}
+\providecommand{\bouter}{\overline{b}}
+\newcommand{\D}{\nobreakdash-\textsc{d}}
+%\newcommand{\Fspace}{\mathcal{F}}
+\providecommand{\Fspace}{\Cspace_\text{free}}
+\providecommand{\free}{\text{\{}\mathsf{free}\text{\}}}
+\providecommand{\iff}{\Leftrightarrow}
+\providecommand{\subinner}[1]{#1_{\text{inner}}}
+\providecommand{\subouter}[1]{#1_{\text{outer}}}
+\providecommand{\Ppoly}{\mathcal{X}}
+\providecommand{\Pproj}{\mathcal{Y}}
+\providecommand{\Pinner}{\subinner{\Pproj}}
+\providecommand{\Pouter}{\subouter{\Pproj}}
+\DeclareMathOperator{\argmax}{arg\,max}
+\providecommand{\Aineq}{B}
+\providecommand{\Aeq}{A}
+\providecommand{\bineq}{u}
+\providecommand{\beq}{t}
+\DeclareMathOperator{\area}{area}
+\newcommand{\contact}[1]{\Cspace_{#1}}
+\newcommand{\feasible}[1]{\Fspace_{#1}}
+\newcommand{\dd}{\; \mathrm{d}}
+\newcommand{\figwid}{0.22\columnwidth}
+\newcommand{\TRUE}{\textbf{true}}
+\newcommand{\FALSE}{\textbf{false}}
+\newcommand{\xupdownarrow}[1]{%
+  {\left\updownarrow\vbox to #1{}\right.\kern-\nulldelimiterspace}
+}
+%\newcommand{\xleftrightarrow}[1]{%
+%  {\left\leftrightarrow\vbox to #1{}\right.\kern-\nulldelimiterspace}
+%}
+\DeclareMathOperator{\atan2}{atan2}
+\allowdisplaybreaks
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+
+
+\pdfinfo{
+   /Author (Shiva Shahrokhi, Haoran Zhao, and Aaron T. Becker)
+   /Title  (Reshaping Particle Configurations by Collisions with Rigid Objects)
+   /CreationDate (D:20160129120000)
+   /Subject (Simple Robots)
+   /Keywords (Robots;Uniform Control Inputs, Underactuated Robots,Motion Control,Path Planning for Multiple Mobile Robot Systems)
+}
+
+
+% paper title
+\title{\LARGE \bf Reshaping Particle Configurations by Collisions with Rigid Objects}
+
+% You will get a Paper-ID when submitting a pdf file to the conference system
+\author{Shiva Shahrokhi, Haoran Zhao, and Aaron T. Becker% <-this % stops a space
+\thanks{*This work was supported by the National Science Foundation under Grant No.\ \href{http://nsf.gov/awardsearch/showAward?AWD_ID=1553063}{ [IIS-1553063]} and \href{http://nsf.gov/awardsearch/showAward?AWD_ID=1619278}{[IIS-1619278]}.}% <-this % stops a space
+\thanks{Authors are with the Department of Electrical and Computer Engineering,  University of Houston, Houston, TX 77204 USA        {\tt\small  \{sshahrokhi2, hzhao9@uh.edu, atbecker\}@uh.edu}}%
+}
+%\affil{Department of Electrical and Computer Engineering, \\
+% University of Houston, Houston, TX 77204-4005 USA\\
+% {\tt\small  \{sshahrokhi2, aviswanathanmahadev, atbecker\}@uh.edu}}
+%\thanks{S. Shahrokhi, A. Mahadev and  A. Becker are with the Department of Electrical and Computer Engineering,  University of Houston, Houston, TX 77204-4005 USA {\tt\small  \{sshahrokhi2, aviswanathanmahadev, atbecker\}@uh.edu}
+%}
+%} %\end thanks
+
+\begin{document}
+
+
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+%
+\begin{abstract}
+%
+% Steered particles offer a method for targeted therapy, interventions, and drug delivery in regions inaccessible by large robots.
+% Magnetic actuation has the benefits of requiring no tethers, being able to operate from a distance, and in some cases allows imaging for feedback (e.g. MRI). 
+  Consider many particles actuated by a uniform global external field (e.g. gravitational or magnetic fields).
+    This paper presents analytical results using workspace obstacles and global inputs to reshape such a group of particles.
+  Shape control of many particles is necessary for conveying information, construction, and for navigation.
+   In the absence of workspace obstacles, it is not possible to change the relative position of particles.
+    First we show how the particles' characteristic angle of repose can be used to reshape the particles by controlling angle of attack and the magnitude of the driving force. 
+     These can then be used to control the force and torque applied to a rectangular rigid body. 
+    Next, we examine the full set of stable, achievable mean and variance configurations for the shape of a particle group in two canonical environments: a square and a circular workspace.
+    Finally, we show how workspaces with linear boundary layers can be used to achieve a more rich set of mean and variance configurations.
+   %We conclude with hardware experiments investigating shape control using angle of repose and hardware boundaries. 
+ %the shape of the particles is uncontrollable.
+ 
+% Reshaping the swarm is necessary if we want to navigate the swarm through narrow passageways. 
+ % This paper investigates particle shape control with uniform input. % gradients (the same force is applied everywhere in the workspace).
+ 
+%Given three orthogonal magnetic fields, steering one particle in 3D is trivial. 
+%Adding additional particles to steer makes the system underactuated because there are more states than control inputs. 
+%However, the walls of in vivo and artificial environments often have surface roughness such that the particles do not move unless actuation pulls them away from the wall.
+%In previous work, we showed that the individual 2D position of two particles is controllable in a square workspace with non-slip wall contact \cite{shahrokhi2017algorithms}.
+%Because in vivo environments are usually not square, this paper extends the previous work to all convex workspaces and to 3D positioning. 
+%This paper also implements the algorithms using a hardware setup inspired by the gastrointestinal tract.
+%
+%% KEYWORDS:   
+%%Underactuated Robots
+%%Motion Control
+%%Path Planning for Multiple Mobile Robot Systems
+%%	
+%%This is an extension of work presented in a preliminary conference paper:
+%%S. Shahrokhi, A. Mahadev, and A. T. Becker, ÒAlgorithms for shaping a particle swarm with a shared input by exploiting non-slip wall contacts,Ó in Intelligent Robots and Systems (IROS), 2017 IEEE/RSJ International Conference on, 2017.
+\end{abstract}
+
+\IEEEpeerreviewmaketitle
+
+%%%%%%%%%%%%%%%
+\input{intro}
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+\input{relatedWork}
+%%%%%%%%%%%%%%%
+\input{theory}
+\input{covControl}
+%\input{theorynrobAlgs}
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%\input{simulation}
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%\input{experiment}
+%%%%%%%%%%%%%%%
+\input{conclusion}
+%%%%%%%%%%%%%%%
+%\section*{Acknowledgments}
+%%%%%%%%%%%%%%%
+%\pagebreak
+%% Use plainnat to work nicely with natbib. 
+{%\footnotesize
+%\bibliographystyle{plainnat}
+%\bibliographystyle{SageH}
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,ShapeControl}
+}
+
+% Uncomment to add appendix:
+%\input{appendix}
+
+\end{document}
