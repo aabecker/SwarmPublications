@@ -1,37 +1,25 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Theory}
+\section{Boundary Interaction Model}
 \label{sec:theory}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  In the absence of obstacles, uniform inputs move a swarm identically.  
  Independent control requires breaking this symmetry. 
 The following sections examine using non-slip boundary contacts to break the symmetry caused by uniform inputs.  
  Our algorithms rely on holding one particle stationary by pushing it into the boundary while moving the other particle. 
- We start with a boundary interaction model in subsection \ref{subsec:WallFriction}.
- 
-
-For some configurations, we can obtain the optimal solution. 
-Subsections \ref{subsec:square} and \ref{subsec:circular} provide shortest-path results for two representative workspaces, squares and disks.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Boundary Interaction Model}\label{subsec:WallFriction}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- The system dynamics represent particle swarms in low-Reynolds number environments, where viscosity dominates inertial forces and so velocity is proportional to input force~\cite{Purcell1977}. 
+ These system dynamics can represent particle swarms in low-Reynolds number environments, where viscosity dominates inertial forces and so velocity is proportional to input force~\cite{Purcell1977}. 
  In this regime, the input force command $\mathbf{u}(t)$ controls the velocity of the particles.  
  If the $i^{\textrm{th}}$ particle has position $\mathbf{x}_i(t)$ and velocity $\dot{\mathbf{x}}_i(t)$,  we assume the following system model:
- \begin{align}\label{eq:swarmDynamicsAndFric} 
+  \begin{align}\label{eq:swarmDynamicsAndFric} 
 \dot{\mathbf{x}}_i(t)
- &=
- \mathbf{u}(t)
- +F \left( \mathbf{x}_i(t), \mathbf{u}(t) \right), ~i \in [1,n].\\
- F(\mathbf{x}_i(t), \mathbf{u}(t)) &= \begin{cases}
-  - \mathbf{u}(t) &\begin{matrix} \mathbf{x}_i(t) \in  \textrm{boundary \textbf{and}}\\
+ &= \begin{cases}
+  0 &\begin{matrix} \mathbf{x}_i(t) \in  \textrm{boundary \textbf{and}}\\
 \mathbf{N}(\textrm{boundary$_{\mathbf{x}_i(t)}$})\cdot   \mathbf{u}(t) \le 0 \end{matrix}
 \textrm{    ,} \\
- 0 & \textrm{else}.
- \end{cases}\nonumber
+ \mathbf{u}(t) & \textrm{else}.
+ \end{cases}
  \end{align}
- Here  $F(\mathbf{x}_i(t), \mathbf{u}(t)) $ is the frictional force provided by the boundary, and
- $\mathbf{N}(\textrm{boundary$_{\mathbf{x}_i(t)}$})$ is the normal to the boundary at position $\mathbf{x}_i(t)$.
- 
+ Here
+ $\mathbf{N}(\textrm{boundary$_{\mathbf{x}_i(t)}$})$ is the normal to the boundary at position $\mathbf{x}_i(t)$ and the frictional force provided by the boundary cancels any control force $ \mathbf{u}(t)$ that pushes into the boundary.
  
   The same model can be generalized to particles moved by fluid flow where the vector direction of fluid flow $\mathbf{u}(t)$ controls the velocity of particles, or for a swarm of particles that move at a constant speed in a direction specified by a uniform input $\mathbf{u}(t)$~\cite{Rubenstein2012}.
   As in our model, fluid flowing in a pipe has zero velocity along the boundary. Similar mechanical systems exist at larger scales, e.g. all tumblers of a combination lock move uniformly unless obstructed by an obstacle.
@@ -44,6 +32,7 @@ We implemented a solution to this problem for  square workspaces in our previous
 \begin{figure*}
 \renewcommand{\figwid}{0.4\columnwidth}
 
+
 {\begin{overpic}[width =\figwid]{story1mov0.pdf}\put(10,10){Start}
 \put(10,85){a)}
 \put(30,70){$s_1$}
@@ -54,6 +43,12 @@ We implemented a solution to this problem for  square workspaces in our previous
 \end{overpic}
 \begin{overpic}[width =\figwid]{story1move.pdf}\put(10,10){Move 1}
 \put(110,50){If $(\Delta g- \Delta s) = (0,0)$, only one move is needed}
+\put(110,40){ 
+start $s_1$ \tikz \draw[blue,fill=white,line width=0.3mm] (-1ex,0) rectangle (0,1ex);,
+goal $g_1$ \tikz \draw[blue,fill=white,line width=0.3mm] (0,0) circle (.5ex);,
+start $s_2$ \tikz \draw[myMagenta,fill=white,line width=0.3mm] (-1ex,0) rectangle (0,1ex);,
+goal $g_2$ \tikz \draw[myMagenta,fill=white,line width=0.3mm] (0,0) circle (.5ex);
+}
 \put(65, 47){{$\xupdownarrow{1.8cm}$}$L$}
 %\put(47, 65){$\xleftrightarrow{1.8cm}$}
 \end{overpic}

@@ -1,21 +1,9 @@
 \section{Introduction}\label{sec:Intro}
-Particle swarms propelled by a uniform field, where each particle  receives the same control input, are common in applied mathematics, biology, and computer graphics \cite{Peyer2013,Shirai2005,Chiang2011}.
-%If the $i$th particle has position $[x_i,y_i]$ and velocity $[\dot{x}_i, \dot{y}_i]$, then
-%\begin{align}
-%[\dot{x}_i, \dot{y}_i]^\top = \mathbf{u}(t), \qquad i \in [1,n]. \label{eq:swarmDynamics} %[u_x, u_y]^\top
-%\end{align}
-%These system dynamics represent particle swarms in low-Reynolds number environments, where viscosity dominates inertial forces and so velocity is proportional to input force~\citep{Purcell1977}. 
-% In this regime, the input force command $\mathbf{u}(t)$ controls the velocity of the robots.  
-%  The same model can be generalized to particles moved by fluid flow where the vector direction of fluid flow $\mathbf{u}(t)$ controls the velocity of particles, or for a swarm of robots that move at a constant speed in a direction specified by a global input $\mathbf{u}(t)$~\citep{Rubenstein2012}.
-% Our control problem is to design the control inputs $\mathbf{u}(t)$ to make all $n$ particles achieve a task.
-%As a current example, micro- and nano-robots can be manufactured in large numbers, see~\cite{Chowdhury2015,martel2014computer,kim2015imparting,Donald2013,Ghosh2009,Ou2013,qiu2015magnetic}.
-%Someday large swarms of robots will be remotely guided
-%to assemble structures in parallel and 
-% through the human body to cure disease, heal tissue, and prevent infection. %Both tasks are high   as described in \citep{munoz2014review} \citep{sitti2015biomedical} . 
-% For each task, large numbers of micro robots are required to deliver sufficient payloads, but 
-
+Particle swarms propelled by an external field, where each particle  receives the same control input, are common in applied mathematics, biology, and computer graphics \cite{Peyer2013,Shirai2005,Chiang2011}.
+%
 The small size of these robots makes it difficult to perform onboard computation.  Instead, these robots are often controlled by a broadcast signal. 
  The tiny robots themselves are often just rigid bodies, and it may be more accurate to define the robot as the \emph{system} that consists of particles, a uniform control field, and sensing.
+  Consider a system of point-particles in a 2D, planar workspace.
 Such systems are severely underactuated, having 2 degrees of freedom in the shared planar control input, but $2n$ degrees of freedom for the $n$-particle swarm.
  Techniques are needed that can handle this underactuation. 
 
@@ -24,8 +12,6 @@ Such systems are severely underactuated, having 2 degrees of freedom in the shar
  However, requiring a single, small, rigid obstacle suspended in the middle of the workspace is often an unreasonable constraint, especially in 3D.
 This paper relaxes that constraint, and provides position control algorithms that only require non-slip wall contacts.
 We assume that particles in contact with the boundaries have zero velocity if the uniform control input pushes the particle into the wall.
-
-
 
 \begin{figure}
 \centering
@@ -43,10 +29,9 @@ Workspace and magnetic setup for an experiment to position particles that receiv
 
 The paper is arranged as follows. 
 After a review of recent related work in Sec.  \ref{sec:RelatedWork},
- %Sec. \ref{subsec:FluidInTank} provides analytical position control results of stable configurations in two canonical workspaces with frictionless walls.  These results are limited in the set of shapes that can be generated.  To extend the range of possible shapes,
-  Sec.  \ref{sec:theory} introduces a  model for boundary interaction and two shortest path results for representative workspaces.   
-We provide an algorithm to arbitrarily position two particles in Sec.  \ref{sec:PostionControl2Robots}.
-Section  \ref{sec:simulation} describes implementations of the algorithms in simulation and  Sec.  \ref{sec:expResults} describes hardware experiments, as shown in Fig.~\ref{fig:IntroPic}. 
+  Sec.~\ref{sec:theory} introduces a  model for boundary interaction.   
+We provide an algorithm to arbitrarily position two particles in Sec.~\ref{sec:PostionControl2Robots},  and two shortest path results for representative workspaces in Sec.~\ref{sec:optimalResults}.
+ Section  \ref{sec:simulation} describes implementations of the algorithms in simulation and  Sec.  \ref{sec:expResults} describes hardware experiments, as shown in Fig.~\ref{fig:IntroPic}. 
  We end with directions for future research in Sec.  \ref{sec:conclusion}.
 
 This paper is an elaboration of preliminary work in a conference paper \cite{shahrokhi2017algorithms} which considered only square workspaces. This work extends the analysis to convex workspaces and 3D positioning. This paper also implements the algorithms using a hardware setup inspired by the anatomy of the gastrointestinal tract.
