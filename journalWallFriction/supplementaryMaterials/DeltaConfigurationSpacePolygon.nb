@@ -10,46 +10,29 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    142762,       2953]
-NotebookOptionsPosition[    142033,       2927]
-NotebookOutlinePosition[    142417,       2944]
-CellTagsIndexPosition[    142374,       2941]
+NotebookDataLength[    141883,       2933]
+NotebookOptionsPosition[    141246,       2911]
+NotebookOutlinePosition[    141634,       2928]
+CellTagsIndexPosition[    141591,       2925]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+
+Cell[CellGroupData[{
 Cell[TextData[{
  StyleBox["polygonConfigSpace.nb",
   FontWeight->"Bold"],
  "\nConfiguration Space for positioning two particles in a bounded polygon\n\
 ",
- StyleBox["By Jingang Shi <13437170648@163.com>, Aaron Becker and Shiva \
+ StyleBox["By Jingang Shi <13437170648@163.com>, Aaron Becker, and Shiva \
 Shahrokhi", "Subsection"]
 }], "Section",
  CellChangeTimes->{{3.710354536508503*^9, 3.710354566916234*^9}, {
-  3.710354963955819*^9, 3.710354966305437*^9}, {3.718793317750413*^9, 
-  3.718793352790482*^9}},ExpressionUUID->"fce250bb-ad3d-4f12-ad1c-\
+   3.710354963955819*^9, 3.710354966305437*^9}, {3.718793317750413*^9, 
+   3.718793352790482*^9}, 
+   3.7478622049251947`*^9},ExpressionUUID->"fce250bb-ad3d-4f12-ad1c-\
 c012eba278da"],
-
-Cell[CellGroupData[{
-
-Cell["\<\
-
- \
-\>", "Section",
- CellChangeTimes->{{3.710354572968587*^9, 3.7103546467719193`*^9}, {
-   3.710361017465082*^9, 3.710361056383415*^9}, {3.710361145337283*^9, 
-   3.710361282117187*^9}, {3.710361318486088*^9, 3.7103613330143957`*^9}, 
-   3.710493667552517*^9, {3.710517217105542*^9, 3.7105174500617237`*^9}, {
-   3.711109273801146*^9, 3.711109280120761*^9}, {3.7111842623937187`*^9, 
-   3.711184267142783*^9}, {3.711184307992094*^9, 3.711184309808585*^9}, 
-   3.7111855216738234`*^9, 3.7111930371408033`*^9, {3.716576910610326*^9, 
-   3.7165769106543283`*^9}, {3.716577173380355*^9, 3.7165771822868643`*^9}, 
-   3.7165772499617352`*^9, 3.7166369642076244`*^9, {3.716741668857896*^9, 
-   3.716741672159085*^9}, {3.718303032252983*^9, 3.71830305806946*^9}, 
-   3.736175097915299*^9, {3.736175133862575*^9, 3.736175143840186*^9}, 
-   3.736706929463171*^9},ExpressionUUID->"44d2937b-ea6b-46eb-94ae-\
-423bf81f27f9"],
 
 Cell[CellGroupData[{
 
@@ -121,7 +104,7 @@ J. Wesenberg, 2008\>\""}], " ", ";"}], "\[IndentingNewLine]"}], "\n",
   "\[IndentingNewLine]", "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{
-   "To", " ", "make", " ", "the", " ", "point", " ", "inside", " ", "the", 
+   "Forces", " ", "point", " ", "to", " ", "be", " ", "inside", " ", "the", 
     " ", 
     RowBox[{"polygon", ".", "  ", "Assumes"}], " ", "polygon", " ", 
     "contains", " ", 
@@ -543,8 +526,7 @@ J. Wesenberg, 2008\>\""}], " ", ";"}], "\[IndentingNewLine]"}], "\n",
         RowBox[{"(", 
          RowBox[{"ax", "-", "bx"}], ")"}], " ", 
         RowBox[{"(", 
-         RowBox[{"cy", "-", "dy"}], ")"}]}]}]]}], "}"}]}], 
-  "\[IndentingNewLine]", 
+         RowBox[{"cy", "-", "dy"}], ")"}]}]}]]}], "}"}]}], "\n", 
   RowBox[{"(*", 
    RowBox[{"Use", " ", 
     FormBox[
@@ -564,7 +546,7 @@ J. Wesenberg, 2008\>\""}], " ", ";"}], "\[IndentingNewLine]"}], "\n",
      RowBox[{"0", "\[LessEqual]", "\[Lambda]", "\[LessEqual]", "1"}],
      TraditionalForm], " ", "to", " ", "determine", " ", "whether", " ", 
     "two", " ", "segments", " ", 
-    RowBox[{"intersect", ":"}]}], "*)"}]}], "\n", 
+    RowBox[{"intersect", ":"}]}], "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"SegmentIntersectionQ", "[", 
@@ -2059,6 +2041,7 @@ J. Wesenberg, 2008\>\""}], " ", ";"}], "\[IndentingNewLine]"}], "\n",
       RowBox[{"1", ",", "1"}], "}"}], ",", "Locator", ",", 
      RowBox[{"Appearance", "\[Rule]", "None"}]}], "}"}]}], 
   "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]"}], "Input",
+ InitializationCell->True,
  CellChangeTimes->{{3.710354676515381*^9, 3.710354792822872*^9}, {
    3.710354824289929*^9, 3.710354880802046*^9}, {3.710355016190295*^9, 
    3.710355067179903*^9}, {3.710355126478683*^9, 3.710355152584791*^9}, {
@@ -2614,20 +2597,21 @@ J. Wesenberg, 2008\>\""}], " ", ";"}], "\[IndentingNewLine]"}], "\n",
    3.736174686011077*^9, 3.736174793602948*^9}, {3.736174859711154*^9, 
    3.736174865697899*^9}, {3.736174909975039*^9, 3.736175059032667*^9}, {
    3.736175160361718*^9, 3.7361751618846817`*^9}, {3.736176062287736*^9, 
-   3.736176085903841*^9}, {3.7366919347167473`*^9, 
-   3.736692006540989*^9}},ExpressionUUID->"36e06ad4-5d90-42ab-a1db-\
+   3.736176085903841*^9}, {3.7366919347167473`*^9, 3.736692006540989*^9}, {
+   3.747862226868525*^9, 
+   3.747862230839593*^9}},ExpressionUUID->"36e06ad4-5d90-42ab-a1db-\
 41123bad96a7"],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`e1$$ = {0.05, 0.5}, $CellContext`e2$$ = {
-    0.33, 0.6}, $CellContext`polygon$$ = "irregular", $CellContext`s1$$ = {
-    0.1, 0.3}, $CellContext`s2$$ = {0.8, 0.1}, $CellContext`sides$$ = 
-    4, $CellContext`tr1$$ = {1., 
-    0.494}, $CellContext`tr2$$ = {-0.40700000000000003`, -0.246}, \
-$CellContext`tr3$$ = {-0.050999999999999934`, 1.}, $CellContext`tr4$$ = {
-    0.3800000000000001, 0.30600000000000005`}, $CellContext`tr5$$ = {
+   DynamicModuleBox[{$CellContext`e1$$ = {0.05, 
+    0.5}, $CellContext`e2$$ = {-0.6579999999999999, 
+    0.3440000000000001}, $CellContext`polygon$$ = 
+    "irregular", $CellContext`s1$$ = {-1, -0.394}, $CellContext`s2$$ = {0.476,
+     0.1200000000000001}, $CellContext`sides$$ = 8, $CellContext`tr1$$ = {0.3,
+     0.9}, $CellContext`tr2$$ = {0.1, -0.5}, $CellContext`tr3$$ = {-0.33, 
+    0.8}, $CellContext`tr4$$ = {0.3, 0.5}, $CellContext`tr5$$ = {
     0.4, -0.5}, $CellContext`tr6$$ = {0.3, 0.8}, $CellContext`tr7$$ = {-0.3, 
     0.1}, $CellContext`tr8$$ = {-0.3, 0.5}, Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
@@ -2653,9 +2637,9 @@ $CellContext`tr3$$ = {-0.050999999999999934`, 1.}, $CellContext`tr4$$ = {
        Hold[$CellContext`tr8$$], {-0.3, 0.5}}, {-1, -1}, {1, 1}}}, 
     Typeset`size$$ = {720., {247., 251.}}, Typeset`update$$ = 0, 
     Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`polygon$1922$$ = False, $CellContext`s1$1923$$ = {0, 
-    0}, $CellContext`s2$1924$$ = {0, 0}, $CellContext`e1$1925$$ = {0, 
-    0}, $CellContext`e2$1926$$ = {0, 0}, $CellContext`tr1$1927$$ = {0, 0}}, 
+    True, $CellContext`polygon$3048$$ = False, $CellContext`s1$3049$$ = {0, 
+    0}, $CellContext`s2$3050$$ = {0, 0}, $CellContext`e1$3051$$ = {0, 
+    0}, $CellContext`e2$3052$$ = {0, 0}, $CellContext`tr1$3053$$ = {0, 0}}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      2, StandardForm, 
       "Variables" :> {$CellContext`e1$$ = {0.05, 0.5}, $CellContext`e2$$ = {
@@ -2667,12 +2651,12 @@ $CellContext`tr3$$ = {-0.050999999999999934`, 1.}, $CellContext`tr4$$ = {
          0.3, 0.5}, $CellContext`tr5$$ = {0.4, -0.5}, $CellContext`tr6$$ = {
          0.3, 0.8}, $CellContext`tr7$$ = {-0.3, 
          0.1}, $CellContext`tr8$$ = {-0.3, 0.5}}, "ControllerVariables" :> {
-        Hold[$CellContext`polygon$$, $CellContext`polygon$1922$$, False], 
-        Hold[$CellContext`s1$$, $CellContext`s1$1923$$, {0, 0}], 
-        Hold[$CellContext`s2$$, $CellContext`s2$1924$$, {0, 0}], 
-        Hold[$CellContext`e1$$, $CellContext`e1$1925$$, {0, 0}], 
-        Hold[$CellContext`e2$$, $CellContext`e2$1926$$, {0, 0}], 
-        Hold[$CellContext`tr1$$, $CellContext`tr1$1927$$, {0, 0}]}, 
+        Hold[$CellContext`polygon$$, $CellContext`polygon$3048$$, False], 
+        Hold[$CellContext`s1$$, $CellContext`s1$3049$$, {0, 0}], 
+        Hold[$CellContext`s2$$, $CellContext`s2$3050$$, {0, 0}], 
+        Hold[$CellContext`e1$$, $CellContext`e1$3051$$, {0, 0}], 
+        Hold[$CellContext`e2$$, $CellContext`e2$3052$$, {0, 0}], 
+        Hold[$CellContext`tr1$$, $CellContext`tr1$3053$$, {0, 0}]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -2919,17 +2903,17 @@ $CellContext`ps2$, $CellContext`ps1$]; Show[{
    3.7361748663879223`*^9, {3.736174937329664*^9, 3.736175018442361*^9}, 
    3.7361751623940477`*^9, {3.736176063428372*^9, 3.736176086383184*^9}, 
    3.7365780344174128`*^9, 3.736691926675173*^9, {3.7366919597984667`*^9, 
-   3.736692006942458*^9}, 
-   3.736706139226779*^9},ExpressionUUID->"b223fb74-41f5-4fdd-8d60-\
-f63b2bf94fb2"]
+   3.736692006942458*^9}, 3.736706139226779*^9, {3.747862252432343*^9, 
+   3.7478622528827887`*^9}},ExpressionUUID->"43d289c7-6372-4d64-aba4-\
+cc3ea0b1508a"]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1680, 913},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
 Magnification:>0.9 Inherited,
-FrontEndVersion->"11.1 for Mac OS X x86 (32-bit, 64-bit Kernel) (April 27, \
-2017)",
+FrontEndVersion->"11.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+10, 2017)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -2943,16 +2927,12 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 490, 11, 114, "Section", "ExpressionUUID" -> \
-"fce250bb-ad3d-4f12-ad1c-c012eba278da"],
 Cell[CellGroupData[{
-Cell[1073, 35, 921, 16, 78, "Section", "ExpressionUUID" -> \
-"44d2937b-ea6b-46eb-94ae-423bf81f27f9"],
+Cell[580, 22, 521, 12, 119, "Section",ExpressionUUID->"fce250bb-ad3d-4f12-ad1c-c012eba278da"],
 Cell[CellGroupData[{
-Cell[2019, 55, 122650, 2563, 4598, "Input", "ExpressionUUID" -> \
-"36e06ad4-5d90-42ab-a1db-41123bad96a7"],
-Cell[124672, 2620, 17333, 303, 628, "Output", "ExpressionUUID" -> \
-"b223fb74-41f5-4fdd-8d60-f63b2bf94fb2"]
+Cell[1126, 38, 122725, 2564, 4610, "Input",ExpressionUUID->"36e06ad4-5d90-42ab-a1db-41123bad96a7",
+ InitializationCell->True],
+Cell[123854, 2604, 17364, 303, 664, "Output",ExpressionUUID->"43d289c7-6372-4d64-aba4-cc3ea0b1508a"]
 }, Open  ]]
 }, Open  ]]
 }

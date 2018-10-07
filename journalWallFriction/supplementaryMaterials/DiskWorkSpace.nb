@@ -10,22 +10,20 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    147830,       3099]
-NotebookOptionsPosition[    146961,       3069]
-NotebookOutlinePosition[    147315,       3085]
-CellTagsIndexPosition[    147272,       3082]
+NotebookDataLength[    147884,       3093]
+NotebookOptionsPosition[    147046,       3068]
+NotebookOutlinePosition[    147404,       3084]
+CellTagsIndexPosition[    147361,       3081]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
-Cell["\<\
-The full algorithm to find a path to have the algorithm working.\
-\>", "Subchapter",
+Cell["The full algorithm to find a path in a disk workspace.", "Subchapter",
  CellChangeTimes->{{3.717175080379896*^9, 3.717175102006517*^9}, {
-  3.71775915172506*^9, 
-  3.717759166688477*^9}},ExpressionUUID->"dee739e3-987b-4be3-8627-\
+  3.71775915172506*^9, 3.717759166688477*^9}, {3.747862165128249*^9, 
+  3.747862173123226*^9}},ExpressionUUID->"dee739e3-987b-4be3-8627-\
 4e5e6776aa9c"],
 
 Cell[CellGroupData[{
@@ -40,8 +38,8 @@ Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{
-   "This", " ", "function", " ", "makes", " ", "the", " ", "2", " ", "step", 
-    " ", "reachable", " ", "set", " ", "according", " ", "to", " ", 
+   "This", " ", "function", " ", "constructs", " ", "the", " ", "2", " ", 
+    "step", " ", "reachable", " ", "set", " ", "according", " ", "to", " ", 
     "\[Psi]"}], "*)"}], " ", "\[IndentingNewLine]", 
   RowBox[{
    RowBox[{
@@ -1140,7 +1138,8 @@ Cell[BoxData[
    3.725025776297764*^9, 3.725025784540454*^9}, {3.725025909465334*^9, 
    3.725025909626362*^9}, {3.725748544189331*^9, 3.7257487589868517`*^9}, {
    3.7361740984393673`*^9, 3.73617425332902*^9}, {3.736698317596801*^9, 
-   3.736698319721898*^9}},ExpressionUUID->"c7fd0cf1-3cf6-49db-8590-\
+   3.736698319721898*^9}, {3.747862178830504*^9, 
+   3.7478621852217216`*^9}},ExpressionUUID->"c7fd0cf1-3cf6-49db-8590-\
 03bd1f0801ba"],
 
 Cell[CellGroupData[{
@@ -3069,8 +3068,8 @@ a3df915a306d"]
 },
 WindowSize->{1680, 917},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
-FrontEndVersion->"11.1 for Mac OS X x86 (32-bit, 64-bit Kernel) (April 27, \
-2017)",
+FrontEndVersion->"11.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+10, 2017)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -3085,19 +3084,14 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 268, 6, 63, "Subchapter", "ExpressionUUID" -> \
-"dee739e3-987b-4be3-8627-4e5e6776aa9c"],
+Cell[580, 22, 296, 4, 65, "Subchapter",ExpressionUUID->"dee739e3-987b-4be3-8627-4e5e6776aa9c"],
 Cell[CellGroupData[{
-Cell[873, 32, 245, 4, 44, "Subsection", "ExpressionUUID" -> \
-"a70ef747-7f54-494f-88c4-3358c676f6a3"],
-Cell[1121, 38, 51066, 1105, 2701, "Input", "ExpressionUUID" -> \
-"c7fd0cf1-3cf6-49db-8590-03bd1f0801ba",
+Cell[901, 30, 245, 4, 54, "Subsection",ExpressionUUID->"a70ef747-7f54-494f-88c4-3358c676f6a3"],
+Cell[1149, 36, 51123, 1106, 2699, "Input",ExpressionUUID->"c7fd0cf1-3cf6-49db-8590-03bd1f0801ba",
  InitializationCell->True],
 Cell[CellGroupData[{
-Cell[52212, 1147, 59427, 1192, 2154, "Input", "ExpressionUUID" -> \
-"113d98a5-5cb8-454e-9a15-0b5dfc038e2a"],
-Cell[111642, 2341, 35279, 723, 685, "Output", "ExpressionUUID" -> \
-"649020f7-1695-4177-aae8-a3df915a306d"]
+Cell[52297, 1146, 59427, 1192, 2152, "Input",ExpressionUUID->"113d98a5-5cb8-454e-9a15-0b5dfc038e2a"],
+Cell[111727, 2340, 35279, 723, 687, "Output",ExpressionUUID->"649020f7-1695-4177-aae8-a3df915a306d"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]

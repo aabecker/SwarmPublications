@@ -17,7 +17,13 @@ $m_2$ cannot be shortened, so optimization depends on choosing the location wher
 \centering
 \begin{overpic}[width=\columnwidth]{Reflection.pdf}\end{overpic}
 \vspace{-2em}
-\caption{\label{fig:reflection} In a square workspace, the shortest three-move path that reconfigures two particles has the property that the incident angle equals the reflected angle, as shown at left. (right) The first contact is colored red if the red particle is the first to touch a boundary, and colored blue if the blue particle is the first to touch.
+\caption{\label{fig:reflection} In a square workspace, the shortest three-move path that reconfigures two particles from starting positions 
+ (\protect\tikz \protect\draw[red,fill=white,line width=0.3mm] (-1ex,0) rectangle (0,1ex);,
+ \protect\tikz \protect\draw[blue,fill=white,line width=0.3mm] (-1ex,0) rectangle (0,1ex);)
+ to goal positions  
+ (\protect\tikz \protect\draw[red,fill=white,line width=0.3mm] (0,0) circle (.5ex);,
+ \protect\tikz \protect\draw[blue,fill=white,line width=0.3mm] (0,0) circle (.5ex);) are fixed.
+ has the property that the incident angle equals the reflected angle, as shown at left. (right) The first contact is colored red if the red particle is the first to touch a boundary, and colored blue if the blue particle is the first to touch.
 } \vspace{-1em}
 \end{figure}
 %

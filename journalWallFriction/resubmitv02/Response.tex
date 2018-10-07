@@ -9,12 +9,16 @@
 \usepackage{graphicx}
 \usepackage{wrapfig}
 \usepackage{hyperref}
+\usepackage{tikz}
+\definecolor{myMagenta}{RGB}{233,63,246}
+\definecolor{myDarkGreen}{RGB}{97,173,89}
 \providecommand{\norm}[1]{\left\lVert#1\right\rVert}
 
 \newcounter{reviewer}
 \setcounter{reviewer}{0}
 \newcounter{point}[reviewer]
 \setcounter{point}{0}
+
 
 \setlength\parindent{0pt}
 
@@ -43,25 +47,15 @@
 	
 		Dear #2 Editorial Office,\medskip\\
 		Please find attached the revised paper, #1,
-		along with the document containing a response to the reviewers. We are grateful to the reviewers for helping us improve our manuscript through their comments and questions. Please let us know if further information is required. This work is extending the preliminary conference paper, ``Object Manipulation and Position Control Using a Swarm With Global Inputs'', presented at IEEE International Conference on Automation Science and Engineering (CASE) 2016. The original preliminary conference paper was a phenological study, whereas the journal version developed analytical models and tested these in a series of new simulations and experiments.\medskip
-		
-		
-		There seemed to be confusion from the reviewers about the {\bf note to Practitioners} section. 
-		 This type of note is unique to  IEEE Transactions on Automation Science and Engineering. 
-		 We included this section, as per the instructions at \href{http://www.ieee-ras.org/publications/t-ase/information-for-authors/50-publications/t-ase/236-t-ase-note-to-practitioners}{http://www.ieee-ras.org/publications/t-ase/information-for-authors/50-publications/t-ase/236-t-ase-note-to-practitioners}, but are happy to remove it if the standards have changed.
+		along with the document containing a response to the reviewers. We are grateful to the reviewers for helping us improve our manuscript through their comments and questions. Please let us know if further information is required. This work is extending the preliminary conference paper, ``Algorithms for shaping a particle swarm with a shared input by exploiting non-slip wall contacts'', presented at the 2017 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS). The conference paper considered only square workspaces. This work extends the analysis to convex workspaces and 3D positioning. This paper also implements the algorithms using a hardware setup inspired by the anatomy of the gastrointestinal tract.\medskip
 		\medskip
 		
-		As requested, we have updated our Related Work section to include relevant references that have appeared in the past two years in conferences and journals.  These additions include:
-		\begin{enumerate}
-			\item		F. Ruggiero, V. Lippiello, and B. Siciliano, Nonprehensile dynamic manipulation: A survey, IEEE Robotics and Automation Letters, vol. 3, no. 3, pp. 17111718, July 2018.
-			\item D. Loghin, C. Tremblay, M. Mohammadi, and S. Martel, Exploiting the responses of magnetotactic bacteria robotic agents to enhance displacement control and swarm formation for drug delivery platforms, The International Journal of Robotics Research, vol. 36, no. 11, pp. 11951210, 2017.
-			\item S. Shahrokhi, L. Lin, C. Ertel, M. Wan, and A. T. Becker, Steering a swarm of particles using global inputs and swarm statistics, IEEE Transactions on Robotics, vol. 34, no. 1, pp. 207219, 2018.
-			\item  J. Alonso-Mora, S. Baker, and D. Rus, Multi-robot formation control and object transport in dynamic environments via constrained optimization, The International Journal of Robotics Research, vol. 36, no. 9, pp. 10001021, 2017.
-			\item J. Zhang, O. Onaizah, K. Middleton, L. You, and E. Diller, ÒReliable grasping of three-dimensional untethered mobile magnetic microgripper for autonomous pick-and-place,Ó IEEE Robotics and Automation Letters, vol. 2, no. 2, pp. 835Ð840, 2017.
-		\end{enumerate}
-		\medskip
-		
-		The new revision of our paper includes multi-media so that others can build on our results. These include illustrative videos for the simulations and experiments: (1) \emph{TorqueSoftware.mp4} and (2) \emph{TorqueHardware.mp4}.  We also include a Mathematica Notebook containing all the analytical derivations and numerical solutions and corresponding plots \emph{SwarmTorqueControlSubmitV02.nb}, and github.com links to simulation code.\\
+		The new revision of our paper includes multi-media so that others can build on our results. These include illustrative videos for the simulations and experiments: 
+		??? SHIVA, WHERE ARE THE VIDEOS???
+		(1) \emph{TorqueSoftware.mp4},
+		 (2) \emph{TorqueHardware.mp4},
+		 (3) \emph{video name}.
+		   We also include  Mathematica Notebooks (.nb files) containing the simulation code.\\
 		
 		Sincerely,\\
 		
@@ -87,174 +81,223 @@
 	
 	
 	\emph{Comments by Associate Editor}
-	\response{The paper is interesting and technically sound; however, a thorough revision is required before being considered for publication.
-The main concern to be addressed is the quality of the writing. Reviewers have provided detailed comments on how to improve the quality of this manuscript. Authors are urged to thoroughly revise the paper according to reviewers' comments and suggestions.}
+	\response{The Associate Editor (AE) was able to obtain two high-quality reviews
+from researchers working directly in this field. After considering
+their reviews, it is the opinion of the AE that this paper is not
+currently suitable for publication in T-RO. However, the authors are
+encouraged to prepare a revised draft, addressing the concerns of the
+reviewers.  Please also address how the technique could be practically applied to
+navigate inside an actual 3D intestine as opposed to a cross section in
+which the particles move on a planar surface. Would magnetic forces be
+sufficient to overcome gravity? Would the particles need to be made
+neutrally buoyant?}
 
-	We are grateful for the efforts of our reviewers. We have thoroughly revised this paper with (1) a more complete derivation section and included (2) new simulation and (3) new hardware experimental data. Please see the detailed responses below.
+	We are grateful for the efforts of our reviewers. We have thoroughly revised this paper by (1) restructuring the paper as suggested by the reviewers (2) constructing reachability sets for all initial conditions, proving controllability as long as the initial positions are distinct and the final positions are not   antipodes, and (3) updating almost all the figures and captions. 
+	
+	We made the model for both 2D and 3D more clear -- the particles are assumed to be neutrally buoyant so that the same force is applied to each particle.
+	Please see the detailed responses below.
 	
 	
 	
-	\Reviewer{\#1}\response{This paper studies the pushing effect of a robot swarm over a rectangular object. In order to study the generated torque, the authors represent the swarm as a probability distribution. Three different probability distributions are presented. The ideas in the paper are very interesting and relevant for the community. However it requires a major revision. The comments are the following.}
+	\Reviewer{\#1}\response{This paper explains an underactuated control strategy for small teams
+of magnetic microparticles which move under the influence of a single
+broadcast signal. This underactuated control problem is relevant to
+microrobotic swarms moving under magnetic field input. In previous
+work, the authors have explored interesting control methods relying on
+obstacles in the environment, but the case studied here is more
+application-realistic. The control method here is clever and
+successful. The work is interesting to read and I think that anyone
+with a basic background in controls will find this work interesting.  
+The main concept used here to achieve multi-particle control is that
+the particles experience a no-slip condition when pushed against the
+environment wall. The particles can be removed from the wall by pulling
+them. 
+The paper is an extension of an IROS2017 paper which introduced the
+idea for square workspace only. This TRO submission generalizes to a
+non-square workspace, which is a notable improvement. This version of
+the work will thus be a helpful addition to the literature. 
+The paper gives a very nice review of previous work in using broadcast
+signals for multi-particle control.  }
 	Thank you! We have completed a major revision, as explained below.
 	
-	\response{At the end of Section III, What is the motivation to consider that all robots apply the same force? An intuitive efficient approach would make the farther robots apply a larger force.}
+	\response{Is it expected that the no-slip condition will be a strongly satisfied
+assumption for in-vivo biomedical applications? In cases where there
+were some slip, how could that be handled?}
 	
-	The reviewer is right that the further particles apply more {\bf torque}, as explained by the new equations 2 and 3. The longer the moment arm, the greater the torque.
-	As explained in Section II, `` $\ldots$ all particles are identical and the control input is uniform, the force is equivalent for every particle and so $F_i $ is a constant for all $i$.''
+	To maintain clarity, this paper focused on systems with non-slip boundaries.  While several environments with non-slip boundaries exist (e.g. tripe, and intestines with villi), extending to lower friction values is a intriguing avenue that unfortunately does not fit within the 12 page limit for this journal, but is something we are investigating. The reachable sets with non-infinite friction are smaller. 
+The conclusion now explains `` This paper assumed friction was sufficient to completely stop particles in contact with the boundary. The algorithms would require retooling to handle small friction coefficients."
+	
+	\response{This control method requires advance knowledge of the workspace
+boundary geometry, in addition to micro-particle state feedback. It
+would be interesting to hear about how accurate the boundary geometry
+must be known for this control to work well, and perhaps compare this
+will medical imaging techniques such as CT or MRI which could
+potentially be used to generate such maps. For motion through 3D
+lumens, the cross-sectional geometry will change throughout the lumen.}
+	
+	These are excellent points. This paper assumes perfect knowledge of the boundary and initial conditions of the particles.  We added text explaining that systems with large numbers of protrusions or concave workspaces are best handled by motion planners such as RRT.
+	
+	Section IV-F: ``Workspaces that are tortuous or with many obstacles are better handled by other path
+planners, such as RRT [29], or [5], which used collisions with protrusions of the workspace to rearrange particles.''.	
+	
+	Also, during the hardware experiments, the particle that was pushed into the com stomach boundary disappeared from the camera, but control still was successful, indicating that perfect sensing is not necessary: ``Our algorithm successfully delivered the particles to goal positions in 5 out of 5 trials.''
 
+	\response{Abstract: It is stated that ``given 3 orthogonal magnetic fields''.
+This statement should be made more precise, because the magnetic
+pulling here uses field gradients, not fields. In addition, these
+gradients are not orthogonal. An accurate statement would need to be
+more complex.}
 	
-	\response{Saturation is not considered. An efficient approach would be the same as using a bigger robot but a particle instead. Obviously, this approach cannot be done because of the small maximum force that each particle can generate, but it is not mentioned in the paper.}
-	
-	The note to practitioner compares using one particle to using many, ``Torque control with only one steered particle is easy: maximize torque by pushing on the object at a location as far from the pivot point as possible. However, a swarm of particles contributes force at different places on the object."  Due to space limitations, this paper does not explore saturation effects.
-	
-	\response{The authors claim that one of the main differences is that their robots are compliant and tend to flow over the object. However, some of the experiments present an adaptation on the object to avoid the robots flow over the object.}
-	
-	The term ``compliant'' has several meanings and was ambiguous, so instead the paper now states ``A key difference is that our swarm of particles do not form a rigid structure and instead tend to flow around the object''.  This flow is not necessarily a desired characteristic.  The flowing behavior spreads out the particles, so for some experiments we add a controller that periodically regathers the particles in a workspace corner.
-	
-	We added several experiments to better explore torque control with uniform inputs.  Figures 11 and 12 both feature a free-moving swarm, which as predicted by the central limit theorem, converges to a normal distribution.
-	  To explore other distributions we used an adaptor to constrain the particles.  Figure 9 shows the setup for a swarm forced to assume a uniform distribution.
+	Yes.  To make this work as broadly applicable as possible (magnetic inputs are just one example) we changed the abstract to say ``This paper investigates particle control with uniform forces (the same force is applied everywhere in the workspace). Given a controllable field that can generate forces in three orthogonal directions, steering one particle in 3D is trivial. ''
 	  
 	  	
-	\response{This "flow over the object" is not mentioned at all in the methodology (even for the triangular distribution). The authors propose static distributions, but the the distributions variate on time due to the flow.}
+	\response{Fig 2: ``first contact point'' is not clear. There is no way given to
+tell where these line up with actual positions on the workspace. }
 	
-	  For some of our experiments the distributions do vary with respect to time. By updating our control law using the current variance, we can generate greater torque.  Fig. 6 reports on an experiment using a control law that calculated where to steer the swarm mean as  a function of the current distribution.
+	  Fig 2 is now Fig. 11. We rearranged the order because the optimization results can be applied to Alg.~1, but are not necessary to implement or understand the algorithm.
+	    We updated this figure to clarify what the contact points are by adding and labelling tick marks from 0 to 4 along the boundary of the square workspace and the distance plot.  We also added angle markings and green points showing the optimal solution in both the workspace and the distance plots. 
 	
 	
-	\response{Based on the point above, the most efficient way (and obvious) to generate the torque is just sending all robots as far as possible from the center of mass.}
-If each robot could be steered separately,  sending all robots as far as possible from the center of mass would generate the maximum torque.  However, since the swarm is controlled by global inputs (we are only controlling the mean position) and the particles have non-zero diameter, we cannot have them all push at the point with the largest moment arm.
+	\response{Fig 3: the meaning of grey areas should be mentioned in the fig or
+caption.}
+This is now Figure 2.  We added a legend and caption text stating:
+``Gray areas denote regions unaccessible by our motion planner. The particle start positions must be distinct $(\norm{s_2-s_1} \geq \epsilon)$, and at least one goal position must be farther than  $\epsilon$  from the boundary, where $\epsilon$ is a small but nonzero user-specified constant.''
 
 	
-	\response{In contrast to the title, none of the probability distributions maximizes the torque. At least, the maximization problem is not stated in the manuscript.}
-	
-	We have changed the title so it better matches the paper. 
-	Please refer to Fig 4c and Fig. 5c, which show the maximum torques as a function of standard deviation. 
-	The third column of Table I lists the maximum torques for the three canonical distributions examined.
-	Section IV.A.b and IV.B.b are titled ``Maximum torque for distributions''.
-	
-	
-	\response{The authors do not mention how to control the robots. It is one of the main points that call the attention in this type of works.} 
-	Paragraph 2 of the manuscript now states, ``The under-actuated swarm is steered by a shared signal such that the same force is applied to each particle.''
-	Section V. makes this more clear stating `` The control input is the global force applied to each particle:''
-	The equations of motion are given in  (25).
-	
-	\response{In equations (2) and (3), there is a variable n that is not defined. I suppose it is the number of the robots, but it is not explicitly denoted. In these equations, it is not clear that only the surface robots can apply force to the bar. Does $F_i$ takes into account the force that all the robots behind $F_i$ are applying? In this way, (2) and (10) are not consistent.  Assuming that the individual forces are linear is a very strong assumption, in contrast to [15], the particles move in a very unorganized way (even more when the particles flow over the object).}
-	We have added definition of $n$ as the number of particles in Section III  and explained more about our mathematics. 
-	Equation (2) uses an indicator variable $\rho_i$ to determine which particles contribute to the  torque, ``
-	Not all particles are in contact with the object.  
-The indicator variable $\rho_i$ is 1 if the particle is in direct contact with the object or touching a chain of particle where at least one particle is in contact with the object,  otherwise $\rho_i = 0$.''
+	\response{Figures are hard to read because there is a lot going on, the font is
+often too small and text sometimes is obscured.}
 
-	 The equations in section IV integrate over all the particles that contribute to the torque. 
+There were a number of problems with the initial figures.  We have added legends to Figs. 2, 3, 5, 15, and added captions with visual elements to 2, 14, 16.  We standardized our variable names and icons, and added Figs~8 and 9.
 
-	\response{I recommend to separate Fig. 2 in sub-panels to organize the caption. In the top figure, the particle is not easy to observe and it is not in all the examples. The caption says "Particulate is moving in the -y direction", but a coordinate frame is not defined (same for the x-axis). Is the particle moving with respect to the inertia frame or to the bar frame? Additionally, there is not such a gray line. Are the authors referring to the thin black line? 
-In general, this figure is not helping to picture what the authors want.}
+	
+	\response{III.C. It’s not clear why this section is relevant. Why is the shortest
+path which intersects the wall needed? Some writing structure could
+help the reader understand what the goal is here.} 
 
-We removed this section to better focus the paper.
-
-	\response{The derivation of (4) and (5) is no shown or extending the description is required.}
-	We removed this section to better focus the paper.
+	To better present the motion planner, we moved this section, which covers an optimization result, to the end, and altered the framing text:
+	``Algorithm 1 provided a technique to bring two particles to goal positions using global inputs, but did not optimize path length. Changing the relative positions of particles in any workspace requires making one particle contact the boundary. In this section we present two results that can be incorporated into Algorithms 2 and 3 to generate shorter motion paths.''
 	
-	\response{I like the idea of representing the swarm as a probability distribution. It is easier for the observer and the global controller to drive the swarm as a whole. Again in equations (7)-(9), the coordinate frames are not defined and not consistent. The COM $[O_x, O_y]$ is defined in the inertia frame, but the distribution of the robots is defined on the object frame (where the x-axis is parallel to the long side of the rectangle). Although these equations are intuitive, the way the authors obtained the constants (e.g. the sqrt(3) in Eq. (7), only in the next section is assumed that the length is 1) is not obvious.} 
-	We defined coordinate frames in each section to better represent the equations.  ``Let the marginal distribution of the swarm along $x$ have probability density $p(x)$, where $x$ is defined as perpendicular to the object's long axis.''
 	
-	\response{In (16), the function erf is not defined. It is only defined at the end of the section.} 
-	We now define the erf function as the error function and give the integral that generates it in Section IV-A .
-	
-	\response{Based on the granular effect, there is a maximum number of robots that can apply forces without flowing. What is this number? or how can you describe this final configuration?}
-	We have removed granular effect from this paper to better focus the paper.
-	
-	\response{The experiments section need to be extended, there granular effect need to be extensively studied.
-Again, it is necessary to describe how the robots are driven to maintain the distribution and to generate the torque.}
-	Correct, but we have removed granular effect from this paper to better focus the paper.
-	
-	\response{According to the format guidelines, the equations are part of the text and should be punctuated. Most of them are not.}
-	We have rewritten the parts that were not punctuated correctly and they are now part of the sentences.
-	
-	\response{Caption in Fig 2. says "Particulate" instead of "Particle"}
-	Correct, but we have removed Fig. 2 to better focus the paper.
 
 	
 	
-	\Reviewer{\#2}
-	\response{This paper studies the torque applied by a swarm of particles on a long aspect-ratio rod. Generally, the topic of this paper is interesting. Experiments are well designed to illustrate the theory in practice. Here are some suggestions to be considered for the possible revision. }
-	Thank you, and we appreciate the detailed editing suggestions.
+	\Reviewer{\#6}
+	\response{In this manuscript algorithms to position two particles in arbitrary
+locations under uniform actuation are proposed.  The algorithms rely on
+differentiating between particles by contacting them with walls or
+boundaries of the domain, at which they are assumed to not move unless
+actuated in a direction away from the wall.  The paper presents some
+results on shortest paths that contact surfaces (but see below on some
+presentation issues), then describes the algorithm, which basically
+entails moving both particles so that one particle contacts a boundary,
+adjusting the relative displacement between particles while the one
+particle remains at the boundary, then translating both particles to
+the desired location.
+Simulations of the algorithm are presented in square and circular
+domains, and experiments are described in circular cross sections
+inspired by intestinal and stomach scenarios.
+%
+Although similar ideas were presented earlier by the authors using
+either an obstacle in the workspace or square workspaces, this paper
+extends that work to circular and convex polygonal workspaces.	The
+overall idea is a novel contribution as other swarm control techniques
+focus on either heterogeneity of microrobots or of actuation (such as
+fields) rather than distinguishing particles by their proximity to
+boundaries.  However, in my opinion the manuscript requires major
+revisions before being suitable for publication, mainly to address the
+theoretical effectiveness of the algorithm (as detailed below), and
+less so to address clarity of presentation. }
+	Thank you. We were pleased to get this review, because it led us to think more deeply on how to present the results and led to the major revisions detailed below.
 	
-	\response{Please add x-y-z axes in all the experimental figures such as Figs.1 and 8.}
-	We have added coordinate frames to the experimental figures.
+	\response{  The main weakness of the paper in my opinion is that the authors
+never really prove that their algorithm works, or alternatively how
+general their algorithm is, i.e. what are its limits of applicability. 
+To be more specific, in their Algorithm 1, if the desired configuration
+is not within the 2-move reachable set, then the algorithm targets
+instead the closest point in the 2-move reachable set, and then
+"iterates until we reach the goal."  When does such iteration actually
+achieve the goal?  What are the attainable final goals that can be
+reached after iteration?  Does the space of attainable goals depend on
+the initial positions of the particles?  While there are simulations,
+the ones presented do not explore the entire possible space (which is
+understandable since they it is quite large).  I think an analysis of
+the attainable space of their algorithm is needed.}
 	
-	\response{What does cyan/white star points mean in Fig.1?}
-	We have changed Fig. 1 and added annotations to the figure to define the cyan markers. The cyan markers are the goal position for the swarm mean.
+	An excellent suggestion!  This was a major oversight in the first version.  It is  possible to explore the possible space, and we can be quite clear about the locations that are attainable.
+	We rearranged the paper and added Section IV-F, which analyzes the reachable set:
 	
-	\response{In this paper, two different cases are considered. One is a pivoted object, the other is a free object. Differences between two experimental results are encouraged to be highlighted. }
-	We have rewritten the paper and added simulation and experimental results to highlight the differences.  Please see Section VI.
+	``The $\Delta$ configuration enables an iterative method to compute the accessible workspace.  
+ Due to symmetry of the workspace, the fraction of the $\Delta$ configuration space reachable in $2 k$ moves is a function of only the initial separation distance $d_{12}$.
+ The angle $\theta$ between the initial particle positions simply rotates the reachable $\Delta$ configuration space. As long as the initial configurations are distinct $(s_1 \neq s_2)$, the reachable set grows quickly. 
+  This relationship is shown in Fig.~15.
+   Only antipodal locations are unreachable $(\norm{g_2-g_1} = 1)$, but can be asymptotically approached.
+   Indeed, even with a tiny initial separation of $d_{12} = 0.001$, after 14 moves 90\% of the $\Delta$ configuration space is reachable. 
+   In two moves, the maximum reachable fraction of 0.373 is achieved with $d_{12} \approx 0.81$." 
+   
+   We added Figs. 8 and 9 which illustrate the effects of 2-move reachable sets, as well as 4-move, 6, 8, 10 , 12, and 14-moves.
 	
-	\response{Please highlight the material and the size of the rod used in the experiments. Contacts between robots or between robot and rod should be detailed, and their effects should be further discussed if it is possible.}
-	We now discuss the material and size of the rod in Section VI.A. 
-	Although Section III explains why our analytical section abstracts away the effect of inter robot contacts to simplify the derivations,  the experimental results of the last section validated the result of the simplified equations. 
+	Fig. 15 analyzes the worst case: when the goal locations are at the antipodes.  Even in this situation we can approach arbitrarily close to the desired configuration, but can never achieve it. This figure shows that the approximation error decrease can be fit by a 1/(distance travelled$^3$).
+	 
 	
-	\response{The definition of 'kilobots' should be given when it is used for the first time. }
-	We have given the description of the Kilobots in Section VI. EXPERIMENTS, when it is used for the first time.
+	\response{There are issues with the presentation that can be easily improved.
+ At the beginning of the paper many terms are not defined which makes
+figures and discussion hard to follow. Definitions do come later, but
+they should be moved up.  For example, in Fig 2 which symbols are
+targets and which are initial conditions are not defined.  In Fig 3
+epsilon is shown but not defined nor is its significance explained.  s
+and g and $\Delta s$ and $\Delta g$ are not defined. In Fig 12, where is
+the goal on the boundary? Can that be indicated on the figures?}
 
-	\Reviewer{\#3}	
-	\response{The articles discusses a variant of swarm manipulation where a large number of particle like robots are steered using a common force input.  The article primarily analyses the force and torque they exert on movable objects they come in contact with; as well as the shape the particles make as they accumulate around these objects (shown to be a triangle whole apex angle is called the angle of repose.
-The strengths of the article are:
-The analysis provided for several manipulation scenarios appears to be sound
-The results are novel to my knowledge.
-Experimental results on a hardware test bed are shown.
-The weaknesses are:
-The analysis can be difficult to follow because in some cases the variables are not well defined.
-There are many, many grammatical and punctuation errors. (see below)
-The abstract is poorly written.}
-Thank you. We have rewritten the paper to make it better organized, have added experiments, and have performed extensive editing.
+Thank you for detailed points. We performed a large restructuring. 
+Fig 2 is now 11. We updated this figure to clarify what the contact points are by adding and labelling tick marks from 0 to 4 along the boundary of the square workspace and the distance plot.  We also added angle markings and green points showing the optimal solution in both the workspace and the distance plots. We also added visual icons to the caption: ``from starting positions 
+ (\protect\tikz \protect\draw[red,fill=white,line width=0.3mm] (-1ex,0) rectangle (0,1ex);,
+ \protect\tikz \protect\draw[blue,fill=white,line width=0.3mm] (-1ex,0) rectangle (0,1ex);)
+ to goal positions  
+ (\protect\tikz \protect\draw[red,fill=white,line width=0.3mm] (0,0) circle (.5ex);,
+ \protect\tikz \protect\draw[blue,fill=white,line width=0.3mm] (0,0) circle (.5ex);)''
+ 
+ 
+ Figure 3 is now 2, we added both a legend to the figure and a descriptive caption: 
+ ``Particles move from start positions 
+(\protect\tikz \protect\draw[blue,fill=white,line width=0.3mm] (-1ex,0) rectangle (0,1ex);,
+\protect\tikz \protect\draw[myMagenta,fill=white,line width=0.3mm] (-1ex,0) rectangle (0,1ex);), to goal positions (\protect\tikz \protect\draw[blue,fill=white,line width=0.3mm] (0,0) circle (.5ex);,
+\protect\tikz \protect\draw[myMagenta,fill=white,line width=0.3mm] (0,0) circle (.5ex);).  Dashed lines show the shortest route if particles could be controlled independently.  Solid arrows show path given by  Alg.~1. Gray areas denote regions unaccessible by our motion planner. The particle start positions must be distinct $(\norm{s_2-s_1} \geq \epsilon)$, and at least one goal position must be farther than  $\epsilon$  from the boundary, where $\epsilon$ is a small but nonzero user-specified constant.''
 
-	\response{Question:  It would seem that the angle of repose might depend on the particle size or the coefficient of friction between particles or the object-particle.   Can you explain why it doesn't?   I understand this isn?t the primary contribution of the article but it seems those parameters would play a role.}
-	We removed this section to better focus the paper.
-	
-	\response{The abstract is repetitive and has a non-standard format (note to practitioners?) and should be restructured.   It doesn't make it clear that all the particles are steered with a common force (different from other swarm scenarios).   It uses the term angle of repose without defining.   The last paragraph about a single robot does not belong in the abstract at all.}
-	We followed the authors' guidelines to write note to practitioners as per the instructions at \href{http://www.ieee-ras.org/publications/t-ase/information-for-authors/50-publications/t-ase/236-t-ase-note-to-practitioners}{http://www.ieee-ras.org/publications/t-ase/information-for-authors/50-publications/t-ase/236-t-ase-note-to-practitioners}.
-	The format for a ``note to practitioners'' is deliberately different than an abstract, and have a specialized style.
-	 If the standards of this journal have changed, we will remove this section.
-	
-	\response{Introduction - paragraph 1: Last sentence doesn't flow. }
-	We rewrote the introduction to make it flow better.
-	
-	\response{The term angle of repose should be defined earlier than the end of page 2, because it is used many times before that and while it is defined in [2] it is not a standard term in the robotics community.}
-	Yes, but we  removed this section to better focus the paper.
-	
-	\response{ Many of the equations are not properly punctuated.  For example, eq 4 and 5 need periods as they end a sentence.  Same with 7,8,9, 12,13, 18, 19, 20 }
-	We have rewrote all the equations to make them part of the sentences.
-	
-	\response{The last sentence of Section 4 doesn't make sense.  Should the ? -? be an ?=? symbol?}
-	Yes, but we removed this section to better focus the paper.
-	
-	\response{This sentence could be worded better: (page 3, col. 1) ?Given sufficient particles to pile up to the angle of repose??   also it raises an interesting point that these calculations assume a sufficient number of particles.   Is there an expression that would estimate the number of particles, given the particle size?}
-	Yes, but we removed this section to better focus the paper.
-	
-	\response{Page 3, col 2, top:
-It's not clear what $l_p$ and $u_p$ are. (lower and upper bounds?).   Earlier l is used to mean the length of the rod.
-In the first sentence you mention a variable $up_p$, perhaps you mean $u_p$?}
-	The reviewer is right. There was a typo and we have made it clear now.
-	
-	\response{On page 6 you use an inconsistent style when referring to equations.   At one point you use ?Eq. 16?  and later on the page you use the style ?(18)?}
-	We now use only the eqref style and  do not use ``Eq.'' anymore.
-	
-	\response{Caption of figure 3 needs an extra comma depending on the meaning you are trying to convey.
-?For all distributions *,*  pushing at $\mu = 1$ ...?}
-	We added a comma as suggested.
 
-	\response{I don't think the subsection headings should end in ``:"}
-	We have removed ``:" from subsections.
+ Figure 12 had the wrong caption.  It now is Fig. 14, and has the caption: ``Contour plots showing the number of moves and distance commanded if red particle's goal position is varied in $x$ and $y$. 
+Starting positions of red and blue particles  
+ (\protect\tikz \protect\draw[red,fill=white,line width=0.3mm] (-1ex,0) rectangle (0,1ex);,
+ \protect\tikz \protect\draw[blue,fill=white,line width=0.3mm] (-1ex,0) rectangle (0,1ex);)
+ and goal position of blue particle  \protect\tikz \protect\draw[blue,fill=white,line width=0.3mm] (0,0) circle (.5ex); are fixed.
+The top row has the blue particle's goal position  at the origin, generating symmetric contour plots.
+Moving the  blue particles' goal position  to $(-0.2,0)$, generates non-symmetric contour plots.''
+
+We also added captions for start and end (colored squares and circles) to each drawing.
+
 	
-	\response{The annotations in Figures 4-5 are small and hard to see.}
-	We have made these figures bigger.
+	\response{(more presentation) At the beginning of section IV it wasn't clear
+to me whether Algorithm 1 had been described yet when it was first
+mentioned, and whether that sentence was a description of what was to
+come, or was as assertion that logically followed from the previous
+parts of the paper.  }
 	
-	\response{Section 6 paragraph 1:  The word Sections should be capitalized when referring to previous sections by number. }
-	We corrected this word to be capitalized.
+	We  rewrote this section. It now begins with:
+	``This section presents an algorithm, Alg.~1, that uses non-slip contacts with walls to arbitrarily position two particles in a convex workspace. 
+ Workspaces are 2D convex polygons with no internal obstacles. ''
 		
-	\response{Should Kilobots be capitalized? (proper noun)}
-	We have capitalized Kilobots.
+	\response{A minor comment, sections IIIB and C are a little confusing since it
+is not motivated why shortest path is being considered in the overall
+argument of the paper.	Furthermore, it seems that shortest path in
+IIIB is used for the situation moving two particles, while in IIIC it
+is used for the situation of moving only one particle.	Consistency in
+the presentation would help..}
 	
-	\response{Reference section:   the way you cite ICRA is inconsistent.}
-	We have fixed the citation for ICRA.
+	We rearranged the order because the optimization results can be applied to Alg. 1, but are not necessary to implement or understand the algorithm.  The results were combined into a new Section V, which opens by stating:
+	
+	``Algorithm 1 provided a technique to bring two particles to goal positions using global inputs, but did not optimize path length.   Changing the relative positions of particles in any workspace requires making one particle contact the boundary.
+  In this section we present two results that can be incorporated into Algorithms 2 and 3 to generate shorter motion paths.''
+
+	
 	
 	
 	
