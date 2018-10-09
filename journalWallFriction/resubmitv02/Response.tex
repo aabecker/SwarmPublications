@@ -1,3 +1,8 @@
+% difference between two pdf files: https://draftable.com/
+% insert a pdf: https://tex.stackexchange.com/questions/8662/merge-two-pdf-files-output-by-latex
+%   \usepackage{pdfpages}
+%   \includepdf[pages=-]{ChangesFromV01toV02.pdf}
+%
 \documentclass[conference, onecolumn, 10pt]{../IEEEtran}
 \IEEEoverridecommandlockouts
 \usepackage{times}
@@ -10,14 +15,16 @@
 \usepackage{wrapfig}
 \usepackage{hyperref}
 \usepackage{tikz}
+\usepackage{pdfpages}
 \definecolor{myMagenta}{RGB}{233,63,246}
 \definecolor{myDarkGreen}{RGB}{97,173,89}
 \providecommand{\norm}[1]{\left\lVert#1\right\rVert}
-
+\pagestyle{plain}
 \newcounter{reviewer}
 \setcounter{reviewer}{0}
 \newcounter{point}[reviewer]
 \setcounter{point}{0}
+\usepackage{lastpage}
 
 
 \setlength\parindent{0pt}
@@ -46,16 +53,21 @@
 		#1\medskip\\ 
 	
 		Dear #2 Editorial Office,\medskip\\
-		Please find attached the revised paper, #1,
-		along with the document containing a response to the reviewers. We are grateful to the reviewers for helping us improve our manuscript through their comments and questions. Please let us know if further information is required. This work is extending the preliminary conference paper, ``Algorithms for shaping a particle swarm with a shared input by exploiting non-slip wall contacts'', presented at the 2017 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS). The conference paper considered only square workspaces. This work extends the analysis to convex workspaces and 3D positioning. This paper also implements the algorithms using a hardware setup inspired by the anatomy of the gastrointestinal tract.\medskip
+		Please find attached the revised paper, #1, paper number 18-0277,
+		along with the document containing a response to the reviewers. We are grateful to the reviewers for helping us improve our manuscript through their comments and questions. Please let us know if further information is required. This work extends the preliminary conference paper, ``\emph{Algorithms for shaping a particle swarm with a shared input by exploiting non-slip wall contacts}'', presented at the 2017 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS). The conference paper considered only square workspaces. This work extends the analysis to convex workspaces and 3D positioning. This paper also implements the algorithms using a hardware setup inspired by the anatomy of the gastrointestinal tract.\medskip
 		\medskip
 		
 		The new revision of our paper includes multi-media so that others can build on our results. These include illustrative videos for the simulations and experiments: 
-		??? SHIVA, WHERE ARE THE VIDEOS???
-		(1) \emph{TorqueSoftware.mp4},
-		 (2) \emph{TorqueHardware.mp4},
-		 (3) \emph{video name}.
-		   We also include  Mathematica Notebooks (.nb files) containing the simulation code.\\
+	\begin{itemize}	 
+ \item Video  \emph{01Model.mov} animates the concepts of uniform control inputs and non-slip boundary contacts.
+ \item Video  \emph{02DeltaConfigurationSpace.mp4} demonstrates how the $\Delta$ configuration space (the configuration space showing the difference in position for two particles) is constructed for a variety of workspaces.
+ \item Video  \emph{03SimulationWorkSpaces.mp4} shows demonstrations of motion planning in square and disc-shaped workspaces. 
+ \item Video  \emph{04Hardware Experiments.mp4} shows an experiment trial moving two particles to goal positions in a small intestine phantom, then an experiment trial using cow stomach tissue.
+		\end{itemize}	 	
+		 
+		   We also include four  Mathematica Notebooks (.nb files) containing the simulation code.  This code generates plots for the paper and animates the path planner algorithm for arbitrary inputs.\\
+		   
+		   At the end of this letter, pages~\pageref{sec_lastpage}--\pageref{LastPage} is the revised manuscript, formatted so all changes can be easily identified by the reviewers, by using green colored text to indicate revised passages. 
 		
 		Sincerely,\\
 		
@@ -297,9 +309,9 @@ the presentation would help..}
 	``Algorithm 1 provided a technique to bring two particles to goal positions using global inputs, but did not optimize path length.   Changing the relative positions of particles in any workspace requires making one particle contact the boundary.
   In this section we present two results that can be incorporated into Algorithms 2 and 3 to generate shorter motion paths.''
 
+
 	
-	
-	
+\label{sec_lastpage}\includepdf[pages=-]{ChangesFromV01toV02.pdf}	
 	
 	
 		

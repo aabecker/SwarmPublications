@@ -13,7 +13,7 @@ This section presents an algorithm, Alg.~\ref{alg:optimalAlg}, that uses non-sli
  %%%%%%%%%%%%%%%%%%%%%%%%%%%\
 \subsection{$\Delta$ Configuration Space}
 The configuration space for two particles is a four dimensional manifold. Translating both particles the same amount is a trivial operation, but changing the relative positions requires boundary interaction. For this reason, our algorithms use the two dimensional $\Delta$ configuration space.
-The $\Delta$ configuration space is a set of all possible $\Delta p$ values, defined as the difference in position of the first particle from the second particle: $\Delta p = p_2 - p_1$.
+The $\Delta$ configuration space is a set of all possible $\Delta p$ values, defined as the difference in position of the particles: $\Delta p = p_2 - p_1$.
 We use the $\Delta$ configuration space to plan move sequences that achieve the desired relative spacing.  Once the particles have the correct relative spacing, they can be delivered to the goal configuration in one move.
 
 The  $\Delta$ configuration space for an $n$-sided convex polygon $P$ can be constructed in a method analogous to computing configuration space obstacles for polygons~\cite{lozano1983spatial}. 
