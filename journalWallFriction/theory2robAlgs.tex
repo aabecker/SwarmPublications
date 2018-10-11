@@ -27,18 +27,6 @@ the four translated copies with dashed lines outlining the convex hull is in the
  and the resulting $\Delta$ configuration space is on the right.  
 % The 2-move reachable sets for the given $\Delta$s starting configuration are drawn in transparent blue.
 %The following subsection describes how 2-move reachable sets are constructed.
-
-
- %%%%%%%%%%%%%%%%%%%%%%%%%%%\
-\subsection{Two Particle Path-Planning}
-
-
-  The \emph{2-move reachable set} is the locus of points in the $\Delta$ configuration space corresponding to any two-move sequence where the first move brings one particle into contact with the boundary, and the second move translates the second particle without moving the first.
- For the given $\Delta s$ (starting configuration), the rightmost image of Fig.~\ref{fig:irregular} draws the 2-move reachable sets  in transparent blue.
- Figure ~\ref{fig:polygon} shows the starting and ending relative positions as $\Delta s$ and $\Delta g$ in the $\Delta$ configuration space.  The next subsections give procedures to compute the 2-move reachable set.% in Fig.~\ref{fig:regionMove}.% The reachable set is the part of $\Delta$ configuration space where if one particle touches a wall in a specific location, the other particle can make the required relative distance without causing the touching particle to move. We will discuss how to make reachable sets in the next subsections. 
- 
-The goal is to move the particles within $\delta$ of the goal positions using a shared control input where $\delta$ is an arbitrary small number. We do this by first moving them within $\delta$ of the correct relative position and then translating the particles to the goal. The relative position is $||\Delta g - \Delta p || = ||(g_2-g_1)- (p_2-p_1)||$.  
-
 \begin{figure}
 \centering
 \begin{overpic}[width=\columnwidth]{irregular.pdf}
@@ -57,13 +45,8 @@ $\Delta g$ \tikz \draw[green,fill=green,line width=0.3mm] (0,0) circle (0.5ex); 
 Workspace and $\Delta$ configuration space is shown for an arbitrary convex polygon with $n=4$ sides. The 2-move reachable sets for this initial configuration ($\Delta s= s_2-  s_1$) are drawn in transparent blue.}
 \end{figure}
 
- Algorithm \ref{alg:optimalAlg} assigns a uniform control input at every instance.
-% Algorithm ~\ref{alg:optimalAlg} 
- It first computes the 2-move reachable set. If the goal relative position is in the 2-move reachable set, we move particles to achieve that relative position. If it is not in the 2-move reachable set, we move particles to achieve the closest point on this reachable set from $\Delta g$, which is $\Delta g_c$. 
-
- \emph{Achieving} a $\Delta g_c$ configuration requires two moves, the first to move until one particle touches a boundary, and the second to adjust the relative spacing by moving only the particle not touching a boundary.
- Once the correct \emph{relative} position has been achieved, a final translation delivers both particles to their goal destinations. %we go to the final goal position. If it is not our final goal, 
- Otherwise, we iterate until we reach the goal. 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%\
+\subsection{Two Particle Path-Planning}
 \begin{algorithm}[htb]
 \caption{ { \sc 2-ParticlePathPlanning}($s_1,s_2,g_1,g_2,P,\epsilon$)}\label{alg:optimalAlg}
 \begin{algorithmic}[1]
@@ -91,6 +74,25 @@ Workspace and $\Delta$ configuration space is shown for an arbitrary convex poly
 \State \Return moves
 \end{algorithmic}
 \end{algorithm}
+
+
+  The \emph{2-move reachable set} is the locus of points in the $\Delta$ configuration space corresponding to any two-move sequence where the first move brings one particle into contact with the boundary, and the second move translates the second particle without moving the first.
+ For the given $\Delta s$ (starting configuration), the rightmost image of Fig.~\ref{fig:irregular} draws the 2-move reachable sets  in transparent blue.
+ Figure ~\ref{fig:polygon} shows the starting and ending relative positions as $\Delta s$ and $\Delta g$ in the $\Delta$ configuration space.  The next subsections give procedures to compute the 2-move reachable set.% in Fig.~\ref{fig:regionMove}.% The reachable set is the part of $\Delta$ configuration space where if one particle touches a wall in a specific location, the other particle can make the required relative distance without causing the touching particle to move. We will discuss how to make reachable sets in the next subsections. 
+ 
+The goal is to use a shared control input to move the particles within $\delta$ of the goal positions, where $\delta$ is an arbitrary small number. We do this by first moving them within $\delta$ of the correct relative position and then translating the particles to the goal. The relative position is $||\Delta g - \Delta p || = ||(g_2-g_1)- (p_2-p_1)||$.  
+
+
+
+
+ Algorithm \ref{alg:optimalAlg} assigns a uniform control input at every instance.
+% Algorithm ~\ref{alg:optimalAlg} 
+ It first computes the 2-move reachable set. If the goal relative position is in the 2-move reachable set, we move particles to achieve that relative position. If it is not in the 2-move reachable set, we move particles to achieve the closest point on this reachable set from $\Delta g$, which is $\Delta g_c$. 
+
+ \emph{Achieving} a $\Delta g_c$ configuration requires two moves, the first to move until one particle touches a boundary, and the second to adjust the relative spacing by moving only the particle not touching a boundary.
+ Once the correct \emph{relative} position has been achieved, a final translation delivers both particles to their goal destinations. %we go to the final goal position. If it is not our final goal, 
+ Otherwise, we iterate until we reach the goal. 
+
 
 
 
@@ -197,9 +199,33 @@ $[p_{i+1} , p_{i+2}, ... , v_{\textrm{max}}, l_{i+1}] - p_{i+1}')$
 
  
 \subsection{Circular Workspaces: 2-Move Reachable Set}
-
+\begin{algorithm}[htb]
+\caption{ { \sc ReachableSetCircle}($s_1,s_2,g_1,g_2$)}\label{alg:circularReachbale}
+\begin{algorithmic}[1]
+%\scriptsize
+\Require knowledge of starting $(s_1,s_2)$ and goal $(g_1,g_2)$ positions of  two particles. 
+%\State $\theta = \arctan(\frac{p_1.x-p_2.x}{p_1.y - p_2.y})$
+\State Calculate $\psi_{\min}$ and $\psi_{\max}$ \Comment use \eqref{eq:psiMinMax}
+\State Calculate $\gamma(\psi)$ \Comment use \eqref{eq:gamma}
+\State Calculate $l_1, l_2, l_3, l_4$ \Comment use \eqref{eq:circlereachable} 
+\State Return the union of ($l_1, l_2, l_3, l_4$)
+\end{algorithmic}
+\end{algorithm}
 
 % Fig.~\ref{fig:shapeControlMathematica1} shows a Mathematica implementation of the algorithm, and is useful as a visual reference for the following description.
+
+
+To compute the 2-move reachable set for a circular workspace, first consider all possible first contact locations.
+ The set of boundary points that a particle can touch before the  other particle  touches are two arcs from $\psi_{\min}$ to $\psi_{\max}$  and from $\pi+ \psi_{\min}$ to $\pi+ \psi_{\max}$:
+ \begin{align}\label{eq:psiMinMax}
+%  \psi \in [\psi_{\min}, \psi_{\max}]= \theta + \Big[\sin^{-1}\frac{d_{12}}{2r} - \frac{\pi}{2},  \frac{\pi}{2} -\sin^{-1}\frac{d_{12}}{2r} \Big],\\
+\scalebox{.9}{$   \psi \in [\psi_{\min}, \psi_{\max}]= \theta \!+  \left[ \sin^{-1} \left(\frac{d_{12}}{2r}  \right)- \frac{\pi}{2},  \frac{\pi}{2} -\sin^{-1} \left(\frac{d_{12}}{2r} \right) \right]\!\!,$}
+% \psi \in [\psi_{\min}, \psi_{\max}]= \theta + \Big[\frac{\sin^{-1}{d_{12}}}{2r} - \frac{\pi}{2},  \frac{\pi}{2} -\frac{\sin^{-1}{d_{12}}}{2r} \Big],
+\end{align}
+where $d_{12}= \Vert s_1 - s_2\Vert_{\scriptscriptstyle 2}$, $r$ is the radius of the workspace,
+and the angle between two particles is $\theta = \arctan(\frac{p_1.x-p_2.x}{p_1.y - p_2.y})$. 
+ 
+ 
 \begin{figure}
 \centering
 \begin{overpic}[width=\columnwidth]{reachableSetCircle.pdf}\end{overpic}
@@ -213,19 +239,6 @@ Right: The $\Delta$ configuration space for the corresponding starting positions
 The possible 2-move reachable sets before contact are shown in the $\Delta$ configuration as a blue region.
  If the blue particle contacts the boundary at $\psi_{\min}$, the reachable $\Delta$ configuration is the red set, or the green set if $\psi = \frac{17 \pi}{10}$.}
 \end{figure}
-
-To compute the 2-move reachable set for a circular workspace, first consider all possible first contact locations.
- The set of boundary points that a particle can touch before the  other particle  touches are two arcs from $\psi_{\min}$ to $\psi_{\max}$  and from $\pi+ \psi_{\min}$ to $\pi+ \psi_{\max}$:
- \begin{align}\label{eq:psiMinMax}
-%  \psi \in [\psi_{\min}, \psi_{\max}]= \theta + \Big[\sin^{-1}\frac{d_{12}}{2r} - \frac{\pi}{2},  \frac{\pi}{2} -\sin^{-1}\frac{d_{12}}{2r} \Big],\\
-\scalebox{.9}{$   \psi \in [\psi_{\min}, \psi_{\max}]= \theta \!+  \left[ \sin^{-1} \left(\frac{d_{12}}{2r}  \right)- \frac{\pi}{2},  \frac{\pi}{2} -\sin^{-1} \left(\frac{d_{12}}{2r} \right) \right]\!\!,$}
-% \psi \in [\psi_{\min}, \psi_{\max}]= \theta + \Big[\frac{\sin^{-1}{d_{12}}}{2r} - \frac{\pi}{2},  \frac{\pi}{2} -\frac{\sin^{-1}{d_{12}}}{2r} \Big],
-\end{align}
-where $d_{12}= \Vert s_1 - s_2\Vert_{\scriptscriptstyle 2}$, $r$ is the radius of the workspace,
-and the angle between two particles is $\theta = \arctan(\frac{p_1.x-p_2.x}{p_1.y - p_2.y})$. 
- 
- 
-
 
 %\begin{figure}
 %\centering
@@ -279,18 +292,7 @@ We first check if $\Delta g_c$ is in the $\Delta$ configuration space chords def
  
 The particles achieve $\Delta g_c$ in two moves. The first move causes one particle to touch the wall at $p_\psi$, \eqref{eq:ppsi}. The second move achieves the required relative position.
  
-\begin{algorithm}[htb]
-\caption{ { \sc ReachableSetCircle}($s_1,s_2,g_1,g_2$)}\label{alg:circularReachbale}
-\begin{algorithmic}[1]
-%\scriptsize
-\Require knowledge of starting $(s_1,s_2)$ and goal $(g_1,g_2)$ positions of  two particles. 
-%\State $\theta = \arctan(\frac{p_1.x-p_2.x}{p_1.y - p_2.y})$
-\State Calculate $\psi_{\min}$ and $\psi_{\max}$ \Comment use \eqref{eq:psiMinMax}
-\State Calculate $\gamma(\psi)$ \Comment use \eqref{eq:gamma}
-\State Calculate $l_1, l_2, l_3, l_4$ \Comment use \eqref{eq:circlereachable} 
-\State Return the union of ($l_1, l_2, l_3, l_4$)
-\end{algorithmic}
-\end{algorithm}
+
  %Now that $\psi$ is found, we move the particles to make the current goal. If current goal is our final goal, we go to the final goal position. If it is not our final goal, we continue to set the closest point on the reachable set to our current goal until we reach the goal. 
  
 % \begin{equation}
@@ -510,9 +512,10 @@ Illustration on how boundary contacts enable 3D positioning. Once one particle c
 } %\vspace{-1em}
 \end{figure}
 
-Extending path planning to 3D is possible only if the two particles do not initially have the same $x$ and $y$ positions.
-For ease of analysis, we assume neutrally buoyant particles with workspace boundaries that extend in the $\pm z$ direction to form either right cylinders or right prisms.
-If the 3D projection is at a different angle, redefine the 2D workspace as a region perpendicular to the projection.
+This section presents a method for extending Alg.~\ref{alg:optimalAlg} to 3D in workspaces that are right cylinders or right prisms.
+For ease of analysis, we assume neutrally buoyant particles, and choose a coordinate frame so that the cylinder or prism has end caps in the $xy$ plane.
+ The following method assumes the two particles do not initially have the same $x$ and $y$ positions.
+ The method does not use any contacts with the end caps, and so may be suitable for tubular lumens. 
  First, we move the closest particle to the boundary, which prevents its $z$-coordinate from changing.  
  We next apply actuation in either the $\pm z$ direction to achieve the desired $\Delta z$.
  Then the particles are actuated away from the boundary and to the appropriate $z$ positions.
