@@ -5,10 +5,27 @@
 This paper presented techniques for controlling the positions of two particles using uniform inputs and non-slip boundary contacts.  
 The paper provided algorithms for precise position control. The algorithms relied on calculating reachable sets in a 2D, $\Delta$ configuration space.
 Extending Alg.~\ref{alg:optimalAlg}  to 3D was straightforward, but increased the complexity.
-Hardware experiments illustrated the algorithms in ex vivo and in artificial workspaces that mimic the geometry of biological tissue.
+Hardware experiments illustrated the algorithms in \emph{ex vivo} and in artificial workspaces that mimic the geometry of biological tissue.
 
 There are several avenues for future work beyond those mentioned previously. This paper assumed friction was sufficient to completely stop particles in contact with the boundary. 
   The algorithms would require retooling to handle small friction coefficients. The techniques in \cite{shahrokhi2017algorithms} and  \cite{AaronManipulation2013} could be applied to extend the analysis to more than two particles.
+  
+  \section*{Appendix}\label{sec:appendix}
+ The supplemental material includes four videos:
+  	\begin{itemize}	 
+ \item Video  \emph{01Model.mov} animates the concepts of uniform control inputs and non-slip boundary contacts.
+ \item Video  \emph{02DeltaConfigurationSpace.mp4} demonstrates how the $\Delta$ configuration space (the configuration space showing the difference in position for two particles) is constructed for a variety of workspaces.
+ \item Video  \emph{03SimulationWorkSpaces.mp4} shows demonstrations of motion planning in square and disc-shaped workspaces. 
+ \item Video  \emph{04Hardware Experiments.mp4} shows an experiment trial moving two particles to goal positions in a small intestine phantom, then an experiment trial using cow stomach tissue.
+		\end{itemize}	 	
+We also include four  Mathematica Notebooks (.nb files) containing simulation code.  This code generates plots for the paper and animates the path planner algorithm for arbitrary inputs.
+		   	\begin{itemize}	 
+ \item   \emph{SquareWorkSpace.nb} generates paths in a square workspace for two particles.
+ \item  \emph{CircularWorkSpace.nb} generates paths in a circular workspace for two particles.
+ \item   \emph{DeltaConfigurationSpacePolygon.nb} generates the $\Delta$ configuration space for convex polygons
+  \item   \emph{ShortestPathForADisk.nb} analytical solution for shortest path that touches a boundary from one position to another position in a circular workspace.
+		\end{itemize}	 
+		   
   
   %TODO: we also did not do the optimization  (some sort of graph search would be nice)
 

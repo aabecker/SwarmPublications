@@ -162,7 +162,7 @@ $\Delta s$
 \end{overpic}
 \vspace{-1em}
 \caption{\label{fig:deltanumdist}
-The worst-case path length occurs when particles must swap antipodes. This can never be achieved but can be asymptotically approached. Plot shows decreasing error as the number of moves grows.
+The worst-case path length occurs when particles must swap antipodes. This can never be achieved but can be asymptotically approached. Plot shows decreasing error (radius $\delta$ around goal positions) as the number of moves grows.
  Red fit line is $8.66/(\textrm{distance}^3)$, which has an R-squared value of 0.77.
 } 
 \end{figure}
@@ -200,7 +200,7 @@ Algorithm \ref{alg:optimalAlg}  was implemented in Mathematica using particles w
  The contour plots in Fig.~\ref{fig:contour} left show the length of the path for two different settings. The top row considers \{$s_1,s_2,g_1$\} = \{$(0.2,0.2),(-0.1,-0.1),(0,0)$\} and the bottom row considers  \{$s_1,s_2,g_1$\} = \{$(0.2,0.2),(-0.1,-0.1),(-0.2,0)$\}, each in a workspace with $r= 0.5$, and $g_2$ ranging over all the workspace. Fig.~\ref{fig:contour} right shows the number of moves and left shows the total distance of the path. This plot shows the nonlinear nature of the path planning. When the goal is in the middle of the workspace, a symmetry in the path length is expected as the top row shows. The bottom row shows a shift in the goal position which breaks the symmetry of the path length in the workspace.
  
 %The path length grows when the goals have $\pi$ difference and are very close to the boundary. 
- The worst-case occurs when the ending points are at antipodes along the boundary ($\pi$ angular distance). This can never be achieved but can be asymptotically approached as shown in Fig.~\ref{fig:deltanumdist}. 
+ The worst-case occurs when the ending points are at antipodes along the boundary ($\pi$ angular distance). This can never be achieved but can be asymptotically approached as shown in Fig.~\ref{fig:deltanumdist}, which plots the smallest achievable $\delta$ radius about each goal position as a function of path length. 
  Figure \ref{fig:contourPlots} shows the same concepts in a square workspace. Figure \ref{fig:contourPlots} top and middle row considers the particles for three arbitrary starting and goal positions for the particles. 
 
  Thus far, this paper has considered the particles to be unique. If particles are interchangeable, the path lengths often decrease, which can be computed by running Alg.~\ref{alg:optimalAlg} twice,  but swap the goal positions for the second run and select the shortest path.  The bottom row of  Fig.~\ref{fig:contourPlots} considers interchangeable particles with the same configuration as the middle row with unique particles. The worst-case path lengths decrease by 33\%, 60\%, and 30\% for the three test cases shown. %TODO: shiva, insert numbers.

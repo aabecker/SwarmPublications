@@ -35,7 +35,8 @@ Unfortunately, using large-scale external magnetic fields makes it challenging t
    %Flow in a pipe or body lume
 
 If a control input causes the particles to collide with obstacles at different times, inverting the control input does not undo the action, as in~\cite{becker2017particle}. 
- Due to this lack of time-reversibility, techniques that require a bidirectional graph, e.g. PRM \cite{kavraki1996probabilistic} and RRT* \cite{lavalle2006planning} are not suitable.
-  Instead, this paper employs a greedy search strategy. 
+ Due to this lack of time-reversibility, techniques that require a bidirectional graph, e.g. PRM \cite{kavraki1996probabilistic} and RRT* \cite{karaman2011sampling} are not suitable. 
+  Instead, this paper employs a greedy search algorithm. 
    For some configurations, we can obtain the optimal solution. 
 Section~\ref{sec:optimalResults}  provides shortest-path results for two representative workspaces, squares and disks.
+While common search strategies such as RRT~\cite{lavalle1998rapidly} could be used to generate solutions, our algorithm efficiently plans a path that, every two moves, decreases the relative position error between two particles.

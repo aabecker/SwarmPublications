@@ -163,7 +163,7 @@ Figure~\ref{fig:polygonAlg} illustrates the procedure to construct the  2-move r
 
 % worst case analysis
  This algorithm allows two particles to be steered to arbitrary positions as long as the initial particle positions are separated by at least $\epsilon$, and at least one goal position is $\epsilon$ distance from a wall, where $\epsilon$ is a small, positive, user-defined number. 
-For a square workspace where the length of each side is $L$, the worst case path length is $(\sqrt{2}+2)L$, and requires at most five moves.
+For a square workspace where the length of each side is $L$, the worst case path length is $(\sqrt{2}+2)L$, and requires at most five moves (see Fig.~\ref{fig:shapeControlMathematica1}f).
 % 
  \begin{algorithm}[htb]
 \caption{ { \sc ReachableSetPolygon}($s_1,s_2,g_1,g_2, P$)}\label{alg:polygonReachbale}
@@ -228,14 +228,18 @@ and the angle between two particles is $\theta = \arctan(\frac{p_1.x-p_2.x}{p_1.
  
 \begin{figure}
 \centering
-\begin{overpic}[width=\columnwidth]{reachableSetCircle.pdf}\end{overpic}
+\begin{overpic}[width=\columnwidth]{reachableSetCircle.pdf}
+\put(2,96){(a)}
+\put(2,32){(b)}
+\put(48,32){(c)}
+\end{overpic}
 \vspace{-1em}
 \caption{\label{fig:regionMove}
 % the set of points where the red particle is the first to contact the boundary are drawn with a red arc. The  set of points where the blue particle is the first to contact the boundary are drawn with a blue arc. 
-Left top: The possible first contact points for the blue and red particles are shown with blue and red arcs. 
-Left bottom: if the blue particle touches the wall at $\psi_{\min}$ (blue square) the other particle (red square) can move anywhere in the red region. 
-Right bottom: if the blue particle touches the wall at $\psi = \frac{17 \pi}{10}$ (blue square) the other particle (red square) can move anywhere in the green region. 
-Right: The $\Delta$ configuration space for the corresponding starting positions of the particles is shown. 
+(a) The possible first contact points for the blue and red particles are shown with blue and red arcs. 
+(b) if the blue particle touches the wall at $\psi_{\min}$ (blue square) the other particle (red square) can move anywhere in the pink region. 
+Right bottom: if the blue particle touches the wall at $\psi = \frac{17 \pi}{10}$ (blue square) the other particle (red square) can move anywhere in the lightgreen region. 
+(c) The $\Delta$ configuration space for the corresponding starting positions of the particles is shown. 
 The possible 2-move reachable sets before contact are shown in the $\Delta$ configuration as a blue region.
  If the blue particle contacts the boundary at $\psi_{\min}$, the reachable $\Delta$ configuration is the red set, or the green set if $\psi = \frac{17 \pi}{10}$.}
 \end{figure}
@@ -508,7 +512,7 @@ Two example sets of the reachable $\Delta$ configuration space for  $d_{12} = 0.
 \centering
 \begin{overpic}[width=0.95\columnwidth]{zaxis.pdf}\end{overpic}
 \caption{\label{fig:zaxis}
-Illustration on how boundary contacts enable 3D positioning. Once one particle contacts a boundary, the other particle's 2-move reachable set is a prism formed by extending the 2D 2-move reachable set in the $\pm z$ direction.
+Illustration on how boundary contacts on the sides of a tube enable 3D positioning. Once one particle contacts a boundary, the other particle's 2-move reachable set is a prism formed by extending the 2D 2-move reachable set in the $\pm z$ direction.
 } %\vspace{-1em}
 \end{figure}
 
