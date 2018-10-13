@@ -1,9 +1,8 @@
 %  compress using: gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH      -sOutputFile=foo-ShapingSwarmCompressed.pdf ShapingSwarmFrictionSharedInput.pdf
 
-
 % And here is the link to the videos and summary and read me:
 %  https://www.dropbox.com/home/BoundaryInteractionVideos
-
+% difference between two pdf files: https://draftable.com/compare
 %\documentclass[conference]{IEEEtran}
 \documentclass[letterpaper, 10 pt, conference]{ieeeconf}
 \IEEEoverridecommandlockouts% This command is only needed if 
@@ -186,7 +185,7 @@
 Steered particles offer a method for targeted therapy, interventions, and drug delivery in regions inaccessible by large robots.
 For example, magnetic actuation of particles has the benefits of requiring no tethers, being able to operate from a distance, and in some cases allows imaging for feedback (e.g. MRI).
  This paper investigates position control of particles using uniform forces (the same force is applied everywhere in the workspace).
-Given a controllable field that can generate forces in three orthogonal directions, steering one particle in 3D is trivial. 
+Given a controllable field that can generate bidirectional forces in three orthogonal directions, steering one particle in 3D is trivial. 
 Adding additional particles to steer makes the system underactuated because there are more states than control inputs. 
 However, the walls of \emph{in vivo} and artificial environments often have surface roughness such that the particles do not move unless actuation pulls them away from the wall.
 In previous work, we showed that the individual 2D position of two particles is controllable using global inputs in a square workspace with non-slip wall contact \cite{shahrokhi2017algorithms}.
@@ -195,9 +194,10 @@ We investigate analytically an idealized variant of this problem with non-slip b
 This paper also implements the algorithms using a hardware setup inspired by the gastrointestinal tract.
 
 % KEYWORDS:   
-%Underactuated Robots
-%Motion Control
-%Path Planning for Multiple Mobile Robot Systems
+% Underactuated Robots
+% Motion Control
+% Path Planning for Multiple Mobile Robot Systems
+% Configuration Space
 %	
 %This is an extension of work presented in a preliminary conference paper:
 %S. Shahrokhi, A. Mahadev, and A. T. Becker, ÒAlgorithms for shaping a particle swarm with a shared input by exploiting non-slip wall contacts,Ó in Intelligent Robots and Systems (IROS), 2017 IEEE/RSJ International Conference on, 2017.
