@@ -1,0 +1,155 @@
+% difference between two pdf files: https://draftable.com/compare
+% insert a pdf: https://tex.stackexchange.com/questions/8662/merge-two-pdf-files-output-by-latex
+%   \usepackage{pdfpages}
+%   \includepdf[pages=-]{ChangesFromV01toV02.pdf}
+% gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH      -sOutputFile=ResponseCompressed.pdf Response.pdf
+%
+\documentclass[conference, onecolumn, 10pt]{../IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{times}
+ 
+
+\usepackage{microtype,xparse,tcolorbox}
+\usepackage{mathtools, cuted}
+\usepackage{todonotes}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{pdfpages}
+\definecolor{myMagenta}{RGB}{233,63,246}
+\definecolor{myDarkGreen}{RGB}{97,173,89}
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+\pagestyle{plain}
+\newcounter{reviewer}
+\setcounter{reviewer}{0}
+\newcounter{point}[reviewer]
+\setcounter{point}{0}
+\usepackage{lastpage}
+
+
+\setlength\parindent{0pt}
+
+\renewcommand{\thepoint}{[R\,\thereviewer.\arabic{point}] } 
+
+\newcommand{\response}[1]{\refstepcounter{point}  \smallbreak \noindent
+	\hangindent=3.5em
+	\hangafter=1
+	\thepoint \space ``\textcolor{blue}{#1}" \par\smallskip}
+
+\newcommand{\letter}[2]{\vspace*{\fill} 
+	
+	\begin{quote}  
+		
+		\includegraphics[width=8cm]{engineeringLogo.eps}
+			
+		
+	
+		\begin{flushright}
+		Aaron T.\ Becker\\Department of Electrical Engineering\\University of Houston\\Houston, TX 77004, USA\\Email: atbecker@central.uh.edu\\Web: youTube.com/aabecker5\\
+		
+		\today \vspace{.1cm} \\
+		\end{flushright}
+		
+		#1\medskip\\ 
+	
+		Dear #2 Editorial Office,\medskip\\
+		Please find attached the revised paper, #1, previously submitted as paper number 18-0277,
+		along with the document containing a response to the reviewers. We are grateful to the reviewers for helping us improve our manuscript through their comments and questions. Please let us know if further information is required. This work extends the preliminary conference paper, ``\emph{Algorithms for shaping a particle swarm with a shared input by exploiting non-slip wall contacts}'', presented at the 2017 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS). The conference paper considered only square workspaces. This work extends the analysis to convex workspaces and 3D positioning. This paper also implements the algorithms using a hardware setup inspired by the anatomy of the gastrointestinal tract.\medskip
+		\medskip
+		
+		The new revision of our paper includes multi-media so that others can build on our results. These include illustrative videos for the simulations and experiments: 
+	\begin{itemize}	 
+ \item Video  \emph{01Model.mov} animates the concepts of uniform control inputs and non-slip boundary contacts.
+ \item Video  \emph{02DeltaConfigurationSpace.mp4} demonstrates how the $\Delta$ configuration space (the configuration space showing the difference in position for two particles) is constructed for a variety of workspaces.
+ \item Video  \emph{03SimulationWorkSpaces.mp4} shows demonstrations of motion planning in square and disc-shaped workspaces. 
+ \item Video  \emph{04Hardware Experiments.mp4} shows an experiment trial moving two particles to goal positions in a small intestine phantom, then an experiment trial using cow stomach tissue.
+		\end{itemize}	 	
+		 
+		   We also include four  Mathematica Notebooks (.nb files) containing the simulation code.  This code generates plots for the paper and animates the path planner algorithm for arbitrary inputs.
+		   	\begin{itemize}	 
+ \item   \emph{SquareWorkSpace.nb} generates paths in a square workspace for two particles.
+ \item  \emph{CircularWorkSpace.nb} generates paths in a circular workspace for two particles.
+ \item   \emph{DeltaConfigurationSpacePolygon.nb} generates the $\Delta$ configuration space for convex polygons
+  \item   \emph{ShortestPathForADisk.nb} analytical solution for shortest path that touches a boundary from one position to another position in a circular workspace.
+		\end{itemize}	 
+		   
+		%   At the end of this letter, pages~\pageref{sec_lastpage}--\pageref{LastPage} is the revised manuscript, formatted so all changes can be easily identified by the reviewers, by using green colored text to indicate revised passages. 
+		 The revised manuscript is formatted so all changes can be easily identified by the reviewers by using green colored text to indicate revised passages. 
+
+		
+		
+		
+		Sincerely,\\
+		
+	
+			\includegraphics[width=4cm]{SignatureAaronTBeckerWhite.png}
+			\medskip\\
+		Aaron T.\ Becker (on behalf of all the authors) 
+	\end{quote}
+	\vspace*{\fill}
+	\break }
+
+\NewDocumentCommand \Reviewer { m } {
+	\stepcounter{reviewer}
+	\subsection*{Comments~by~Reviewer~#1}
+}
+
+\begin{document}
+	\letter{\emph{Exploiting Non-Slip Wall Contacts  to Position Two Particles Using The Same Control Input}}{IEEE Transactions on Robotics}
+	
+	\section*{Response to Reviewers}
+	In the following document, we have provided detailed responses to the comments and questions of the reviewers. Comments and questions by reviewers are in \textcolor{blue}{blue}, our responses are in black.
+	
+	
+	
+	\emph{Comments by Associate Editor}
+	\response{Both reviewers were pleased with the authors' revised manuscript. It is
+the opinion of the Associate Editor that this paper will be publishable
+in T-RO in some form. However, both reviewers have lingering concerns
+about discrepancies between the purported contribution of the paper and
+what is actually demonstrated. In the next draft of the manuscript, the
+authors are encouraged to be explicit in making sure that the stated
+contributions match what has been shown. This could involve removing or
+softening certain claims, or adding new material to strengthen certain
+claims.}
+
+	We are grateful for the efforts of our reviewers.  
+	
+	
+	
+	
+	
+	\Reviewer{\#1}\response{In the revised version most of my previous concerns have been
+addressed.  I think with minor revisions the manuscript could be
+suitable for publication. }
+	Thank you! We have completed a minor revision, as explained below.
+	
+	\response{The remaining issue still comes back to whether the iterative procedure
+is able to reach all target configurations.  The new manuscript shows
+numerically that the accesible space approaches the entire space for a
+circular 2D domain.  The paper, however, is meant to also cover any
+convex domains.  Can the authors also prove that the accessible space
+approaches the entire domain for any convex domain?  Or at least other
+polygonal cases?   I see that on p4 in the last paragraph of section C,
+there is a statement that particles can be steered to arbitrary
+positions, but without an explanation of how that result is obtained,
+which should be included.  I also think that paragraph should be
+highlighted a little more by a section title (to be parallel with the
+development of the circular workspace).  Assuming this can be explained
+then I would be satisfied with the manuscript.}
+		
+	\Reviewer{\#2}
+	\response{The authors did a great job in addressing my and the other reviewer's
+comments in a set of meaningful changes to the manuscript, including
+new analysis to investigate many of the questions. 
+The only remaining comment is that the abstract and introduction imply
+that 3D results are obtained in this work. While this is shown
+theoretically, no 3D experimental results are shown. The abstract and
+introduction should state this explicitly as this is viewed as a
+notable limitation in what is actually demonstrated. }
+	Thank you. We were pleased to get this review, because it led us to think more deeply on how to present the results and led to the major revisions detailed below.
+	
+		
+		
+\end{document}
