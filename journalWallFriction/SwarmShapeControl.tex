@@ -147,6 +147,11 @@
 \definecolor{myDarkGreen}{RGB}{97,173,89}
 
 
+\newcommand{\revision}[1]{
+  \textcolor{Blue}{#1}
+}
+
+
 \pdfinfo{
    /Author (Shiva Shahrokhi, Jingang Shi,  Benedict Isichei, and Aaron T. Becker)
    /Title  (Exploiting Non-Slip Wall Contacts  to Position Two Particles Using The Same Control Input)
@@ -189,9 +194,9 @@ Given a controllable field that can generate bidirectional forces in three ortho
 Adding additional particles to steer makes the system underactuated because there are more states than control inputs. 
 However, the walls of \emph{in vivo} and artificial environments often have surface roughness such that the particles do not move unless actuation pulls them away from the wall.
 In previous work, we showed that the individual 2D position of two particles is controllable using global inputs in a square workspace with non-slip wall contact \cite{shahrokhi2017algorithms}.
-Because \emph{in vivo} environments are usually not square, this paper extends the previous work to all convex workspaces and to 3D positioning. 
+Because \emph{in vivo} environments are usually not square, this paper extends the previous work to all convex workspaces, \revision{ and shows how this could be extended} to 3D positioning \revision{of neutrally buoyant particles.} 
 We investigate analytically an idealized variant of this problem with non-slip boundaries and control inputs that are applied uniformly to all particles in the workspace.
-This paper also implements the algorithms using a hardware setup inspired by the gastrointestinal tract.
+This paper also implements the algorithms \revision{in 2D} using a hardware setup inspired by the gastrointestinal tract.
 
 % KEYWORDS:   
 % Underactuated Robots
