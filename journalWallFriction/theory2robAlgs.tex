@@ -165,9 +165,11 @@ Figure~\ref{fig:polygonAlg} illustrates the procedure to construct the  2-move r
 % worst case analysis
  This algorithm allows two particles to be steered to arbitrary positions as long as the initial particle positions are separated by at least $\epsilon$, and at least one goal position is $\epsilon$ distance from a wall, where $\epsilon$ is a small, positive, user-defined number. 
 For a square workspace where the length of each side is $L$, the worst case path length is $(\sqrt{2}+2)L$, and requires at most five moves (see Fig.~\ref{fig:shapeControlMathematica1}f).
-As the corner angles increase, the number of moves required to access the entire configuration space increases.  \revision{For a circular workspace, with corner angles of 180$^\circ$, the worst case configuration can only be approached asymptotically, as explained in Section~\ref{sec:simulation}.}
+\revision{
+As the corner angles increase, the number of moves required to access the entire configuration space increases.  
+As shown in Fig.~\ref{fig:polygon},  four moves are sufficient for 3-sided polygons, and six moves accesses the entire $\Delta$ configuration space for up to 8-sided polygons.  Eight moves is sufficient for 20-sided polygons, but we have not checked polygons with more sides. For a circular workspace, with corner angles of 180$^\circ$, the worst-case configuration can only be approached asymptotically, as explained in Section~\ref{sec:simulation}.}
 
-\textcolor{red}{Insert figure 6 which shows the reachable delta config space for a square for 1,2,3,4,5 moves, maybe show two examples.}
+
 
 % 
  \begin{algorithm}[htb]
