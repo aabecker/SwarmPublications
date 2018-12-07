@@ -169,7 +169,9 @@ Figure~\ref{fig:polygonAlg} illustrates the procedure to construct the  2-move r
 For a square workspace where the length of each side is $L$, the worst case path length is $(\sqrt{2}+2)L$, and requires at most five moves (see Fig.~\ref{fig:shapeControlMathematica1}f).
 \revision{
 As the corner angles increase, the number of moves required to access the entire configuration space increases.  
-As shown in Fig.~\ref{fig:polygon},  four moves are sufficient for 3-sided polygons, and six moves accesses the entire $\Delta$ configuration space for up to 8-sided polygons.  Eight moves is sufficient for 20-sided polygons, but we have not checked polygons with more sides. For a circular workspace, with corner angles of 180$^\circ$, the worst-case configuration can only be approached asymptotically, as explained in Section~\ref{sec:simulation}.}
+As shown in Fig.~\ref{fig:polygon},  four moves are sufficient for 3-sided regular polygons, and six moves accesses the entire $\Delta$ configuration space for up to 8-sided regular polygons.  Eight moves is sufficient for polygons with less than 14-sides, but we have not checked polygons with more sides. For a circular workspace, with corner angles of 180$^\circ$, the worst-case configuration can only be approached asymptotically, as explained in Section~\ref{sec:simulation}.
+If the polygon is irregular, more moves may be required.  The entire configuration space is reachable in four moves for an acute triangle, but obtuse triangles require six moves.
+}
 
 
 
