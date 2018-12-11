@@ -50,7 +50,7 @@ Workspace and $\Delta$ configuration space is shown for an arbitrary convex poly
  %%%%%%%%%%%%%%%%%%%%%%%%%%%\
 \subsection{Two Particle Path-Planning}
 \begin{algorithm}[htb]
-\caption{ { \sc 2-ParticlePathPlanning}($s_1,s_2,g_1,g_2,P,\epsilon$)}\label{alg:optimalAlg}
+\caption{ { \sc 2-ParticlePathPlan}($s_1,s_2,g_1,g_2,P,\epsilon$)}\label{alg:optimalAlg}
 \begin{algorithmic}[1]
 %\scriptsize
 \Require knowledge of starting $(s_1,s_2)$ and goal $(g_1,g_2)$ positions of  two particles. 
@@ -64,7 +64,8 @@ Workspace and $\Delta$ configuration space is shown for an arbitrary convex poly
  \State $\Delta p \gets p_2-p_1$
  \State $\Delta g \gets g_2-g_1$
 \While {$||\Delta p - \Delta g|| > \epsilon$}  %R.p_1 \ne g_1$ \textbf{and} $R.p_2 \ne g_2$}
-\State $R_{\textrm{SET}}\gets$  Compute 2-move reachable set  \Comment use Alg.~\ref{alg:polygonReachbale} or \ref{alg:circularReachbale}
+\State $R_{\textrm{SET}}\gets$  Compute 2-move reachable set \newline
+ \Comment  use Alg.~\ref{alg:polygonReachbale} or \ref{alg:circularReachbale}
 \State $ \Delta g_c\gets $nearest point in $R_{\textrm{SET}}$ to $\Delta g$
 \State $m \gets $move-to-wall corresponding to $\Delta g_c$
 \State moves $\gets$ Append $m$ to moves
@@ -80,7 +81,8 @@ Workspace and $\Delta$ configuration space is shown for an arbitrary convex poly
 
   The \emph{2-move reachable set} is the locus of points in the $\Delta$ configuration space corresponding to any two-move sequence where the first move brings one particle into contact with the boundary, and the second move translates the second particle without moving the first.
  For the given $\Delta s$ (starting configuration), the rightmost image of Fig.~\ref{fig:irregular} draws the 2-move reachable sets  in transparent blue.
- Figure ~\ref{fig:polygon} shows the starting and ending relative positions as $\Delta s$ and $\Delta g$ in the $\Delta$ configuration space.  The next subsections give procedures to compute the 2-move reachable set.% in Fig.~\ref{fig:regionMove}.% The reachable set is the part of $\Delta$ configuration space where if one particle touches a wall in a specific location, the other particle can make the required relative distance without causing the touching particle to move. We will discuss how to make reachable sets in the next subsections. 
+ Figure ~\ref{fig:polygon} shows the starting and ending relative positions as $\Delta s$ and $\Delta g$ in the $\Delta$ configuration space.  The next subsections give procedures to compute the 2-move reachable set.
+ \revision{The $k+2$-move reachable set is constructed by the union of 2-move reachable sets starting from the boundary of the $k$-move reachable set.}
  
 The goal is to use a shared control input to move the particles within $\delta$ of the goal positions, where $\delta$ is an arbitrary small number. We do this by first moving them within $\delta$ of the correct relative position and then translating the particles to the goal. The relative position is $||\Delta g - \Delta p || = ||(g_2-g_1)- (p_2-p_1)||$.  
 
@@ -110,7 +112,10 @@ The goal is to use a shared control input to move the particles within $\delta$ 
 {\begin{overpic}[width =\figwid]{differentNumSides.pdf}\put(5,102){Workspace}\put(20,102){$\Delta$ configuration space}
 \end{overpic}
 }
-\caption{\label{fig:polygon}{The $\Delta$ configuration space is all possible configurations of $p_2-p_1$. The sets reachable in two moves, called \emph{2-move reachable sets}, are drawn with transparent blue polygons. A polygon with $n$ sides has $n$ 2-move reachable sets, but if $n$ is even and the polygon is regular, half the reachable sets overlap. If $\Delta g$ is in the 2-move reachable sets, we can achieve the required relative position in two moves. %If $\Delta g$ is not in the 2-move reachable set, we define a temporary goal $\Delta g_c$ (the closest point on the 2-move reachable set to $\Delta g$) and apply two moves to achieve $\Delta g_c$. We repeat this process until the relative goal position is achieved.
+\caption{\label{fig:polygon}{The $\Delta$ configuration space is all possible configurations of $p_2-p_1$. The sets reachable in two moves, called \emph{2-move reachable sets}, are drawn with transparent blue polygons. A polygon with $n$ sides has $n$ 2-move reachable sets, but if $n$ is even and the polygon is regular, half the reachable sets overlap. If $\Delta g$ is in the 2-move reachable sets, we can achieve the required relative position in two moves. 
+\revision{If $\Delta g$ is not in the 2-move reachable set, we define a temporary goal $\Delta g_c$ (the closest point on the 2-move reachable set to $\Delta g$) and apply two moves to achieve $\Delta g_c$. We repeat this process until the relative goal position is achieved.
+Higher-number reachable sets are drawn in distinct colors.}
+%If $\Delta g$ is not in the 2-move reachable set, we define a temporary goal $\Delta g_c$ (the closest point on the 2-move reachable set to $\Delta g$) and apply two moves to achieve $\Delta g_c$. We repeat this process until the relative goal position is achieved.
 %Workspace and $\Delta$ configuration spaces for different polygonal workspaces and their representative $\Delta$ configuration spaces and reachable sets. As the number of sides in the polygon increases, the total area of the $\Delta$ configuration space is four times of the workspace.
 }
 \vspace{-1em}
@@ -154,7 +159,7 @@ Boundary interaction is used to change the relative positions of the particles. 
 \vspace{-1em}
 }
 \end{figure*}
- Figure \ref{fig:polygon} shows six workspaces, their $\Delta$ configuration spaces, and the 2-move reachable sets that correspond to representative initial conditions.
+ Figure \ref{fig:polygon} shows six workspaces, their $\Delta$ configuration spaces, and the \revision{$k$}-move reachable sets that correspond to representative initial conditions.
  Figure \ref{fig:TwoRegions} highlights the construction of the 2-move reachable sets for a square workspace. There are four 2-move reachable sets, but the horizontal (and vertical) reachable sets are equivalent in the $\Delta$ configuration space so we can plan in this space and choose between the  options to minimize the total distance.
  % The \emph{2-move reachable set} is the locus of points in the $\Delta$ configuration space corresponding to any two-move sequence where the first move brings one particle into contact with the boundary, and the second move translates the second particle without moving the first. 
 Algorithm \ref{alg:polygonReachbale} computes the 2-move reachable set for any convex workspace.
@@ -182,7 +187,7 @@ If the polygon is irregular, more moves may be required.  The entire configurati
 %\scriptsize
 \Require knowledge of starting $(s_1,s_2)$ and goal $(g_1,g_2)$ positions of  two particles. 
 $P$ is a list of the vertices of a convex polygon. %RSet contains all the reachable polygons.
-\State $R_{\textrm{SET}\gets \{\}}$
+\State $R_{\textrm{SET}}\gets \{\}$
 \For {$p_i$ in $P$}
 \State $p_{i}' \gets s_1 + s_2 - p_i$
 \State $p_{i+1}' \gets s_1 + s_2 - p_{i+1}$
@@ -249,7 +254,7 @@ and the angle between two particles is $\theta = \arctan(\frac{p_1.x-p_2.x}{p_1.
 % the set of points where the red particle is the first to contact the boundary are drawn with a red arc. The  set of points where the blue particle is the first to contact the boundary are drawn with a blue arc. 
 (a) The possible first contact points for the blue and red particles are shown with blue and red arcs. 
 (b) if the blue particle touches the wall at $\psi_{\min}$ (blue square) the other particle (red square) can move anywhere in the pink region. 
-Right bottom: if the blue particle touches the wall at $\psi = \frac{17 \pi}{10}$ (blue square) the other particle (red square) can move anywhere in the lightgreen region. 
+Right bottom: if the blue particle touches the wall at $\psi = \frac{17 \pi}{10}$ (blue square) the other particle (red square) can move anywhere in the light green region. 
 (c) The $\Delta$ configuration space for the corresponding starting positions of the particles is shown. 
 The possible 2-move reachable sets before contact are shown in the $\Delta$ configuration as a blue region.
  If the blue particle contacts the boundary at $\psi_{\min}$, the reachable $\Delta$ configuration is the red set, or the green set if $\psi = \frac{17 \pi}{10}$.}
@@ -521,7 +526,11 @@ Two example sets of the reachable $\Delta$ configuration space for  $d_{12} = 0.
 
 \begin{figure}
 \centering
-\begin{overpic}[width=0.95\columnwidth]{zaxis.pdf}\end{overpic}
+\begin{overpic}[width=0.95\columnwidth]{zaxis.pdf}
+\scriptsize
+\put(1,51){Move 1}
+\put(50,51){Move 2}
+\end{overpic}
 \caption{\label{fig:zaxis}
 Illustration on how boundary contacts on the sides of a tube enable 3D positioning. Once one particle contacts a boundary, the other particle's 2-move reachable set is a prism formed by extending the 2D 2-move reachable set in the $\pm z$ direction.
 } %\vspace{-1em}

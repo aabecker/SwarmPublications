@@ -115,7 +115,7 @@ contributions match what has been shown. This could involve removing or
 softening certain claims, or adding new material to strengthen certain
 claims.}
 
-	Thank you for this opportunity!
+	Thank you for this opportunity! In addition to the changes listed below, we used this opportunity to remove a few typos and clean up several figures.
 	
 	
 	
@@ -124,7 +124,7 @@ addressed.  I think with minor revisions the manuscript could be
 suitable for publication. 
 The remaining issue still comes back to whether the iterative procedure is able to reach all target configurations.  The new manuscript shows numerically that the accessible space approaches the entire space for a circular 2D domain.  The paper, however, is meant to also cover any convex domains.  Can the authors also prove that the accessible space approaches the entire domain for any convex domain?  Or at least other polygonal cases?   I see that on p4 in the last paragraph of section C, there is a statement that particles can be steered to arbitrary positions, but without an explanation of how that result is obtained, which should be included.  I also think that paragraph should be highlighted a little more by a section title (to be parallel with the development of the circular workspace).  Assuming this can be explained then I would be satisfied with the manuscript.
 }
-	Thank you! This was a fun extension to work on.  In a similar form to the work with circular domain we now show that the accessible space rapidly grows to include the entire $\Delta$ configuration space.  For finite-sided polygons, this convergence requires finite time (assuming the particles have at least $\epsilon$ separation).  We have augmented Fig.~4 to show (as needed) the 4, 6, and 8-move reachable sets for polygons up to 20 sides.  These sets reach the entire $\Delta$ configuration space.
+	Thank you! This was a fun extension to work on.  In a similar form to the work with circular domain we now show that the accessible space rapidly grows to include the entire $\Delta$ configuration space.  For finite-sided polygons, this convergence requires finite time (assuming the particles have at least $\epsilon$ separation).  We have augmented Fig.~4 to show (as needed) the 4, 6, and 8-move reachable sets for polygons up to 10 sides.  These sets reach the entire $\Delta$ configuration space.
 	
 	\response{ I also think that paragraph should be highlighted a little more by a section title (to be parallel with the development of the circular workspace).  Assuming this can be explained then I would be satisfied with the manuscript.}
 	Great idea! We added Section 
@@ -134,7 +134,9 @@ The remaining issue still comes back to whether the iterative procedure is able 
 	
 	``\revision{
 As the corner angles increase, the number of moves required to access the entire configuration space increases.  
-As shown in Fig.~4,  four moves are sufficient for 3-sided polygons, and six moves accesses the entire $\Delta$ configuration space for up to 8-sided polygons.  Eight moves is sufficient for 20-sided polygons, but we have not checked polygons with more sides. For a circular workspace, with corner angles of 180$^\circ$, the worst-case configuration can only be approached asymptotically, as explained in Section~VI.}''
+As shown in Fig.~4,  four moves are sufficient for 3-sided regular polygons, and six moves accesses the entire $\Delta$ configuration space for up to 8-sided regular polygons.  Eight moves is sufficient for polygons with less than 14-sides, but we have not checked polygons with more sides. For a circular workspace, with corner angles of 180$^\circ$, the worst-case configuration can only be approached asymptotically, as explained in Section~VI.
+If the polygon is irregular, more moves may be required.  The entire configuration space is reachable in four moves for an acute triangle, but obtuse triangles require six moves.
+}''
 
 	
 	

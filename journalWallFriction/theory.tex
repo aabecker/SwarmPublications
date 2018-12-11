@@ -8,18 +8,17 @@ The following sections examine using non-slip boundary contacts to break the sym
  Our algorithms rely on holding one particle stationary by pushing it into the boundary while moving the other particle. 
  These system dynamics can represent particle swarms in low-Reynolds number environments, where viscosity dominates inertial forces and so velocity is proportional to input force~\cite{Purcell1977}. 
  In this regime, the input force command $\mathbf{u}(t)$ controls the velocity of the particles.  
- If the $i^{\textrm{th}}$ particle has position $\mathbf{x}_i(t)$ and velocity $\dot{\mathbf{x}}_i(t)$,  we assume the following system model:
+ If the $i^{\textrm{th}}$ particle has position $p_i(t)$ and velocity $\dot{p}_i(t)$,  we assume the following system model:
   \begin{align}\label{eq:swarmDynamicsAndFric} 
-\dot{\mathbf{x}}_i(t)
+\dot{p}_i(t)
  &= \begin{cases}
-  0 &\begin{matrix} \mathbf{x}_i(t) \in  \textrm{boundary \textbf{and}}\\
-\mathbf{N}(\textrm{boundary$_{\mathbf{x}_i(t)}$})\cdot   \mathbf{u}(t) \le 0 \end{matrix}
-\textrm{    ,} \\
- \mathbf{u}(t) & \textrm{else}.
- \end{cases}
+  0 &\begin{matrix} p_i(t) \in  \textrm{boundary \textbf{and}}\\
+\mathbf{N}(\textrm{boundary$_{p_i(t)}$})\cdot   \mathbf{u}(t) \le 0 \end{matrix} \\
+ \mathbf{u}(t) & \textrm{else}
+ \end{cases}.
  \end{align}
  Here
- $\mathbf{N}(\textrm{boundary$_{\mathbf{x}_i(t)}$})$ is the normal to the boundary at position $\mathbf{x}_i(t)$ and the frictional force provided by the boundary cancels any control force $ \mathbf{u}(t)$ that pushes into the boundary.
+ $\mathbf{N}(\textrm{boundary$_{p_i(t)}$})$ is the normal to the boundary at position $p_i(t)$ and the frictional force provided by the boundary cancels any control force $ \mathbf{u}(t)$ that pushes into the boundary.
  
   The same model can be generalized to particles moved by fluid flow where the vector direction of fluid flow $\mathbf{u}(t)$ controls the velocity of particles, or for a swarm of particles that move at a constant speed in a direction specified by a uniform input $\mathbf{u}(t)$~\cite{Rubenstein2012}.
   As in our model, fluid flowing in a pipe has zero velocity along the boundary. Similar mechanical systems exist at larger scales, e.g. all tumblers of a combination lock move uniformly unless obstructed by an obstacle.

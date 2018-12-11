@@ -8,7 +8,7 @@
 
 
  \subsection{Example: Shortest Path in a Square Workspace}\label{subsec:square}
- If the goal configuration cannot be reached in one move but can be reached in three moves, the shortest path has a simple solution. The first move, $m_1$, makes one particle contact a wall, $m_2$ adjusts the relative spacing error  to zero, and $m_3$ takes the particles to their final ositions. 
+ If the goal configuration cannot be reached in one move but can be reached in three moves, the shortest path has a simple solution. The first move, $m_1$, makes one particle contact a wall, $m_2$ adjusts the relative spacing error  to zero, and $m_3$ takes the particles to their final positions. 
 $m_2$ cannot be shortened, so optimization depends on choosing the location where the particle contacts the wall. 
  Since the shortest distance between two points is a straight line, reflecting the goal position across the boundary wall and plotting a straight line gives the optimal contact location, as shown in Fig. \ref{fig:reflection}. 
   There are four walls, and four candidate solutions, but some candidate solutions may be invalid because a different boundary is hit before the desired first contact position in move $m_1$ (light grey regions) or  invalid because $m_2$ cannot generate the goal relative spacing (dark grey regions).
@@ -22,7 +22,7 @@ $m_2$ cannot be shortened, so optimization depends on choosing the location wher
  \protect\tikz \protect\draw[blue,fill=white,line width=0.3mm] (-1ex,0) rectangle (0,1ex);)
  to goal positions  
  (\protect\tikz \protect\draw[red,fill=white,line width=0.3mm] (0,0) circle (.5ex);,
- \protect\tikz \protect\draw[blue,fill=white,line width=0.3mm] (0,0) circle (.5ex);) are fixed.
+ \protect\tikz \protect\draw[blue,fill=white,line width=0.3mm] (0,0) circle (.5ex);) 
  has the property that the incident angle equals the reflected angle, as shown at left. (right) The first contact is colored red if the red particle is the first to touch a boundary, and colored blue if the blue particle is the first to touch.
 } \vspace{-1em}
 \end{figure}
@@ -47,7 +47,7 @@ $m_2$ cannot be shortened, so optimization depends on choosing the location wher
 \begin{figure}
 \centering
 \renewcommand{\figwid}{\columnwidth}
-{\begin{overpic}[width =\figwid]{shortestpath.pdf}
+{\begin{overpic}[width =\figwid]{shortestpath3.pdf}
 \end{overpic}
 }
 \caption{\label{fig:shortestpath}{The shortest path between two points $S$ to $E$ in the unit disk that intersects the circumference. The path length as a function of intersection point, $P= (\cos\theta,\sin\theta)$ is shown at right. See \cite{BeckerShortestPath}.}
@@ -124,7 +124,7 @@ $m_2$ cannot be shortened, so optimization depends on choosing the location wher
 Frames from reconfiguring two particles. 
 Top six images show a polygonal workspace and the corresponding $\Delta$ configuration space with its 2-move reachable sets. 
 Bottom six images show a disk-shaped workspace and the corresponding $\Delta$ configuration space with its 2-move reachable sets. 
-For each the move 1 and 3 are simple translations of both particles and so the reachable sets do not change.
+For each, moves 1 and 3 are simple translations of both particles and so the reachable sets do not change.
 The reachable set morphs during move 2 because one particle is held stationary by the boundary. 
 See multimedia attachment for animations of each.
 }
@@ -139,7 +139,7 @@ See multimedia attachment for animations of each.
 \begin{overpic}[width=0.49\columnwidth]{worstdist.pdf}\put(0,75){d)}\end{overpic}
 \caption{\label{fig:contour}
 %Plots show performance with one goal on the boundary.
-Contour plots showing the number of moves and distance commanded if red particle's goal position is varied in $x$ and $y$. 
+Circular workspace: contour plots showing the number of moves and distance commanded if red particle's goal position is varied in $x$ and $y$. 
 Starting positions of red and blue particles  
  (\protect\tikz \protect\draw[red,fill=white,line width=0.3mm] (-1ex,0) rectangle (0,1ex);,
  \protect\tikz \protect\draw[blue,fill=white,line width=0.3mm] (-1ex,0) rectangle (0,1ex);)
@@ -157,12 +157,12 @@ Moving the  blue particles' goal position  to $(-0.2,0)$, generates non-symmetri
 \put(65,22){\scriptsize
 $\Delta s$
 \protect\tikz \protect\draw[myDarkGreen,fill=myDarkGreen,line width=0.3mm] (-1ex,0) rectangle (0,1ex); $=$
-\protect\tikz \protect\draw[red,fill=white,line width=0.3mm] (-1ex,0) rectangle (0,1ex); $-$
-\protect\tikz \protect\draw[blue,fill=white,line width=0.3mm] (-1ex,0) rectangle (0,1ex);}
+\protect\tikz \protect\draw[red,fill=red,line width=0.3mm] (-1ex,0) rectangle (0,1ex); $-$
+\protect\tikz \protect\draw[blue,fill=blue,line width=0.3mm] (-1ex,0) rectangle (0,1ex);}
 \end{overpic}
 \vspace{-1em}
 \caption{\label{fig:deltanumdist}
-The worst-case path length occurs when particles must swap antipodes. This can never be achieved but can be asymptotically approached. Plot shows decreasing error (radius $\delta$ around goal positions) as the number of moves grows.
+Circular workspace: the worst-case path length occurs when particles must swap antipodes. This can never be achieved but can be asymptotically approached. Plot shows decreasing error (radius $\delta$ around goal positions) as the number of moves grows.
  Red fit line is $8.66/(\textrm{distance}^3)$, which has an R-squared value of 0.77.
 } 
 \end{figure}
@@ -184,7 +184,7 @@ The worst-case path length occurs when particles must swap antipodes. This can n
 \begin{overpic}[width =\figwid]{identical.png}\put(-2,6){\begin{turn}{90} \tiny{interchangeable particles}
 \end{turn}}
 \end{overpic}
-}\caption{\label{fig:contourPlots}{Starting positions of particles $1$ and $2$ 
+}\caption{\label{fig:contourPlots}{Square workspace: starting positions of particles $1$ and $2$ 
  (\protect\tikz \protect\draw[blue,fill=white,line width=0.3mm] (-1ex,0) rectangle (0,1ex);,
  \protect\tikz \protect\draw[myMagenta,fill=white,line width=0.3mm] (-1ex,0) rectangle (0,1ex);)
 and goal position of particle $2$ (\protect\tikz \protect\draw[myMagenta,fill=white,line width=0.3mm] (0,0) circle (.5ex);) are fixed, and $\epsilon=0.001$.
@@ -197,7 +197,7 @@ Algorithm \ref{alg:optimalAlg}  was implemented in Mathematica using particles w
 %  Fig.~\ref{fig:shapeControlMathematica1}  shows  an implementation of this algorithm with robot initial positions represented by hollow squares and final positions by circles. 
  %Dashed lines show the shortest route if robots could be controlled independently, while solid lines show the optimal shortest  path using uniform inputs.
  
- The contour plots in Fig.~\ref{fig:contour} left show the length of the path for two different settings. The top row considers \{$s_1,s_2,g_1$\} = \{$(0.2,0.2),(-0.1,-0.1),(0,0)$\} and the bottom row considers  \{$s_1,s_2,g_1$\} = \{$(0.2,0.2),(-0.1,-0.1),(-0.2,0)$\}, each in a workspace with $r= 0.5$, and $g_2$ ranging over all the workspace. Fig.~\ref{fig:contour} right shows the number of moves and left shows the total distance of the path. This plot shows the nonlinear nature of the path planning. When the goal is in the middle of the workspace, a symmetry in the path length is expected as the top row shows. The bottom row shows a shift in the goal position which breaks the symmetry of the path length in the workspace.
+ The contour plots in Fig.~\ref{fig:contour} left show the length of the path for two different settings. The top row considers \{$s_1,s_2,g_1$\} = \{$(0.2,0.2),(-0.1,-0.1),(0,0)$\} and the bottom row considers  \{$s_1,s_2,g_1$\} = \{$(0.2,0.2),(-0.1,-0.1),(-0.2,0)$\}, each in a workspace with $r= 0.5$, and $g_2$ ranging over all the workspace. Fig.~\ref{fig:contour} left shows the number of moves and right shows the total distance of the path. This plot shows the nonlinear nature of the path planning. When the goal is in the middle of the workspace, a symmetry in the path length is expected as the top row shows. The bottom row shows a shift in the goal position which breaks the symmetry of the path length in the workspace.
  
 %The path length grows when the goals have $\pi$ difference and are very close to the boundary. 
  The worst-case occurs when the ending points are at antipodes along the boundary ($\pi$ angular distance). This can never be achieved but can be asymptotically approached as shown in Fig.~\ref{fig:deltanumdist}, which plots the smallest achievable $\delta$ radius about each goal position as a function of path length. 
