@@ -164,7 +164,7 @@
 
 % You will get a Paper-ID when submitting a pdf file to the conference system
 \author{Shiva Shahrokhi, Jingang Shi,  Benedict Isichei, and Aaron T. Becker% <-this % stops a space
-\thanks{*This work was supported by the National Science Foundation under Grant No.\ \href{http://nsf.gov/awardsearch/showAward?AWD_ID=1553063}{ [IIS-1553063]} and \href{http://nsf.gov/awardsearch/showAward?AWD_ID=1619278}{[IIS-1619278]}.}% <-this % stops a space
+\thanks{*This work was supported by the National Science Foundation under Grant No.\ \href{http://nsf.gov/awardsearch/showAward?AWD_ID=1553063}{ [IIS-1553063]}, \href{http://nsf.gov/awardsearch/showAward?AWD_ID=1619278}{[IIS-1619278]}, and  \href{https://nsf.gov/awardsearch/showAward?AWD_ID=1646566}{[CNS-1646566]}.}% <-this % stops a space
 \thanks{Authors are with the Department of Electrical and Computer Engineering,  University of Houston, Houston, TX 77204 USA        {\tt\small  \{sshahrokhi2,atbecker\}@uh.edu}}%
 }
 %\affil{Department of Electrical and Computer Engineering, \\
@@ -195,6 +195,10 @@ In previous work, we showed that the individual 2D position of two particles is 
 Because \emph{in vivo} environments are usually not square, this paper extends the previous work to all convex workspaces, \revision{ and shows how this could be extended} to 3D positioning \revision{of neutrally buoyant particles.} 
 We investigate analytically an idealized variant of this problem with non-slip boundaries and control inputs that are applied uniformly to all particles in the workspace.
 This paper also implements the algorithms \revision{in 2D} using a hardware setup inspired by the gastrointestinal tract.
+
+% SHORTER ABSTRACT:
+%Steered particles offer a method for targeted therapy, interventions, and drug delivery in regions inaccessible by large robots. This paper investigates position control of particles using uniform forces (the same force is applied everywhere in the workspace). Given a controllable field that can generate bidirectional forces in three orthogonal directions, steering one particle in 3D is trivial. Adding additional particles to steer makes the system underactuated because there are more states than control inputs. However, the walls of in vivo and artificial environments often have surface roughness such that particles do not move unless actuation pulls them away from the wall. This paper shows that the individual 2D position of two particles is controllable using global inputs in all convex workspaces with non-slip wall contact, and shows how this could be extended to 3D positioning of neutrally buoyant particles. We investigate analytically an idealized variant of this problem with non-slip boundaries and control inputs that apply uniformly to all particles in the workspace. This paper implements the algorithms in 2D using a hardware setup inspired by the gastrointestinal tract.
+
 
 % KEYWORDS:   
 % Underactuated Robots
