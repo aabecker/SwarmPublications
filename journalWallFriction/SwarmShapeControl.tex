@@ -4,7 +4,7 @@
 %  https://www.dropbox.com/home/BoundaryInteractionVideos
 % difference between two pdf files: https://draftable.com/compare
 %\documentclass[conference]{IEEEtran}
-\documentclass[letterpaper, 10 pt, conference]{ieeeconf}
+\documentclass[journal]{IEEEtran}
 \IEEEoverridecommandlockouts% This command is only needed if 
                                                           % you want to use the \thanks command
 %\overrideIEEEmargins                                      % Needed to meet printer requirements.
@@ -147,7 +147,7 @@
 \definecolor{myDarkGreen}{RGB}{97,173,89}
 
 
-\newcommand{\revision}[1]{\textcolor{blue}{#1}}
+\newcommand{\revision}[1]{\textcolor{black}{#1}}  %changed to black for final
 
 
 \pdfinfo{
@@ -160,19 +160,21 @@
 
 
 % paper title
-\title{\LARGE \bf Exploiting Non-Slip Wall Contacts \\  to Position Two Particles Using The Same Control Input}
+\title{Exploiting Non-Slip Wall Contacts  to Position\\ Two Particles Using The Same Control Input}
 
 % You will get a Paper-ID when submitting a pdf file to the conference system
-\author{Shiva Shahrokhi, Jingang Shi,  Benedict Isichei, and Aaron T. Becker% <-this % stops a space
+\author{Shiva Shahrokhi,~\IEEEmembership{Member,~IEEE,} Jingang Shi,  Benedict Isichei, and Aaron T. Becker,~\IEEEmembership{Senior Member,~IEEE,}% <-this % stops a space
 \thanks{*This work was supported by the National Science Foundation under Grant No.\ \href{http://nsf.gov/awardsearch/showAward?AWD_ID=1553063}{ [IIS-1553063]}, \href{http://nsf.gov/awardsearch/showAward?AWD_ID=1619278}{[IIS-1619278]}, and  \href{https://nsf.gov/awardsearch/showAward?AWD_ID=1646566}{[CNS-1646566]}.}% <-this % stops a space
 \thanks{Authors are with the Department of Electrical and Computer Engineering,  University of Houston, Houston, TX 77204 USA        {\tt\small  \{sshahrokhi2,atbecker\}@uh.edu}}%
-}
+\thanks{Manuscript received April 19, 2005; revised August 26, 2015.}}
 %\affil{Department of Electrical and Computer Engineering, \\
 % University of Houston, Houston, TX 77204-4005 USA\\
 % {\tt\small  \{sshahrokhi2, aviswanathanmahadev, atbecker\}@uh.edu}}
 %\thanks{S. Shahrokhi, A. Mahadev and  A. Becker are with the Department of Electrical and Computer Engineering,  University of Houston, Houston, TX 77204-4005 USA {\tt\small  \{sshahrokhi2, aviswanathanmahadev, atbecker\}@uh.edu}
 %}
 %} %\end thanks
+\markboth{Journal of \LaTeX\ Class Files,~Vol.~14, No.~8, August~2015}%
+{Shahrokhi \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for IEEE Journals}
 
 \begin{document}
 
@@ -209,6 +211,10 @@ This paper also implements the algorithms \revision{in 2D} using a hardware setu
 %This is an extension of work presented in a preliminary conference paper:
 %S. Shahrokhi, A. Mahadev, and A. T. Becker, ÒAlgorithms for shaping a particle swarm with a shared input by exploiting non-slip wall contacts,Ó in Intelligent Robots and Systems (IROS), 2017 IEEE/RSJ International Conference on, 2017.
 \end{abstract}
+\begin{IEEEkeywords}
+Underactuated Robots, Motion Control, Path Planning for Multiple Robot Systems, Configuration Space.
+\end{IEEEkeywords}
+
 
 \IEEEpeerreviewmaketitle
 
@@ -239,8 +245,24 @@ This paper also implements the algorithms \revision{in 2D} using a hardware setu
 \bibliographystyle{IEEEtran}
 \bibliography{IEEEabrv,SwarmShapeControl}
 }
+%Shiva Shahrokhi, Jingang Shi,  Benedict Isichei, and Aaron T. Becker
+%
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{shiva.jpg}}]{Shiva Shahrokhi}(S`14) received M.S. and PhD degrees in the Electrical and Computer Engineering Department at the University of Houston in 2018.  
+She received the B.S. degree in Computer Engineering from Iran University of Science and Technology,
+Tehran, Iran. She is involved in studies of swarm manipulation and control for robotics applications.
+These include steering massively under-actuated mobile robotic ensembles, swarm shape control, and machine learning.
+\end{IEEEbiography}
+%
+\begin{IEEEbiography}{Jingang Shi}
+Biography text here.
+\end{IEEEbiography}
+%
+\begin{IEEEbiography}{Benedict Isichei}
+received an M.S. degree in the Electrical and Computer Engineering Department at the University of Houston in 2018.
+\end{IEEEbiography}
+%
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{DrB.jpg}}]{Aaron T. Becker}(S`06-M`12-SM`17) received M.S. and PhD degrees in electrical and computer engineering from the University of Illinois at Urbana-Champaign, in 2008 and 2012. He was a post doctoral research scholar at the Multi-Robot Systems Lab at Rice University and at Boston Children's Hospital \& Harvard Medical School, before joining the Electrical and Computer Engineering Department at the University of Houston as an Assistant Professor in 2014. He won the best paper at IROS 2013 and received the NSF CAREER award in 2016. %He is active in developing control laws and algorithms for robot swarms.
+\end{IEEEbiography}
 
-% Uncomment to add appendix:
-%\input{appendix}
 
 \end{document}
