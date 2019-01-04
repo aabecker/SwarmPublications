@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    150761,       3151]
-NotebookOptionsPosition[    149925,       3126]
-NotebookOutlinePosition[    150285,       3142]
-CellTagsIndexPosition[    150242,       3139]
+NotebookDataLength[    149583,       3132]
+NotebookOptionsPosition[    148618,       3104]
+NotebookOutlinePosition[    148977,       3120]
+CellTagsIndexPosition[    148934,       3117]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -34,12 +34,13 @@ Cell[CellGroupData[{
 
 Cell["\<\
  Algorithm builds a path from start to goal for two particles in a \
-disk-shaped workspace using global inputs.\
+disk-shaped workspace using global inputs. (initalization code)\
 \>", "Subchapter",
  CellChangeTimes->{{3.717175080379896*^9, 3.717175102006517*^9}, {
   3.71775915172506*^9, 3.717759166688477*^9}, {3.748365494638445*^9, 
-  3.748365527346389*^9}, {3.7483902235735483`*^9, 
-  3.748390234418662*^9}},ExpressionUUID->"dee739e3-987b-4be3-8627-\
+  3.748365527346389*^9}, {3.7483902235735483`*^9, 3.748390234418662*^9}, {
+  3.755604618620075*^9, 
+  3.75560462488526*^9}},ExpressionUUID->"dee739e3-987b-4be3-8627-\
 4e5e6776aa9c"],
 
 Cell[BoxData[
@@ -1154,7 +1155,18 @@ Cell[BoxData[
    3.736698319721898*^9}, {3.748390261461323*^9, 3.7483902870958023`*^9}, {
    3.748390655646481*^9, 
    3.748390658887583*^9}},ExpressionUUID->"c7fd0cf1-3cf6-49db-8590-\
-03bd1f0801ba"],
+03bd1f0801ba"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Manipulate", "Subchapter",
+ CellChangeTimes->{{3.717175080379896*^9, 3.717175102006517*^9}, {
+  3.71775915172506*^9, 3.717759166688477*^9}, {3.748365494638445*^9, 
+  3.748365527346389*^9}, {3.7483902235735483`*^9, 3.748390234418662*^9}, {
+  3.755604613790772*^9, 
+  3.755604614903347*^9}},ExpressionUUID->"8c7668c3-bddd-43aa-9361-\
+46245463db43"],
 
 Cell[CellGroupData[{
 
@@ -2369,7 +2381,7 @@ Cell[BoxData[
   StyleBox[
    DynamicModuleBox[{$CellContext`e1$$ = {0.05, 
     0.35}, $CellContext`e2$$ = {-0.33, 0.26}, $CellContext`progress$$ = 
-    Rational[23, 28], $CellContext`s1$$ = {0., 0.}, $CellContext`s2$$ = {0.2, 
+    1, $CellContext`s1$$ = {0., 0.}, $CellContext`s2$$ = {0.2, 
     0.4}, $CellContext`\[Epsilon]$$ = Rational[1, 1000], Typeset`show$$ = 
     True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
@@ -2398,10 +2410,10 @@ Cell[BoxData[
       Dynamic[{(-1)/2, (-1)/2} + $CellContext`\[Epsilon]$$], 
       Dynamic[{1/2, 1/2} - $CellContext`\[Epsilon]$$]}}, Typeset`size$$ = {
     810., {283., 287.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = False, $CellContext`progress$1918790$$ = 
-    0, $CellContext`\[Epsilon]$1918791$$ = 0, $CellContext`s1$1918792$$ = 
-    0, $CellContext`s2$1918793$$ = 0, $CellContext`e1$1918794$$ = 
-    0, $CellContext`e2$1918795$$ = 0}, 
+    Typeset`skipInitDone$$ = False, $CellContext`progress$57203$$ = 
+    0, $CellContext`\[Epsilon]$57204$$ = 0, $CellContext`s1$57205$$ = 
+    0, $CellContext`s2$57206$$ = 0, $CellContext`e1$57207$$ = 
+    0, $CellContext`e2$57208$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      2, StandardForm, 
       "Variables" :> {$CellContext`e1$$ = {0.05, 
@@ -2409,19 +2421,20 @@ Cell[BoxData[
         1, $CellContext`s1$$ = {0., 0.}, $CellContext`s2$$ = {0.2, 
          0.4}, $CellContext`\[Epsilon]$$ = Rational[1, 1000]}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`progress$$, $CellContext`progress$1918790$$, 0], 
-        Hold[$CellContext`\[Epsilon]$$, $CellContext`\[Epsilon]$1918791$$, 0], 
-        Hold[$CellContext`s1$$, $CellContext`s1$1918792$$, 0], 
-        Hold[$CellContext`s2$$, $CellContext`s2$1918793$$, 0], 
-        Hold[$CellContext`e1$$, $CellContext`e1$1918794$$, 0], 
-        Hold[$CellContext`e2$$, $CellContext`e2$1918795$$, 0]}, 
+        Hold[$CellContext`progress$$, $CellContext`progress$57203$$, 0], 
+        Hold[$CellContext`\[Epsilon]$$, $CellContext`\[Epsilon]$57204$$, 0], 
+        Hold[$CellContext`s1$$, $CellContext`s1$57205$$, 0], 
+        Hold[$CellContext`s2$$, $CellContext`s2$57206$$, 0], 
+        Hold[$CellContext`e1$$, $CellContext`e1$57207$$, 0], 
+        Hold[$CellContext`e2$$, $CellContext`e2$57208$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
         Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
          Typeset`skipInitDone$$}, "Body" :> 
-      Module[{$CellContext`thickness$ = 0.002, robotica`\[Theta]$, 
-         robotica`\[Alpha]$, robotica`r$ = 1/40, $CellContext`writingHeight$ = 
+      Module[{$CellContext`thickness$ = 
+         0.002, $CellContext`\[Theta]$, $CellContext`\[Alpha]$, \
+$CellContext`r$ = 1/40, $CellContext`writingHeight$ = 
          0.8, $CellContext`ps1$, $CellContext`pe1$, $CellContext`ps2$, \
 $CellContext`pe2$, $CellContext`pcol1$, $CellContext`pm1$, $CellContext`pm2$, \
 $CellContext`mvNum$, $CellContext`mvFrac$, $CellContext`path$, \
@@ -2437,10 +2450,9 @@ $CellContext`\[Epsilon]$$]; $CellContext`\[CapitalDelta]g$ = \
 {$CellContext`pe2$ - $CellContext`pe1$}; {$CellContext`ps1$, \
 $CellContext`pe1$, $CellContext`ps2$, $CellContext`pe2$} = \
 {$CellContext`s1$$, $CellContext`e1$$, $CellContext`s2$$, $CellContext`e2$$}; \
-{robotica`\[Alpha]$, 
-           robotica`\[Theta]$} = \
-$CellContext`calc\[Alpha]\[Theta][$CellContext`ps1$, $CellContext`ps2$]; \
-{$CellContext`path$, $CellContext`path1$, $CellContext`path2$} = \
+{$CellContext`\[Alpha]$, $CellContext`\[Theta]$} = $CellContext`calc\[Alpha]\
+\[Theta][$CellContext`ps1$, $CellContext`ps2$]; {$CellContext`path$, \
+$CellContext`path1$, $CellContext`path2$} = \
 $CellContext`pathToGoal[$CellContext`ps2$, $CellContext`ps1$, \
 $CellContext`pe2$, $CellContext`pe1$]; $CellContext`mvNum$ = 
          Floor[$CellContext`progress$$ (Length[$CellContext`path$] - 
@@ -2559,8 +2571,8 @@ $CellContext`distanceMoved[$CellContext`path$, $CellContext`mvNum$ +
             Rectangle[{0.32, $CellContext`writingHeight$ + 0.18}, {
              0.36, $CellContext`writingHeight$ + 0.22}], 
             
-            Circle[{0.33, $CellContext`writingHeight$}, 
-             robotica`r$]}, {$CellContext`c2$, 
+            Circle[{0.33, $CellContext`writingHeight$}, $CellContext`r$]}, \
+{$CellContext`c2$, 
             Thickness[$CellContext`thickness$], 
             EdgeForm[
              Directive[$CellContext`c2$, 
@@ -2569,7 +2581,7 @@ $CellContext`distanceMoved[$CellContext`path$, $CellContext`mvNum$ +
             
             Rectangle[{0.16, $CellContext`writingHeight$ + 0.18}, {
              0.2, $CellContext`writingHeight$ + 0.22}], 
-            Circle[{0.17, $CellContext`writingHeight$}, robotica`r$]}, 
+            Circle[{0.17, $CellContext`writingHeight$}, $CellContext`r$]}, 
            Text[
             Style[
              StringForm["="], Black, FontSize -> 38, FontFamily -> "Times"], {
@@ -2591,8 +2603,8 @@ $CellContext`distanceMoved[$CellContext`path$, $CellContext`mvNum$ +
            Rectangle[{0, $CellContext`writingHeight$ + 0.18}, {
             0.04, $CellContext`writingHeight$ + 0.22}], Green, 
            
-           Disk[{0.01, $CellContext`writingHeight$}, 
-            robotica`r$], {$CellContext`c1$, 
+           Disk[{0.01, $CellContext`writingHeight$}, $CellContext`r$], \
+{$CellContext`c1$, 
             Thickness[$CellContext`thickness$], {
              Opacity[0.3], Dashed, 
              Arrow[{$CellContext`ps1$, $CellContext`pe1$}]}, 
@@ -2602,9 +2614,9 @@ $CellContext`distanceMoved[$CellContext`path$, $CellContext`mvNum$ +
               Thickness[$CellContext`thickness$]]], 
             FaceForm[None], 
             
-            Rectangle[$CellContext`ps1$ - ((2/3) robotica`r$) {1, 
-              1}, $CellContext`ps1$ + ((2/3) robotica`r$) {1, 1}], 
-            Circle[$CellContext`pe1$, robotica`r$]}, {$CellContext`c2$, 
+            Rectangle[$CellContext`ps1$ - (2/3) $CellContext`r$ {1, 
+              1}, $CellContext`ps1$ + (2/3) $CellContext`r$ {1, 1}], 
+            Circle[$CellContext`pe1$, $CellContext`r$]}, {$CellContext`c2$, 
             Thickness[$CellContext`thickness$], {
              Opacity[0.3], Dashed, 
              Arrow[{$CellContext`ps2$, $CellContext`pe2$}]}, 
@@ -2614,9 +2626,9 @@ $CellContext`distanceMoved[$CellContext`path$, $CellContext`mvNum$ +
               Thickness[$CellContext`thickness$]]], 
             FaceForm[None], 
             
-            Rectangle[$CellContext`ps2$ - ((2/3) robotica`r$) {1, 
-              1}, $CellContext`ps2$ + ((2/3) robotica`r$) {1, 1}], 
-            Circle[$CellContext`pe2$, robotica`r$]}, 
+            Rectangle[$CellContext`ps2$ - (2/3) $CellContext`r$ {1, 
+              1}, $CellContext`ps2$ + (2/3) $CellContext`r$ {1, 1}], 
+            Circle[$CellContext`pe2$, $CellContext`r$]}, 
            Inset[
             Module[{$CellContext`regionlist$, $CellContext`\[Psi]$}, 
              Graphics[
@@ -2638,10 +2650,10 @@ $CellContext`pm1$]; {Blue,
                   EdgeForm[Black], $CellContext`reg}, 
                 Darker[Green], 
                 
-                Rectangle[$CellContext`pm1$ - $CellContext`pm2$ - ((4/3) 
-                  robotica`r$) {1, 
-                  1}, $CellContext`pm1$ - $CellContext`pm2$ + ((4/3) 
-                   robotica`r$) {1, 1}], 
+                Rectangle[$CellContext`pm1$ - $CellContext`pm2$ - (4/
+                  3) $CellContext`r$ {1, 
+                  1}, $CellContext`pm1$ - $CellContext`pm2$ + (4/
+                   3) $CellContext`r$ {1, 1}], 
                 Text[
                  Style[
                   StringForm["\[CapitalDelta]s"], Italic, FontSize -> 38, 
@@ -2650,7 +2662,7 @@ $CellContext`pm1$]; {Blue,
                   0.1, Part[$CellContext`pm1$, 2] - 
                   Part[$CellContext`pm2$, 2] + 0.1}], Green, 
                 Disk[
-                 Flatten[$CellContext`\[CapitalDelta]g$], robotica`r$], 
+                 Flatten[$CellContext`\[CapitalDelta]g$], $CellContext`r$], 
                 Text[
                  Style[
                   StringForm["\[CapitalDelta]g"], Italic, Black, FontSize -> 
@@ -2686,21 +2698,8 @@ $CellContext`pm1$]; {Blue,
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
-    Initialization:>({
-       TagSet[robotica`\[Theta], 
-        MessageName[robotica`\[Theta], "usage"], ""], 
-       TagSet[robotica`\[Alpha], 
-        MessageName[robotica`\[Alpha], "shdw"], 
-        "Symbol `1` appears in multiple contexts `2`; definitions in context \
-`3` may shadow or be shadowed by other definitions."], 
-       TagSet[robotica`\[Alpha], 
-        MessageName[robotica`\[Alpha], "usage"], ""], 
-       TagSet[robotica`r, 
-        MessageName[robotica`r, "shdw"], 
-        "Symbol `1` appears in multiple contexts `2`; definitions in context \
-`3` may shadow or be shadowed by other definitions."], 
-       TagSet[robotica`r, 
-        MessageName[robotica`r, "usage"], ""], $CellContext`dist = 
+    Initialization:>({$CellContext`r = {{-4.64, 2.08}, {
+         5, -5}}, $CellContext`dist = 
        3.263678695990544, $CellContext`clipCircle[
          Pattern[$CellContext`p, 
           Blank[]], 
@@ -2715,22 +2714,12 @@ $CellContext`pm1$]; {Blue,
           Blank[]], 
          Pattern[$CellContext`ps2, 
           Blank[]]] := 
-       Module[{robotica`d = Norm[$CellContext`ps1 - $CellContext`ps2]}, {
-         2 ArcSin[robotica`d], 
+       Module[{$CellContext`d = Norm[$CellContext`ps1 - $CellContext`ps2]}, {
+         2 ArcSin[$CellContext`d], 
           ArcTan[
           Part[$CellContext`ps1, 1] - Part[$CellContext`ps2, 1], 
-           Part[$CellContext`ps1, 2] - Part[$CellContext`ps2, 2]]}], 
-       robotica`d[1] = 1, robotica`d[2] = 0, robotica`d[3] = 1, robotica`d[4] = 
-       Subsuperscript["d", 4, "*"], robotica`d[5] = 0, robotica`d[6] = 0, 
-       robotica`d[7] = 1/2, robotica`d[8] = 1/2, robotica`d[9] = 1/2, 
-       TagSet[robotica`d, 
-        MessageName[robotica`d, "shdw"], 
-        "Symbol `1` appears in multiple contexts `2`; definitions in context \
-`3` may shadow or be shadowed by other definitions."], 
-       TagSet[robotica`d, 
-        MessageName[robotica`d, "usage"], ""], 
-       Attributes[Subsuperscript] = {
-        NHoldRest, ReadProtected}, $CellContext`pathToGoal[
+           Part[$CellContext`ps1, 2] - 
+           Part[$CellContext`ps2, 2]]}], $CellContext`pathToGoal[
          Pattern[$CellContext`ps1, 
           Blank[]], 
          Pattern[$CellContext`ps2, 
@@ -2826,8 +2815,7 @@ $CellContext`nearest = RegionNearest[$CellContext`reg,
             Flatten[$CellContext`\[CapitalDelta]g]]; $CellContext`\[Psi] = \
 $CellContext`findPsi[$CellContext`ps1, $CellContext`ps2, 
              Flatten[$CellContext`nearest]] - Pi; 
-         If[
-          Abs[Flatten[$CellContext`nearest] - 
+         If[Abs[Flatten[$CellContext`nearest] - 
              Flatten[$CellContext`\[CapitalDelta]g]] > 
            0.001, $CellContext`\[Psi] = $CellContext`\[Psi] - Pi/
             4]; $CellContext`\[CapitalDelta]r = (1/2) {
@@ -2877,13 +2865,11 @@ $CellContext`makeReachableSet[
           Blank[]], 
          Pattern[$CellContext`ps2, 
           Blank[]]] := 
-       Module[{robotica`\[Theta], 
-          robotica`\[Alpha], $CellContext`\[Psi]a, $CellContext`pra, \
-$CellContext`\[Gamma]a, $CellContext`cola, $CellContext`\[Gamma]a2, \
-$CellContext`polyline1, $CellContext`polyline2, $CellContext`polyline3, \
-$CellContext`polyline4, $CellContext`finalpoly, $CellContext`reg}, {
-           robotica`\[Alpha], 
-            robotica`\[Theta]} = \
+       Module[{$CellContext`\[Theta], $CellContext`\[Alpha], $CellContext`\
+\[Psi]a, $CellContext`pra, $CellContext`\[Gamma]a, $CellContext`cola, \
+$CellContext`\[Gamma]a2, $CellContext`polyline1, $CellContext`polyline2, \
+$CellContext`polyline3, $CellContext`polyline4, $CellContext`finalpoly, \
+$CellContext`reg}, {$CellContext`\[Alpha], $CellContext`\[Theta]} = \
 $CellContext`calc\[Alpha]\[Theta][$CellContext`ps1, $CellContext`ps2]; \
 $CellContext`cola = (1/2) {
              Cos[$CellContext`\[Psi]a], 
@@ -2893,32 +2879,37 @@ $CellContext`cola = (1/2) {
 $CellContext`\[Gamma]a = 
           ArcCos[1 - 2 $CellContext`pra]; $CellContext`\[Gamma]a2 = ReplaceAll[
             ArcCos[
-            1 - 2 $CellContext`pra], {$CellContext`\[Psi]a -> 
-             robotica`\[Theta] + robotica`\[Alpha]/2 + 
-              Pi/2}]; $CellContext`polyline1 = Table[(1/2) {
-               Cos[robotica`\[Theta] + robotica`\[Alpha]/2 + Pi/2], 
-               Sin[robotica`\[Theta] + robotica`\[Alpha]/2 + Pi/2]} - (1/2) {
+            1 - 2 $CellContext`pra], {$CellContext`\[Psi]a -> $CellContext`\
+\[Theta] + $CellContext`\[Alpha]/2 + Pi/2}]; $CellContext`polyline1 = 
+          Table[(1/2) {
+               Cos[$CellContext`\[Theta] + $CellContext`\[Alpha]/2 + Pi/2], 
+               
+               Sin[$CellContext`\[Theta] + $CellContext`\[Alpha]/2 + 
+                Pi/2]} - (1/2) {
               
-              Cos[$CellContext`a2 + robotica`\[Theta] + robotica`\[Alpha]/2 + 
-               Pi/2], 
+              Cos[$CellContext`a2 + $CellContext`\[Theta] + $CellContext`\
+\[Alpha]/2 + Pi/2], 
               
-              Sin[$CellContext`a2 + robotica`\[Theta] + robotica`\[Alpha]/2 + 
-               Pi/2]}, {$CellContext`a2, 0, 
+              Sin[$CellContext`a2 + $CellContext`\[Theta] + $CellContext`\
+\[Alpha]/2 + Pi/2]}, {$CellContext`a2, 0, 
              Plus[$CellContext`\[Gamma]a2], $CellContext`\[Gamma]a2/
              5}]; $CellContext`\[Gamma]a2 = ReplaceAll[
             ArcCos[
-            1 - 2 $CellContext`pra], {$CellContext`\[Psi]a -> 
-             robotica`\[Theta] - robotica`\[Alpha]/2 + 
-              3 (Pi/2)}]; $CellContext`polyline2 = Table[(1/2) {
-               Cos[robotica`\[Theta] - robotica`\[Alpha]/2 + 3 (Pi/2)], 
-               Sin[robotica`\[Theta] - robotica`\[Alpha]/2 + 3 (Pi/2)]} - (1/
-             2) {
+            1 - 2 $CellContext`pra], {$CellContext`\[Psi]a -> $CellContext`\
+\[Theta] - $CellContext`\[Alpha]/2 + 3 (Pi/2)}]; $CellContext`polyline2 = 
+          Table[(1/2) {
+               
+               Cos[$CellContext`\[Theta] - $CellContext`\[Alpha]/2 + 
+                3 (Pi/2)], 
+               
+               Sin[$CellContext`\[Theta] - $CellContext`\[Alpha]/2 + 
+                3 (Pi/2)]} - (1/2) {
               
-              Cos[$CellContext`a2 + robotica`\[Theta] - robotica`\[Alpha]/2 + 
-               3 (Pi/2)], 
+              Cos[$CellContext`a2 + $CellContext`\[Theta] - $CellContext`\
+\[Alpha]/2 + 3 (Pi/2)], 
               
-              Sin[$CellContext`a2 + robotica`\[Theta] - robotica`\[Alpha]/2 + 
-               3 (Pi/2)]}, {$CellContext`a2, -$CellContext`\[Gamma]a2, 
+              Sin[$CellContext`a2 + $CellContext`\[Theta] - $CellContext`\
+\[Alpha]/2 + 3 (Pi/2)]}, {$CellContext`a2, -$CellContext`\[Gamma]a2, 
              0, $CellContext`\[Gamma]a2/5}]; $CellContext`polyline3 = 
           Table[(1/2) {
                Cos[$CellContext`\[Psi]a], 
@@ -2926,18 +2917,18 @@ $CellContext`\[Gamma]a =
               Cos[$CellContext`\[Psi]a - $CellContext`\[Gamma]a], 
               
               Sin[$CellContext`\[Psi]a - $CellContext`\[Gamma]a]}, \
-{$CellContext`\[Psi]a, robotica`\[Theta] + robotica`\[Alpha]/2 + Pi/2, 
-             robotica`\[Theta] - robotica`\[Alpha]/
-             2 + (3/2) Pi, (Pi - robotica`\[Alpha])/
+{$CellContext`\[Psi]a, $CellContext`\[Theta] + $CellContext`\[Alpha]/2 + 
+             Pi/2, $CellContext`\[Theta] - $CellContext`\[Alpha]/
+             2 + (3/2) Pi, (Pi - $CellContext`\[Alpha])/
              20}]; $CellContext`polyline4 = Table[(1/2) {
                Cos[$CellContext`\[Psi]a], 
                Sin[$CellContext`\[Psi]a]} - (1/2) {
               Cos[$CellContext`\[Psi]a + $CellContext`\[Gamma]a], 
               
               Sin[$CellContext`\[Psi]a + $CellContext`\[Gamma]a]}, \
-{$CellContext`\[Psi]a, robotica`\[Theta] + robotica`\[Alpha]/2 + Pi/2, 
-             robotica`\[Theta] - robotica`\[Alpha]/
-             2 + (3/2) Pi, (Pi - robotica`\[Alpha])/
+{$CellContext`\[Psi]a, $CellContext`\[Theta] + $CellContext`\[Alpha]/2 + 
+             Pi/2, $CellContext`\[Theta] - $CellContext`\[Alpha]/
+             2 + (3/2) Pi, (Pi - $CellContext`\[Alpha])/
              20}]; $CellContext`finalpoly = 
           Join[$CellContext`polyline2, $CellContext`polyline1, \
 $CellContext`polyline4, $CellContext`polyline3]; $CellContext`finalpoly = 
@@ -2977,13 +2968,12 @@ $CellContext`findHit[$CellContext`ps1, $CellContext`ps2,
           Blank[]], 
          Pattern[$CellContext`ps2, 
           Blank[]]] := 
-       Module[{robotica`\[Theta], 
-          robotica`\[Alpha]}, {
-           robotica`\[Alpha], 
-            robotica`\[Theta]} = \
-$CellContext`calc\[Alpha]\[Theta][$CellContext`ps1, $CellContext`ps2]; {
-          robotica`\[Theta] + robotica`\[Alpha]/2 - Pi/2, robotica`\[Theta] - 
-           robotica`\[Alpha]/2 + Pi/2}], $CellContext`ifInRegion[
+       Module[{$CellContext`\[Theta], $CellContext`\[Alpha]}, {$CellContext`\
+\[Alpha], $CellContext`\[Theta]} = \
+$CellContext`calc\[Alpha]\[Theta][$CellContext`ps1, $CellContext`ps2]; \
+{$CellContext`\[Theta] + $CellContext`\[Alpha]/2 - Pi/
+           2, $CellContext`\[Theta] - $CellContext`\[Alpha]/2 + 
+           Pi/2}], $CellContext`ifInRegion[
          Pattern[$CellContext`ps1, 
           Blank[]], 
          Pattern[$CellContext`ps2, 
@@ -2992,16 +2982,18 @@ $CellContext`calc\[Alpha]\[Theta][$CellContext`ps1, $CellContext`ps2]; {
           Blank[]], 
          Pattern[$CellContext`\[Psi], 
           Blank[]]] := 
-       Module[{$CellContext`\[Gamma], robotica`c, robotica`r = 1/2}, 
-         robotica`c = (1/2) {
+       Module[{$CellContext`\[Gamma], $CellContext`c, $CellContext`r = 
+          1/2}, $CellContext`c = (1/2) {
              Cos[$CellContext`\[Psi] - Pi], 
              
              Sin[$CellContext`\[Psi] - 
               Pi]}; $CellContext`\[Gamma] = \
 $CellContext`calc\[Gamma][$CellContext`\[Psi], $CellContext`ps1, \
 $CellContext`ps2]; If[
-           $CellContext`ifInChord[robotica`c, $CellContext`\[Psi], 
-            Flatten[$CellContext`nearest], $CellContext`\[Gamma], robotica`r], 
+           $CellContext`ifInChord[$CellContext`c, $CellContext`\[Psi], 
+            
+            Flatten[$CellContext`nearest], $CellContext`\[Gamma], \
+$CellContext`r], 
            Return[True], 
            Return[False]]; Null], $CellContext`\[Gamma][{
           Pattern[$CellContext`a, 
@@ -3011,13 +3003,8 @@ $CellContext`ps2]; If[
          Pattern[$CellContext`p, 
           Blank[]]] := 
        Dot[$CellContext`a - $CellContext`p, $CellContext`a - $CellContext`b]/
-        Dot[$CellContext`a - $CellContext`b, $CellContext`a - $CellContext`b], 
-       TagSet[robotica`c, 
-        MessageName[robotica`c, "shdw"], 
-        "Symbol `1` appears in multiple contexts `2`; definitions in context \
-`3` may shadow or be shadowed by other definitions."], 
-       TagSet[robotica`c, 
-        MessageName[robotica`c, "usage"], ""], $CellContext`calc\[Gamma][
+        Dot[$CellContext`a - $CellContext`b, $CellContext`a - \
+$CellContext`b], $CellContext`calc\[Gamma][
          Pattern[$CellContext`\[Psi], 
           Blank[]], 
          Pattern[$CellContext`ps1, 
@@ -3031,7 +3018,7 @@ $CellContext`ps2]; If[
           2 Abs[Dot[$CellContext`ps1, $CellContext`col] - 
              Dot[$CellContext`ps2, $CellContext`col]]; Return[
            ArcCos[1 - 2 $CellContext`pra]]], $CellContext`ifInChord[
-         Pattern[robotica`c, 
+         Pattern[$CellContext`c, 
           Blank[]], 
          Pattern[$CellContext`\[Psi], 
           Blank[]], 
@@ -3039,16 +3026,16 @@ $CellContext`ps2]; If[
           Blank[]], 
          Pattern[$CellContext`\[Gamma], 
           Blank[]], 
-         Pattern[robotica`r, 
+         Pattern[$CellContext`r, 
           Blank[]]] := (
-        If[(Part[$CellContext`p, 1] - Part[robotica`c, 1])^2 + (
-             Part[$CellContext`p, 2] - Part[robotica`c, 2])^2 > (robotica`r + 
-            0.0001)^2, 
+        If[(Part[$CellContext`p, 1] - Part[$CellContext`c, 1])^2 + (
+             Part[$CellContext`p, 2] - 
+             Part[$CellContext`c, 2])^2 > ($CellContext`r + 0.0001)^2, 
           Return[
-          False]]; (Part[robotica`c, 1] - Part[$CellContext`p, 1]) 
-           Cos[$CellContext`\[Psi]] + (Part[robotica`c, 2] - 
+          False]]; (Part[$CellContext`c, 1] - Part[$CellContext`p, 1]) 
+           Cos[$CellContext`\[Psi]] + (Part[$CellContext`c, 2] - 
             Part[$CellContext`p, 2]) 
-           Sin[$CellContext`\[Psi]] <= (-robotica`r) 
+           Sin[$CellContext`\[Psi]] <= (-$CellContext`r) 
            Cos[$CellContext`\[Gamma]] + 0.0001), $CellContext`findHit[
          Pattern[$CellContext`ps1, 
           Blank[]], 
@@ -3093,20 +3080,11 @@ $CellContext`regionlist}, $CellContext`cola = (1/2) {
 $CellContext`\[Gamma]a = 
           ArcCos[1 - 2 $CellContext`pra]; $CellContext`regionlist = Polygon[
             Table[-$CellContext`cola + (1/2) {
-                Cos[robotica`a], 
-                Sin[robotica`a]}, {
-             robotica`a, $CellContext`\[Psi]a - $CellContext`\[Gamma]a, \
-$CellContext`\[Psi]a + $CellContext`\[Gamma]a, $CellContext`\[Gamma]a/20}]]; 
-         Return[$CellContext`regionlist]], robotica`a[1] = 0, robotica`a[2] = 
-       0, robotica`a[3] = 0, robotica`a[4] = 3, robotica`a[5] = 0, 
-       robotica`a[6] = 0, robotica`a[7] = 0, robotica`a[8] = 0, robotica`a[9] = 
-       0, 
-       TagSet[robotica`a, 
-        MessageName[robotica`a, "shdw"], 
-        "Symbol `1` appears in multiple contexts `2`; definitions in context \
-`3` may shadow or be shadowed by other definitions."], 
-       TagSet[robotica`a, 
-        MessageName[robotica`a, "usage"], ""], 
+                Cos[$CellContext`a], 
+                
+                Sin[$CellContext`a]}, {$CellContext`a, $CellContext`\[Psi]a - \
+$CellContext`\[Gamma]a, $CellContext`\[Psi]a + $CellContext`\[Gamma]a, \
+$CellContext`\[Gamma]a/20}]]; Return[$CellContext`regionlist]], 
        Attributes[PlotRange] = {ReadProtected}}; Typeset`initDone$$ = True),
     SynchronousInitialization->True,
     UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
@@ -3117,15 +3095,15 @@ $CellContext`\[Psi]a + $CellContext`\[Gamma]a, $CellContext`\[Gamma]a/20}]];
   Manipulate`InterpretManipulate[1]]], "Output",
  CellChangeTimes->{3.7367016685273333`*^9, 3.7483648967816887`*^9, 
   3.7483673916532803`*^9, 3.748367559784452*^9, 3.74839055115827*^9, 
-  3.7483939118914623`*^9, 
-  3.7483939592568827`*^9},ExpressionUUID->"e4cdde90-95e1-4a96-b48b-\
-e72a54198669"]
-}, Open  ]]
+  3.7483939118914623`*^9, 3.7483939592568827`*^9, 
+  3.755604633108938*^9},ExpressionUUID->"f14e96aa-dbaf-440d-8e2f-\
+fe8798524653"]
+}, {2}]]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1680, 639},
-WindowMargins->{{0, Automatic}, {Automatic, 128}},
+WindowMargins->{{0, Automatic}, {Automatic, 20}},
 FrontEndVersion->"11.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
 10, 2017)",
 StyleDefinitions->"Default.nb"
@@ -3144,13 +3122,16 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 295, 8, 118, "Title",ExpressionUUID->"d6ed0cae-b816-4180-ae59-953ab206114e"],
 Cell[CellGroupData[{
-Cell[900, 34, 412, 8, 65, "Subchapter",ExpressionUUID->"dee739e3-987b-4be3-8627-4e5e6776aa9c"],
-Cell[1315, 44, 51418, 1112, 2699, "Input",ExpressionUUID->"c7fd0cf1-3cf6-49db-8590-03bd1f0801ba",
- InitializationCell->True],
+Cell[900, 34, 481, 9, 65, "Subchapter",ExpressionUUID->"dee739e3-987b-4be3-8627-4e5e6776aa9c"],
+Cell[1384, 45, 51418, 1112, 2699, "Input",ExpressionUUID->"c7fd0cf1-3cf6-49db-8590-03bd1f0801ba",
+ InitializationCell->True]
+}, Closed]],
 Cell[CellGroupData[{
-Cell[52758, 1160, 60122, 1204, 2215, "Input",ExpressionUUID->"113d98a5-5cb8-454e-9a15-0b5dfc038e2a"],
-Cell[112883, 2366, 37002, 755, 687, "Output",ExpressionUUID->"e4cdde90-95e1-4a96-b48b-e72a54198669"]
-}, Open  ]]
+Cell[52839, 1162, 352, 6, 49, "Subchapter",ExpressionUUID->"8c7668c3-bddd-43aa-9361-46245463db43"],
+Cell[CellGroupData[{
+Cell[53216, 1172, 60122, 1204, 2215, "Input",ExpressionUUID->"113d98a5-5cb8-454e-9a15-0b5dfc038e2a"],
+Cell[113341, 2378, 35240, 721, 721, "Output",ExpressionUUID->"f14e96aa-dbaf-440d-8e2f-fe8798524653"]
+}, {2}]]
 }, Open  ]]
 }, Open  ]]
 }
