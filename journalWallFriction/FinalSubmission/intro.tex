@@ -1,0 +1,39 @@
+\section{Introduction}\label{sec:Intro}
+\IEEEPARstart{P}{article} swarms propelled by an external field, where each particle  receives the same control input, are common in applied mathematics, biology, and computer graphics \cite{Peyer2013,Shirai2005,Chiang2011}.
+%
+The small size of these robots makes it difficult to perform onboard computation.  Instead, these robots are often controlled by a broadcast signal. 
+ The tiny robots themselves are often just rigid bodies, and it may be more accurate to define the robot as the \emph{system} that consists of particles, a uniform control field, and sensing.
+  Consider a system of point-particles in a 2D planar workspace.
+Such systems are severely underactuated, having 2 degrees of freedom in the shared planar control input, but $2n$ degrees of freedom for the $n$-particle swarm.
+ Techniques are needed that can handle this underactuation. 
+
+ Positioning is a foundational capability for a robotic system, e.g. placement of brachytherapy seeds. 
+ In previous work, we showed that the 2D position of each particle in such a swarm is controllable if the workspace contains a single obstacle the size of one particle \cite{AaronManipulation2013}.
+ However, requiring a single, small, rigid obstacle suspended in the middle of the workspace is often an unreasonable constraint, especially in 3D.
+This paper relaxes that constraint, and provides position control algorithms that only require non-slip wall contacts.
+We assume that particles in contact with the boundaries have zero velocity if the uniform control input pushes the particle into the wall.
+
+\begin{figure}
+\centering
+\vspace{1.5em}
+%\begin{overpic}[width=\columnwidth]{firstImage.jpg}\end{overpic}
+\begin{overpic}[width=0.45\columnwidth]{firstpicLeft.pdf}\put(28,-10){workspace}\end{overpic}
+\begin{overpic}[width=0.45\columnwidth]{magneticsetup.pdf}\put(22,-8){magnetic setup}\end{overpic}
+\vspace{1em}
+\caption{\label{fig:IntroPic}
+Workspace and magnetic setup for an experiment to move one particle from $s_1$ to $g_1$ and a second particle from $s_2$ to $g_2$ when all particles receive the same control inputs, but cannot move while a control input pushes them into a boundary.
+} \vspace{-1em}
+\end{figure}
+%\todo{add the picture of magnetic setup}
+
+
+The paper is arranged as follows. 
+After a review of recent related work in Sec.  \ref{sec:RelatedWork},
+  Sec.~\ref{sec:theory} introduces a  model for boundary interaction.   
+We provide an algorithm to arbitrarily position two particles in Sec.~\ref{sec:PostionControl2Robots},  and two shortest path results for representative workspaces in Sec.~\ref{sec:optimalResults}.
+ Section  \ref{sec:simulation} describes implementations of the algorithms in simulation and  Sec.  \ref{sec:expResults} describes hardware experiments, as shown in Fig.~\ref{fig:IntroPic}. 
+ We end with directions for future research in Sec.  \ref{sec:conclusion}.
+
+This paper is an elaboration of preliminary work in a conference paper \cite{shahrokhi2017algorithms} which considered only square workspaces. This work extends the analysis to convex workspaces and 3D positioning. This paper also implements the algorithms \revision{in 2D} using a hardware setup inspired by the anatomy of the gastrointestinal tract.
+
+
