@@ -38,7 +38,7 @@ The range for the global input angle $\beta $ is [0,2$\pi $). In this range, the
 These shapes alternate between triangles and trapezoids when the area $A$$<$1/2, and between squares with one corner removed and trapezoids when $A$$>$1/2.
 
 
-The region of integration $R$ is the polygon containing the swarm. For example, if $A<1/2$ and the force angle is $\beta$, the mean when $R$ is a triangular region in the lower-left corner is:
+The Region of integration $R$ is the polygon containing the swarm. For example, if $A<1/2$ and the force angle is $\beta$, the mean when $R$ is a triangular region in the lower-left corner is:
 \begin{align}\label{eq:meanInSquareWorkspaceLL}
 \bar{x}(A,\beta) &= \frac{\int_0^{\sqrt{2 A \tan (\beta)}} \left(\int_0^{\cot (\beta) \left(\sqrt{2 A \tan (\beta)}-x\right)} \, dy\right) x \, dx}{A} \nonumber \\
 	&=\frac{ \sqrt{2}}{3} \sqrt{A \tan (\beta )},\\
@@ -198,7 +198,7 @@ Experimental data using iron particles, varying angle of attack, and three tilt 
 %}
 %\end{figure}
 %
-The particles used are iron filings (Dowling Magnets, \#731019, $\approx0.5$~mm diameter), and the motive force is gravity. 
+The particles used are iron filings (Dowling Magnets, \#731019, $\approx0.5$~mm diameter), and the motive force is gravity as shown in Fig.~\ref{fig:angleOfReposeExp}. 
 The particles were poured into a frame composed of two sheets of acrylic with 4.5 mm spacing between. Five 40 mm rods were epoxied between the sheets at angles 
  $\{0^\circ,15^\circ, 30^\circ, 45^\circ, 60^\circ \}$, generating angle of attacks $\beta = \{90^\circ,75^\circ, 60^\circ, 45^\circ, 30^\circ \}$.
  The frame was tested at three tilt angles with respect to horizontal: $\beta = \{90^\circ,60^\circ, 45^\circ \}$, resulting in $\{100,87, 71\}\%$ of the gravitational force.
@@ -210,7 +210,7 @@ The particles were poured into a frame composed of two sheets of acrylic with 4.
 
 \subsection{Hardware experiment: Kilobot angle of repose}
 We varied the approach angle to shape a swarm of Kilobots \cite{rubenstein2014programmable} with a characteristic angle of repose. 
- A Kilobot is a 3 cm diameter,  low-cost robot. In our experiments, these robots were programmed to go toward the brightest light in the room. The experimental setup is shown in Fig. \ref{fig:SetUp}, also showing angle of repose of the Kilobots with  the pink rod at three angles of attack: 90$^\circ$, 67.5$^\circ$ and 45$^\circ$, generating three different shapes, as in Fig.~\ref{fig:angle}. The green lines show the triangle shape the robots pile up into. The cyan star is the center of mass of the rod, and the mean position and variance of the robots are shown with  red stars and red ellipses.
+ A Kilobot is a 3 cm diameter,  low-cost robot. In our experiments, these robots were programmed to go toward the brightest light in the room. The experimental setup is shown in Fig. \ref{fig:SetUp} also showing angle of repose of 56 Kilobots with  the pink rod at three angles of attack: 90$^\circ$, 67.5$^\circ$ and 45$^\circ$, generating three different shapes, as in Fig.~\ref{fig:angle}. The green lines show the triangle shape the robots pile up into. The cyan star is the center of mass of the rod, and the mean position and variance of the robots are shown with red stars and red ellipses.
 \begin{figure}
 \begin{center}
 	\includegraphics[width=\columnwidth]{SetUp.pdf}
